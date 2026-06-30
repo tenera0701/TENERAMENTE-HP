@@ -11,7 +11,7 @@ const POSTS_DIR = path.join(ROOT, 'posts');
 const DATA_DIR = path.join(ROOT, 'data');
 const OUT_JSON = path.join(DATA_DIR, 'posts.json');
 const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
-const SITE_URL = (process.env.SITE_URL || 'https://teneramente.co.jp').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://teneramente.jp').replace(/\/$/, '');
 
 // カテゴリ定義（slug → 表示名 + フィルタグループ）
 // フィルタグループ: MEO/AIO は同じタブにまとめる。

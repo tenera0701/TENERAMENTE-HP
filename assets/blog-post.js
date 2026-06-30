@@ -72,7 +72,7 @@
   setMeta('og:description', post.excerpt);
 
   // SEO: canonical / og:url / Twitter / 構造化データ(Article)
-  var SITE_ABS = 'https://teneramente.co.jp/';
+  var SITE_ABS = 'https://teneramente.jp/';
   var postUrl = SITE_ABS + 'blog-post.html?slug=' + encodeURIComponent(slug);
   setMeta('og:url', postUrl);
   setMeta('twitter:title', post.title);
