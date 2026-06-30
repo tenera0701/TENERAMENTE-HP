@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja" data-variant="b" class="js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MEO/AIO運用代行｜独自ツールで“見える”運用｜TENERAMENTE</title>
+<meta name="description" content="Googleマップ・AI検索の順位を独自ツールで可視化し、運用まで代行。順位ジオグリッド・口コミAI返信・レポート自動配信で、着実に育てるMEO/AIO運用代行。" />
+<link rel="stylesheet" href="assets/kintone.css" />
+<style>
+.lp-hero { background: transparent; }
+.lp-hero .badge-lg { background: linear-gradient(135deg,#ff9d3d,#f5751f); }
+.hero-2 { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(28px,4vw,60px); align-items:center; }
+@media(max-width:860px){ .hero-2{ grid-template-columns:1fr; } }
+/* geo-grid mock */
+.geo { background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); padding:18px; }
+.geo .gh { display:flex; align-items:center; gap:8px; margin-bottom:14px; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--ink-faint); }
+.geo .grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+.geo .cell { aspect-ratio:1; border-radius:10px; display:grid; place-items:center; font-family:var(--font-disp); font-weight:900; font-size:15px; color:#fff; }
+.geo .legend { display:flex; gap:14px; margin-top:14px; font-size:11px; color:var(--ink-soft); }
+.geo .legend i { width:12px; height:12px; border-radius:4px; display:inline-block; margin-right:5px; vertical-align:-1px; }
+.usp { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.2vw,26px); }
+@media(max-width:760px){ .usp{ grid-template-columns:1fr; } }
+.usp .card { text-align:center; }
+.usp .e { font-size:34px; }
+.usp h3 { font-family:var(--font-disp); font-weight:700; font-size:18px; margin:12px 0 8px; }
+.usp p { font-size:14px; color:var(--ink-soft); }
+</style>
+</head>
+<body data-active="services">
+
+<div data-chrome="header"></div>
+
+<!-- Hero -->
+<section class="lp-hero" data-screen-label="MEO:ヒーロー">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-yellow" style="width:300px;height:300px;right:-50px;top:-70px;opacity:.4;"></span>
+    <span class="shape ring c-coral float-a" style="width:42px;height:42px;left:6%;top:26%;"></span>
+    <span class="shape disc c-blue float-b" style="width:16px;height:16px;left:44%;top:10%;"></span>
+  </div>
+  <div class="wrap-wide hero-2">
+    <div class="reveal">
+      <div class="badge-lg">M</div>
+      <span class="eyebrow">MEO / AIO 運用代行</span>
+      <h1>順位を“眺める”から、<br />順位を<span class="tx-blue">動かす</span>運用へ。</h1>
+      <p class="lead">Googleマップ・ローカル検索・AI検索の掲載順位を、<strong class="hl">独自ツールで毎日計測</strong>。データを根拠に、投稿・口コミ・情報整備までまるごと運用代行します。「やってるはずなのに上がらない」を、見える運用で抜け出しましょう。</p>
+      <div class="ctas">
+        <a href="https://web-production-017ec4.up.railway.app/apply" target="_blank" rel="noopener" class="btn btn-primary btn-lg">運用を相談する<span class="arr">→</span></a>
+        <a href="#features" class="btn btn-ghost btn-lg">機能を見る</a>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="geo">
+        <div class="gh"><span class="mock-dots" style="display:flex;gap:5px;"><i style="width:9px;height:9px;border-radius:50%;background:#ff7a92;display:block;"></i><i style="width:9px;height:9px;border-radius:50%;background:#ffc83d;display:block;"></i><i style="width:9px;height:9px;border-radius:50%;background:#36c08a;display:block;"></i></span>順位ジオグリッド ・ 「美容室 名古屋」</div>
+        <div class="grid5">
+          <span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#36c08a">2</span><span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#f6b93b">6</span><span class="cell" style="background:#f6b93b">5</span>
+          <span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#f6b93b">7</span><span class="cell" style="background:#e55039">12</span>
+          <span class="cell" style="background:#36c08a">2</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#f6b93b">8</span><span class="cell" style="background:#e55039">15</span>
+          <span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#f6b93b">6</span><span class="cell" style="background:#f6b93b">9</span><span class="cell" style="background:#e55039">圏外</span>
+        </div>
+        <div class="legend"><span><i style="background:#36c08a"></i>1–3位</span><span><i style="background:#f6b93b"></i>4–10位</span><span><i style="background:#e55039"></i>11位↓</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USP -->
+<section class="pad" data-screen-label="MEO:強み">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">運用代行の核</span>
+      <h2>“独自ツール × 運用”だから、<br /><span class="tx-blue">説明できる成果</span>に。</h2>
+      <p>レポートだけ立派な代行では終わりません。自分たちで開発・運用するツールで、根拠を持って手を動かします。</p>
+    </div>
+    <div class="usp">
+      <div class="card reveal"><div class="e">🗺️</div><h3>地図で“面”を可視化</h3><p>エリアを格子状に計測する順位ジオグリッドで、「どこで弱いか」を地図上で特定。施策の的を絞ります。</p></div>
+      <div class="card reveal d1"><div class="e">🤖</div><h3>AIで運用を高速化</h3><p>口コミ返信・投稿文・月次総評をAIがドラフト。人の判断は残しつつ、作業量を圧縮します。</p></div>
+      <div class="card reveal d2"><div class="e">📈</div><h3>毎日計測・自動レポート</h3><p>順位は日次で自動取得。PDF・週次自動メール・共有リンクで、変化がいつでも追えます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="pad tinted bg-dots" id="features" data-screen-label="MEO:機能">
+  <div class="deco" aria-hidden="true">
+    <span class="shape sq-o c-blue float-r" style="width:32px;height:32px;right:6%;top:12%;"></span>
+    <span class="shape disc c-green float-b" style="width:14px;height:14px;left:5%;bottom:14%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">主な機能</span>
+      <h2>計測・改善・報告を、ひとつの画面で。</h2>
+    </div>
+    <div class="grid g-3">
+      <div class="card fcard reveal"><div class="icon-badge">🗺️</div><h3>順位ジオグリッド</h3><p>エリアを地図でヒートマップ化。平均順位・TOP3率・圏内率(SoLV)・競合比較まで一目で。</p></div>
+      <div class="card fcard reveal d1"><div class="icon-badge">📊</div><h3>順位グラフ・カレンダー</h3><p>キーワード別の推移を折れ線とカレンダーで。急上昇・急降下も自動でハイライト。</p></div>
+      <div class="card fcard reveal d2"><div class="icon-badge">🔔</div><h3>アラート通知</h3><p>急上昇・急降下・圏外・ランクインをメールで通知。変化を見逃しません。</p></div>
+      <div class="card fcard reveal"><div class="icon-badge">⭐</div><h3>口コミ管理・AI返信</h3><p>口コミを一元管理し、AIが返信文をドラフト。トーンを保ったまま素早く対応。</p></div>
+      <div class="card fcard reveal d1"><div class="icon-badge">📨</div><h3>口コミ依頼フォーム</h3><p>QR・一斉送信で来店客に依頼。ゲーティングで低評価の流出を抑えます。</p></div>
+      <div class="card fcard reveal d2"><div class="icon-badge">📝</div><h3>投稿・写真管理</h3><p>GBPへの予約投稿・一括投稿、写真の整理まで。情報発信を継続できます。</p></div>
+      <div class="card fcard reveal"><div class="icon-badge">📑</div><h3>レポート自動配信</h3><p>PDF・週次自動メール・共有リンクで報告を自動化。CSV出力にも対応。</p></div>
+      <div class="card fcard reveal d1"><div class="icon-badge">🏢</div><h3>多店舗・グループ管理</h3><p>店舗比較・グループ管理・目標設定・施策メモで、多店舗運用も整理して把握。</p></div>
+      <div class="card fcard reveal d2"><div class="icon-badge">🔐</div><h3>安心の運用基盤</h3><p>2要素認証・監査ログ・ログイン保護。ホワイトラベル表示にも対応します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="pad" data-screen-label="MEO:流れ">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">運用の流れ</span><h2>計測して、手を打って、報告する。</h2></div>
+    <div class="flow" style="max-width:820px;margin:0 auto;">
+      <div class="step reveal"><span class="num"></span><div><h4>現状計測・ヒアリング</h4><p>対象店舗とキーワードを設定し、ジオグリッドで現在地を可視化します。</p></div></div>
+      <div class="step reveal"><span class="num"></span><div><h4>改善計画</h4><p>弱いエリア・項目を特定し、情報整備・投稿・口コミ施策の優先順位を決めます。</p></div></div>
+      <div class="step reveal"><span class="num"></span><div><h4>運用代行</h4><p>投稿・口コミ返信・情報更新を継続実行。AIアシストで質とスピードを両立します。</p></div></div>
+      <div class="step reveal"><span class="num"></span><div><h4>計測・レポート</h4><p>順位の変化を毎日計測し、定期レポートで共有。次の打ち手につなげます。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
+      <h2>“見える”MEO/AIO運用を、はじめませんか。</h2>
+      <p>まずは現状の順位計測から。お気軽にご相談ください。</p>
+      <div class="ctas">
+        <a href="https://web-production-017ec4.up.railway.app/apply" target="_blank" rel="noopener" class="btn btn-primary btn-lg">運用を相談する<span class="arr">→</span></a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">会社に問い合わせる</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+<script src="assets/chrome.js"></script>
+<script src="assets/kintone.js"></script>
+</body>
+</html>

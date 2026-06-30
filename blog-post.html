@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja" data-variant="b" class="js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">記事を読み込んでいます — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="株式会社TENERAMENTEのブログ記事。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="TENERAMENTE Blog" />
+<meta property="og:description" data-meta="og:description" content="株式会社TENERAMENTEのブログ記事。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.co.jp/blog.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.co.jp/assets/img/ogp.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.co.jp/assets/img/ogp.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="TENERAMENTE Blog" />
+<meta name="twitter:description" data-meta="twitter:description" content="株式会社TENERAMENTEのブログ記事。" />
+<link rel="canonical" data-canonical href="https://teneramente.co.jp/blog.html" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<link rel="stylesheet" href="assets/kintone.css" />
+<style>
+.post-hero { max-width:980px; margin:0 auto; padding: clamp(36px,5vw,64px) var(--gutter) 24px; position:relative; }
+.post-hero .crumb { font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-faint); margin-bottom:22px; }
+.post-hero .crumb a { color:var(--ink-faint); }
+.post-cat { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--blue-deep); background:var(--blue-soft); padding:6px 14px; border-radius:999px; }
+.post-title { font-family:var(--font-disp); font-weight:900; font-size:clamp(30px,5vw,60px); line-height:1.22; margin-top:20px; text-wrap:balance; }
+.post-meta { display:flex; gap:13px; align-items:center; font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-faint); margin-top:28px; flex-wrap:wrap; }
+.post-meta .author { display:flex; align-items:center; gap:10px; color:var(--ink); }
+.post-meta .avatar { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-deep)); display:grid; place-items:center; color:#fff; font-family:var(--font-disp); font-weight:900; font-size:15px; }
+.post-meta .dot { width:4px; height:4px; border-radius:50%; background:currentColor; }
+
+.post-cover { max-width:1140px; margin:36px auto 0; padding:0 var(--gutter); }
+.post-cover-inner { aspect-ratio:16/7; border-radius:var(--radius-xl); background:linear-gradient(135deg,var(--blue),var(--blue-deep)); display:grid; place-items:center; position:relative; overflow:hidden; box-shadow:var(--shadow-md); }
+.post-cover-inner::after { content:''; position:absolute; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.12); right:-40px; top:-40px; }
+.post-cover-inner .big-glyph { font-family:var(--font-disp); font-weight:900; font-size:clamp(100px,20vw,300px); color:rgba(255,255,255,0.92); position:relative; }
+
+.post-wrap { display:grid; grid-template-columns:220px 1fr; gap:clamp(20px,4vw,72px); max-width:1140px; margin:56px auto; padding:0 var(--gutter); align-items:start; }
+.post-aside { position:sticky; top:96px; }
+.toc-title { font-family:var(--font-disp); font-weight:700; font-size:11px; letter-spacing:0.1em; color:var(--ink-faint); margin-bottom:14px; }
+.toc { display:flex; flex-direction:column; }
+.toc a { color:var(--ink-soft); font-size:13px; padding:8px 0 8px 14px; border-left:2px solid var(--line); transition:all .18s; line-height:1.5; }
+.toc a:hover, .toc a.active { color:var(--blue-deep); border-left-color:var(--blue); }
+.toc a .n { font-family:var(--font-disp); font-weight:700; font-size:10px; color:var(--ink-faint); margin-right:6px; }
+
+.post-body { font-size:16.5px; line-height:1.95; color:var(--ink); max-width:70ch; }
+.post-body h2 { font-family:var(--font-disp); font-weight:900; font-size:clamp(23px,3vw,34px); line-height:1.3; margin:56px 0 18px; scroll-margin-top:96px; }
+.post-body h2 .h-num { font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--blue); letter-spacing:0.12em; display:block; margin-bottom:8px; }
+.post-body h3 { font-family:var(--font-disp); font-weight:700; font-size:clamp(18px,2vw,22px); margin:32px 0 12px; }
+.post-body p { margin-bottom:1.4em; }
+.post-body p strong { font-weight:700; background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent-yellow) 70%,transparent) 0); padding:0 2px; }
+.post-body p em { font-weight:500; font-style:italic; }
+.post-body ul, .post-body ol { margin:0 0 1.6em 1.2em; color:var(--ink-soft); }
+.post-body li { margin-bottom:8px; }
+.post-body blockquote { margin:32px 0; padding:22px 28px; border-left:4px solid var(--blue); background:var(--blue-mist); border-radius:0 var(--radius-md) var(--radius-md) 0; font-size:20px; line-height:1.6; color:var(--ink); font-weight:500; }
+.post-body code { font-family:ui-monospace,Menlo,monospace; font-size:13px; background:var(--blue-soft); padding:2px 7px; border-radius:6px; color:var(--blue-deep); }
+.post-body pre { background:#0e2230; border-radius:var(--radius-md); padding:20px; overflow-x:auto; margin:24px 0; }
+.post-body pre code { background:transparent; padding:0; color:#cdd9e2; font-size:13px; line-height:1.7; }
+.post-body .callout { margin:32px 0; padding:22px 26px; border:1px solid var(--line); border-radius:var(--radius-md); background:#fff; box-shadow:var(--shadow-sm); display:grid; grid-template-columns:30px 1fr; gap:16px; align-items:start; }
+.post-body .callout .ico { width:30px; height:30px; background:var(--blue); color:#fff; border-radius:9px; display:grid; place-items:center; font-family:var(--font-disp); font-weight:900; font-size:14px; }
+.post-body .callout h4 { font-family:var(--font-disp); font-weight:700; font-size:14px; margin-bottom:6px; }
+.post-body .callout p { font-size:14px; margin:0; color:var(--ink-soft); }
+.post-body hr { border:none; border-top:1px solid var(--line); margin:48px 0; }
+
+/* tables */
+.post-body .table-wrap { overflow-x:auto; margin:28px 0; }
+.post-body table { border-collapse:collapse; width:100%; font-size:14.5px; background:#fff; border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; }
+.post-body th, .post-body td { text-align:left; padding:12px 16px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+.post-body thead th { background:var(--blue-soft); color:var(--blue-ink); font-family:var(--font-disp); font-weight:700; font-size:13px; white-space:nowrap; }
+.post-body tbody tr:last-child td { border-bottom:none; }
+.post-body tbody tr:hover td { background:var(--blue-mist); }
+
+/* 結論ボックス */
+.post-body .conclusion { margin:28px 0; padding:24px 28px; border-radius:var(--radius-md); background:linear-gradient(135deg,var(--blue-mist),var(--blue-soft)); border:1px solid var(--blue-soft); }
+.post-body .conclusion h4 { font-family:var(--font-disp); font-weight:900; font-size:14px; color:var(--blue-deep); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.post-body .conclusion p { font-size:15px; margin:0; color:var(--ink); line-height:1.85; }
+
+/* callout vari/ info / warn */
+.post-body .callout.info .ico { background:var(--accent-green); }
+.post-body .callout.warn { background:#fff8ec; border-color:#ffe2b0; }
+.post-body .callout.warn .ico { background:var(--accent-yellow); color:var(--ink); }
+
+/* FAQ (details/summary) */
+.post-body .faq { margin:18px 0; border:1px solid var(--line); border-radius:var(--radius-md); background:#fff; overflow:hidden; box-shadow:var(--shadow-sm); }
+.post-body .faq summary { list-style:none; cursor:pointer; padding:18px 22px; font-family:var(--font-disp); font-weight:700; font-size:15px; color:var(--ink); display:flex; gap:12px; align-items:flex-start; }
+.post-body .faq summary::-webkit-details-marker { display:none; }
+.post-body .faq summary::before { content:'Q'; flex:none; width:24px; height:24px; border-radius:7px; background:var(--blue); color:#fff; font-size:12px; font-weight:900; display:grid; place-items:center; }
+.post-body .faq[open] summary { border-bottom:1px solid var(--line-soft); }
+.post-body .faq .faq-a { padding:16px 22px 20px 56px; font-size:14.5px; color:var(--ink-soft); line-height:1.85; }
+.post-body .faq .faq-a::before { content:'A'; float:left; margin-left:-34px; width:24px; height:24px; border-radius:7px; background:var(--blue-soft); color:var(--blue-deep); font-family:var(--font-disp); font-size:12px; font-weight:900; display:grid; place-items:center; }
+
+.post-foot { max-width:70ch; margin:0 0 56px; padding-top:30px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; }
+.post-tags { display:flex; flex-wrap:wrap; gap:7px; }
+.post-tags span { font-family:var(--font-disp); font-weight:700; font-size:11px; padding:5px 12px; border:1px solid var(--line); border-radius:999px; color:var(--ink-soft); }
+.post-share { display:flex; gap:7px; }
+.post-share button { width:36px; height:36px; border-radius:50%; border:2px solid var(--line); background:#fff; cursor:pointer; font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--blue-deep); transition:all .15s; }
+.post-share button:hover { border-color:var(--blue); background:var(--blue-mist); }
+
+.author-card { max-width:980px; margin:0 auto 64px; padding:0 var(--gutter); }
+.author-card-inner { display:grid; grid-template-columns:80px 1fr; gap:24px; padding:30px; border:1px solid var(--line); border-radius:var(--radius-xl); background:#fff; box-shadow:var(--shadow-sm); align-items:start; }
+.author-card .avatar-lg { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-deep)); display:grid; place-items:center; font-family:var(--font-disp); font-weight:900; font-size:34px; color:#fff; }
+.author-card .role { font-family:var(--font-disp); font-weight:700; font-size:11px; letter-spacing:0.08em; color:var(--blue-deep); }
+.author-card .name { font-family:var(--font-disp); font-weight:900; font-size:19px; margin-top:4px; }
+.author-card .bio { font-size:13.5px; color:var(--ink-soft); line-height:1.8; margin-top:8px; }
+
+.related { padding: clamp(40px,6vw,72px) var(--gutter); background:var(--bg-tint); }
+.related h3 { font-family:var(--font-disp); font-weight:700; font-size:13px; letter-spacing:0.1em; color:var(--ink-faint); margin-bottom:26px; max-width:1140px; margin-inline:auto; }
+.related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1140px; margin:0 auto; }
+.related-card { color:var(--ink); display:flex; flex-direction:column; gap:10px; background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-sm); transition:transform .2s,box-shadow .2s; }
+.related-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+.related-card .cat { font-family:var(--font-disp); font-weight:700; font-size:11px; color:var(--blue-deep); background:var(--blue-soft); padding:3px 10px; border-radius:999px; width:fit-content; }
+.related-card h4 { font-family:var(--font-disp); font-weight:700; font-size:16px; line-height:1.45; transition:color .18s; }
+.related-card:hover h4 { color:var(--blue); }
+@media(max-width:800px){ .related-grid{ grid-template-columns:1fr; } }
+
+@media (max-width:900px){
+  .post-wrap { grid-template-columns:1fr; margin:36px auto; }
+  .post-aside { position:static; }
+  .toc { flex-direction:row; flex-wrap:wrap; gap:6px; }
+  .toc a { border-left:none; border:2px solid var(--line); border-radius:999px; padding:6px 12px; font-size:12px; }
+}
+.k-mobile { display:none; position:fixed; inset:74px 0 auto 0; background:#fff; border-bottom:1px solid var(--line); padding:16px var(--gutter) 24px; z-index:99; box-shadow:var(--shadow-md); }
+.k-mobile.open { display:block; }
+.k-mobile a { display:block; font-family:var(--font-disp); font-weight:700; padding:12px 0; border-bottom:1px solid var(--line-soft); color:var(--ink); }
+.k-mobile .btn { width:100%; margin-top:16px; }
+</style>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">HOME</a> ／ <a href="blog.html">BLOG</a> ／ <span data-post="crumb">POST</span></div>
+  <span class="post-cat" data-post="category">—</span>
+  <h1 class="post-title" data-post="title">—</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">—</span>
+    <span class="dot"></span>
+    <span data-post="read">— min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc></nav>
+  </aside>
+  <article class="post-body" data-post="body">
+    <p style="color:var(--ink-soft);">記事を読み込んでいます…</p>
+  </article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <h3>関連記事</h3>
+  <div class="related-grid" data-related></div>
+</section>
+
+<!-- CTA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
+      <h2>この記事の実装、お手伝いします。</h2>
+      <p>「うちの場合は？」を、そのまま無料相談へ。</p>
+      <div class="ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">無料で相談する<span class="arr">→</span></a>
+        <a href="blog.html" class="btn btn-ghost btn-lg">記事一覧へ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/kintone.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

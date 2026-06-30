@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja" data-variant="b" class="js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ミルページ｜店舗オーナーのためのHP運用ツール｜TENERAMENTE</title>
+<meta name="description" content="店舗オーナー自身がHPを運用できるCMS『ミルページ』。AIブログ下書き・自動投稿・SEO管理・Google連携・必須コンテンツの公開チェックまで。多店舗を1つで管理。" />
+<link rel="stylesheet" href="assets/kintone.css" />
+<style>
+.lp-hero { background: transparent; }
+.lp-hero .badge-lg { background: linear-gradient(135deg,#36c08a,#1f9d63); }
+.hero-2 { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(28px,4vw,60px); align-items:center; }
+@media(max-width:860px){ .hero-2{ grid-template-columns:1fr; } }
+.editor { background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
+.editor .bar2 { background:var(--blue-mist); padding:10px 14px; display:flex; align-items:center; gap:8px; font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-faint); }
+.editor .body { padding:16px; }
+.editor .block { border:1.5px dashed var(--line); border-radius:12px; padding:12px; margin-bottom:10px; font-size:12px; color:var(--ink-soft); display:flex; align-items:center; gap:8px; }
+.editor .block.on { border:1.5px solid var(--blue); background:var(--blue-mist); color:var(--blue-deep); font-weight:700; }
+.editor .ai-chip { margin-left:auto; font-size:10px; font-weight:700; color:#fff; background:linear-gradient(135deg,var(--blue),var(--accent-violet)); padding:3px 9px; border-radius:999px; }
+.checklist { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+@media(max-width:600px){ .checklist{ grid-template-columns:1fr; } }
+.checklist .ck { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; font-weight:500; }
+.checklist .ck .b { width:22px; height:22px; border-radius:7px; background:var(--accent-green); color:#fff; display:grid; place-items:center; font-size:13px; font-weight:900; flex:none; }
+.price { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; max-width:680px; margin-inline:auto; }
+.price .cell { padding:22px 26px; }
+.price .cell+.cell { border-left:1px solid var(--line); }
+.price .l { font-size:12.5px; color:var(--ink-faint); }
+.price .n { font-family:var(--font-disp); font-weight:900; font-size:30px; color:var(--blue); margin-top:4px; }
+.price .n small { font-size:14px; color:var(--ink-soft); font-weight:700; }
+@media(max-width:520px){ .price{ grid-template-columns:1fr; } .price .cell+.cell{ border-left:none; border-top:1px solid var(--line); } }
+</style>
+</head>
+<body data-active="products">
+
+<div data-chrome="header"></div>
+
+<section class="lp-hero" data-screen-label="ミルページ:ヒーロー">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-green" style="width:300px;height:300px;right:-50px;top:-70px;opacity:.4;"></span>
+    <span class="shape ring c-coral float-a" style="width:42px;height:42px;left:6%;top:26%;"></span>
+    <span class="shape sq c-blue float-r" style="width:26px;height:26px;left:42%;top:10%;"></span>
+  </div>
+  <div class="wrap-wide hero-2">
+    <div class="reveal">
+      <div class="badge-lg">ペ</div>
+      <span class="eyebrow">店舗HP運用ツール</span>
+      <h1>HPは、つくって終わり<br />じゃない。<span class="tx-blue">育てるもの。</span></h1>
+      <p class="lead">店舗オーナー自身がHPを運用できるCMS『ミルページ』。<strong class="hl">AIがブログを下書き・自動投稿</strong>し、SEOやGoogle連携まで内蔵。多店舗を1つで管理でき、「集客につながる更新」が自然と続きます。</p>
+      <div class="ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">制作を相談する<span class="arr">→</span></a>
+        <a href="#features" class="btn btn-ghost btn-lg">機能を見る</a>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="editor">
+        <div class="bar2"><span style="display:flex;gap:5px;"><i style="width:9px;height:9px;border-radius:50%;background:#ff7a92;"></i><i style="width:9px;height:9px;border-radius:50%;background:#ffc83d;"></i><i style="width:9px;height:9px;border-radius:50%;background:#36c08a;"></i></span>ブログ編集</div>
+        <div class="body">
+          <div class="block on">タイトル：夏の限定メニュー始めました<span class="ai-chip">AI下書き</span></div>
+          <div class="block">アイキャッチ画像<span class="ai-chip">AI生成</span></div>
+          <div class="block">本文ブロック…</div>
+          <div class="block">公開予約：毎週金 10:00<span class="ai-chip" style="background:var(--accent-green)">自動投稿</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="pad" id="features" data-screen-label="ミルページ:機能">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">主な機能</span><h2>更新・集客・分析を、オーナーの手に。</h2></div>
+    <div class="grid g-3">
+      <div class="card fcard reveal"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">✍️</div><h3>AIブログ・お知らせ</h3><p>AIが下書きとアイキャッチ画像を生成し、スケジュール自動投稿。HPにそのまま埋め込めます。</p></div>
+      <div class="card fcard reveal d1"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">🧱</div><h3>HP・LP編集</h3><p>ブロックを組み合わせてページを作成・編集。専門知識なしで、伝わる構成に。</p></div>
+      <div class="card fcard reveal d2"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">🔎</div><h3>SEO管理</h3><p>検索結果プレビュー・検索順位・競合比較を内蔵。書きながら検索対策ができます。</p></div>
+      <div class="card fcard reveal"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">📊</div><h3>Google連携</h3><p>Analytics・Search Console・ビジネスプロフィールと連携し、成果を一画面で確認。</p></div>
+      <div class="card fcard reveal d1"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">📨</div><h3>問い合わせ管理</h3><p>フォームの問い合わせを担当割当・社内メモで管理。対応漏れを防ぎます。</p></div>
+      <div class="card fcard reveal d2"><div class="icon-badge" style="background:#e6f7ee;color:#1f9d63">🔗</div><h3>SNS連携</h3><p>Instagram・TikTok・X・LINEと連携。HPとSNSの導線をつなぎます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Required content checklist -->
+<section class="pad tinted bg-dots" data-screen-label="ミルページ:必須コンテンツ">
+  <div class="deco" aria-hidden="true">
+    <span class="shape sq-o c-green float-r" style="width:32px;height:32px;right:6%;top:12%;"></span>
+    <span class="shape disc c-blue float-b" style="width:14px;height:14px;left:5%;bottom:14%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">公開チェック</span><h2>“集客に必要な要素”が、<br />必ず揃う設計。</h2><p>店舗HPに欠かせないコンテンツを、公開前に自動でチェック。抜けのないサイトに仕上がります。</p></div>
+    <div class="checklist reveal" style="max-width:760px;margin-inline:auto;">
+      <div class="ck"><span class="b">✓</span>SNS紹介</div>
+      <div class="ck"><span class="b">✓</span>問い合わせフォーム</div>
+      <div class="ck"><span class="b">✓</span>Googleマップ</div>
+      <div class="ck"><span class="b">✓</span>よくある質問（FAQ）</div>
+      <div class="ck"><span class="b">✓</span>スタッフ紹介</div>
+      <div class="ck"><span class="b">✓</span>メニュー・料金</div>
+      <div class="ck"><span class="b">✓</span>予約導線</div>
+      <div class="ck"><span class="b">✓</span>お知らせ・ブログ</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pad" data-screen-label="ミルページ:料金">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">料金</span><h2>標準プラン</h2><p>独自ドメイン・SSL・スマホ対応・問い合わせフォーム・基本SEO設定を含む、標準5ページ構成。保守・バックアップ・障害一次対応つき。（価格はすべて税別）</p></div>
+    <div class="price reveal">
+      <div class="cell"><div class="l">初期費用</div><div class="n">150,000<small>円</small></div></div>
+      <div class="cell"><div class="l">月額費用</div><div class="n">10,000<small>円 / 月</small></div></div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--ink-faint);margin-top:18px;">※ ページ追加・オプションはご相談に応じます。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pad">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
+      <h2>“育てられるHP”を、はじめましょう。</h2>
+      <p>制作からAI運用まで、まるごとご相談ください。</p>
+      <div class="ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">制作を相談する<span class="arr">→</span></a>
+        <a href="lp-hplp.html" class="btn btn-ghost btn-lg">HP/LP作成について</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+<script src="assets/chrome.js"></script>
+<script src="assets/kintone.js"></script>
+</body>
+</html>

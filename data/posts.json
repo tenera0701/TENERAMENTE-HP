@@ -1,0 +1,238 @@
+[
+  {
+    "slug": "2026-07-01-aio-cited-site",
+    "title": "AI検索（AIO）時代に、“引用されるサイト”の作り方",
+    "date": "2026-07-01",
+    "dateLabel": "Jul 1, 2026",
+    "category": "aio",
+    "categoryLabel": "AIO",
+    "categoryGroup": "meo",
+    "excerpt": "ChatGPTやPerplexity、Google AI Overviewsが「答え」を返す時代。検索結果に並ぶのではなく、AIに“引用される”側へ。AIO（AI最適化）の考え方と、今日から打てる具体策をまとめました。",
+    "tags": [
+      "AIO",
+      "AI検索",
+      "schema.org",
+      "llms.txt",
+      "Perplexity"
+    ],
+    "readMin": 4,
+    "glyph": "A",
+    "featured": true,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "AIO（AI最適化）とは何か"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "なぜ「引用される」ことが重要なのか"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "SEOとAIOの違い"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "引用されるサイトの“条件”"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "構造化データと llms.txt"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "専門性と一次情報が、最後にものを言う"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "まとめ：まず何から始めるか"
+      }
+    ],
+    "visual": "default",
+    "number": "01"
+  },
+  {
+    "slug": "2026-06-30-gyomu-app-kanzen-guide",
+    "title": "Excel管理の限界を超える。AI業務改善ツール導入 完全ガイド",
+    "date": "2026-06-30",
+    "dateLabel": "Jun 30, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "「Excelが限界」「既製SaaSが合わない」「属人化が止まらない」——その3つを、御社専用のアプリで解く。導入の判断軸から費用・進め方・失敗回避まで、業務をアプリにするための実践ガイドです。",
+    "tags": [
+      "業務アプリ",
+      "AI",
+      "業務改善",
+      "Excel",
+      "内製化"
+    ],
+    "readMin": 4,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "なぜ今、業務を「アプリ」にするのか"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "「既製SaaS」「Excel」「受託開発」の違い"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "アプリ化に向いている業務・向かない業務"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "導入の流れ：相談から運用まで"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "費用の考え方（初期費用と月額）"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "AI支援開発で何が変わったか"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある失敗と、その回避法"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まずは小さく始める"
+      }
+    ],
+    "visual": "v-violet",
+    "number": "02"
+  },
+  {
+    "slug": "2026-06-28-gbp-monthly-checklist",
+    "title": "Googleビジネスプロフィール 月次運用チェックリスト",
+    "date": "2026-06-28",
+    "dateLabel": "Jun 28, 2026",
+    "category": "meo",
+    "categoryLabel": "MEO",
+    "categoryGroup": "meo",
+    "excerpt": "Googleマップの順位は「作って終わり」では守れません。NAPの点検、投稿・写真、口コミ対応、インサイト確認——毎月見るべき項目を、店舗運用の現場目線でチェックリストにまとめました。",
+    "tags": [
+      "MEO",
+      "GBP",
+      "Googleマップ",
+      "ローカルSEO",
+      "口コミ"
+    ],
+    "readMin": 3,
+    "glyph": "M",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "なぜ「毎月の運用」が順位を分けるのか"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "1. 基本情報（NAP）の点検"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "2. 投稿・写真の更新"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "3. 口コミ対応"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "4. インサイトの確認"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "5. 競合との比較"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "月次チェックリスト（まとめ）"
+      }
+    ],
+    "visual": "v-cyan",
+    "number": "03"
+  },
+  {
+    "slug": "2026-06-26-ai-first-step",
+    "title": "社内へのAI導入、最初の一歩の決め方",
+    "date": "2026-06-26",
+    "dateLabel": "Jun 26, 2026",
+    "category": "ai",
+    "categoryLabel": "AI",
+    "categoryGroup": "ai",
+    "excerpt": "「AIを使いたいが、どこから始めれば？」——その問いで止まっている会社は少なくありません。効く業務の見分け方、スモールスタートの設計、RAGという選択肢まで、導入の最初の一歩を現場目線で解説します。",
+    "tags": [
+      "AI導入",
+      "社内DX",
+      "RAG",
+      "プロンプト",
+      "業務改善"
+    ],
+    "readMin": 3,
+    "glyph": "A",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "「どこから始める？」が最大の壁"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "AIが効く業務の見分け方"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "スモールスタートの設計"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "RAG（社内データ検索）という選択肢"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "失敗しないための注意点"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "最初の一歩（まとめ）"
+      }
+    ],
+    "visual": "default",
+    "number": "04"
+  }
+]

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ja" data-variant="b" class="js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>株式会社TENERAMENTE｜AIで、会社の業務を“アプリ”にする。</title>
+<meta name="description" content="AI×WEBアプリ開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援まで。名古屋発、AI時代の業務改善パートナー 株式会社TENERAMENTE。" />
+<link rel="canonical" href="https://teneramente.co.jp/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:title" content="株式会社TENERAMENTE｜AIで、会社の業務を“アプリ”にする。" />
+<meta property="og:description" content="AI×WEBアプリ開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援まで。名古屋発、AI時代の業務改善パートナー。" />
+<meta property="og:url" content="https://teneramente.co.jp/" />
+<meta property="og:image" content="https://teneramente.co.jp/assets/img/ogp.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="株式会社TENERAMENTE｜AIで、会社の業務を“アプリ”にする。" />
+<meta name="twitter:description" content="AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用支援。名古屋発、AI時代の業務改善パートナー。" />
+<meta name="twitter:image" content="https://teneramente.co.jp/assets/img/ogp.png" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://teneramente.co.jp/#org","name":"株式会社TENERAMENTE","alternateName":"TENERAMENTE Inc.","url":"https://teneramente.co.jp/","logo":"https://teneramente.co.jp/assets/img/favicon-512.png","image":"https://teneramente.co.jp/assets/img/ogp.png","description":"AI×WEBアプリ開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援まで行う、名古屋発のAI時代の業務改善パートナー。","foundingDate":"2022-07-01","founder":{"@type":"Person","name":"加藤 聖矢"},"address":{"@type":"PostalAddress","addressCountry":"JP","addressRegion":"愛知県","addressLocality":"名古屋市西区","streetAddress":"牛島町6-1 名古屋ルーセントタワー40階"},"areaServed":"JP"},
+{"@type":"WebSite","@id":"https://teneramente.co.jp/#website","url":"https://teneramente.co.jp/","name":"株式会社TENERAMENTE","publisher":{"@id":"https://teneramente.co.jp/#org"},"inLanguage":"ja"}
+]}
+</script>
+<link rel="stylesheet" href="assets/kintone.css" />
+<style>
+.hero { background: transparent; overflow: hidden; padding-block: clamp(48px,7vw,96px) clamp(56px,8vw,110px); }
+.hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px,4vw,56px); align-items: center; }
+.hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.3; letter-spacing: 0.01em; }
+.hero h1 .hl1, .hero h1 .hl2 { display: block; white-space: nowrap; }
+.hero h1 .b { color: var(--blue); }
+.hero .lead { margin-top: 24px; font-size: clamp(15px,1.5vw,18px); color: var(--ink-soft); max-width: 30em; }
+.hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.hero .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink-soft); background: #fff; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 8px 15px; box-shadow: var(--shadow-sm); }
+.chip svg { width: 15px; height: 15px; color: var(--accent-green); }
+@media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: -1; } }
+
+/* LINE button */
+.btn-line { background:#06c755; color:#fff; box-shadow:0 8px 18px rgba(6,199,85,.28); }
+.btn-line:hover { background:#05b34c; transform:translateY(-2px); box-shadow:0 12px 24px rgba(6,199,85,.36); }
+.btn-line .ico { width:20px; height:20px; }
+
+/* page-wide background handled by shared kintone.css (vibrant bokeh) */
+/* let tinted bands breathe so the page background shows through */
+body .tinted { background: transparent; }
+/* one continuous page background — no per-section bands or seams */
+.bg-dots::before, .bg-grid::before { display: none; }
+.hero { background: transparent; }
+/* keep section content above the decorative shapes */
+section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
+
+.hero-visual { position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; }
+.hero-visual .hero-illust { width: 100%; display: flex; justify-content: center; }
+.hero-visual .hero-illust img { width: 118%; max-width: none; height: auto; display: block; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(20,60,120,.12)); }
+@media (max-width: 880px){
+  .hero-visual { min-height: auto; }
+  .hero-visual .hero-illust img { width: 100%; }
+}
+.mock { position: absolute; z-index: 1; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); }
+.mock-main { left: 6%; top: 4%; width: 76%; padding: 18px; }
+.mock-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.mock-dots { display: flex; gap: 5px; } .mock-dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+.mock-title { font-family: var(--font-disp); font-weight: 700; font-size: 12px; color: var(--ink-faint); }
+.mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line-soft); }
+.mock-row .av { width: 26px; height: 26px; border-radius: 8px; background: var(--blue-soft); flex: none; }
+.mock-bar { height: 8px; border-radius: 4px; background: var(--line); }
+.mock-pill { margin-left: auto; font-size: 10px; font-weight: 700; color: var(--blue-deep); background: var(--blue-soft); padding: 3px 9px; border-radius: 999px; }
+.mock-chat { right: 0; bottom: 2%; width: 50%; padding: 14px; }
+.mock-chat .ai { display:flex; gap:8px; align-items:flex-start; }
+.mock-chat .ai .ic { width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg,var(--blue),var(--accent-violet)); flex:none; display:grid; place-items:center; color:#fff; font-size:14px; font-weight:900; font-family:var(--font-disp);}
+.mock-chat .bub { background: var(--blue-mist); border-radius: 12px; padding: 9px 11px; font-size: 11px; color: var(--ink-soft); line-height:1.6; }
+.mock-stat { left: 0; bottom: 16%; width: 38%; padding: 14px 16px; }
+.mock-stat .n { font-family: var(--font-disp); font-weight: 900; font-size: 30px; color: var(--blue); line-height: 1; }
+.mock-stat .l { font-size: 10.5px; color: var(--ink-faint); margin-top: 4px; }
+
+/* business cards */
+.biz { display:block; text-align:left; position:relative; overflow:hidden; }
+.biz .num { position:absolute; right:18px; top:14px; font-family:var(--font-disp); font-weight:900; font-size:42px; color:var(--blue-soft); line-height:1; }
+.biz h3 { font-family:var(--font-disp); font-weight:900; font-size:clamp(15px,1.45vw,19px); margin:14px 0 8px; white-space:nowrap; }
+.biz p { font-size:13.5px; color:var(--ink-soft); }
+.biz .go { display:inline-flex; align-items:center; gap:6px; font-family:var(--font-disp); font-weight:700; font-size:13.5px; color:var(--blue-deep); margin-top:14px; }
+.biz:hover .go { color: var(--blue); }
+.biz .icon-badge { margin-bottom: 6px; }
+
+/* products */
+.prod { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; }
+.prod .logo { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; font-family: var(--font-disp); font-weight: 900; font-size: 24px; color: #fff; flex: none; }
+.prod .name { font-family: var(--font-disp); font-weight: 900; font-size: 21px; }
+.prod .role { font-size: 12.5px; color: var(--blue-deep); font-weight: 700; }
+.prod .desc { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
+.prod .go { display:inline-flex; align-items:center; gap:6px; font-family:var(--font-disp); font-weight:700; font-size:14px; color: var(--blue-deep); white-space:nowrap; }
+.prod .go:hover{ color: var(--blue); }
+@media(max-width:680px){ .prod{ grid-template-columns:auto 1fr; } .prod .go{ grid-column: 1/-1; justify-content:flex-end; } }
+
+/* stats strip */
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:center; }
+.stats .card .n { font-family:var(--font-disp); font-weight:900; font-size:clamp(28px,4vw,42px); color:var(--blue); line-height:1; }
+.stats .card .l { font-size:13px; color:var(--ink-soft); margin-top:8px; }
+@media(max-width:600px){ .stats{ grid-template-columns:1fr; } }
+
+/* blog teaser */
+.posts { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.post { display:block; text-align:left; }
+.post .cat { font-family:var(--font-disp); font-weight:700; font-size:11px; color:var(--blue-deep); background:var(--blue-soft); padding:4px 11px; border-radius:999px; display:inline-block; }
+.post h3 { font-family:var(--font-disp); font-weight:700; font-size:16px; margin:12px 0 8px; line-height:1.5; }
+.post p { font-size:13px; color:var(--ink-soft); }
+.post .date { font-size:12px; color:var(--ink-faint); margin-top:12px; }
+@media(max-width:760px){ .posts{ grid-template-columns:1fr; } }
+
+/* CTA band */
+.cta-band { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); color: #fff; border-radius: var(--radius-xl); padding: clamp(40px,6vw,72px); text-align: center; position: relative; overflow: hidden; }
+.cta-band h2 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(26px,4vw,42px); line-height: 1.3; }
+.cta-band p { margin-top: 16px; opacity: .92; font-size: 16px; }
+.cta-band .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.cta-band .btn-primary { background: #fff; color: var(--blue-deep); }
+.cta-band .btn-primary:hover { background: var(--accent-yellow); color: var(--ink); }
+.cta-band .btn-ghost { background: transparent; color:#fff; border-color: rgba(255,255,255,0.5); }
+.cta-band .btn-ghost:hover { border-color:#fff; background: rgba(255,255,255,0.1); }
+
+/* custom AI tool offer (FEATURE section) */
+.feat { text-align: left; position: relative; }
+.feat .ftag { font-family: var(--font-disp); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--blue-deep); }
+.feat .ficon { width: 56px; height: 56px; border-radius: 16px; background: var(--blue-soft); display: grid; place-items: center; font-size: 26px; margin: 14px 0 16px; color: var(--blue-deep); }
+.feat .ficon svg { width: 28px; height: 28px; }
+.biz .icon-badge svg { width: 26px; height: 26px; }
+.feat h3 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(15.5px,1.35vw,18px); margin-bottom: 10px; line-height: 1.45; white-space: nowrap; }
+.feat p { font-size: 14px; color: var(--ink-soft); line-height: 1.85; }
+.examples { margin-top: 44px; text-align: center; }
+.examples .ex-label { font-family: var(--font-disp); font-weight: 700; font-size: 14px; color: var(--ink-soft); }
+.ex-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; }
+.ex-chip { font-size: 13.5px; font-weight: 500; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 9px 16px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s; }
+.ex-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* product logo image (transparent) */
+.prod .logo.logo-img { background: #fff !important; border: 1px solid var(--line); padding: 6px; }
+.prod .logo.logo-img img { width: 100%; height: 100%; object-fit: contain; }
+
+/* 1行見出し（折り返さない） */
+.prod-head-1line { white-space: nowrap; font-size: clamp(21px,3.1vw,36px) !important; }
+@media (max-width: 560px){ .prod-head-1line { white-space: normal; font-size: clamp(22px,6vw,28px) !important; } }
+
+.k-mobile { display: none; position: fixed; inset: 74px 0 auto 0; background: #fff; border-bottom: 1px solid var(--line); padding: 16px var(--gutter) 24px; z-index: 99; box-shadow: var(--shadow-md); }
+.k-mobile.open { display: block; }
+.k-mobile a { display: block; font-family: var(--font-disp); font-weight: 700; padding: 12px 0; border-bottom: 1px solid var(--line-soft); color: var(--ink); }
+.k-mobile .btn { width: 100%; margin-top: 16px; }
+</style>
+</head>
+<body data-active="">
+
+<div data-chrome="header"></div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" data-screen-label="トップ:ヒーロー">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-blue" style="width:340px;height:340px;right:-60px;top:-80px;"></span>
+    <span class="blob blob-yellow" style="width:220px;height:220px;left:-50px;bottom:-40px;"></span>
+    <span class="shape ring c-coral float-a" style="width:46px;height:46px;left:6%;top:24%;"></span>
+    <span class="shape sq c-green float-r" style="width:28px;height:28px;left:40%;top:8%;"></span>
+    <span class="shape disc c-yellow float-b" style="width:16px;height:16px;right:32%;bottom:12%;"></span>
+  </div>
+  <div class="wrap-wide hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">AI時代の業務改善パートナー</span>
+      <h1><span class="hl1">AIで、会社の業務を</span><span class="hl2"><span class="b">“アプリ”</span>にする。</span></h1>
+      <p class="lead">これからは御社専用アプリを開けば、全業務完結します！！<div style="font-weight: 400">業務改善ツールの開発を軸に、HP/LP制作・MEO/AIO運用・AI活用支援まで。「これ、なんとかならない？」を、ちょうどよく形にします。</div></p>
+      <div class="ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">無料で相談する<span class="arr">→</span></a>
+        <a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINEで問い合わせ</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>相談から運用まで一気通貫</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>自社プロダクト4種を運用中</span>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal d1">
+      <div class="hero-illust">
+        <img src="assets/img/hero-top.png?v=2" alt="バラバラな業務を、ひとつのアプリに集約するイメージ" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Custom AI tool offer ===== -->
+<section class="pad tinted bg-dots" data-screen-label="トップ:AIツール開発">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-blue" style="width:300px;height:300px;left:-80px;top:4%;opacity:.2;"></span>
+    <span class="shape ring c-violet float-a" style="width:42px;height:42px;right:5%;top:16%;"></span>
+    <span class="shape disc c-yellow float-b" style="width:15px;height:15px;left:7%;bottom:14%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">AI×WEBアプリ開発</span>
+      <h2>あなたの会社専用<br /><span class="tx-blue">AI業務改善ツール</span>を開発します!!</h2>
+      <p>既製品では物足らない。だから、業務内容に合わせて０からカスタマイズ。<br />必要な機能だけを、わかりやすい価格で提供します!!</p>
+    </div>
+    <div class="grid g-3">
+      <div class="card feat reveal">
+        <span class="ftag">FEATURE 01</span>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 8 3.5 4.5L15.5 8"/><path d="M12 12.5V17"/><path d="M9.3 13.5h5.4M9.3 15.5h5.4"/></svg></div>
+        <h3>初期費用15万円</h3>
+        <p>「後から何か取られそう」をなくします。ヒアリングから公開作業まで、必要なものは初期費用に含みます。</p>
+      </div>
+      <div class="card feat reveal d1">
+        <span class="ftag">FEATURE 02</span>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.4A8 8 0 1 1 20 11.5Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg></div>
+        <h3>3回のミーティングで完成まで</h3>
+        <p>要件整理 → 仕様確認 → 最終確認。少ない手間で、要件定義から納品までスムーズに進みます。</p>
+      </div>
+      <div class="card feat reveal d2">
+        <span class="ftag">FEATURE 03</span>
+        <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></div>
+        <h3>月額定額で安心の保守・運用</h3>
+        <p>サーバー・ドメイン費用、システム監視、月1回の修正対応まで月額に込み。導入後も任せられます。</p>
+      </div>
+    </div>
+    <div class="examples reveal">
+      <span class="ex-label">たとえば、こんなツールが作れます</span>
+      <div class="ex-chips">
+        <span class="ex-chip">📗 Excel管理業務の置き換え</span>
+        <span class="ex-chip">👤 顧客管理システム</span>
+        <span class="ex-chip">📅 予約管理システム</span>
+        <span class="ex-chip">📦 在庫管理</span>
+        <span class="ex-chip">⏰ 勤怠・シフト管理</span>
+        <span class="ex-chip">📝 日報・週報の集約</span>
+        <span class="ex-chip">🧾 請求書・見積書の自動作成</span>
+        <span class="ex-chip">🔁 受発注管理</span>
+        <span class="ex-chip">💬 問い合わせ自動対応</span>
+        <span class="ex-chip">🤖 AIチャットボット</span>
+        <span class="ex-chip">📈 データ集計・レポート自動化</span>
+        <span class="ex-chip">📊 売上分析ダッシュボード</span>
+        <span class="ex-chip">🗂️ 名刺・顧客台帳の管理</span>
+        <span class="ex-chip">🏢 社内業務ポータル</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:38px;">
+      <a href="lp-ai-app.html" class="btn btn-primary btn-lg">開発について詳しく見る<span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Businesses ===== -->
+<section class="pad tinted bg-dots" id="biz" data-screen-label="トップ:事業内容">
+  <div class="deco" aria-hidden="true">
+    <span class="shape sq-o c-blue float-r" style="width:34px;height:34px;right:7%;top:14%;"></span>
+    <span class="shape disc c-coral float-b" style="width:14px;height:14px;left:5%;bottom:18%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">事業内容</span>
+      <h2>“つくる・届ける・育てる”を、<br /><span class="tx-blue">ひとつのチーム</span>で。</h2>
+      <p>AI×WEBアプリ開発をメインに、Webでの集客・運用までを一気通貫で。点ではなく線で支えます。</p>
+    </div>
+    <div class="grid g-4">
+      <a class="card biz reveal" href="lp-ai-app.html">
+        <span class="num">01</span>
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="m8.5 12.5-2 2 2 2"/><path d="m13.5 12.5 2 2-2 2"/></svg></div>
+        <h3>AI×WEBアプリ開発</h3>
+        <p>業務改善ツールの受託開発。Excelや属人化を、軽くて堅いアプリに。AI支援開発で短工期・高品質。</p>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card biz reveal d1" href="lp-hplp.html">
+        <span class="num">02</span>
+        <div class="icon-badge" style="background:#e6f7ee;color:#1f9d63"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.8 5.6 3.8 9s-1.3 6.6-3.8 9c-2.5-2.4-3.8-5.6-3.8-9S9.5 5.4 12 3Z"/></svg></div>
+        <h3>HP / LP作成</h3>
+        <p>自社CMS「ミルページ」で、AIブログ自動投稿まで備えたHP/LPを。公開後も自分で運用できます。</p>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card biz reveal d2" href="lp-meo.html">
+        <span class="num">03</span>
+        <div class="icon-badge" style="background:#fff3e0;color:#e89216"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>MEO / AIO運用代行</h3>
+        <p>独自ツールでGoogleマップ・AI検索の順位を可視化。“見える”運用代行で着実に育てます。</p>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card biz reveal d3" href="services.html#ai">
+        <span class="num">04</span>
+        <div class="icon-badge" style="background:#efeafe;color:#6c5ce7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.5" r="1.4"/><path d="M9.5 13h.01M14.5 13h.01"/><path d="M10 16h4"/><path d="M2.5 13H5M19 13h2.5"/></svg></div>
+        <h3>AI活用支援</h3>
+        <p>社内へのAI導入・RAG構築・プロンプト設計。「どこから始める？」の伴走から承ります。</p>
+        <span class="go">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Products ===== -->
+<section class="pad" id="products" data-screen-label="トップ:プロダクト">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-violet" style="width:240px;height:240px;right:-70px;top:8%;opacity:.24;"></span>
+    <span class="shape ring c-green float-a" style="width:40px;height:40px;left:4%;top:28%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">自社プロダクト</span>
+      <h2 class="prod-head-1line">機能の保証は、自社ツールで証明してます!!</h2>
+      <p>受託だけでなく、自社プロダクトを開発・運用。<br />実際に使い、磨いた知見で、あなたの業務改善も支えます。</p>
+    </div>
+    <div class="grid" style="gap:18px;">
+      <a class="card prod reveal" href="ミエルームLP/ミエルーム.html">
+        <span class="logo logo-img"><img src="assets/img/mieroom-logo.png" alt="ミエルーム ロゴ" /></span>
+        <div><span class="role">賃貸仲介 業務管理SaaS</span><div class="name">ミエルーム</div><p class="desc">反響・接客・売上・申込・契約書類までひとつに。賃貸仲介に特化。Excel・LINEのバラバラ管理から卒業。</p></div>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card prod reveal d1" href="lp-milpage.html">
+        <span class="logo logo-img"><img src="assets/img/logo-milpage.png" alt="ミルページ ロゴ" /></span>
+        <div><span class="role">店舗HP運用ツール</span><div class="name">ミルページ</div><p class="desc">店舗オーナー自身がHPを運用できるCMS。AIブログ自動投稿・必須コンテンツの公開チェックまで。</p></div>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card prod reveal" href="lp-ldash.html">
+        <span class="logo logo-img"><img src="assets/img/logo-ldash.png" alt="LDash ロゴ" /></span>
+        <div><span class="role">LINE公式アカウントCRM</span><div class="name">LDash</div><p class="desc">ステップ配信・セグメント・リッチメニュー・フォーム・自動化を一つに。AIネイティブのLINE運用基盤。</p></div>
+        <span class="go">詳しく見る →</span>
+      </a>
+      <a class="card prod reveal d1" href="lp-meo.html">
+        <span class="logo logo-img"><img src="assets/img/logo-mapnext.png" alt="Map Next（MEOツール） ロゴ" /></span>
+        <div><span class="role">MEO順位計測・運用ツール</span><div class="name">MEOツール</div><p class="desc">順位ジオグリッド・口コミAI返信・レポート自動配信。独自ツールで“見える”MEO運用代行を実現します。</p></div>
+        <span class="go">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Blog teaser ===== -->
+<section class="pad" data-screen-label="トップ:ブログ">
+  <div class="deco" aria-hidden="true">
+    <span class="blob blob-green" style="width:240px;height:240px;left:-70px;top:12%;opacity:.22;"></span>
+    <span class="shape ring c-violet float-a" style="width:40px;height:40px;right:5%;top:20%;"></span>
+    <span class="shape disc c-yellow float-b" style="width:15px;height:15px;left:8%;bottom:14%;"></span>
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ブログ</span>
+      <h2>AI・MEO・Web運用の<br />実践メモ。</h2>
+    </div>
+    <div class="posts" id="home-posts" data-screen-label="最新記事">
+      <!-- filled by JS from data/posts.json; static fallback below -->
+      <a class="card post reveal" href="blog.html"><span class="cat">AIO</span><h3>AI検索（AIO）時代に、サイトはどう書くべきか</h3><p>Perplexity・ChatGPT・AI Overviewsに“引用される”ための考え方。</p><div class="date">ブログを見る →</div></a>
+      <a class="card post reveal d1" href="blog.html"><span class="cat">MEO</span><h3>Googleビジネスプロフィール 月次チェックリスト</h3><p>順位を落とさない運用のために、毎月見るべき項目をまとめました。</p><div class="date">ブログを見る →</div></a>
+      <a class="card post reveal d2" href="blog.html"><span class="cat">AI</span><h3>社内へのAI導入、最初の一歩の決め方</h3><p>“どこから始める？”に答える、現場目線の導入ステップ。</p><div class="date">ブログを見る →</div></a>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="blog.html" class="btn btn-ghost btn-lg">ブログ一覧へ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="pad">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
+      <span class="dot" style="width:80px;height:80px;background:rgba(255,255,255,0.08);left:-20px;bottom:-20px;"></span>
+      <h2>まずは、60分の無料相談から。</h2>
+      <p>「うちの業務、アプリにできる？」── その問いから、はじめましょう。</p>
+      <div class="ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">無料で相談する<span class="arr">→</span></a>
+        <a href="services.html" class="btn btn-ghost btn-lg">事業内容を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="assets/chrome.js"></script>
+<script src="assets/kintone.js"></script>
+<script>
+/* Pull latest 3 posts into the teaser (graceful: keeps static fallback on failure) */
+(function () {
+  fetch('data/posts.json').then(r => r.ok ? r.json() : Promise.reject()).then(data => {
+    const posts = (data.posts || data || []).slice(0, 3);
+    if (!posts.length) return;
+    const catLabel = { meo:'MEO', aio:'AIO', app:'APP', hp:'HP/LP', ai:'AI' };
+    const wrap = document.getElementById('home-posts');
+    wrap.innerHTML = posts.map((p, i) => `
+      <a class="card post reveal${i?(' d'+i):''}" href="blog-post.html?slug=${encodeURIComponent(p.slug)}">
+        <span class="cat">${catLabel[p.category] || (p.category||'').toUpperCase()}</span>
+        <h3>${p.title || ''}</h3>
+        <p>${p.excerpt || ''}</p>
+        <div class="date">${p.date || ''}</div>
+      </a>`).join('');
+    document.querySelectorAll('#home-posts .reveal').forEach(el => el.classList.add('in'));
+  }).catch(() => {});
+})();
+</script>
+</body>
+</html>

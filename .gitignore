@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# DB
+*.db
+
+# 内部資料・開発用（サイトに不要 / 公開しない）
+/export/
+/research/
+/uploads/
+/shots/
+/tweaks-panel.jsx
+
+# 大きい未使用ファイル（公開版はミルページ側で生成）
+ミエルームLP/ミエルーム_公開用.html

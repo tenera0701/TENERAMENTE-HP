@@ -1,0 +1,69 @@
+name: Auto Blog Post
+
+# 毎日 07:00 JST（UTC 22:00）に新しいブログ記事を自動生成・公開する。
+# 手動実行（workflow_dispatch）でテーマを指定することも可能。
+on:
+  schedule:
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+    inputs:
+      theme:
+        description: '記事テーマ（任意・空欄ならローテーションで自動選定）'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate blog post with Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: '--allowedTools Bash,Read,Write,Edit,Glob,Grep'
+          prompt: |
+            このリポジトリの CLAUDE.md の手順に厳密に従って、新しいブログ記事を1本だけ作成・公開してください。
+
+            - テーマ: "${{ github.event.inputs.theme }}"（空欄の場合は posts/ 配下の過去記事を確認し、
+              CLAUDE.md「カテゴリのローテーション戦略」に従って、直近で投稿していないカテゴリを優先して自動選定）。
+            - 文字数は 2,500〜4,500字（日本語）。「です・ます調」、ブランドトーンは「優しく、専門的に」。
+            - 構成は参照記事レベルの"ちゃんとした"記事にすること:
+              ・H2 見出しを 6〜9 本（目次はこの H2 から自動生成されます）
+              ・冒頭に結論ボックス <div class="conclusion"><h4>📌 この記事の結論</h4><p>…</p></div>
+              ・比較や費用などは Markdown の表（| … |）を1つ以上
+              ・<div class="callout">…</div> や <div class="callout warn">…</div> を適宜
+              ・末尾に FAQ を <details class="faq"><summary>Q…</summary><div class="faq-a">A…</div></details> で3問程度
+              ・最後は当社サービスへ自然につなぐ1段落（営業的すぎない）
+            - 数値は実在のものだけ。架空の「○倍」「○%」は書かない（CLAUDE.md 準拠）。
+            - 記事は posts/<slug>.md（slug は YYYY-MM-DD-kebab-case）に保存。
+            - 作成後、必ず `node scripts/build-index.js` を実行して data/posts.json と sitemap.xml を更新すること。
+
+      - name: Rebuild index (保険)
+        run: node scripts/build-index.js
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts/ data/ sitemap.xml
+          if git diff --cached --quiet; then
+            echo "変更なし — コミットをスキップします"
+            exit 0
+          fi
+          git commit -m "blog: 自動投稿 $(date -u +%Y-%m-%d)"
+          git push
