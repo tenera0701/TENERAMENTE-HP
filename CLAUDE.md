@@ -103,13 +103,14 @@ node scripts/build-index.js
 - `data/posts.json`（一覧用、新しい順にソート、ビジュアルバリアントと番号を自動採番）
 - `sitemap.xml`（全 URL を再列挙）
 - `<slug>.html`（記事ごとの静的ページ。OGP/canonical 用に自動生成される。手で編集しない）
+- `assets/img/covers/<slug>.png`（カバー画像。タイトル・カテゴリ入りで自動生成。一覧カード・記事カバー・OGP画像に使われる。作り直したい時はPNGを削除して再ビルド）
 
 ### Step 4. コミット & プッシュ
 
 ローカルで作業した場合は手動でコミット＆プッシュする（GitHub Pages が自動反映）：
 
 ```bash
-git add posts/ data/ sitemap.xml *.html
+git add posts/ data/ sitemap.xml *.html assets/img/covers/
 git commit -m "blog: <slug> を追加"
 git push
 ```

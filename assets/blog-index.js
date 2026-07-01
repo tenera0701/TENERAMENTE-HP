@@ -27,7 +27,9 @@
           </div>
         </div>
         <div class="featured-visual">
-          <div class="glyph">${esc(p.glyph || 'A')}</div>
+          ${p.image
+            ? `<img src="${esc(p.image)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+            : `<div class="glyph">${esc(p.glyph || 'A')}</div>`}
         </div>
       </article>`;
   }
@@ -36,7 +38,9 @@
     const visualClass = p.visual && p.visual !== 'default' ? ` ${p.visual}` : '';
     return `
       <a class="article-card reveal" href="${encodeURIComponent(p.slug)}.html" data-cat="${esc(p.categoryGroup)}">
-        <div class="visual${visualClass}"><div class="gl"><div class="gl-text">${esc(p.number)}</div></div></div>
+        <div class="visual${visualClass}">${p.image
+          ? `<img src="${esc(p.image)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+          : `<div class="gl"><div class="gl-text">${esc(p.number)}</div></div>`}</div>
         <div class="meta-row">
           <span class="cat">${esc(p.categoryLabel)}</span>
           <span class="dot"></span>

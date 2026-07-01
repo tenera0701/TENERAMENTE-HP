@@ -61,7 +61,8 @@
       }
     ],
     "visual": "default",
-    "number": "01"
+    "number": "01",
+    "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
   },
   {
     "slug": "2026-07-01-aio-cited-site",
@@ -120,7 +121,8 @@
       }
     ],
     "visual": "v-violet",
-    "number": "02"
+    "number": "02",
+    "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
   },
   {
     "slug": "2026-06-30-gyomu-app-kanzen-guide",
@@ -184,7 +186,8 @@
       }
     ],
     "visual": "v-cyan",
-    "number": "03"
+    "number": "03",
+    "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
   },
   {
     "slug": "2026-06-28-gbp-monthly-checklist",
@@ -243,7 +246,8 @@
       }
     ],
     "visual": "default",
-    "number": "04"
+    "number": "04",
+    "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
   },
   {
     "slug": "2026-06-27-google-kuchikomi-fuyasu",
@@ -306,7 +310,8 @@
       }
     ],
     "visual": "v-violet",
-    "number": "05"
+    "number": "05",
+    "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
   },
   {
     "slug": "2026-06-26-ai-first-step",
@@ -360,7 +365,8 @@
       }
     ],
     "visual": "v-cyan",
-    "number": "06"
+    "number": "06",
+    "image": "assets/img/covers/2026-06-26-ai-first-step.png"
   },
   {
     "slug": "2026-06-25-kozoka-data-json-ld-guide",
@@ -424,7 +430,8 @@
       }
     ],
     "visual": "default",
-    "number": "07"
+    "number": "07",
+    "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
   },
   {
     "slug": "2026-06-23-ai-overviews-taisaku",
@@ -488,7 +495,8 @@
       }
     ],
     "visual": "v-violet",
-    "number": "08"
+    "number": "08",
+    "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
   },
   {
     "slug": "2026-06-20-chatgpt-gyomu-katsuyo",
@@ -552,7 +560,8 @@
       }
     ],
     "visual": "v-cyan",
-    "number": "09"
+    "number": "09",
+    "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
   },
   {
     "slug": "2026-06-17-rag-shanai-knowledge",
@@ -621,7 +630,8 @@
       }
     ],
     "visual": "default",
-    "number": "10"
+    "number": "10",
+    "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
   },
   {
     "slug": "2026-06-14-ai-donyu-shippai-kaihi",
@@ -685,7 +695,8 @@
       }
     ],
     "visual": "v-violet",
-    "number": "11"
+    "number": "11",
+    "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
   },
   {
     "slug": "2026-06-11-excel-kanri-genkai-systemka",
@@ -764,7 +775,8 @@
       }
     ],
     "visual": "v-cyan",
-    "number": "12"
+    "number": "12",
+    "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
   },
   {
     "slug": "2026-06-08-webapp-kaihatsu-hiyo-souba",
@@ -828,7 +840,8 @@
       }
     ],
     "visual": "default",
-    "number": "13"
+    "number": "13",
+    "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
   },
   {
     "slug": "2026-06-05-homepage-seisaku-hiyo-guide",
@@ -892,6 +905,7 @@
       }
     ],
     "visual": "v-violet",
-    "number": "14"
+    "number": "14",
+    "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
   }
 ]

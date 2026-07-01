@@ -105,6 +105,12 @@
   setText('glyph', post.glyph || 'A');
   setText('crumb', post.categoryLabel.toUpperCase());
 
+  // カバー画像があればグリフの代わりに表示
+  if (post.image) {
+    const cover = document.querySelector('.post-cover-inner');
+    if (cover) cover.innerHTML = `<img src="${post.image}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`;
+  }
+
   // Markdown レンダリング
   marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
   const html = marked.parse(body);

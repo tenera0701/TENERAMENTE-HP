@@ -128,6 +128,14 @@ function main() {
     p.number = String(i + 1).padStart(2, '0');
   });
 
+  // カバー画像を自動生成し、存在する記事に image を付与(無くてもビルドは続行)
+  try {
+    const covered = require('./gen-covers').generate(posts, ROOT);
+    posts.forEach(p => { if (covered.has(p.slug)) p.image = `assets/img/covers/${p.slug}.png`; });
+  } catch (e) {
+    console.warn('△ カバー画像の生成に失敗:', e.message);
+  }
+
   // 書き出し
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.writeFileSync(OUT_JSON, JSON.stringify(posts, null, 2) + '\n', 'utf8');
@@ -153,6 +161,10 @@ function main() {
       'twitter:title': p.title,
       'twitter:description': p.excerpt,
     };
+    if (p.image) {
+      metas['og:image'] = `${SITE_URL}/${p.image}`;
+      metas['twitter:image'] = `${SITE_URL}/${p.image}`;
+    }
     let html = template.replace(/<title data-meta="title">[\s\S]*?<\/title>/,
       () => `<title data-meta="title">${escAttr(p.title)} — TENERAMENTE Blog</title>`);
     for (const [k, v] of Object.entries(metas)) {
@@ -165,7 +177,7 @@ function main() {
       headline: p.title, description: p.excerpt,
       datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
       mainEntityOfPage: url,
-      image: `${SITE_URL}/assets/img/ogp.png`,
+      image: p.image ? `${SITE_URL}/${p.image}` : `${SITE_URL}/assets/img/ogp.png`,
       author: { '@type': 'Person', name: '加藤 聖矢' },
       publisher: { '@type': 'Organization', name: '株式会社TENERAMENTE',
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/favicon-512.png` } },
