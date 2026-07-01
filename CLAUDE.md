@@ -17,7 +17,7 @@
 ├── posts/<slug>.md            … 記事本文（あなたが書くファイルはここだけ）
 ├── scripts/build-index.js     … インデックス & sitemap 再生成スクリプト
 ├── sitemap.xml                … 自動生成
-└── .github/workflows/auto-post.yml … スケジュール実行
+└── llms.txt                   … AI検索向けサイト案内
 ```
 
 **書き換えていいファイル:**
@@ -106,7 +106,7 @@ node scripts/build-index.js
 
 ### Step 4. コミット & プッシュ
 
-GitHub Actions ワークフロー側でコミットとプッシュは自動実行される。ローカルで作業する場合：
+ローカルで作業した場合は手動でコミット＆プッシュする（GitHub Pages が自動反映）：
 
 ```bash
 git add posts/ data/ sitemap.xml *.html
@@ -190,15 +190,15 @@ git push
 
 ---
 
-## 6. ワークフローからの呼び出し例
+## 6. 記事作成を依頼されたときの呼び出し例
 
-GitHub Actions から渡されるプロンプト例：
+（スケジュール自動投稿は廃止済み。記事はミルページ経由か、Claude Code への依頼で作成する）
 
 > 「CLAUDE.md の手順に従って、新しいブログ記事を1本作成・公開してください。
 > テーマは過去5本を確認の上、ローテーション戦略に従って自動選定。
 > 完了後、`node scripts/build-index.js` を必ず実行してください。」
 
-引数で `THEME` が指定されている場合は、そのテーマで書く。
+テーマの指定がある場合は、そのテーマで書く。
 
 ---
 
