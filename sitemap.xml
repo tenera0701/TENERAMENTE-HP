@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://teneramente.jp/</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/services.html</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/company.html</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/contact.html</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/blog.html</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-07-01-aio-cited-site</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-30-gyomu-app-kanzen-guide</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-28-gbp-monthly-checklist</loc><lastmod>2026-06-30</lastmod></url>
-  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-26-ai-first-step</loc><lastmod>2026-06-30</lastmod></url>
+  <url><loc>https://teneramente.jp/</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/services.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/company.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/contact.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/lp-ai-app.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/lp-hplp.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/lp-meo.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/lp-milpage.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/lp-ldash.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0LP/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0.html</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-07-02-meo-taisaku-complete-guide</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-07-01-aio-cited-site</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-30-gyomu-app-kanzen-guide</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-28-gbp-monthly-checklist</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-27-google-kuchikomi-fuyasu</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-26-ai-first-step</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-25-kozoka-data-json-ld-guide</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-23-ai-overviews-taisaku</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-20-chatgpt-gyomu-katsuyo</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-17-rag-shanai-knowledge</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-14-ai-donyu-shippai-kaihi</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-11-excel-kanri-genkai-systemka</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-08-webapp-kaihatsu-hiyo-souba</loc><lastmod>2026-07-01</lastmod></url>
+  <url><loc>https://teneramente.jp/blog-post.html?slug=2026-06-05-homepage-seisaku-hiyo-guide</loc><lastmod>2026-07-01</lastmod></url>
 </urlset>
