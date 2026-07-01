@@ -132,6 +132,51 @@ function main() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.writeFileSync(OUT_JSON, JSON.stringify(posts, null, 2) + '\n', 'utf8');
 
+  // 記事ごとの静的ページ <slug>.html を生成(SNSのOGP・canonical対策)。
+  // blog-post.html をテンプレートに <head> のメタだけ差し替える。本文は従来どおりJSで描画。
+  // 旧生成物(記事slug形式の .html)は削除してから作り直す。
+  const POST_PAGE_RE = /^\d{4}-\d{2}-\d{2}-[A-Za-z0-9-]+\.html$/;
+  fs.readdirSync(ROOT).filter(f => POST_PAGE_RE.test(f))
+    .forEach(f => fs.unlinkSync(path.join(ROOT, f)));
+
+  const escAttr = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const template = fs.readFileSync(path.join(ROOT, 'blog-post.html'), 'utf8');
+
+  posts.forEach(p => {
+    const url = `${SITE_URL}/${p.slug}.html`;
+    const metas = {
+      'description': p.excerpt,
+      'og:title': p.title,
+      'og:description': p.excerpt,
+      'og:url': url,
+      'twitter:title': p.title,
+      'twitter:description': p.excerpt,
+    };
+    let html = template.replace(/<title data-meta="title">[\s\S]*?<\/title>/,
+      () => `<title data-meta="title">${escAttr(p.title)} — TENERAMENTE Blog</title>`);
+    for (const [k, v] of Object.entries(metas)) {
+      html = html.replace(new RegExp(`(data-meta="${k}" content=")[^"]*(")`),
+        (m, a, b) => a + escAttr(v) + b);
+    }
+    html = html.replace(/(data-canonical href=")[^"]*(")/, (m, a, b) => a + url + b);
+    const ld = {
+      '@context': 'https://schema.org', '@type': 'BlogPosting',
+      headline: p.title, description: p.excerpt,
+      datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
+      mainEntityOfPage: url,
+      image: `${SITE_URL}/assets/img/ogp.png`,
+      author: { '@type': 'Person', name: '加藤 聖矢' },
+      publisher: { '@type': 'Organization', name: '株式会社TENERAMENTE',
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/favicon-512.png` } },
+      keywords: (p.tags || []).join(', '),
+    };
+    html = html.replace('</head>',
+      `<script>window.__POST_SLUG__=${JSON.stringify(p.slug)};</script>\n` +
+      `<script type="application/ld+json">${JSON.stringify(ld)}</script>\n</head>`);
+    fs.writeFileSync(path.join(ROOT, `${p.slug}.html`), html, 'utf8');
+  });
+
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
   const staticUrls = [
@@ -139,7 +184,7 @@ function main() {
     'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'ミエルームLP/ミエルーム.html',
   ];
-  const postUrls = posts.map(p => `blog-post.html?slug=${p.slug}`);
+  const postUrls = posts.map(p => `${p.slug}.html`);
   const all = [...staticUrls, ...postUrls];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

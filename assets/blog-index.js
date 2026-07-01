@@ -18,7 +18,7 @@
       <article class="featured-card reveal" data-cat="${esc(p.categoryGroup)}">
         <div>
           <span class="featured-tag">Featured / ${esc(p.date.slice(0, 7).replace('-', '.'))}</span>
-          <h2><a href="blog-post.html?slug=${encodeURIComponent(p.slug)}">${esc(p.title)}</a></h2>
+          <h2><a href="${encodeURIComponent(p.slug)}.html">${esc(p.title)}</a></h2>
           <p class="lead">${esc(p.excerpt)}</p>
           <div class="meta">
             <span>${esc(p.categoryLabel)}</span><span class="dot"></span>
@@ -35,7 +35,7 @@
   function cardHTML(p) {
     const visualClass = p.visual && p.visual !== 'default' ? ` ${p.visual}` : '';
     return `
-      <a class="article-card reveal" href="blog-post.html?slug=${encodeURIComponent(p.slug)}" data-cat="${esc(p.categoryGroup)}">
+      <a class="article-card reveal" href="${encodeURIComponent(p.slug)}.html" data-cat="${esc(p.categoryGroup)}">
         <div class="visual${visualClass}"><div class="gl"><div class="gl-text">${esc(p.number)}</div></div></div>
         <div class="meta-row">
           <span class="cat">${esc(p.categoryLabel)}</span>

@@ -1,0 +1,32 @@
+# 株式会社TENERAMENTE
+
+> AI×WEBアプリ開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援を行う、名古屋の業務改善パートナー。中小企業向けに「初期費用15万円〜・月額保守込み」の専用業務アプリ開発を提供しています。
+
+- 所在地: 愛知県名古屋市西区牛島町6-1 名古屋ルーセントタワー40階
+- 代表: 加藤 聖矢
+- お問い合わせ: https://teneramente.jp/contact.html
+
+## 事業内容
+
+- [AI×WEBアプリ開発](https://teneramente.jp/lp-ai-app.html): 業務改善ツールの受託開発。Excel・属人化業務のアプリ化
+- [HP/LP制作](https://teneramente.jp/lp-hplp.html): 自社CMS「ミルページ」によるHP/LP制作と運用支援
+- [MEO/AIO運用代行](https://teneramente.jp/lp-meo.html): Googleマップ・AI検索の順位可視化と運用代行
+- [AI活用支援](https://teneramente.jp/services.html): 社内AI導入・RAG構築・プロンプト設計の伴走支援
+
+## 自社プロダクト
+
+- [ミエルーム](https://teneramente.jp/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0LP/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0.html): 賃貸仲介向け業務管理SaaS
+- [ミルページ](https://teneramente.jp/lp-milpage.html): 店舗オーナー向けHP運用CMS
+- [LDash](https://teneramente.jp/lp-ldash.html): LINE公式アカウントCRM
+- [MEOツール](https://teneramente.jp/lp-meo.html): MEO順位計測・運用ツール
+
+## ブログ
+
+- [ブログ一覧](https://teneramente.jp/blog.html): MEO/AIO・AI活用・業務アプリ開発・HP制作の実践ガイド記事
+- 記事一覧データ(JSON): https://teneramente.jp/data/posts.json
+
+## 会社情報
+
+- [会社概要](https://teneramente.jp/company.html)
+- [事業内容](https://teneramente.jp/services.html)
+- [サイトマップ](https://teneramente.jp/sitemap.xml)

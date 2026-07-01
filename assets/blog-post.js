@@ -8,7 +8,8 @@
 (async function () {
   const SITE = window.location.origin + window.location.pathname.replace(/blog-post\.html$/, '');
   const params = new URLSearchParams(location.search);
-  const slug = params.get('slug');
+  // 静的ページ(<slug>.html)では window.__POST_SLUG__ が埋め込まれている
+  const slug = params.get('slug') || window.__POST_SLUG__ || '';
   const bodyHost = document.querySelector('[data-post="body"]');
 
   function setText(sel, text) {
@@ -72,14 +73,15 @@
   setMeta('og:description', post.excerpt);
 
   // SEO: canonical / og:url / Twitter / 構造化データ(Article)
+  // 正規URLは静的ページ(<slug>.html)。?slug= 形式で開かれてもそちらへ正規化する
   var SITE_ABS = 'https://teneramente.jp/';
-  var postUrl = SITE_ABS + 'blog-post.html?slug=' + encodeURIComponent(slug);
+  var postUrl = SITE_ABS + encodeURIComponent(slug) + '.html';
   setMeta('og:url', postUrl);
   setMeta('twitter:title', post.title);
   setMeta('twitter:description', post.excerpt);
   var canon = document.querySelector('[data-canonical]');
   if (canon) canon.setAttribute('href', postUrl);
-  try {
+  if (!document.querySelector('script[type="application/ld+json"]')) try {
     var ld = {
       "@context": "https://schema.org", "@type": "BlogPosting",
       "headline": post.title, "description": post.excerpt,
@@ -192,7 +194,7 @@
     const others = posts.filter(p => p.slug !== slug && p.categoryGroup !== post.categoryGroup);
     const related = [...sameGroup, ...others].slice(0, 3);
     relatedHost.innerHTML = related.map(p => `
-      <a class="related-card" href="blog-post.html?slug=${encodeURIComponent(p.slug)}">
+      <a class="related-card" href="${encodeURIComponent(p.slug)}.html">
         <span class="cat">${p.categoryLabel}</span>
         <h4>${escapeHtml(p.title)}</h4>
       </a>

@@ -379,7 +379,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
     const catLabel = { meo:'MEO', aio:'AIO', app:'APP', hp:'HP/LP', ai:'AI' };
     const wrap = document.getElementById('home-posts');
     wrap.innerHTML = posts.map((p, i) => `
-      <a class="card post reveal${i?(' d'+i):''}" href="blog-post.html?slug=${encodeURIComponent(p.slug)}">
+      <a class="card post reveal${i?(' d'+i):''}" href="${encodeURIComponent(p.slug)}.html">
         <span class="cat">${catLabel[p.category] || (p.category||'').toUpperCase()}</span>
         <h3>${p.title || ''}</h3>
         <p>${p.excerpt || ''}</p>

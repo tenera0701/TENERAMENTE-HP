@@ -102,13 +102,14 @@ node scripts/build-index.js
 これで以下が更新される：
 - `data/posts.json`（一覧用、新しい順にソート、ビジュアルバリアントと番号を自動採番）
 - `sitemap.xml`（全 URL を再列挙）
+- `<slug>.html`（記事ごとの静的ページ。OGP/canonical 用に自動生成される。手で編集しない）
 
 ### Step 4. コミット & プッシュ
 
 GitHub Actions ワークフロー側でコミットとプッシュは自動実行される。ローカルで作業する場合：
 
 ```bash
-git add posts/ data/ sitemap.xml
+git add posts/ data/ sitemap.xml *.html
 git commit -m "blog: <slug> を追加"
 git push
 ```
