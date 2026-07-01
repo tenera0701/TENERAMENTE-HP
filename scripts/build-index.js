@@ -134,12 +134,16 @@ function main() {
 
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
-  const staticUrls = ['', 'services.html', 'company.html', 'contact.html', 'blog.html'];
+  const staticUrls = [
+    '', 'services.html', 'company.html', 'contact.html', 'blog.html',
+    'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
+    'lp-milpage.html', 'lp-ldash.html', 'ミエルームLP/ミエルーム.html',
+  ];
   const postUrls = posts.map(p => `blog-post.html?slug=${p.slug}`);
   const all = [...staticUrls, ...postUrls];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${all.map(u => `  <url><loc>${SITE_URL}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${all.map(u => `  <url><loc>${SITE_URL}/${encodeURI(u).replace(/&/g, '&amp;')}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `;
   fs.writeFileSync(OUT_SITEMAP, sitemap, 'utf8');
