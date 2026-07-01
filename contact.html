@@ -164,9 +164,13 @@
           </div>
           <div class="review-list" id="review"></div>
           <label class="consent"><input type="checkbox" name="consent" required /><span><a href="#">プライバシーポリシー</a>に同意の上、内容を送信します。</span></label>
+          <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+            <input type="text" name="_hp" tabindex="-1" autocomplete="off" />
+          </div>
+          <p id="sendError" style="display:none;color:var(--accent-coral);font-size:13px;font-weight:700;margin-top:14px;">送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、<a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" style="color:var(--blue-deep);text-decoration:underline;">LINE</a>からお問い合わせください。</p>
           <div class="step-nav">
             <button type="button" class="btn btn-ghost" data-prev="1">← 戻る</button>
-            <button type="submit" class="btn btn-primary">送信する<span class="arr">→</span></button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">送信する<span class="arr">→</span></button>
           </div>
         </div>
 
@@ -258,7 +262,10 @@
     ).join('');
   }
 
-  form.addEventListener('submit', (e) => {
+  // 送信先: ATLAS(問い合わせ集約ツール)の公開受信API
+  const ATLAS_ENDPOINT = 'https://web-production-2f388.up.railway.app/api/public-inquiries';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let ok = true;
     ['name','email'].forEach(n => {
@@ -267,7 +274,47 @@
     });
     if (!form.consent.checked) { ok = false; form.consent.style.borderColor = 'var(--accent-coral)'; }
     if (!ok) return;
-    go('done');
+
+    const svc = Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i => {
+      const t = i.closest('label').querySelector('.o-t');
+      return t ? t.textContent.trim() : i.value;
+    });
+    const bodyLines = [
+      form.message.value.trim(),
+      '',
+      form.timing.value ? `希望開始時期: ${form.timing.value}` : '',
+      form.source.value ? `きっかけ: ${form.source.value}` : '',
+      form.role.value.trim() ? `部署・役職: ${form.role.value.trim()}` : '',
+    ].filter((l, i) => i === 0 || l);
+
+    const btn = document.getElementById('submitBtn');
+    const errEl = document.getElementById('sendError');
+    errEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+    try {
+      const res = await fetch(ATLAS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'TENERAMENTE HP',
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          company: form.company.value.trim(),
+          subject: '無料相談' + (svc.length ? '：' + svc.join('・') : ''),
+          body: bodyLines.join('\n'),
+          _hp: form._hp.value,
+        }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      go('done');
+    } catch (err) {
+      console.error('[contact] send failed:', err);
+      errEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '送信する<span class="arr">→</span>';
+    }
   });
 })();
 </script>
