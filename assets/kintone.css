@@ -466,8 +466,8 @@ html[data-variant="t"] .card:hover {
 /* CTAボタン: エレクトリックグラデ */
 html[data-variant="t"] .btn-primary { background: linear-gradient(120deg, #1e9bf0, #2ee0c9); }
 html[data-variant="t"] .btn-primary:hover { background: linear-gradient(120deg, #0d7fd6, #17cdb5); box-shadow: 0 12px 26px rgba(24,170,220,.42); }
-/* フッターをヒーローと同じ深紺に */
-html[data-variant="t"] .k-footer { background: #0a1626; }
+/* フッターは従来の色を維持（明るいテックでも足元は落ち着かせる） */
+html[data-variant="t"] .k-footer { background: #16384a; }
 /* コンフェッティ装飾を鎮める（残すが主張させない） */
 html[data-variant="t"] .shape { opacity: .26; filter: saturate(.55); }
 html[data-variant="t"] .blob  { opacity: .22; filter: blur(50px) saturate(.6); }

@@ -28,21 +28,20 @@
 </script>
 <link rel="stylesheet" href="assets/kintone.css" />
 <style>
-/* ===== ダークテック・ヒーロー ===== */
+/* ===== ブライトテック・ヒーロー ===== */
 .hero {
   position: relative;
-  background: linear-gradient(165deg, #0a1626 0%, #0e2138 55%, #0b1930 100%);
-  color: #eef5fc;
+  background: linear-gradient(165deg, #eaf5fe 0%, #f9fcff 55%, #ecf6fd 100%);
   overflow: hidden;
   padding-block: clamp(52px,7vw,100px) clamp(60px,8vw,116px);
-  border-bottom: 1px solid rgba(110,200,255,.16);
+  border-bottom: 1px solid #e0edf7;
 }
-#neural { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .85; }
+#neural { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .8; }
 .hero::before { /* 極薄グリッド */
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(150,210,255,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(150,210,255,.055) 1px, transparent 1px);
+    linear-gradient(rgba(30,140,235,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,140,235,.07) 1px, transparent 1px);
   background-size: 44px 44px;
   -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 82%);
           mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 82%);
@@ -50,27 +49,22 @@
 .hero::after { /* シアン／ブルーの淡い光 */
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(560px 420px at 82% 18%, rgba(46,224,201,.14), transparent 65%),
-    radial-gradient(640px 480px at 12% 86%, rgba(30,155,240,.16), transparent 65%);
+    radial-gradient(560px 420px at 82% 18%, rgba(46,224,201,.13), transparent 65%),
+    radial-gradient(640px 480px at 12% 86%, rgba(30,155,240,.12), transparent 65%);
 }
 .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px,4vw,56px); align-items: center; }
-.hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.32; letter-spacing: 0.01em; color: #fff; }
+.hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.32; letter-spacing: 0.01em; color: var(--ink); }
 .hero h1 .hl1, .hero h1 .hl2 { display: block; white-space: nowrap; }
 .hero h1 .b {
-  background: linear-gradient(115deg, #4cc3ff 10%, #2ee0c9 90%);
+  background: linear-gradient(115deg, #0d8fe8 10%, #0fb5a0 90%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.hero .lead { margin-top: 24px; font-size: clamp(15px,1.5vw,17.5px); color: #b9cadd; max-width: 30em; }
-.hero .eyebrow { color: #7fd8ff; background: rgba(80,190,255,.09); border-color: rgba(120,210,255,.28); }
+.hero .lead { margin-top: 24px; font-size: clamp(15px,1.5vw,17.5px); color: var(--ink-soft); max-width: 30em; }
 .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 .hero .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
-.chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: #d9e7f5; background: rgba(255,255,255,.055); border: 1px solid rgba(150,215,255,.22); border-radius: var(--radius-pill); padding: 8px 15px; backdrop-filter: blur(6px); }
-.chip svg { width: 15px; height: 15px; color: var(--cyan); }
-.sysline { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: rgba(160,190,220,.55); }
-/* 透明ヘッダーがダークヒーローに重なる間だけナビを明るく */
-body[data-hero="dark"] .k-header:not(.scrolled) .k-nav a { color: rgba(226,240,252,.85); }
-body[data-hero="dark"] .k-header:not(.scrolled) .k-nav a:hover { background: rgba(255,255,255,.10); color: #fff; }
-body[data-hero="dark"] .k-header:not(.scrolled) .brand .sub { color: rgba(226,240,252,.55); }
+.chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink-soft); background: #fff; border: 1px solid rgba(30,150,240,.22); border-radius: var(--radius-pill); padding: 8px 15px; box-shadow: var(--shadow-sm); }
+.chip svg { width: 15px; height: 15px; color: #0fae98; }
+.sysline { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: rgba(70,110,150,.6); }
 @media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: 1; } }
 
 /* LINE button */
@@ -93,7 +87,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
   background: rgba(13,27,48,.78);
   border: 1px solid rgba(130,205,255,.22);
   border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(2,10,25,.55), inset 0 1px 0 rgba(255,255,255,.06);
+  box-shadow: 0 28px 64px rgba(20,70,140,.26), inset 0 1px 0 rgba(255,255,255,.06);
   backdrop-filter: blur(10px);
 }
 .con-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(130,205,255,.14); }
@@ -119,7 +113,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
   display: flex; gap: 10px; align-items: flex-start;
   background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.25);
   border-radius: 14px; padding: 13px 15px;
-  box-shadow: 0 18px 50px rgba(2,10,25,.5); backdrop-filter: blur(8px);
+  box-shadow: 0 16px 42px rgba(20,70,140,.24); backdrop-filter: blur(8px);
 }
 .ai-ic { flex: none; width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #1e9bf0, #2ee0c9); display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; color: #04121f; }
 .con-chat .bub { font-size: 12px; line-height: 1.7; color: #d9e7f6; }
@@ -129,7 +123,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
   position: absolute; left: -6%; top: -8%;
   background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.25);
   border-radius: 14px; padding: 12px 16px 13px;
-  box-shadow: 0 18px 50px rgba(2,10,25,.5); backdrop-filter: blur(8px);
+  box-shadow: 0 16px 42px rgba(20,70,140,.24); backdrop-filter: blur(8px);
 }
 .con-stat .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .16em; color: var(--cyan); }
 .con-stat b { display: block; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.15; color: #fff; }
@@ -188,19 +182,18 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .post .date { font-size:12px; color:var(--ink-faint); margin-top:12px; }
 @media(max-width:760px){ .posts{ grid-template-columns:1fr; } }
 
-/* CTA band — ダークテック */
+/* CTA band — ブライトテック */
 .cta-band {
   position: relative; overflow: hidden;
-  background: linear-gradient(160deg, #0a1626, #10253f);
-  border: 1px solid rgba(120,200,255,.20);
+  background: linear-gradient(120deg, #1795ee 0%, #14c2ad 100%);
   color: #fff; border-radius: var(--radius-xl);
   padding: clamp(40px,6vw,72px); text-align: center;
 }
 .cta-band::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background-image:
-    linear-gradient(rgba(150,210,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(150,210,255,.06) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
   background-size: 40px 40px;
   -webkit-mask-image: radial-gradient(110% 100% at 50% 0%, #000 20%, transparent 80%);
           mask-image: radial-gradient(110% 100% at 50% 0%, #000 20%, transparent 80%);
@@ -208,17 +201,17 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .cta-band::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(420px 300px at 85% 10%, rgba(46,224,201,.16), transparent 65%),
-    radial-gradient(480px 340px at 10% 90%, rgba(30,155,240,.18), transparent 65%);
+    radial-gradient(420px 300px at 85% 10%, rgba(255,255,255,.18), transparent 65%),
+    radial-gradient(480px 340px at 10% 90%, rgba(255,255,255,.12), transparent 65%);
 }
 .cta-band > * { position: relative; z-index: 1; }
 .cta-band h2 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(26px,4vw,42px); line-height: 1.3; }
-.cta-band p { margin-top: 16px; opacity: .88; font-size: 16px; }
+.cta-band p { margin-top: 16px; opacity: .92; font-size: 16px; }
 .cta-band .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-.cta-band .btn-primary { background: linear-gradient(120deg, #1e9bf0, #2ee0c9); color: #04121f; }
-.cta-band .btn-primary:hover { filter: brightness(1.08); }
-.cta-band .btn-ghost { background: transparent; color:#fff; border-color: rgba(255,255,255,0.45); }
-.cta-band .btn-ghost:hover { border-color:#fff; background: rgba(255,255,255,0.08); }
+html[data-variant="t"] .cta-band .btn-primary { background: #fff; color: #0d7fd6; }
+html[data-variant="t"] .cta-band .btn-primary:hover { background: #eefaff; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(6,50,90,.25); }
+.cta-band .btn-ghost { background: transparent; color:#fff; border-color: rgba(255,255,255,0.55); }
+.cta-band .btn-ghost:hover { border-color:#fff; background: rgba(255,255,255,0.10); }
 
 /* custom AI tool offer (FEATURE section) */
 .feat { text-align: left; position: relative; }
@@ -254,7 +247,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 html.lenis { scroll-behavior: auto; }
 </style>
 </head>
-<body data-active="" data-hero="dark">
+<body data-active="">
 
 <div data-chrome="header"></div>
 
@@ -550,15 +543,15 @@ html.lenis { scroll-behavior: auto; }
       for (j = i + 1; j < pts.length; j++) {
         b = pts[j]; dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
         if (d2 < R2) {
-          o = (1 - d2 / R2) * .32;
-          ctx.strokeStyle = 'rgba(84,190,255,' + o.toFixed(3) + ')';
+          o = (1 - d2 / R2) * .22;
+          ctx.strokeStyle = 'rgba(25,130,230,' + o.toFixed(3) + ')';
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
     }
     for (i = 0; i < pts.length; i++) {
       a = pts[i];
-      ctx.fillStyle = 'rgba(140,220,255,.75)';
+      ctx.fillStyle = 'rgba(15,110,210,.5)';
       ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.2832); ctx.fill();
     }
     raf = requestAnimationFrame(step);
