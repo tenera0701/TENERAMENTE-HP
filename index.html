@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" data-variant="b" class="js">
+<html lang="ja" data-variant="t" class="js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,16 +28,49 @@
 </script>
 <link rel="stylesheet" href="assets/kintone.css" />
 <style>
-.hero { background: transparent; overflow: hidden; padding-block: clamp(48px,7vw,96px) clamp(56px,8vw,110px); }
-.hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px,4vw,56px); align-items: center; }
-.hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.3; letter-spacing: 0.01em; }
+/* ===== ダークテック・ヒーロー ===== */
+.hero {
+  position: relative;
+  background: linear-gradient(165deg, #0a1626 0%, #0e2138 55%, #0b1930 100%);
+  color: #eef5fc;
+  overflow: hidden;
+  padding-block: clamp(52px,7vw,100px) clamp(60px,8vw,116px);
+  border-bottom: 1px solid rgba(110,200,255,.16);
+}
+#neural { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .85; }
+.hero::before { /* 極薄グリッド */
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(150,210,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150,210,255,.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 82%);
+          mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 82%);
+}
+.hero::after { /* シアン／ブルーの淡い光 */
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(560px 420px at 82% 18%, rgba(46,224,201,.14), transparent 65%),
+    radial-gradient(640px 480px at 12% 86%, rgba(30,155,240,.16), transparent 65%);
+}
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(28px,4vw,56px); align-items: center; }
+.hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.32; letter-spacing: 0.01em; color: #fff; }
 .hero h1 .hl1, .hero h1 .hl2 { display: block; white-space: nowrap; }
-.hero h1 .b { color: var(--blue); }
-.hero .lead { margin-top: 24px; font-size: clamp(15px,1.5vw,18px); color: var(--ink-soft); max-width: 30em; }
+.hero h1 .b {
+  background: linear-gradient(115deg, #4cc3ff 10%, #2ee0c9 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero .lead { margin-top: 24px; font-size: clamp(15px,1.5vw,17.5px); color: #b9cadd; max-width: 30em; }
+.hero .eyebrow { color: #7fd8ff; background: rgba(80,190,255,.09); border-color: rgba(120,210,255,.28); }
 .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
 .hero .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
-.chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink-soft); background: #fff; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 8px 15px; box-shadow: var(--shadow-sm); }
-.chip svg { width: 15px; height: 15px; color: var(--accent-green); }
+.chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: #d9e7f5; background: rgba(255,255,255,.055); border: 1px solid rgba(150,215,255,.22); border-radius: var(--radius-pill); padding: 8px 15px; backdrop-filter: blur(6px); }
+.chip svg { width: 15px; height: 15px; color: var(--cyan); }
+.sysline { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: rgba(160,190,220,.55); }
+/* 透明ヘッダーがダークヒーローに重なる間だけナビを明るく */
+body[data-hero="dark"] .k-header:not(.scrolled) .k-nav a { color: rgba(226,240,252,.85); }
+body[data-hero="dark"] .k-header:not(.scrolled) .k-nav a:hover { background: rgba(255,255,255,.10); color: #fff; }
+body[data-hero="dark"] .k-header:not(.scrolled) .brand .sub { color: rgba(226,240,252,.55); }
 @media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: 1; } }
 
 /* LINE button */
@@ -45,38 +78,81 @@
 .btn-line:hover { background:#05b34c; transform:translateY(-2px); box-shadow:0 12px 24px rgba(6,199,85,.36); }
 .btn-line .ico { width:20px; height:20px; }
 
-/* page-wide background handled by shared kintone.css (vibrant bokeh) */
 /* let tinted bands breathe so the page background shows through */
 body .tinted { background: transparent; }
 /* one continuous page background — no per-section bands or seams */
 .bg-dots::before, .bg-grid::before { display: none; }
-.hero { background: transparent; }
 /* keep section content above the decorative shapes */
 section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 
-.hero-visual { position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; }
-.hero-visual .hero-illust { width: 100%; display: flex; justify-content: center; }
-.hero-visual .hero-illust img { width: 118%; max-width: none; height: auto; display: block; object-fit: contain; filter: drop-shadow(0 16px 32px rgba(20,60,120,.12)); }
-@media (max-width: 880px){
-  .hero-visual { min-height: auto; }
-  .hero-visual .hero-illust img { width: 100%; }
+/* ===== 浮遊するAIコンソール（ヒーロービジュアル） ===== */
+.hero-visual { position: relative; z-index: 2; min-height: 430px; display: flex; align-items: center; justify-content: center; }
+.console { position: relative; width: min(520px, 100%); }
+.con-main {
+  position: relative; overflow: hidden;
+  background: rgba(13,27,48,.78);
+  border: 1px solid rgba(130,205,255,.22);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(2,10,25,.55), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
 }
-.mock { position: absolute; z-index: 1; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); }
-.mock-main { left: 6%; top: 4%; width: 76%; padding: 18px; }
-.mock-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-.mock-dots { display: flex; gap: 5px; } .mock-dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
-.mock-title { font-family: var(--font-disp); font-weight: 700; font-size: 12px; color: var(--ink-faint); }
-.mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line-soft); }
-.mock-row .av { width: 26px; height: 26px; border-radius: 8px; background: var(--blue-soft); flex: none; }
-.mock-bar { height: 8px; border-radius: 4px; background: var(--line); }
-.mock-pill { margin-left: auto; font-size: 10px; font-weight: 700; color: var(--blue-deep); background: var(--blue-soft); padding: 3px 9px; border-radius: 999px; }
-.mock-chat { right: 0; bottom: 2%; width: 50%; padding: 14px; }
-.mock-chat .ai { display:flex; gap:8px; align-items:flex-start; }
-.mock-chat .ai .ic { width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg,var(--blue),var(--accent-violet)); flex:none; display:grid; place-items:center; color:#fff; font-size:14px; font-weight:900; font-family:var(--font-disp);}
-.mock-chat .bub { background: var(--blue-mist); border-radius: 12px; padding: 9px 11px; font-size: 11px; color: var(--ink-soft); line-height:1.6; }
-.mock-stat { left: 0; bottom: 16%; width: 38%; padding: 14px 16px; }
-.mock-stat .n { font-family: var(--font-disp); font-weight: 900; font-size: 30px; color: var(--blue); line-height: 1; }
-.mock-stat .l { font-size: 10.5px; color: var(--ink-faint); margin-top: 4px; }
+.con-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(130,205,255,.14); }
+.cdot { width: 9px; height: 9px; border-radius: 50%; }
+.cdot.r { background: #ff6b6b; } .cdot.y { background: #ffc83d; } .cdot.g { background: #2ee06b; }
+.con-title { font-family: var(--font-mono); font-size: 11px; color: #8fa9c4; margin-left: 8px; letter-spacing: .04em; }
+.con-live { margin-left: auto; font-family: var(--font-mono); font-size: 10px; color: var(--cyan); letter-spacing: .14em; }
+.con-body { display: grid; grid-template-columns: 46px 1fr; }
+.con-side { border-right: 1px solid rgba(130,205,255,.12); display: flex; flex-direction: column; gap: 12px; padding: 16px 0; align-items: center; }
+.con-side i { width: 18px; height: 18px; border-radius: 6px; background: rgba(150,205,255,.14); }
+.con-side i.on { background: linear-gradient(135deg, #1e9bf0, #2ee0c9); }
+.con-content { padding: 16px 18px 18px; }
+.kpi { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 8px 0 10px; border-bottom: 1px dashed rgba(140,200,255,.13); flex-wrap: wrap; }
+.kpi .k { font-size: 11.5px; color: #93accc; }
+.kpi b { font-family: 'Space Grotesk', var(--font-disp); font-weight: 700; font-size: 20px; color: #fff; line-height: 1; }
+.kpi b small { font-size: 10.5px; color: #8fa9c4; font-weight: 500; margin-left: 3px; }
+.kpi .bar { flex: 1 0 100%; height: 5px; border-radius: 3px; background: rgba(140,200,255,.12); overflow: hidden; }
+.kpi .bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #1e9bf0, #2ee0c9); width: var(--w); }
+.chart { display: flex; gap: 8px; align-items: flex-end; height: 84px; margin-top: 16px; }
+.chart i { flex: 1; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, rgba(76,195,255,.85), rgba(46,224,201,.22)); height: var(--h); }
+.con-chat {
+  position: absolute; right: -5%; bottom: -9%; width: 74%;
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.25);
+  border-radius: 14px; padding: 13px 15px;
+  box-shadow: 0 18px 50px rgba(2,10,25,.5); backdrop-filter: blur(8px);
+}
+.ai-ic { flex: none; width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #1e9bf0, #2ee0c9); display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; color: #04121f; }
+.con-chat .bub { font-size: 12px; line-height: 1.7; color: #d9e7f6; }
+.con-chat .bub::after { content: '▍'; color: var(--cyan); margin-left: 2px; animation: caret 1.15s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+.con-stat {
+  position: absolute; left: -6%; top: -8%;
+  background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.25);
+  border-radius: 14px; padding: 12px 16px 13px;
+  box-shadow: 0 18px 50px rgba(2,10,25,.5); backdrop-filter: blur(8px);
+}
+.con-stat .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .16em; color: var(--cyan); }
+.con-stat b { display: block; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.15; color: #fff; }
+.con-stat .l { font-size: 10.5px; color: #8fa9c4; }
+@media (prefers-reduced-motion: no-preference) {
+  .con-chat { animation: floaty 7s ease-in-out infinite; }
+  .con-stat { animation: floaty 9s ease-in-out 1.2s infinite; }
+  .kpi .bar i { animation: growW 1.1s .25s cubic-bezier(.2,.7,.2,1) both; }
+  .chart i { animation: growH .9s cubic-bezier(.2,.7,.2,1) both; }
+  .chart i:nth-child(2) { animation-delay: .07s; } .chart i:nth-child(3) { animation-delay: .14s; }
+  .chart i:nth-child(4) { animation-delay: .21s; } .chart i:nth-child(5) { animation-delay: .28s; }
+  .chart i:nth-child(6) { animation-delay: .35s; } .chart i:nth-child(7) { animation-delay: .42s; }
+}
+@keyframes growW { from { width: 0; } }
+@keyframes growH { from { height: 8%; } }
+@media (max-width: 880px){ .hero-visual { min-height: auto; margin-top: 30px; } }
+@media (max-width: 560px){
+  .console { width: 100%; }
+  .con-stat { left: -2%; top: -10%; padding: 10px 13px 11px; }
+  .con-stat b { font-size: 24px; }
+  .con-chat { right: -2%; bottom: -12%; width: 88%; }
+  .hero-visual { margin-bottom: 30px; }
+}
 
 /* business cards */
 .biz { display:block; text-align:left; position:relative; overflow:hidden; }
@@ -112,15 +188,37 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .post .date { font-size:12px; color:var(--ink-faint); margin-top:12px; }
 @media(max-width:760px){ .posts{ grid-template-columns:1fr; } }
 
-/* CTA band */
-.cta-band { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); color: #fff; border-radius: var(--radius-xl); padding: clamp(40px,6vw,72px); text-align: center; position: relative; overflow: hidden; }
+/* CTA band — ダークテック */
+.cta-band {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #0a1626, #10253f);
+  border: 1px solid rgba(120,200,255,.20);
+  color: #fff; border-radius: var(--radius-xl);
+  padding: clamp(40px,6vw,72px); text-align: center;
+}
+.cta-band::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(150,210,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150,210,255,.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(110% 100% at 50% 0%, #000 20%, transparent 80%);
+          mask-image: radial-gradient(110% 100% at 50% 0%, #000 20%, transparent 80%);
+}
+.cta-band::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(420px 300px at 85% 10%, rgba(46,224,201,.16), transparent 65%),
+    radial-gradient(480px 340px at 10% 90%, rgba(30,155,240,.18), transparent 65%);
+}
+.cta-band > * { position: relative; z-index: 1; }
 .cta-band h2 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(26px,4vw,42px); line-height: 1.3; }
-.cta-band p { margin-top: 16px; opacity: .92; font-size: 16px; }
+.cta-band p { margin-top: 16px; opacity: .88; font-size: 16px; }
 .cta-band .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-.cta-band .btn-primary { background: #fff; color: var(--blue-deep); }
-.cta-band .btn-primary:hover { background: var(--accent-yellow); color: var(--ink); }
-.cta-band .btn-ghost { background: transparent; color:#fff; border-color: rgba(255,255,255,0.5); }
-.cta-band .btn-ghost:hover { border-color:#fff; background: rgba(255,255,255,0.1); }
+.cta-band .btn-primary { background: linear-gradient(120deg, #1e9bf0, #2ee0c9); color: #04121f; }
+.cta-band .btn-primary:hover { filter: brightness(1.08); }
+.cta-band .btn-ghost { background: transparent; color:#fff; border-color: rgba(255,255,255,0.45); }
+.cta-band .btn-ghost:hover { border-color:#fff; background: rgba(255,255,255,0.08); }
 
 /* custom AI tool offer (FEATURE section) */
 .feat { text-align: left; position: relative; }
@@ -148,21 +246,21 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .k-mobile.open { display: block; }
 .k-mobile a { display: block; font-family: var(--font-disp); font-weight: 700; padding: 12px 0; border-bottom: 1px solid var(--line-soft); color: var(--ink); }
 .k-mobile .btn { width: 100%; margin-top: 16px; }
+
+/* ex-chip: 絵文字 → グラデドット */
+.ex-chip { display: inline-flex; align-items: center; gap: 9px; }
+.ex-chip::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 2px; background: linear-gradient(135deg, #1e9bf0, #2ee0c9); }
+/* Lenis使用時はネイティブsmooth scrollを無効化 */
+html.lenis { scroll-behavior: auto; }
 </style>
 </head>
-<body data-active="">
+<body data-active="" data-hero="dark">
 
 <div data-chrome="header"></div>
 
 <!-- ===== Hero ===== -->
 <section class="hero" data-screen-label="トップ:ヒーロー">
-  <div class="deco" aria-hidden="true">
-    <span class="blob blob-blue" style="width:340px;height:340px;right:-60px;top:-80px;"></span>
-    <span class="blob blob-yellow" style="width:220px;height:220px;left:-50px;bottom:-40px;"></span>
-    <span class="shape ring c-coral float-a" style="width:46px;height:46px;left:6%;top:24%;"></span>
-    <span class="shape sq c-green float-r" style="width:28px;height:28px;left:40%;top:8%;"></span>
-    <span class="shape disc c-yellow float-b" style="width:16px;height:16px;right:32%;bottom:12%;"></span>
-  </div>
+  <canvas id="neural" aria-hidden="true"></canvas>
   <div class="wrap-wide hero-grid">
     <div class="reveal">
       <span class="eyebrow">AI時代の業務改善パートナー</span>
@@ -176,11 +274,25 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
         <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>相談から運用まで一気通貫</span>
         <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>自社プロダクト4種を運用中</span>
       </div>
+      <div class="sysline" aria-hidden="true"><span>NAGOYA, JP</span><span>EST. 2022</span><span>4 PRODUCTS LIVE</span></div>
     </div>
 
     <div class="hero-visual reveal d1">
-      <div class="hero-illust">
-        <img src="assets/img/hero-top.png?v=2" alt="バラバラな業務を、ひとつのアプリに集約するイメージ" loading="lazy" />
+      <div class="console" role="img" aria-label="TENERAMENTEの業務ポータル画面のイメージ">
+        <div class="con-main">
+          <div class="con-bar"><span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span><span class="con-title">TENERAMENTE ─ 業務ポータル</span><span class="con-live">● LIVE</span></div>
+          <div class="con-body">
+            <div class="con-side" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+            <div class="con-content">
+              <div class="kpi"><span class="k">本日のタスク</span><b>12<small>/14 完了</small></b><span class="bar"><i style="--w:86%"></i></span></div>
+              <div class="kpi"><span class="k">未対応の問い合わせ</span><b>2<small>件</small></b><span class="bar"><i style="--w:18%"></i></span></div>
+              <div class="kpi"><span class="k">今月の請求書</span><b>34<small>件 発行済</small></b><span class="bar"><i style="--w:64%"></i></span></div>
+              <div class="chart" aria-hidden="true"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:36%"></i><i style="--h:72%"></i><i style="--h:54%"></i><i style="--h:88%"></i><i style="--h:66%"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="con-chat"><span class="ai-ic">AI</span><div class="bub">週次レポートをまとめました。未対応の問い合わせが2件あります。確認しますか？</div></div>
+        <div class="con-stat"><span class="k">RUNNING</span><b>4</b><span class="l">自社プロダクト稼働中</span></div>
       </div>
     </div>
   </div>
@@ -222,20 +334,20 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
     <div class="examples reveal">
       <span class="ex-label">たとえば、こんなツールが作れます</span>
       <div class="ex-chips">
-        <span class="ex-chip">📗 Excel管理業務の置き換え</span>
-        <span class="ex-chip">👤 顧客管理システム</span>
-        <span class="ex-chip">📅 予約管理システム</span>
-        <span class="ex-chip">📦 在庫管理</span>
-        <span class="ex-chip">⏰ 勤怠・シフト管理</span>
-        <span class="ex-chip">📝 日報・週報の集約</span>
-        <span class="ex-chip">🧾 請求書・見積書の自動作成</span>
-        <span class="ex-chip">🔁 受発注管理</span>
-        <span class="ex-chip">💬 問い合わせ自動対応</span>
-        <span class="ex-chip">🤖 AIチャットボット</span>
-        <span class="ex-chip">📈 データ集計・レポート自動化</span>
-        <span class="ex-chip">📊 売上分析ダッシュボード</span>
-        <span class="ex-chip">🗂️ 名刺・顧客台帳の管理</span>
-        <span class="ex-chip">🏢 社内業務ポータル</span>
+        <span class="ex-chip">Excel管理業務の置き換え</span>
+        <span class="ex-chip">顧客管理システム</span>
+        <span class="ex-chip">予約管理システム</span>
+        <span class="ex-chip">在庫管理</span>
+        <span class="ex-chip">勤怠・シフト管理</span>
+        <span class="ex-chip">日報・週報の集約</span>
+        <span class="ex-chip">請求書・見積書の自動作成</span>
+        <span class="ex-chip">受発注管理</span>
+        <span class="ex-chip">問い合わせ自動対応</span>
+        <span class="ex-chip">AIチャットボット</span>
+        <span class="ex-chip">データ集計・レポート自動化</span>
+        <span class="ex-chip">売上分析ダッシュボード</span>
+        <span class="ex-chip">名刺・顧客台帳の管理</span>
+        <span class="ex-chip">社内業務ポータル</span>
       </div>
     </div>
     <div style="text-align:center;margin-top:38px;">
@@ -387,6 +499,83 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
       </a>`).join('');
     document.querySelectorAll('#home-posts .reveal').forEach(el => el.classList.add('in'));
   }).catch(() => {});
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+/* 慣性スクロール（reduced-motion時・CDN失敗時は素のスクロールのまま） */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (typeof Lenis !== 'function') return;
+  var lenis = new Lenis({ lerp: 0.11 });
+  function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+})();
+/* ヒーローのニューラル粒子（非対応・reduced-motionでは静かに退場） */
+(function () {
+  var c = document.getElementById('neural');
+  if (!c) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { c.remove(); return; }
+  var ctx = c.getContext('2d');
+  if (!ctx) { c.remove(); return; }
+  var hero = c.parentElement, pts = [], raf = null, W = 0, H = 0;
+  var mouse = { x: -9e3, y: -9e3 };
+  function size() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    c.style.width = W + 'px'; c.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.min(110, Math.round(W / 13));
+    pts = [];
+    for (var i = 0; i < n; i++) pts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.5 + .8
+    });
+  }
+  function step() {
+    ctx.clearRect(0, 0, W, H);
+    var R = Math.min(150, W * .16), R2 = R * R, i, j, a, b, dx, dy, d2, o;
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i]; a.x += a.vx; a.y += a.vy;
+      dx = a.x - mouse.x; dy = a.y - mouse.y; d2 = dx * dx + dy * dy;
+      if (d2 < 12000) { a.x += dx * .012; a.y += dy * .012; }
+      if (a.x < 0 || a.x > W) a.vx *= -1;
+      if (a.y < 0 || a.y > H) a.vy *= -1;
+    }
+    ctx.lineWidth = 1;
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i];
+      for (j = i + 1; j < pts.length; j++) {
+        b = pts[j]; dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
+        if (d2 < R2) {
+          o = (1 - d2 / R2) * .32;
+          ctx.strokeStyle = 'rgba(84,190,255,' + o.toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+    }
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i];
+      ctx.fillStyle = 'rgba(140,220,255,.75)';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.2832); ctx.fill();
+    }
+    raf = requestAnimationFrame(step);
+  }
+  new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { if (!raf) raf = requestAnimationFrame(step); }
+      else if (raf) { cancelAnimationFrame(raf); raf = null; }
+    });
+  }).observe(hero);
+  hero.addEventListener('pointermove', function (e) {
+    var r = c.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+  hero.addEventListener('pointerleave', function () { mouse.x = -9e3; mouse.y = -9e3; });
+  window.addEventListener('resize', size, { passive: true });
+  size();
 })();
 </script>
 </body>

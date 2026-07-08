@@ -4,7 +4,7 @@
    3 design directions via [data-variant="a|b|c"] on <html>
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 :root {
   /* base palette (案A: やさしいブルー = default) */
@@ -403,3 +403,71 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .flow .num::before { content: "0" counter(step); }
 .flow h4 { font-family: var(--font-disp); font-weight:700; font-size: 16px; }
 .flow p { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+
+/* ============================================================
+   案T: ディープテック×フレンドリー — AI/テクノロジー変奏
+   data-variant="t" を宣言したページにのみ適用（他ページ無影響）
+   ============================================================ */
+html[data-variant="t"] {
+  --blue:      #1e9bf0;
+  --blue-deep: #0d7fd6;
+  --blue-ink:  #0a4f80;
+  --blue-soft: #e3f3fe;
+  --blue-mist: #f0f9ff;
+  --cyan:      #2ee0c9;
+  --ink:       #101c28;
+  --bg-tint:   #f4f9fd;
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --font-disp: 'Space Grotesk', 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  --page-bg: linear-gradient(180deg, #f6fafd 0%, #ffffff 46%, #f3f8fc 100%);
+  --shadow-btn: 0 8px 20px rgba(20,150,230,.30);
+  --tech-navy:   #0a1626;
+  --tech-navy-2: #0e1f36;
+}
+/* パステル8色ボケ → 青系の静かなグローに置き換え */
+html[data-variant="t"] body::before {
+  background:
+    radial-gradient(520px 520px at 85% 4%,  color-mix(in srgb, var(--blue) 26%, transparent), transparent 62%),
+    radial-gradient(460px 460px at 8% 30%,  color-mix(in srgb, var(--cyan) 17%, transparent), transparent 62%),
+    radial-gradient(520px 520px at 88% 62%, color-mix(in srgb, var(--accent-violet) 13%, transparent), transparent 64%),
+    radial-gradient(460px 460px at 16% 88%, color-mix(in srgb, var(--blue) 20%, transparent), transparent 62%);
+  filter: blur(34px);
+  opacity: .55;
+}
+/* eyebrow をシステムラベル風（モノスペース＋パルスするドット） */
+html[data-variant="t"] .eyebrow {
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: 12px; letter-spacing: .12em;
+  color: var(--blue-deep);
+  background: color-mix(in srgb, var(--blue) 7%, #fff);
+  border: 1px solid color-mix(in srgb, var(--blue) 24%, transparent);
+}
+html[data-variant="t"] .eyebrow::before {
+  background: var(--cyan);
+  animation: t-pulse 2.4s ease-out infinite;
+}
+@keyframes t-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46,224,201,.45); }
+  70%  { box-shadow: 0 0 0 9px rgba(46,224,201,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,224,201,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  html[data-variant="t"] .eyebrow::before { animation: none; }
+}
+/* カード: 細線＋ホバーでシアンのヘアライン */
+html[data-variant="t"] .card { border-color: #e1ecf4; }
+html[data-variant="t"] .card:hover {
+  border-color: color-mix(in srgb, var(--cyan) 45%, #e1ecf4);
+  box-shadow: 0 14px 34px rgba(16,90,150,.12), 0 0 0 1px color-mix(in srgb, var(--cyan) 22%, transparent);
+}
+/* CTAボタン: エレクトリックグラデ */
+html[data-variant="t"] .btn-primary { background: linear-gradient(120deg, #1e9bf0, #2ee0c9); }
+html[data-variant="t"] .btn-primary:hover { background: linear-gradient(120deg, #0d7fd6, #17cdb5); box-shadow: 0 12px 26px rgba(24,170,220,.42); }
+/* フッターをヒーローと同じ深紺に */
+html[data-variant="t"] .k-footer { background: #0a1626; }
+/* コンフェッティ装飾を鎮める（残すが主張させない） */
+html[data-variant="t"] .shape { opacity: .26; filter: saturate(.55); }
+html[data-variant="t"] .blob  { opacity: .22; filter: blur(50px) saturate(.6); }
