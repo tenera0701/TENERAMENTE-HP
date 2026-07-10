@@ -74,3 +74,66 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 })();
+
+/* ===== Tech background — variant "t" 全ページ共通のニューラル粒子 =====
+   トップのヒーローと同じ質感をサイト全体に。控えめ密度・reduced-motionで無効。 */
+(function () {
+  if (document.documentElement.getAttribute('data-variant') !== 't') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var c = document.createElement('canvas');
+  c.id = 'tech-net';
+  c.setAttribute('aria-hidden', 'true');
+  c.style.cssText = 'position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55';
+  var ctx = c.getContext('2d');
+  if (!ctx) return;
+  document.body.appendChild(c);
+
+  var pts = [], raf = null, W = 0, H = 0;
+  function size() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.min(60, Math.round(W / 26));
+    pts = [];
+    for (var i = 0; i < n; i++) pts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22,
+      r: Math.random() * 1.3 + .7
+    });
+  }
+  function step() {
+    if (document.hidden) { raf = null; return; }
+    ctx.clearRect(0, 0, W, H);
+    var R = Math.min(170, W * .15), R2 = R * R, i, j, a, b, dx, dy, d2, o;
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i]; a.x += a.vx; a.y += a.vy;
+      if (a.x < 0 || a.x > W) a.vx *= -1;
+      if (a.y < 0 || a.y > H) a.vy *= -1;
+    }
+    ctx.lineWidth = 1;
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i];
+      for (j = i + 1; j < pts.length; j++) {
+        b = pts[j]; dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
+        if (d2 < R2) {
+          o = (1 - d2 / R2) * .14;
+          ctx.strokeStyle = 'rgba(25,130,230,' + o.toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+    }
+    for (i = 0; i < pts.length; i++) {
+      a = pts[i];
+      ctx.fillStyle = 'rgba(25,130,230,.35)';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.2832); ctx.fill();
+    }
+    raf = requestAnimationFrame(step);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && !raf) raf = requestAnimationFrame(step);
+  });
+  window.addEventListener('resize', size, { passive: true });
+  size();
+  raf = requestAnimationFrame(step);
+})();

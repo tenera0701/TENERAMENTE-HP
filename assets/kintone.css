@@ -471,3 +471,14 @@ html[data-variant="t"] .k-footer { background: #16384a; }
 /* コンフェッティ装飾を鎮める（残すが主張させない） */
 html[data-variant="t"] .shape { opacity: .26; filter: saturate(.55); }
 html[data-variant="t"] .blob  { opacity: .22; filter: blur(50px) saturate(.6); }
+
+/* 案T: サイト全体の極薄グリッド（トップと同じ質感を全ページへ） */
+html[data-variant="t"] body::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(30,140,235,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,140,235,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(130% 90% at 50% 0%, #000 25%, transparent 85%);
+          mask-image: radial-gradient(130% 90% at 50% 0%, #000 25%, transparent 85%);
+}
