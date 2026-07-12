@@ -58,6 +58,7 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:no-preference){
   .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-soft), transform .8s var(--ease-soft)}
   .reveal.in{opacity:1;transform:none}
+  html,body{overflow-x:clip} /* 出現アニメの初期位置(translateX)が横スクロールを生むのを防止 */
   .r-left{opacity:0;transform:translateX(-40px);transition:opacity .8s var(--ease-soft), transform .8s var(--ease-soft)}
   .r-left.in{opacity:1;transform:none}
   .r-right{opacity:0;transform:translateX(40px);transition:opacity .8s var(--ease-soft), transform .8s var(--ease-soft)}
@@ -193,6 +194,30 @@ header{
 .dot{width:10px;height:10px;border-radius:50%}
 .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
 .device .urlbar{margin-left:10px;flex:1;background:#eef2f8;border-radius:7px;height:22px;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#8a97ad;font-family:ui-monospace,monospace}
+/* 実画面＋機能名ポップ（ちいさなポッチ） */
+.dev-shot{position:relative}
+.dev-rail{position:absolute;left:1.6%;top:16%;display:flex;flex-direction:column;gap:12px;z-index:2}
+.sdot{position:relative;display:block}
+.sdot i{display:block;width:17px;height:17px;border-radius:6px;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.4);transition:background .25s}
+.sdot b{position:absolute;left:26px;top:50%;transform:translateY(-50%) scale(.82);transform-origin:left center;opacity:0;white-space:nowrap;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:11.5px;color:#06322a;background:linear-gradient(135deg,#9ef0dd,#d8f8ee);padding:5px 12px;border-radius:9px;box-shadow:0 8px 22px rgba(6,50,40,.35);pointer-events:none;z-index:3}
+.sdot:hover b{opacity:1;transform:translateY(-50%) scale(1)}
+.sdot:hover i{background:linear-gradient(135deg,#2bbfa3,#6fe3c8)}
+@media(prefers-reduced-motion:no-preference){
+  .sdot i{animation:sdotGlow 12.5s linear infinite;animation-delay:calc(var(--i)*2.5s)}
+  .sdot b{animation:sdotPop 12.5s linear infinite;animation-delay:calc(var(--i)*2.5s)}
+}
+@keyframes sdotPop{0%,4%{opacity:0;transform:translateY(-50%) scale(.82)}7%,15%{opacity:1;transform:translateY(-50%) scale(1)}18%,100%{opacity:0;transform:translateY(-50%) scale(.9)}}
+@keyframes sdotGlow{0%,4%{background:rgba(255,255,255,.28)}7%,15%{background:linear-gradient(135deg,#2bbfa3,#6fe3c8)}18%,100%{background:rgba(255,255,255,.28)}}
+/* SOLUTIONカードの実画面サムネ */
+.feat-card .fshot{border-radius:10px;overflow:hidden;border:1px solid rgba(111,227,200,.28);margin-bottom:14px;box-shadow:0 10px 26px rgba(4,30,24,.35)}
+.feat-card .fshot img{display:block;width:100%}
+/* モバイル: 実画面カードは1カラムで大きく見せる */
+@media(max-width:560px){
+  .feat-grid{grid-template-columns:1fr}
+  .dev-rail{gap:9px}
+  .sdot i{width:15px;height:15px}
+  .sdot b{font-size:11px}
+}
 .float-card{
   position:absolute;background:#fff;border-radius:14px;box-shadow:var(--shadow);
   border:1px solid var(--line);padding:14px 16px;z-index:2;
@@ -725,9 +750,18 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
       <div class="device">
         <div class="topbar">
           <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <div class="urlbar">app.mieroom.jp ／ 顧客管理表</div>
+          <div class="urlbar">app.mieroom.cloud ／ 申込管理表</div>
         </div>
-        <img src="assets/app-shinkomi.png" alt="ミエルーム 申込管理表の画面" style="display:block;width:100%">
+        <div class="dev-shot">
+          <img src="assets/app-moushikomi.png" alt="ミエルーム 申込管理表の実画面" style="display:block;width:100%">
+          <div class="dev-rail">
+            <span class="sdot" style="--i:0"><i></i><b>営業成績</b></span>
+            <span class="sdot" style="--i:1"><i></i><b>申込管理</b></span>
+            <span class="sdot" style="--i:2"><i></i><b>契約書自動生成</b></span>
+            <span class="sdot" style="--i:3"><i></i><b>領収書読取り</b></span>
+            <span class="sdot" style="--i:4"><i></i><b>各フォーム作成</b></span>
+          </div>
+        </div>
       </div>
       <div class="float-card float-tl">
         <div class="k">後AD・一部入金まで</div>
@@ -856,24 +890,24 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
     </div>
     <div class="feat-grid stagger">
       <div class="feat-card">
-        <div class="fi"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/><circle cx="19" cy="19" r="2"/></svg></div>
+        <div class="fshot"><img src="assets/app-moushikomi.png" alt="申込管理表の実画面" loading="lazy"></div>
         <h3>申込管理表</h3>
         <p>後AD・一部入金まで含めた“本当の売上”を1件ずつ確実に管理。</p>
       </div>
       <div class="feat-card">
-        <div class="fi"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16V9M13 16v-4M18 16V7"/></svg></div>
+        <div class="fshot"><img src="assets/app-uriage.png" alt="売上分析の実画面" loading="lazy"></div>
         <h3>売上管理</h3>
         <p>店舗・担当・日次の売上をリアルタイム集計。目標との差も一目で。</p>
       </div>
       <div class="feat-card">
-        <div class="fi"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="fshot"><img src="assets/app-hankyo.png" alt="反響管理表の実画面" loading="lazy"></div>
         <h3>反響管理</h3>
         <p>媒体別の反響〜成約〜費用対効果を自動で紐づけ。配分の根拠に。</p>
       </div>
       <div class="feat-card">
-        <div class="fi"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="8" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div>
-        <h3>顧客管理</h3>
-        <p>反響から成約・更新まで顧客情報を一元管理。追客の取りこぼし防止。</p>
+        <div class="fshot"><img src="assets/app-sekkyaku.png" alt="接客管理表の実画面" loading="lazy"></div>
+        <h3>接客管理</h3>
+        <p>来店からの接客状況・申込率を一覧で管理。誰の接客が成果につながっているかが見える。</p>
       </div>
     </div>
   </div>
