@@ -1,5 +1,70 @@
 [
   {
+    "slug": "2026-07-12-ai-gyomu-kaizen-app-kaihatsu",
+    "title": "AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方",
+    "date": "2026-07-12",
+    "dateLabel": "Jul 12, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "「業務改善のためにAIでアプリを作りたい」「AIツール開発を頼める会社を探している」——そんな方へ。AI業務改善アプリ開発の進め方、費用相場の考え方、Claude Codeで変わった開発スピード、失敗しないAI開発企業の選び方までをまとめた実践ガイドです。",
+    "tags": [
+      "AIアプリ開発",
+      "Claude Code",
+      "AI業務改善",
+      "AI開発企業",
+      "AIツール開発"
+    ],
+    "readMin": 5,
+    "glyph": "W",
+    "featured": true,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "なぜ今、「AIで業務改善」なのか"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "AIツール開発・AIアプリ開発の3つのタイプ"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "Claude Codeが変えた「アプリ開発」の常識"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "AIアプリ開発の費用｜初期費用と月額の考え方"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "失敗しないAI開発企業の選び方"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "導入の進め方：相談から運用まで"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある失敗と、その回避法"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：小さく始めて、AIで業務を変える"
+      }
+    ],
+    "visual": "default",
+    "number": "01",
+    "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png"
+  },
+  {
     "slug": "2026-07-02-meo-taisaku-complete-guide",
     "title": "MEO対策とは？やり方・費用相場・業者選びまで完全ガイド【2026年版】",
     "date": "2026-07-02",
@@ -17,7 +82,7 @@
     ],
     "readMin": 6,
     "glyph": "M",
-    "featured": true,
+    "featured": false,
     "toc": [
       {
         "id": "h1",
@@ -60,8 +125,8 @@
         "label": "08 まとめ：基礎の徹底が、いちばんの近道"
       }
     ],
-    "visual": "default",
-    "number": "01",
+    "visual": "v-violet",
+    "number": "02",
     "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
   },
   {
@@ -120,8 +185,8 @@
         "label": "まとめ：まず何から始めるか"
       }
     ],
-    "visual": "v-violet",
-    "number": "02",
+    "visual": "v-cyan",
+    "number": "03",
     "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
   },
   {
@@ -185,8 +250,8 @@
         "label": "まずは小さく始める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "03",
+    "visual": "default",
+    "number": "04",
     "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
   },
   {
@@ -245,8 +310,8 @@
         "label": "月次チェックリスト（まとめ）"
       }
     ],
-    "visual": "default",
-    "number": "04",
+    "visual": "v-violet",
+    "number": "05",
     "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
   },
   {
@@ -309,8 +374,8 @@
         "label": "08 まとめ：仕組みで増やし、返信で育てる"
       }
     ],
-    "visual": "v-violet",
-    "number": "05",
+    "visual": "v-cyan",
+    "number": "06",
     "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
   },
   {
@@ -364,8 +429,8 @@
         "label": "最初の一歩（まとめ）"
       }
     ],
-    "visual": "v-cyan",
-    "number": "06",
+    "visual": "default",
+    "number": "07",
     "image": "assets/img/covers/2026-06-26-ai-first-step.png"
   },
   {
@@ -429,8 +494,8 @@
         "label": "08 まとめ：小さく入れて、正しく検証する"
       }
     ],
-    "visual": "default",
-    "number": "07",
+    "visual": "v-violet",
+    "number": "08",
     "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
   },
   {
@@ -494,8 +559,8 @@
         "label": "まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる"
       }
     ],
-    "visual": "v-violet",
-    "number": "08",
+    "visual": "v-cyan",
+    "number": "09",
     "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
   },
   {
@@ -559,8 +624,8 @@
         "label": "まとめ：小さく始めて、ルールとセットで育てる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "09",
+    "visual": "default",
+    "number": "10",
     "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
   },
   {
@@ -629,8 +694,8 @@
         "label": "まとめ：ナレッジ整備から始める社内AI"
       }
     ],
-    "visual": "default",
-    "number": "10",
+    "visual": "v-violet",
+    "number": "11",
     "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
   },
   {
@@ -694,8 +759,8 @@
         "label": "まとめ：小さく始めて、確かめながら広げる"
       }
     ],
-    "visual": "v-violet",
-    "number": "11",
+    "visual": "v-cyan",
+    "number": "12",
     "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
   },
   {
@@ -774,8 +839,8 @@
         "label": "まとめ：小さく始める「脱Excel」から"
       }
     ],
-    "visual": "v-cyan",
-    "number": "12",
+    "visual": "default",
+    "number": "13",
     "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
   },
   {
@@ -839,8 +904,8 @@
         "label": "まとめ：相場を知り、内訳を読み、小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "13",
+    "visual": "v-violet",
+    "number": "14",
     "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
   },
   {
@@ -904,8 +969,8 @@
         "label": "まとめ：金額ではなく「公開後」で選ぶ"
       }
     ],
-    "visual": "v-violet",
-    "number": "14",
+    "visual": "v-cyan",
+    "number": "15",
     "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
   }
 ]
