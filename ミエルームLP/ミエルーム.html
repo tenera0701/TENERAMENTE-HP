@@ -296,8 +296,9 @@ section{padding:88px 0}
 .pain-card .bubble{position:absolute;top:22px;right:22px;font-size:30px;opacity:.16}
 .pain-bridge{text-align:center;margin-top:54px}
 .pain-bridge .arrow{font-size:30px;color:var(--red);line-height:1}
-.pain-bridge .big{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:30px;margin-top:14px;line-height:1.5}
-@media(max-width:820px){.pain-grid{grid-template-columns:1fr}.pain-bridge .big{font-size:23px}}
+.pain-bridge .big{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:24px;margin-top:14px;line-height:1.5}
+.pb-spbr{display:none}
+@media(max-width:820px){.pain-grid{grid-template-columns:1fr}.pain-bridge .big{font-size:23px}.pain-bridge .big br.pb-spbr{display:inline}}
 
 /* solution intro */
 .sol{background:var(--ink);color:#fff;position:relative;overflow:hidden}
@@ -539,9 +540,10 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 @media(prefers-reduced-motion:reduce){.prob-mascot{animation:none}}
 .pain-grid.six{grid-template-columns:repeat(3,1fr)}
 .pain-card .pcx{position:absolute;top:22px;right:22px;width:30px;height:30px;border-radius:9px;background:var(--red-soft);color:var(--red);display:grid;place-items:center;font-weight:900;font-size:15px}
-.pain-card.simple h3{font-size:17px;margin:0 0 9px;padding-right:38px}
+.pain-card.simple h3{font-size:14px;margin:0 0 9px;padding-right:30px;letter-spacing:-.02em;white-space:nowrap}
 .pain-card.simple p{font-size:13.5px}
-@media(max-width:820px){.pain-grid.six{grid-template-columns:1fr}}
+.pain-card .pcx{width:26px;height:26px;top:20px;right:20px;font-size:13px}
+@media(max-width:820px){.pain-grid.six{grid-template-columns:1fr}.pain-card.simple h3{white-space:normal}}
 
 /* ===== NEW: feature slider ===== */
 .fslider-wrap{position:relative}
@@ -843,11 +845,11 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
       <div class="pain-card simple">
         <div class="pcx">✕</div>
         <h3>Excel管理では、細かくできない!!</h3>
-        <p>接客管理・スタッフ成績まで細かく集計でき、昇進の査定も可視化。スタッフのやる気・満足度が向上します。</p>
+        <p>接客管理、申込管理、反響管理、契約管理、スタッフ成績まで細かく集計でき、昇進の査定も可視化。スタッフのやる気・満足度が向上します。</p>
       </div>
       <div class="pain-card simple">
         <div class="pcx">✕</div>
-        <h3>申込管理表はあるが、正確に取れてるか不安</h3>
+        <h3>申込管理表はあるが、正確に取れてるか不安!!</h3>
         <p>ここが賃貸仲介の課題とも言えます。従来のツールで管理できなかった機能を、現役で賃貸仲介をやっている弊社だから作れました! ぜひ一度、画面を見てほしいです!!</p>
       </div>
       <div class="pain-card simple">
@@ -857,7 +859,7 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
       </div>
       <div class="pain-card simple">
         <div class="pcx">✕</div>
-        <h3>広告費はかけてるが、費用対効果まで追えてない‼</h3>
+        <h3>広告費の、費用対効果まで追えてない‼</h3>
         <p>ここの機能もかなり充実してます! CPA・CPO・ROASが全部きれいに取れて、予算配分の調整で費用対効果を最大化できます‼</p>
       </div>
       <div class="pain-card simple">
@@ -868,13 +870,13 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
       <div class="pain-card simple">
         <div class="pcx">✕</div>
         <h3>契約したお客様へ引越しの訴求ができてない!!</h3>
-        <p>契約して終わりではありません。更新1年後・2年後に更新案内や引越し訴求のLINEを自動送信。リピート率50%以上向上します!!</p>
+        <p>契約して終わりではありません。更新1年後・2年後に更新案内や引越し訴求のLINEを自動送信。リピート率向上につながります!!</p>
       </div>
     </div>
     <div class="pain-bridge reveal">
       <div class="arrow">▼</div>
       <div class="big">
-        6つの悩みの原因は、ひとつ。<span class="mark">売上・接客・反響など数字をバラバラに管理してるから</span>です!!<br>
+        <span class="pb-lead">6つの悩みの原因は、ひとつ。<br class="pb-spbr"><span class="mark">売上・接客・反響など数字をバラバラに管理してるから</span>です!!</span><br class="pb-br">
         <span class="u-blue">＝ 本当の売上と費用対効果が、見えていない。</span>
       </div>
     </div>
