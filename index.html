@@ -33,7 +33,7 @@
   position: relative;
   background: linear-gradient(165deg, #eaf5fe 0%, #f9fcff 55%, #ecf6fd 100%);
   overflow: hidden;
-  padding-block: clamp(52px,7vw,100px) clamp(60px,8vw,116px);
+  padding-block: clamp(16px,2.2vw,34px) clamp(48px,6vw,92px);
   border-bottom: 1px solid #e0edf7;
 }
 #neural { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .8; }
@@ -52,7 +52,7 @@
     radial-gradient(560px 420px at 82% 18%, rgba(46,224,201,.13), transparent 65%),
     radial-gradient(640px 480px at 12% 86%, rgba(30,155,240,.12), transparent 65%);
 }
-.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(470px,1fr) minmax(0,680px); gap: clamp(24px,3vw,44px); align-items: center; max-width: 1300px; padding-left: clamp(20px,3vw,40px); padding-right: clamp(20px,3vw,40px); }
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(470px,1fr) minmax(0,680px); gap: clamp(18px,2.2vw,34px); align-items: center; max-width: 1300px; padding-left: clamp(20px,3vw,40px); padding-right: clamp(20px,3vw,40px); }
 .hero h1 { font-family: var(--font-disp); font-weight: 900; font-size: clamp(29px,4.4vw,52px); line-height: 1.32; letter-spacing: 0.01em; color: var(--ink); }
 .hero h1 .hl1, .hero h1 .hl2 { display: block; white-space: nowrap; }
 .hero h1 .b {
@@ -65,7 +65,9 @@
 .chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--ink-soft); background: #fff; border: 1px solid rgba(30,150,240,.22); border-radius: var(--radius-pill); padding: 8px 15px; box-shadow: var(--shadow-sm); }
 .chip svg { width: 15px; height: 15px; color: #0fae98; }
 .sysline { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: rgba(70,110,150,.6); }
-@media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: 1; } }
+.hero-grid > *:first-child { align-self: start; padding-top: clamp(2px,0.8vw,12px); }
+@media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: 1; } .hero-grid > *:first-child { padding-top: 0; } }
+@media (max-width: 560px){ .hero .lead br.lb { display: none; } .hero .lead { max-width: 100% !important; } }
 
 /* LINE button */
 .btn-line { background:#06c755; color:#fff; box-shadow:0 8px 18px rgba(6,199,85,.28); }
@@ -102,13 +104,13 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .con-shot { position: relative; z-index: 1; background: linear-gradient(180deg, #0f2036, #0c1a2c); min-height: 180px; }
 .con-shot img { display: block; width: 100%; height: auto; }
 /* 実画面の周りに浮かぶ機能ポップ */
-.cpop { position: absolute; z-index: 4; display: flex; align-items: center; gap: 8px;
+.cpop { position: absolute; z-index: 4; display: flex; align-items: center; gap: 9px;
   background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.28);
-  border-radius: 12px; padding: 8px 13px; box-shadow: 0 14px 34px rgba(20,70,140,.3);
+  border-radius: 14px; padding: 10px 17px; box-shadow: 0 16px 38px rgba(20,70,140,.32);
   backdrop-filter: blur(8px); white-space: nowrap; }
-.cpop i { width: 9px; height: 9px; border-radius: 50%; flex: none;
-  background: linear-gradient(135deg, #1e9bf0, #2ee0c9); box-shadow: 0 0 0 4px rgba(46,224,201,.16); }
-.cpop b { font-family: var(--font-disp); font-weight: 700; font-size: 12px; color: #eaf3ff; letter-spacing: .02em; }
+.cpop i { width: 11px; height: 11px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, #1e9bf0, #2ee0c9); box-shadow: 0 0 0 5px rgba(46,224,201,.16); }
+.cpop b { font-family: var(--font-disp); font-weight: 700; font-size: 15.5px; color: #eaf3ff; letter-spacing: .02em; }
 .cpop.pL1 { top: 24%; left: 4%;  --tx: 150px;  --ty: 74px; }
 .cpop.pL2 { top: 42%; left: 1%;  --tx: 168px;  --ty: 14px; }
 .cpop.pL3 { top: 60%; left: 6%;  --tx: 150px;  --ty: -48px; }
@@ -319,7 +321,7 @@ html.lenis { scroll-behavior: auto; }
     <div class="reveal">
       <span class="eyebrow">AI時代の業務改善パートナー</span>
       <h1><span class="hl1">AIで、会社の業務を</span><span class="hl2"><span class="b">“アプリ”</span>にする。</span></h1>
-      <p class="lead" style="text-wrap:pretty">御社専用アプリをひとつ開けば、日々の業務がそこで完結する。そんな“ちょうどいい仕組み”を、開発から運用まで伴走して<span style="white-space:nowrap">つくります。</span><span style="display:block;font-weight:400;margin-top:8px">業務改善ツールの開発を軸に、HP/LP制作・MEO/AIO運用・AI活用支援まで。「これ、なんとかならない？」を、ちょうどよく<span style="white-space:nowrap">形にします。</span></span></p>
+      <p class="lead" style="text-wrap:pretty;font-size:15px;max-width:470px">御社専用アプリをひとつ開けば、日々の業務がアプリ内で完結する。<br class="lb">そんな“使えるアプリ”を、御社オリジナルで作成します。<span style="display:block;font-weight:400;margin-top:8px">業務改善ツールの開発を軸に、HP/LP制作・MEO/AIO運用など。<br class="lb">社内の「これ、なんとかならない？」を、ちょうどよく形にします。</span></p>
       <div class="ctas">
         <a href="contact.html" class="btn btn-primary btn-lg">無料で相談する<span class="arr">→</span></a>
         <a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINEで問い合わせ</a>
