@@ -67,7 +67,7 @@
 .sysline { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: rgba(70,110,150,.6); }
 .hero-grid > *:first-child { align-self: start; padding-top: clamp(2px,0.8vw,12px); }
 @media (max-width: 880px){ .hero-grid { grid-template-columns: 1fr; } .hero-visual { order: 1; } .hero-grid > *:first-child { padding-top: 0; } }
-@media (max-width: 560px){ .hero .lead br.lb { display: none; } .hero .lead { max-width: 100% !important; } }
+@media (max-width: 560px){ .hero .lead br.lb { display: none; } .hero .lead { max-width: 100% !important; } .hero h1 .hl1, .hero h1 .hl2 { white-space: normal; } }
 
 /* LINE button */
 .btn-line { background:#06c755; color:#fff; box-shadow:0 8px 18px rgba(6,199,85,.28); }
@@ -92,7 +92,7 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 /* ===== 浮遊するAIコンソール（ヒーロービジュアル） ===== */
 .hero-visual { position: relative; z-index: 2; min-height: 430px; display: flex; align-items: center; justify-content: center; }
 .console { position: relative; width: min(680px, 100%); }
-.laptop-shot { display: block; width: 100%; height: auto; filter: drop-shadow(0 26px 54px rgba(20,70,140,.16)); }
+.laptop-shot { display: block; width: 100%; height: auto; margin-block: -8% -11%; filter: drop-shadow(0 26px 54px rgba(20,70,140,.18)); }
 .con-main {
   position: relative; overflow: hidden;
   background: rgba(13,27,48,.78);

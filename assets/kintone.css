@@ -482,3 +482,36 @@ html[data-variant="t"] body::after {
   -webkit-mask-image: radial-gradient(130% 90% at 50% 0%, #000 25%, transparent 85%);
           mask-image: radial-gradient(130% 90% at 50% 0%, #000 25%, transparent 85%);
 }
+
+/* ===== モバイル可読性の底上げ（9割がモバイル閲覧）===== */
+@media (max-width: 600px){
+  /* iOS: 入力欄が16px未満だとタップ時に自動ズームするのを防止 */
+  input, textarea, select { font-size: 16px !important; }
+  /* 本文フォントの下限を引き上げ（13〜13.5px → 15px） */
+  html[data-variant="t"] .feat p,
+  html[data-variant="t"] .fcard p,
+  html[data-variant="t"] .flow p,
+  html[data-variant="t"] .biz p,
+  html[data-variant="t"] .prod .desc,
+  html[data-variant="t"] .dcard li,
+  html[data-variant="t"] .usp p,
+  html[data-variant="t"] .article-card p { font-size: 15px; line-height: 1.85; }
+  /* フッターリンクのタップ領域を44pxへ */
+  html[data-variant="t"] .k-footer .fcol a { padding: 11px 0; font-size: 15px; }
+  /* 小さすぎるメタ・タグ・注記の底上げ（10〜11px → 12.5〜13px） */
+  html[data-variant="t"] .crumb,
+  html[data-variant="t"] .btag,
+  html[data-variant="t"] .role,
+  html[data-variant="t"] .article-card .meta-row,
+  html[data-variant="t"] .article-card .read,
+  html[data-variant="t"] .related-card .cat,
+  html[data-variant="t"] .related-card .read,
+  html[data-variant="t"] .post-tags,
+  html[data-variant="t"] .toc .n { font-size: 12.5px; }
+  html[data-variant="t"] .err-msg { font-size: 13px; }
+  /* タブ・共有・切替ボタンのタップ領域を確保 */
+  html[data-variant="t"] .blog-filters .tab { padding: 11px 16px; font-size: 14px; }
+  html[data-variant="t"] .post-share button { width: 44px; height: 44px; }
+  html[data-variant="t"] .vswitch button { width: 42px; height: 42px; }
+  html[data-variant="t"] .post-share { gap: 10px; }
+}
