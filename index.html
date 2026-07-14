@@ -76,6 +76,14 @@
 
 /* let tinted bands breathe so the page background shows through */
 body .tinted { background: transparent; }
+/* ページ全体をヒーローと同じ淡ブルー＋薄グリッドで統一（白帯をなくす） */
+body {
+  background:
+    linear-gradient(rgba(30,140,235,.05) 1px, transparent 1px) 0 0 / 46px 46px,
+    linear-gradient(90deg, rgba(30,140,235,.05) 1px, transparent 1px) 0 0 / 46px 46px,
+    linear-gradient(180deg, #e9f4fe 0%, #edf6fd 42%, #eef8fe 72%, #e8f3fe 100%) !important;
+  background-attachment: scroll, scroll, fixed !important;
+}
 /* one continuous page background — no per-section bands or seams */
 .bg-dots::before, .bg-grid::before { display: none; }
 /* keep section content above the decorative shapes */
@@ -364,7 +372,7 @@ html.lenis { scroll-behavior: auto; }
       <div class="card feat reveal">
         <span class="ftag">FEATURE 01</span>
         <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 8 3.5 4.5L15.5 8"/><path d="M12 12.5V17"/><path d="M9.3 13.5h5.4M9.3 15.5h5.4"/></svg></div>
-        <h3>初期費用15万円</h3>
+        <h3>初期費用15万円〜</h3>
         <p>「後から何か取られそう」をなくします。ヒアリングから公開作業まで、必要なものは初期費用に含みます。</p>
       </div>
       <div class="card feat reveal d1">
