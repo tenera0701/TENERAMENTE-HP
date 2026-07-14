@@ -100,6 +100,29 @@ section > .wrap, section > .wrap-wide { position: relative; z-index: 1; }
 .con-side i { display: block; width: 18px; height: 18px; border-radius: 6px; background: rgba(150,205,255,.14); transition: background .25s; }
 .con-shot { position: relative; z-index: 1; background: linear-gradient(180deg, #0f2036, #0c1a2c); min-height: 180px; }
 .con-shot img { display: block; width: 100%; height: auto; }
+/* 実画面の周りに浮かぶ機能ポップ */
+.cpop { position: absolute; z-index: 4; display: flex; align-items: center; gap: 8px;
+  background: rgba(16,32,56,.92); border: 1px solid rgba(130,205,255,.28);
+  border-radius: 12px; padding: 8px 13px; box-shadow: 0 14px 34px rgba(20,70,140,.3);
+  backdrop-filter: blur(8px); white-space: nowrap; }
+.cpop i { width: 9px; height: 9px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, #1e9bf0, #2ee0c9); box-shadow: 0 0 0 4px rgba(46,224,201,.16); }
+.cpop b { font-family: var(--font-disp); font-weight: 700; font-size: 12px; color: #eaf3ff; letter-spacing: .02em; }
+.cpop.pL1 { top: 3%;  left: -10%; }
+.cpop.pL2 { top: 40%; left: -13%; }
+.cpop.pL3 { top: 76%; left: -8%;  }
+.cpop.pR1 { top: 7%;  right: -8%; }
+.cpop.pR2 { top: 43%; right: -10%; }
+.cpop.pR3 { top: 79%; right: -7%; }
+@media (prefers-reduced-motion: no-preference) {
+  .cpop { animation: floaty 8s ease-in-out infinite; animation-delay: calc(var(--i) * .9s); }
+}
+@media (max-width: 560px) {
+  .cpop { padding: 6px 10px; }
+  .cpop b { font-size: 10.5px; }
+  .cpop.pL1, .cpop.pL3 { left: 0; } .cpop.pL2 { left: -2%; }
+  .cpop.pR1, .cpop.pR3 { right: 0; } .cpop.pR2 { right: -2%; }
+}
 /* ちいさなポッチ → 機能名がポップするラベル */
 .sdot { position: relative; display: block; }
 .sdot b {
@@ -300,24 +323,18 @@ html.lenis { scroll-behavior: auto; }
     </div>
 
     <div class="hero-visual reveal d1">
-      <div class="console" role="img" aria-label="TENERAMENTEの業務ポータル画面のイメージ">
+      <div class="console" role="img" aria-label="ATLAS 業務管理ポータルのダッシュボード実画面">
         <div class="con-main">
-          <div class="con-bar"><span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span><span class="con-title">ATLAS ─ 業務管理ポータル</span><span class="con-live">● LIVE</span></div>
-          <div class="con-body">
-            <div class="con-side">
-              <span class="sdot" style="--i:0"><i></i><b>自動営業</b></span>
-              <span class="sdot" style="--i:1"><i></i><b>分析管理</b></span>
-              <span class="sdot" style="--i:2"><i></i><b>スタッフ成績</b></span>
-              <span class="sdot" style="--i:3"><i></i><b>各サービス管理</b></span>
-              <span class="sdot" style="--i:4"><i></i><b>領収書読取り</b></span>
-            </div>
-            <div class="con-shot">
-              <img src="assets/img/atlas-dashboard.png" alt="ATLAS 業務管理ツールのダッシュボード実画面" loading="eager">
-            </div>
+          <div class="con-shot">
+            <img src="assets/img/atlas-dashboard.png" alt="ATLAS 業務管理ツールのダッシュボード実画面" loading="eager">
           </div>
         </div>
-        <div class="con-chat"><span class="ai-ic">AI</span><div class="bub">週次レポートをまとめました。未対応の問い合わせが2件あります。確認しますか？</div></div>
-        <div class="con-stat"><span class="k">RUNNING</span><b>4</b><span class="l">自社プロダクト稼働中</span></div>
+        <span class="cpop pL1" style="--i:0"><i></i><b>ダッシュボード</b></span>
+        <span class="cpop pL2" style="--i:1"><i></i><b>営業管理</b></span>
+        <span class="cpop pL3" style="--i:2"><i></i><b>顧客管理</b></span>
+        <span class="cpop pR1" style="--i:3"><i></i><b>サービス管理</b></span>
+        <span class="cpop pR2" style="--i:4"><i></i><b>電子名刺</b></span>
+        <span class="cpop pR3" style="--i:5"><i></i><b>領収書読取り</b></span>
       </div>
     </div>
   </div>
