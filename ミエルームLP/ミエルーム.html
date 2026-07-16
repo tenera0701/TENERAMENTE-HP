@@ -237,6 +237,31 @@ header{
 @media(prefers-reduced-motion:reduce){
   .float-tl,.float-br,.hero-visual .device,.blob{animation:none!important}
 }
+/* ===== iMac実画面＋機能ポップ（画面へ吸い込むアニメ） ===== */
+.imac{position:relative;width:100%}
+.imac-frame{overflow:hidden;border-radius:6px}
+.imac-shot{display:block;width:100%;height:auto;margin-top:-6%;mix-blend-mode:multiply;animation:drift 8s ease-in-out infinite}
+.mpop{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#14a085,#2bbfa3);
+  border-radius:12px;padding:8px 14px;box-shadow:0 12px 28px rgba(14,80,68,.34);white-space:nowrap}
+.mpop i{width:9px;height:9px;border-radius:50%;flex:none;background:#eafff8;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
+.mpop b{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#fff;letter-spacing:.02em}
+.mp1{top:23%;left:2%;--tx:150px;--ty:74px}
+.mp2{top:61%;left:5%;--tx:150px;--ty:-46px}
+.mp3{top:19%;right:2%;--tx:-150px;--ty:80px}
+.mp4{top:44%;right:0%;--tx:-166px;--ty:12px}
+.mp5{top:67%;right:5%;--tx:-150px;--ty:-52px}
+@keyframes mpopFly{
+  0%{opacity:0;transform:translate(0,0) scale(.9)}
+  10%{opacity:1;transform:translate(0,0) scale(1)}
+  52%{opacity:1;transform:translate(0,0) scale(1)}
+  80%{opacity:.5;transform:translate(calc(var(--tx)*.62),calc(var(--ty)*.62)) scale(.8)}
+  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(.42)}
+}
+@media(prefers-reduced-motion:no-preference){ .mpop{animation:mpopFly 6.5s ease-in-out infinite;animation-delay:calc(var(--i)*.7s)} }
+@media(prefers-reduced-motion:reduce){ .mpop{opacity:1} }
+@media(max-width:560px){ .mpop{padding:6px 11px} .mpop b{font-size:11.5px}
+  .mp1{left:0}.mp2{left:0}.mp3{right:0}.mp4{right:0}.mp5{right:0} }
 
 /* app mock (申込管理表) reusable */
 .appwin{font-size:12px}
@@ -750,21 +775,15 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
     </div>
 
     <div class="hero-visual">
-      <div class="device">
-        <div class="topbar">
-          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <div class="urlbar">app.mieroom.cloud ／ 申込管理表</div>
+      <div class="imac">
+        <div class="imac-frame">
+          <img class="imac-shot" src="assets/app-imac.png" alt="ミエルーム 売上分析の実画面（iMac表示）" loading="eager">
         </div>
-        <div class="dev-shot">
-          <img src="assets/app-moushikomi.png" alt="ミエルーム 申込管理表の実画面" style="display:block;width:100%">
-          <div class="dev-rail">
-            <span class="sdot" style="--i:0"><i></i><b>営業成績</b></span>
-            <span class="sdot" style="--i:1"><i></i><b>申込管理</b></span>
-            <span class="sdot" style="--i:2"><i></i><b>契約書自動生成</b></span>
-            <span class="sdot" style="--i:3"><i></i><b>領収書読取り</b></span>
-            <span class="sdot" style="--i:4"><i></i><b>各フォーム作成</b></span>
-          </div>
-        </div>
+        <span class="mpop mp1" style="--i:0"><i></i><b>営業成績</b></span>
+        <span class="mpop mp2" style="--i:1"><i></i><b>申込管理</b></span>
+        <span class="mpop mp3" style="--i:2"><i></i><b>契約書自動作成</b></span>
+        <span class="mpop mp4" style="--i:3"><i></i><b>領収証読取り</b></span>
+        <span class="mpop mp5" style="--i:4"><i></i><b>各フォーム作成</b></span>
       </div>
       <div class="float-card float-tl">
         <div class="k">後AD・一部入金まで</div>
