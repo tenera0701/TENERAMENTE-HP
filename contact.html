@@ -21,8 +21,7 @@
 <link rel="stylesheet" href="assets/kintone.css" />
 <style>
 .cshell { background: transparent; min-height:100vh; padding-block: clamp(40px,6vw,72px) clamp(40px,6vw,72px); overflow:hidden; position:relative; }
-.cgrid { display:grid; grid-template-columns:1fr 1.35fr; gap:clamp(24px,4vw,56px); align-items:start; }
-@media(max-width:900px){ .cgrid{ grid-template-columns:1fr; } }
+.cgrid { max-width:760px; margin:0 auto; }
 .cinfo .crumb { font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-faint); margin-bottom:18px; }
 .cinfo .crumb a { color:var(--ink-faint); }
 .cinfo h1 { font-family:var(--font-disp); font-weight:900; font-size:clamp(32px,5vw,56px); line-height:1.18; text-wrap:balance; }
@@ -121,19 +120,6 @@ src="https://www.facebook.com/tr?id=1639666480454739&ev=PageView&noscript=1"
     <span class="shape ring c-coral float-a" style="width:40px;height:40px;left:6%;top:40%;"></span>
   </div>
   <div class="wrap-wide cgrid">
-
-    <aside class="cinfo reveal">
-      <div class="crumb"><a href="index.html">HOME</a> ／ お問い合わせ</div>
-      <span class="eyebrow">Contact</span>
-      <h1 style="margin-top:16px;">話を、<span class="b">聞かせて<br />ください。</span></h1>
-      <p>3ステップ・約60秒で送信完了。1営業日以内に、代表自らご返信します。お見積もりも、まずは概算でお伝えします。</p>
-      <div class="channels">
-        <div class="ch"><span class="k">受付</span><span class="v">右のフォームから</span></div>
-        <div class="ch"><span class="k">営業時間</span><span class="v">平日 10:00 — 19:00</span></div>
-        <div class="ch"><span class="k">所在地</span><span class="v">名古屋ルーセントタワー 40F</span></div>
-        <div class="ch"><span class="k">返信</span><span class="v">1営業日以内</span></div>
-      </div>
-    </aside>
 
     <main class="form-card reveal d1">
       <div class="steps" id="steps"><div class="seg cur"></div><div class="seg"></div></div>
