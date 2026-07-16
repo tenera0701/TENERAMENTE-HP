@@ -312,7 +312,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       if (!res.ok) throw new Error('HTTP ' + res.status);
       go('done');
       // Meta Pixel: 送信完了(コンバージョン)を計測
-      if (typeof fbq === 'function') fbq('track', 'Lead');
+      if (typeof fbq === 'function') { fbq('track', 'Lead'); fbq('track', 'Contact'); }
     } catch (err) {
       console.error('[contact] send failed:', err);
       errEl.style.display = 'block';
