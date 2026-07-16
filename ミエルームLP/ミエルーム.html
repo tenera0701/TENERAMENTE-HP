@@ -239,29 +239,30 @@ header{
 }
 /* ===== iMac実画面＋機能ポップ（画面へ吸い込むアニメ） ===== */
 .imac{position:relative;width:100%}
-.imac-frame{overflow:hidden;border-radius:6px}
-.imac-shot{display:block;width:100%;height:auto;margin-top:-6%;mix-blend-mode:multiply;animation:drift 8s ease-in-out infinite}
+.imac-shot{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 46px rgba(14,80,68,.20));animation:drift 8s ease-in-out infinite}
 .mpop{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;
   background:linear-gradient(135deg,#14a085,#2bbfa3);
   border-radius:12px;padding:8px 14px;box-shadow:0 12px 28px rgba(14,80,68,.34);white-space:nowrap}
 .mpop i{width:9px;height:9px;border-radius:50%;flex:none;background:#eafff8;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
 .mpop b{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#fff;letter-spacing:.02em}
-.mp1{top:23%;left:2%;--tx:150px;--ty:74px}
-.mp2{top:61%;left:5%;--tx:150px;--ty:-46px}
-.mp3{top:19%;right:2%;--tx:-150px;--ty:80px}
-.mp4{top:44%;right:0%;--tx:-166px;--ty:12px}
-.mp5{top:67%;right:5%;--tx:-150px;--ty:-52px}
+.mp1{top:15%;left:1%;--tx:150px;--ty:92px}
+.mp2{top:42%;left:-2%;--tx:172px;--ty:14px}
+.mp3{top:69%;left:2%;--tx:150px;--ty:-60px}
+.mp4{top:13%;right:1%;--tx:-150px;--ty:96px}
+.mp5{top:40%;right:-2%;--tx:-172px;--ty:14px}
+.mp6{top:67%;right:2%;--tx:-150px;--ty:-62px}
+/* 画像の外から出現→PC画面へ吸い込まれる */
 @keyframes mpopFly{
-  0%{opacity:0;transform:translate(0,0) scale(.9)}
-  10%{opacity:1;transform:translate(0,0) scale(1)}
-  52%{opacity:1;transform:translate(0,0) scale(1)}
-  80%{opacity:.5;transform:translate(calc(var(--tx)*.62),calc(var(--ty)*.62)) scale(.8)}
-  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(.42)}
+  0%{opacity:0;transform:translate(calc(var(--tx)*-0.85),calc(var(--ty)*-0.85)) scale(.78)}
+  16%{opacity:1;transform:translate(0,0) scale(1)}
+  56%{opacity:1;transform:translate(0,0) scale(1)}
+  82%{opacity:.5;transform:translate(calc(var(--tx)*.62),calc(var(--ty)*.62)) scale(.8)}
+  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(.4)}
 }
-@media(prefers-reduced-motion:no-preference){ .mpop{animation:mpopFly 6.5s ease-in-out infinite;animation-delay:calc(var(--i)*.7s)} }
+@media(prefers-reduced-motion:no-preference){ .mpop{animation:mpopFly 7s ease-in-out infinite;animation-delay:calc(var(--i)*.55s)} }
 @media(prefers-reduced-motion:reduce){ .mpop{opacity:1} }
 @media(max-width:560px){ .mpop{padding:6px 11px} .mpop b{font-size:11.5px}
-  .mp1{left:0}.mp2{left:0}.mp3{right:0}.mp4{right:0}.mp5{right:0} }
+  .mp1,.mp2,.mp3{left:0} .mp4,.mp5,.mp6{right:0} }
 
 /* app mock (申込管理表) reusable */
 .appwin{font-size:12px}
@@ -752,7 +753,7 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   <div class="wrap">
     <div>
       <span class="eyebrow">賃貸仲介会社専用の業務管理ツール</span>
-      <h1>賃貸仲介、<span class="u-blue">アナログ卒業</span>。<br>ミエルームを使えば、集客からこれ一本化。</h1>
+      <h1>賃貸仲介会社が自社のために<br>開発した賃貸仲介<span style="color:#4AB5B3;-webkit-text-fill-color:#4AB5B3">特化ツール</span>!!</h1>
       <p class="lead">
         その正体は、売上・接客・申込・入金・広告費が“バラバラ”なこと。<br>
         ミエルームは、後AD・一部入金という賃貸仲介の<b>“最難関”まで攻略</b>して、<br>
@@ -780,18 +781,11 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
           <img class="imac-shot" src="assets/app-imac.png" alt="ミエルーム 売上分析の実画面（iMac表示）" loading="eager">
         </div>
         <span class="mpop mp1" style="--i:0"><i></i><b>営業成績</b></span>
-        <span class="mpop mp2" style="--i:1"><i></i><b>申込管理</b></span>
-        <span class="mpop mp3" style="--i:2"><i></i><b>契約書自動作成</b></span>
-        <span class="mpop mp4" style="--i:3"><i></i><b>領収証読取り</b></span>
-        <span class="mpop mp5" style="--i:4"><i></i><b>各フォーム作成</b></span>
-      </div>
-      <div class="float-card float-tl">
-        <div class="k">後AD・一部入金まで</div>
-        <div class="v u-blue">“本当の売上”が見える</div>
-      </div>
-      <div class="float-card float-br">
-        <div class="spark"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:100%"></i></div>
-        <div><div class="k">広告費 回収率（ROAS）</div><div class="v" style="color:var(--blue)">980%</div></div>
+        <span class="mpop mp2" style="--i:1"><i></i><b>データ分析</b></span>
+        <span class="mpop mp3" style="--i:2"><i></i><b>各フォーム作成</b></span>
+        <span class="mpop mp4" style="--i:3"><i></i><b>申込管理</b></span>
+        <span class="mpop mp5" style="--i:4"><i></i><b>契約書自動作成</b></span>
+        <span class="mpop mp6" style="--i:5"><i></i><b>領収証読取り</b></span>
       </div>
     </div>
   </div>
