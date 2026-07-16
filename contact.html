@@ -311,6 +311,8 @@ src="https://www.facebook.com/tr?id=1639666480454739&ev=PageView&noscript=1"
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       go('done');
+      // Meta Pixel: 送信完了(コンバージョン)を計測
+      if (typeof fbq === 'function') fbq('track', 'Lead');
     } catch (err) {
       console.error('[contact] send failed:', err);
       errEl.style.display = 'block';
