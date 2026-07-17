@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI×WEBアプリ開発 無料診断（30秒）｜AI業務改善・業務のアプリ化 適性チェック - 株式会社TENERAMENTE</title>
-<meta name="description" content="御社の業務は“AIアプリ化”でどれだけ改善できる？6つの質問に答えるだけの無料診断（約30秒）。Excel管理・転記・属人化の悩みから、業務改善AIアプリ開発・AIツール開発の最適な始め方を診断します。名古屋のAI開発企業TENERAMENTE。" />
+<title>AI×WEBアプリ開発 無料診断｜AI業務改善・業務のアプリ化 適性チェック - 株式会社TENERAMENTE</title>
+<meta name="description" content="御社の業務は“AIアプリ化”でどれだけ改善できる？8つの質問に答えるだけの無料診断（約1分）。Excel管理・転記・属人化の悩みから、業務改善AIアプリ開発・AIツール開発の最適な始め方を診断し、結果レポートを無料でお送りします。名古屋のAI開発企業TENERAMENTE。" />
 <link rel="canonical" href="https://teneramente.jp/shindan.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="株式会社TENERAMENTE" />
 <meta property="og:locale" content="ja_JP" />
-<meta property="og:title" content="AI×WEBアプリ開発 無料診断（30秒）｜株式会社TENERAMENTE" />
-<meta property="og:description" content="6つの質問に答えるだけ。御社の業務が“AIアプリ化”でどれだけ改善できるかを無料診断します。" />
+<meta property="og:title" content="AI×WEBアプリ開発 無料診断｜株式会社TENERAMENTE" />
+<meta property="og:description" content="8つの質問に答えるだけ。御社の業務が“AIアプリ化”でどれだけ改善できるかを無料診断し、結果レポートをお送りします。" />
 <meta property="og:url" content="https://teneramente.jp/shindan.html" />
 <meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -18,53 +18,17 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"AI×WEBアプリ開発 無料診断","url":"https://teneramente.jp/shindan.html","description":"業務のAIアプリ化・AI業務改善の適性を6問で診断する無料ツール。","inLanguage":"ja","isPartOf":{"@id":"https://teneramente.jp/#website"},"provider":{"@type":"Organization","name":"株式会社TENERAMENTE","url":"https://teneramente.jp/"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"AI×WEBアプリ開発 無料診断","url":"https://teneramente.jp/shindan.html","description":"業務のAIアプリ化・AI業務改善の適性を8問で診断し、結果レポートを無料で受け取れるツール。","inLanguage":"ja","isPartOf":{"@id":"https://teneramente.jp/#website"},"provider":{"@type":"Organization","name":"株式会社TENERAMENTE","url":"https://teneramente.jp/"}}
 </script>
 <link rel="stylesheet" href="assets/kintone.css" />
 <style>
-.page-hero { background: transparent; overflow:hidden; padding-block: clamp(36px,5vw,64px) clamp(20px,3vw,36px); position:relative; text-align:center; }
+.page-hero { background: transparent; overflow:hidden; padding-block: clamp(32px,5vw,60px) clamp(18px,3vw,32px); position:relative; text-align:center; }
 .page-hero h1 { font-family:var(--font-disp); font-weight:900; font-size:clamp(27px,4.6vw,46px); line-height:1.3; text-wrap:balance; }
 .page-hero h1 .b { color:var(--blue); }
 .page-hero .lead { margin-top:14px; font-size:clamp(14.5px,1.5vw,17px); color:var(--ink-soft); }
-.badge-30s { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--blue-deep); background:var(--blue-soft); border-radius:999px; padding:7px 16px; margin-bottom:14px; }
-
-/* quiz card */
-.quiz-wrap { max-width:680px; margin:0 auto; padding:0 var(--gutter) clamp(56px,8vw,96px); }
-.quiz-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); padding:clamp(22px,4vw,40px); position:relative; z-index:2; }
-.q-progress { display:flex; gap:6px; margin-bottom:18px; }
-.q-progress i { flex:1; height:6px; border-radius:3px; background:var(--line); transition:background .3s; }
-.q-progress i.on { background:linear-gradient(90deg,#1e9bf0,#2ee0c9); }
-.q-count { font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); margin-bottom:8px; letter-spacing:.08em; }
-.q-title { font-family:var(--font-disp); font-weight:900; font-size:clamp(19px,2.6vw,25px); line-height:1.45; margin-bottom:20px; }
-.q-opts { display:flex; flex-direction:column; gap:12px; }
-.q-opt { display:flex; align-items:center; gap:12px; width:100%; text-align:left; font-family:inherit; font-size:15.5px; font-weight:600; color:var(--ink); background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px 18px; cursor:pointer; transition:border .2s, background .2s, transform .15s; min-height:56px; }
-.q-opt:hover { border-color:var(--blue); background:var(--blue-mist); }
-.q-opt:active { transform:scale(.99); }
-.q-opt .mk { flex:none; width:22px; height:22px; border-radius:50%; border:2px solid var(--line); transition:all .2s; }
-.q-opt:hover .mk { border-color:var(--blue); }
-.q-back { margin-top:18px; background:none; border:none; font-family:var(--font-disp); font-weight:700; font-size:13.5px; color:var(--ink-faint); cursor:pointer; padding:10px 6px; }
-.q-back:hover { color:var(--blue-deep); }
-
-/* result */
-.r-rank { display:inline-grid; place-items:center; width:92px; height:92px; border-radius:50%; font-family:var(--font-disp); font-weight:900; font-size:44px; color:#fff; margin-bottom:16px; box-shadow:var(--shadow-md); }
-.r-rank.a { background:linear-gradient(135deg,#1e9bf0,#2ee0c9); }
-.r-rank.b { background:linear-gradient(135deg,#6c5ce7,#1e9bf0); }
-.r-rank.c { background:linear-gradient(135deg,#36c08a,#2ee0c9); }
-.r-title { font-family:var(--font-disp); font-weight:900; font-size:clamp(21px,3vw,28px); line-height:1.4; }
-.r-body { margin-top:14px; font-size:15px; color:var(--ink-soft); line-height:1.9; text-align:left; }
-.r-list { text-align:left; margin-top:16px; display:flex; flex-direction:column; gap:10px; }
-.r-list li { list-style:none; display:flex; gap:10px; font-size:14.5px; font-weight:600; color:var(--ink); }
-.r-list li::before { content:"✓"; color:#0fae98; font-weight:900; flex:none; }
-.r-ctas { display:flex; flex-direction:column; gap:12px; margin-top:26px; }
-.r-ctas .btn { width:100%; justify-content:center; }
-.r-note { margin-top:14px; font-size:12.5px; color:var(--ink-faint); }
-.r-again { margin-top:6px; background:none; border:none; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--ink-faint); cursor:pointer; padding:10px; }
-.r-again:hover { color:var(--blue-deep); }
-.hidden { display:none; }
-#result { text-align:center; }
-
-/* seo text */
-.seo-note { max-width:680px; margin:0 auto; padding:0 var(--gutter) clamp(48px,7vw,80px); font-size:13.5px; color:var(--ink-soft); line-height:2; }
+.badge-1m { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--blue-deep); background:var(--blue-soft); border-radius:999px; padding:7px 16px; margin-bottom:14px; }
+.quiz-wrap { max-width:860px; margin:0 auto; padding:0 var(--gutter) clamp(56px,8vw,96px); }
+.seo-note { max-width:860px; margin:0 auto; padding:0 var(--gutter) clamp(48px,7vw,80px); font-size:13.5px; color:var(--ink-soft); line-height:2; }
 .seo-note h2 { font-family:var(--font-disp); font-weight:900; font-size:17px; color:var(--ink); margin-bottom:10px; }
 .seo-note a { color:var(--blue-deep); text-decoration:underline; }
 .k-mobile { display:none; position:fixed; inset:74px 0 auto 0; background:#fff; border-bottom:1px solid var(--line); padding:16px var(--gutter) 24px; z-index:99; box-shadow:var(--shadow-md); }
@@ -100,130 +64,24 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <span class="shape ring c-violet float-a" style="width:38px;height:38px;left:8%;top:30%;"></span>
   </div>
   <div class="wrap reveal">
-    <span class="badge-30s">⚡ 無料・約30秒・登録不要</span>
+    <span class="badge-1m">⚡ 無料・約1分・8つの質問</span>
     <h1>AI×WEBアプリ開発<span class="b"> 無料診断</span></h1>
-    <p class="lead">6つの質問に答えるだけ。御社の業務が“AIアプリ化”で<br class="pcbr">どれだけ改善できるかを、その場で診断します。</p>
+    <p class="lead">質問に答えるだけで、御社の業務が“AIアプリ化”でどれだけ改善できるかを診断。<br class="pcbr">診断結果レポートを無料でお送りします。</p>
   </div>
 </section>
 
 <div class="quiz-wrap">
-  <div class="quiz-card reveal d1">
-    <div class="q-progress" id="qProgress"></div>
-
-    <div id="quiz">
-      <div class="q-count" id="qCount">Q1 / 6</div>
-      <h2 class="q-title" id="qTitle"></h2>
-      <div class="q-opts" id="qOpts"></div>
-      <button type="button" class="q-back hidden" id="qBack">← ひとつ前に戻る</button>
-    </div>
-
-    <div id="result" class="hidden">
-      <div class="r-rank" id="rRank">A</div>
-      <h2 class="r-title" id="rTitle"></h2>
-      <div class="r-body" id="rBody"></div>
-      <ul class="r-list" id="rList"></ul>
-      <div class="r-ctas">
-        <a href="contact.html" class="btn btn-primary btn-lg" id="rContact">無料で相談する<span class="arr">→</span></a>
-        <a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico" style="width:20px;height:20px;"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINEで問い合わせ</a>
-      </div>
-      <p class="r-note">診断結果を添えてご相談いただくと、話が早いです。</p>
-      <button type="button" class="r-again" id="rAgain">もう一度診断する</button>
-    </div>
-  </div>
+  <div id="shindan-widget" class="reveal d1"></div>
 </div>
 
 <section class="seo-note" data-screen-label="診断:補足">
   <h2>この診断について（AI業務改善・業務アプリ化の第一歩）</h2>
-  <p>この無料診断は、<strong>業務改善AIアプリ開発・AIツール開発</strong>を手がける株式会社TENERAMENTE（名古屋のAI開発企業）が、「うちの業務、アプリにできる？」という最初の疑問に答えるために作りました。Excel管理の限界・転記作業・属人化など、AI業務改善が効きやすいポイントを6問でチェックします。より詳しくは<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善アプリ開発 完全ガイド（Claude Code時代の進め方・費用・AI開発企業の選び方）</a>、<a href="lp-ai-app.html">AI×WEBアプリ開発のサービス案内</a>もご覧ください。</p>
+  <p>この無料診断は、<strong>業務改善AIアプリ開発・AIツール開発</strong>を手がける株式会社TENERAMENTE（名古屋のAI開発企業）が、「うちの業務、アプリにできる？」という最初の疑問に答えるために作りました。Excel管理の限界・転記作業・属人化など、AI業務改善が効きやすいポイントを8問でチェックし、結果レポートをメールでお送りします。より詳しくは<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善アプリ開発 完全ガイド（Claude Code時代の進め方・費用・AI開発企業の選び方）</a>、<a href="lp-ai-app.html">AI×WEBアプリ開発のサービス案内</a>もご覧ください。</p>
 </section>
 
 <div data-chrome="footer"></div>
 <script src="assets/chrome.js"></script>
 <script src="assets/kintone.js"></script>
-<script>
-(function () {
-  const QUESTIONS = [
-    { t: '日々の業務管理は、いま何が中心ですか？',
-      o: [['Excel・紙が中心', 2], ['Excelと既製ツールが半々', 1], ['ほぼシステム化できている', 0]] },
-    { t: '同じ情報を別の場所へ「転記」する作業はありますか？',
-      o: [['毎日ある', 2], ['週に数回ある', 1], ['ほとんどない', 0]] },
-    { t: '「あの人しか分からない業務」はありますか？',
-      o: [['複数ある', 2], ['1〜2個ある', 1], ['ない', 0]] },
-    { t: '集計・報告資料づくりに、毎月どれくらい時間がかかっていますか？',
-      o: [['半日以上かかる', 2], ['2〜3時間くらい', 1], ['ほぼ自動化できている', 0]] },
-    { t: '既製ツール（SaaS）を使ってみた感想は？',
-      o: [['自社に合わず困っている', 2], ['8割合うけど2割が惜しい', 1], ['十分合っている／未導入', 0]] },
-    { t: '業務改善の優先度はどれくらいですか？',
-      o: [['今すぐ変えたい', 2], ['半年以内には', 1], ['まずは情報収集', 0]] },
-  ];
-  const RESULTS = {
-    a: { min: 9, rank: 'A', title: 'アプリ化で、大きく改善できる可能性・大。',
-      body: 'Excel・転記・属人化のサインが複数見られます。御社専用の業務アプリに置き換えることで、日々の入力・集計・共有のムダを大きく減らせる典型的なパターンです。AI支援開発なら、以前より短い工期・抑えた費用で「ちょうどいいアプリ」がつくれます。',
-      list: ['毎日さわる業務から小さくアプリ化するのが最短ルート', '初期費用15万円〜・相談から運用まで一気通貫', 'まずは無料相談で「どこから直すか」を一緒に整理'] },
-    b: { min: 5, rank: 'B', title: '部分的なアプリ化から始めるのが、おすすめ。',
-      body: '全体としては回っていますが、転記・集計・属人化のどこかに“見えないコスト”が潜んでいそうです。業務全部ではなく、いちばん面倒な1業務だけを専用ツールにする——そんな始め方が費用対効果に優れます。',
-      list: ['「一番面倒な業務」ひとつに絞った小さな開発が有効', '既製SaaSの“惜しい2割”を埋める補完ツールという選択肢も', '無料相談で優先順位づけだけでも持ち帰れます'] },
-    c: { min: 0, rank: 'C', title: 'いまは仕組みより、AI活用の底上げから。',
-      body: '業務の仕組みは比較的整っています。次の一手は、アプリ開発よりも、生成AIの社内活用（文章作成・分析・問い合わせ対応の効率化）や、既存ツールの整理かもしれません。当社はAI活用支援・研修も行っています。',
-      list: ['ChatGPT等の業務活用ルールづくり・研修から始める', '既存ツールの使い方見直しでも改善余地あり', '将来のアプリ化に向けた業務の棚卸しをお手伝いできます'] },
-  };
-
-  let idx = 0;
-  const answers = [];
-  const qProgress = document.getElementById('qProgress');
-  const qCount = document.getElementById('qCount');
-  const qTitle = document.getElementById('qTitle');
-  const qOpts = document.getElementById('qOpts');
-  const qBack = document.getElementById('qBack');
-  const quizEl = document.getElementById('quiz');
-  const resultEl = document.getElementById('result');
-
-  QUESTIONS.forEach(() => { const i = document.createElement('i'); qProgress.appendChild(i); });
-
-  function render() {
-    const q = QUESTIONS[idx];
-    qCount.textContent = 'Q' + (idx + 1) + ' / ' + QUESTIONS.length;
-    qTitle.textContent = q.t;
-    qOpts.innerHTML = '';
-    q.o.forEach(([label, pt]) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'q-opt';
-      b.innerHTML = '<span class="mk"></span>' + label;
-      b.addEventListener('click', () => { answers[idx] = pt; next(); });
-      qOpts.appendChild(b);
-    });
-    qBack.classList.toggle('hidden', idx === 0);
-    qProgress.querySelectorAll('i').forEach((seg, i) => seg.classList.toggle('on', i <= idx));
-  }
-  function next() {
-    if (idx < QUESTIONS.length - 1) { idx++; render(); }
-    else finish();
-  }
-  qBack.addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
-
-  function finish() {
-    const score = answers.reduce((a, b) => a + b, 0);
-    const r = score >= RESULTS.a.min ? RESULTS.a : score >= RESULTS.b.min ? RESULTS.b : RESULTS.c;
-    document.getElementById('rRank').textContent = r.rank;
-    document.getElementById('rRank').className = 'r-rank ' + r.rank.toLowerCase();
-    document.getElementById('rTitle').textContent = '診断結果：' + r.title;
-    document.getElementById('rBody').textContent = r.body;
-    document.getElementById('rList').innerHTML = r.list.map(x => '<li>' + x + '</li>').join('');
-    document.getElementById('rContact').href = 'contact.html?svc=app';
-    quizEl.classList.add('hidden');
-    resultEl.classList.remove('hidden');
-    qProgress.querySelectorAll('i').forEach(seg => seg.classList.add('on'));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (typeof fbq === 'function') fbq('trackCustom', 'DiagnosisComplete', { rank: r.rank, score: score });
-  }
-  document.getElementById('rAgain').addEventListener('click', () => {
-    idx = 0; answers.length = 0;
-    resultEl.classList.add('hidden'); quizEl.classList.remove('hidden');
-    render();
-  });
-
-  render();
-})();
-</script>
+<script src="assets/shindan.js"></script>
 </body>
 </html>
