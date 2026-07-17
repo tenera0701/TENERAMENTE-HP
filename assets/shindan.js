@@ -82,7 +82,7 @@
       <div class="sq-rank"></div>
       <h3 class="sq-done-title">送信ありがとうございました！</h3>
       <p class="sq-done-body"></p>
-      <p class="sq-done-note">診断結果レポートをメールでお送りします。お急ぎの場合はLINEからどうぞ。</p>
+      <p class="sq-done-note">診断結果レポートをメールでお送りしました。届かない場合は迷惑メールフォルダをご確認ください。</p>
       <a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico" style="width:20px;height:20px;"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
     </div>
   </div>`;

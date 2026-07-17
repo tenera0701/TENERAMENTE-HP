@@ -63,7 +63,7 @@
     </div>
   </footer>`;
 
-  const floatCta = `<div class="float-cta"><a href="shindan.html" class="btn btn-shindan">⚡ AI無料診断</a><a href="contact.html" class="btn btn-primary">無料相談 →</a></div>`;
+  const floatCta = `<div class="float-cta"><a href="shindan.html" class="btn btn-shindan">⚡ AI無料診断</a><a href="contact.html" class="btn btn-primary">無料相談</a></div>`;
 
   document.querySelectorAll('[data-chrome="header"]').forEach(el => { el.outerHTML = header; });
   document.querySelectorAll('[data-chrome="footer"]').forEach(el => { el.outerHTML = footer + floatCta; });
