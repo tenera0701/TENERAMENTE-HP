@@ -107,7 +107,7 @@
         if (saved && saved.sel && saved.sel.indexOf(oi) >= 0) b.classList.add('on');
         b.addEventListener('click', () => { b.classList.toggle('on'); });
       } else {
-        b.addEventListener('click', () => { answers[idx] = { label: label, point: pt }; next(); });
+        b.addEventListener('click', () => { answers[idx] = { label: label, point: pt, oi: oi }; next(); });
       }
       opts.appendChild(b);
     });
@@ -131,7 +131,9 @@
     const other = $('.sq-other input').value.trim();
     if (other) { labels.push('その他: ' + other); pts += 1; }
     if (!labels.length) return null;
-    return { label: labels.join('、'), point: Math.min(pts, 3), sel: sel, other: other };
+    const idxs = sel.slice();
+    if (other) idxs.push(QUESTIONS[idx].o.length); // 「その他」= 選択肢数と同じ番号
+    return { label: labels.join('、'), point: Math.min(pts, 3), sel: sel, other: other, idxs: idxs };
   }
 
   function next() {
@@ -193,6 +195,8 @@
           '電話番号': get('sq-phone').value.trim(),
           '従業員数': get('sq-emp').value,
           '拠点・店舗数': get('sq-sites').value,
+          // 回答の選択番号(ATLAS側で回答別フィードバックの組み立てに使用)
+          _ans: answers.map(a => (a.idxs !== undefined ? a.idxs : a.oi)),
           _hp: get('sq-hp').value,
         }),
       });
