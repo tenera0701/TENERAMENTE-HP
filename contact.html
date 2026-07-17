@@ -133,22 +133,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <div class="svc-opts">
             <label data-val="app"><span class="o-n">01 / WEB APP</span><span class="o-t">AI×WEBアプリ開発</span><span class="o-d">業務アプリ・予約・CRMなど</span><input type="checkbox" name="svc" value="app" /></label>
             <label data-val="hp"><span class="o-n">02 / HP・LP</span><span class="o-t">HP / LP作成</span><span class="o-d">店舗HP・LP・コーポレート</span><input type="checkbox" name="svc" value="hp" /></label>
-            <label data-val="meo"><span class="o-n">03 / MEO・AIO</span><span class="o-t">MEO / AIO運用代行</span><span class="o-d">Googleマップ・AI検索最適化</span><input type="checkbox" name="svc" value="meo" /></label>
+            <label data-val="meo"><span class="o-n">03 / MEO・AIO</span><span class="o-t">MEO / AIO運用ツール</span><span class="o-d">Googleマップ・AI検索最適化</span><input type="checkbox" name="svc" value="meo" /></label>
             <label data-val="ai"><span class="o-n">04 / AI</span><span class="o-t">AI活用支援</span><span class="o-d">研修・RAG・業務エージェント</span><input type="checkbox" name="svc" value="ai" /></label>
             <label data-val="other" style="grid-column:span 2;"><span class="o-n">05 / OTHER</span><span class="o-t">その他・複合のご相談</span><span class="o-d">話してみないと分からない、でも構いません。</span><input type="checkbox" name="svc" value="other" /></label>
           </div>
+          <p class="svcErr" style="display:none;color:var(--accent-coral);font-size:11.5px;font-weight:700;margin:8px 0 0;">1つ以上お選びください。</p>
           <div class="field" style="margin-top:22px;">
             <label><span>ご要望・ご相談内容</span><span class="req">必須</span></label>
             <textarea name="message" placeholder="例：3店舗運営の飲食店。Googleマップでの表示順位を上げたい。現状は3〜5位、競合は1位。" required></textarea>
             <span class="err-msg">入力してください</span>
           </div>
-          <div class="row-2" style="margin-top:6px;">
-            <div class="field"><label><span>希望開始時期</span></label>
-              <select name="timing"><option value="">—</option><option>できるだけ早く</option><option>1ヶ月以内</option><option>1〜3ヶ月</option><option>3ヶ月以降</option><option>未定</option></select>
-            </div>
-            <div class="field"><label><span>当社を知ったきっかけ</span></label>
-              <select name="source"><option value="">—</option><option>Google検索</option><option>SNS / X</option><option>ご紹介</option><option>既存のお客様</option><option>その他</option></select>
-            </div>
+          <div class="field" style="margin-top:6px;">
+            <label><span>当社を知ったきっかけ</span><span class="req">必須</span></label>
+            <select name="source" required><option value="">選択してください</option><option>Google検索</option><option>SNS / X</option><option>ご紹介</option><option>既存のお客様</option><option>その他</option></select>
+            <span class="err-msg">選択してください</span>
           </div>
           <div class="step-nav"><span></span><button type="button" class="btn btn-primary" data-next="2">次へ<span class="arr">→</span></button></div>
         </div>
@@ -158,12 +156,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <h2 class="step-title">ご連絡先・確認</h2>
           <p class="step-sub">1営業日以内にご返信します。</p>
           <div class="row-2">
-            <div class="field"><label><span>会社名</span></label><input type="text" name="company" placeholder="株式会社◯◯" /></div>
-            <div class="field"><label><span>お名前</span><span class="req">必須</span></label><input type="text" name="name" required placeholder="◯◯ ◯◯" /><span class="err-msg">入力してください</span></div>
+            <div class="field"><label><span>会社名 or 店舗名</span><span class="req">必須</span></label><input type="text" name="company" required placeholder="株式会社◯◯ / ◯◯店" /><span class="err-msg">入力してください</span></div>
+            <div class="field"><label><span>担当者氏名</span><span class="req">必須</span></label><input type="text" name="name" required placeholder="◯◯ ◯◯" /><span class="err-msg">入力してください</span></div>
           </div>
           <div class="row-2">
             <div class="field"><label><span>メールアドレス</span><span class="req">必須</span></label><input type="email" name="email" required placeholder="you@company.com" /><span class="err-msg">入力してください</span></div>
-            <div class="field"><label><span>部署・役職（任意）</span></label><input type="text" name="role" placeholder="代表 / マーケティング部長 など" /></div>
+            <div class="field"><label><span>電話番号</span><span class="req">必須</span></label><input type="tel" name="phone" required inputmode="tel" placeholder="09012345678" /><span class="err-msg">入力してください</span></div>
           </div>
           <div class="review-list" id="review"></div>
           <label class="consent"><input type="checkbox" name="consent" required /><span><a href="#">プライバシーポリシー</a>に同意の上、内容を送信します。</span></label>
@@ -215,6 +213,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       const cb = lbl.querySelector('input');
       cb.checked = !cb.checked;
       lbl.classList.toggle('selected', cb.checked);
+      if (form.querySelectorAll('input[name="svc"]:checked').length) { const se=document.querySelector('.svcErr'); if(se) se.style.display='none'; }
     });
   });
 
@@ -235,8 +234,14 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   document.querySelectorAll('[data-next]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (current === 1) {
+        let ok1 = true;
+        const svcOn = form.querySelectorAll('input[name="svc"]:checked').length > 0;
+        const se = document.querySelector('.svcErr'); if (se) se.style.display = svcOn ? 'none' : 'block';
+        if (!svcOn) ok1 = false;
         const ta = form.message;
-        if (!ta.value.trim()) { ta.classList.add('err'); ta.parentElement.classList.add('err'); return; }
+        if (!ta.value.trim()) { ta.classList.add('err'); ta.parentElement.classList.add('err'); ok1 = false; }
+        if (!form.source.value) { form.source.classList.add('err'); form.source.parentElement.classList.add('err'); ok1 = false; }
+        if (!ok1) return;
       }
       renderReview();
       go(parseInt(btn.getAttribute('data-next')));
@@ -245,8 +250,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   document.querySelectorAll('[data-prev]').forEach(btn => {
     btn.addEventListener('click', () => go(parseInt(btn.getAttribute('data-prev'))));
   });
-  form.querySelectorAll('input, textarea').forEach(el => {
-    el.addEventListener('input', () => { el.classList.remove('err'); el.parentElement.classList.remove('err'); });
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    const clr = () => { el.classList.remove('err'); el.parentElement.classList.remove('err'); };
+    el.addEventListener('input', clr); el.addEventListener('change', clr);
   });
 
   function renderReview() {
@@ -257,7 +263,6 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     const rows = [
       { k:'ご相談', v: svc.join(' ・ ') },
       { k:'内容', v: form.message.value.trim() },
-      { k:'開始時期', v: form.timing.value },
       { k:'きっかけ', v: form.source.value },
     ];
     document.getElementById('review').innerHTML = rows.map(r =>
@@ -271,7 +276,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let ok = true;
-    ['name','email'].forEach(n => {
+    ['company','name','email','phone'].forEach(n => {
       const el = form[n];
       if (!el.value.trim()) { el.classList.add('err'); el.parentElement.classList.add('err'); ok = false; }
     });
@@ -296,14 +301,14 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           source: 'TENERAMENTE HP',
           name: form.name.value.trim(),
           email: form.email.value.trim(),
+          phone: form.phone.value.trim(),
           company: form.company.value.trim(),
           subject: '無料相談' + (svc.length ? '：' + svc.join('・') : ''),
           body: form.message.value.trim(),
           // 以下はATLAS側で「項目名: 値」の形で自動的にメモへ集約される
           '相談種別': svc.join('・'),
-          '希望開始時期': form.timing.value,
+          '電話番号': form.phone.value.trim(),
           '当社を知ったきっかけ': form.source.value,
-          '部署・役職': form.role.value.trim(),
           _hp: form._hp.value,
         }),
       });
