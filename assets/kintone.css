@@ -352,10 +352,14 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .hero .wrap-wide, .hero .wrap { position: relative; z-index: 2; }
 
 /* sticky CTA pill (mobile) */
-.float-cta { position: fixed; right: 16px; bottom: 16px; z-index: 90; }
+.float-cta { position: fixed; right: 16px; bottom: 16px; z-index: 90; display: flex; gap: 10px; }
 .float-cta a { box-shadow: var(--shadow-lg); }
 @media (min-width: 921px){ .float-cta { display: none; } }
 @media print { .float-cta { display:none; } }
+
+/* AI無料診断ボタン（全ページ共通） */
+.btn-shindan { background: linear-gradient(120deg, #6c5ce7, #1e9bf0); color: #fff; }
+.btn-shindan:hover { background: linear-gradient(120deg, #5a4bd4, #0d7fd6); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(96,90,220,.4); color: #fff; }
 
 /* product hero accent (for LP pages) */
 .lp-hero { position: relative; overflow: hidden; padding-block: clamp(56px,8vw,104px) clamp(48px,7vw,90px); }

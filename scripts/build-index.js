@@ -192,7 +192,7 @@ function main() {
   // sitemap.xml
   const today = new Date().toISOString().slice(0, 10);
   const staticUrls = [
-    '', 'services.html', 'company.html', 'contact.html', 'blog.html',
+    '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
     'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'ミエルームLP/ミエルーム.html',
   ];

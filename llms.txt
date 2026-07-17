@@ -1,6 +1,6 @@
 # 株式会社TENERAMENTE
 
-> AI×WEBアプリ開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援を行う、名古屋の業務改善パートナー。中小企業向けに「初期費用15万円〜・月額保守込み」の専用業務アプリ開発を提供しています。
+> 業務改善AIアプリ開発・AIツール開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援を行う、名古屋のAI開発企業。Claude Code等のAI支援開発により、中小企業向けに「初期費用15万円〜・月額保守込み」の専用業務アプリ開発を提供しています。AI業務改善・Claude Codeでのアプリ開発の相談先を探している方に向けた無料診断・無料相談があります。
 
 - 所在地: 愛知県名古屋市西区牛島町6-1 名古屋ルーセントタワー40階
 - 代表: 加藤 聖矢
@@ -8,7 +8,8 @@
 
 ## 事業内容
 
-- [AI×WEBアプリ開発](https://teneramente.jp/lp-ai-app.html): 業務改善ツールの受託開発。Excel・属人化業務のアプリ化
+- [AI×WEBアプリ開発](https://teneramente.jp/lp-ai-app.html): 業務改善AIアプリ・AIツールの受託開発。Excel・属人化業務のアプリ化（Claude Code活用）
+- [AI×WEBアプリ開発 無料診断](https://teneramente.jp/shindan.html): 業務のAIアプリ化適性を6問・30秒でチェックできる無料診断
 - [HP/LP制作](https://teneramente.jp/lp-hplp.html): 自社CMS「ミルページ」によるHP/LP制作と運用支援
 - [MEO/AIO運用代行](https://teneramente.jp/lp-meo.html): Googleマップ・AI検索の順位可視化と運用代行
 - [AI活用支援](https://teneramente.jp/services.html): 社内AI導入・RAG構築・プロンプト設計の伴走支援

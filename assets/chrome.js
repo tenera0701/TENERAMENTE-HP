@@ -7,6 +7,7 @@
     { key: 'products', href: 'services.html#products', label: 'プロダクト' },
     { key: 'company',  href: 'company.html',  label: '会社概要' },
     { key: 'blog',     href: 'blog.html',     label: 'ブログ' },
+    { key: 'shindan',  href: 'shindan.html',  label: 'AI無料診断' },
   ];
   const active = document.body.getAttribute('data-active') || '';
 
@@ -28,6 +29,7 @@
   </header>
   <div class="k-mobile">
     ${NAV.map(n => `<a href="${n.href}">${n.label}</a>`).join('')}
+    <a href="shindan.html" class="btn btn-shindan">⚡ AI無料診断（30秒）</a>
     <a href="contact.html" class="btn btn-primary">無料相談する</a>
   </div>`;
 
@@ -61,7 +63,7 @@
     </div>
   </footer>`;
 
-  const floatCta = `<div class="float-cta"><a href="contact.html" class="btn btn-primary">無料相談 →</a></div>`;
+  const floatCta = `<div class="float-cta"><a href="shindan.html" class="btn btn-shindan">⚡ AI無料診断</a><a href="contact.html" class="btn btn-primary">無料相談 →</a></div>`;
 
   document.querySelectorAll('[data-chrome="header"]').forEach(el => { el.outerHTML = header; });
   document.querySelectorAll('[data-chrome="footer"]').forEach(el => { el.outerHTML = footer + floatCta; });
