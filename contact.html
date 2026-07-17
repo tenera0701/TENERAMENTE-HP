@@ -282,13 +282,6 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       const t = i.closest('label').querySelector('.o-t');
       return t ? t.textContent.trim() : i.value;
     });
-    const bodyLines = [
-      form.message.value.trim(),
-      '',
-      form.timing.value ? `希望開始時期: ${form.timing.value}` : '',
-      form.source.value ? `きっかけ: ${form.source.value}` : '',
-      form.role.value.trim() ? `部署・役職: ${form.role.value.trim()}` : '',
-    ].filter((l, i) => i === 0 || l);
 
     const btn = document.getElementById('submitBtn');
     const errEl = document.getElementById('sendError');
@@ -305,7 +298,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           email: form.email.value.trim(),
           company: form.company.value.trim(),
           subject: '無料相談' + (svc.length ? '：' + svc.join('・') : ''),
-          body: bodyLines.join('\n'),
+          body: form.message.value.trim(),
+          // 以下はATLAS側で「項目名: 値」の形で自動的にメモへ集約される
+          '相談種別': svc.join('・'),
+          '希望開始時期': form.timing.value,
+          '当社を知ったきっかけ': form.source.value,
+          '部署・役職': form.role.value.trim(),
           _hp: form._hp.value,
         }),
       });
