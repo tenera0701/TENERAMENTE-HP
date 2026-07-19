@@ -16,7 +16,7 @@
 
 ## 自社プロダクト
 
-- [ミエルーム](https://teneramente.jp/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0LP/%E3%83%9F%E3%82%A8%E3%83%AB%E3%83%BC%E3%83%A0.html): 賃貸仲介向け業務管理SaaS
+- [ミエルーム](https://teneramente.jp/mieroom/): 賃貸仲介向け業務管理SaaS
 - [ミルページ](https://teneramente.jp/lp-milpage.html): 店舗オーナー向けHP運用CMS
 - [LDash](https://teneramente.jp/lp-ldash.html): LINE公式アカウントCRM
 - [MEOツール](https://teneramente.jp/lp-meo.html): MEO順位計測・運用ツール

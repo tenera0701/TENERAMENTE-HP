@@ -194,7 +194,7 @@ function main() {
   const staticUrls = [
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
     'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
-    'lp-milpage.html', 'lp-ldash.html', 'ミエルームLP/ミエルーム.html',
+    'lp-milpage.html', 'lp-ldash.html', 'mieroom/',
   ];
   const postUrls = posts.map(p => `${p.slug}.html`);
   const all = [...staticUrls, ...postUrls];

@@ -48,7 +48,7 @@
           <a href="services.html">AI活用支援</a>
         </div>
         <div class="fcol"><h4>プロダクト</h4>
-          <a href="ミエルームLP/ミエルーム.html">ミエルーム</a>
+          <a href="mieroom/">ミエルーム</a>
           <a href="lp-milpage.html">ミルページ</a>
           <a href="lp-ldash.html">LDash</a>
           <a href="lp-meo.html">MEOツール</a>

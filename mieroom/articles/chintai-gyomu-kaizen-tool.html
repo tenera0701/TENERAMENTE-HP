@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賃貸仲介の業務改善ツール完全ガイド｜申込管理表から店舗DXまで｜ミエルーム ブログ</title>
+<meta name="description" content="賃貸仲介・不動産仲介の業務改善ツールを徹底解説。Excelの申込管理表がなぜ限界なのか、店舗向けツールに欠かせない機能、選び方のチェックポイントまで、現場目線でまとめました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+/* 目次 */
+.toc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:8px 0 30px;box-shadow:var(--shadow-sm)}
+.toc-h{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:15px;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.toc-h::before{content:"";width:18px;height:3px;border-radius:2px;background:var(--blue)}
+.toc ol{margin:0;padding-left:0;list-style:none;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0;border-bottom:1px dashed var(--line)}
+.toc li:last-child{border-bottom:none}
+.toc a{display:flex;gap:12px;align-items:baseline;padding:10px 2px;color:var(--ink-2);font-weight:600;font-size:14px;transition:color .2s}
+.toc a::before{content:counter(toc,decimal-leading-zero);font-family:ui-monospace,monospace;font-size:12px;color:var(--blue);font-weight:700;flex:none}
+.toc a:hover{color:var(--blue)}
+/* 図版 */
+figure.fig{margin:26px 0}
+figure.fig img{display:block;width:100%;border-radius:12px;border:1px solid var(--line);box-shadow:0 18px 44px -20px rgba(14,80,68,.4)}
+figure.fig figcaption{margin-top:10px;font-size:12.5px;color:var(--ink-3);font-weight:600;text-align:center}
+/* 記事内テーブル */
+.post-body .tbl-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-sm);margin:24px 0}
+.post-body table.cmp{width:100%;border-collapse:collapse;min-width:520px;background:#fff;font-size:14px}
+.post-body table.cmp th,.post-body table.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.post-body table.cmp thead th{background:#f1f8f5;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13px;color:var(--ink)}
+.post-body table.cmp tbody td:first-child{font-weight:700;color:var(--ink);background:#f7fbf9;white-space:nowrap}
+.post-body table.cmp tr:last-child td{border-bottom:none}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.png" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>業務効率化</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#37c0a6,#0e8a72)">業務効率化</span>
+      <h1>賃貸仲介の業務改善ツール完全ガイド。申込管理表から店舗DXまで。</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.07.12</span>
+        <span class="sep"></span>
+        <span>8分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band" style="background:linear-gradient(135deg,#37c0a6,#0e8a72)">
+    <span class="ring" style="width:220px;height:220px;top:-50px;right:60px"></span>
+    <span class="ring" style="width:130px;height:130px;bottom:-30px;left:80px"></span>
+    <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+  </div>
+</div>
+<div class="post-body">
+<p>「反響は取れているのに、なぜか利益が残らない」「申込や入金の状況が、店舗ごとにバラバラで把握できない」。──賃貸仲介の現場では、こうした悩みの多くが<strong>業務管理のしくみ不足</strong>から生まれています。本記事では、<strong>賃貸仲介の業務改善ツール</strong>を検討している方に向けて、Excelの申込管理表が抱える限界から、店舗向けツールに必要な機能、選び方までを現場目線で解説します。</p>
+
+<nav class="toc" aria-label="目次">
+  <div class="toc-h">目次</div>
+  <ol>
+    <li><a href="#s1">賃貸仲介の業務は、なぜ「バラバラ」になるのか</a></li>
+    <li><a href="#s2">賃貸仲介の申込管理表、Excelだと何が限界なのか</a></li>
+    <li><a href="#s3">店舗向けツールに欠かせない5つの機能</a></li>
+    <li><a href="#s4">不動産仲介の業務改善ツール、選び方の5チェック</a></li>
+    <li><a href="#s5">導入で変わること（ビフォー・アフター）</a></li>
+    <li><a href="#s6">まとめ：数字が「見える」だけで、経営は変わる</a></li>
+  </ol>
+</nav>
+
+<h2 id="s1">賃貸仲介の業務は、なぜ「バラバラ」になるのか</h2>
+<p>賃貸仲介の一日は、反響対応・来店接客・申込・契約書類・入金確認・広告費の管理まで、驚くほど幅広い業務でできています。それぞれをExcel、メール、LINE、紙、店舗ごとの独自ルールで回しているうちに、情報が少しずつ分断されていきます。</p>
+<p>問題は「どこかが壊れている」ことではなく、<strong>全体がつながっていない</strong>ことです。反響の数字と売上の数字が別々の場所にあり、申込と入金が別の表で管理されている。だから「本当に儲かっているのか」を、誰も即答できない。これが、賃貸仲介にツールが必要になる根本の理由です。</p>
+
+<h2 id="s2">賃貸仲介の申込管理表、Excelだと何が限界なのか</h2>
+<p><strong>賃貸仲介の申込管理表</strong>は、業務の心臓部です。しかしExcelで運用していると、店舗が増え、案件が増えるほど、次のような壁にぶつかります。</p>
+<ul>
+<li>複数人で同時に編集すると、上書き事故や「最新がどれか分からない」問題が起きる</li>
+<li><strong>後AD</strong>（後から入る広告料）や<strong>一部入金</strong>の管理が、関数と手作業では追いきれない</li>
+<li>店舗ごとにフォーマットが微妙に違い、全社で横断集計できない</li>
+<li>担当者の記憶頼みになり、退職・異動とともに情報が消える</li>
+</ul>
+<p>とくに賃貸仲介ならではの「契約しても、入金が終わるまで売上は確定しない」という性質は、Excelがいちばん苦手とするところです。専用ツールなら、確定売上と見込みを分け、未入金だけを自動で抽出できます。</p>
+
+<figure class="fig">
+  <img src="../assets/app-shinkomi.png" alt="賃貸仲介の申込管理表の実画面。後AD・一部入金・未入金までまとめて管理できるミエルームの画面" loading="lazy">
+  <figcaption>▲ ミエルームの申込管理表。後AD・一部入金・未入金の状況までひと目で管理できる。</figcaption>
+</figure>
+
+<div class="callout"><div class="ct"><span class="ci">!</span>よくある失敗</div><p>「入金済みフォルダ」に入れた時点で安心してしまい、実は一部しか入っていなかった——。残額の督促タイミングを逃し、回収しそびれるパターンです。申込管理表は「入っているか／いないか」ではなく「いくら残っているか」で見る必要があります。</p></div>
+
+<h2 id="s3">店舗向けツールに欠かせない5つの機能</h2>
+<p><strong>賃貸仲介の店舗向けツール</strong>を選ぶなら、最低限おさえておきたい機能があります。多機能であればよいわけではなく、「現場が毎日さわる業務」をカバーしているかが重要です。</p>
+
+<div class="tbl-wrap">
+<table class="cmp">
+<thead><tr><th>機能</th><th>解決する課題</th></tr></thead>
+<tbody>
+<tr><td>申込・入金管理</td><td>後AD・一部入金・未入金を可視化し、計上漏れと回収漏れを防ぐ</td></tr>
+<tr><td>反響分析</td><td>媒体別の反響〜成約〜費用対効果を紐づけ、広告費の配分を根拠で決める</td></tr>
+<tr><td>成績の可視化</td><td>スタッフ別の反響数・接客数・成約率を集計し、評価と育成に活かす</td></tr>
+<tr><td>接客管理</td><td>来店から接客・申込までの状況を一覧化し、対応漏れをなくす</td></tr>
+<tr><td>契約書類の自動化</td><td>自社フォーマットに顧客情報を差し込み、書類作成の時間を減らす</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>これらが<strong>ひとつの画面でつながっている</strong>ことに意味があります。反響の数字と売上の数字、申込と入金が同じ場所にあれば、「本当の売上」と「本当の費用対効果」がはじめて見えてきます。</p>
+
+<figure class="fig">
+  <img src="../assets/app-honbu.png" alt="賃貸仲介の店舗向けツールの本部ダッシュボード。全店舗の売上・利益・反響・申込・入金を横断で把握できる画面" loading="lazy">
+  <figcaption>▲ 本部ダッシュボード。全店舗の数字を横断で把握し、店舗別ランキングまで一目で分かる。</figcaption>
+</figure>
+
+<h2 id="s4">不動産仲介の業務改善ツール、選び方の5チェック</h2>
+<p><strong>不動産仲介の業務改善ツール</strong>は数多くありますが、賃貸仲介の現場にフィットするかは別問題です。導入して後悔しないために、次の5点を確認してください。</p>
+<ol>
+<li><strong>賃貸仲介の商習慣に合っているか。</strong>後AD・一部入金・仲手など、賃貸ならではのお金の流れを前提に設計されているか。</li>
+<li><strong>現場が使い続けられるシンプルさか。</strong>多機能でも、入力が面倒なら定着しません。毎日さわる画面ほど軽いか。</li>
+<li><strong>店舗を横断して集計できるか。</strong>1店舗でも複数店舗でも、全社の数字をひとつで見られるか。</li>
+<li><strong>スマホでも確認できるか。</strong>店外・移動中でも、数字と進捗をサッと見られるか。</li>
+<li><strong>導入と運用のサポートがあるか。</strong>入れて終わりではなく、使いこなすまで伴走してくれるか。</li>
+</ol>
+
+<p class="pull">「多機能かどうか」より、「賃貸仲介の現場に合っているか」で選ぶ。</p>
+
+<h2 id="s5">導入で変わること（ビフォー・アフター）</h2>
+<p>業務改善ツールを入れると、数字を"集める"作業から、数字を"使う"仕事へと重心が移ります。</p>
+<div class="callout"><div class="ct"><span class="ci">!</span>変化のイメージ</div><p><strong>ビフォー：</strong>月末に各店舗からExcelを集め、コピペで集計。反響と売上は別管理で、費用対効果は勘。<br><strong>アフター：</strong>入力した瞬間に全社の数字が更新され、未入金も未返信も自動で見える。会議の時間が「集計報告」から「次の一手の相談」に変わる。</p></div>
+<p>ミエルームは、賃貸仲介の現場が自ら「あったら良かった」を形にした業務管理ツールです。反響・接客・売上・申込・契約書類・反響分析を、ひとつの画面にまとめています。</p>
+
+<h2 id="s6">まとめ：数字が「見える」だけで、経営は変わる</h2>
+<p>賃貸仲介の業務改善は、特別なことではありません。バラバラだった数字をひとつにまとめ、<strong>「本当の売上」と「本当の費用対効果」を見える化する</strong>。それだけで、広告費の配分も、スタッフの評価も、来月の打ち手も、根拠を持って決められるようになります。まずは自店舗の未入金が今いくらあるか、一覧で出せるかを確認してみてください。</p>
+
+  <div class="post-tags"><span class="pt">#賃貸仲介</span><span class="pt">#申込管理表</span><span class="pt">#業務改善ツール</span><span class="pt">#不動産仲介</span><span class="pt">#店舗DX</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>申込管理・反響分析から店舗横断の集計まで。賃貸仲介の数字を、ひとつの画面に。14日間 無料・クレカ登録なし。</p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none">14日間 無料で試す</a>
+  </div>
+</div>
+</article>
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:36px"><span class="eyebrow">RELATED</span><h2>あわせて読みたい</h2></div>
+    <div class="relposts stagger">
+        <a class="rcard" href="excel-to-saas.html">
+          <div class="ri" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+          <div class="rno">DX</div><h3>Excel管理からの卒業。SaaS導入で変わる5つのこと。</h3><p>「うちはExcelで十分」——その判断が、見えないコストを生んでいるかもしれません。賃貸仲介がSaaSへ移行して実際に変わるポイントを5つに整理しました。</p>
+          <span class="more">記事を読む <span class="arr">→</span></span>
+        </a>
+        <a class="rcard" href="go-ad-management.html">
+          <div class="ri" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="rno">売上管理</div><h3>「後AD」を制する者が、賃貸仲介の利益を制する。</h3><p>契約しても、入金が終わるまで売上は確定しない。賃貸仲介でいちばん利益を取りこぼしやすい「後AD」と「一部入金」を、どう管理すれば計上漏れをゼロにできるのか。</p>
+          <span class="more">記事を読む <span class="arr">→</span></span>
+        </a>
+    </div>
+  </div>
+</section>
+<section class="final">
+  <span class="blob" style="width:260px;height:260px;top:-60px;left:8%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);filter:blur(20px);animation:blobmove 22s ease-in-out infinite"></span>
+  <div class="wrap" style="position:relative;z-index:1">
+    <h2>「どんぶり勘定」から、<br>“見える経営”へ。</h2>
+    <p>反響を、ちゃんと利益に変える。賃貸仲介の現場が作った業務管理ツール、ミエルーム。</p>
+    <div class="cta-row">
+      <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談する</a>
+      <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>機能・事例</h4>
+          <a href="../features.html">機能一覧</a>
+          <a href="../機能/application-management.html">申込・入金管理</a>
+          <a href="../機能/lead-analysis.html">反響分析</a>
+          <a href="../機能/staff-performance.html">成績可視化</a></div>
+        <div><h4>サービス</h4>
+          <a href="../index.html">ホーム</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a></div>
+        <div><h4>会社情報</h4>
+          <a href="#">運営会社</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<div class="mobile-cta">
+  <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">LINEで相談</a>
+  <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>
