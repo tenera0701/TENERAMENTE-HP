@@ -21,7 +21,7 @@
       <a href="index.html" class="brand"><span class="mk">TENERAMENTE</span><span class="sub">Inc.</span></a>
       <nav class="k-nav">${navLinks}</nav>
       <div class="cta-wrap">
-        <a href="https://lin.ee/yfRAgr9" target="_blank" rel="noopener" class="btn btn-line" style="padding:11px 18px;font-size:14px;"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINEで相談</a>
+        <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn-line" style="padding:11px 18px;font-size:14px;"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINEで相談</a>
         <a href="contact.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">無料相談</a>
       </div>
       <button class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
