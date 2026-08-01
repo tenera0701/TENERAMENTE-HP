@@ -195,9 +195,14 @@ function main() {
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
     'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'mieroom/',
+    'mieroom/features.html', 'mieroom/blog.html',
   ];
+  // ミエルームのブログ記事（mieroom/articles/*.html）も列挙する
+  const mieroomArticles = fs.readdirSync(path.join(ROOT, 'mieroom', 'articles'))
+    .filter(f => f.endsWith('.html'))
+    .map(f => `mieroom/articles/${f}`);
   const postUrls = posts.map(p => `${p.slug}.html`);
-  const all = [...staticUrls, ...postUrls];
+  const all = [...staticUrls, ...mieroomArticles, ...postUrls];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${all.map(u => `  <url><loc>${SITE_URL}/${encodeURI(u).replace(/&/g, '&amp;')}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
