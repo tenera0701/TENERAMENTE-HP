@@ -521,11 +521,13 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .final .cta-row .btn{width:100%}
   .trial-cta .btn{width:100%}
   .story-body .q{font-size:21px}
-  .mf-head{font-size:20px;line-height:1.66}
+  .mf-head{font-size:clamp(14px,4.4vw,20px);line-height:1.66}
   .mfbr{display:inline}
   .pain-bridge .big{font-size:20px;line-height:1.6}
   .pain-bridge .big br{display:none}
   .sec-head h2 br{display:none}
+  .sec-head h2 br.kbr{display:inline}
+  .coreband .sec-head p{font-size:15px}
   .ftext h2 br{display:none}
   .sec-wave{height:34px}
   .float-card{padding:10px 12px}
@@ -1039,8 +1041,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="core-badge">最大の特長</span>
-      <h2>賃貸仲介の“最難関”だった<br><span class="u-blue">申込管理表</span>を、ついに攻略。</h2>
-      <p>契約しても、入金が終わるまで売上は確定しない。<br>「後AD」「一部入金」という賃貸仲介ならではの落とし穴を、はじめから設計に組み込みました。</p>
+      <h2>賃貸仲介の“最難関”だった<br class="kbr"><span class="u-blue">申込管理表</span>を、ついに攻略。</h2>
+      <p><span style="white-space:nowrap">契約しても、入金が終わるまで売上は確定しない。</span><br>「後AD」「一部入金」という賃貸仲介ならではの落とし穴を、はじめから設計に組み込みました。</p>
     </div>
 
     <div class="shotwrap reveal">
@@ -1113,9 +1115,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap">広告費は、“勘”ではなくデータで。</span><span style="display:block;white-space:nowrap">媒体別の費用対効果で決める。</span></h2>
         <p>SUUMO・HOMES・at home…どの媒体から反響が来て、いくら成約し、結局いくら利益が出たのか。ミエルームは反響と売上を自動で紐づけ、媒体ごとのROIを可視化。来月の予算配分まで根拠を持って決められます。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>媒体別 反響 → 成約 → 利益</b>を自動集計。CPAも一目。</span></li>
-          <li><span class="ck">✓</span><span><b>「効いてない媒体」を即発見</b>。ムダな出稿を止められる。</span></li>
-          <li><span class="ck">✓</span><span><b>AIが最適な予算配分を提案</b>。費用対効果の高い媒体へ。</span></li>
+          <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>媒体別 反響 → 成約 → 利益</b>を自動集計。</span><span style="white-space:nowrap">CPAも一目。</span></span></li>
+          <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>「効いてない媒体」を即発見</b>。</span><span style="white-space:nowrap">ムダな出稿を止められる。</span></span></li>
+          <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>AIが最適な予算配分を提案</b>。</span><span style="white-space:nowrap">費用対効果の高い媒体へ。</span></span></li>
         </ul>
       </div>
       <div class="fvisual r-right">
@@ -1136,7 +1138,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">WHY WE BUILT IT</span>
-      <h2>現場の人が、現場のために作りました!!</h2>
+      <h2 style="font-size:clamp(17px,4.7vw,36px);white-space:nowrap">現場の人が、現場のために作りました!!</h2>
     </div>
     <div class="manifesto reveal">
       <span class="mf-mark">“</span>
@@ -1171,7 +1173,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="sec-head reveal">
       <span class="eyebrow">BEFORE / AFTER</span>
       <h2>導入前 vs 導入後</h2>
-      <p>「どんぶり勘定」から、“見える経営”へ。ミエルームを入れると、現場はこう変わります。</p>
+      <p>「どんぶり勘定」から、“見える経営”へ。<br>ミエルームを入れると、現場はこう変わります。</p>
     </div>
     <div class="ba-grid reveal">
       <div class="ba-col before">
@@ -1242,23 +1244,23 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
     <div class="faq-list reveal">
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span>14日間の無料トライアル後、自動で課金されますか？<span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">14日間の無料トライアル後、</span><span style="white-space:nowrap">自動で課金されますか？</span></span><span class="tgl">＋</span></summary>
         <div class="faq-a">トライアル期間中はクレジットカードの登録も不要です。継続してご利用される場合のみ、お支払い手続きをお願いします。自動で課金されることはありません。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span>既存のExcel管理からの移行は大変ですか？<span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">既存のExcel管理からの移行は</span><span style="white-space:nowrap">大変ですか？</span></span><span class="tgl">＋</span></summary>
         <div class="faq-a">アカウントを作成すればその日から利用開始できます。Excelデータのインポート機能も備えているので、これまでの管理表をそのまま取り込めます。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span>複数店舗のスタッフ全員が使えますか？<span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">複数店舗のスタッフ全員が</span><span style="white-space:nowrap">使えますか？</span></span><span class="tgl">＋</span></summary>
         <div class="faq-a">はい。複数ユーザーに対応しています。権限（本部・店舗管理者・スタッフ）を設定でき、1店舗から複数店舗まで規模を問わずご利用いただけます。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span>契約書類は自社フォーマットを使えますか？<span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">契約書類は自社フォーマットを</span><span style="white-space:nowrap">使えますか？</span></span><span class="tgl">＋</span></summary>
         <div class="faq-a">はい。御社のExcel契約書フォーマットをアップロードすると、顧客情報を差し込んで自動で書類を作成できます。書式を変える必要はありません。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span>データのセキュリティは大丈夫ですか？<span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">データのセキュリティは</span><span style="white-space:nowrap">大丈夫ですか？</span></span><span class="tgl">＋</span></summary>
         <div class="faq-a">データは会社単位で完全に分離管理しています。SSL暗号化通信を採用しており、他社のデータが閲覧されることはありません。</div>
       </details>
     </div>
