@@ -459,6 +459,13 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
   <text x="50" y="88" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">ミエルーム</text>
 </svg>
 </template>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
 </head>
 <body>
 
@@ -478,7 +485,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
-      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
       <a class="btn btn-line" href="https://lin.ee/OpjYFKE" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
         LINEで相談
@@ -514,7 +521,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
           <span class="hero-badge">公式LINEで問い合わせ<span class="sub">かんたん30秒・無料相談</span></span>
         </a>
         <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
-          <span class="hero-badge">14日間 無料で試す<span class="sub">クレカ登録なし</span></span>
+          <span class="hero-badge">デモアカウント発行<span class="sub">クレカ登録なし</span></span>
         </a>
       </div>
       <div class="micro">
@@ -918,14 +925,14 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow on-dark">START NOW</span>
-      <h2>まずは14日間、<br>“本当の数字”を体験してください。</h2>
-      <p>クレジットカード登録は不要。気に入らなければ、そのまま終了でOKです。</p>
+      <h2>まずは“本当の数字”を、<br>自社の画面で見てください。</h2>
+      <p>お申し込み後、担当者よりご連絡します。初期設定の代行までサポートします。</p>
     </div>
     <div class="trial-card reveal">
       <div class="trial-top">
         <div>
-          <div class="lab">14日間 無料トライアル</div>
-          <div class="big">全機能をそのまま、おためし。</div>
+          <div class="lab">新規アカウント発行</div>
+          <div class="big">全機能を、はじめから使えます。</div>
         </div>
         <div class="free">
           <div class="lab">初期費用</div>
@@ -938,7 +945,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
           <li><span class="ck">✓</span>売上・反響・顧客管理ダッシュボード</li>
           <li><span class="ck">✓</span>AI分析・予算配分提案</li>
           <li><span class="ck">✓</span>複数店舗・複数ユーザー対応</li>
-          <li><span class="ck">✓</span>クレカ登録なし／自動課金なし</li>
+          <li><span class="ck">✓</span>お申し込みから最短即日で利用開始</li>
           <li><span class="ck">✓</span>導入サポート・初期設定の代行つき</li>
         </ul>
         <div class="trial-cta" id="cta">
@@ -947,7 +954,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
             <span class="hero-badge">公式LINEで問い合わせ<span class="sub">質問だけでもOK・無料</span></span>
           </a>
           <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
-            <span class="hero-badge">14日間 無料で試す<span class="sub">最短即日スタート</span></span>
+            <span class="hero-badge">デモアカウント発行<span class="sub">最短即日スタート</span></span>
           </a>
         </div>
       </div>
@@ -968,7 +975,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
         LINEで相談する
       </a>
-      <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+      <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
     </div>
   </div>
 </section>
@@ -992,7 +999,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
         <div>
           <h4>サービス</h4>
           <a href="#compare">比較</a>
-          <a href="#price">料金・トライアル</a>
+          <a href="#price">料金</a>
           <a href="https://lin.ee/OpjYFKE" target="_blank" rel="noopener">お問い合わせ</a>
         </div>
         <div>
@@ -1010,7 +1017,7 @@ footer{background:#0a201c;color:#8aa39b;padding:54px 0 30px;font-size:13px}
 <!-- mobile sticky cta -->
 <div class="mobile-cta">
   <a class="btn btn-line" href="https://lin.ee/OpjYFKE" target="_blank" rel="noopener">LINEで相談</a>
-  <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">14日間 無料で試す</a>
+  <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
 </div>
 
 <script>
