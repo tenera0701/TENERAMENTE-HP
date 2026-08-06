@@ -1,3 +1,12 @@
+/* ミルページ（自社CMS）連携を読み込む。設定は assets/milpage.js にまとめてある。 */
+(function () {
+  const here = document.currentScript && document.currentScript.src;
+  const s = document.createElement('script');
+  s.src = here ? here.replace(/chrome\.js(\?.*)?$/, 'milpage.js') : 'assets/milpage.js';
+  s.async = true;
+  document.head.appendChild(s);
+})();
+
 /* TENERAMENTE — shared site chrome (header / mobile menu / footer / floating CTA)
    Usage: put <div data-chrome="header"></div> and <div data-chrome="footer"></div>
    in the page, set <body data-active="services"> to mark the current nav item. */

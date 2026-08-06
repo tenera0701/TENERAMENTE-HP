@@ -183,9 +183,13 @@ function main() {
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/favicon-512.png` } },
       keywords: (p.tags || []).join(', '),
     };
+    // <script> の中に JSON を書くときは "<" を < に逃がす。
+    // これをしないと、記事タイトルや要約に "</script>" が入っていた場合に
+    // script タグが途中で閉じてしまい、任意のスクリプトが動く（XSS）。
+    const jsonInScript = o => JSON.stringify(o).replace(/</g, '\\u003c');
     html = html.replace('</head>',
-      `<script>window.__POST_SLUG__=${JSON.stringify(p.slug)};</script>\n` +
-      `<script type="application/ld+json">${JSON.stringify(ld)}</script>\n</head>`);
+      `<script>window.__POST_SLUG__=${jsonInScript(p.slug)};</script>\n` +
+      `<script type="application/ld+json">${jsonInScript(ld)}</script>\n</head>`);
     fs.writeFileSync(path.join(ROOT, `${p.slug}.html`), html, 'utf8');
   });
 

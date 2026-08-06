@@ -1,0 +1,6 @@
+{
+  "_readme": "ミルページ（自社CMS）との接続設定。storeId はミルページの『連携 → サイト連携』ページに表示される店舗IDを貼る。scripts/sync-milpage.js が使用。",
+  "apiBase": "https://web-production-744c1.up.railway.app",
+  "storeId": "",
+  "_note": "storeId が空のままだと同期は実行されずスキップされます（サイトは今までどおり posts/*.md で動きます）。"
+}
