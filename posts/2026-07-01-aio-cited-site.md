@@ -4,8 +4,7 @@
   "date": "2026-07-01",
   "category": "aio",
   "excerpt": "ChatGPTやPerplexity、Google AI Overviewsが「答え」を返す時代。検索結果に並ぶのではなく、AIに“引用される”側へ。AIO（AI最適化）の考え方と、今日から打てる具体策をまとめました。",
-  "tags": ["AIO", "AI検索", "schema.org", "llms.txt", "Perplexity"],
-  "featured": true
+  "tags": ["AIO", "AI検索", "schema.org", "llms.txt", "Perplexity"]
 }
 META-->
 
