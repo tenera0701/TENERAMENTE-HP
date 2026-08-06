@@ -8,10 +8,15 @@ name: サイトを公開する
 #   「GitHub Actions」に変更してください（今は「Deploy from a branch」のはず）。
 #   変更するまでは、このワークフローは動きません。
 
+# 今は待機状態にしてある（自動では動かない）。
+# 通常のデプロイは10分で「失敗」と表示されるが、実際にはその後 Pages 側の処理が
+# 完了してサイトには反映される（2026-08-06に確認）。赤い表示が困るとき、または
+# 本当に反映されなくなったときに、Settings → Pages → Source を「GitHub Actions」に
+# 変えたうえで、下の push トリガーを有効にする。
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:        # Actions 画面から手動でも実行できる
+  workflow_dispatch:        # Actions 画面から手動実行のみ
+  # push:
+  #   branches: [main]
 
 permissions:
   contents: read
