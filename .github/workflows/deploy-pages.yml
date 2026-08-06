@@ -1,0 +1,46 @@
+name: サイトを公開する
+
+# GitHub が自動で用意するデプロイは、Pages 側の完了待ちが10分で打ち切られる
+# （エラー: Timeout reached, aborting!）。2026-08-06 はこれで5回連続失敗し、
+# 変更がサイトに反映できなくなった。待ち時間を延ばせるよう、デプロイを自前で持つ。
+#
+# ★このワークフローを使うには、リポジトリの Settings → Pages → Source を
+#   「GitHub Actions」に変更してください（今は「Deploy from a branch」のはず）。
+#   変更するまでは、このワークフローは動きません。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # Actions 画面から手動でも実行できる
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - name: サイト一式をアップロード
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: 公開する（完了待ちは30分まで）
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000    # ミリ秒。既定の10分では足りなかったため30分にする
+          error_count: 10     # 一時的なエラーは10回まで見逃して待ち続ける
