@@ -1,6 +1,28 @@
 {
   "_readme": "ミルページ（自社CMS）との接続設定。storeId はミルページの『連携 → サイト連携』に表示される店舗ID。scripts/sync-milpage.js が使用。",
   "apiBase": "https://web-production-744c1.up.railway.app",
-  "storeId": "4e9ded06944b4fdbab4fc27f1bb36c41",
-  "_note": "storeId を空にすると同期はスキップされます（サイトは posts/*.md のまま動きます）。"
+  "sites": [
+    {
+      "name": "TENERAMENTE",
+      "storeId": "4e9ded06944b4fdbab4fc27f1bb36c41",
+      "postsDir": "posts",
+      "build": "build-index.js",
+      "_note": "teneramente.jp のブログ。カテゴリはミルページの表示名から記号へ変換する",
+      "categoryMap": {
+        "MEO": "meo",
+        "AIO": "aio",
+        "Web App": "app",
+        "HP / LP": "hp",
+        "AI": "ai"
+      },
+      "fallbackCategory": "ai"
+    },
+    {
+      "name": "ミエルーム",
+      "storeId": "8e49fca149e24966aaf551e37c1e8a61",
+      "postsDir": "mieroom/posts",
+      "build": "build-mieroom.js",
+      "_note": "teneramente.jp/mieroom/ のブログ。カテゴリはミルページの表示名をそのまま使う"
+    }
+  ]
 }
