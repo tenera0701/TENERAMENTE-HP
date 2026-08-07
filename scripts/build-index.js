@@ -194,7 +194,10 @@ function main() {
   });
 
   // sitemap.xml
-  const today = new Date().toISOString().slice(0, 10);
+  // lastmod には「そのページが実際に更新された日」だけを入れる。
+  // 全ページに “今日” を入れていると、中身が変わっていなくても毎日サイトマップだけが
+  // 書き換わり、自動同期が無意味なコミットを積み続ける。検索エンジンにも
+  // 「毎日全ページを更新している」と誤って伝わるので、日付が分かる記事にだけ付ける。
   const staticUrls = [
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
     'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
@@ -207,9 +210,27 @@ function main() {
     .map(f => `mieroom/articles/${f}`);
   const postUrls = posts.map(p => `${p.slug}.html`);
   const all = [...staticUrls, ...mieroomArticles, ...postUrls];
+
+  // URL → 更新日。記事は記事の公開日を使う（ミエルームは元の .md から拾う）
+  const lastmod = {};
+  posts.forEach(p => { lastmod[`${p.slug}.html`] = p.date; });
+  const MR_POSTS = path.join(ROOT, 'mieroom', 'posts');
+  if (fs.existsSync(MR_POSTS)) {
+    mieroomArticles.forEach(u => {
+      const md = path.join(MR_POSTS, path.basename(u).replace(/\.html$/, '.md'));
+      if (!fs.existsSync(md)) return;   // 手書きの既存記事は日付が分からないので付けない
+      const m = fs.readFileSync(md, 'utf8').match(/"date"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
+      if (m) lastmod[u] = m[1];
+    });
+  }
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${all.map(u => `  <url><loc>${SITE_URL}/${encodeURI(u).replace(/&/g, '&amp;')}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${all.map(u => {
+  const loc = `${SITE_URL}/${encodeURI(u).replace(/&/g, '&amp;')}`;
+  const d = lastmod[u];
+  return `  <url><loc>${loc}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`;
+}).join('\n')}
 </urlset>
 `;
   fs.writeFileSync(OUT_SITEMAP, sitemap, 'utf8');
