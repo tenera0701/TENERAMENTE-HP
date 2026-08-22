@@ -305,7 +305,7 @@ html[data-variant="t"] .cta-band .btn-primary:hover { background: #eefaff; trans
 
 /* 1行見出し（折り返さない） */
 .prod-head-1line { white-space: nowrap; font-size: clamp(21px,3.1vw,36px) !important; }
-@media (max-width: 560px){ .prod-head-1line { white-space: normal; font-size: clamp(22px,6vw,28px) !important; } }
+@media (max-width: 560px){ .prod-head-1line { white-space: normal; text-wrap: normal; font-size: clamp(20px,5.5vw,28px) !important; } }
 
 .k-mobile { display: none; position: fixed; inset: 74px 0 auto 0; background: #fff; border-bottom: 1px solid var(--line); padding: 16px var(--gutter) 24px; z-index: 99; box-shadow: var(--shadow-md); }
 .k-mobile.open { display: block; }
@@ -317,6 +317,29 @@ html[data-variant="t"] .cta-band .btn-primary:hover { background: #eefaff; trans
 .ex-chip::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 2px; background: linear-gradient(135deg, #1e9bf0, #2ee0c9); }
 /* Lenis使用時はネイティブsmooth scrollを無効化 */
 html.lenis { scroll-behavior: auto; }
+
+/* ===== SP: アイコンの横にタイトルを置く ===== */
+@media (max-width: 600px){
+  .biz { display:grid; grid-template-columns:auto 1fr; align-items:center; column-gap:13px; row-gap:12px; }
+  .biz .icon-badge { width:46px; height:46px; border-radius:14px; margin:0; }
+  .biz .icon-badge svg { width:23px; height:23px; }
+  .biz h3 { margin:0; white-space:normal; font-size:16.5px; padding-right:32px; }
+  .biz p { grid-column:1/-1; margin:0; }
+  .biz .go { grid-column:1/-1; margin-top:0; }
+  .biz .num { font-size:30px; top:12px; right:14px; }
+
+  .feat { display:grid; grid-template-columns:auto 1fr; align-items:center; column-gap:13px; row-gap:12px; }
+  .feat .ftag { grid-column:1/-1; }
+  .feat .ficon { width:46px; height:46px; border-radius:14px; margin:0; }
+  .feat .ficon svg { width:23px; height:23px; }
+  .feat h3 { margin:0; white-space:normal; font-size:16.5px; }
+  .feat p { grid-column:1/-1; margin:0; }
+
+  .prod-lead { font-size:13.5px !important; }
+}
+/* SPだけで改行する <br> */
+.br-sp { display:none; }
+@media (max-width: 560px){ .br-sp { display:inline; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -486,8 +509,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">自社プロダクト</span>
-      <h2 class="prod-head-1line">つくる力は、自社プロダクトが証明します。</h2>
-      <p>私たち自身が毎日使い、売上を立てているツールたちです。<br />実際に運用して磨いた知見で、あなたの業務改善も支えます。</p>
+      <h2 class="prod-head-1line">作るクオリティは、<br class="br-sp" />自社のプロダクトが証明します。</h2>
+      <p class="prod-lead">私たち自身が毎日使い、売上を立てているツールです。<br />運用で磨いた知見で、あなたの業務改善も支えます。</p>
     </div>
     <div class="grid" style="gap:18px;">
       <a class="card prod reveal" href="mieroom/">
@@ -548,7 +571,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="section-head reveal">
       <span class="eyebrow">Diagnosis</span>
       <h2>AI×WEBアプリ開発 <span class="tx-blue">無料診断</span></h2>
-      <p>8つの質問に答えるだけ（約1分）。御社の業務がAIでどれだけ改善できるか、<br>診断結果レポートを無料でお送りします。</p>
+      <p>8つの質問に答えるだけ（約1分）<br />御社の業務がAIでどれだけ改善できるか、<br />診断結果レポートを無料でお送りします。</p>
     </div>
     <div id="shindan-widget" class="reveal d1"></div>
   </div>
@@ -560,8 +583,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="cta-band reveal">
       <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
       <span class="dot" style="width:80px;height:80px;background:rgba(255,255,255,0.08);left:-20px;bottom:-20px;"></span>
-      <h2>まずは、60分の無料相談から。</h2>
-      <p>「うちの業務、アプリにできる？」── その問いから、はじめましょう。</p>
+      <h2>60分無料相談</h2>
+      <p>「うちの業務、アプリにできる？」<br />その問いから、はじめましょう。</p>
       <div class="ctas">
         <a href="contact.html" class="btn btn-primary btn-lg">無料相談</a>
         <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>

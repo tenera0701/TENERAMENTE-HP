@@ -652,7 +652,9 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 .ba-mid{display:flex;align-items:center;justify-content:center;background:#fff}
 .ba-mid .arrow{width:48px;height:48px;border-radius:50%;background:linear-gradient(180deg,#2bbfa3,#14a085);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:900;box-shadow:0 12px 24px -8px rgba(20,160,133,.6);animation:floatY 3s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.ba-mid .arrow{animation:none}}
-@media(max-width:760px){.ba-grid{grid-template-columns:1fr}.ba-mid{padding:14px 0}.ba-mid .arrow{transform:rotate(90deg)}}
+@media(max-width:760px){.ba-grid{grid-template-columns:1fr}.ba-mid{padding:14px 0}}
+.ar-sp{display:none}
+@media(max-width:760px){.ar-pc{display:none}.ar-sp{display:inline}}
 
 /* ===== NEW: blog teaser ===== */
 .blogteaser{background:var(--bg-soft)}
@@ -725,6 +727,45 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .feat-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 2px 16px;-webkit-overflow-scrolling:touch}
   .feat-grid>.feat-card{flex:0 0 76vw;scroll-snap-align:center}
 }
+
+/* PCでは1行、SPだけ自然な位置で折り返す見出し用 */
+.ftext h2 br.spbr{display:none}
+@media(max-width:700px){.ftext h2 br.spbr{display:inline}}
+/* pain-bridge: 最後の一文はSPでも改行する */
+.pain-bridge .big br.pb-br{display:inline}
+/* 見出し・強調文のSP調整 */
+@media(max-width:680px){
+  .mf-body p.mf-punch{font-size:14px;line-height:1.8}
+  .pain-card.simple h3{font-size:13px}
+}
+/* 幅の狭い端末では悩みカードを1列にして、見出しを指定どおり2行で見せる */
+@media(max-width:520px){
+  .pain-grid.six{grid-template-columns:1fr}
+  .pain-card.simple{padding:18px 18px}
+  .pain-card.simple h3{font-size:15.5px}
+  .pain-card.simple p{font-size:13px}
+}
+
+/* ===== story-stats: アイコンの横にタイトル ===== */
+.sstat .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.sstat .shead .sicon{margin-bottom:0}
+.sstat .shead b{font-family:"Zen Kaku Gothic New";font-weight:900;color:var(--ink);font-size:15px;line-height:1.5}
+
+/* ===== SP: アイコン／バッジの横にタイトルを置く ===== */
+@media(max-width:680px){
+  .cpoint{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:12px;row-gap:10px}
+  .cpoint .cp-ic{margin-bottom:0}
+  .cpoint h3{margin:0;font-size:17px}
+  .cpoint p{grid-column:1/-1;margin:0}
+
+  .fslide{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:12px}
+  .fslide .fi{grid-column:1;grid-row:1/3;margin-bottom:0}
+  .fslide .fno{grid-column:2;grid-row:1;margin-bottom:4px}
+  .fslide h3{grid-column:2;grid-row:2;margin-bottom:0}
+  .fslide p{grid-column:1/-1;grid-row:3;margin-top:12px}
+  .fslide p, .ftext ul li span:last-child{text-wrap:pretty}
+  .fslide .more{grid-column:1/-1;grid-row:4}
+}
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -759,8 +800,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <style id="mp-nav-fit">
 /* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
 @media (max-width: 640px) {
-  .nav-cta { gap: 6px; }
-  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+  .nav { gap: 8px; }
+  .brand { min-width: 0; flex: 0 1 auto; overflow: hidden; }
+  .brand img.mark { width: 38px; height: 38px; }
+  .brand .name { font-size: 16px; }
+  .nav-cta { gap: 6px; flex: none; }
+  .nav-cta .btn { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
 }
 </style>
 </head>
@@ -781,8 +826,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <a href="../index.html">運営会社サイト</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
-      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">アカウント発行</a>
       <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
         LINEで相談
@@ -911,16 +956,16 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <img class="prob-mascot" src="assets/illust-nayami.webp" alt="パソコンの前で悩む男性のイラスト" style="width:190px;height:190px" loading="lazy" decoding="async">
       <div class="prob-text">
         <h2>こんなお悩み、ありませんか？</h2>
-        <p>集計は月末にまとめて、広告費は勘で配分、申込・入金は店舗ごとにバラバラ——。<br>うまくいかない正体は、<span class="mark">“数字”を追える仕組みがない</span>ことです。</p>
+        <p>集計は月末にまとめて、広告費は勘で配分、<br>申込・入金は店舗ごとにバラバラ。<br>うまくいかない正体は、<br><span class="mark">“数字”を追える仕組みがない</span>ことです。</p>
       </div>
     </div>
     <div class="pain-grid six stagger">
       <div class="pain-card simple">
-        <h3>Excel管理では、細かくできない!!</h3>
+        <h3>Excel管理では、<br>細かくできない!!</h3>
         <p>接客管理、申込管理、反響管理、契約管理、スタッフ成績まで細かく集計でき、昇進の査定も可視化。スタッフのやる気・満足度が向上します。</p>
       </div>
       <div class="pain-card simple">
-        <h3>申込管理表はあるが、正確に取れてるか不安!!</h3>
+        <h3>申込管理表はあるが、<br>正確に取れてるか不安!!</h3>
         <p>ここが賃貸仲介の課題とも言えます。従来のツールで管理できなかった機能を、現役で賃貸仲介をやっている弊社だから作れました! ぜひ一度、画面を見てほしいです!!</p>
       </div>
       <div class="pain-card simple">
@@ -928,7 +973,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <p>申込管理表には未入金一覧・入金一覧があり、いつ入金が入ってくるのか、一部入金の状況まですべて確認できます!!</p>
       </div>
       <div class="pain-card simple">
-        <h3>広告費の、費用対効果まで追えてない‼</h3>
+        <h3>広告費の、<br>費用対効果まで追えてない‼</h3>
         <p>ここの機能もかなり充実してます! CPA・CPO・ROASが全部きれいに取れて、予算配分の調整で費用対効果を最大化できます‼</p>
       </div>
       <div class="pain-card simple">
@@ -943,8 +988,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="pain-bridge reveal">
       <div class="arrow">▼</div>
       <div class="big">
-        <span class="pb-lead">6つの悩みの原因は、ひとつ。<br class="pb-spbr"><span class="mark">売上・接客・反響など数字をバラバラに管理してるから</span>です!!</span><br class="pb-br">
-        <span class="u-blue">＝ 本当の売上と費用対効果が、見えていない。</span>
+        <span class="pb-lead">6つの悩みの原因は、ひとつ。<br class="pb-spbr"><span class="mark">売上・接客・反響など数字を<br class="pb-spbr">バラバラに管理してるから</span>です!!</span><br class="pb-br">
+        <span class="u-blue">細かい費用対効果を見てないから。</span>
       </div>
     </div>
   </div>
@@ -956,7 +1001,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow on-dark">SOLUTION</span>
-      <h2>「ミエルーム」が、<br>店舗経営を“<span style="color:#f7b89f">数字</span>”で見える化する。</h2>
+      <h2>「ミエルーム」が、店舗経営を<br class="kbr">“<span style="color:#f7b89f">数字</span>”で見える化する。</h2>
       <p>売上・反響・顧客・広告——バラバラだった賃貸仲介の業務を、ひとつのWEBアプリに。<br>AIが、次に打つべき一手まで教えてくれます。</p>
     </div>
     <div class="feat-grid stagger">
@@ -1013,7 +1058,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <a class="fslide" data-i="0" href="features.html">
           <div class="fi fi-img"><img src="assets/icons/ic-seikyu.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
           <div class="fno">FEATURE 01</div><h3>申込・入金管理</h3>
-          <p>申込一覧・入金一覧・未入金一覧をワンクリックで切替。誰がいくら未入金かが一目で分かります。</p>
+          <p>申込・入金・未入金の一覧をワンクリックで切替。誰がいくら未入金かが一目で分かります。</p>
           <span class="more">詳しく見る <span class="arr">→</span></span>
         </a>
         <a class="fslide" data-i="1" href="features.html">
@@ -1145,12 +1190,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="fblock rev">
       <div class="ftext r-right">
         <div class="fnum">FEATURE 02</div>
-        <h2>店舗も、担当も、日次も。<br>売上が“今この瞬間”で分かる。</h2>
+        <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">店舗も、担当も、日次も。</span><span style="display:block;white-space:nowrap">売上が“今この瞬間”で分かる。</span></h2>
         <p>誰かが月末にExcelをまとめるのを待つ時代は終わり。入力した瞬間にダッシュボードへ反映。目標との差、前月比、着地見込みまでミエルームが自動で計算します。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>店舗別・担当別ランキング</b>で、成果と課題が即わかる。</span></li>
-          <li><span class="ck">✓</span><span><b>目標／着地見込みを自動予測</b>。月中でも軌道修正できる。</span></li>
-          <li><span class="ck">✓</span><span><b>確定売上のみ集計</b>だから、見栄えだけの数字に騙されない。</span></li>
+          <li><span class="ck">✓</span><span><b>店舗別・担当別</b>、成果と課題が即わかる。</span></li>
+          <li><span class="ck">✓</span><span><b>目標・着地見込み</b>を月中でも軌道修正できる。</span></li>
+          <li><span class="ck">✓</span><span><b>確定売上のみ集計</b>だから、<br>実際の数字で分析できる。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1193,12 +1238,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="fblock rev">
       <div class="ftext r-right">
         <div class="fnum">FEATURE 04</div>
-        <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">物確も、相場も、初期費用も。</span><span style="display:block;white-space:nowrap">業者間サイトと“つながる”。</span></h2>
+        <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">物確、物件自動入力、初期費用も。</span><span style="display:block;white-space:nowrap">業者間サイトと自動で“つながる”。</span></h2>
         <p>Chrome拡張「ミエルーム連携ツール」を入れると、いつもの業者間サイトの上でミエルームが動きます。電話とメモで回していた確認作業・相場調べ・見積作成が、ワンクリックで終わります。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>物確・物件ウォッチ</b>。募集状況の一括確認と、新着・掲載終了の自動キャッチ。</span></li>
-          <li><span class="ck">✓</span><span><b>掲載分析・44サイト一括検索</b>。エリアの掲載件数・賃料相場を自動集計。</span></li>
-          <li><span class="ck">✓</span><span><b>初期費用の見積をその場で作成</b>。物件写真つきのURLでお客様へ。</span></li>
+          <li><span class="ck">✓</span><span><b>物確・物件ウォッチ</b>。募集状況の一括確認と、<br>新着・掲載終了の自動キャッチ。</span></li>
+          <li><span class="ck">✓</span><span><b>掲載分析・44サイト一括検索</b>。<br>エリアの掲載件数・賃料相場を自動集計。</span></li>
+          <li><span class="ck">✓</span><span><b>初期費用の見積をその場で作成</b>。<br>物件写真つきのURLでお客様へ。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1217,12 +1262,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="fblock">
       <div class="ftext r-left">
         <div class="fnum">FEATURE 05</div>
-        <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">追客は、ミエルームが</span><span style="display:block;white-space:nowrap">24時間やってくれる。</span></h2>
+        <h2 style="font-size:clamp(19px,2.6vw,32px)">追客は、ミエルームが24時間<br class="spbr">自動でやってくれる。</h2>
         <p>反響が届いた瞬間に自動返信メール・自動SMSで一次対応。その後はテンプレを決めた日数で順番に自動送信し、送り切ったらAIが文面を生成して追客を続けます。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>自動返信・自動SMS</b>が反響の瞬間に一次対応。夜間や休日も逃さない。</span></li>
-          <li><span class="ck">✓</span><span><b>テンプレ順送り→AI追客</b>。メールの開封・URLクリックまで計測。</span></li>
-          <li><span class="ck">✓</span><span><b>LINEステップ配信</b>で、契約2年後の更新案内・引越し訴求まで自動。</span></li>
+          <li><span class="ck">✓</span><span><b>自動返信・自動SMS</b>が反響の瞬間に一次対応。<br>夜間や休日も逃さない。</span></li>
+          <li><span class="ck">✓</span><span><b>テンプレ順送り→AI追客</b>。<br>メールの開封・URLクリックまで計測。</span></li>
+          <li><span class="ck">✓</span><span><b>LINEステップ配信</b>で、契約2年後の更新案内・<br>引越し訴求まで自動。</span></li>
         </ul>
       </div>
       <div class="fvisual r-right">
@@ -1244,9 +1289,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">売上だけじゃない。</span><span style="display:block;white-space:nowrap">経理・勤怠・給与まで、ひとつに。</span></h2>
         <p>現場の数字は自動で経理へ。領収書・請求書は撮影するだけでAIが読み取り、月次PLに反映されます。勤怠・有休・給与計算までまとめて管理できるので、バックオフィスのExcelも卒業できます。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>月次PL（損益）を自動集計</b>。広告費は反響分析と連動し、二重計上なし。</span></li>
-          <li><span class="ck">✓</span><span><b>領収書・請求書はAIが読取り</b>。経費申請→承認までアプリ内で完結。</span></li>
-          <li><span class="ck">✓</span><span><b>勤怠・有休・給与計算</b>まで対応。歩合給も会社ごとに設定できる。</span></li>
+          <li><span class="ck">✓</span><span><b>月次PL（損益）を自動集計</b>。<br>広告費は反響分析と連動し、二重計上なし。</span></li>
+          <li><span class="ck">✓</span><span><b>領収書・請求書はAIが読取り</b>。<br>経費申請→承認までアプリ内で完結。</span></li>
+          <li><span class="ck">✓</span><span><b>勤怠・有休・給与計算</b>まで対応。<br>歩合給も会社ごとに設定できる。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1275,8 +1320,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <h3 class="mf-head" style="max-width: 790px"><span>市販のツールは、<span class="u-peach">後ADも一部入金も</span><br class="mfbr">管理できなかった。</span><br>だから、<span class="u-tealb">自分たちで作った</span>。</h3>
       <div class="mf-body">
         <p>私たちは賃貸仲介の店舗を複数運営する、<em>現役のプレイヤー</em>です。既存のCRMや管理ソフトを片っ端から試しましたが、賃貸仲介特有の「後AD」「一部入金」「媒体別の費用対効果」を本当の意味で管理できるものはありませんでした。</p>
-        <p>毎月、Excelとにらめっこして“合わない数字”を追う日々。<em>「これ、自分たちで作った方が早い」</em>——そうして、自社の全店舗で毎日使い倒しながら磨き上げたのがミエルームです。机上ではなく、<em>現場の実務から生まれた</em>WEBアプリです。</p>
-        <p class="mf-punch">一度使ったらわかる!! <em>もうこれ無しでは営業ができなくなります。</em><br>それくらい、必須ツールです。</p>
+        <p>毎月、Excelとにらめっこして“合わない数字”を追う日々。<em>「これ、自分たちで作った方が早い」</em>そうして、自社の全店舗で毎日使い倒しながら磨き上げたのがミエルームです。机上ではなく、<em>現場の実務から生まれた</em>WEBアプリです。</p>
+        <p class="mf-punch">一度使ったらわかる!!<br><em>もうこれ無しでは営業ができなくなります。</em></p>
       </div>
       <div class="mf-sign">
         <img src="assets/logo-mark-sm.webp" alt="">
@@ -1288,9 +1333,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
 
     <div class="story-stats stagger">
-      <div class="sstat"><div class="sicon">日々</div><div class="l"><b>自社で毎日使っている</b><br>使う人がつくったから、現場の動きにフィットする</div></div>
-      <div class="sstat"><div class="sicon">集計→瞬時</div><div class="l"><b>月末の突合作業から解放</b><br>Excelに向かう時間を、接客・追客に回せる</div></div>
-      <div class="sstat"><div class="sicon">ムダを発見</div><div class="l"><b>効いてない広告が見える</b><br>費用対効果の高い媒体に、予算を集中できる</div></div>
+      <div class="sstat"><div class="shead"><div class="sicon">日々</div><b>自社で毎日使っている</b></div><div class="l">使う人がつくったから、現場の動きにフィットする</div></div>
+      <div class="sstat"><div class="shead"><div class="sicon">集計→瞬時</div><b>月末の突合作業から解放</b></div><div class="l">Excelに向かう時間を、接客・追客に回せる</div></div>
+      <div class="sstat"><div class="shead"><div class="sicon">ムダを発見</div><b>効いてない広告が見える</b></div><div class="l">費用対効果の高い媒体に、予算を集中できる</div></div>
     </div>
   </div>
 </section>
@@ -1318,7 +1363,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <li><span class="m">✕</span>物確・相場調べは電話とメモ頼み</li>
         </ul>
       </div>
-      <div class="ba-mid"><div class="arrow">→</div></div>
+      <div class="ba-mid"><div class="arrow"><span class="ar-pc">→</span><span class="ar-sp">↓</span></div></div>
       <div class="ba-col after">
         <div class="bh"><span class="bi">✓</span>導入後（ミエルーム）</div>
         <ul>
