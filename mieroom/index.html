@@ -728,6 +728,22 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .feat-grid>.feat-card{flex:0 0 76vw;scroll-snap-align:center}
 }
 
+/* SPだけ表示する改行 */
+.sp-br{display:none}
+.sec-head h2 br.sol-sp{display:none}
+@media(max-width:700px){
+  .sp-br{display:inline}
+  .sec-head h2 br.sol-sp{display:inline}
+  .sec-head h2 br.sol-pc{display:none}
+}
+/* SPで1行に収めるための微調整 */
+@media(max-width:680px){
+  .faq-q{font-size:clamp(11.8px,3.3vw,13px);padding:16px 11px;gap:9px}
+  .faq-q .qq{width:22px;height:22px;font-size:12px}
+  .faq-q .tgl{width:22px;height:22px;font-size:15px}
+  .ftext li{font-size:clamp(12.2px,3.3vw,13.2px);gap:10px}
+  .ftext li .ck{width:21px;height:21px;font-size:12px}
+}
 /* PCでは1行、SPだけ自然な位置で折り返す見出し用 */
 .ftext h2 br.spbr{display:none}
 @media(max-width:700px){.ftext h2 br.spbr{display:inline}}
@@ -742,14 +758,18 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 @media(max-width:520px){
   .pain-grid.six{grid-template-columns:1fr}
   .pain-card.simple{padding:18px 18px}
-  .pain-card.simple h3{font-size:15.5px}
+  .pain-card.simple h3{font-size:clamp(12.5px,3.7vw,14.5px)}
   .pain-card.simple p{font-size:13px}
 }
 
 /* ===== story-stats: アイコンの横にタイトル ===== */
-.sstat .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
-.sstat .shead .sicon{margin-bottom:0}
-.sstat .shead b{font-family:"Zen Kaku Gothic New";font-weight:900;color:var(--ink);font-size:15px;line-height:1.5}
+.sstat .shead{margin-bottom:10px}
+.sstat .shead .sicon{margin-bottom:14px}
+@media(max-width:680px){
+  .sstat .shead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .sstat .shead .sicon{margin-bottom:0}
+}
+.sstat .shead b{display:block;font-family:"Zen Kaku Gothic New";font-weight:900;color:var(--ink);font-size:15px;line-height:1.5}
 
 /* ===== SP: アイコン／バッジの横にタイトルを置く ===== */
 @media(max-width:680px){
@@ -956,16 +976,16 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <img class="prob-mascot" src="assets/illust-nayami.webp" alt="パソコンの前で悩む男性のイラスト" style="width:190px;height:190px" loading="lazy" decoding="async">
       <div class="prob-text">
         <h2>こんなお悩み、ありませんか？</h2>
-        <p>集計は月末にまとめて、広告費は勘で配分、<br>申込・入金は店舗ごとにバラバラ。<br>うまくいかない正体は、<br><span class="mark">“数字”を追える仕組みがない</span>ことです。</p>
+        <p>集計は月末にまとめて、広告費は勘で配分、<br class="sp-br">申込・入金は店舗ごとにバラバラ。<br class="sp-br">うまくいかない正体は、<br class="sp-br"><span class="mark">“数字”を追える仕組みがない</span>ことです。</p>
       </div>
     </div>
     <div class="pain-grid six stagger">
       <div class="pain-card simple">
-        <h3>Excel管理では、<br>細かくできない!!</h3>
+        <h3>Excel管理では、細かくできない!!</h3>
         <p>接客管理、申込管理、反響管理、契約管理、スタッフ成績まで細かく集計でき、昇進の査定も可視化。スタッフのやる気・満足度が向上します。</p>
       </div>
       <div class="pain-card simple">
-        <h3>申込管理表はあるが、<br>正確に取れてるか不安!!</h3>
+        <h3>申込管理表はあるが、正確に取れてるか不安!!</h3>
         <p>ここが賃貸仲介の課題とも言えます。従来のツールで管理できなかった機能を、現役で賃貸仲介をやっている弊社だから作れました! ぜひ一度、画面を見てほしいです!!</p>
       </div>
       <div class="pain-card simple">
@@ -973,7 +993,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <p>申込管理表には未入金一覧・入金一覧があり、いつ入金が入ってくるのか、一部入金の状況まですべて確認できます!!</p>
       </div>
       <div class="pain-card simple">
-        <h3>広告費の、<br>費用対効果まで追えてない‼</h3>
+        <h3>広告費の、費用対効果まで追えてない‼</h3>
         <p>ここの機能もかなり充実してます! CPA・CPO・ROASが全部きれいに取れて、予算配分の調整で費用対効果を最大化できます‼</p>
       </div>
       <div class="pain-card simple">
@@ -1001,7 +1021,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow on-dark">SOLUTION</span>
-      <h2>「ミエルーム」が、店舗経営を<br class="kbr">“<span style="color:#f7b89f">数字</span>”で見える化する。</h2>
+      <h2>「ミエルーム」が、<br class="sol-pc">店舗経営を<br class="sol-sp">“<span style="color:#f7b89f">数字</span>”で見える化する。</h2>
       <p>売上・反響・顧客・広告——バラバラだった賃貸仲介の業務を、ひとつのWEBアプリに。<br>AIが、次に打つべき一手まで教えてくれます。</p>
     </div>
     <div class="feat-grid stagger">
@@ -1195,7 +1215,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <ul>
           <li><span class="ck">✓</span><span><b>店舗別・担当別</b>、成果と課題が即わかる。</span></li>
           <li><span class="ck">✓</span><span><b>目標・着地見込み</b>を月中でも軌道修正できる。</span></li>
-          <li><span class="ck">✓</span><span><b>確定売上のみ集計</b>だから、<br>実際の数字で分析できる。</span></li>
+          <li><span class="ck">✓</span><span><b>確定売上のみ集計</b>だから、実際の数字で分析できる。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1241,9 +1261,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">物確、物件自動入力、初期費用も。</span><span style="display:block;white-space:nowrap">業者間サイトと自動で“つながる”。</span></h2>
         <p>Chrome拡張「ミエルーム連携ツール」を入れると、いつもの業者間サイトの上でミエルームが動きます。電話とメモで回していた確認作業・相場調べ・見積作成が、ワンクリックで終わります。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>物確・物件ウォッチ</b>。募集状況の一括確認と、<br>新着・掲載終了の自動キャッチ。</span></li>
-          <li><span class="ck">✓</span><span><b>掲載分析・44サイト一括検索</b>。<br>エリアの掲載件数・賃料相場を自動集計。</span></li>
-          <li><span class="ck">✓</span><span><b>初期費用の見積をその場で作成</b>。<br>物件写真つきのURLでお客様へ。</span></li>
+          <li><span class="ck">✓</span><span><b>物確・物件ウォッチ</b>。募集状況の一括確認と、<br class="sp-br">新着・掲載終了の自動キャッチ。</span></li>
+          <li><span class="ck">✓</span><span><b>掲載分析・44サイト一括検索</b>。<br class="sp-br">エリアの掲載件数・賃料相場を自動集計。</span></li>
+          <li><span class="ck">✓</span><span><b>初期費用の見積をその場で作成</b>。<br class="sp-br">物件写真つきのURLでお客様へ。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1265,9 +1285,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <h2 style="font-size:clamp(19px,2.6vw,32px)">追客は、ミエルームが24時間<br class="spbr">自動でやってくれる。</h2>
         <p>反響が届いた瞬間に自動返信メール・自動SMSで一次対応。その後はテンプレを決めた日数で順番に自動送信し、送り切ったらAIが文面を生成して追客を続けます。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>自動返信・自動SMS</b>が反響の瞬間に一次対応。<br>夜間や休日も逃さない。</span></li>
-          <li><span class="ck">✓</span><span><b>テンプレ順送り→AI追客</b>。<br>メールの開封・URLクリックまで計測。</span></li>
-          <li><span class="ck">✓</span><span><b>LINEステップ配信</b>で、契約2年後の更新案内・<br>引越し訴求まで自動。</span></li>
+          <li><span class="ck">✓</span><span><b>自動返信・自動SMS</b>が反響の瞬間に一次対応。<br class="sp-br">夜間や休日も逃さない。</span></li>
+          <li><span class="ck">✓</span><span><b>テンプレ順送り→AI追客</b>。<br class="sp-br">メールの開封・URLクリックまで計測。</span></li>
+          <li><span class="ck">✓</span><span><b>LINEステップ配信</b>で、契約2年後の更新案内・<br class="sp-br">引越し訴求まで自動。</span></li>
         </ul>
       </div>
       <div class="fvisual r-right">
@@ -1289,9 +1309,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">売上だけじゃない。</span><span style="display:block;white-space:nowrap">経理・勤怠・給与まで、ひとつに。</span></h2>
         <p>現場の数字は自動で経理へ。領収書・請求書は撮影するだけでAIが読み取り、月次PLに反映されます。勤怠・有休・給与計算までまとめて管理できるので、バックオフィスのExcelも卒業できます。</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>月次PL（損益）を自動集計</b>。<br>広告費は反響分析と連動し、二重計上なし。</span></li>
-          <li><span class="ck">✓</span><span><b>領収書・請求書はAIが読取り</b>。<br>経費申請→承認までアプリ内で完結。</span></li>
-          <li><span class="ck">✓</span><span><b>勤怠・有休・給与計算</b>まで対応。<br>歩合給も会社ごとに設定できる。</span></li>
+          <li><span class="ck">✓</span><span><b>月次PL（損益）を自動集計</b>。<br class="sp-br">広告費は反響分析と連動し、二重計上なし。</span></li>
+          <li><span class="ck">✓</span><span><b>領収書・請求書はAIが読取り</b>。<br class="sp-br">経費申請→承認までアプリ内で完結。</span></li>
+          <li><span class="ck">✓</span><span><b>勤怠・有休・給与計算</b>まで対応。<br class="sp-br">歩合給も会社ごとに設定できる。</span></li>
         </ul>
       </div>
       <div class="fvisual r-left">
@@ -1422,31 +1442,31 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
     <div class="faq-list reveal">
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">無料でお試しできますか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>無料でお試しできますか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">現在、無料でのお試し期間は設けておりません。ご検討にあたって確認したいことがあれば、公式LINEまたはお問い合わせフォームからお気軽にご相談ください。導入時は初期設定の代行までサポートします。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">既存のExcel管理からの移行は</span><span style="white-space:nowrap">大変ですか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>既存のExcel管理からの移行は大変ですか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">アカウントを作成すればその日から利用開始できます。Excelデータのインポート機能も備えているので、これまでの管理表をそのまま取り込めます。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">複数店舗のスタッフ全員が</span><span style="white-space:nowrap">使えますか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>複数店舗のスタッフ全員が使えますか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">はい。複数ユーザーに対応しています。権限（本部・店舗管理者・スタッフ）を設定でき、1店舗から複数店舗まで規模を問わずご利用いただけます。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">契約書類は自社フォーマットを</span><span style="white-space:nowrap">使えますか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>契約書類は自社フォーマットを使えますか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">はい。御社のExcel契約書フォーマットをアップロードすると、顧客情報を差し込んで自動で書類を作成できます。書式を変える必要はありません。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">業者間サイトとの連携には</span><span style="white-space:nowrap">何が必要ですか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>業者間サイトとの連携には何が必要ですか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">Chromeの拡張機能「ミエルーム連携ツール」を追加するだけで使えます。リアプロ・ITANDI BB・いえらぶBB・ATBBなど、普段お使いの業者間サイトに対応。物確・掲載分析・初期費用の自動入力・44サイト一括検索が使えるようになります（オプション）。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">LINE連携やSMS送信も</span><span style="white-space:nowrap">使えますか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>LINE連携やSMS送信も使えますか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">はい。公式LINEと連携した1:1チャット・ステップ配信・流入経路分析、SMSの自動送信に対応しています（いずれもオプション）。管理表や売上分析などの基本機能だけでも十分お使いいただけます。</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span class="qq">Q</span><span><span style="white-space:nowrap">データのセキュリティは</span><span style="white-space:nowrap">大丈夫ですか？</span></span><span class="tgl">＋</span></summary>
+        <summary class="faq-q"><span class="qq">Q</span><span>データのセキュリティは大丈夫ですか？</span><span class="tgl">＋</span></summary>
         <div class="faq-a">データは会社単位で完全に分離管理しています。SSL暗号化通信を採用しており、他社のデータが閲覧されることはありません。</div>
       </details>
     </div>
