@@ -181,7 +181,7 @@
   if (footTpl && post.tags && post.tags.length) {
     const foot = footTpl.content.cloneNode(true);
     const tagsHost = foot.querySelector('[data-post="tags"]');
-    tagsHost.innerHTML = post.tags.map(t => `<span>#${t}</span>`).join('');
+    tagsHost.innerHTML = post.tags.map(t => `<span>#${escapeHtml(t)}</span>`).join('');
     foot.querySelector('[data-share="x"]').addEventListener('click', () => {
       const url = location.href;
       const text = post.title;
@@ -201,7 +201,7 @@
     const related = [...sameGroup, ...others].slice(0, 3);
     relatedHost.innerHTML = related.map(p => `
       <a class="related-card" href="${encodeURIComponent(p.slug)}.html">
-        <span class="cat">${p.categoryLabel}</span>
+        <span class="cat">${escapeHtml(p.categoryLabel)}</span>
         <h4>${escapeHtml(p.title)}</h4>
       </a>
     `).join('');

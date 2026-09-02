@@ -1,95 +1,89 @@
 <!doctype html>
-<html lang="ja" data-variant="t" class="js">
+<html lang="ja">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>お問い合わせ｜株式会社TENERAMENTE</title>
-<meta name="description" content="株式会社TENERAMENTEへのお問い合わせ。3ステップ・約60秒で送信完了。1営業日以内に代表よりご返信します。" />
+<meta name="description" content="株式会社TENERAMENTEへのお問い合わせ。2ステップ・約60秒で送信完了。1営業日以内に代表よりご返信します。" />
 <link rel="canonical" href="https://teneramente.jp/contact.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="株式会社TENERAMENTE" />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:title" content="お問い合わせ｜株式会社TENERAMENTE" />
-<meta property="og:description" content="3ステップ・約60秒で送信完了。1営業日以内に代表よりご返信します。" />
+<meta property="og:description" content="2ステップ・約60秒で送信完了。1営業日以内に代表よりご返信します。" />
 <meta property="og:url" content="https://teneramente.jp/contact.html" />
-<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png" />
+<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://teneramente.jp/assets/img/ogp.png" />
+<meta name="twitter:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
-<link rel="stylesheet" href="assets/kintone.css" />
 <style>
-.cshell { background: transparent; min-height:100vh; padding-block: clamp(40px,6vw,72px) clamp(40px,6vw,72px); overflow:hidden; position:relative; }
-.cgrid { max-width:760px; margin:0 auto; }
-.cinfo .crumb { font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-faint); margin-bottom:18px; }
-.cinfo .crumb a { color:var(--ink-faint); }
-.cinfo h1 { font-family:var(--font-disp); font-weight:900; font-size:clamp(32px,5vw,56px); line-height:1.18; text-wrap:balance; }
-.cinfo h1 .b { color:var(--blue); }
-.cinfo p { font-size:15px; color:var(--ink-soft); line-height:1.85; max-width:38ch; margin-top:22px; }
-.channels { margin-top:30px; display:flex; flex-direction:column; gap:0; }
-.channels .ch { display:grid; grid-template-columns:90px 1fr; gap:14px; padding:13px 0; border-top:1px solid var(--line); align-items:baseline; }
-.channels .ch:last-child{ border-bottom:1px solid var(--line); }
-.channels .k { font-family:var(--font-disp); font-weight:700; font-size:11px; color:var(--blue-deep); letter-spacing:0.06em; }
-.channels .v { font-size:14px; color:var(--ink); }
-@media(min-width:901px){ .cinfo{ position:sticky; top:96px; } }
+.cgrid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(28px, 5vw, 88px); align-items: start; }
+.cinfo { position: sticky; top: calc(var(--header-h) + 28px); }
+.cinfo .dl .r { grid-template-columns: 110px 1fr; padding: 16px 0; }
+.cinfo .dl .v { font-size: 14.5px; }
+.cinfo .dl .v a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.cinfo .dl .v a:hover { color: var(--ac); }
+.cinfo .note { margin-top: 22px; font-size: 13px; color: var(--fg-3); line-height: 1.9; }
+.cinfo .btn { margin-top: 22px; }
+@media (max-width: 900px) { .cgrid { grid-template-columns: 1fr; } .cinfo { position: static; } }
 
-.form-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow:var(--shadow-md); padding:clamp(26px,3.4vw,42px); position:relative; overflow:hidden; }
-.form-card::before { content:''; position:absolute; inset:0 0 auto 0; height:5px; background:linear-gradient(90deg,var(--blue),var(--accent-green),var(--accent-yellow)); }
-.steps { display:flex; gap:6px; margin-bottom:22px; }
-.steps .seg { flex:1; height:5px; background:var(--line); border-radius:3px; overflow:hidden; position:relative; }
-.steps .seg.done { background:var(--blue); }
-.steps .seg.cur::after { content:''; position:absolute; inset:0; background:var(--blue); animation:progSeg 1.4s ease-in-out infinite; }
-@keyframes progSeg { 0%{transform:translateX(-100%)} 50%{transform:translateX(0)} 100%{transform:translateX(100%)} }
-.step-meta { display:flex; justify-content:space-between; margin-bottom:24px; font-family:var(--font-disp); font-weight:700; font-size:11px; letter-spacing:0.06em; color:var(--ink-faint); }
-.step-meta strong { color:var(--blue-deep); }
-.step-title { font-family:var(--font-disp); font-weight:900; font-size:clamp(22px,3vw,30px); line-height:1.25; margin-bottom:8px; }
-.step-sub { font-size:13.5px; color:var(--ink-soft); margin-bottom:24px; }
-.step { display:none; } .step.active { display:block; animation:stepIn .45s cubic-bezier(.2,.7,.2,1); }
-@keyframes stepIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.form-card { background: var(--card); border: 1px solid var(--line-2); border-radius: 6px; padding: clamp(24px, 3.4vw, 44px); position: relative; overflow: hidden; }
+.steps { display: flex; gap: 4px; margin-bottom: 18px; }
+.steps .seg { flex: 1; height: 2px; background: var(--line); }
+.steps .seg.done { background: var(--fg); }
+.steps .seg.cur { background: var(--accent); }
+.step-meta { display: flex; justify-content: space-between; margin-bottom: 26px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.step-meta strong { color: var(--fg); font-weight: 500; }
+.step-title { font-weight: 700; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.3; margin-bottom: 8px; }
+.step-sub { font-size: 14px; color: var(--fg-2); margin-bottom: 24px; }
+.step { display: none; } .step.active { display: block; animation: stepIn .5s var(--ease); }
+@keyframes stepIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-.svc-opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.svc-opts label { cursor:pointer; padding:16px; border:2px solid var(--line); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:5px; transition:all .18s; position:relative; }
-.svc-opts label:hover { border-color:var(--blue-soft); background:var(--blue-mist); }
-.svc-opts label input { position:absolute; opacity:0; }
-.svc-opts label .o-n { font-family:var(--font-disp); font-weight:700; font-size:10px; color:var(--ink-faint); letter-spacing:0.06em; }
-.svc-opts label .o-t { font-family:var(--font-disp); font-weight:700; font-size:15px; }
-.svc-opts label .o-d { font-size:12px; color:var(--ink-soft); line-height:1.6; }
-.svc-opts label.selected { border-color:var(--blue); background:var(--blue-mist); }
-.svc-opts label.selected .o-n { color:var(--blue-deep); }
-.svc-opts label.selected::after { content:'✓'; position:absolute; top:12px; right:12px; width:22px; height:22px; background:var(--blue); color:#fff; border-radius:50%; display:grid; place-items:center; font-size:12px; font-weight:700; }
+.svc-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.svc-opts label { cursor: pointer; padding: 15px 16px; border: 1px solid var(--line-2); border-radius: 4px; display: flex; flex-direction: column; gap: 4px; transition: border-color .2s, background .2s; position: relative; }
+.svc-opts label:hover { border-color: var(--fg); }
+.svc-opts label input { position: absolute; opacity: 0; }
+.svc-opts label .o-n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
+.svc-opts label .o-t { font-weight: 700; font-size: 15px; line-height: 1.4; }
+.svc-opts label .o-d { font-size: 12.5px; color: var(--fg-2); line-height: 1.6; }
+.svc-opts label.selected { border-color: var(--fg); background: var(--bg-2); }
+.svc-opts label.selected::after { content: ''; position: absolute; top: 14px; right: 14px; width: 10px; height: 10px; background: var(--accent); }
 
-.field { display:flex; flex-direction:column; gap:7px; margin-bottom:16px; }
-.field > label { font-family:var(--font-disp); font-weight:700; font-size:12px; color:var(--ink-soft); display:flex; justify-content:space-between; }
-.field .req { color:var(--accent-coral); }
-.field input, .field textarea, .field select { font-family:var(--font-body); background:#fff; color:var(--ink); border:2px solid var(--line); border-radius:var(--radius-sm); padding:13px 15px; font-size:15px; outline:none; transition:border-color .18s; }
-.field input:focus, .field textarea:focus, .field select:focus { border-color:var(--blue); }
-.field input.err { border-color:var(--accent-coral); }
-.field textarea { resize:vertical; min-height:120px; line-height:1.7; }
-.field .err-msg { font-size:11px; color:var(--accent-coral); font-weight:700; display:none; }
-.field.err .err-msg { display:block; }
-.row-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+.field > label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--fg-2); display: flex; justify-content: space-between; }
+.field .req { color: var(--accent-coral); }
+.field input, .field textarea, .field select { font-family: var(--font-jp); background: transparent; color: var(--fg); border: 1px solid var(--line-2); border-radius: 3px; padding: 13px 14px; font-size: 16px; outline: none; transition: border-color .2s, box-shadow .2s; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--fg); box-shadow: 0 0 0 3px rgba(35,64,245,.12); }
+.field input.err, .field textarea.err, .field select.err { border-color: var(--accent-coral); }
+.field textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+.field .err-msg { font-size: 12px; color: var(--accent-coral); font-weight: 700; display: none; }
+.field.err .err-msg { display: block; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.svcErr { color: var(--accent-coral); font-size: 12px; font-weight: 700; margin: 8px 0 0; }
 
-.review-list { display:flex; flex-direction:column; border-top:1px solid var(--line); margin-bottom:16px; }
-.review-list .rr { display:grid; grid-template-columns:130px 1fr; padding:13px 0; border-bottom:1px solid var(--line-soft); gap:16px; align-items:baseline; }
-.review-list .rr .rk { font-family:var(--font-disp); font-weight:700; font-size:11px; color:var(--blue-deep); letter-spacing:0.06em; }
-.review-list .rr .rv { font-size:14px; color:var(--ink); line-height:1.6; }
-.review-list .rr .rv.empty { color:var(--ink-faint); }
-.consent { display:flex; gap:11px; align-items:flex-start; font-size:13px; color:var(--ink-soft); padding:14px; border:2px solid var(--line); border-radius:var(--radius-sm); }
-.consent input { margin-top:3px; accent-color:var(--blue); width:18px; height:18px; }
-.consent a { color:var(--blue-deep); text-decoration:underline; }
+.review-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); margin-bottom: 16px; }
+.review-list .rr { display: grid; grid-template-columns: 120px 1fr; padding: 12px 0; border-bottom: 1px solid var(--line); gap: 16px; align-items: baseline; }
+.review-list .rr .rk { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--fg-3); }
+.review-list .rr .rv { font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
+.review-list .rr .rv.empty { color: var(--fg-3); }
+.consent { display: flex; gap: 11px; align-items: flex-start; font-size: 13.5px; color: var(--fg-2); padding: 14px; border: 1px solid var(--line-2); border-radius: 3px; }
+.consent input { margin-top: 4px; accent-color: var(--accent); width: 16px; height: 16px; }
+.consent a { text-decoration: underline; text-underline-offset: .2em; }
 
-.step-nav { display:flex; justify-content:space-between; margin-top:30px; gap:12px; }
-.success { text-align:center; padding:36px 16px; }
-.success .check { width:80px; height:80px; margin:0 auto 22px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--accent-green)); display:grid; place-items:center; color:#fff; font-size:36px; box-shadow:var(--shadow-btn); animation:pop .6s cubic-bezier(.2,1.4,.4,1); }
-@keyframes pop { from{transform:scale(0)} to{transform:scale(1)} }
-.success h2 { font-family:var(--font-disp); font-weight:900; font-size:clamp(26px,4vw,38px); }
-.success p { color:var(--ink-soft); margin-top:14px; }
-@media(max-width:560px){ .svc-opts, .row-2 { grid-template-columns:1fr; } }
-.k-mobile { display:none; position:fixed; inset:74px 0 auto 0; background:#fff; border-bottom:1px solid var(--line); padding:16px var(--gutter) 24px; z-index:99; box-shadow:var(--shadow-md); }
-.k-mobile.open { display:block; }
-.k-mobile a { display:block; font-family:var(--font-disp); font-weight:700; padding:12px 0; border-bottom:1px solid var(--line-soft); color:var(--ink); }
-.k-mobile .btn { width:100%; margin-top:16px; }
+.step-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+.success { text-align: center; padding: 36px 8px; }
+.success .check { width: 72px; height: 72px; margin: 0 auto 24px; border-radius: 50%; border: 1px solid var(--fg); position: relative; }
+.success .check::before { content: ''; position: absolute; left: 24px; top: 22px; width: 22px; height: 12px; border-left: 1.5px solid var(--fg); border-bottom: 1.5px solid var(--fg); transform: rotate(-45deg); }
+.success h2 { font-family: var(--font-min); font-weight: 600; font-size: clamp(26px, 3.6vw, 38px); letter-spacing: .02em; }
+.success p { color: var(--fg-2); margin-top: 14px; }
+@media (max-width: 560px) { .svc-opts, .row-2 { grid-template-columns: 1fr; } .svc-opts label[style] { grid-column: auto !important; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -113,13 +107,30 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
 <div data-chrome="header"></div>
 
-<section class="cshell" data-screen-label="お問い合わせ">
-  <div class="deco" aria-hidden="true">
-    <span class="blob blob-blue" style="width:300px;height:300px;right:-60px;top:-80px;"></span>
-    <span class="blob blob-yellow" style="width:200px;height:200px;left:-50px;bottom:-30px;"></span>
-    <span class="shape ring c-coral float-a" style="width:40px;height:40px;left:6%;top:40%;"></span>
+<section class="page-hero" data-screen-label="お問い合わせ:ヒーロー">
+  <div class="wrap">
+    <div class="crumb reveal"><a href="index.html">Home</a><i></i><span>Contact</span></div>
+    <h1 class="lines">
+      <span class="line"><span>まずは、</span></span>
+      <span class="line"><span>話すところから。</span></span>
+    </h1>
+    <p class="lead reveal d2">2ステップ・約60秒で送信完了。1営業日以内に、代表よりご返信します。「話してみないと分からない」でも構いません。</p>
   </div>
-  <div class="wrap-wide cgrid">
+</section>
+
+<section class="sec sec--tight" data-screen-label="お問い合わせ">
+  <div class="wrap cgrid">
+
+    <aside class="cinfo reveal">
+      <span class="index">Channels</span>
+      <div class="dl" style="margin-top:18px;">
+        <div class="r"><span class="k">LINE</span><span class="v">いちばん早い方法です。<br /><a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener">LINEで相談する</a></span></div>
+        <div class="r"><span class="k">Form</span><span class="v">右のフォームから。内容を整理してお送りください。</span></div>
+        <div class="r"><span class="k">Reply</span><span class="v">1営業日以内（平日 10:00 — 19:00）</span></div>
+      </div>
+      <p class="note">お急ぎの場合はLINEが確実です。ご相談は無料で、しつこい営業は行いません。</p>
+      <a href="shindan.html" class="btn btn--ghost">先にAI無料診断を受ける<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+    </aside>
 
     <main class="form-card reveal d1">
       <div class="steps" id="steps"><div class="seg cur"></div><div class="seg"></div></div>
@@ -131,13 +142,13 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <h2 class="step-title">どんなご相談ですか？</h2>
           <p class="step-sub">複数選択できます。「その他」でも構いません。</p>
           <div class="svc-opts">
-            <label data-val="app"><span class="o-n">01 / WEB APP</span><span class="o-t">AI×WEBアプリ開発</span><span class="o-d">業務アプリ・予約・CRMなど</span><input type="checkbox" name="svc" value="app" /></label>
+            <label data-val="app"><span class="o-n">01 / Web App</span><span class="o-t">AI×WEBアプリ開発</span><span class="o-d">業務アプリ・予約・CRMなど</span><input type="checkbox" name="svc" value="app" /></label>
             <label data-val="hp"><span class="o-n">02 / HP・LP</span><span class="o-t">HP / LP作成</span><span class="o-d">店舗HP・LP・コーポレート</span><input type="checkbox" name="svc" value="hp" /></label>
             <label data-val="meo"><span class="o-n">03 / MEO・AIO</span><span class="o-t">MEO / AIO運用ツール</span><span class="o-d">Googleマップ・AI検索最適化</span><input type="checkbox" name="svc" value="meo" /></label>
             <label data-val="ai"><span class="o-n">04 / AI</span><span class="o-t">AI活用支援</span><span class="o-d">研修・RAG・業務エージェント</span><input type="checkbox" name="svc" value="ai" /></label>
-            <label data-val="other" style="grid-column:span 2;"><span class="o-n">05 / OTHER</span><span class="o-t">その他・複合のご相談</span><span class="o-d">話してみないと分からない、でも構いません。</span><input type="checkbox" name="svc" value="other" /></label>
+            <label data-val="other" style="grid-column:span 2;"><span class="o-n">05 / Other</span><span class="o-t">その他・複合のご相談</span><span class="o-d">話してみないと分からない、でも構いません。</span><input type="checkbox" name="svc" value="other" /></label>
           </div>
-          <p class="svcErr" style="display:none;color:var(--accent-coral);font-size:11.5px;font-weight:700;margin:8px 0 0;">1つ以上お選びください。</p>
+          <p class="svcErr" style="display:none;">1つ以上お選びください。</p>
           <div class="field" style="margin-top:22px;">
             <label><span>ご要望・ご相談内容</span><span class="req">必須</span></label>
             <textarea name="message" placeholder="例：3店舗運営の飲食店。Googleマップでの表示順位を上げたい。現状は3〜5位、競合は1位。" required></textarea>
@@ -148,7 +159,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
             <select name="source" required><option value="">選択してください</option><option>Google検索</option><option>SNS / X</option><option>ご紹介</option><option>既存のお客様</option><option>その他</option></select>
             <span class="err-msg">選択してください</span>
           </div>
-          <div class="step-nav"><span></span><button type="button" class="btn btn-primary" data-next="2">次へ<span class="arr">→</span></button></div>
+          <div class="step-nav"><span></span><button type="button" class="btn btn--primary" data-next="2">次へ<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></button></div>
         </div>
 
         <!-- STEP 2 -->
@@ -168,20 +179,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
             <input type="text" name="_hp" tabindex="-1" autocomplete="off" />
           </div>
-          <p id="sendError" style="display:none;color:var(--accent-coral);font-size:13px;font-weight:700;margin-top:14px;">送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、<a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" style="color:var(--blue-deep);text-decoration:underline;">LINE</a>からお問い合わせください。</p>
+          <p id="sendError" style="display:none;color:var(--accent-coral);font-size:13px;font-weight:700;margin-top:14px;">送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、<a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" style="text-decoration:underline;">LINE</a>からお問い合わせください。</p>
           <div class="step-nav">
-            <button type="button" class="btn btn-ghost" data-prev="1">← 戻る</button>
-            <button type="submit" class="btn btn-primary" id="submitBtn">送信する<span class="arr">→</span></button>
+            <button type="button" class="btn btn--ghost" data-prev="1">← 戻る</button>
+            <button type="submit" class="btn btn--primary" id="submitBtn">送信する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></button>
           </div>
         </div>
 
         <!-- SUCCESS -->
         <div class="step" data-step="done">
           <div class="success">
-            <div class="check">✓</div>
+            <div class="check" aria-hidden="true"></div>
             <h2>送信完了しました。</h2>
             <p>1営業日以内に、代表よりご返信いたします。<br />ご相談ありがとうございました。</p>
-            <div style="margin-top:30px;"><a href="index.html" class="btn btn-ghost">トップへ戻る</a></div>
+            <div style="margin-top:30px;"><a href="index.html" class="btn btn--ghost">トップへ戻る</a></div>
           </div>
         </div>
       </form>
@@ -191,7 +202,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
 <div data-chrome="footer"></div>
 <script src="assets/chrome.js"></script>
-<script src="assets/kintone.js"></script>
+<script src="assets/site.js"></script>
 <script>
 (function () {
   const form = document.getElementById('contactForm');
@@ -200,6 +211,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   const stepCurEl = document.getElementById('stepCur');
   const stepNameEl = document.getElementById('stepName');
   const stepNames = { 1:'ご相談内容', 2:'ご連絡先', done:'送信完了' };
+  const ARROW = '<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>';
   let current = 1;
 
   const presvc = new URLSearchParams(location.search).get('svc');
@@ -228,7 +240,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     });
     stepCurEl.textContent = n === 'done' ? '02' : String(n).padStart(2,'0');
     stepNameEl.textContent = stepNames[n];
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const card = document.querySelector('.form-card');
+    const top = card.getBoundingClientRect().top + window.scrollY - 96;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   }
 
   document.querySelectorAll('[data-next]').forEach(btn => {
@@ -255,6 +269,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     el.addEventListener('input', clr); el.addEventListener('change', clr);
   });
 
+  function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c])); }
   function renderReview() {
     const svc = Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i => {
       const t = i.closest('label').querySelector('.o-t');
@@ -266,7 +281,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       { k:'きっかけ', v: form.source.value },
     ];
     document.getElementById('review').innerHTML = rows.map(r =>
-      `<div class="rr"><span class="rk">${r.k}</span><span class="rv ${r.v ? '' : 'empty'}">${r.v || '—'}</span></div>`
+      `<div class="rr"><span class="rk">${r.k}</span><span class="rv ${r.v ? '' : 'empty'}">${r.v ? esc(r.v) : '—'}</span></div>`
     ).join('');
   }
 
@@ -280,7 +295,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       const el = form[n];
       if (!el.value.trim()) { el.classList.add('err'); el.parentElement.classList.add('err'); ok = false; }
     });
-    if (!form.consent.checked) { ok = false; form.consent.style.borderColor = 'var(--accent-coral)'; }
+    if (!form.consent.checked) { ok = false; form.consent.closest('.consent').style.borderColor = 'var(--accent-coral)'; }
     if (!ok) return;
 
     const svc = Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i => {
@@ -346,7 +361,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       errEl.style.display = 'block';
     } finally {
       btn.disabled = false;
-      btn.innerHTML = '送信する<span class="arr">→</span>';
+      btn.innerHTML = '送信する' + ARROW;
     }
   });
 })();

@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="ja" data-variant="t" class="js">
+<html lang="ja">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MEO/AIO運用代行｜独自ツールで“見える”運用｜TENERAMENTE</title>
 <meta name="description" content="Googleマップ・AI検索の順位を独自ツールで可視化し、運用まで代行。順位ジオグリッド・口コミAI返信・レポート自動配信で、着実に育てるMEO/AIO運用代行。" />
@@ -12,30 +13,30 @@
 <meta property="og:title" content="MEO/AIO運用代行｜独自ツールで“見える”運用｜TENERAMENTE" />
 <meta property="og:description" content="Googleマップ・AI検索の順位を独自ツールで可視化し、運用まで代行するMEO/AIO運用代行。" />
 <meta property="og:url" content="https://teneramente.jp/lp-meo.html" />
-<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png" />
+<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
-<link rel="stylesheet" href="assets/kintone.css" />
 <style>
-.lp-hero { background: transparent; }
-.lp-hero .badge-lg { background: linear-gradient(135deg,#ff9d3d,#f5751f); }
-.hero-2 { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(28px,4vw,60px); align-items:center; }
-@media(max-width:860px){ .hero-2{ grid-template-columns:1fr; } }
-/* geo-grid mock */
-.geo { background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); padding:18px; }
-.geo .gh { display:flex; align-items:center; gap:8px; margin-bottom:14px; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--ink-faint); }
-.geo .grid5 { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
-.geo .cell { aspect-ratio:1; border-radius:10px; display:grid; place-items:center; font-family:var(--font-disp); font-weight:900; font-size:15px; color:#fff; }
-.geo .legend { display:flex; gap:14px; margin-top:14px; font-size:11px; color:var(--ink-soft); }
-.geo .legend i { width:12px; height:12px; border-radius:4px; display:inline-block; margin-right:5px; vertical-align:-1px; }
-.usp { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.2vw,26px); }
-@media(max-width:760px){ .usp{ grid-template-columns:1fr; } }
-.usp .card { text-align:center; }
-.usp .e { font-size:34px; }
-.usp h3 { font-family:var(--font-disp); font-weight:700; font-size:18px; margin:12px 0 8px; }
-.usp p { font-size:14px; color:var(--ink-soft); }
+.hero-2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
+@media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
+/* 順位ジオグリッド（濃いほど上位） */
+.geo { border: 1px solid var(--line-2); border-radius: 6px; background: var(--card); padding: clamp(18px, 2vw, 26px); }
+.geo .gh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
+.geo .gh b { font-family: var(--font-jp); font-weight: 700; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--fg); }
+.geo .grid5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.geo .cell5 { aspect-ratio: 1; border-radius: 3px; display: grid; place-items: center; font-family: var(--font-en); font-weight: 500; font-size: 15px; }
+.geo .r1 { background: var(--ink); color: var(--paper); }
+.geo .r2 { background: #5B5E68; color: var(--paper); }
+.geo .r3 { background: #B9B6AE; color: var(--ink); }
+.geo .r4 { background: var(--paper-2); color: var(--fg-3); border: 1px solid var(--line); }
+.geo .legend { display: flex; gap: 16px; margin-top: 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: var(--fg-3); flex-wrap: wrap; }
+.geo .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: -1px; }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -61,109 +62,105 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
 <!-- Hero -->
 <section class="lp-hero" data-screen-label="MEO:ヒーロー">
-  <div class="deco" aria-hidden="true">
-    <span class="blob blob-yellow" style="width:300px;height:300px;right:-50px;top:-70px;opacity:.4;"></span>
-    <span class="shape ring c-coral float-a" style="width:42px;height:42px;left:6%;top:26%;"></span>
-    <span class="shape disc c-blue float-b" style="width:16px;height:16px;left:44%;top:10%;"></span>
-  </div>
   <div class="wrap-wide hero-2">
-    <div class="reveal">
-      <div class="badge-lg">M</div>
-      <span class="eyebrow">MEO / AIO 運用代行</span>
-      <h1>順位を“眺める”から、<br />順位を<span class="tx-blue">動かす</span>運用へ。</h1>
-      <p class="lead">Googleマップ・ローカル検索・AI検索の掲載順位を、<strong class="hl">独自ツールで毎日計測</strong>。データを根拠に、投稿・口コミ・情報整備までまるごと運用代行します。「やってるはずなのに上がらない」を、見える運用で抜け出しましょう。</p>
-      <div class="ctas">
-        <a href="contact.html?svc=meo" class="btn btn-primary btn-lg">運用を相談する<span class="arr">→</span></a>
-        <a href="#features" class="btn btn-ghost btn-lg">機能を見る</a>
+    <div>
+      <span class="index reveal">MEO / AIO 運用代行</span>
+      <h1 class="lines">
+        <span class="line"><span>順位を“眺める”から、</span></span>
+        <span class="line"><span>順位を動かす運用へ。</span></span>
+      </h1>
+      <p class="lead reveal d2">Googleマップ・ローカル検索・AI検索の掲載順位を、<strong class="hl">独自ツールで毎日計測</strong>。データを根拠に、投稿・口コミ・情報整備までまるごと運用代行します。「やってるはずなのに上がらない」を、見える運用で抜け出しましょう。</p>
+      <div class="ctas reveal d3">
+        <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">運用を相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+        <a href="#features" class="btn btn--ghost btn--lg">機能を見る</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="geo">
-        <div class="gh"><span class="mock-dots" style="display:flex;gap:5px;"><i style="width:9px;height:9px;border-radius:50%;background:#ff7a92;display:block;"></i><i style="width:9px;height:9px;border-radius:50%;background:#ffc83d;display:block;"></i><i style="width:9px;height:9px;border-radius:50%;background:#36c08a;display:block;"></i></span>順位ジオグリッド ・ 「美容室 名古屋」</div>
+    <div class="reveal d2">
+      <div class="geo" role="img" aria-label="順位ジオグリッドのイメージ。エリアを格子状に計測し、順位を濃淡で表示する">
+        <div class="gh"><span>Geo grid — 順位ジオグリッド</span><b>「美容室 名古屋」</b></div>
         <div class="grid5">
-          <span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#36c08a">2</span><span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#f6b93b">6</span><span class="cell" style="background:#f6b93b">5</span>
-          <span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#36c08a">1</span><span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#f6b93b">7</span><span class="cell" style="background:#e55039">12</span>
-          <span class="cell" style="background:#36c08a">2</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#f6b93b">8</span><span class="cell" style="background:#e55039">15</span>
-          <span class="cell" style="background:#7cc77a">3</span><span class="cell" style="background:#7cc77a">4</span><span class="cell" style="background:#f6b93b">6</span><span class="cell" style="background:#f6b93b">9</span><span class="cell" style="background:#e55039">圏外</span>
+          <span class="cell5 r1">1</span><span class="cell5 r1">2</span><span class="cell5 r2">3</span><span class="cell5 r3">6</span><span class="cell5 r3">5</span>
+          <span class="cell5 r1">1</span><span class="cell5 r1">1</span><span class="cell5 r2">3</span><span class="cell5 r3">7</span><span class="cell5 r4">12</span>
+          <span class="cell5 r1">2</span><span class="cell5 r2">4</span><span class="cell5 r2">4</span><span class="cell5 r3">8</span><span class="cell5 r4">15</span>
+          <span class="cell5 r2">3</span><span class="cell5 r2">4</span><span class="cell5 r3">6</span><span class="cell5 r3">9</span><span class="cell5 r4">圏外</span>
         </div>
-        <div class="legend"><span><i style="background:#36c08a"></i>1–3位</span><span><i style="background:#f6b93b"></i>4–10位</span><span><i style="background:#e55039"></i>11位↓</span></div>
+        <div class="legend"><span><i class="r1" style="background:var(--ink)"></i>1–3位</span><span><i style="background:#B9B6AE"></i>4–10位</span><span><i style="background:var(--paper-2);border:1px solid var(--line)"></i>11位↓</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- USP -->
-<section class="pad" data-screen-label="MEO:強み">
+<section class="sec sec--alt" data-screen-label="MEO:強み">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">運用代行の核</span>
-      <h2>“独自ツール × 運用”だから、<br /><span class="tx-blue">説明できる成果</span>に。</h2>
-      <p>レポートだけ立派な代行では終わりません。自分たちで開発・運用するツールで、根拠を持って手を動かします。</p>
+    <div class="sec-head reveal">
+      <span class="index">01 — 運用代行の核</span>
+      <div>
+        <h2 class="h2">“独自ツール × 運用”だから、<br class="br-pc" />説明できる成果に。</h2>
+        <p class="lead">レポートだけ立派な代行では終わりません。自分たちで開発・運用するツールで、根拠を持って手を動かします。</p>
+      </div>
     </div>
-    <div class="usp">
-      <div class="card reveal"><div class="e">🗺️</div><h3>地図で“面”を可視化</h3><p>エリアを格子状に計測する順位ジオグリッドで、「どこで弱いか」を地図上で特定。施策の的を絞ります。</p></div>
-      <div class="card reveal d1"><div class="e">🤖</div><h3>AIで運用を高速化</h3><p>口コミ返信・投稿文・月次総評をAIがドラフト。人の判断は残しつつ、作業量を圧縮します。</p></div>
-      <div class="card reveal d2"><div class="e">📈</div><h3>毎日計測・自動レポート</h3><p>順位は日次で自動取得。PDF・週次自動メール・共有リンクで、変化がいつでも追えます。</p></div>
+    <div class="cells cells--3">
+      <div class="cell reveal"><span class="index index--plain">01</span><h3>地図で“面”を可視化</h3><p>エリアを格子状に計測する順位ジオグリッドで、「どこで弱いか」を地図上で特定。施策の的を絞ります。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">02</span><h3>AIで運用を高速化</h3><p>口コミ返信・投稿文・月次総評をAIがドラフト。人の判断は残しつつ、作業量を圧縮します。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">03</span><h3>毎日計測・自動レポート</h3><p>順位は日次で自動取得。PDF・週次自動メール・共有リンクで、変化がいつでも追えます。</p></div>
     </div>
   </div>
 </section>
 
 <!-- Features -->
-<section class="pad tinted bg-dots" id="features" data-screen-label="MEO:機能">
-  <div class="deco" aria-hidden="true">
-    <span class="shape sq-o c-blue float-r" style="width:32px;height:32px;right:6%;top:12%;"></span>
-    <span class="shape disc c-green float-b" style="width:14px;height:14px;left:5%;bottom:14%;"></span>
-  </div>
+<section class="sec" id="features" data-screen-label="MEO:機能">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">主な機能</span>
-      <h2>計測・改善・報告を、ひとつの画面で。</h2>
+    <div class="sec-head reveal">
+      <span class="index">02 — 主な機能</span>
+      <div><h2 class="h2">計測・改善・報告を、<br class="br-sp" />ひとつの画面で。</h2></div>
     </div>
-    <div class="grid g-3">
-      <div class="card fcard reveal"><div class="icon-badge">🗺️</div><h3>順位ジオグリッド</h3><p>エリアを地図でヒートマップ化。平均順位・TOP3率・圏内率(SoLV)・競合比較まで一目で。</p></div>
-      <div class="card fcard reveal d1"><div class="icon-badge">📊</div><h3>順位グラフ・カレンダー</h3><p>キーワード別の推移を折れ線とカレンダーで。急上昇・急降下も自動でハイライト。</p></div>
-      <div class="card fcard reveal d2"><div class="icon-badge">🔔</div><h3>アラート通知</h3><p>急上昇・急降下・圏外・ランクインをメールで通知。変化を見逃しません。</p></div>
-      <div class="card fcard reveal"><div class="icon-badge">⭐</div><h3>口コミ管理・AI返信</h3><p>口コミを一元管理し、AIが返信文をドラフト。トーンを保ったまま素早く対応。</p></div>
-      <div class="card fcard reveal d1"><div class="icon-badge">📨</div><h3>口コミ依頼フォーム</h3><p>QR・一斉送信で来店客に依頼。ゲーティングで低評価の流出を抑えます。</p></div>
-      <div class="card fcard reveal d2"><div class="icon-badge">📝</div><h3>投稿・写真管理</h3><p>GBPへの予約投稿・一括投稿、写真の整理まで。情報発信を継続できます。</p></div>
-      <div class="card fcard reveal"><div class="icon-badge">📑</div><h3>レポート自動配信</h3><p>PDF・週次自動メール・共有リンクで報告を自動化。CSV出力にも対応。</p></div>
-      <div class="card fcard reveal d1"><div class="icon-badge">🏢</div><h3>多店舗・グループ管理</h3><p>店舗比較・グループ管理・目標設定・施策メモで、多店舗運用も整理して把握。</p></div>
-      <div class="card fcard reveal d2"><div class="icon-badge">🔐</div><h3>安心の運用基盤</h3><p>2要素認証・監査ログ・ログイン保護。ホワイトラベル表示にも対応します。</p></div>
+    <div class="cells cells--3">
+      <div class="cell reveal"><span class="index index--plain">01</span><h3>順位ジオグリッド</h3><p>エリアを地図でヒートマップ化。平均順位・TOP3率・圏内率(SoLV)・競合比較まで一目で。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">02</span><h3>順位グラフ・カレンダー</h3><p>キーワード別の推移を折れ線とカレンダーで。急上昇・急降下も自動でハイライト。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">03</span><h3>アラート通知</h3><p>急上昇・急降下・圏外・ランクインをメールで通知。変化を見逃しません。</p></div>
+      <div class="cell reveal"><span class="index index--plain">04</span><h3>口コミ管理・AI返信</h3><p>口コミを一元管理し、AIが返信文をドラフト。トーンを保ったまま素早く対応。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">05</span><h3>口コミ依頼フォーム</h3><p>QR・一斉送信で来店客に依頼。ゲーティングで低評価の流出を抑えます。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">06</span><h3>投稿・写真管理</h3><p>GBPへの予約投稿・一括投稿、写真の整理まで。情報発信を継続できます。</p></div>
+      <div class="cell reveal"><span class="index index--plain">07</span><h3>レポート自動配信</h3><p>PDF・週次自動メール・共有リンクで報告を自動化。CSV出力にも対応。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">08</span><h3>多店舗・グループ管理</h3><p>店舗比較・グループ管理・目標設定・施策メモで、多店舗運用も整理して把握。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">09</span><h3>安心の運用基盤</h3><p>2要素認証・監査ログ・ログイン保護。ホワイトラベル表示にも対応します。</p></div>
     </div>
   </div>
 </section>
 
 <!-- Flow -->
-<section class="pad" data-screen-label="MEO:流れ">
+<section class="sec sec--alt" data-screen-label="MEO:流れ">
   <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">運用の流れ</span><h2>計測して、手を打って、報告する。</h2></div>
-    <div class="flow" style="max-width:820px;margin:0 auto;">
-      <div class="step reveal"><span class="num"></span><div><h4>現状計測・ヒアリング</h4><p>対象店舗とキーワードを設定し、ジオグリッドで現在地を可視化します。</p></div></div>
-      <div class="step reveal"><span class="num"></span><div><h4>改善計画</h4><p>弱いエリア・項目を特定し、情報整備・投稿・口コミ施策の優先順位を決めます。</p></div></div>
-      <div class="step reveal"><span class="num"></span><div><h4>運用代行</h4><p>投稿・口コミ返信・情報更新を継続実行。AIアシストで質とスピードを両立します。</p></div></div>
-      <div class="step reveal"><span class="num"></span><div><h4>計測・レポート</h4><p>順位の変化を毎日計測し、定期レポートで共有。次の打ち手につなげます。</p></div></div>
+    <div class="sec-head reveal">
+      <span class="index">03 — 運用の流れ</span>
+      <div><h2 class="h2">計測して、手を打って、報告する。</h2></div>
+    </div>
+    <div class="flow reveal" style="max-width:860px;">
+      <div class="step"><span class="num"></span><div><h4>現状計測・ヒアリング</h4><p>対象店舗とキーワードを設定し、ジオグリッドで現在地を可視化します。</p></div></div>
+      <div class="step"><span class="num"></span><div><h4>改善計画</h4><p>弱いエリア・項目を特定し、情報整備・投稿・口コミ施策の優先順位を決めます。</p></div></div>
+      <div class="step"><span class="num"></span><div><h4>運用代行</h4><p>投稿・口コミ返信・情報更新を継続実行。AIアシストで質とスピードを両立します。</p></div></div>
+      <div class="step"><span class="num"></span><div><h4>計測・レポート</h4><p>順位の変化を毎日計測し、定期レポートで共有。次の打ち手につなげます。</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="pad">
+<section class="cta-band" data-screen-label="MEO:CTA">
   <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
-      <h2>“見える”MEO/AIO運用を、はじめませんか。</h2>
-      <p>まずは現状の順位計測から。お気軽にご相談ください。</p>
-      <div class="ctas">
-        <a href="contact.html?svc=meo" class="btn btn-primary btn-lg">無料相談</a>
-        <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
-        <a href="shindan.html" class="btn btn-shindan btn-lg">AI無料診断</a>
-      </div>
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">“見える”MEO/AIO運用を、<br class="br-sp" />はじめませんか。</h2>
+    <p class="reveal d2">まずは現状の順位計測から。お気軽にご相談ください。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
     </div>
   </div>
 </section>
 
 <div data-chrome="footer"></div>
 <script src="assets/chrome.js"></script>
-<script src="assets/kintone.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>

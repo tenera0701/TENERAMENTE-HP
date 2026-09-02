@@ -74,7 +74,7 @@ function main() {
     process.exit(1);
   }
 
-  const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+  const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).sort();
   if (!files.length) {
     console.error('posts/*.md が0件です');
     process.exit(1);
@@ -207,6 +207,7 @@ function main() {
   // ミエルームのブログ記事（mieroom/articles/*.html）も列挙する
   const mieroomArticles = fs.readdirSync(path.join(ROOT, 'mieroom', 'articles'))
     .filter(f => f.endsWith('.html'))
+    .sort()
     .map(f => `mieroom/articles/${f}`);
   const postUrls = posts.map(p => `${p.slug}.html`);
   const all = [...staticUrls, ...mieroomArticles, ...postUrls];

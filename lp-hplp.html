@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="ja" data-variant="t" class="js">
+<html lang="ja">
 <head>
 <meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HP/LP作成｜AIで“育てられる”サイトを｜TENERAMENTE</title>
 <meta name="description" content="ただ作るだけのHP/LPで終わらせません。自社CMS『ミルページ』で、AIブログ自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるサイトを制作します。" />
@@ -12,41 +13,40 @@
 <meta property="og:title" content="HP/LP作成｜AIで“育てられる”サイトを｜TENERAMENTE" />
 <meta property="og:description" content="自社CMS『ミルページ』で、AIブログ自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるサイトを制作します。" />
 <meta property="og:url" content="https://teneramente.jp/lp-hplp.html" />
-<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png" />
+<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
-<link rel="stylesheet" href="assets/kintone.css" />
 <style>
-.lp-hero { background: transparent; }
-.lp-hero .badge-lg { background: linear-gradient(135deg,#1ba1e2,#1668b8); }
-.hero-2 { display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(28px,4vw,60px); align-items:center; }
-@media(max-width:860px){ .hero-2{ grid-template-columns:1fr; } }
-.browser { background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
-.browser .tb { background:var(--blue-mist); padding:9px 12px; display:flex; align-items:center; gap:8px; }
-.browser .tb .u { background:#fff; border-radius:999px; font-size:10px; color:var(--ink-faint); padding:4px 12px; margin-left:6px; flex:1; }
-.browser .v { padding:0; }
-.browser .vh { height:90px; background:linear-gradient(120deg,var(--blue),var(--blue-deep)); display:flex; align-items:center; padding:0 18px; }
-.browser .vh .t { color:#fff; font-family:var(--font-disp); font-weight:900; font-size:16px; }
-.browser .vb { padding:14px 18px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-.browser .vb .c { background:var(--blue-mist); border-radius:10px; height:54px; }
-.diff { display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center; }
-@media(max-width:760px){ .diff{ grid-template-columns:1fr; } .diff .arrow{ transform:rotate(90deg); justify-self:center; } }
-.dcard { border-radius:var(--radius-lg); padding:26px; }
-.dcard.b { background:#fff4f0; border:1px solid #ffd9cc; }
-.dcard.a { background:#eaf7ee; border:1px solid #c9ebd4; }
-.dcard h4 { font-family:var(--font-disp); font-weight:900; font-size:15px; margin-bottom:12px; }
-.dcard.b h4 { color:#d65f3f; } .dcard.a h4 { color:#1f9d63; }
-.dcard li { list-style:none; font-size:13.5px; color:var(--ink-soft); padding:6px 0 6px 24px; position:relative; }
-.dcard.b li::before { content:'×'; position:absolute; left:0; color:#d65f3f; font-weight:900; }
-.dcard.a li::before { content:'✓'; position:absolute; left:0; color:#1f9d63; font-weight:900; }
-.arrow { font-size:30px; color:var(--blue); }
-.promo { display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; background:linear-gradient(135deg,#eafaf0,#e8f4fc); border:1px solid var(--line); border-radius:var(--radius-xl); padding:30px; }
-.promo .logo { width:72px; height:72px; border-radius:20px; background:linear-gradient(135deg,#36c08a,#1f9d63); color:#fff; display:grid; place-items:center; font-family:var(--font-disp); font-weight:900; font-size:28px; flex:none; }
-.promo h3 { font-family:var(--font-disp); font-weight:900; font-size:20px; }
-.promo p { font-size:14px; color:var(--ink-soft); margin-top:6px; max-width:46ch; }
-@media(max-width:680px){ .promo{ grid-template-columns:auto 1fr; } .promo .btn{ grid-column:1/-1; } }
+.hero-2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
+@media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
+.spec-card { border: 1px solid var(--line-2); border-radius: 6px; padding: clamp(22px, 2.6vw, 34px); background: var(--card); }
+.spec-card .index { margin-bottom: 14px; }
+.spec-card .dl .r { grid-template-columns: 96px 1fr; padding: 14px 0; }
+.spec-card .dl .v { font-size: 14.5px; }
+.diff { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.dcard { padding: clamp(22px, 2.6vw, 34px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.dcard h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.dcard.a { background: var(--card); }
+.dcard.a h4 { color: var(--accent); }
+.dcard ul { list-style: none; }
+.dcard li { font-size: 14.5px; padding: 10px 0 10px 26px; position: relative; border-bottom: 1px solid var(--line); line-height: 1.7; }
+.dcard li:last-child { border-bottom: 0; }
+.dcard.b li { color: var(--fg-2); }
+.dcard.b li::before { content: '×'; position: absolute; left: 2px; top: 9px; font-family: var(--font-mono); font-size: 13px; color: var(--fg-3); }
+.dcard.a li::before { content: ''; position: absolute; left: 2px; top: 19px; width: 12px; height: 6px; border-left: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); transform: rotate(-45deg); }
+@media (max-width: 700px) { .diff { grid-template-columns: 1fr; } }
+.promo { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+.promo .logo { width: 64px; height: 64px; border-radius: 14px; background: #fff; border: 1px solid rgba(0,0,0,.08); padding: 7px; display: grid; place-items: center; }
+.promo .logo img { width: 100%; height: 100%; object-fit: contain; }
+.promo h3 { font-size: clamp(19px, 2vw, 24px); }
+.promo p { font-size: 14.5px; color: var(--fg-2); margin-top: 8px; max-width: 48em; line-height: 1.85; }
+@media (max-width: 680px) { .promo { grid-template-columns: auto 1fr; } .promo .btn { grid-column: 1 / -1; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -71,38 +71,39 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <div data-chrome="header"></div>
 
 <section class="lp-hero" data-screen-label="HPLP:ヒーロー">
-  <div class="deco" aria-hidden="true">
-    <span class="blob blob-blue" style="width:300px;height:300px;right:-50px;top:-70px;"></span>
-    <span class="shape ring c-coral float-a" style="width:42px;height:42px;left:6%;top:26%;"></span>
-    <span class="shape sq c-green float-r" style="width:26px;height:26px;left:42%;top:10%;"></span>
-  </div>
   <div class="wrap-wide hero-2">
-    <div class="reveal">
-      <div class="badge-lg">🌐</div>
-      <span class="eyebrow">HP / LP 作成</span>
-      <h1>作って終わり、を<br />やめる。<span class="tx-blue">育つHPへ。</span></h1>
-      <p class="lead">きれいなだけのHPは、半年で止まります。TENERAMENTEは自社CMS<strong class="hl">『ミルページ』</strong>で、AIブログ自動投稿・SEO・Google連携まで備えたサイトを制作。公開後はオーナー自身で“育てられる”状態でお渡しします。</p>
-      <div class="ctas">
-        <a href="contact.html" class="btn btn-primary btn-lg">制作を相談する<span class="arr">→</span></a>
-        <a href="lp-milpage.html" class="btn btn-ghost btn-lg">ミルページを見る</a>
+    <div>
+      <span class="index reveal">HP / LP 作成</span>
+      <h1 class="lines">
+        <span class="line"><span>作って終わり、を</span></span>
+        <span class="line"><span>やめる。育つHPへ。</span></span>
+      </h1>
+      <p class="lead reveal d2">きれいなだけのHPは、半年で止まります。TENERAMENTEは自社CMS<strong class="hl">『ミルページ』</strong>で、AIブログ自動投稿・SEO・Google連携まで備えたサイトを制作。公開後はオーナー自身で“育てられる”状態でお渡しします。</p>
+      <div class="ctas reveal d3">
+        <a href="contact.html" class="btn btn--primary btn--lg">制作を相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+        <a href="lp-milpage.html" class="btn btn--ghost btn--lg">ミルページを見る</a>
       </div>
     </div>
-    <div class="reveal d1">
-      <div class="browser">
-        <div class="tb"><span style="display:flex;gap:5px;"><i style="width:9px;height:9px;border-radius:50%;background:#ff7a92;"></i><i style="width:9px;height:9px;border-radius:50%;background:#ffc83d;"></i><i style="width:9px;height:9px;border-radius:50%;background:#36c08a;"></i></span><span class="u">your-shop.com</span></div>
-        <div class="v">
-          <div class="vh"><span class="t">あなたのお店</span></div>
-          <div class="vb"><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span><span class="c"></span></div>
-        </div>
+    <div class="spec-card reveal d2">
+      <span class="index">What you get</span>
+      <div class="dl">
+        <div class="r"><span class="k">制作</span><span class="v">店舗HP / LP / コーポレート / 多店舗サイト</span></div>
+        <div class="r"><span class="k">運用</span><span class="v">自社CMS「ミルページ」で、オーナー自身が更新</span></div>
+        <div class="r"><span class="k">AI</span><span class="v">ブログの下書き・アイキャッチ生成・自動投稿</span></div>
+        <div class="r"><span class="k">集客</span><span class="v">SEO管理・Google連携・MEO運用代行との連動</span></div>
+        <div class="r"><span class="k">公開後</span><span class="v">伴走しながら、一緒に育てる</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Diff -->
-<section class="pad" data-screen-label="HPLP:違い">
+<section class="sec" data-screen-label="HPLP:違い">
   <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">TENERAMENTEのHP/LP</span><h2>“制作会社まかせ”から、<br /><span class="tx-blue">自走できる運用</span>へ。</h2></div>
+    <div class="sec-head reveal">
+      <span class="index">01 — TENERAMENTEのHP/LP</span>
+      <div><h2 class="h2">“制作会社まかせ”から、<br class="br-pc" />自走できる運用へ。</h2></div>
+    </div>
     <div class="diff reveal">
       <div class="dcard b">
         <h4>よくあるHP制作</h4>
@@ -113,7 +114,6 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <li>公開して、そこで関係が終わる</li>
         </ul>
       </div>
-      <div class="arrow" aria-hidden="true">➜</div>
       <div class="dcard a">
         <h4>ミルページなら</h4>
         <ul>
@@ -128,56 +128,54 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 </section>
 
 <!-- What we make -->
-<section class="pad tinted bg-dots" data-screen-label="HPLP:対応範囲">
-  <div class="deco" aria-hidden="true">
-    <span class="shape sq-o c-blue float-r" style="width:32px;height:32px;right:6%;top:12%;"></span>
-    <span class="shape disc c-coral float-b" style="width:14px;height:14px;left:5%;bottom:14%;"></span>
-  </div>
+<section class="sec sec--alt" data-screen-label="HPLP:対応範囲">
   <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">対応範囲</span><h2>こんなサイトを作っています。</h2></div>
-    <div class="grid g-3">
-      <div class="card fcard reveal"><div class="icon-badge">🏪</div><h3>店舗・サロンHP</h3><p>予約導線・メニュー・スタッフ紹介まで。集客に必要な要素を備えた店舗サイト。</p></div>
-      <div class="card fcard reveal d1"><div class="icon-badge">🎯</div><h3>ランディングページ</h3><p>キャンペーンや商品訴求のLP。ブロックビルダーで素早く作成・改善できます。</p></div>
-      <div class="card fcard reveal d2"><div class="icon-badge">🏢</div><h3>コーポレートサイト</h3><p>会社の信頼を伝えるHP。お知らせ・ブログ運用で“生きている”サイトに。</p></div>
-      <div class="card fcard reveal"><div class="icon-badge">🗂️</div><h3>多店舗サイト</h3><p>複数店舗を1つの管理画面で運用。ブランドを保ちつつ、店舗ごとに最新情報を。</p></div>
-      <div class="card fcard reveal d1"><div class="icon-badge">✍️</div><h3>AIブログ運用</h3><p>更新が続かない問題をAIで解決。下書き〜自動投稿まで仕組みでサポート。</p></div>
-      <div class="card fcard reveal d2"><div class="icon-badge">🔎</div><h3>SEO / MEO連携</h3><p>検索順位・Google連携を内蔵。MEO運用代行とあわせた集客設計も可能です。</p></div>
+    <div class="sec-head reveal">
+      <span class="index">02 — 対応範囲</span>
+      <div><h2 class="h2">こんなサイトを作っています。</h2></div>
+    </div>
+    <div class="cells cells--3">
+      <div class="cell reveal"><span class="index index--plain">01</span><h3>店舗・サロンHP</h3><p>予約導線・メニュー・スタッフ紹介まで。集客に必要な要素を備えた店舗サイト。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">02</span><h3>ランディングページ</h3><p>キャンペーンや商品訴求のLP。ブロックビルダーで素早く作成・改善できます。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">03</span><h3>コーポレートサイト</h3><p>会社の信頼を伝えるHP。お知らせ・ブログ運用で“生きている”サイトに。</p></div>
+      <div class="cell reveal"><span class="index index--plain">04</span><h3>多店舗サイト</h3><p>複数店舗を1つの管理画面で運用。ブランドを保ちつつ、店舗ごとに最新情報を。</p></div>
+      <div class="cell reveal d1"><span class="index index--plain">05</span><h3>AIブログ運用</h3><p>更新が続かない問題をAIで解決。下書き〜自動投稿まで仕組みでサポート。</p></div>
+      <div class="cell reveal d2"><span class="index index--plain">06</span><h3>SEO / MEO連携</h3><p>検索順位・Google連携を内蔵。MEO運用代行とあわせた集客設計も可能です。</p></div>
     </div>
   </div>
 </section>
 
 <!-- Product promo -->
-<section class="pad" data-screen-label="HPLP:ミルページ">
+<section class="sec sec--dark" data-screen-label="HPLP:ミルページ">
   <div class="wrap">
     <div class="promo reveal">
-      <span class="logo">ペ</span>
+      <span class="logo"><img src="assets/img/logo-milpage.webp" alt="ミルページ ロゴ" loading="lazy" /></span>
       <div>
-        <h3>運用エンジンは『ミルページ』</h3>
+        <span class="index">Powered by</span>
+        <h3 style="margin-top:8px;">運用エンジンは『ミルページ』</h3>
         <p>制作したHP/LPは、自社CMS「ミルページ」で動きます。AIブログ・SEO・Google連携・必須コンテンツの公開チェックまで、運用に必要な機能を標準搭載。</p>
       </div>
-      <a href="lp-milpage.html" class="btn btn-primary">ミルページを見る →</a>
+      <a href="lp-milpage.html" class="btn btn--primary">ミルページを見る<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="pad">
+<section class="cta-band" data-screen-label="HPLP:CTA">
   <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="dot" style="width:120px;height:120px;background:rgba(255,255,255,0.08);right:-30px;top:-30px;"></span>
-      <h2>“育てられるHP”を、はじめましょう。</h2>
-      <p>制作からAI運用、集客設計まで。まずはお気軽にご相談ください。</p>
-      <div class="ctas">
-        <a href="contact.html" class="btn btn-primary btn-lg">無料相談</a>
-        <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn-line btn-lg"><svg viewBox="0 0 36 36" fill="currentColor" class="ico"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
-        <a href="shindan.html" class="btn btn-shindan btn-lg">AI無料診断</a>
-      </div>
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">“育てられるHP”を、<br class="br-sp" />はじめましょう。</h2>
+    <p class="reveal d2">制作からAI運用、集客設計まで。まずはお気軽にご相談ください。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
     </div>
   </div>
 </section>
 
 <div data-chrome="footer"></div>
 <script src="assets/chrome.js"></script>
-<script src="assets/kintone.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>

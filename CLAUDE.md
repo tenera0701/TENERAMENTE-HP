@@ -215,3 +215,18 @@ python3 -m http.server 8000
 ```
 
 ブラウザで `http://localhost:8000/blog.html` を開いて確認する。
+
+---
+
+## 8. デザインシステム（2026-09 全面刷新）
+
+サイト全体（`mieroom/` を除く）は **黒 × 紙白 × 青1色のエディトリアル** で統一されている。
+ページを足す・直すときは以下に従う。
+
+- **共通CSS**: `assets/site.css`（配色・タイポ・ボタン・罫線グリッド・ヘッダー/フッター・診断ウィジェット・LP互換クラス）。旧 `kintone.css` は廃止済み
+- **共通JS**: `assets/chrome.js`（ヘッダー／ハンバーガーメニュー／フッター／スマホ固定CTA を `data-chrome="header|footer"` に差し込む）、`assets/site.js`（`.reveal` の出現・`.lines` の見出し立ち上がり・マーキー・パララックス）
+- **ページの雛形**: `<html lang="ja" class="js">` → head に Google Fonts の `<link>`（Zen Kaku Gothic New / Shippori Mincho / Instrument Sans / Instrument Serif / IBM Plex Mono）と `assets/site.css` → `<body data-active="services">`（ナビの現在地）。黒いヒーローで始まるページは `<body data-hero="dark">` を付ける（ヘッダー文字が白になる）
+- **部品**: 見出しは `.sec-head`（左に `.index` の番号ラベル、右に `.h2` と `.lead`）、リストは `.rows > .row`、罫線グリッドは `.cells.cells--3 > .cell`、実画面は `.frame`、黒セクションは `.sec--dark`、締めは `.cta-band`
+- **禁止**: グラデーション文字・紫〜青グラデ・パステル・浮遊図形や粒子・絵文字アイコン・アイコンバッジ・同型カードの均等並び・ピル型ボタンの多色使い。装飾ではなく余白・罫線・番号・実画面で見せる
+- **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの
+- **ブログのカバー画像**: `scripts/gen-covers.js` が紙白ベースで自動生成。フォントは `C:/Users/<user>/.teneramente/cover-tools/fonts/`（Zen Kaku Gothic New / IBM Plex Mono / Shippori Mincho の TTF）を参照。作り直すときは `assets/img/covers/*.png` を消して `node scripts/build-index.js`

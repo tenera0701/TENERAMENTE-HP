@@ -51,7 +51,7 @@
     </div>
     <div class="sq-lead hidden">
       <div class="sq-lead-head">
-        <h3>📋 診断完了！<span class="sq-free">結果レポートを受け取る（無料）</span></h3>
+        <h3>診断完了！<span class="sq-free">結果レポートを受け取る（無料）</span></h3>
         <p>強み・課題・おすすめの次の一歩をまとめた<strong>診断結果レポート</strong>を、ご入力のメールアドレスへお送りします。ご希望に応じて、担当より3営業日以内にご連絡します。</p>
       </div>
       <div class="sq-form">
