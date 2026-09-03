@@ -231,3 +231,19 @@ python3 -m http.server 8000
 - **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの
 - **ブログのカバー画像**: `scripts/gen-covers.js` が紙白ベースで自動生成。フォントは `C:/Users/<user>/.teneramente/cover-tools/fonts/`（Zen Kaku Gothic New / IBM Plex Mono / Shippori Mincho の TTF）を参照。作り直すときは `assets/img/covers/*.png` を消して `node scripts/build-index.js`
 - **スマホの折り返し**: `assets/site.js` の orphanGuard が段落末尾の4文字（＋句読点）を `<span class="og">` で包み、「す。」だけが次行に落ちる“ぶら下がり”を全ページで自動防止する。見出しは `.lines`（1行=1ブロック）と `text-wrap: balance`、〜400px では見出しを一段小さくする（site.css 末尾）。新しい段落クラスを作ったら OG_SEL に追加する
+
+---
+
+## 9. 毎日の自動投稿（Claude Code クラウドルーティン）
+
+2026-09-04 から、Claude Code のクラウドルーティン（毎日 06:00 JST）がこのリポジトリをチェックアウトし、
+記事を1本書いて main に push する。GitHub Actions ではなく https://claude.ai/code/routines で管理する。
+
+- **狙いキーワードの待ち行列**: `data/seo-keywords.json`。上から順に `status: "todo"` を1日1件消化する。
+  取りたいワードを足すときは同じ形式で末尾に追加する（`title` は仮題、`pillar` は本文中でリンクする自社ページ、`related` は関連記事の slug）。
+- **操作スクリプト**: `node scripts/seo-queue.js next`（次の1件）／`done <id> <slug>`（消し込み）／`list`／`remaining`
+- **記事の書き方**はこのファイルの 2〜5 章のとおり。加えて、主キーワードを title の前半・リード文・H2 のどれか1つに自然に入れ、
+  `pillar` へ本文中で1回、`related` へ1〜2回、相対リンクで内部リンクする。数値・事例の捏造は絶対に禁止。
+- ルーティンは記事を書いたあと `node scripts/build-index.js` を実行し、posts/・data/・sitemap.xml・生成記事ページ・カバー画像をコミットして push する。
+  カバー画像の生成には `@resvg/resvg-js` と `~/.teneramente/cover-tools/fonts/` のフォントが必要で、無い環境ではカバー無しで続行する（後で再生成できる）。
+- ミルページ取り込み（`sync-milpage.yml`）は 07:05／19:05 JST に動く。ルーティンの投稿とは干渉しない（CMS側の記事だけを追加・更新し、削除はしない）。
