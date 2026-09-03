@@ -25,18 +25,9 @@
 <style>
 .hero-2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
 @media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
-/* 順位ジオグリッド（濃いほど上位） */
-.geo { border: 1px solid var(--line-2); border-radius: 6px; background: var(--card); padding: clamp(18px, 2vw, 26px); }
-.geo .gh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
-.geo .gh b { font-family: var(--font-jp); font-weight: 700; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--fg); }
-.geo .grid5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
-.geo .cell5 { aspect-ratio: 1; border-radius: 3px; display: grid; place-items: center; font-family: var(--font-en); font-weight: 500; font-size: 15px; }
-.geo .r1 { background: var(--ink); color: var(--paper); }
-.geo .r2 { background: #5B5E68; color: var(--paper); }
-.geo .r3 { background: #B9B6AE; color: var(--ink); }
-.geo .r4 { background: var(--paper-2); color: var(--fg-3); border: 1px solid var(--line); }
-.geo .legend { display: flex; gap: 16px; margin-top: 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: var(--fg-3); flex-wrap: wrap; }
-.geo .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: -1px; }
+/* 実画面 */
+.lp-shot .frame { --h: auto; --zoom: 100%; }
+@media (max-width: 960px) { .lp-shot .frame { --h: clamp(200px, 44vw, 330px); --zoom: 135%; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -75,17 +66,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <a href="#features" class="btn btn--ghost btn--lg">機能を見る</a>
       </div>
     </div>
-    <div class="reveal d2">
-      <div class="geo" role="img" aria-label="順位ジオグリッドのイメージ。エリアを格子状に計測し、順位を濃淡で表示する">
-        <div class="gh"><span>Geo grid — 順位ジオグリッド</span><b>「美容室 名古屋」</b></div>
-        <div class="grid5">
-          <span class="cell5 r1">1</span><span class="cell5 r1">2</span><span class="cell5 r2">3</span><span class="cell5 r3">6</span><span class="cell5 r3">5</span>
-          <span class="cell5 r1">1</span><span class="cell5 r1">1</span><span class="cell5 r2">3</span><span class="cell5 r3">7</span><span class="cell5 r4">12</span>
-          <span class="cell5 r1">2</span><span class="cell5 r2">4</span><span class="cell5 r2">4</span><span class="cell5 r3">8</span><span class="cell5 r4">15</span>
-          <span class="cell5 r2">3</span><span class="cell5 r2">4</span><span class="cell5 r3">6</span><span class="cell5 r3">9</span><span class="cell5 r4">圏外</span>
-        </div>
-        <div class="legend"><span><i class="r1" style="background:var(--ink)"></i>1–3位</span><span><i style="background:#B9B6AE"></i>4–10位</span><span><i style="background:var(--paper-2);border:1px solid var(--line)"></i>11位↓</span></div>
+    <div class="reveal d2 lp-shot">
+      <div class="frame" role="img" aria-label="MEOツールの順位グラフ実画面。キーワード別の掲載順位の推移">
+        <div class="bar"><i></i><i></i><i></i><span>map next — 順位グラフ / 自店舗・施設</span></div>
+        <div class="shot"><img src="assets/img/meo-app.webp" alt="" width="1570" height="738" loading="eager" decoding="async" /></div>
       </div>
+      <p class="cap">MEOツールの実画面（キーワード別の順位推移）</p>
     </div>
   </div>
 </section>

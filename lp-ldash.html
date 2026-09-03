@@ -23,21 +23,13 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
 <style>
-.hero-2 { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
+.hero-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
 @media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
 .zero { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--fg-2); padding: 9px 12px; border: 1px solid var(--line-2); border-radius: 2px; }
 .zero::before { content: ''; width: 6px; height: 6px; background: var(--line-green); }
-/* phone mock */
-.phone { width: 250px; margin-inline: auto; background: var(--black); border-radius: 36px; padding: 10px; border: 1px solid rgba(0,0,0,.4); box-shadow: 0 40px 90px -30px rgba(0,0,0,.45); }
-.phone .scr { background: #EEF1F4; border-radius: 28px; overflow: hidden; min-height: 400px; display: flex; flex-direction: column; }
-.phone .top { background: var(--line-green); color: #fff; font-weight: 700; font-size: 12px; padding: 14px 16px 10px; display: flex; align-items: center; gap: 8px; }
-.phone .top i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.7); }
-.phone .body { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.phone .bub { background: #fff; border-radius: 12px; padding: 9px 12px; font-size: 11.5px; color: var(--ink); max-width: 82%; line-height: 1.6; }
-.phone .bub.me { align-self: flex-end; background: #C9F5D2; }
-.phone .menu { background: #fff; border-top: 1px solid rgba(0,0,0,.08); display: grid; grid-template-columns: repeat(3, 1fr); }
-.phone .menu div { padding: 13px 0; text-align: center; font-size: 10.5px; font-weight: 700; color: var(--ink); border-right: 1px solid rgba(0,0,0,.08); }
-.phone .menu div:last-child { border-right: none; }
+/* 実画面 */
+.lp-shot .frame { --h: clamp(260px, 27vw, 420px); --zoom: 135%; }
+@media (max-width: 960px) { .lp-shot .frame { --h: clamp(220px, 46vw, 380px); --zoom: 150%; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -76,19 +68,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <a href="#features" class="btn btn--ghost btn--lg">機能を見る</a>
       </div>
     </div>
-    <div class="reveal d2">
-      <div class="phone" role="img" aria-label="LINE公式アカウントのトーク画面イメージ">
-        <div class="scr">
-          <div class="top"><i></i>◯◯サロン 公式</div>
-          <div class="body">
-            <div class="bub">はじめまして。ご登録ありがとうございます。</div>
-            <div class="bub">ご希望のメニューを選んでください。</div>
-            <div class="bub me">カットを予約したい</div>
-            <div class="bub">かしこまりました。空き状況をご案内します。</div>
-          </div>
-          <div class="menu"><div>予約する</div><div>メニュー</div><div>クーポン</div></div>
-        </div>
+    <div class="reveal d2 lp-shot">
+      <div class="frame" role="img" aria-label="LDash 管理画面のダッシュボード実画面">
+        <div class="bar"><i></i><i></i><i></i><span>ldash — 管理画面 / dashboard</span></div>
+        <div class="shot"><img src="assets/img/ldash-app.webp" alt="" width="1917" height="890" loading="eager" decoding="async" /></div>
       </div>
+      <p class="cap">LDash 管理画面の実画面（ダッシュボード）</p>
     </div>
   </div>
 </section>
