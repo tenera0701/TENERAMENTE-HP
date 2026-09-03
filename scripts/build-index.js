@@ -200,7 +200,7 @@ function main() {
   // 「毎日全ページを更新している」と誤って伝わるので、日付が分かる記事にだけ付ける。
   const staticUrls = [
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
-    'lp-ai-app.html', 'lp-hplp.html', 'lp-meo.html',
+    'lp-ai-app.html', 'lp-ai.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'mieroom/',
     'mieroom/features.html', 'mieroom/blog.html',
   ];

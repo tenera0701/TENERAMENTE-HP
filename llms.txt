@@ -12,7 +12,7 @@
 - [AI×WEBアプリ開発 無料診断](https://teneramente.jp/shindan.html): 業務のAIアプリ化適性を8問・約1分でチェックできる無料診断
 - [HP/LP制作](https://teneramente.jp/lp-hplp.html): 自社CMS「ミルページ」によるHP/LP制作と運用支援
 - [MEO/AIO運用代行](https://teneramente.jp/lp-meo.html): Googleマップ・AI検索の順位可視化と運用代行
-- [AI活用支援](https://teneramente.jp/services.html): 社内AI導入・RAG構築・プロンプト設計の伴走支援
+- [AI活用支援](https://teneramente.jp/lp-ai.html): 社内AI導入の設計・社員研修・RAG構築・業務自動化の伴走支援
 
 ## 自社プロダクト
 

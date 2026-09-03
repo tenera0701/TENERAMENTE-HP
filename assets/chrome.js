@@ -73,7 +73,7 @@
           <a href="lp-ai-app.html">AI×WEBアプリ開発</a>
           <a href="lp-hplp.html">HP/LP作成</a>
           <a href="lp-meo.html">MEO/AIO運用代行</a>
-          <a href="services.html#ai">AI活用支援</a>
+          <a href="lp-ai.html">AI活用支援</a>
         </div>
         <div class="fcol"><h4>Products</h4>
           <a href="mieroom/">ミエルーム</a>
