@@ -230,3 +230,4 @@ python3 -m http.server 8000
 - **禁止**: グラデーション文字・紫〜青グラデ・パステル・浮遊図形や粒子・絵文字アイコン・アイコンバッジ・同型カードの均等並び・ピル型ボタンの多色使い。装飾ではなく余白・罫線・番号・実画面で見せる
 - **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの
 - **ブログのカバー画像**: `scripts/gen-covers.js` が紙白ベースで自動生成。フォントは `C:/Users/<user>/.teneramente/cover-tools/fonts/`（Zen Kaku Gothic New / IBM Plex Mono / Shippori Mincho の TTF）を参照。作り直すときは `assets/img/covers/*.png` を消して `node scripts/build-index.js`
+- **スマホの折り返し**: `assets/site.js` の orphanGuard が段落末尾の4文字（＋句読点）を `<span class="og">` で包み、「す。」だけが次行に落ちる“ぶら下がり”を全ページで自動防止する。見出しは `.lines`（1行=1ブロック）と `text-wrap: balance`、〜400px では見出しを一段小さくする（site.css 末尾）。新しい段落クラスを作ったら OG_SEL に追加する

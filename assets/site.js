@@ -25,6 +25,42 @@
     });
   });
 
+
+  /* 日本語のぶら下がり防止: 段落の末尾4文字（＋句読点）をひと固まりにして、
+     「す。」だけが次の行に落ちるのを防ぐ。幅に依存せず全ページで効く。 */
+  var OG_SEL = '.lead, .cell p, .row .d, .prod .desc, .checks li, .faq-list p, .faq-list .faq-a, .post-row p, .article-card p, .cta-band p, .dcard li, .biz-block .desc, .site-footer .desc, .mani-body p, .meaning, .sq-note, .sq-lead-head p, .sq-done-body, .step-sub, .cinfo .note, .post-body p, .post-body li, .seo-note p, .callout p, .conclusion p, .price-note, .cap, .flow p, .fcard p, .spec .v, .hero-foot .v, .o-d, .promo p';
+  function orphanGuard(el) {
+    if (el.dataset.og) return;
+    el.dataset.og = '1';
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, last = null;
+    while ((n = w.nextNode())) { if (n.nodeValue.trim()) last = n; }
+    if (!last) return;
+    var t = last.nodeValue.replace(/\s+$/, '');
+    var chars = Array.from(t);
+    if (chars.length < 7) return;
+    var m = t.match(/(.{4}[。、」』）!?！？]*)$/u);
+    if (!m) return;
+    var tail = m[1];
+    if (Array.from(tail).length > 8) return;
+    var span = document.createElement('span');
+    span.className = 'og';
+    span.textContent = tail;
+    last.nodeValue = t.slice(0, t.length - tail.length);
+    last.parentNode.insertBefore(span, last.nextSibling);
+  }
+  var ogTimer = null;
+  function runOrphanGuard() {
+    document.querySelectorAll(OG_SEL).forEach(orphanGuard);
+  }
+  document.addEventListener('DOMContentLoaded', runOrphanGuard);
+  runOrphanGuard();
+  if (window.MutationObserver) {
+    new MutationObserver(function () {
+      clearTimeout(ogTimer);
+      ogTimer = setTimeout(runOrphanGuard, 150);
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+
   /* マーキー: 中身を複製してループさせる */
   document.querySelectorAll('.marquee .track').forEach(function (t) {
     if (t.dataset.dup) return;
