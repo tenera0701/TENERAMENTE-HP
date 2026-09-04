@@ -59,7 +59,7 @@ META-->
 
 ここからリード文（先頭の段落）。記事冒頭の「リード」として大きめに表示されます。1〜3行程度。**強調したいキーフレーズ**は太字で。
 
-## 01見出しの自然な日本語
+## 見出しの自然な日本語（番号は書かない。表示時に 01, 02… が自動で付く）
 
 本文。`コード`、*斜体*、**太字** が使えます。
 
@@ -88,7 +88,7 @@ META-->
   </div>
 </div>
 
-## 02 次の H2 セクション
+## 次の H2 セクション
 
 …
 ```
@@ -237,13 +237,30 @@ python3 -m http.server 8000
 ## 9. 毎日の自動投稿（Claude Code クラウドルーティン）
 
 2026-09-04 から、Claude Code のクラウドルーティン（毎日 06:00 JST）がこのリポジトリをチェックアウトし、
-記事を1本書いて main に push する。GitHub Actions ではなく https://claude.ai/code/routines で管理する。
+**TENERAMENTE ブログに1本、ミエルーム ブログに1本（計2本）** 書いて main に push する。GitHub Actions ではなく https://claude.ai/code/routines で管理する。
+ミエルーム側の書き方は 10 章、待ち行列は `data/seo-keywords-mieroom.json`（`--site=mieroom`）。
 
 - **狙いキーワードの待ち行列**: `data/seo-keywords.json`。上から順に `status: "todo"` を1日1件消化する。
   取りたいワードを足すときは同じ形式で末尾に追加する（`title` は仮題、`pillar` は本文中でリンクする自社ページ、`related` は関連記事の slug）。
 - **操作スクリプト**: `node scripts/seo-queue.js next`（次の1件）／`done <id> <slug>`（消し込み）／`list`／`remaining`
 - **記事の書き方**はこのファイルの 2〜5 章のとおり。加えて、主キーワードを title の前半・リード文・H2 のどれか1つに自然に入れ、
   `pillar` へ本文中で1回、`related` へ1〜2回、相対リンクで内部リンクする。数値・事例の捏造は絶対に禁止。
-- ルーティンは記事を書いたあと `node scripts/build-index.js` を実行し、posts/・data/・sitemap.xml・生成記事ページ・カバー画像をコミットして push する。
+- ルーティンは記事を書いたあと `node scripts/build-mieroom.js` → `node scripts/build-index.js` の順に実行し、posts/・mieroom/posts/・mieroom/articles/・mieroom/blog.html・data/・sitemap.xml・生成記事ページ・カバー画像をコミットして push する。
   カバー画像の生成には `@resvg/resvg-js` と `~/.teneramente/cover-tools/fonts/` のフォントが必要で、無い環境ではカバー無しで続行する（後で再生成できる）。
 - ミルページ取り込み（`sync-milpage.yml`）は 07:05／19:05 JST に動く。ルーティンの投稿とは干渉しない（CMS側の記事だけを追加・更新し、削除はしない）。
+
+---
+
+## 10. ミエルーム ブログの記事ルール（mieroom/posts/）
+
+ミエルーム（賃貸仲介向け 業務管理SaaS）のブログは、TENERAMENTE ブログとは別の仕組み・別の読者。
+
+- **置き場所**: `mieroom/posts/<slug>.md`（slug は日付なしの半角英数字＋ハイフン。既存の `mieroom/articles/*.html` と重複させない）
+- **生成**: `node scripts/build-mieroom.js` が `mieroom/articles/<slug>.html` と `mieroom/blog.html` の一覧を更新する。そのあと `node scripts/build-index.js` を実行すると sitemap に載る
+- **META**: `title` / `date`（YYYY-MM-DD）/ `category` / `excerpt`（1〜2文）/ `tags`（3〜5個）。category は次の5つのどれか: `売上管理` `業務効率化` `集客・広告` `組織・育成` `DX`
+- **本文**: 2,000〜3,000字、H2 は「## 見出し」で5〜8本（番号は書かない。既存記事と同じ見た目にする）。**Markdown の表は使えない**（変換器が未対応。箇条書きで書く）。使えるのは見出し・段落・箇条書き・番号付き・太字・斜体・リンク・行頭が `<` の生HTML
+- **読者**: 賃貸仲介・不動産仲介の店舗オーナー、店長、これから開業する人。「です・ます」調。一人称は「ミエルーム」または「当社」
+- **内部リンク**（記事は `mieroom/articles/` に置かれるので相対パスに注意）: 製品トップ `../index.html`、機能・事例 `../features.html`、他の記事 `./<slug>.html`、TENERAMENTE 側のページ `../../lp-ai.html` など
+- **書いてよい製品の事実**: 申込管理表／売上管理／反響管理／接客管理／申込・入金管理（後ADを案件ごとに記録、一部入金・分割入金、確定売上と見込みの分離）／接客・反響成績の可視化／反響分析／フォーム自動取込・メール自動取込／間取り作成／社内契約フォーマット自動取込／物件コンバータ／業者間サイト連携／LINE・SMS自動追客／経理・勤怠・給与／デモアカウント発行／最短即日スタート／Excel データのインポートと初期設定の代行に対応。**無料お試し期間は無い**（FAQ に明記。「無料で試せる」と書かない）。**料金は書かない**（ページに記載がない）
+- **狙いキーワード**: `data/seo-keywords-mieroom.json`（`node scripts/seo-queue.js next --site=mieroom` / `done <id> <slug> --site=mieroom`）
+- 数値・事例・実績の捏造禁止、競合批判なし、連絡先を書かない、は TENERAMENTE ブログと同じ

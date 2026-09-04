@@ -57,7 +57,7 @@ function buildTOC(body) {
     const m = line.match(/^##\s+(.+)/);
     if (m) {
       i++;
-      toc.push({ id: 'h' + i, n: String(i).padStart(2, '0'), label: m[1].trim() });
+      toc.push({ id: 'h' + i, n: String(i).padStart(2, '0'), label: m[1].trim().replace(/^\d{2}[\s.．:：]+/, '') });
     }
   }
   return toc;

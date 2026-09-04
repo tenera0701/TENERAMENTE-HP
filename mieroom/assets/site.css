@@ -412,3 +412,16 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 /* related posts */
 .relposts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:820px){.relposts{grid-template-columns:1fr}}
+
+/* スマホのヘッダー: ロゴ名が縦に折れて（1文字ずつ改行して）ヘッダーからはみ出していたのを防ぐ（2026-09-04） */
+@media(max-width:560px){
+  .nav{height:72px}
+  .brand{gap:8px;flex-shrink:0}
+  .brand img.logo{width:44px;height:44px}
+  .brand .name{font-size:18px;white-space:nowrap}
+  .nav-cta{gap:6px}
+  .nav-cta .btn{padding:9px 12px;font-size:12px;white-space:nowrap}
+}
+@media(max-width:420px){
+  .nav-cta .btn-ghost[href*="app-login"]{display:none}
+}

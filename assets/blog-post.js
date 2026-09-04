@@ -143,6 +143,9 @@
   h2s.forEach((h, i) => {
     const n = String(i + 1).padStart(2, '0');
     h.id = 'h' + (i + 1);
+    // 本文側に「01 」と番号が書かれていても二重にならないよう剥がす
+    const first = h.firstChild;
+    if (first && first.nodeType === 3) first.nodeValue = first.nodeValue.replace(/^\s*\d{2}[\s.．:：]+/, '');
     const num = document.createElement('span');
     num.className = 'h-num';
     num.textContent = n;

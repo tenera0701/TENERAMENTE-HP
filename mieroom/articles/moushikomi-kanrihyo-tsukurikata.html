@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賃貸仲介の申込管理表の作り方｜Excelで漏れが出る原因と項目設計の正解｜ミエルーム ブログ</title>
+<meta name="description" content="賃貸仲介の申込管理表は、申込から審査・契約・入金・後ADまでを1行で追える設計にすると漏れが減ります。必須項目の決め方、Excelで漏れが出る4つの原因、誰がいつ更新するかの運用ルール、ツール化を考える目安を現場目線で整理しました。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/moushikomi-kanrihyo-tsukurikata.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="賃貸仲介の申込管理表の作り方｜Excelで漏れが出る原因と項目設計の正解">
+<meta property="og:description" content="賃貸仲介の申込管理表は、申込から審査・契約・入金・後ADまでを1行で追える設計にすると漏れが減ります。必須項目の決め方、Excelで漏れが出る4つの原因、誰がいつ更新するかの運用ルール、ツール化を考える目安を現場目線で整理しました。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/moushikomi-kanrihyo-tsukurikata.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"賃貸仲介の申込管理表の作り方｜Excelで漏れが出る原因と項目設計の正解","description":"賃貸仲介の申込管理表は、申込から審査・契約・入金・後ADまでを1行で追える設計にすると漏れが減ります。必須項目の決め方、Excelで漏れが出る4つの原因、誰がいつ更新するかの運用ルール、ツール化を考える目安を現場目線で整理しました。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/moushikomi-kanrihyo-tsukurikata.html","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"申込管理表, 賃貸仲介, 売上管理, Excel, 入金管理"}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>売上管理</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">売上管理</span>
+      <h1>賃貸仲介の申込管理表の作り方｜Excelで漏れが出る原因と項目設計の正解</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.09.04</span>
+        <span class="sep"></span>
+        <span>5分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">
+    <span class="ring" style="width:220px;height:220px;top:-50px;right:60px"></span>
+    <span class="ring" style="width:130px;height:130px;bottom:-30px;left:80px"></span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+  </div>
+</div>
+<div class="post-body">
+<p>賃貸仲介の申込管理表は、<strong>申込から審査・契約・入金・後ADまでを1行で追える</strong>ように作ると、取りこぼしが目に見えて減ります。多くの店舗で漏れが出るのは担当者の注意不足ではなく、表の設計と更新ルールに原因があります。この記事では、必須項目の設計、Excelで漏れが出る原因、運用ルール、ツール化を考える目安を順に解説します。</p>
+<h2>申込管理表の役割：申込から後ADまでを「1行で追う」</h2>
+<p>申込管理表は、申込が入った瞬間から最後の入金（後AD）までの案件の現在地と、お金の入り具合を一目で見るための表です。来店前を追う反響管理表、来店から申込までを追う接客管理表とは役割が違い、<strong>申込より後の工程を一件も落とさない</strong>ことに集中させます。</p>
+<p>基本の形は「1行＝1案件」です。1件の申込が、審査・契約・仲介手数料の入金・AD（広告料）の入金・後ADの入金と進むたびに、同じ行の右側が埋まっていきます。行が分かれると、その案件の全体像が追えなくなります。</p>
+<p>この表は、契約ベースの数字と入金ベースの確定売上を分けて見る土台にもなります。店長が週次で確認する指標（審査中の件数、入金予定を過ぎた未入金など）も、すべてこの表から取り出します。</p>
+<h2>必須項目の設計：列はこの順番で並べる</h2>
+<p>列は、案件が進む順に左から右へ並べます。自由記述は備考の1列だけにし、それ以外は「日付」「数字」「選択肢」のどれかに揃えるのが設計の基本です。</p>
+<ul>
+<li>基本情報：申込日／担当者／媒体（反響元）／顧客名／物件名・号室／賃料／管理会社またはオーナー</li>
+<li>進行：審査状況（申込・審査中・承認・否決・キャンセル）／契約予定日／契約開始日</li>
+<li>お金：仲介手数料／AD／後ADの有無と入金予定日／入金日／入金額／未入金残</li>
+<li>付帯：引越し／ライフライン（電気・ガス・水道・ネット）／火災保険の提案と成約</li>
+<li>管理：ステータス／最終更新日／備考</li>
+</ul>
+<p>ポイントは、お金の列を「予定日・入金日・金額・残額」の組で持つことです。<strong>入金済みか未入金かを1列で表さない</strong>ことで、一部入金や分割入金が見えるようになります。付帯サービスの列があると、契約後の提案漏れも同じ表で追えます。</p>
+<h2>Excelで漏れが出る4つの原因</h2>
+<p>Excelの申込管理表で漏れが出る原因は、次の4つに集約されます。</p>
+<ol>
+<li>更新者が分散している：担当者ごとに更新すると、上書きや「最新版がどれか分からない」が起きます。入金の確認は通帳を見る人しかできないため、担当者任せの表は入金の列が空になりがちです。</li>
+<li>ステータスが文字入力になっている：「審査中」「審査中！」「しんさちゅう」が混ざると、フィルタも集計も効きません。選択肢にしていない表は、件数を数える段階で狂います。</li>
+<li>入金と売上が混在している：契約した時点で売上に入れてしまうと、未入金や一部入金が売上の中に埋もれます。後ADは特に入金までの期間が長く、表から消えやすい項目です。</li>
+<li>月をまたぐ案件が分断される：申込は8月、契約は9月、後ADの入金は11月というのが賃貸仲介の普通です。月別にシートを分けると、1件の案件が3か所に散ります。</li>
+</ol>
+<p>後ADと一部入金の落とし穴については、<a href="./go-ad-management.html">「後AD」を制する者が、賃貸仲介の利益を制する。</a>で詳しく解説しています。</p>
+<h2>運用ルール：誰が・いつ・何を更新するか</h2>
+<p>表の設計が正しくても、更新のルールがなければ漏れは戻ってきます。決めるのは「誰が」「いつ」「何を」の3つだけです。</p>
+<ul>
+<li>誰が：申込・審査・契約の列は担当者、入金の列は入金を確認できる人（事務や店長）が更新する。1つの列に更新者を2人置かない</li>
+<li>いつ：申込当日・審査結果が出た当日・契約当日・入金を確認した当日。「週末にまとめて」を認めない</li>
+<li>何を：ステータスと日付は必ずセットで更新する。ステータスだけ進めて日付が空の行は、後で必ず迷う</li>
+</ul>
+<p>週次で店長が見る指標は、次の5つに絞ります。</p>
+<ul>
+<li>審査中の件数と、審査に入ってから日数が経っている案件</li>
+<li>契約予定日を過ぎて契約していない案件</li>
+<li>入金予定日を過ぎた未入金（仲介手数料・AD・後ADのどれが未入金か）</li>
+<li>後ADの入金予定が今月・来月にある案件</li>
+<li>付帯サービスの提案率</li>
+</ul>
+<p>月次では、<strong>入金済みの確定売上と、未入金の見込み売上を分けて締める</strong>ことで、「契約は多いのに資金が回らない」状態を早く察知できます。</p>
+<h2>テンプレートを作るときのチェックリスト</h2>
+<p>申込管理表のテンプレートを自作するなら、次の項目を満たしているかを確認してください。</p>
+<ul>
+<li>1行＝1案件になっている（工程ごとに行を分けていない）</li>
+<li>ステータスと審査状況は選択肢（ドロップダウン）で入力する</li>
+<li>お金の列は「予定日・入金日・金額・残額」の組で持っている</li>
+<li>後ADの列が仲介手数料やADと分かれている</li>
+<li>引越し・ライフライン・火災保険の付帯列がある</li>
+<li>月別にシートを分けず、申込日や契約開始日のフィルタで月を切る</li>
+<li>最終更新日と更新者の列がある</li>
+<li>入力用の表と集計用の表を分けている（集計式を入力表に埋め込まない）</li>
+</ul>
+<p>このうち特に効くのは「1行＝1案件」と「お金の列を組で持つ」の2つです。既存の表を作り直す余裕がなければ、まずこの2点だけ直してください。それだけで、<strong>未入金の一覧をフィルタ1回で出せる</strong>状態になります。</p>
+<h2>ツール化を考える目安</h2>
+<p>Excelで回せる規模には限界があります。次の状態が続くなら、ツール化を検討する時期です。</p>
+<ul>
+<li>更新する人が複数いて、最新版がどれか分からなくなる</li>
+<li>店舗が複数あり、店舗ごとに表の形が違う</li>
+<li>後ADや一部入金の追跡が、月に何度も漏れる</li>
+<li>反響・接客・申込が別々のファイルで、案件を探すのに時間がかかる</li>
+<li>月末の集計に半日以上かかっている</li>
+</ul>
+<p>ツールは、この記事の項目設計がそのまま実現できるかを基準に選んでください。<a href="../index.html">ミエルーム</a>は、申込管理表を軸に、後ADを案件ごとに記録し、一部入金・分割入金に対応し、確定売上と見込みを分けて集計する申込・入金管理を備えています。申込フォームからの自動取込や、反響管理・接客管理との連動もあり、申込から入金までを1行で追う運用をそのまま画面にした設計です。Excelから移行するときの考え方は<a href="./excel-to-saas.html">Excel管理からの卒業。SaaS導入で変わる5つのこと。</a>、ツールの選び方全般は<a href="./chintai-gyomu-kaizen-tool.html">賃貸仲介の業務改善ツール完全ガイド</a>にまとめています。</p>
+<h2>まとめ：漏れは注意力ではなく、仕組みで防ぐ</h2>
+<p>賃貸仲介の申込管理表は、申込から後ADまでを1行で追う設計と、誰が・いつ・何を更新するかのルールがそろって初めて機能します。Excelで漏れが出る原因は、更新者の分散・文字のステータス・入金と売上の混在・月またぎの分断の4つでした。まずは既存の表を「1行＝1案件」「お金の列を組で持つ」の2点から直し、週次で見る指標を決めてください。<strong>漏れは注意力ではなく仕組みで防ぐ</strong>ものです。</p>
+<p>Excelの管理表に限界を感じたら、まずは「自店舗の未入金が今いくらあるか」を一覧で出せるかを確かめてみてください。ミエルームはデモアカウントの発行から最短即日で使い始められるので、自店の案件を入れて試すところから始められます。</p>
+
+  <div class="post-tags"><span class="pt">#申込管理表</span><span class="pt">#賃貸仲介</span><span class="pt">#売上管理</span><span class="pt">#Excel</span><span class="pt">#入金管理</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none">デモアカウント発行</a>
+  </div>
+</div>
+</article>
+<div data-chrome="footer"></div>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+</body>
+</html>

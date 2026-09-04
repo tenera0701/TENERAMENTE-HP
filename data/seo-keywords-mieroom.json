@@ -1,0 +1,391 @@
+{
+  "note": "ミエルーム ブログ（mieroom/posts/）用の狙いキーワード待ち行列。status が todo のものを1日1件使う。category は 売上管理／業務効率化／集客・広告／組織・育成／DX のどれか。pillar は本文中でリンクする自社ページ（記事は mieroom/articles/ に置かれるので相対パス）、related は関連記事の slug（./<slug>.html でリンク）。",
+  "audience": "賃貸仲介・不動産仲介の店舗オーナー、店長、これから開業する人。開業準備層への訴求と、既存店のAI化・ツール見直しの訴求を交互に",
+  "items": [
+    {
+      "id": "u-m01",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 申込管理表",
+      "sub": [
+        "申込管理表 テンプレート",
+        "申込管理 Excel 不動産"
+      ],
+      "title": "賃貸仲介の申込管理表の作り方｜Excelで漏れが出る原因と項目設計",
+      "intent": "申込〜入金の管理表を整えたい店長・オーナー",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool",
+        "go-ad-management",
+        "excel-to-saas"
+      ],
+      "status": "done",
+      "slug": "moushikomi-kanrihyo-tsukurikata",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m02",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 業務改善ツール",
+      "sub": [
+        "賃貸仲介 業務効率化 ツール",
+        "賃貸 業務改善 システム"
+      ],
+      "title": "賃貸仲介の業務改善ツール、定着する店舗と失敗する店舗の違い｜選び方チェックリスト",
+      "intent": "ツール導入を検討中。失敗したくない",
+      "pillar": "../features.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool",
+        "excel-to-saas"
+      ],
+      "status": "done",
+      "slug": "gyomu-kaizen-tool-teichaku",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m03",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 店舗向けツール",
+      "sub": [
+        "賃貸仲介 店舗 管理ツール",
+        "賃貸 店舗 業務システム"
+      ],
+      "title": "賃貸仲介の店舗向けツールに必要な機能｜1店舗から使える業務管理の条件",
+      "intent": "小規模店舗に合うツールの条件を知りたい",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool",
+        "lead-response-speed"
+      ],
+      "status": "done",
+      "slug": "tenpo-muke-tool-hitsuyo-kino",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m04",
+      "category": "DX",
+      "keyword": "不動産仲介 業務改善ツール",
+      "sub": [
+        "不動産仲介 業務効率化",
+        "不動産 業務改善 ツール 導入"
+      ],
+      "title": "不動産仲介の業務改善ツール導入ガイド｜紙・Excel・LINEのバラバラ管理から抜け出す手順",
+      "intent": "バラバラの管理をまとめたい",
+      "pillar": "../features.html",
+      "related": [
+        "excel-to-saas",
+        "month-end-closing"
+      ],
+      "status": "done",
+      "slug": "fudosan-chukai-gyomu-kaizen-tool-donyu",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m05",
+      "category": "組織・育成",
+      "keyword": "不動産 開業準備",
+      "sub": [
+        "不動産 開業 準備 チェックリスト",
+        "宅建業 開業 流れ"
+      ],
+      "title": "不動産仲介の開業準備チェックリスト｜免許・事務所・業者間サイト・管理ツールまで",
+      "intent": "不動産仲介で開業する予定の人",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool",
+        "media-roi"
+      ],
+      "status": "done",
+      "slug": "fudosan-kaigyo-junbi-checklist",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m06",
+      "category": "DX",
+      "keyword": "不動産会社 AI活用",
+      "sub": [
+        "不動産 AI 活用 事例",
+        "賃貸仲介 AI 追客"
+      ],
+      "title": "不動産会社のAI活用｜反響対応・追客・書類作成で今すぐ使える場面と注意点",
+      "intent": "既存の不動産会社がAIをどう使えるか知りたい",
+      "pillar": "../features.html",
+      "related": [
+        "lead-response-speed",
+        "staff-visualization"
+      ],
+      "status": "done",
+      "slug": "fudosan-ai-katsuyo-bamen",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m07",
+      "category": "DX",
+      "keyword": "不動産 業務ツール 見直し",
+      "sub": [
+        "不動産 システム 乗り換え",
+        "賃貸仲介 ツール 比較"
+      ],
+      "title": "不動産会社の業務ツール見直しチェックリスト｜乗り換えの判断基準と移行の順番",
+      "intent": "今のツールに不満がある既存店",
+      "pillar": "../features.html",
+      "related": [
+        "excel-to-saas",
+        "month-end-closing"
+      ],
+      "status": "done",
+      "slug": "fudosan-gyomu-tool-minaoshi",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "u-m08",
+      "category": "組織・育成",
+      "keyword": "不動産 開業 一人 ツール",
+      "sub": [
+        "ひとり 不動産 開業",
+        "不動産 独立 準備"
+      ],
+      "title": "ひとりで始める不動産仲介の開業｜最初に揃えるツールと省力化の設計",
+      "intent": "少人数・ひとりで開業する人",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool",
+        "lead-response-speed"
+      ],
+      "status": "done",
+      "slug": "hitori-fudosan-kaigyo-tool",
+      "doneAt": "2026-09-04"
+    },
+    {
+      "id": "m009",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 反響管理 方法",
+      "sub": [
+        "反響 管理表",
+        "反響 対応 漏れ"
+      ],
+      "title": "賃貸仲介の反響管理の方法｜取りこぼしをなくす記録と追客の型",
+      "intent": "反響の対応漏れを減らしたい",
+      "pillar": "../features.html",
+      "related": [
+        "lead-response-speed",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m010",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 追客 LINE 自動化",
+      "sub": [
+        "不動産 追客 LINE",
+        "追客 自動 SMS"
+      ],
+      "title": "賃貸仲介の追客をLINE・SMSで自動化する方法｜来店率を落とさない配信設計",
+      "intent": "追客の手間を減らしつつ来店を増やしたい",
+      "pillar": "../features.html",
+      "related": [
+        "lead-response-speed"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m011",
+      "category": "売上管理",
+      "keyword": "後AD 入金 管理表",
+      "sub": [
+        "後AD 未入金 防止",
+        "広告料 入金管理"
+      ],
+      "title": "後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック",
+      "intent": "後ADの取りこぼしを防ぎたい",
+      "pillar": "../index.html",
+      "related": [
+        "go-ad-management",
+        "month-end-closing"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m012",
+      "category": "業務効率化",
+      "keyword": "賃貸 契約書 重説 作成 時間短縮",
+      "sub": [
+        "賃貸 契約書類 自動作成",
+        "重要事項説明書 作成 効率化"
+      ],
+      "title": "賃貸の契約書・重説の作成時間を短くする方法｜転記をなくす仕組み",
+      "intent": "書類作成に時間がかかっている",
+      "pillar": "../features.html",
+      "related": [
+        "excel-to-saas"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m013",
+      "category": "集客・広告",
+      "keyword": "不動産 開業 集客 最初",
+      "sub": [
+        "不動産 開業 反響 集め方",
+        "開業 直後 集客"
+      ],
+      "title": "不動産仲介を開業した直後の集客｜最初の反響を作るポータル・Googleマップ・紹介の設計",
+      "intent": "開業直後で反響がない",
+      "pillar": "../index.html",
+      "related": [
+        "media-roi",
+        "lead-response-speed"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m014",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 業者間サイト 物件検索 効率化",
+      "sub": [
+        "業者間サイト 横断検索",
+        "物件 提案 時間短縮"
+      ],
+      "title": "賃貸仲介の物件検索・提案を速くする方法｜業者間サイトを横断して探す仕組み",
+      "intent": "物件探しと提案資料に時間を取られている",
+      "pillar": "../features.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m015",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 引越し 提案 付帯",
+      "sub": [
+        "契約後 引越し 紹介",
+        "賃貸 付帯サービス 収益"
+      ],
+      "title": "契約したお客様への引越し・ライフライン提案｜取りこぼしを仕組みで防ぐ",
+      "intent": "契約後の付帯収益を増やしたい",
+      "pillar": "../index.html",
+      "related": [
+        "go-ad-management"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m016",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 スタッフ 成績管理",
+      "sub": [
+        "不動産 営業 KPI",
+        "接客 成約率 管理"
+      ],
+      "title": "賃貸仲介スタッフの成績管理｜反響数・接客数・成約率で育てる評価の作り方",
+      "intent": "評価と育成を数字でやりたい",
+      "pillar": "../features.html",
+      "related": [
+        "staff-visualization"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m017",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 月末 売上集計 自動化",
+      "sub": [
+        "店舗 売上 集計 Excel 自動",
+        "月次 締め 効率化"
+      ],
+      "title": "賃貸仲介の月末売上集計を自動化する方法｜店舗別・担当別の数字を毎日見える状態に",
+      "intent": "月末集計に時間がかかる",
+      "pillar": "../index.html",
+      "related": [
+        "month-end-closing",
+        "excel-to-saas"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m018",
+      "category": "組織・育成",
+      "keyword": "不動産 開業 事務所 準備",
+      "sub": [
+        "宅建業 事務所 要件",
+        "不動産 開業 設備"
+      ],
+      "title": "不動産仲介の開業に必要な事務所・設備・システムの準備｜後から困らない選び方",
+      "intent": "開業時の設備投資を無駄にしたくない",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-gyomu-kaizen-tool"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m019",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 反響 メール 自動取込",
+      "sub": [
+        "ポータル 反響 自動 登録",
+        "反響 入力 手作業"
+      ],
+      "title": "ポータルの反響メールを自動で取り込む仕組み｜転記ゼロで対応を速くする",
+      "intent": "反響の手入力をなくしたい",
+      "pillar": "../features.html",
+      "related": [
+        "lead-response-speed",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m020",
+      "category": "DX",
+      "keyword": "不動産 DX とは 中小",
+      "sub": [
+        "不動産 DX 事例 小規模",
+        "賃貸仲介 DX"
+      ],
+      "title": "不動産DXとは何をすることか｜小規模な仲介店舗が現実的に取り組む順番",
+      "intent": "DXと言われても何をすればいいか分からない",
+      "pillar": "../features.html",
+      "related": [
+        "excel-to-saas",
+        "staff-visualization"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m021",
+      "category": "DX",
+      "keyword": "賃貸仲介 顧客管理 CRM 選び方",
+      "sub": [
+        "不動産 CRM 比較",
+        "賃貸 顧客管理 ツール"
+      ],
+      "title": "賃貸仲介の顧客管理（CRM）の選び方｜反響から契約・入金までつながる条件",
+      "intent": "CRMを選びたい",
+      "pillar": "../index.html",
+      "related": [
+        "lead-response-speed",
+        "chintai-gyomu-kaizen-tool"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m022",
+      "category": "組織・育成",
+      "keyword": "不動産 開業 一年目 やること",
+      "sub": [
+        "不動産 独立 一年目",
+        "開業 初年度 計画"
+      ],
+      "title": "不動産仲介の開業一年目にやること｜月ごとの優先順位と数字の見方",
+      "intent": "開業一年目の計画を立てたい",
+      "pillar": "../index.html",
+      "related": [
+        "media-roi",
+        "month-end-closing"
+      ],
+      "status": "todo"
+    }
+  ]
+}

@@ -1,5 +1,440 @@
 [
   {
+    "slug": "2026-09-04-ai-app-kaihatsu-hiyo-kikan",
+    "title": "業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "業務改善AIアプリの開発費用は「初期費用」と「月額」に分けて読むと判断がぶれません。初期費用30万円〜に何が含まれ何が月額なのか、期間の目安の考え方、費用を左右する要因、見積もりの読み方、3回のミーティングで小さく始める進め方を解説します。",
+    "tags": [
+      "AIアプリ開発",
+      "開発費用",
+      "業務改善アプリ",
+      "開発期間",
+      "Claude Code"
+    ],
+    "readMin": 6,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "費用は「初期費用」と「月額」に分けて読む"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "期間の目安：3回のミーティングで完成まで"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "費用を左右する5つの要因"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "見積もりの読み方：確認すべき7項目"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "小さく始める進め方：PoCから本番へ"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "AI支援開発で費用と期間はどう変わったか"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める"
+      }
+    ],
+    "visual": "default",
+    "number": "01",
+    "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png"
+  },
+  {
+    "slug": "2026-09-04-ai-gyomu-kaizen-susumekata",
+    "title": "AI業務改善の進め方｜定型業務の棚卸しから自動化・アプリ化までの5段階",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "AI業務改善は「棚卸し→標準化→AIで下書き・判断支援→自動化→専用アプリ化」の5段階で進めると失敗しにくくなります。各段階でやること、次へ進む判断基準、やめどきを、定型業務を多く抱える中小企業向けに整理します。",
+    "tags": [
+      "AI業務改善",
+      "業務自動化",
+      "定型業務",
+      "業務アプリ開発",
+      "AI活用"
+    ],
+    "readMin": 5,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "AI業務改善が止まる理由は「順番」にある"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "第1段階：定型業務の棚卸し"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "第2段階：標準化——手順を言葉にする"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "第3段階：AIで下書き・判断支援"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "第4段階：自動化——人が触らない流れをつくる"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "第5段階：専用アプリ化"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "各段階の「進む基準」と「やめどき」一覧"
+      }
+    ],
+    "visual": "v-violet",
+    "number": "02",
+    "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png"
+  },
+  {
+    "slug": "2026-09-04-ai-kaihatsu-kigyo-erabikata",
+    "title": "AI開発企業の選び方｜名古屋の中小企業が失敗しない7つの比較ポイント",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "AI開発企業を選ぶときは、実績の派手さや価格より「業務を理解しようとするか」「小さく試せるか」「相談から運用まで一貫か」などの7点で比べると失敗が減ります。大手SIer・フリーランス・地域の開発会社の違いと、見積もり比較の見方も解説します。",
+    "tags": [
+      "AI開発企業",
+      "AI開発会社",
+      "選び方",
+      "名古屋",
+      "AIアプリ開発"
+    ],
+    "readMin": 5,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "大手SIer・フリーランス・地域の開発会社の違い"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "比較ポイント1〜3：業務理解・小さく試せるか・一貫した体制"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "比較ポイント4〜7：改善・AI支援開発・自社プロダクト・連絡"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "見積もり比較で見る項目"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "名古屋・地域の会社に頼む意味"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "まとめ：AI開発企業の7つの比較ポイントを、初回相談で確かめる"
+      }
+    ],
+    "visual": "v-cyan",
+    "number": "03",
+    "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png"
+  },
+  {
+    "slug": "2026-09-04-ai-tool-kaihatsu-irai-junbi",
+    "title": "AIツール開発を依頼する前に決めておく7つのこと｜要件の伝え方と相談準備",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "AIツール開発を外注する前に、対象業務・入力と出力・AIに任せる範囲・使う人・データの所在・失敗時の扱い・完成の定義の7項目を決めておくと、見積もりのブレと手戻りが減ります。相談に持っていくものと、見積もりで確認する点も整理しました。",
+    "tags": [
+      "AIツール開発",
+      "受託開発",
+      "要件定義",
+      "業務改善",
+      "AIアプリ開発"
+    ],
+    "readMin": 6,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "AIツール開発で頼めること・頼めないこと"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "依頼前に決めておくこと（1〜3）：業務・入出力・判断の範囲"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "依頼前に決めておくこと（4〜7）：使う人・データ・失敗・完成"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "相談時に持っていくもの"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "見積もりで確認すること"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "まとめ：7項目を一枚にして、小さく始める"
+      }
+    ],
+    "visual": "default",
+    "number": "04",
+    "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png"
+  },
+  {
+    "slug": "2026-09-04-claude-code-app-kaihatsu-chigai",
+    "title": "Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "Claude Codeでのアプリ開発は、触れる試作が早く出て、仕様の擦り合わせが画面ベースになり、修正の往復が軽くなります。発注側が確認すべきテスト・レビュー・保守の体制、費用と期間への影響の考え方、向く案件と向かない案件を整理しました。",
+    "tags": [
+      "Claude Code",
+      "AIアプリ開発",
+      "AI支援開発",
+      "受託開発",
+      "開発会社の選び方"
+    ],
+    "readMin": 5,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "Claude Codeとは何か：発注側が知っておけば十分な範囲"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "進め方はどう変わるか：試作が早い・画面で決める・修正が軽い"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "品質面で発注側が確認すべきこと：テスト・レビュー・保守"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "費用と期間への影響：言えることと言えないこと"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "向く案件・向かない案件"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "まとめ：速さより「画面で決められること」を買う"
+      }
+    ],
+    "visual": "v-violet",
+    "number": "05",
+    "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png"
+  },
+  {
+    "slug": "2026-09-04-gyomu-kaizen-ai-tsukaikata",
+    "title": "業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "ai",
+    "categoryLabel": "AI",
+    "categoryGroup": "ai",
+    "excerpt": "業務改善にAIを使う最初の一手は「AIが効く業務」を見つけることです。効く業務・効かない業務の見分け方、営業・事務・経理・採用・カスタマー対応の部門別の使い方、効果が出やすくリスクが低い順の始め方、ありがちなつまずきを整理します。",
+    "tags": [
+      "業務改善",
+      "生成AI",
+      "AI業務効率化",
+      "中小企業",
+      "ChatGPT"
+    ],
+    "readMin": 6,
+    "glyph": "A",
+    "featured": true,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "業務改善でAIが効く業務・効かない業務の見分け方"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "部門別の使い方：営業・事務"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "部門別の使い方：経理・採用・カスタマー対応"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "最初の一歩の選び方：効果が出やすく、リスクが低い順"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "ありがちなつまずき"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "続けるための測り方と見直しのタイミング"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "「使う」から「仕組みにする」へ"
+      }
+    ],
+    "visual": "v-cyan",
+    "number": "06",
+    "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png"
+  },
+  {
+    "slug": "2026-09-04-hojin-ai-kenshu-erabikata",
+    "title": "法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計",
+    "date": "2026-09-04",
+    "dateLabel": "Sep 4, 2026",
+    "category": "ai",
+    "categoryLabel": "AI",
+    "categoryGroup": "ai",
+    "excerpt": "法人向けAI研修は“受けて終わり”になりがちです。研修が定着しない典型パターン、カリキュラムに必ず入れるべき4つの要素、研修会社の比較ポイント、翌日から使い続けるための定着設計を、中小企業の経営者向けに整理します。",
+    "tags": [
+      "AI研修",
+      "法人向けAI研修",
+      "生成AI",
+      "社内AI導入",
+      "AI活用支援"
+    ],
+    "readMin": 6,
+    "glyph": "A",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "AI研修が“受けて終わり”になる典型パターン"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "カリキュラムに必ず入れるべき4つの要素"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "法人向けAI研修の3つの型と向き不向き"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "研修会社を比較する6つのポイント"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "研修前に社内で決めておくこと"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "研修後の定着設計：翌日から使い続ける仕組み"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：研修は「設計」で選ぶ"
+      }
+    ],
+    "visual": "default",
+    "number": "07",
+    "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png"
+  },
+  {
     "slug": "2026-07-12-ai-gyomu-kaizen-app-kaihatsu",
     "title": "AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方",
     "date": "2026-07-12",
@@ -17,7 +452,7 @@
     ],
     "readMin": 5,
     "glyph": "W",
-    "featured": true,
+    "featured": false,
     "toc": [
       {
         "id": "h1",
@@ -60,8 +495,8 @@
         "label": "まとめ：小さく始めて、AIで業務を変える"
       }
     ],
-    "visual": "default",
-    "number": "01",
+    "visual": "v-violet",
+    "number": "08",
     "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png"
   },
   {
@@ -87,46 +522,46 @@
       {
         "id": "h1",
         "n": "01",
-        "label": "01 MEO対策とは？SEOとの違い"
+        "label": "MEO対策とは？SEOとの違い"
       },
       {
         "id": "h2",
         "n": "02",
-        "label": "02 なぜ今MEOが重要なのか"
+        "label": "なぜ今MEOが重要なのか"
       },
       {
         "id": "h3",
         "n": "03",
-        "label": "03 マップの順位が決まる3つの要素"
+        "label": "マップの順位が決まる3つの要素"
       },
       {
         "id": "h4",
         "n": "04",
-        "label": "04 自分でできるMEO対策：GBP最適化チェックリスト"
+        "label": "自分でできるMEO対策：GBP最適化チェックリスト"
       },
       {
         "id": "h5",
         "n": "05",
-        "label": "05 MEO対策の費用相場"
+        "label": "MEO対策の費用相場"
       },
       {
         "id": "h6",
         "n": "06",
-        "label": "06 業者選びで失敗しないための注意点"
+        "label": "業者選びで失敗しないための注意点"
       },
       {
         "id": "h7",
         "n": "07",
-        "label": "07 AIO時代のMEO：AI検索にも「見つかる」店へ"
+        "label": "AIO時代のMEO：AI検索にも「見つかる」店へ"
       },
       {
         "id": "h8",
         "n": "08",
-        "label": "08 まとめ：基礎の徹底が、いちばんの近道"
+        "label": "まとめ：基礎の徹底が、いちばんの近道"
       }
     ],
-    "visual": "v-violet",
-    "number": "02",
+    "visual": "v-cyan",
+    "number": "09",
     "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
   },
   {
@@ -185,8 +620,8 @@
         "label": "まとめ：まず何から始めるか"
       }
     ],
-    "visual": "v-cyan",
-    "number": "03",
+    "visual": "default",
+    "number": "10",
     "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
   },
   {
@@ -250,8 +685,8 @@
         "label": "まずは小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "04",
+    "visual": "v-violet",
+    "number": "11",
     "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
   },
   {
@@ -310,8 +745,8 @@
         "label": "月次チェックリスト（まとめ）"
       }
     ],
-    "visual": "v-violet",
-    "number": "05",
+    "visual": "v-cyan",
+    "number": "12",
     "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
   },
   {
@@ -336,46 +771,46 @@
       {
         "id": "h1",
         "n": "01",
-        "label": "01 口コミがMEOと来店に効く理由"
+        "label": "口コミがMEOと来店に効く理由"
       },
       {
         "id": "h2",
         "n": "02",
-        "label": "02 口コミが増えない「本当の原因」"
+        "label": "口コミが増えない「本当の原因」"
       },
       {
         "id": "h3",
         "n": "03",
-        "label": "03 口コミを増やす方法7選"
+        "label": "口コミを増やす方法7選"
       },
       {
         "id": "h4",
         "n": "04",
-        "label": "04 依頼時の声かけ・文面の考え方"
+        "label": "依頼時の声かけ・文面の考え方"
       },
       {
         "id": "h5",
         "n": "05",
-        "label": "05 やってはいけないこと：規約違反のリスク"
+        "label": "やってはいけないこと：規約違反のリスク"
       },
       {
         "id": "h6",
         "n": "06",
-        "label": "06 低評価への返信の考え方と姿勢"
+        "label": "低評価への返信の考え方と姿勢"
       },
       {
         "id": "h7",
         "n": "07",
-        "label": "07 返信を「資産」にする：継続のための工夫"
+        "label": "返信を「資産」にする：継続のための工夫"
       },
       {
         "id": "h8",
         "n": "08",
-        "label": "08 まとめ：仕組みで増やし、返信で育てる"
+        "label": "まとめ：仕組みで増やし、返信で育てる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "06",
+    "visual": "default",
+    "number": "13",
     "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
   },
   {
@@ -429,8 +864,8 @@
         "label": "最初の一歩（まとめ）"
       }
     ],
-    "visual": "default",
-    "number": "07",
+    "visual": "v-violet",
+    "number": "14",
     "image": "assets/img/covers/2026-06-26-ai-first-step.png"
   },
   {
@@ -456,46 +891,46 @@
       {
         "id": "h1",
         "n": "01",
-        "label": "01 構造化データとは？機械に渡す「名刺」"
+        "label": "構造化データとは？機械に渡す「名刺」"
       },
       {
         "id": "h2",
         "n": "02",
-        "label": "02 なぜAIO時代に重要なのか"
+        "label": "なぜAIO時代に重要なのか"
       },
       {
         "id": "h3",
         "n": "03",
-        "label": "03 JSON-LDが推奨される理由：記述方式の比較"
+        "label": "JSON-LDが推奨される理由：記述方式の比較"
       },
       {
         "id": "h4",
         "n": "04",
-        "label": "04 中小企業サイトがまず入れるべき4種類"
+        "label": "中小企業サイトがまず入れるべき4種類"
       },
       {
         "id": "h5",
         "n": "05",
-        "label": "05 JSON-LDの書き方：LocalBusinessの例"
+        "label": "JSON-LDの書き方：LocalBusinessの例"
       },
       {
         "id": "h6",
         "n": "06",
-        "label": "06 検証方法：リッチリザルトテストで確認する"
+        "label": "検証方法：リッチリザルトテストで確認する"
       },
       {
         "id": "h7",
         "n": "07",
-        "label": "07 よくある間違い"
+        "label": "よくある間違い"
       },
       {
         "id": "h8",
         "n": "08",
-        "label": "08 まとめ：小さく入れて、正しく検証する"
+        "label": "まとめ：小さく入れて、正しく検証する"
       }
     ],
-    "visual": "v-violet",
-    "number": "08",
+    "visual": "v-cyan",
+    "number": "15",
     "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
   },
   {
@@ -559,8 +994,8 @@
         "label": "まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "09",
+    "visual": "default",
+    "number": "16",
     "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
   },
   {
@@ -624,8 +1059,8 @@
         "label": "まとめ：小さく始めて、ルールとセットで育てる"
       }
     ],
-    "visual": "default",
-    "number": "10",
+    "visual": "v-violet",
+    "number": "17",
     "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
   },
   {
@@ -694,8 +1129,8 @@
         "label": "まとめ：ナレッジ整備から始める社内AI"
       }
     ],
-    "visual": "v-violet",
-    "number": "11",
+    "visual": "v-cyan",
+    "number": "18",
     "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
   },
   {
@@ -759,8 +1194,8 @@
         "label": "まとめ：小さく始めて、確かめながら広げる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "12",
+    "visual": "default",
+    "number": "19",
     "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
   },
   {
@@ -839,8 +1274,8 @@
         "label": "まとめ：小さく始める「脱Excel」から"
       }
     ],
-    "visual": "default",
-    "number": "13",
+    "visual": "v-violet",
+    "number": "20",
     "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
   },
   {
@@ -904,8 +1339,8 @@
         "label": "まとめ：相場を知り、内訳を読み、小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "14",
+    "visual": "v-cyan",
+    "number": "21",
     "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
   },
   {
@@ -969,8 +1404,8 @@
         "label": "まとめ：金額ではなく「公開後」で選ぶ"
       }
     ],
-    "visual": "v-cyan",
-    "number": "15",
+    "visual": "default",
+    "number": "22",
     "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
   }
 ]
