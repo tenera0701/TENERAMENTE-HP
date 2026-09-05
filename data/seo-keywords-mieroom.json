@@ -188,7 +188,9 @@
       "related": [
         "lead-response-speed"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-tsuikyaku-line-jidoka",
+      "doneAt": "2026-09-05"
     },
     {
       "id": "m011",
