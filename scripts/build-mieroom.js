@@ -164,6 +164,7 @@ function articleHtml(p) {
     <nav class="nav-links">
       <a href="../index.html">ホーム</a>
       <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
       <a href="../blog.html" class="on">ブログ</a>
       <a href="../index.html#faq">料金</a>
     </nav>

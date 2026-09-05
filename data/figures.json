@@ -1,0 +1,361 @@
+{
+  "note": "記事内の図版の定義。node scripts/gen-figures.js で PNG を生成し、scripts/insert-figures.js で記事に差し込む。article は図版を入れる記事、anchor はその H2 の最初の段落の直後に入れる目印。",
+  "figures": [
+    {
+      "id": "2026-09-04-ai-app-kaihatsu-hiyo-kikan",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-ai-app-kaihatsu-hiyo-kikan.md",
+      "anchor": "費用は「初期費用」と「月額」に分けて読む",
+      "type": "compare",
+      "label": "COST BREAKDOWN",
+      "title": "業務改善AIアプリ開発の費用は、2つに分けて読む",
+      "alt": "初期費用に含まれる範囲と、月額に含まれる範囲を並べた図",
+      "caption": "見積もりは金額の大小より、初期費用と月額のどちらに何が入っているかで比べます。",
+      "columns": [
+        {
+          "head": "初期費用（30万円〜）",
+          "tone": "good",
+          "items": [
+            "ヒアリングと要件整理",
+            "画面と機能の設計",
+            "開発とテスト",
+            "公開作業（サーバー・ドメインの設定）"
+          ]
+        },
+        {
+          "head": "月額（定額の保守・運用）",
+          "tone": "neutral",
+          "items": [
+            "サーバー・ドメインの費用",
+            "システムの監視",
+            "月1回の修正対応",
+            "公開後の問い合わせ窓口"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-09-04-ai-gyomu-kaizen-susumekata",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-ai-gyomu-kaizen-susumekata.md",
+      "anchor": "AI業務改善が止まる理由は「順番」にある",
+      "type": "steps",
+      "label": "FIVE STAGES",
+      "title": "AI業務改善は、この5段階を順に踏む",
+      "alt": "棚卸し・標準化・AIで下書き・自動化・専用アプリ化の5段階を並べた図",
+      "caption": "最初の2段階はAIを使いません。ここを飛ばすと、後の段階がまとめて崩れます。",
+      "items": [
+        { "title": "定型業務の棚卸し", "note": "頻度・所要時間・担当・入力元と出力先・例外を書き出す" },
+        { "title": "標準化", "note": "手順を言葉にして、誰がやっても同じ結果になる状態にする" },
+        { "title": "AIで下書き・判断支援", "note": "人が呼び出して使う。確認と責任は人が持つ" },
+        { "title": "自動化", "note": "きっかけから処理までを、人が触らない流れにする" },
+        { "title": "専用アプリ化", "note": "入力・履歴・権限を1つの画面にまとめる" }
+      ]
+    },
+    {
+      "id": "2026-09-04-ai-kaihatsu-kigyo-erabikata",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-ai-kaihatsu-kigyo-erabikata.md",
+      "anchor": "比較ポイント1〜3：業務理解・小さく試せるか・一貫した体制",
+      "type": "rows",
+      "label": "SEVEN POINTS",
+      "title": "AI開発企業を比べる7つのポイントと、確かめ方",
+      "alt": "AI開発企業を比較する7つのポイントと、それぞれの確かめ方を並べた図",
+      "caption": "どれも初回の相談で確かめられます。実績の数より、この7つで判断します。",
+      "titleW": 430,
+      "items": [
+        { "title": "業務を理解しようとするか", "note": "初回で、いまの業務の流れを質問してくるか" },
+        { "title": "小さく試せるか", "note": "PoCから始める提案があるか" },
+        { "title": "相談から運用まで一貫しているか", "note": "相談した人と、作る人が同じか" },
+        { "title": "公開後の改善に付き合うか", "note": "修正対応の回数と範囲が決まっているか" },
+        { "title": "AI支援開発を実践しているか", "note": "試作を見せながら進められるか" },
+        { "title": "自社プロダクトを持っているか", "note": "運用のしやすさを設計に織り込めるか" },
+        { "title": "連絡の取りやすさ", "note": "窓口と、返信の目安が決まっているか" }
+      ]
+    },
+    {
+      "id": "2026-09-04-ai-tool-kaihatsu-irai-junbi",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-ai-tool-kaihatsu-irai-junbi.md",
+      "anchor": "依頼前に決めておくこと（1〜3）：業務・入出力・判断の範囲",
+      "type": "rows",
+      "label": "SEVEN ITEMS",
+      "title": "AIツール開発を依頼する前に決めておく7項目",
+      "alt": "対象業務・入力と出力・判断の範囲・使う人・データの所在・失敗時の扱い・完成の定義の7項目",
+      "caption": "この7項目をA4一枚にまとめて持っていくと、見積もりの前提がそろいます。",
+      "titleW": 400,
+      "items": [
+        { "title": "対象業務", "note": "どの業務の、どの工程か。1つに絞る" },
+        { "title": "入力と出力", "note": "何を入れて、何が出れば「できた」と言えるか" },
+        { "title": "判断を任せる範囲", "note": "下書きまでか、例外だけ人が見るか、AIが完結するか" },
+        { "title": "使う人", "note": "誰が、1日に何回、どの端末で使うか" },
+        { "title": "データの所在", "note": "元データがどこにあり、誰が管理しているか" },
+        { "title": "失敗時の扱い", "note": "間違いに誰がどの画面で気づき、どう直すか" },
+        { "title": "完成の定義", "note": "この入力でこの出力が出れば完成、というテストケース" }
+      ]
+    },
+    {
+      "id": "2026-09-04-claude-code-app-kaihatsu-chigai",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-claude-code-app-kaihatsu-chigai.md",
+      "anchor": "進め方はどう変わるか：試作が早い・画面で決める・修正が軽い",
+      "type": "compare",
+      "label": "ROLE SHIFT",
+      "title": "発注側の役割は、仕様書から「触って返す」へ",
+      "alt": "従来の進め方と、試作を見ながら決める進め方を比べた図",
+      "caption": "触れる画面が早く出るぶん、発注側の感想が早いほど完成も早くなります。",
+      "columns": [
+        {
+          "head": "これまでの進め方",
+          "tone": "neutral",
+          "items": [
+            "仕様書を細かく書き込んでから着手する",
+            "完成に近づくまで画面が見えない",
+            "認識のズレが後半で見つかる",
+            "修正のたびに時間と費用がかかる"
+          ]
+        },
+        {
+          "head": "試作を見ながら決める進め方",
+          "tone": "good",
+          "items": [
+            "早い段階で触れる画面が出てくる",
+            "画面を見ながら仕様を決められる",
+            "ズレがその場で分かる",
+            "発注側の最大の貢献は「早く触って早く返す」"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-09-04-gyomu-kaizen-ai-tsukaikata",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-gyomu-kaizen-ai-tsukaikata.md",
+      "anchor": "業務改善でAIが効く業務・効かない業務の見分け方",
+      "type": "compare",
+      "label": "WHERE AI WORKS",
+      "title": "業務改善でAIが効く業務・効かない業務",
+      "alt": "AIが効く業務の条件と、効かない業務の条件を並べた図",
+      "caption": "3つとも当てはまる業務から始めると、最初の一歩で効果が見えます。",
+      "columns": [
+        {
+          "head": "効く業務の条件",
+          "tone": "good",
+          "items": [
+            "言葉を扱う作業である",
+            "正しさをその場で判定できる",
+            "週に何度も繰り返している"
+          ]
+        },
+        {
+          "head": "効きにくい業務",
+          "tone": "bad",
+          "items": [
+            "最終判断や対外的な約束を伴う",
+            "社内にデータが存在しない",
+            "例外だらけで、手順を言葉にできない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2026-09-04-hojin-ai-kenshu-erabikata",
+      "site": "teneramente",
+      "article": "posts/2026-09-04-hojin-ai-kenshu-erabikata.md",
+      "anchor": "カリキュラムに必ず入れるべき4つの要素",
+      "type": "steps",
+      "label": "CURRICULUM",
+      "title": "法人向けAI研修に必ず入れる4つの要素",
+      "alt": "自社の実データ・利用ルール・部門別ユースケース・翌日から使う仕組みの4要素",
+      "caption": "どれか1つでも欠けると、研修は当日限りのイベントで終わります。",
+      "items": [
+        { "title": "自社の実データで手を動かす", "note": "自社の資料や実際の文面を使い、その場で結果を確かめる" },
+        { "title": "利用ルール", "note": "入力してよい情報と、いけない情報の線引きを決める" },
+        { "title": "部門別のユースケース", "note": "営業・事務・経理など、部門ごとの使いどころを配る" },
+        { "title": "翌日から使う仕組み", "note": "業務手順のどこでAIを使うかを決めて持ち帰る" }
+      ]
+    },
+
+    {
+      "id": "moushikomi-kanrihyo-tsukurikata",
+      "site": "mieroom",
+      "article": "mieroom/posts/moushikomi-kanrihyo-tsukurikata.md",
+      "anchor": "申込管理表の役割：申込から後ADまでを「1行で追う」",
+      "type": "pipeline",
+      "label": "APPLICATION FLOW",
+      "title": "申込管理表は「1行＝1案件」で最後まで追う",
+      "alt": "申込・審査・契約・入金・後ADを1行で追う申込管理表の流れ",
+      "caption": "月ごとにシートを分けると、1件の案件が3か所に散らばります。",
+      "stages": [
+        { "name": "申込", "sub": "申込日・担当・媒体・物件" },
+        { "name": "審査", "sub": "審査状況をステータスで持つ" },
+        { "name": "契約", "sub": "契約開始日・仲介手数料・AD" },
+        { "name": "入金", "sub": "入金日。一部入金・分割入金も1行に" },
+        { "name": "後AD", "sub": "入金予定日を案件ごとに記録" }
+      ],
+      "foot": "申込は8月、契約は9月、後ADの入金は11月。月をまたいでも、同じ1行で追えることが条件です。"
+    },
+    {
+      "id": "gyomu-kaizen-tool-teichaku",
+      "site": "mieroom",
+      "article": "mieroom/posts/gyomu-kaizen-tool-teichaku.md",
+      "anchor": "失敗する店舗に共通する3つの状態",
+      "type": "compare",
+      "label": "ADOPTION",
+      "title": "業務改善ツールが定着する店舗と、しない店舗",
+      "alt": "定着しない店舗の3つの状態と、定着する店舗がやっている3つのことの比較",
+      "caption": "違いは機能ではなく運用です。入口・会議・担当者の3つで決まります。",
+      "columns": [
+        {
+          "head": "定着しない店舗",
+          "tone": "bad",
+          "items": [
+            "入力が二重になっている",
+            "現場が触らず、店長だけが入力している",
+            "数字が経営に届いていない"
+          ]
+        },
+        {
+          "head": "定着する店舗",
+          "tone": "good",
+          "items": [
+            "入口を1つに統一している",
+            "週次で同じ画面を見る会議がある",
+            "更新の担当者が決まっている"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenpo-muke-tool-hitsuyo-kino",
+      "site": "mieroom",
+      "article": "mieroom/posts/tenpo-muke-tool-hitsuyo-kino.md",
+      "anchor": "賃貸仲介の店舗向けツールに必要な機能を、業務の流れで整理する",
+      "type": "pipeline",
+      "label": "STORE WORKFLOW",
+      "title": "店舗向けツールに必要な機能を、業務の流れで見る",
+      "alt": "反響・接客・申込・契約・入金・後ADの各段階で必要な機能",
+      "caption": "前半は取りこぼしを防ぐ機能、後半は売上を確定させる機能です。",
+      "stages": [
+        { "name": "反響", "sub": "自動取込と未返信の通知" },
+        { "name": "接客", "sub": "対応履歴と次の予定" },
+        { "name": "申込", "sub": "審査状況をステータスで" },
+        { "name": "契約", "sub": "書類と契約日の管理" },
+        { "name": "入金", "sub": "一部入金・分割入金に対応" },
+        { "name": "後AD", "sub": "案件ごとに記録して回収" }
+      ],
+      "foot": "6つの段階が1つの画面でつながっていれば、転記も、月末の突き合わせも減ります。"
+    },
+    {
+      "id": "fudosan-chukai-gyomu-kaizen-tool-donyu",
+      "site": "mieroom",
+      "article": "mieroom/posts/fudosan-chukai-gyomu-kaizen-tool-donyu.md",
+      "anchor": "まとめる順番は「反響→申込→売上」",
+      "type": "steps",
+      "label": "MIGRATION STEPS",
+      "title": "バラバラ管理から一元化するまでの5ステップ",
+      "alt": "帳票を集める・項目を決める・範囲を絞る・並行運用・切替の5ステップ",
+      "caption": "移行は「短く終える」ことが大事です。並行運用は締め1回分に区切ります。",
+      "items": [
+        { "title": "帳票を集める", "note": "紙の申込書、Excel、LINE、契約のひな型、集計表を1か所に並べる" },
+        { "title": "項目を決める", "note": "重複に印をつけ、やめる・残す・新しく取るに分ける" },
+        { "title": "範囲を絞る", "note": "進行中と未入金の案件だけを移す。完了案件は閲覧用に残す" },
+        { "title": "並行運用", "note": "締め1回分だけ。旧帳票と数字を突き合わせ、ずれを潰す" },
+        { "title": "切替", "note": "切替日を決め、旧帳票は編集できない状態にする" }
+      ]
+    },
+    {
+      "id": "fudosan-kaigyo-junbi-checklist",
+      "site": "mieroom",
+      "article": "mieroom/posts/fudosan-kaigyo-junbi-checklist.md",
+      "anchor": "宅建業の開業までの流れをチェックリストで確認する",
+      "type": "rows",
+      "label": "OPENING CHECKLIST",
+      "title": "不動産仲介の開業までの流れ（一般的な順番）",
+      "alt": "事業の形・事務所・専任の宅地建物取引士・免許申請・保証金・届出・開業後の手続きの流れ",
+      "caption": "要件や手続きは変わることがあります。最新の条件は所管の窓口や専門家にご確認ください。",
+      "titleW": 420,
+      "items": [
+        { "title": "事業の形を決める", "note": "個人か法人か。法人なら定款の作成と設立登記" },
+        { "title": "事務所を確保する", "note": "免許には事務所の要件がある。自宅兼用は可否の確認を" },
+        { "title": "専任の宅地建物取引士を置く", "note": "他社で専任の人は登録の変更が必要" },
+        { "title": "宅地建物取引業の免許を申請", "note": "1つの都道府県内なら知事免許、複数なら大臣免許" },
+        { "title": "保証金の供託か協会加入を決める", "note": "どちらを選ぶかで資金と手続きが変わる" },
+        { "title": "供託・加入を届け出る", "note": "免許証の交付を受けてから営業を開始する" },
+        { "title": "開業後の届出", "note": "税務署への届出。人を雇うなら社会保険・労働保険" }
+      ]
+    },
+    {
+      "id": "fudosan-ai-katsuyo-bamen",
+      "site": "mieroom",
+      "article": "mieroom/posts/fudosan-ai-katsuyo-bamen.md",
+      "anchor": "不動産会社のAI活用は「文章の下書き」から始める",
+      "type": "compare",
+      "label": "AI USE CASES",
+      "title": "AIに任せてよい場面と、人が判断する場面",
+      "alt": "AIに任せてよい業務と、人が判断すべき業務を並べた図",
+      "caption": "任せるのは文章の下書きまで。判断と説明は人の仕事として残します。",
+      "columns": [
+        {
+          "head": "AIに任せてよい",
+          "tone": "good",
+          "items": [
+            "口コミ返信や物件紹介文の言い換え",
+            "反響の一次返信の下書き",
+            "内見後フォローや再アプローチの文面",
+            "契約書類の転記チェック",
+            "社内マニュアルの検索"
+          ]
+        },
+        {
+          "head": "人が判断する",
+          "tone": "bad",
+          "items": [
+            "入居審査の可否",
+            "重要事項説明などの法的な説明",
+            "個人情報や契約情報の入力",
+            "金額や条件の最終的な約束"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fudosan-gyomu-tool-minaoshi",
+      "site": "mieroom",
+      "article": "mieroom/posts/fudosan-gyomu-tool-minaoshi.md",
+      "anchor": "賃貸仲介のツール比較で見る5つの観点",
+      "type": "rows",
+      "label": "REVIEW POINTS",
+      "title": "賃貸仲介のツールを比べる5つの観点",
+      "alt": "業務の流れ・入力負担・数字・サポート・データ持ち出しの5観点",
+      "caption": "とくに1と3は、後から機能を足しても埋めにくい部分です。",
+      "titleW": 430,
+      "items": [
+        { "title": "業務の流れを一本で追えるか", "note": "反響→接客→申込→契約→入金→売上が同じ画面でつながるか" },
+        { "title": "現場の入力負担が軽いか", "note": "スマホで入力できるか。反響メールの自動取込があるか" },
+        { "title": "数字が経営に届くか", "note": "店舗別・担当別・媒体別。確定売上と見込みが分かれるか" },
+        { "title": "サポートがあるか", "note": "初期設定の代行、機能研修、質問の窓口があるか" },
+        { "title": "データを持ち出せるか", "note": "CSVで出力でき、解約時の扱いが明示されているか" }
+      ]
+    },
+    {
+      "id": "hitori-fudosan-kaigyo-tool",
+      "site": "mieroom",
+      "article": "mieroom/posts/hitori-fudosan-kaigyo-tool.md",
+      "anchor": "一人開業で揃えるツールの考え方：5つの領域",
+      "type": "rows",
+      "label": "SOLO SETUP",
+      "title": "一人開業で最初に揃える5つの領域",
+      "alt": "反響管理・申込管理・追客の自動化・業者間サイト・会計経理の5領域",
+      "caption": "この5つだけ先に決めておけば、増えた仕事に飲み込まれずに済みます。",
+      "titleW": 400,
+      "items": [
+        { "title": "反響管理", "note": "反響を一箇所に集め、自動取込と未返信の通知がある" },
+        { "title": "申込管理", "note": "申込から審査・契約・入金まで一件ずつ追える" },
+        { "title": "追客の自動化", "note": "LINE・SMSで初動と定期フォローを自動で送る" },
+        { "title": "業者間サイト", "note": "物確、募集状況、初期費用の見積、募集図面の作成" },
+        { "title": "会計・経理", "note": "売上・広告費・経費が集まり、決算の土台になる" }
+      ]
+    }
+  ]
+}

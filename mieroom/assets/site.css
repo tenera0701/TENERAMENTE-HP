@@ -425,3 +425,13 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 @media(max-width:420px){
   .nav-cta .btn-ghost[href*="app-login"]{display:none}
 }
+
+/* 記事内の図版（2026-09-04） */
+.post-body figure.fig{margin:34px 0 28px}
+.post-body figure.fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px}
+.post-body figure.fig figcaption{margin-top:12px;font-size:13.5px;line-height:1.75;color:var(--ink-3)}
+@media(max-width:680px){
+  .post-body figure.fig{margin:24px 0 20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .post-body figure.fig img{min-width:680px}
+  .post-body figure.fig figcaption{font-size:12.5px}
+}

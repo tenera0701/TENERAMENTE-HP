@@ -584,3 +584,13 @@ a.card:hover { border-color: var(--line-2); }
   .lp-hero h1, .page-hero h1 { font-size: 28px; }
   .h2, .section-head h2 { font-size: 25px; }
 }
+
+/* 記事内の図版（2026-09-04） */
+.post-body figure.fig { margin: 36px 0 30px; }
+.post-body figure.fig img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+.post-body figure.fig figcaption { margin-top: 12px; font-size: 13.5px; line-height: 1.75; color: var(--ink-3); }
+@media (max-width: 680px) {
+  .post-body figure.fig { margin: 26px 0 22px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .post-body figure.fig img { min-width: 680px; }
+  .post-body figure.fig figcaption { font-size: 12.5px; }
+}
