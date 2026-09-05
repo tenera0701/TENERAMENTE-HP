@@ -291,7 +291,10 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>';
   fetch('data/posts.json').then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (data) {
-    var posts = (data.posts || data || []).slice(0, 3);
+    var all = data.posts || data || [];
+    var picked = all.filter(function (p) { return p.pickup; })
+      .sort(function (x, y) { return x.pickup - y.pickup; });
+    var posts = (picked.length ? picked : all).slice(0, 3);
     if (!posts.length) return;
     var catLabel = { meo: 'MEO', aio: 'AIO', app: 'Web App', hp: 'HP / LP', ai: 'AI' };
     var wrap = document.getElementById('home-posts');

@@ -122,6 +122,18 @@ function main() {
   });
   if (!featuredFound && posts.length) posts[0].featured = true;
 
+  // トップページの「おすすめ記事」3件。ここに並べた順で index.html に出る。
+  // アクセス解析を入れるまでは編集部の選定。入れ替えるときはこの配列だけ直す。
+  const HOME_PICKUP = [
+    '2026-07-02-meo-taisaku-complete-guide',
+    '2026-07-12-ai-gyomu-kaizen-app-kaihatsu',
+    '2026-09-04-gyomu-kaizen-ai-tsukaikata',
+  ];
+  HOME_PICKUP.forEach((slug, i) => {
+    const hit = posts.find(x => x.slug === slug);
+    if (hit) hit.pickup = i + 1;
+  });
+
   // 一覧カードのビジュアル&番号を自動採番
   posts.forEach((p, i) => {
     p.visual = VISUALS[i % VISUALS.length];

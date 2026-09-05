@@ -170,7 +170,9 @@
         "lead-response-speed",
         "media-roi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "hankyo-kanri-hoho",
+      "doneAt": "2026-09-05"
     },
     {
       "id": "m010",
