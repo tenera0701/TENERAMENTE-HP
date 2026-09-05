@@ -435,3 +435,9 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .post-body figure.fig img{min-width:680px}
   .post-body figure.fig figcaption{font-size:12.5px}
 }
+
+/* 記事テーマに合わせたカバー画像（2026-09-05） */
+.post-cover .band--img{background:var(--bg-soft);padding:0;display:block}
+.post-cover .band--img img{width:100%;height:100%;object-fit:cover;display:block}
+.bcover--img{padding:0}
+.bcover--img img{width:100%;height:100%;object-fit:cover;display:block}

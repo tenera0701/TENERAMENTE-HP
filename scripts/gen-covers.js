@@ -36,6 +36,32 @@ const PAPER = '#F4F2ED', INK = '#121317', INK3 = '#7E818B', LINE = '#121317', AC
 const LABELS = { meo: 'MEO', aio: 'AIO', ai: 'AI', app: 'WEB APP', hp: 'HP / LP' };
 const GLYPHS = { meo: 'M', aio: 'A', ai: 'A', app: 'W', hp: 'H' };
 
+// 記事ごと・カテゴリごとの背景画像（assets/img/cover-bg/*.jpg）。
+// 記事のテーマに合わせた絵柄を敷き、その上に見出しを重ねる。無ければ従来の文字だけのカバーになる。
+const BG_BY_SLUG = {
+  '2026-09-04-hojin-ai-kenshu-erabikata': 'ai-kenshu',
+  '2026-09-04-gyomu-kaizen-ai-tsukaikata': 'ai-shiwake',
+  '2026-09-04-ai-gyomu-kaizen-susumekata': 'app-5steps',
+  '2026-09-04-ai-app-kaihatsu-hiyo-kikan': 'app-cost',
+  '2026-09-04-ai-tool-kaihatsu-irai-junbi': 'app-7items',
+  '2026-09-04-claude-code-app-kaihatsu-chigai': 'app-claudecode',
+  '2026-09-04-ai-kaihatsu-kigyo-erabikata': 'app-erabikata',
+};
+const BG_BY_CATEGORY = { meo: 'meo-map', aio: 'aio-grid', ai: 'ai-wave', app: 'app-flow', hp: 'aio-grid' };
+const BG_DIR = path.join(__dirname, '..', 'assets', 'img', 'cover-bg');
+const bgCache = new Map();
+function bgDataUri(post) {
+  const name = BG_BY_SLUG[post.slug] || BG_BY_CATEGORY[post.category];
+  if (!name) return null;
+  if (bgCache.has(name)) return bgCache.get(name);
+  const file = path.join(BG_DIR, name + '.jpg');
+  const uri = fs.existsSync(file)
+    ? 'data:image/jpeg;base64,' + fs.readFileSync(file).toString('base64')
+    : null;
+  bgCache.set(name, uri);
+  return uri;
+}
+
 function escXml(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -79,8 +105,11 @@ function wrapTitle(title, perLine = 16, maxLines = 3) {
 function coverSVG(post) {
   const label = LABELS[post.category] || 'JOURNAL';
   const glyph = GLYPHS[post.category] || 'T';
-  const lines = wrapTitle(post.title);
-  const fontSize = lines.length >= 3 ? 54 : lines.length === 2 ? 60 : 66;
+  const bg = bgDataUri(post);
+  const lines = bg ? wrapTitle(post.title, 12, 4) : wrapTitle(post.title);
+  const fontSize = bg
+    ? (lines.length >= 4 ? 44 : lines.length === 3 ? 48 : 54)
+    : (lines.length >= 3 ? 54 : lines.length === 2 ? 60 : 66);
   const lineH = fontSize * 1.5;
   const blockH = lines.length * lineH;
   const firstY = (H - blockH) / 2 + fontSize * 0.85 + 6;
@@ -92,8 +121,14 @@ function coverSVG(post) {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <rect width="${W}" height="${H}" fill="${PAPER}"/>
-  <!-- 右下の大きなカテゴリ文字（薄く） -->
-  <text x="${W - 40}" y="${H + 60}" text-anchor="end" font-family="Zen Kaku Gothic New, Noto Sans JP, sans-serif" font-size="520" font-weight="500" fill="${GLYPH}" letter-spacing="-30">${glyph}</text>
+  ${bg ? `<image href="${bg}" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice"/>
+  <defs><linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="${PAPER}" stop-opacity="0.97"/>
+    <stop offset="0.42" stop-color="${PAPER}" stop-opacity="0.88"/>
+    <stop offset="0.72" stop-color="${PAPER}" stop-opacity="0"/>
+  </linearGradient></defs>
+  <rect width="${W}" height="${H}" fill="url(#scrim)"/>`
+  : `<text x="${W - 40}" y="${H + 60}" text-anchor="end" font-family="Zen Kaku Gothic New, Noto Sans JP, sans-serif" font-size="520" font-weight="500" fill="${GLYPH}" letter-spacing="-30">${glyph}</text>`}
   <!-- 上部：ラベル -->
   <rect x="72" y="66" width="8" height="8" fill="${ACCENT}"/>
   <text x="94" y="75" font-family="${mono}" font-size="15" font-weight="500" fill="${INK3}" letter-spacing="3">TENERAMENTE — JOURNAL</text>

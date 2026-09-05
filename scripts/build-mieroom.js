@@ -199,11 +199,12 @@ function articleHtml(p) {
   </div>
 </section>
 <div class="post-cover">
-  <div class="band" style="background:linear-gradient(${st.grad})">
+  ${coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
+  : `<div class="band" style="background:linear-gradient(${st.grad})">
     <span class="ring" style="width:220px;height:220px;top:-50px;right:60px"></span>
     <span class="ring" style="width:130px;height:130px;bottom:-30px;left:80px"></span>
     <svg viewBox="0 0 24 24">${st.icon}</svg>
-  </div>
+  </div>`}
 </div>
 <div class="post-body">
 ${p.bodyHtml}
@@ -227,16 +228,22 @@ ${tags ? `\n  <div class="post-tags">${tags}</div>` : ''}
 `;
 }
 
+// 記事テーマに合わせたカバー画像（mieroom/assets/cover-bg/*.webp）
+const COVER_BY_SLUG = {"moushikomi-kanrihyo-tsukurikata": "moushikomi", "gyomu-kaizen-tool-teichaku": "teichaku", "tenpo-muke-tool-hitsuyo-kino": "nagare", "fudosan-chukai-gyomu-kaizen-tool-donyu": "teichaku", "fudosan-kaigyo-junbi-checklist": "kaigyo", "hitori-fudosan-kaigyo-tool": "kaigyo", "fudosan-ai-katsuyo-bamen": "ai-katsuyo", "fudosan-gyomu-tool-minaoshi": "nagare"};
+const COVER_BY_CATEGORY = {"売上管理": "moushikomi", "業務効率化": "nagare", "集客・広告": "ai-katsuyo", "組織・育成": "kaigyo", "DX": "teichaku"};
+function coverName(p) { return COVER_BY_SLUG[p.slug] || COVER_BY_CATEGORY[p.category] || ''; }
+
 /** blog.html に差し込む記事カード */
 function cardHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
   const searchText = [p.title, ...(p.tags || [])].join(' ');
   return `      <a class="bpost" data-cat="${esc(p.category)}" data-text="${esc(searchText)}" href="articles/${encodeURIComponent(p.slug)}.html">
-        <div class="bcover" style="background:linear-gradient(${st.grad})">
+        ${coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
+        : `<div class="bcover" style="background:linear-gradient(${st.grad})">
           <span class="ring" style="width:150px;height:150px;top:-30px;right:-30px"></span>
           <span class="ring" style="width:90px;height:90px;bottom:-20px;left:30px"></span>
           <svg viewBox="0 0 24 24">${st.icon}</svg>
-        </div>
+        </div>`}
         <div class="bbody">
           <div class="bmeta"><span class="bcat">${esc(p.category)}</span><span class="bdate">${dotDate(p.date)}</span></div>
           <h3>${esc(p.title)}</h3>
