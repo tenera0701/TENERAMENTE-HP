@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック｜ミエルーム ブログ</title>
+<meta name="description" content="後ADの取りこぼしは、担当者の記憶に頼るほど増えます。案件ごとに請求先・金額・入金予定日を記録する管理表の項目設計、月次で未入金を洗い出す手順、Excelで作るときの注意点、督促の進め方まで整理しました。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/go-ad-nyukin-kanrihyo.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック">
+<meta property="og:description" content="後ADの取りこぼしは、担当者の記憶に頼るほど増えます。案件ごとに請求先・金額・入金予定日を記録する管理表の項目設計、月次で未入金を洗い出す手順、Excelで作るときの注意点、督促の進め方まで整理しました。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/go-ad-nyukin-kanrihyo.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/covers/go-ad-nyukin-kanrihyo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック","description":"後ADの取りこぼしは、担当者の記憶に頼るほど増えます。案件ごとに請求先・金額・入金予定日を記録する管理表の項目設計、月次で未入金を洗い出す手順、Excelで作るときの注意点、督促の進め方まで整理しました。","datePublished":"2026-09-07","dateModified":"2026-09-07","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/go-ad-nyukin-kanrihyo.html","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"後AD, 入金管理, 売上管理, 賃貸仲介, 未入金"}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">デモアカウント発行</a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>売上管理</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">売上管理</span>
+      <h1>後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.09.07</span>
+        <span class="sep"></span>
+        <span>6分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band band--img"><img src="../assets/covers/go-ad-nyukin-kanrihyo.png" alt="後ADの未入金を防ぐ管理表の作り方｜案件ごとの記録と月次チェック" width="1200" height="675"></div>
+</div>
+<div class="post-body">
+<p>後ADの未入金は、担当者の意識が低いから起きるわけではありません。<strong>入金予定日が案件ごとに記録されていない</strong>から、誰も未回収に気づけないだけです。この記事では、後ADを取りこぼさない管理表の項目、月次で未入金を洗い出す手順、督促の進め方を順に整理します。</p>
+<div class="conclusion">
+  <h4>この記事の結論</h4>
+  <p>後ADの未入金を防ぐ鍵は督促の強さではなく、<strong>案件ごとに入金予定日を持たせること</strong>です。予定日が入っていれば、未入金は月次で自動的に浮かび上がります。</p>
+</div>
+<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+      <a href="#h1"><span class="n">01</span><span>後ADの未入金が起きる3つの原因</span></a>
+      <a href="#h2"><span class="n">02</span><span>管理表に必ず入れる項目</span></a>
+      <a href="#h3"><span class="n">03</span><span>案件ごとに「いつ請求するか」を決める</span></a>
+      <a href="#h4"><span class="n">04</span><span>月次チェックの手順</span></a>
+      <a href="#h5"><span class="n">05</span><span>Excelで管理表を作るときの注意点</span></a>
+      <a href="#h6"><span class="n">06</span><span>未入金が見つかったときの進め方</span></a>
+      <a href="#h7"><span class="n">07</span><span>よくある質問</span></a>
+      <a href="#h8"><span class="n">08</span><span>まとめ：予定日が入っていれば、未入金は自然に浮かぶ</span></a>
+    </div>
+  </nav>
+<h2 id="h1">後ADの未入金が起きる3つの原因</h2>
+<p>後ADは、契約が終わってからしばらく経って入金されます。この「間が空く」ことが、そのまま取りこぼしの原因になります。</p>
+<p>ひとつ目は、<strong>契約時点で記録が終わってしまう</strong>ことです。契約管理表は契約日で完結し、その後の入金までは追いません。契約が済んだ案件は担当者の関心から外れ、入金の確認が誰の仕事でもなくなります。</p>
+<p>ふたつ目は、<strong>入金予定日が案件に紐づいていない</strong>ことです。「だいたい翌月末」という共通認識はあっても、案件ごとの日付として書かれていなければ、遅れているかどうかを判断できません。</p>
+<p>みっつ目は、<strong>通帳の入金と案件が突き合わされていない</strong>ことです。まとめて振り込まれた金額を見て「入っている」と判断すると、その中に足りない案件が混ざっていても気づけません。契約と売上が同じではない理由は<a href="./go-ad-management.html">「契約＝売上」ではない前提</a>で扱っています。</p>
+<h2 id="h2">管理表に必ず入れる項目</h2>
+<p>後ADの管理表は、契約管理表とは別に持つか、契約管理表に列を足す形にします。どちらでも構いませんが、<strong>1案件が1行で最後まで追える</strong>ことが条件です。</p>
+<figure class="fig"><img src="../assets/figures/go-ad-nyukin-kanrihyo.png" alt="後ADの管理表に必要な8つの項目とその役割を並べた図" width="1600" height="1008" loading="lazy" decoding="async"><figcaption>抜けやすいのは入金予定日と差額です。この2つがないと未入金に気づけません。</figcaption></figure>
+<ul>
+<li><strong>案件を特定する情報</strong>：契約日・物件名・部屋番号・入居者名・担当者</li>
+<li><strong>請求先</strong>：管理会社名またはオーナー名、担当者名、連絡手段</li>
+<li><strong>金額</strong>：後ADの金額（税抜・税込のどちらで管理するか統一する）</li>
+<li><strong>請求の状態</strong>：未請求／請求済／一部入金／入金済</li>
+<li><strong>請求書を出した日</strong></li>
+<li><strong>入金予定日</strong>：ここが最重要の列です</li>
+<li><strong>入金日と入金額</strong>：実際に入った日と金額</li>
+<li><strong>差額とメモ</strong>：予定と実際の差、値引きや相殺があればその理由</li>
+</ul>
+<p>このうち抜けやすいのが<strong>入金予定日と差額</strong>です。予定日がないと遅延が判定できず、差額の列がないと一部入金がそのまま忘れられます。申込から契約までを1行で追う考え方は<a href="./moushikomi-kanrihyo-tsukurikata.html">申込管理表の作り方</a>と同じで、後ADはその行の続きだと考えると設計しやすくなります。</p>
+<h2 id="h3">案件ごとに「いつ請求するか」を決める</h2>
+<p>後ADは、請求のタイミングが取引先ごとに違います。管理会社の締め日、入居日基準か契約日基準か、請求書の提出方法。ここを取引先ごとに一度調べて表にしておくと、案件が発生するたびに迷わなくなります。</p>
+<div class="tw"><table>
+<thead><tr><th>決めておくこと</th><th>記録する場所</th><th>決めていないと起きること</th></tr></thead>
+<tbody><tr><td>請求の基準日（契約日／入居日）</td><td>取引先ごとの一覧</td><td>請求が早すぎて差し戻される</td></tr>
+<tr><td>締め日と支払サイト</td><td>取引先ごとの一覧</td><td>入金予定日を計算できない</td></tr>
+<tr><td>請求書の提出先と方法</td><td>取引先ごとの一覧</td><td>送ったつもりで届いていない</td></tr>
+<tr><td>案件ごとの入金予定日</td><td>管理表の行</td><td>遅延に気づけない</td></tr></tbody>
+</table></div>
+<p>この表を一度作れば、案件登録のときに<strong>基準日から入金予定日を計算して入れるだけ</strong>になります。予定日を入れる作業は数十秒ですが、これがないと月次のチェックが成り立ちません。</p>
+<div class="callout"><div class="ct"><span class="ci">✓</span>請求書を出した日も残す</div><p>「請求書はいつ送りましたか」と聞かれて答えられないと、督促の会話が進みません。送付日を記録しておくと、遅れているのが先方なのか自社なのかがすぐ分かります。</p></div>
+<h2 id="h4">月次チェックの手順</h2>
+<p>月に一度、決まった日に同じ手順で確認します。担当者任せにせず、<strong>店長が見る会</strong>にするのが定着のコツです。</p>
+<ol>
+<li>入金予定日が過ぎていて「入金済」でない行を抽出する</li>
+<li>その行について、請求書を出しているかを確認する（未請求ならまず請求する）</li>
+<li>請求済で入金がない行を、遅延の日数順に並べる</li>
+<li>通帳の入金と管理表の行を突き合わせ、金額が合わない行に印を付ける</li>
+<li>一部入金の行は、残額と次回の入金予定日を書き足す</li>
+<li>翌月に予定日が来る案件を眺め、請求漏れがないかを見る</li>
+</ol>
+<p>手順4を飛ばすと、<strong>一部入金が「入金済」として処理されます</strong>。これが後から見つかりにくい取りこぼしです。月末の集計を短くする考え方は<a href="./month-end-closing.html">月末の締め作業を早くする</a>にまとめています。</p>
+<h2 id="h5">Excelで管理表を作るときの注意点</h2>
+<p>Excelでも十分に運用できますが、崩れ方には型があります。先に手を打っておけば長く使えます。</p>
+<ul>
+<li><strong>年度でファイルを分けない</strong>：後ADは年をまたぐため、分けた瞬間に追えなくなります</li>
+<li><strong>行を消さない</strong>：入金済の行も残します。消すと過去の突き合わせができません</li>
+<li><strong>同じ列に複数の意味を入れない</strong>：金額欄に「値引き」と文字を書くと集計できなくなります</li>
+<li><strong>セルの色で状態を表さない</strong>：色は集計もフィルタもできません。状態は文字の列で持ちます</li>
+<li><strong>編集する人を決める</strong>：複数人が同時に開く運用は、上書きで記録が消えます</li>
+</ul>
+<div class="callout warn"><div class="ct"><span class="ci">!</span>ファイルが分かれ始めたら限界のサイン</div><p>「最新版はどれか」を確認してから開くようになったら、Excelでの管理が限界に近づいています。担当者の手元にコピーが増えている状態も同じです。</p></div>
+<h2 id="h6">未入金が見つかったときの進め方</h2>
+<p>督促は、強さではなく順番で決まります。感情的にならず、事実だけを確認する流れにします。</p>
+<p>まず自社側を確認します。請求書を出しているか、宛先と金額は合っているか、先方の指定する様式で出しているか。<strong>未入金の一定数は、自社側の請求漏れや様式違い</strong>です。ここを確かめずに連絡すると、関係を損ないます。</p>
+<p>次に先方へ確認します。「◯月◯日にお送りした◯◯号室の件、入金予定日を教えていただけますか」と、案件と日付を特定して聞きます。管理表に請求日と予定日があれば、この一文がすぐ書けます。</p>
+<p>回答があったら、<strong>新しい入金予定日を管理表に書き換えます</strong>。口頭で聞いた日付を記録に反映しないと、翌月また同じ確認をすることになります。取引先ごとに遅れが繰り返されるなら、請求のタイミングか提出方法を見直す合図です。</p>
+<h2 id="h7">よくある質問</h2>
+<details class="faq"><summary>後ADは契約時点で売上に計上してよいですか？</summary><div class="faq-a">計上の考え方は顧問税理士の方針に従ってください。管理上は、契約が決まった段階の見込みと、入金が確認できた確定分を分けて見ると、実態に近い数字になります。混ぜて集計すると、入っていないお金を売上として見てしまいます。</div></details>
+<details class="faq"><summary>一部入金や分割での入金はどう記録しますか？</summary><div class="faq-a">1回の入金ごとに、入金日と入金額を追記できる形にします。行を上書きすると経緯が消えるため、残額と次回の入金予定日を必ず書き足してください。残額が0になった時点で入金済にします。</div></details>
+<details class="faq"><summary>管理表は誰が更新するのが適切ですか？</summary><div class="faq-a">請求書の発行と入金確認をする人が更新するのがいちばん漏れません。担当営業が入力する運用にすると、契約後の関心が薄れる分だけ更新が止まります。入力する人を1人決め、月次のチェックだけ店長が見る形が続きやすい形です。</div></details>
+<h2 id="h8">まとめ：予定日が入っていれば、未入金は自然に浮かぶ</h2>
+<p>後ADの取りこぼしは、督促の強さではなく記録の型で決まります。<strong>案件ごとに入金予定日を持たせ、月に一度その日付で並べ替える</strong>。この2つだけで、未入金は探さなくても目に入るようになります。</p>
+<p>Excelで始めても構いません。年度で分けない、行を消さない、状態を文字の列で持つ。この3つを守れば、しばらくは十分に回ります。ファイルの最新版を探すようになったら、そのときが仕組みに移す時期です。</p>
+<p><a href="../index.html">ミエルーム</a>は、申込から契約・入金・後ADまでを案件ごとに1行で追えるようにしています。一部入金や分割入金の記録、確定した売上と見込みの分離にも対応しており、Excelデータの取り込みと初期設定の代行、デモアカウントの発行、最短即日でのスタートが可能です。後ADの管理表づくりからご相談ください。</p>
+
+  <div class="post-tags"><span class="pt">#後AD</span><span class="pt">#入金管理</span><span class="pt">#売上管理</span><span class="pt">#賃貸仲介</span><span class="pt">#未入金</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none">デモアカウント発行</a>
+  </div>
+</div>
+</article>
+<div data-chrome="footer"></div>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+</body>
+</html>

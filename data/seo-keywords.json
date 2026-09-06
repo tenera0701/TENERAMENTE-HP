@@ -184,7 +184,9 @@
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-07-gyomu-app-naisei-gaichu-handan",
+      "doneAt": "2026-09-06"
     },
     {
       "id": "k004",

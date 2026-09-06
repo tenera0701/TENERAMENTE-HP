@@ -207,7 +207,9 @@
         "go-ad-management",
         "month-end-closing"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "go-ad-nyukin-kanrihyo",
+      "doneAt": "2026-09-06"
     },
     {
       "id": "m012",
