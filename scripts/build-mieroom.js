@@ -12,6 +12,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const covers = require('./gen-covers-mieroom');
 
 const ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'mieroom', 'posts');
@@ -54,14 +55,18 @@ const dotDate = (d) => String(d || '').replace(/-/g, '.');
 
 /**
  * 素のMarkdown → 記事本文のHTML。
- * ミルページの本文で使う範囲（見出し・段落・箇条書き・番号付き・強調・リンク）だけを扱い、
- * 行頭が < で始まる行は生HTMLとしてそのまま通す（既存記事の callout などを書けるように）。
- * 外部ライブラリを足さないのは、GitHub Actions で npm install なしに動かすため。
+ * 見出し・段落・箇条書き・番号付き・強調・リンク・表を扱い、
+ * 行頭が < で始まる行は生HTMLとしてそのまま通す（callout や FAQ を書けるように）。
+ * 外部ライブラリを足さないのは、npm install なしに動かすため。
+ *
+ * H2 には目次用の id を振り、その一覧を toc として返す（TENERAMENTE 側と同じ形）。
+ * 戻り値: { html, toc: [{ id, n, label }] }
  */
 function mdToHtml(md) {
   const lines = String(md || '').replace(/\r/g, '').split('\n');
   const out = [];
-  let para = [], list = null;
+  const toc = [];
+  let para = [], list = null, h2n = 0;
 
   const inline = (t) => esc(t)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
@@ -72,17 +77,52 @@ function mdToHtml(md) {
   const flushPara = () => { if (para.length) { out.push('<p>' + inline(para.join(' ')) + '</p>'); para = []; } };
   const flushList = () => { if (list) { out.push(`</${list}>`); list = null; } };
 
-  for (const raw of lines) {
+  // Markdown の表（| … | の3行以上）。区切り行のコロンで列の寄せを決める
+  const isRow = (s) => /^\|.*\|$/.test(s);
+  const isDivider = (s) => /^\|[\s:|-]+\|$/.test(s) && s.includes('-');
+  const cells = (s) => s.replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+
+  for (let i = 0; i < lines.length; i++) {
+    const raw = lines[i];
     const line = raw.trim();
     if (!line) { flushPara(); flushList(); continue; }
 
     if (line.startsWith('<')) { flushPara(); flushList(); out.push(raw); continue; }
 
+    if (isRow(line) && isDivider((lines[i + 1] || '').trim())) {
+      flushPara(); flushList();
+      const head = cells(line);
+      const align = cells(lines[i + 1].trim()).map(d =>
+        /^:-+:$/.test(d) ? ' style="text-align:center"' : /-+:$/.test(d) ? ' style="text-align:right"' : ''
+      );
+      const body = [];
+      let j = i + 2;
+      for (; j < lines.length && isRow(lines[j].trim()); j++) body.push(cells(lines[j].trim()));
+      i = j - 1;
+      out.push('<div class="tw"><table>');
+      out.push('<thead><tr>' + head.map((c, k) => `<th${align[k] || ''}>${inline(c)}</th>`).join('') + '</tr></thead>');
+      if (body.length) {
+        out.push('<tbody>' + body.map(r =>
+          '<tr>' + r.map((c, k) => `<td${align[k] || ''}>${inline(c)}</td>`).join('') + '</tr>'
+        ).join('\n') + '</tbody>');
+      }
+      out.push('</table></div>');
+      continue;
+    }
+
     const h = line.match(/^(#{2,4})\s+(.+)$/);
     if (h) {
       flushPara(); flushList();
       const lv = Math.min(h[1].length, 4);
-      out.push(`<h${lv}>${inline(h[2].trim())}</h${lv}>`);
+      const label = h[2].trim();
+      if (lv === 2) {
+        h2n++;
+        const id = 'h' + h2n;
+        toc.push({ id, n: String(h2n).padStart(2, '0'), label: label.replace(/^\d{2}[\s.．:：]+/, '') });
+        out.push(`<h2 id="${id}">${inline(label)}</h2>`);
+      } else {
+        out.push(`<h${lv}>${inline(label)}</h${lv}>`);
+      }
       continue;
     }
     const ul = line.match(/^[-*・]\s+(.+)$/);
@@ -103,7 +143,33 @@ function mdToHtml(md) {
     para.push(line);
   }
   flushPara(); flushList();
-  return out.join('\n');
+  return { html: out.join('\n'), toc };
+}
+
+/** 目次。H2 が2本以上あるときだけ出す（TENERAMENTE の記事ページと同じ見せ方） */
+function tocHtml(toc) {
+  if (!toc || toc.length < 2) return '';
+  const items = toc.map(t =>
+    `      <a href="#${t.id}"><span class="n">${t.n}</span><span>${esc(t.label)}</span></a>`
+  ).join('\n');
+  return `<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+${items}
+    </div>
+  </nav>`;
+}
+
+/**
+ * 本文の先頭（リード段落・結論ボックス）の直後に目次を差し込む。
+ * TENERAMENTE の記事と同じ「リード → 結論 → 目次 → 本文」の順にする。
+ */
+function insertToc(bodyHtml, toc) {
+  const nav = tocHtml(toc);
+  if (!nav) return bodyHtml;
+  const firstH2 = bodyHtml.indexOf('<h2 id=');
+  if (firstH2 < 0) return bodyHtml;
+  return bodyHtml.slice(0, firstH2) + nav + '\n' + bodyHtml.slice(firstH2);
 }
 
 /** 記事ページのHTML（既存記事と同じ構造・同じCSSを使う） */
@@ -139,7 +205,10 @@ function articleHtml(p) {
 <meta property="og:description" content="${esc(p.excerpt)}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="ミエルーム">
-<meta name="twitter:card" content="summary_large_image">
+${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+` : ''}<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
@@ -199,7 +268,8 @@ function articleHtml(p) {
   </div>
 </section>
 <div class="post-cover">
-  ${coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
+  ${p.cover ? `<div class="band band--img"><img src="../${p.cover}" alt="${esc(p.title)}" width="1200" height="675"></div>`
+  : coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
   : `<div class="band" style="background:linear-gradient(${st.grad})">
     <span class="ring" style="width:220px;height:220px;top:-50px;right:60px"></span>
     <span class="ring" style="width:130px;height:130px;bottom:-30px;left:80px"></span>
@@ -238,7 +308,8 @@ function cardHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
   const searchText = [p.title, ...(p.tags || [])].join(' ');
   return `      <a class="bpost" data-cat="${esc(p.category)}" data-text="${esc(searchText)}" href="articles/${encodeURIComponent(p.slug)}.html">
-        ${coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
+        ${p.cover ? `<div class="bcover bcover--img"><img src="${p.cover}" alt="${esc(p.title)}" loading="lazy" width="1200" height="675"></div>`
+        : coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
         : `<div class="bcover" style="background:linear-gradient(${st.grad})">
           <span class="ring" style="width:150px;height:150px;top:-30px;right:-30px"></span>
           <span class="ring" style="width:90px;height:90px;bottom:-20px;left:30px"></span>
@@ -268,14 +339,23 @@ function main() {
       if (!meta[k]) throw new Error(`${file}: 「${k}」が空です`);
     });
     if (!/^\d{4}-\d{2}-\d{2}$/.test(meta.date)) throw new Error(`${file}: 公開日は YYYY-MM-DD 形式にしてください`);
+    const slug = file.replace(/\.md$/, '');
+    const { html, toc } = mdToHtml(body);
     return {
-      slug: file.replace(/\.md$/, ''),
+      slug,
       title: meta.title, date: meta.date, category: meta.category,
       excerpt: meta.excerpt, tags: meta.tags || [],
+      hook: meta.hook || '',
       readMin: meta.readMin || readMinutes(body),
-      bodyHtml: mdToHtml(body),
+      toc,
+      bodyHtml: insertToc(html, toc),
     };
   }).sort((a, b) => b.date.localeCompare(a.date));
+
+  // カバー画像（記事タイトル入り）。作れた記事は生成PNG、作れなければ従来の背景画像を使う
+  posts.forEach(p => { p.coverBg = coverName(p); });
+  const withCover = covers.generate(posts, ROOT);
+  posts.forEach(p => { p.cover = withCover.has(p.slug) ? `assets/covers/${p.slug}.png` : ''; });
 
   // 記事ページ（ミルページ由来のものだけを作り直す。手書きの既存記事には触らない）
   fs.mkdirSync(ARTICLES_DIR, { recursive: true });

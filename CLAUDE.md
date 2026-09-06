@@ -171,9 +171,9 @@ git push
 
 ### カバー画像（記事のトップ画像）
 - カバーは `scripts/gen-covers.js` が生成する。**記事のテーマに合わせた背景画像**を敷き、その上に見出しを重ねる形。
-- 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.webp`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）
+- 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.{webp,jpg}`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）。ミエルーム側は同じ絵柄を webp と jpg の両方で置く（ページ表示は webp、カバー生成は jpg。resvg が webp を読めないため）
 - 記事ごとに割り当てたいときは `gen-covers.js` の `BG_BY_SLUG` に slug を足す。無ければ `BG_BY_CATEGORY` の絵柄が使われるので、新しい記事でも自動でカバーが付く
-- ミエルームは `scripts/build-mieroom.js` の `COVER_BY_SLUG` / `COVER_BY_CATEGORY` で、記事ヒーローと `blog.html` のカードに同じ画像を出す
+- ミエルームも TENERAMENTE と同じく**タイトル入りのカバーを自動生成**する（2026-09-06〜）。`scripts/gen-covers-mieroom.js` が `mieroom/assets/covers/<slug>.png`（1200×675）を作り、記事ヒーロー・`blog.html` のカード・OGP画像に使う。背景の絵柄は `scripts/build-mieroom.js` の `COVER_BY_SLUG` / `COVER_BY_CATEGORY` で決まり、その上に「MIEROOM — BLOG」ラベル・タイトル・META の `hook`・日付が乗る。作り直したいときは PNG を消して再ビルドする
 - 新しい背景を足すときは、既存と同じ配色・同じ作り（画面の右側に絵柄、左半分は余白、文字なし、横長）にそろえる
 
 ### 図版（記事に1枚入れる）
@@ -278,9 +278,15 @@ python3 -m http.server 8000
 ミエルーム（賃貸仲介向け 業務管理SaaS）のブログは、TENERAMENTE ブログとは別の仕組み・別の読者。
 
 - **置き場所**: `mieroom/posts/<slug>.md`（slug は日付なしの半角英数字＋ハイフン。既存の `mieroom/articles/*.html` と重複させない）
-- **生成**: `node scripts/build-mieroom.js` が `mieroom/articles/<slug>.html` と `mieroom/blog.html` の一覧を更新する。そのあと `node scripts/build-index.js` を実行すると sitemap に載る
-- **META**: `title` / `date`（YYYY-MM-DD）/ `category` / `excerpt`（1〜2文）/ `tags`（3〜5個）。category は次の5つのどれか: `売上管理` `業務効率化` `集客・広告` `組織・育成` `DX`
-- **本文**: 2,000〜3,000字、H2 は「## 見出し」で5〜8本（番号は書かない。既存記事と同じ見た目にする）。**Markdown の表は使えない**（変換器が未対応。箇条書きで書く）。使えるのは見出し・段落・箇条書き・番号付き・太字・斜体・リンク・行頭が `<` の生HTML
+- **生成**: `node scripts/build-mieroom.js` が `mieroom/articles/<slug>.html`・`mieroom/blog.html` の一覧・`mieroom/assets/covers/<slug>.png`（カバー画像）を更新する。そのあと `node scripts/build-index.js` を実行すると sitemap に載る
+- **META**: `title` / `date`（YYYY-MM-DD）/ `category` / `excerpt`（1〜2文）/ `hook`（カバー画像に載る一言。18〜24字。記事を読みたくなる要点を1つ）/ `tags`（3〜5個）。category は次の5つのどれか: `売上管理` `業務効率化` `集客・広告` `組織・育成` `DX`
+- **本文**: 2,000〜3,000字、H2 は「## 見出し」で5〜8本（番号は書かない）。使えるのは見出し・段落・箇条書き・番号付き・**表**（`| … |`）・太字・斜体・リンク・行頭が `<` の生HTML
+- **記事の構成は TENERAMENTE ブログと同じにする**（2026-09-06〜）。リード → 結論ボックス → 目次（自動）→ 本文 → FAQ → まとめ の順で書く：
+  - **目次**は H2 から `build-mieroom.js` が自動生成し、結論ボックスの直後・最初の H2 の直前に入る。書かなくてよい（H2 が2本以上あるときだけ出る）
+  - **結論ボックス**はリード直後に置く: `<div class="conclusion"><h4>この記事の結論</h4><p>要旨を1〜2文。<strong>要点</strong>を1つ強調。</p></div>`
+  - **比較表**を1つ以上入れる（Markdown の表が使えるようになった）
+  - **FAQ** を末尾のまとめの前に3問: `<details class="faq"><summary>質問</summary><div class="faq-a">回答</div></details>`
+  - 補足は `<div class="callout"><div class="ct"><span class="ci">✓</span>見出し</div><p>本文</p></div>`、注意は `<div class="callout warn">…</div>`
 - **読者**: 賃貸仲介・不動産仲介の店舗オーナー、店長、これから開業する人。「です・ます」調。一人称は「ミエルーム」または「当社」
 - **内部リンク**（記事は `mieroom/articles/` に置かれるので相対パスに注意）: 製品トップ `../index.html`、機能・事例 `../features.html`、他の記事 `./<slug>.html`、TENERAMENTE 側のページ `../../lp-ai.html` など
 - **書いてよい製品の事実**: 申込管理表／売上管理／反響管理／接客管理／申込・入金管理（後ADを案件ごとに記録、一部入金・分割入金、確定売上と見込みの分離）／接客・反響成績の可視化／反響分析／フォーム自動取込・メール自動取込／間取り作成／社内契約フォーマット自動取込／物件コンバータ／業者間サイト連携／LINE・SMS自動追客／経理・勤怠・給与／デモアカウント発行／最短即日スタート／Excel データのインポートと初期設定の代行に対応。**無料お試し期間は無い**（FAQ に明記。「無料で試せる」と書かない）。**料金は書かない**（ページに記載がない）

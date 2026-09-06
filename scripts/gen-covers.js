@@ -172,4 +172,4 @@ function generate(posts, rootDir) {
   return done;
 }
 
-module.exports = { generate, coverSVG };
+module.exports = { generate, coverSVG, wrapTitle, escXml, loadResvg, fontFiles };
