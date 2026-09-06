@@ -278,6 +278,7 @@ python3 -m http.server 8000
 ミエルーム（賃貸仲介向け 業務管理SaaS）のブログは、TENERAMENTE ブログとは別の仕組み・別の読者。
 
 - **置き場所**: `mieroom/posts/<slug>.md`（slug は日付なしの半角英数字＋ハイフン。既存の `mieroom/articles/*.html` と重複させない）
+- **下書き置き場**: `mieroom/drafts/<slug>.md`。**ビルド対象外**（公開されない）。公開するときは `mieroom/posts/` へ移してビルドする。自動投稿ではここを読まない・書かない
 - **生成**: `node scripts/build-mieroom.js` が `mieroom/articles/<slug>.html`・`mieroom/blog.html` の一覧・`mieroom/assets/covers/<slug>.png`（カバー画像）を更新する。そのあと `node scripts/build-index.js` を実行すると sitemap に載る
 - **META**: `title` / `date`（YYYY-MM-DD）/ `category` / `excerpt`（1〜2文）/ `hook`（カバー画像に載る一言。18〜24字。記事を読みたくなる要点を1つ）/ `tags`（3〜5個）。category は次の5つのどれか: `売上管理` `業務効率化` `集客・広告` `組織・育成` `DX`
 - **本文**: 2,000〜3,000字、H2 は「## 見出し」で5〜8本（番号は書かない）。使えるのは見出し・段落・箇条書き・番号付き・**表**（`| … |`）・太字・斜体・リンク・行頭が `<` の生HTML
