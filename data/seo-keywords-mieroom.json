@@ -225,7 +225,9 @@
       "related": [
         "excel-to-saas"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-keiyakusho-jusetsu-jitan",
+      "doneAt": "2026-09-07"
     },
     {
       "id": "m013",
