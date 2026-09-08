@@ -299,7 +299,7 @@ ${tags ? `\n  <div class="post-tags">${tags}</div>` : ''}
 }
 
 // 記事テーマに合わせたカバー画像（mieroom/assets/cover-bg/*.webp）
-const COVER_BY_SLUG = {"moushikomi-kanrihyo-tsukurikata": "moushikomi", "gyomu-kaizen-tool-teichaku": "teichaku", "tenpo-muke-tool-hitsuyo-kino": "nagare", "fudosan-chukai-gyomu-kaizen-tool-donyu": "teichaku", "fudosan-kaigyo-junbi-checklist": "kaigyo", "hitori-fudosan-kaigyo-tool": "kaigyo", "fudosan-ai-katsuyo-bamen": "ai-katsuyo", "fudosan-gyomu-tool-minaoshi": "nagare"};
+const COVER_BY_SLUG = {"moushikomi-kanrihyo-tsukurikata": "moushikomi", "gyomu-kaizen-tool-teichaku": "teichaku", "tenpo-muke-tool-hitsuyo-kino": "nagare", "fudosan-chukai-gyomu-kaizen-tool-donyu": "teichaku", "fudosan-kaigyo-junbi-checklist": "kaigyo", "hitori-fudosan-kaigyo-tool": "kaigyo", "fudosan-ai-katsuyo-bamen": "ai-katsuyo", "fudosan-gyomu-tool-minaoshi": "nagare", "chintai-keiyakusho-jusetsu-jitan": "keiyakusho"};
 const COVER_BY_CATEGORY = {"売上管理": "moushikomi", "業務効率化": "nagare", "集客・広告": "ai-katsuyo", "組織・育成": "kaigyo", "DX": "teichaku"};
 function coverName(p) { return COVER_BY_SLUG[p.slug] || COVER_BY_CATEGORY[p.category] || ''; }
 

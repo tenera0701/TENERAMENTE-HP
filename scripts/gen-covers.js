@@ -46,6 +46,7 @@ const BG_BY_SLUG = {
   '2026-09-04-ai-tool-kaihatsu-irai-junbi': 'app-7items',
   '2026-09-04-claude-code-app-kaihatsu-chigai': 'app-claudecode',
   '2026-09-04-ai-kaihatsu-kigyo-erabikata': 'app-erabikata',
+  '2026-09-08-meo-taisaku-jibun-de-yarikata': 'meo-diy',
 };
 const BG_BY_CATEGORY = { meo: 'meo-map', aio: 'aio-grid', ai: 'ai-wave', app: 'app-flow', hp: 'aio-grid' };
 const BG_DIR = path.join(__dirname, '..', 'assets', 'img', 'cover-bg');
