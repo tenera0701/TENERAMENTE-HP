@@ -262,7 +262,9 @@
       "related": [
         "chintai-gyomu-kaizen-tool"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "gyoshakan-site-bukken-kensaku",
+      "doneAt": "2026-09-09"
     },
     {
       "id": "m015",
