@@ -1,5 +1,70 @@
 [
   {
+    "slug": "2026-09-11-yoyaku-kanri-system-jisha-senyo",
+    "title": "予約管理システムを自社専用で作る判断基準｜既製サービスとの違い",
+    "date": "2026-09-11",
+    "dateLabel": "Sep 11, 2026",
+    "category": "app",
+    "categoryLabel": "Web App",
+    "categoryGroup": "app",
+    "excerpt": "既製の予約サービスが自社の受付ルールに合わなくなったとき、自社専用の予約管理システムを作るべきかどうかの判断基準を整理します。既製との違い、最低限必要な機能、着手前に決めること、費用と期間の考え方まで。",
+    "tags": [
+      "予約管理システム",
+      "業務Webアプリ",
+      "自社専用",
+      "システム開発",
+      "業務改善"
+    ],
+    "readMin": 6,
+    "glyph": "W",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "既製の予約サービスが合わなくなる5つのサイン"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "自社専用と既製サービスは何が違うのか"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "予約管理システムに最低限必要な機能"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "作る前に決めておく4つのこと"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "費用と期間の考え方"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "よくある失敗"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：合わない部分を人が埋め始めたら検討する"
+      }
+    ],
+    "visual": "default",
+    "number": "01",
+    "image": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png"
+  },
+  {
     "slug": "2026-09-10-gbp-toukou-neta",
     "title": "Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方",
     "date": "2026-09-10",
@@ -59,8 +124,8 @@
         "label": "まとめ：ネタは探さず、貯めておく"
       }
     ],
-    "visual": "default",
-    "number": "01",
+    "visual": "v-violet",
+    "number": "02",
     "image": "assets/img/covers/2026-09-10-gbp-toukou-neta.png"
   },
   {
@@ -123,8 +188,8 @@
         "label": "まとめ：落ちている場所を特定してから決める"
       }
     ],
-    "visual": "v-violet",
-    "number": "02",
+    "visual": "v-cyan",
+    "number": "03",
     "image": "assets/img/covers/2026-09-09-homepage-renewal-timing.png"
   },
   {
@@ -192,8 +257,8 @@
         "label": "まとめ：まず90日、同じ手順を回してみる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "03",
+    "visual": "default",
+    "number": "04",
     "image": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png"
   },
   {
@@ -257,8 +322,8 @@
         "label": "まとめ：判断は「規模」ではなく「続くかどうか」"
       }
     ],
-    "visual": "default",
-    "number": "04",
+    "visual": "v-violet",
+    "number": "05",
     "image": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png"
   },
   {
@@ -322,8 +387,8 @@
         "label": "まとめ：ルールは「使ってよい範囲」を書いた分だけ機能する"
       }
     ],
-    "visual": "v-violet",
-    "number": "05",
+    "visual": "v-cyan",
+    "number": "06",
     "image": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png"
   },
   {
@@ -382,8 +447,8 @@
         "label": "まとめ：金額を比べる前に、作業を比べる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "06",
+    "visual": "default",
+    "number": "07",
     "image": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.png"
   },
   {
@@ -447,8 +512,8 @@
         "label": "まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "07",
+    "visual": "v-violet",
+    "number": "08",
     "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png"
   },
   {
@@ -507,8 +572,8 @@
         "label": "各段階の「進む基準」と「やめどき」一覧"
       }
     ],
-    "visual": "v-violet",
-    "number": "08",
+    "visual": "v-cyan",
+    "number": "09",
     "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png"
   },
   {
@@ -567,8 +632,8 @@
         "label": "まとめ：AI開発企業の7つの比較ポイントを、初回相談で確かめる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "09",
+    "visual": "default",
+    "number": "10",
     "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png"
   },
   {
@@ -627,8 +692,8 @@
         "label": "まとめ：7項目を一枚にして、小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "10",
+    "visual": "v-violet",
+    "number": "11",
     "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png"
   },
   {
@@ -687,8 +752,8 @@
         "label": "まとめ：速さより「画面で決められること」を買う"
       }
     ],
-    "visual": "v-violet",
-    "number": "11",
+    "visual": "v-cyan",
+    "number": "12",
     "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png"
   },
   {
@@ -753,8 +818,8 @@
       }
     ],
     "pickup": 3,
-    "visual": "v-cyan",
-    "number": "12",
+    "visual": "default",
+    "number": "13",
     "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png"
   },
   {
@@ -818,8 +883,8 @@
         "label": "まとめ：研修は「設計」で選ぶ"
       }
     ],
-    "visual": "default",
-    "number": "13",
+    "visual": "v-violet",
+    "number": "14",
     "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png"
   },
   {
@@ -884,8 +949,8 @@
       }
     ],
     "pickup": 2,
-    "visual": "v-violet",
-    "number": "14",
+    "visual": "v-cyan",
+    "number": "15",
     "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png"
   },
   {
@@ -950,8 +1015,8 @@
       }
     ],
     "pickup": 1,
-    "visual": "v-cyan",
-    "number": "15",
+    "visual": "default",
+    "number": "16",
     "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
   },
   {
@@ -1010,8 +1075,8 @@
         "label": "まとめ：まず何から始めるか"
       }
     ],
-    "visual": "default",
-    "number": "16",
+    "visual": "v-violet",
+    "number": "17",
     "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
   },
   {
@@ -1075,8 +1140,8 @@
         "label": "まずは小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "17",
+    "visual": "v-cyan",
+    "number": "18",
     "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
   },
   {
@@ -1135,8 +1200,8 @@
         "label": "月次チェックリスト（まとめ）"
       }
     ],
-    "visual": "v-cyan",
-    "number": "18",
+    "visual": "default",
+    "number": "19",
     "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
   },
   {
@@ -1199,8 +1264,8 @@
         "label": "まとめ：仕組みで増やし、返信で育てる"
       }
     ],
-    "visual": "default",
-    "number": "19",
+    "visual": "v-violet",
+    "number": "20",
     "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
   },
   {
@@ -1254,8 +1319,8 @@
         "label": "最初の一歩（まとめ）"
       }
     ],
-    "visual": "v-violet",
-    "number": "20",
+    "visual": "v-cyan",
+    "number": "21",
     "image": "assets/img/covers/2026-06-26-ai-first-step.png"
   },
   {
@@ -1319,8 +1384,8 @@
         "label": "まとめ：小さく入れて、正しく検証する"
       }
     ],
-    "visual": "v-cyan",
-    "number": "21",
+    "visual": "default",
+    "number": "22",
     "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
   },
   {
@@ -1384,8 +1449,8 @@
         "label": "まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる"
       }
     ],
-    "visual": "default",
-    "number": "22",
+    "visual": "v-violet",
+    "number": "23",
     "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
   },
   {
@@ -1449,8 +1514,8 @@
         "label": "まとめ：小さく始めて、ルールとセットで育てる"
       }
     ],
-    "visual": "v-violet",
-    "number": "23",
+    "visual": "v-cyan",
+    "number": "24",
     "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
   },
   {
@@ -1519,8 +1584,8 @@
         "label": "まとめ：ナレッジ整備から始める社内AI"
       }
     ],
-    "visual": "v-cyan",
-    "number": "24",
+    "visual": "default",
+    "number": "25",
     "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
   },
   {
@@ -1584,8 +1649,8 @@
         "label": "まとめ：小さく始めて、確かめながら広げる"
       }
     ],
-    "visual": "default",
-    "number": "25",
+    "visual": "v-violet",
+    "number": "26",
     "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
   },
   {
@@ -1664,8 +1729,8 @@
         "label": "まとめ：小さく始める「脱Excel」から"
       }
     ],
-    "visual": "v-violet",
-    "number": "26",
+    "visual": "v-cyan",
+    "number": "27",
     "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
   },
   {
@@ -1729,8 +1794,8 @@
         "label": "まとめ：相場を知り、内訳を読み、小さく始める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "27",
+    "visual": "default",
+    "number": "28",
     "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
   },
   {
@@ -1794,8 +1859,8 @@
         "label": "まとめ：金額ではなく「公開後」で選ぶ"
       }
     ],
-    "visual": "default",
-    "number": "28",
+    "visual": "v-violet",
+    "number": "29",
     "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
   }
 ]
