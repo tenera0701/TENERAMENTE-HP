@@ -298,7 +298,9 @@
       "related": [
         "staff-visualization"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "staff-seiseki-kanri",
+      "doneAt": "2026-09-11"
     },
     {
       "id": "m017",

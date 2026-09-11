@@ -1,5 +1,70 @@
 [
   {
+    "slug": "2026-09-12-kuchikomi-henshin-reibun",
+    "title": "Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方",
+    "date": "2026-09-12",
+    "dateLabel": "Sep 12, 2026",
+    "category": "meo",
+    "categoryLabel": "MEO",
+    "categoryGroup": "meo",
+    "excerpt": "口コミの返信は、投稿した本人だけでなく、これから来店を検討している人が読んでいます。どの返信にも共通する4つの要素、高評価・低評価・コメントなしの3パターン別の例文、そして続けるための運用の決め方を整理しました。",
+    "tags": [
+      "MEO",
+      "口コミ返信",
+      "Googleビジネスプロフィール",
+      "GBP",
+      "ローカル検索"
+    ],
+    "readMin": 6,
+    "glyph": "M",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "口コミの返信は、投稿者だけに向けて書くものではない"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "どの返信にも共通する4つの要素"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "高評価の口コミへの返信例文"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "低評価の口コミへの返信例文"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "コメントなし・星だけの口コミへの返信例文"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "返信を続けるための運用を決める"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "よくある質問"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：例文は型として使い、自店の言葉に置き換える"
+      }
+    ],
+    "visual": "default",
+    "number": "01",
+    "image": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png"
+  },
+  {
     "slug": "2026-09-11-yoyaku-kanri-system-jisha-senyo",
     "title": "予約管理システムを自社専用で作る判断基準｜既製サービスとの違い",
     "date": "2026-09-11",
@@ -60,8 +125,8 @@
         "label": "まとめ：合わない部分を人が埋め始めたら検討する"
       }
     ],
-    "visual": "default",
-    "number": "01",
+    "visual": "v-violet",
+    "number": "02",
     "image": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png"
   },
   {
@@ -124,8 +189,8 @@
         "label": "まとめ：ネタは探さず、貯めておく"
       }
     ],
-    "visual": "v-violet",
-    "number": "02",
+    "visual": "v-cyan",
+    "number": "03",
     "image": "assets/img/covers/2026-09-10-gbp-toukou-neta.png"
   },
   {
@@ -188,8 +253,8 @@
         "label": "まとめ：落ちている場所を特定してから決める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "03",
+    "visual": "default",
+    "number": "04",
     "image": "assets/img/covers/2026-09-09-homepage-renewal-timing.png"
   },
   {
@@ -257,8 +322,8 @@
         "label": "まとめ：まず90日、同じ手順を回してみる"
       }
     ],
-    "visual": "default",
-    "number": "04",
+    "visual": "v-violet",
+    "number": "05",
     "image": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png"
   },
   {
@@ -322,8 +387,8 @@
         "label": "まとめ：判断は「規模」ではなく「続くかどうか」"
       }
     ],
-    "visual": "v-violet",
-    "number": "05",
+    "visual": "v-cyan",
+    "number": "06",
     "image": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png"
   },
   {
@@ -387,8 +452,8 @@
         "label": "まとめ：ルールは「使ってよい範囲」を書いた分だけ機能する"
       }
     ],
-    "visual": "v-cyan",
-    "number": "06",
+    "visual": "default",
+    "number": "07",
     "image": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png"
   },
   {
@@ -447,8 +512,8 @@
         "label": "まとめ：金額を比べる前に、作業を比べる"
       }
     ],
-    "visual": "default",
-    "number": "07",
+    "visual": "v-violet",
+    "number": "08",
     "image": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.png"
   },
   {
@@ -512,8 +577,8 @@
         "label": "まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "08",
+    "visual": "v-cyan",
+    "number": "09",
     "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png"
   },
   {
@@ -572,8 +637,8 @@
         "label": "各段階の「進む基準」と「やめどき」一覧"
       }
     ],
-    "visual": "v-cyan",
-    "number": "09",
+    "visual": "default",
+    "number": "10",
     "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png"
   },
   {
@@ -632,8 +697,8 @@
         "label": "まとめ：AI開発企業の7つの比較ポイントを、初回相談で確かめる"
       }
     ],
-    "visual": "default",
-    "number": "10",
+    "visual": "v-violet",
+    "number": "11",
     "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png"
   },
   {
@@ -692,8 +757,8 @@
         "label": "まとめ：7項目を一枚にして、小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "11",
+    "visual": "v-cyan",
+    "number": "12",
     "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png"
   },
   {
@@ -752,8 +817,8 @@
         "label": "まとめ：速さより「画面で決められること」を買う"
       }
     ],
-    "visual": "v-cyan",
-    "number": "12",
+    "visual": "default",
+    "number": "13",
     "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png"
   },
   {
@@ -818,8 +883,8 @@
       }
     ],
     "pickup": 3,
-    "visual": "default",
-    "number": "13",
+    "visual": "v-violet",
+    "number": "14",
     "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png"
   },
   {
@@ -883,8 +948,8 @@
         "label": "まとめ：研修は「設計」で選ぶ"
       }
     ],
-    "visual": "v-violet",
-    "number": "14",
+    "visual": "v-cyan",
+    "number": "15",
     "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png"
   },
   {
@@ -949,8 +1014,8 @@
       }
     ],
     "pickup": 2,
-    "visual": "v-cyan",
-    "number": "15",
+    "visual": "default",
+    "number": "16",
     "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png"
   },
   {
@@ -1015,8 +1080,8 @@
       }
     ],
     "pickup": 1,
-    "visual": "default",
-    "number": "16",
+    "visual": "v-violet",
+    "number": "17",
     "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
   },
   {
@@ -1075,8 +1140,8 @@
         "label": "まとめ：まず何から始めるか"
       }
     ],
-    "visual": "v-violet",
-    "number": "17",
+    "visual": "v-cyan",
+    "number": "18",
     "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
   },
   {
@@ -1140,8 +1205,8 @@
         "label": "まずは小さく始める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "18",
+    "visual": "default",
+    "number": "19",
     "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
   },
   {
@@ -1200,8 +1265,8 @@
         "label": "月次チェックリスト（まとめ）"
       }
     ],
-    "visual": "default",
-    "number": "19",
+    "visual": "v-violet",
+    "number": "20",
     "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
   },
   {
@@ -1264,8 +1329,8 @@
         "label": "まとめ：仕組みで増やし、返信で育てる"
       }
     ],
-    "visual": "v-violet",
-    "number": "20",
+    "visual": "v-cyan",
+    "number": "21",
     "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
   },
   {
@@ -1319,8 +1384,8 @@
         "label": "最初の一歩（まとめ）"
       }
     ],
-    "visual": "v-cyan",
-    "number": "21",
+    "visual": "default",
+    "number": "22",
     "image": "assets/img/covers/2026-06-26-ai-first-step.png"
   },
   {
@@ -1384,8 +1449,8 @@
         "label": "まとめ：小さく入れて、正しく検証する"
       }
     ],
-    "visual": "default",
-    "number": "22",
+    "visual": "v-violet",
+    "number": "23",
     "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
   },
   {
@@ -1449,8 +1514,8 @@
         "label": "まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる"
       }
     ],
-    "visual": "v-violet",
-    "number": "23",
+    "visual": "v-cyan",
+    "number": "24",
     "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
   },
   {
@@ -1514,8 +1579,8 @@
         "label": "まとめ：小さく始めて、ルールとセットで育てる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "24",
+    "visual": "default",
+    "number": "25",
     "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
   },
   {
@@ -1584,8 +1649,8 @@
         "label": "まとめ：ナレッジ整備から始める社内AI"
       }
     ],
-    "visual": "default",
-    "number": "25",
+    "visual": "v-violet",
+    "number": "26",
     "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
   },
   {
@@ -1649,8 +1714,8 @@
         "label": "まとめ：小さく始めて、確かめながら広げる"
       }
     ],
-    "visual": "v-violet",
-    "number": "26",
+    "visual": "v-cyan",
+    "number": "27",
     "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
   },
   {
@@ -1729,8 +1794,8 @@
         "label": "まとめ：小さく始める「脱Excel」から"
       }
     ],
-    "visual": "v-cyan",
-    "number": "27",
+    "visual": "default",
+    "number": "28",
     "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
   },
   {
@@ -1794,8 +1859,8 @@
         "label": "まとめ：相場を知り、内訳を読み、小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "28",
+    "visual": "v-violet",
+    "number": "29",
     "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
   },
   {
@@ -1859,8 +1924,8 @@
         "label": "まとめ：金額ではなく「公開後」で選ぶ"
       }
     ],
-    "visual": "v-violet",
-    "number": "29",
+    "visual": "v-cyan",
+    "number": "30",
     "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
   }
 ]

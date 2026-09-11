@@ -257,7 +257,9 @@
         "2026-06-26-ai-first-step",
         "2026-06-14-ai-donyu-shippai-kaihi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-04-hojin-ai-kenshu-erabikata",
+      "doneAt": "2026-09-11"
     },
     {
       "id": "k008",
@@ -291,7 +293,9 @@
       "related": [
         "2026-06-27-google-kuchikomi-fuyasu"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-12-kuchikomi-henshin-reibun",
+      "doneAt": "2026-09-11"
     },
     {
       "id": "k010",
