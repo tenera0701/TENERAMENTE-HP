@@ -317,7 +317,9 @@
         "month-end-closing",
         "excel-to-saas"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "getsumatsu-uriage-shukei-jidoka",
+      "doneAt": "2026-09-12"
     },
     {
       "id": "m018",
