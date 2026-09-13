@@ -322,6 +322,57 @@
       "doneAt": "2026-09-12"
     },
     {
+      "id": "m023",
+      "category": "業務効率化",
+      "keyword": "入居審査 通らない 理由",
+      "sub": [
+        "賃貸 審査 落ちる",
+        "審査 事前 確認"
+      ],
+      "title": "入居審査が通らない理由と、申込前に店舗側でできる確認",
+      "intent": "審査落ちを減らしたい",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "hankyo-kanri-hoho"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m024",
+      "category": "業務効率化",
+      "keyword": "賃貸 初期費用 内訳 説明",
+      "sub": [
+        "初期費用 説明 トラブル",
+        "見積 提示 タイミング"
+      ],
+      "title": "賃貸の初期費用の内訳をお客様に説明する｜つまずきやすい項目と伝え方",
+      "intent": "金額の説明で毎回手間取る",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-keiyakusho-jusetsu-jitan",
+        "moushikomi-kanrihyo-tsukurikata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m025",
+      "category": "業務効率化",
+      "keyword": "賃貸 内見 案内 準備",
+      "sub": [
+        "内見 段取り",
+        "鍵 手配 効率化"
+      ],
+      "title": "内見の準備と当日の進め方｜段取りで差がつく持ち物・順番・鍵の手配",
+      "intent": "内見の準備に時間がかかる",
+      "pillar": "../index.html",
+      "related": [
+        "gyoshakan-site-bukken-kensaku",
+        "lead-response-speed"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "m018",
       "category": "組織・育成",
       "keyword": "不動産 開業 事務所 準備",
@@ -338,6 +389,57 @@
       "status": "todo"
     },
     {
+      "id": "m026",
+      "category": "業務効率化",
+      "keyword": "賃貸 ヒアリング 項目",
+      "sub": [
+        "来店 接客 聞くこと",
+        "条件 整理 シート"
+      ],
+      "title": "来店時のヒアリングで聞く項目｜提案がずれない条件整理の順番",
+      "intent": "ヒアリングが人によってばらつく",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "hankyo-kanri-hoho"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m027",
+      "category": "業務効率化",
+      "keyword": "申込書 不備 減らす",
+      "sub": [
+        "申込 差し戻し",
+        "記入漏れ 防ぐ"
+      ],
+      "title": "申込書の不備を減らす方法｜差し戻しが起きる箇所と、その場で防ぐ手順",
+      "intent": "申込の差し戻しが多い",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "chintai-keiyakusho-jusetsu-jitan"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m028",
+      "category": "業務効率化",
+      "keyword": "保証会社 審査 流れ",
+      "sub": [
+        "家賃保証 手続き",
+        "審査 期間 目安"
+      ],
+      "title": "保証会社の審査の流れと店舗側の準備｜止まりやすい工程を先に潰す",
+      "intent": "審査の進捗が読めない",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "go-ad-nyukin-kanrihyo"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "m019",
       "category": "業務効率化",
       "keyword": "賃貸仲介 反響 メール 自動取込",
@@ -350,6 +452,55 @@
       "pillar": "../features.html",
       "related": [
         "lead-response-speed",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m029",
+      "category": "業務効率化",
+      "keyword": "賃貸 鍵 管理 方法",
+      "sub": [
+        "鍵 紛失 防止",
+        "鍵 貸出 記録"
+      ],
+      "title": "鍵の管理方法｜貸出の記録と、紛失・返却漏れを防ぐ運用",
+      "intent": "鍵の所在が分からなくなる",
+      "pillar": "../index.html",
+      "related": [
+        "gyoshakan-site-bukken-kensaku"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m030",
+      "category": "集客・広告",
+      "keyword": "賃貸 物件 紹介文 書き方",
+      "sub": [
+        "ポータル 掲載 文章",
+        "物件 コメント 例"
+      ],
+      "title": "物件紹介文の書き方｜問い合わせにつながる情報の並べ方",
+      "intent": "掲載文がテンプレになっている",
+      "pillar": "../index.html",
+      "related": [
+        "media-roi",
+        "hankyo-kanri-hoho"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m031",
+      "category": "集客・広告",
+      "keyword": "賃貸 物件写真 撮り方",
+      "sub": [
+        "内見 写真 コツ",
+        "掲載 写真 枚数"
+      ],
+      "title": "賃貸物件の写真の撮り方｜反響が変わる撮影の順番とNG",
+      "intent": "写真で他社に埋もれる",
+      "pillar": "../index.html",
+      "related": [
         "media-roi"
       ],
       "status": "todo"
@@ -372,6 +523,57 @@
       "status": "todo"
     },
     {
+      "id": "m032",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 閑散期 やること",
+      "sub": [
+        "夏 閑散期 営業",
+        "繁忙期 前 準備"
+      ],
+      "title": "賃貸仲介の閑散期にやること｜繁忙期前の9〜12月に仕込む5つの準備",
+      "intent": "暇な時期に何をすべきか",
+      "pillar": "../index.html",
+      "related": [
+        "kaigyo-chokugo-shukyaku",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m033",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 繁忙期 売上目標 立て方",
+      "sub": [
+        "店舗 目標 設定",
+        "前年比 分解"
+      ],
+      "title": "繁忙期の売上目標の立て方｜前年実績を店舗別・担当別に分解する",
+      "intent": "根拠のある目標を作りたい",
+      "pillar": "../index.html",
+      "related": [
+        "getsumatsu-uriage-shukei-jidoka",
+        "staff-seiseki-kanri"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m034",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 店舗 損益 見方",
+      "sub": [
+        "粗利 広告費 人件費",
+        "店舗 採算"
+      ],
+      "title": "店舗の損益の見方｜売上ではなく粗利で判断するための整理",
+      "intent": "売上は出ているが利益が残らない",
+      "pillar": "../index.html",
+      "related": [
+        "media-roi",
+        "getsumatsu-uriage-shukei-jidoka"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "m021",
       "category": "DX",
       "keyword": "賃貸仲介 顧客管理 CRM 選び方",
@@ -385,6 +587,57 @@
       "related": [
         "lead-response-speed",
         "chintai-gyomu-kaizen-tool"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m035",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 新人 育成",
+      "sub": [
+        "新人 立ち上げ",
+        "未経験 教育 手順"
+      ],
+      "title": "賃貸仲介の新人育成｜繁忙期までに戦力にする教育の順番",
+      "intent": "新人が育つ前に繁忙期が来る",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "staff-visualization"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m036",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 繁忙期 シフト 人員計画",
+      "sub": [
+        "繁忙期 人手 不足",
+        "シフト 組み方"
+      ],
+      "title": "繁忙期のシフトと人員計画｜今から決めておく体制と役割分担",
+      "intent": "繁忙期の人繰りが毎年苦しい",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "kaigyo-chokugo-shukyaku"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m037",
+      "category": "DX",
+      "keyword": "紙 Excel 混在 移行 手順",
+      "sub": [
+        "アナログ 店舗 デジタル化",
+        "データ 移行 順番"
+      ],
+      "title": "紙とExcelが混在する店舗の移行手順｜何から電子化するかの順番",
+      "intent": "どこから手をつけるか分からない",
+      "pillar": "../index.html",
+      "related": [
+        "excel-to-saas",
+        "fudosan-gyomu-tool-minaoshi"
       ],
       "status": "todo"
     },

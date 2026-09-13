@@ -1,6 +1,6 @@
 {
   "note": "毎日の自動投稿が上から順に消化する「狙いキーワードの待ち行列」。status が todo のものを1日1件使う。追加したいキーワードは同じ形式で末尾に足す（id は重複しなければ何でもよい）。title は仮題で、書き手が検索意図に合わせて整えてよい。pillar は本文中で1回リンクする自社ページ、related は関連記事のslug。",
-  "rotation": "meo/aio 40% ・ ai 25% ・ app 20% ・ hp 15% を目安に並べてある",
+  "rotation": "app（業務システム・アプリ開発）とSEO（hp）を主軸に、meo を継続して挟む。aio は後半にまとめている",
   "items": [
     {
       "id": "u001",
@@ -317,18 +317,36 @@
       "doneAt": "2026-09-12"
     },
     {
-      "id": "k011",
-      "category": "ai",
-      "keyword": "ChatGPT Claude Gemini 違い 業務",
+      "id": "k061",
+      "category": "app",
+      "keyword": "業務効率化 ツール 選び方",
       "sub": [
-        "生成AI 比較 2026",
-        "AI 使い分け"
+        "業務効率化 ツール 比較",
+        "社内ツール 導入 失敗"
       ],
-      "title": "ChatGPT・Claude・Geminiの違いと業務での使い分け｜中小企業向けの選び方",
-      "intent": "どれを契約すればいいか知りたい",
-      "pillar": "lp-ai.html",
+      "title": "業務効率化ツールの選び方｜導入前に決める3つのことと、失敗する買い方",
+      "intent": "ツールを選ぶ基準がわからない",
+      "pillar": "lp-ai-app.html",
       "related": [
-        "2026-06-20-chatgpt-gyomu-katsuyo"
+        "2026-06-30-gyomu-app-kanzen-guide",
+        "2026-09-07-gyomu-app-naisei-gaichu-handan"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k071",
+      "category": "hp",
+      "keyword": "SEO対策 自分で やり方",
+      "sub": [
+        "SEO 内製",
+        "SEO 何から"
+      ],
+      "title": "SEO対策を自分でやる方法｜費用をかけずに始める手順と続け方",
+      "intent": "外注せずに自分で始めたい",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-08-meo-taisaku-jibun-de-yarikata",
+        "2026-06-05-homepage-seisaku-hiyo-guide"
       ],
       "status": "todo"
     },
@@ -345,6 +363,640 @@
       "pillar": "lp-meo.html",
       "related": [
         "2026-06-27-google-kuchikomi-fuyasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k062",
+      "category": "app",
+      "keyword": "DX とは 中小企業",
+      "sub": [
+        "DX 何から",
+        "中小企業 DX 進め方"
+      ],
+      "title": "DXとは何か｜中小企業が最初に手をつける範囲と、進める順番",
+      "intent": "DXという言葉の中身を知りたい",
+      "pillar": "services.html",
+      "related": [
+        "2026-09-04-ai-gyomu-kaizen-susumekata",
+        "2026-06-26-ai-first-step"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k072",
+      "category": "hp",
+      "keyword": "検索順位 上がらない 原因",
+      "sub": [
+        "SEO 効果 出ない",
+        "順位 下落 確認"
+      ],
+      "title": "検索順位が上がらない原因｜確認する順番と、直す優先度",
+      "intent": "対策しているのに順位が動かない",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-09-homepage-renewal-timing",
+        "2026-09-08-meo-taisaku-jibun-de-yarikata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k015",
+      "category": "meo",
+      "keyword": "Googleマップ 順位 下がった 原因",
+      "sub": [
+        "MEO 順位 急落",
+        "ビジネスプロフィール 表示されない"
+      ],
+      "title": "Googleマップの順位が急に下がった原因と確認手順",
+      "intent": "順位が落ちて焦っている",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k063",
+      "category": "app",
+      "keyword": "業務フロー図 書き方",
+      "sub": [
+        "業務フロー 整理",
+        "業務の見える化 手順"
+      ],
+      "title": "業務フロー図の書き方｜システム化の前に業務を整理する手順",
+      "intent": "業務を整理してから相談したい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-04-ai-tool-kaihatsu-irai-junbi",
+        "2026-09-04-ai-gyomu-kaizen-susumekata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k073",
+      "category": "hp",
+      "keyword": "キーワード選定 やり方",
+      "sub": [
+        "SEO キーワード 決め方",
+        "検索ボリューム 見方"
+      ],
+      "title": "SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方",
+      "intent": "どの言葉を狙えばいいか分からない",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-08-meo-taisaku-jibun-de-yarikata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k017",
+      "category": "meo",
+      "keyword": "MEO 効果 期間",
+      "sub": [
+        "MEO いつから 効果",
+        "Googleマップ 上位 どれくらい"
+      ],
+      "title": "MEO対策の効果が出るまでの期間と、途中でやめないための見方",
+      "intent": "始めたが効果が見えず不安",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k064",
+      "category": "app",
+      "keyword": "業務マニュアル 作り方",
+      "sub": [
+        "マニュアル 属人化 解消",
+        "手順書 作成"
+      ],
+      "title": "業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み",
+      "intent": "引き継ぎと教育を仕組みにしたい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-04-ai-gyomu-kaizen-susumekata",
+        "2026-09-06-seisei-ai-shanai-rule-template"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k074",
+      "category": "hp",
+      "keyword": "タイトルタグ 書き方 文字数",
+      "sub": [
+        "title 文字数",
+        "タイトル SEO"
+      ],
+      "title": "タイトルタグの書き方｜文字数の目安と、クリックされる型",
+      "intent": "タイトルの付け方を知りたい",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-06-05-homepage-seisaku-hiyo-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k019",
+      "category": "meo",
+      "keyword": "ローカルSEO とは",
+      "sub": [
+        "ローカルSEO MEO 違い",
+        "地域 検索 対策"
+      ],
+      "title": "ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由",
+      "intent": "用語の違いと何をすべきか知りたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k065",
+      "category": "app",
+      "keyword": "ノーコード 業務アプリ",
+      "sub": [
+        "ノーコード 限界",
+        "業務アプリ 自作"
+      ],
+      "title": "ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面",
+      "intent": "自分たちで作れるのか知りたい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-07-gyomu-app-naisei-gaichu-handan",
+        "2026-06-30-gyomu-app-kanzen-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k075",
+      "category": "hp",
+      "keyword": "メタディスクリプション 書き方",
+      "sub": [
+        "description 文字数",
+        "スニペット 書き方"
+      ],
+      "title": "メタディスクリプションの書き方｜順位ではなくクリック率を動かす",
+      "intent": "説明文の書き方が分からない",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-06-05-homepage-seisaku-hiyo-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k022",
+      "category": "meo",
+      "keyword": "NAP 統一 MEO",
+      "sub": [
+        "店舗 情報 表記ゆれ",
+        "住所 電話番号 統一"
+      ],
+      "title": "NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれがMEOに与える影響",
+      "intent": "サイトやポータルの情報がバラバラ",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k066",
+      "category": "app",
+      "keyword": "RPA とは 中小企業",
+      "sub": [
+        "RPA AI 違い",
+        "RPA 使いどころ"
+      ],
+      "title": "RPAとは｜中小企業での使いどころと、AIとの使い分け",
+      "intent": "自動化の手段を整理したい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-04-ai-gyomu-kaizen-susumekata",
+        "2026-06-30-gyomu-app-kanzen-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k076",
+      "category": "hp",
+      "keyword": "Search Console 使い方",
+      "sub": [
+        "サーチコンソール 初心者",
+        "検索パフォーマンス 見方"
+      ],
+      "title": "Search Consoleの使い方｜最初に見る4つの画面と、改善点の見つけ方",
+      "intent": "入れたが使いこなせていない",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-08-meo-taisaku-jibun-de-yarikata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k024",
+      "category": "meo",
+      "keyword": "Googleビジネスプロフィール カテゴリ 選び方",
+      "sub": [
+        "GBP メインカテゴリ",
+        "ビジネスカテゴリ 追加"
+      ],
+      "title": "Googleビジネスプロフィールのカテゴリの選び方｜メインと追加カテゴリの考え方",
+      "intent": "カテゴリ設定に迷っている",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k067",
+      "category": "app",
+      "keyword": "SaaS 自社開発 選び方",
+      "sub": [
+        "既製サービス 自社専用 違い",
+        "業務システム 選定"
+      ],
+      "title": "SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務",
+      "intent": "どちらを選ぶべきか迷っている",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-11-yoyaku-kanri-system-jisha-senyo",
+        "2026-09-07-gyomu-app-naisei-gaichu-handan"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k077",
+      "category": "hp",
+      "keyword": "内部リンク 貼り方 SEO",
+      "sub": [
+        "サイト内 リンク 設計",
+        "回遊率 改善"
+      ],
+      "title": "内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き",
+      "intent": "記事同士のつなぎ方を知りたい",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-06-25-kozoka-data-json-ld-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k027",
+      "category": "meo",
+      "keyword": "多店舗 MEO 運用",
+      "sub": [
+        "複数店舗 Googleビジネスプロフィール 管理",
+        "チェーン店 MEO"
+      ],
+      "title": "多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目",
+      "intent": "店舗ごとに運用の質がバラバラ",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k068",
+      "category": "app",
+      "keyword": "業務標準化 進め方",
+      "sub": [
+        "業務 属人化 解消",
+        "標準化 手順"
+      ],
+      "title": "業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方",
+      "intent": "人によってやり方が違う",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-04-ai-gyomu-kaizen-susumekata",
+        "2026-06-30-gyomu-app-kanzen-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k078",
+      "category": "hp",
+      "keyword": "ブログ リライト やり方",
+      "sub": [
+        "記事 リライト 効果",
+        "古い記事 更新"
+      ],
+      "title": "記事リライトのやり方｜どの記事から直すか、どこを直すか",
+      "intent": "書いた記事が埋もれている",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-09-homepage-renewal-timing"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k029",
+      "category": "meo",
+      "keyword": "不動産 MEO対策",
+      "sub": [
+        "賃貸 仲介 Googleマップ",
+        "不動産会社 口コミ"
+      ],
+      "title": "不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれるためにやること",
+      "intent": "不動産店舗の来店を増やしたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k069",
+      "category": "app",
+      "keyword": "API連携 とは 業務システム",
+      "sub": [
+        "システム 連携 方法",
+        "データ 自動 受け渡し"
+      ],
+      "title": "API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること",
+      "intent": "バラバラのシステムをつなぎたい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-06-08-webapp-kaihatsu-hiyo-souba",
+        "2026-09-04-ai-tool-kaihatsu-irai-junbi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k079",
+      "category": "hp",
+      "keyword": "記事 見出し 構成 作り方",
+      "sub": [
+        "記事構成 テンプレート",
+        "SEO 記事 書き方"
+      ],
+      "title": "SEO記事の見出し構成の作り方｜読まれる記事の設計手順",
+      "intent": "記事の型を知りたい",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-10-gbp-toukou-neta"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k031",
+      "category": "meo",
+      "keyword": "美容室 MEO対策",
+      "sub": [
+        "美容室 Googleマップ 上位",
+        "サロン 口コミ 増やす"
+      ],
+      "title": "美容室・サロンのMEO対策｜新規客がGoogleマップで選ぶ基準に合わせる",
+      "intent": "美容室の新規集客",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-27-google-kuchikomi-fuyasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k070",
+      "category": "app",
+      "keyword": "Excel 共有 同時編集 限界",
+      "sub": [
+        "Excel 複数人 編集 トラブル",
+        "ファイル 壊れる 共有"
+      ],
+      "title": "Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準",
+      "intent": "複数人で使っていて限界を感じる",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-06-11-excel-kanri-genkai-systemka",
+        "2026-06-30-gyomu-app-kanzen-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k080",
+      "category": "hp",
+      "keyword": "ブログ 更新頻度 SEO",
+      "sub": [
+        "記事 何本 必要",
+        "更新 止まる"
+      ],
+      "title": "ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計",
+      "intent": "どのくらい書けばいいのか",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-09-homepage-renewal-timing"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k034",
+      "category": "meo",
+      "keyword": "Googleマップ 掲載順位 決まり方",
+      "sub": [
+        "MEO 関連性 距離 知名度",
+        "ローカル検索 アルゴリズム"
+      ],
+      "title": "Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素を店舗目線で解説",
+      "intent": "仕組みを理解して対策したい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k081",
+      "category": "hp",
+      "keyword": "被リンク 増やし方",
+      "sub": [
+        "被リンク 自然",
+        "リンク 購入 リスク"
+      ],
+      "title": "被リンクの増やし方｜中小企業が健全に積める方法と、避けるべき手法",
+      "intent": "外部リンクをどう増やすか",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-07-01-aio-cited-site"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k082",
+      "category": "hp",
+      "keyword": "SEO 効果 期間",
+      "sub": [
+        "SEO いつから",
+        "SEO 判断 タイミング"
+      ],
+      "title": "SEOの効果が出るまでの期間｜途中で成否を判断するための見方",
+      "intent": "いつ結果が出るのか知りたい",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-09-05-meo-hiyo-souba-uchiwake"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k036",
+      "category": "meo",
+      "keyword": "飲食店 MEO対策",
+      "sub": [
+        "飲食店 Googleマップ 集客",
+        "レストラン 口コミ 対策"
+      ],
+      "title": "飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方",
+      "intent": "飲食店の来店を増やしたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k039",
+      "category": "meo",
+      "keyword": "口コミ 返信 AI 活用",
+      "sub": [
+        "口コミ返信 自動",
+        "レビュー 返信 ChatGPT"
+      ],
+      "title": "口コミ返信をAIで効率化する方法と、やってはいけない使い方",
+      "intent": "返信の手間を減らしたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-27-google-kuchikomi-fuyasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k041",
+      "category": "meo",
+      "keyword": "Googleビジネスプロフィール 写真 選び方",
+      "sub": [
+        "GBP 写真 枚数",
+        "Googleマップ 写真 効果"
+      ],
+      "title": "Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度",
+      "intent": "写真は何を何枚載せればいいか",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k043",
+      "category": "meo",
+      "keyword": "特別営業時間 Googleビジネスプロフィール",
+      "sub": [
+        "臨時休業 設定",
+        "祝日 営業時間 Googleマップ"
+      ],
+      "title": "特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール",
+      "intent": "営業時間まわりのトラブルを防ぎたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k046",
+      "category": "meo",
+      "keyword": "クリニック MEO対策",
+      "sub": [
+        "病院 Googleマップ 口コミ",
+        "医院 ビジネスプロフィール"
+      ],
+      "title": "クリニック・医院のMEO対策｜広告規制に配慮した情報整備と口コミ対応",
+      "intent": "医療機関の集患",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-27-google-kuchikomi-fuyasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k050",
+      "category": "meo",
+      "keyword": "MEO レポート 見方",
+      "sub": [
+        "ビジネスプロフィール インサイト",
+        "検索数 表示回数 ルート"
+      ],
+      "title": "MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める",
+      "intent": "数字を見ても何をすればいいか分からない",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k053",
+      "category": "meo",
+      "keyword": "整体 接骨院 MEO対策",
+      "sub": [
+        "治療院 Googleマップ",
+        "整骨院 口コミ 増やす"
+      ],
+      "title": "整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用",
+      "intent": "治療院の新規来院を増やしたい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-27-google-kuchikomi-fuyasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k055",
+      "category": "meo",
+      "keyword": "Googleビジネスプロフィール 商品 サービス 機能",
+      "sub": [
+        "GBP 商品 登録",
+        "ビジネスプロフィール メニュー 設定"
+      ],
+      "title": "Googleビジネスプロフィールの「商品」「サービス」機能の使い方｜登録すべき内容と順番",
+      "intent": "使っていない機能を活用したい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-06-28-gbp-monthly-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k058",
+      "category": "meo",
+      "keyword": "MEO 順位計測 ツール 指標",
+      "sub": [
+        "MEO 見える化",
+        "順位 ジオグリッド とは"
+      ],
+      "title": "MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方",
+      "intent": "運用の成果を数字で確認したい",
+      "pillar": "lp-meo.html",
+      "related": [
+        "2026-07-02-meo-taisaku-complete-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k011",
+      "category": "ai",
+      "keyword": "ChatGPT Claude Gemini 違い 業務",
+      "sub": [
+        "生成AI 比較 2026",
+        "AI 使い分け"
+      ],
+      "title": "ChatGPT・Claude・Geminiの違いと業務での使い分け｜中小企業向けの選び方",
+      "intent": "どれを契約すればいいか知りたい",
+      "pillar": "lp-ai.html",
+      "related": [
+        "2026-06-20-chatgpt-gyomu-katsuyo"
       ],
       "status": "todo"
     },
@@ -381,22 +1033,6 @@
       "status": "todo"
     },
     {
-      "id": "k015",
-      "category": "meo",
-      "keyword": "Googleマップ 順位 下がった 原因",
-      "sub": [
-        "MEO 順位 急落",
-        "ビジネスプロフィール 表示されない"
-      ],
-      "title": "Googleマップの順位が急に下がった原因と確認手順",
-      "intent": "順位が落ちて焦っている",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k016",
       "category": "ai",
       "keyword": "プロンプト 書き方 業務",
@@ -413,22 +1049,6 @@
       "status": "todo"
     },
     {
-      "id": "k017",
-      "category": "meo",
-      "keyword": "MEO 効果 期間",
-      "sub": [
-        "MEO いつから 効果",
-        "Googleマップ 上位 どれくらい"
-      ],
-      "title": "MEO対策の効果が出るまでの期間と、途中でやめないための見方",
-      "intent": "始めたが効果が見えず不安",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k018",
       "category": "app",
       "keyword": "在庫管理 Excel 脱却 アプリ",
@@ -441,22 +1061,6 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-11-excel-kanri-genkai-systemka"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k019",
-      "category": "meo",
-      "keyword": "ローカルSEO とは",
-      "sub": [
-        "ローカルSEO MEO 違い",
-        "地域 検索 対策"
-      ],
-      "title": "ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由",
-      "intent": "用語の違いと何をすべきか知りたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
       ],
       "status": "todo"
     },
@@ -493,22 +1097,6 @@
       "status": "todo"
     },
     {
-      "id": "k022",
-      "category": "meo",
-      "keyword": "NAP 統一 MEO",
-      "sub": [
-        "店舗 情報 表記ゆれ",
-        "住所 電話番号 統一"
-      ],
-      "title": "NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれがMEOに与える影響",
-      "intent": "サイトやポータルの情報がバラバラ",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k023",
       "category": "app",
       "keyword": "日報 アプリ 化",
@@ -521,22 +1109,6 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k024",
-      "category": "meo",
-      "keyword": "Googleビジネスプロフィール カテゴリ 選び方",
-      "sub": [
-        "GBP メインカテゴリ",
-        "ビジネスカテゴリ 追加"
-      ],
-      "title": "Googleビジネスプロフィールのカテゴリの選び方｜メインと追加カテゴリの考え方",
-      "intent": "カテゴリ設定に迷っている",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
       ],
       "status": "todo"
     },
@@ -573,22 +1145,6 @@
       "status": "todo"
     },
     {
-      "id": "k027",
-      "category": "meo",
-      "keyword": "多店舗 MEO 運用",
-      "sub": [
-        "複数店舗 Googleビジネスプロフィール 管理",
-        "チェーン店 MEO"
-      ],
-      "title": "多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目",
-      "intent": "店舗ごとに運用の質がバラバラ",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k028",
       "category": "app",
       "keyword": "業務アプリ 保守 費用 内訳",
@@ -605,22 +1161,6 @@
       "status": "todo"
     },
     {
-      "id": "k029",
-      "category": "meo",
-      "keyword": "不動産 MEO対策",
-      "sub": [
-        "賃貸 仲介 Googleマップ",
-        "不動産会社 口コミ"
-      ],
-      "title": "不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれるためにやること",
-      "intent": "不動産店舗の来店を増やしたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k030",
       "category": "ai",
       "keyword": "生成AI 情報漏えい 対策",
@@ -633,22 +1173,6 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-06-14-ai-donyu-shippai-kaihi"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k031",
-      "category": "meo",
-      "keyword": "美容室 MEO対策",
-      "sub": [
-        "美容室 Googleマップ 上位",
-        "サロン 口コミ 増やす"
-      ],
-      "title": "美容室・サロンのMEO対策｜新規客がGoogleマップで選ぶ基準に合わせる",
-      "intent": "美容室の新規集客",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-27-google-kuchikomi-fuyasu"
       ],
       "status": "todo"
     },
@@ -685,22 +1209,6 @@
       "status": "todo"
     },
     {
-      "id": "k034",
-      "category": "meo",
-      "keyword": "Googleマップ 掲載順位 決まり方",
-      "sub": [
-        "MEO 関連性 距離 知名度",
-        "ローカル検索 アルゴリズム"
-      ],
-      "title": "Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素を店舗目線で解説",
-      "intent": "仕組みを理解して対策したい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k035",
       "category": "ai",
       "keyword": "RAG 構築 費用 小さく試す",
@@ -713,22 +1221,6 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-06-17-rag-shanai-knowledge"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k036",
-      "category": "meo",
-      "keyword": "飲食店 MEO対策",
-      "sub": [
-        "飲食店 Googleマップ 集客",
-        "レストラン 口コミ 対策"
-      ],
-      "title": "飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方",
-      "intent": "飲食店の来店を増やしたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
       ],
       "status": "todo"
     },
@@ -765,22 +1257,6 @@
       "status": "todo"
     },
     {
-      "id": "k039",
-      "category": "meo",
-      "keyword": "口コミ 返信 AI 活用",
-      "sub": [
-        "口コミ返信 自動",
-        "レビュー 返信 ChatGPT"
-      ],
-      "title": "口コミ返信をAIで効率化する方法と、やってはいけない使い方",
-      "intent": "返信の手間を減らしたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-27-google-kuchikomi-fuyasu"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k040",
       "category": "ai",
       "keyword": "AI 社内 定着 しない",
@@ -798,22 +1274,6 @@
       "status": "todo"
     },
     {
-      "id": "k041",
-      "category": "meo",
-      "keyword": "Googleビジネスプロフィール 写真 選び方",
-      "sub": [
-        "GBP 写真 枚数",
-        "Googleマップ 写真 効果"
-      ],
-      "title": "Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度",
-      "intent": "写真は何を何枚載せればいいか",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k042",
       "category": "app",
       "keyword": "受発注 管理 システム 中小企業",
@@ -826,22 +1286,6 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k043",
-      "category": "meo",
-      "keyword": "特別営業時間 Googleビジネスプロフィール",
-      "sub": [
-        "臨時休業 設定",
-        "祝日 営業時間 Googleマップ"
-      ],
-      "title": "特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール",
-      "intent": "営業時間まわりのトラブルを防ぎたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
       ],
       "status": "todo"
     },
@@ -878,22 +1322,6 @@
       "status": "todo"
     },
     {
-      "id": "k046",
-      "category": "meo",
-      "keyword": "クリニック MEO対策",
-      "sub": [
-        "病院 Googleマップ 口コミ",
-        "医院 ビジネスプロフィール"
-      ],
-      "title": "クリニック・医院のMEO対策｜広告規制に配慮した情報整備と口コミ対応",
-      "intent": "医療機関の集患",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-27-google-kuchikomi-fuyasu"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k047",
       "category": "app",
       "keyword": "見積書 請求書 自動作成 システム",
@@ -906,22 +1334,6 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-11-excel-kanri-genkai-systemka"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k048",
-      "category": "aio",
-      "keyword": "llms.txt とは",
-      "sub": [
-        "AI検索 サイト 設定",
-        "llms.txt 書き方"
-      ],
-      "title": "llms.txtとは｜AI検索向けにサイト情報を整える新しいファイルの書き方",
-      "intent": "AI検索対策として何を設置すべきか",
-      "pillar": "lp-hplp.html",
-      "related": [
-        "2026-07-01-aio-cited-site"
       ],
       "status": "todo"
     },
@@ -939,22 +1351,6 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-06-20-chatgpt-gyomu-katsuyo"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k050",
-      "category": "meo",
-      "keyword": "MEO レポート 見方",
-      "sub": [
-        "ビジネスプロフィール インサイト",
-        "検索数 表示回数 ルート"
-      ],
-      "title": "MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める",
-      "intent": "数字を見ても何をすればいいか分からない",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
       ],
       "status": "todo"
     },
@@ -991,22 +1387,6 @@
       "status": "todo"
     },
     {
-      "id": "k053",
-      "category": "meo",
-      "keyword": "整体 接骨院 MEO対策",
-      "sub": [
-        "治療院 Googleマップ",
-        "整骨院 口コミ 増やす"
-      ],
-      "title": "整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用",
-      "intent": "治療院の新規来院を増やしたい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-27-google-kuchikomi-fuyasu"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k054",
       "category": "ai",
       "keyword": "AI ブログ 記事 品質 手順",
@@ -1019,22 +1399,6 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-07-01-aio-cited-site"
-      ],
-      "status": "todo"
-    },
-    {
-      "id": "k055",
-      "category": "meo",
-      "keyword": "Googleビジネスプロフィール 商品 サービス 機能",
-      "sub": [
-        "GBP 商品 登録",
-        "ビジネスプロフィール メニュー 設定"
-      ],
-      "title": "Googleビジネスプロフィールの「商品」「サービス」機能の使い方｜登録すべき内容と順番",
-      "intent": "使っていない機能を活用したい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-06-28-gbp-monthly-checklist"
       ],
       "status": "todo"
     },
@@ -1071,22 +1435,6 @@
       "status": "todo"
     },
     {
-      "id": "k058",
-      "category": "meo",
-      "keyword": "MEO 順位計測 ツール 指標",
-      "sub": [
-        "MEO 見える化",
-        "順位 ジオグリッド とは"
-      ],
-      "title": "MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方",
-      "intent": "運用の成果を数字で確認したい",
-      "pillar": "lp-meo.html",
-      "related": [
-        "2026-07-02-meo-taisaku-complete-guide"
-      ],
-      "status": "todo"
-    },
-    {
       "id": "k059",
       "category": "hp",
       "keyword": "ホームページ 問い合わせ 増えない",
@@ -1115,6 +1463,22 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-06-14-ai-donyu-shippai-kaihi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k048",
+      "category": "aio",
+      "keyword": "llms.txt とは",
+      "sub": [
+        "AI検索 サイト 設定",
+        "llms.txt 書き方"
+      ],
+      "title": "llms.txtとは｜AI検索向けにサイト情報を整える新しいファイルの書き方",
+      "intent": "AI検索対策として何を設置すべきか",
+      "pillar": "lp-hplp.html",
+      "related": [
+        "2026-07-01-aio-cited-site"
       ],
       "status": "todo"
     }
