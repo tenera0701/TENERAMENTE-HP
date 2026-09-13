@@ -331,7 +331,9 @@
         "2026-06-30-gyomu-app-kanzen-guide",
         "2026-09-07-gyomu-app-naisei-gaichu-handan"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-14-gyomu-koritsuka-tool-erabikata",
+      "doneAt": "2026-09-13"
     },
     {
       "id": "k071",

@@ -336,7 +336,9 @@
         "moushikomi-kanrihyo-tsukurikata",
         "hankyo-kanri-hoho"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "nyukyo-shinsa-toranai-riyu",
+      "doneAt": "2026-09-13"
     },
     {
       "id": "m024",
