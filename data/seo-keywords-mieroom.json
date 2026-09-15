@@ -374,7 +374,9 @@
         "gyoshakan-site-bukken-kensaku",
         "lead-response-speed"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "naiken-junbi-annai",
+      "doneAt": "2026-09-15"
     },
     {
       "id": "m018",
