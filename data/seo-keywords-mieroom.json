@@ -392,7 +392,9 @@
       "related": [
         "chintai-gyomu-kaizen-tool"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "kaigyo-jimusho-setsubi-junbi",
+      "doneAt": "2026-09-16"
     },
     {
       "id": "m026",

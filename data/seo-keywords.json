@@ -387,7 +387,9 @@
         "2026-09-04-ai-gyomu-kaizen-susumekata",
         "2026-06-26-ai-first-step"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-17-dx-towa-chusho-kigyo",
+      "doneAt": "2026-09-16"
     },
     {
       "id": "k072",
