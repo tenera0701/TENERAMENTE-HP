@@ -486,18 +486,20 @@ const LAYOUTS = {
   /** 背景写真の上に見出しを重ねる（従来の形） */
   photo(o) {
     const { W, H, P, bgUri, tags } = o;
-    const lines = wrapTitle(o.title, 12, 4);
-    const size = lines.length >= 4 ? 44 : lines.length === 3 ? 48 : 54;
-    const blockH = lines.length * size * 1.46;
-    const topY = (H - blockH) / 2 - 10;
-    const t = title(72, topY, lines, size, P, { markMax: 520, lh: 1.46 });
+    // 絵柄は右側にあるので、文字はすべて左半分に収める
+    const lines = wrapTitle(o.title, 10, 4);
+    const size = lines.length >= 4 ? 43 : lines.length === 3 ? 48 : 54;
+    const blockH = lines.length * size * 1.44;
+    const topY = (H - blockH) / 2 + 6;
+    const t = title(72, topY, lines, size, P, { markMax: 450, lh: 1.44 });
     return `${rect(0, 0, W, H, { fill: P.paper })}
   <image href="${bgUri}" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice"/>
   ${rect(0, 0, W, H, { fill: 'url(#scrim)' })}
-  ${brandMark(70, 56, P, o)}${topRight(o)}
+  ${brandMark(70, 50, P, o)}
+  ${txt(72, 124, o.label, { family: MONO, size: 15, weight: 700, fill: P.accent, ls: 3 })}
   ${t.svg}
-  ${o.hook ? hookLine(72, t.bottomY + 56, o.hook, P) : pillRow(72, Math.min(t.bottomY + 40, H - 150), tags.slice(0, 2), P, { maxW: 520 })}
-  ${footer(o)}`;
+  ${o.hook ? hookLine(72, t.bottomY + 54, o.hook, P) : pillRow(72, Math.min(t.bottomY + 38, H - 142), tags.slice(0, 2), P, { maxW: 470 })}
+  ${txt(72, H - 44, o.date + '   ' + o.domain, { family: MONO, size: 15, weight: 500, fill: P.ink3, ls: 3 })}`;
   },
 };
 
@@ -522,9 +524,10 @@ function defs(P) {
       <stop offset="1" stop-color="${P.accentDeep || P.accent}"/>
     </linearGradient>
     <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="${P.paper}" stop-opacity="0.97"/>
-      <stop offset="0.44" stop-color="${P.paper}" stop-opacity="0.9"/>
-      <stop offset="0.74" stop-color="${P.paper}" stop-opacity="0"/>
+      <stop offset="0" stop-color="${P.paper}" stop-opacity="0.98"/>
+      <stop offset="0.46" stop-color="${P.paper}" stop-opacity="0.96"/>
+      <stop offset="0.62" stop-color="${P.paper}" stop-opacity="0.72"/>
+      <stop offset="0.82" stop-color="${P.paper}" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="${P.tint || P.paper}" stop-opacity="0"/>

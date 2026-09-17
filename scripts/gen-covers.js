@@ -65,25 +65,50 @@ const BG_BY_SLUG = {
 };
 const BG_BY_CATEGORY = { meo: 'meo-map', aio: 'aio-grid', ai: 'ai-wave', app: 'app-flow', hp: 'aio-grid' };
 const BG_DIR = path.join(__dirname, '..', 'assets', 'img', 'cover-bg');
+
+/**
+ * 背景画像の探し方。上から順に見て、最初に見つかったものを使う。
+ *   1. assets/img/cover-bg/<slug>.jpg … その記事専用。置くだけで使われる（設定不要）
+ *   2. BG_BY_SLUG の指定
+ *   3. BG_BY_CATEGORY のカテゴリ共通の絵柄
+ * ChatGPT などで作った絵を 1 の名前で置けば、その記事のカバーがその絵になる。
+ * 対応する拡張子は .jpg / .jpeg / .png（resvg は webp を読めない）。
+ */
+const BG_EXT = ['.jpg', '.jpeg', '.png'];
+function findBg(name) {
+  if (!name) return null;
+  for (const ext of BG_EXT) {
+    const file = path.join(BG_DIR, name + ext);
+    if (fs.existsSync(file)) return file;
+  }
+  return null;
+}
+/** その記事のためだけに置かれた画像があるか */
+function hasOwnBg(post) {
+  return !!findBg(post.slug);
+}
 const bgCache = new Map();
 function bgDataUri(post) {
-  const name = BG_BY_SLUG[post.slug] || BG_BY_CATEGORY[post.category];
-  if (!name) return null;
-  if (bgCache.has(name)) return bgCache.get(name);
-  const file = path.join(BG_DIR, name + '.jpg');
-  const uri = fs.existsSync(file)
-    ? 'data:image/jpeg;base64,' + fs.readFileSync(file).toString('base64')
-    : null;
-  bgCache.set(name, uri);
+  const file = findBg(post.slug)
+    || findBg(BG_BY_SLUG[post.slug])
+    || findBg(BG_BY_CATEGORY[post.category]);
+  if (!file) return null;
+  if (bgCache.has(file)) return bgCache.get(file);
+  const mime = file.endsWith('.png') ? 'image/png' : 'image/jpeg';
+  const uri = 'data:' + mime + ';base64,' + fs.readFileSync(file).toString('base64');
+  bgCache.set(file, uri);
   return uri;
 }
 
 function coverSVG(post) {
   const date = String(post.date || '');
+  // 記事専用の背景が置かれていれば、その絵を必ず使う（日替わりの構図より優先）
+  const variant = VARIANT_BY_SLUG[post.slug]
+    || (hasOwnBg(post) ? 'photo' : pickLayout(date));
   return buildCover({
     W, H,
     palette: PALETTE,
-    variant: VARIANT_BY_SLUG[post.slug] || pickLayout(date),
+    variant,
     title: post.title,
     date: date.replace(/-/g, '.'),
     brand: 'TENERAMENTE — JOURNAL',

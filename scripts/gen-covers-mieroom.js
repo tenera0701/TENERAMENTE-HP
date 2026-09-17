@@ -56,26 +56,42 @@ const SCENES = {
 const VARIANT_BY_SLUG = {};
 
 const BG_DIR = path.join(__dirname, '..', 'mieroom', 'assets', 'cover-bg');
-const bgCache = new Map();
 
-function bgDataUri(name) {
+/**
+ * 背景画像の探し方。mieroom/assets/cover-bg/<slug>.jpg を置けば、その記事専用の絵として
+ * 設定なしで使われる（無ければ build-mieroom.js が決めた coverBg の絵柄）。
+ * 対応する拡張子は .jpg / .jpeg / .png（resvg は webp を読めない）。
+ */
+const BG_EXT = ['.jpg', '.jpeg', '.png'];
+function findBg(name) {
   if (!name) return null;
-  if (bgCache.has(name)) return bgCache.get(name);
-  const file = path.join(BG_DIR, name + '.jpg');
-  const uri = fs.existsSync(file)
-    ? 'data:image/jpeg;base64,' + fs.readFileSync(file).toString('base64')
-    : null;
-  bgCache.set(name, uri);
+  for (const ext of BG_EXT) {
+    const file = path.join(BG_DIR, name + ext);
+    if (fs.existsSync(file)) return file;
+  }
+  return null;
+}
+const bgCache = new Map();
+function bgDataUri(p) {
+  const file = findBg(p.slug) || findBg(p.coverBg);
+  if (!file) return null;
+  if (bgCache.has(file)) return bgCache.get(file);
+  const mime = file.endsWith('.png') ? 'image/png' : 'image/jpeg';
+  const uri = 'data:' + mime + ';base64,' + fs.readFileSync(file).toString('base64');
+  bgCache.set(file, uri);
   return uri;
 }
 
 function coverSVG(p) {
   const date = String(p.date || '');
   const label = LABELS[p.category] || 'BLOG';
+  // 記事専用の背景が置かれていれば、その絵を必ず使う
+  const variant = VARIANT_BY_SLUG[p.slug]
+    || (findBg(p.slug) ? 'photo' : pickLayout(date, LAYOUT_OFFSET));
   return buildCover({
     W, H,
     palette: PALETTE,
-    variant: VARIANT_BY_SLUG[p.slug] || pickLayout(date, LAYOUT_OFFSET),
+    variant,
     title: p.title,
     date: date.replace(/-/g, '.'),
     brand: 'MIEROOM — BLOG',
@@ -89,7 +105,7 @@ function coverSVG(p) {
     useLogo: false,
     hook: (p.hook || '').trim(),
     year: (date.slice(0, 4) || '') + '年版',
-    bgUri: bgDataUri(p.coverBg),
+    bgUri: bgDataUri(p),
   });
 }
 
