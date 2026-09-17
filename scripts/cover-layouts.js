@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const { escXml, wrapTitle, textWidth } = require('./cover-lib');
+const { artworkSVG } = require('./cover-art');
 
 const JP = 'Zen Kaku Gothic New, Noto Sans JP, Yu Gothic, sans-serif';
 const MONO = 'IBM Plex Mono, Consolas, monospace';
@@ -376,6 +377,22 @@ function topRight(o) {
   return txt(W - 72, 82, label, { family: MONO, size: 15, weight: 700, fill: P.accent, ls: 3, anchor: 'end' });
 }
 
+/** 絵柄の上に重ねる文字（photo / art で共通）。絵は右側なので文字は左半分に収める */
+function onArtwork(o) {
+  const { W, H, P, tags } = o;
+  const lines = wrapTitle(o.title, 10, 4);
+  const size = lines.length >= 4 ? 43 : lines.length === 3 ? 48 : 54;
+  const blockH = lines.length * size * 1.44;
+  const topY = (H - blockH) / 2 + 6;
+  const t = title(72, topY, lines, size, P, { markMax: 450, lh: 1.44 });
+  return `${rect(0, 0, W, H, { fill: o.scrim || 'url(#scrim)' })}
+  ${brandMark(70, 50, P, o)}
+  ${txt(72, 124, o.label, { family: MONO, size: 15, weight: 700, fill: P.accent, ls: 3 })}
+  ${t.svg}
+  ${o.hook ? hookLine(72, t.bottomY + 54, o.hook, P) : pillRow(72, Math.min(t.bottomY + 38, H - 142), tags.slice(0, 2), P, { maxW: 470 })}
+  ${txt(72, H - 44, o.date + '   ' + o.domain, { family: MONO, size: 15, weight: 500, fill: P.ink3, ls: 3 })}`;
+}
+
 /* ───────── レイアウト ───────── */
 
 const LAYOUTS = {
@@ -484,26 +501,23 @@ const LAYOUTS = {
   },
 
   /** 背景写真の上に見出しを重ねる（従来の形） */
+  /** 用意した背景画像の上に見出しを重ねる */
   photo(o) {
-    const { W, H, P, bgUri, tags } = o;
-    // 絵柄は右側にあるので、文字はすべて左半分に収める
-    const lines = wrapTitle(o.title, 10, 4);
-    const size = lines.length >= 4 ? 43 : lines.length === 3 ? 48 : 54;
-    const blockH = lines.length * size * 1.44;
-    const topY = (H - blockH) / 2 + 6;
-    const t = title(72, topY, lines, size, P, { markMax: 450, lh: 1.44 });
+    const { W, H, P, bgUri } = o;
     return `${rect(0, 0, W, H, { fill: P.paper })}
   <image href="${bgUri}" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice"/>
-  ${rect(0, 0, W, H, { fill: 'url(#scrim)' })}
-  ${brandMark(70, 50, P, o)}
-  ${txt(72, 124, o.label, { family: MONO, size: 15, weight: 700, fill: P.accent, ls: 3 })}
-  ${t.svg}
-  ${o.hook ? hookLine(72, t.bottomY + 54, o.hook, P) : pillRow(72, Math.min(t.bottomY + 38, H - 142), tags.slice(0, 2), P, { maxW: 470 })}
-  ${txt(72, H - 44, o.date + '   ' + o.domain, { family: MONO, size: 15, weight: 500, fill: P.ink3, ls: 3 })}`;
+  ${onArtwork(o)}`;
+  },
+
+  /** 背景の絵柄をその場で描いて、その上に見出しを重ねる（画像ファイル不要） */
+  art(o) {
+    const { W, H, P } = o;
+    return `${artworkSVG(W, H, P, { seed: o.seed || o.title, motif: o.motif })}
+  ${onArtwork(Object.assign({}, o, { scrim: 'url(#artscrim)' }))}`;
   },
 };
 
-const ORDER = ['hero', 'band', 'panel', 'stage', 'focus', 'photo'];
+const ORDER = ['hero', 'band', 'art', 'panel', 'stage', 'focus'];
 
 /** 日付から使うレイアウトを決める。1日ずれれば必ず別のレイアウトになる */
 function pickLayout(date, offset = 0) {
@@ -522,6 +536,11 @@ function defs(P) {
     <linearGradient id="band" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="${P.accent}"/>
       <stop offset="1" stop-color="${P.accentDeep || P.accent}"/>
+    </linearGradient>
+    <linearGradient id="artscrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="${P.paper}" stop-opacity="0.96"/>
+      <stop offset="0.4" stop-color="${P.paper}" stop-opacity="0.92"/>
+      <stop offset="0.58" stop-color="${P.paper}" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="${P.paper}" stop-opacity="0.98"/>
@@ -550,7 +569,7 @@ function buildCover(opt) {
   o.P = o.palette;
   let name = o.variant;
   if (!LAYOUTS[name]) name = 'hero';
-  if (name === 'photo' && !o.bgUri) name = 'hero';
+  if (name === 'photo' && !o.bgUri) name = 'art';
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${o.W}" height="${o.H}">
   ${defs(o.P)}
   ${LAYOUTS[name](o)}

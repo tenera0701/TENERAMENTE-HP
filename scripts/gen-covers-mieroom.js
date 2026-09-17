@@ -52,6 +52,11 @@ const SCENES = {
   '売上管理': 'dash', '業務効率化': 'dash', '集客・広告': 'map',
   '組織・育成': 'site', 'DX': 'chat',
 };
+// 自動生成する背景の絵柄（cover-art.js の型）
+const MOTIFS = {
+  '売上管理': 'grid', '業務効率化': 'flow', '集客・広告': 'radial',
+  '組織・育成': 'stack', 'DX': 'wave',
+};
 // 記事ごとにレイアウトを固定したいときだけ指定する
 const VARIANT_BY_SLUG = {};
 
@@ -102,6 +107,8 @@ function coverSVG(p) {
     tags: Array.isArray(p.tags) ? p.tags : [],
     scene: SCENES[p.category] || 'dash',
     tag: p.category || '',
+    motif: MOTIFS[p.category] || 'flow',
+    seed: p.slug,
     useLogo: false,
     hook: (p.hook || '').trim(),
     year: (date.slice(0, 4) || '') + '年版',

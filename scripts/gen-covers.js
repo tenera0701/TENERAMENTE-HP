@@ -47,6 +47,8 @@ const QUERIES = {
 const SCENES = { meo: 'map', aio: 'chat', ai: 'chat', app: 'dash', hp: 'site' };
 // 小さなカードに乗せる短いラベル。カテゴリ名そのものを使い、効果の断定はしない
 const TAGS = { meo: 'マップ集客', aio: 'AI検索', ai: 'AI活用', app: '業務アプリ', hp: 'サイト制作' };
+// 自動生成する背景の絵柄（cover-art.js の型）
+const MOTIFS = { meo: 'radial', aio: 'grid', ai: 'wave', app: 'flow', hp: 'stack' };
 
 // 記事ごとにレイアウトを固定したいときだけ指定する（未指定は日付で自動）
 const VARIANT_BY_SLUG = {};
@@ -119,6 +121,8 @@ function coverSVG(post) {
     tags: Array.isArray(post.tags) ? post.tags : [],
     scene: SCENES[post.category] || 'dash',
     tag: TAGS[post.category] || '',
+    motif: MOTIFS[post.category] || 'flow',
+    seed: post.slug,
     year: (date.slice(0, 4) || '') + '年版',
     bgUri: bgDataUri(post),
   });
