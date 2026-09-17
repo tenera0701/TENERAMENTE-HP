@@ -406,7 +406,9 @@
         "2026-09-09-homepage-renewal-timing",
         "2026-09-08-meo-taisaku-jibun-de-yarikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-18-kensaku-juni-agaranai-genin",
+      "doneAt": "2026-09-17"
     },
     {
       "id": "k015",

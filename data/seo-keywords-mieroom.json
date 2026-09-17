@@ -411,7 +411,9 @@
         "staff-seiseki-kanri",
         "hankyo-kanri-hoho"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "raiten-hearing-koumoku",
+      "doneAt": "2026-09-17"
     },
     {
       "id": "m027",
