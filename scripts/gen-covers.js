@@ -24,11 +24,15 @@ const { buildCover, pickLayout, ORDER } = require('./cover-layouts');
 const W = 1200, H = 630;
 
 const PALETTE = {
-  paper: '#F4F2ED',
+  paper: '#F7F6F2',
   ink: '#121317',
   ink3: '#7E818B',
   accent: '#2340F5',
   accentSoft: '#E3E8FD',
+  accentDeep: '#1327B5',
+  tint: '#E9EDFD',
+  mapBg: '#EEF1F8',
+  shadow: '#101A4A',
   line: '#121317',
 };
 
@@ -39,6 +43,10 @@ const QUERIES = {
   meo: '名古屋 カフェ', aio: 'AI検索 対策', ai: '社内 AI 活用',
   app: '業務アプリ 開発', hp: 'ホームページ 制作',
 };
+// 右側に描く画面の中身（地図 / チャット / 表 / サイト）
+const SCENES = { meo: 'map', aio: 'chat', ai: 'chat', app: 'dash', hp: 'site' };
+// 小さなカードに乗せる短いラベル。カテゴリ名そのものを使い、効果の断定はしない
+const TAGS = { meo: 'マップ集客', aio: 'AI検索', ai: 'AI活用', app: '業務アプリ', hp: 'サイト制作' };
 
 // 記事ごとにレイアウトを固定したいときだけ指定する（未指定は日付で自動）
 const VARIANT_BY_SLUG = {};
@@ -84,7 +92,8 @@ function coverSVG(post) {
     glyphWord: GLYPHS[post.category] || 'T',
     query: QUERIES[post.category] || '名古屋 AI 開発',
     tags: Array.isArray(post.tags) ? post.tags : [],
-    thumb: post.category === 'meo' ? 'pin' : 'doc',
+    scene: SCENES[post.category] || 'dash',
+    tag: TAGS[post.category] || '',
     year: (date.slice(0, 4) || '') + '年版',
     bgUri: bgDataUri(post),
   });

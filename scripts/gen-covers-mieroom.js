@@ -22,11 +22,15 @@ const { buildCover, pickLayout } = require('./cover-layouts');
 const W = 1200, H = 675;
 
 const PALETTE = {
-  paper: '#F6FAF8',
+  paper: '#F4FAF7',
   ink: '#12302B',
   ink3: '#6F847B',
   accent: '#0F8C74',
   accentSoft: '#DCEFE8',
+  accentDeep: '#0A6B58',
+  tint: '#DDF0E9',
+  mapBg: '#E8F2EE',
+  shadow: '#0A3B2E',
   line: '#12302B',
 };
 
@@ -43,6 +47,11 @@ const QUERIES = {
 
 // TENERAMENTE 側と同じ日に同じ構図にならないよう、選ぶ位置をずらす
 const LAYOUT_OFFSET = 2;
+// 右側に描く画面の中身と、小さなカードに乗せる短いラベル
+const SCENES = {
+  '売上管理': 'dash', '業務効率化': 'dash', '集客・広告': 'map',
+  '組織・育成': 'site', 'DX': 'chat',
+};
 // 記事ごとにレイアウトを固定したいときだけ指定する
 const VARIANT_BY_SLUG = {};
 
@@ -75,7 +84,9 @@ function coverSVG(p) {
     glyphWord: label,
     query: QUERIES[p.category] || '賃貸仲介 管理',
     tags: Array.isArray(p.tags) ? p.tags : [],
-    thumb: p.category === '集客・広告' ? 'pin' : 'doc',
+    scene: SCENES[p.category] || 'dash',
+    tag: p.category || '',
+    useLogo: false,
     hook: (p.hook || '').trim(),
     year: (date.slice(0, 4) || '') + '年版',
     bgUri: bgDataUri(p.coverBg),
