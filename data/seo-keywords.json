@@ -424,9 +424,11 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "Googleマップの順位が急に下がった原因と確認手順",
-      "coverImage": "assets/img/cover-queue/k015.png"
+      "coverImage": "assets/img/cover-queue/k015.png",
+      "slug": "2026-09-19-google-map-juni-sagatta",
+      "doneAt": "2026-09-18"
     },
     {
       "id": "k063",

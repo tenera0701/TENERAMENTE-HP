@@ -430,9 +430,11 @@
         "moushikomi-kanrihyo-tsukurikata",
         "chintai-keiyakusho-jusetsu-jitan"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "申込書の不備を減らす方法｜差し戻しが起きる箇所と、その場で防ぐ手順",
-      "coverImage": "mieroom/assets/cover-queue/m027.png"
+      "coverImage": "mieroom/assets/cover-queue/m027.png",
+      "slug": "moushikomisho-fubi-herasu",
+      "doneAt": "2026-09-18"
     },
     {
       "id": "m028",
