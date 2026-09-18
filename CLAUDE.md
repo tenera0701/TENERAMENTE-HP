@@ -170,6 +170,11 @@ git push
 - **アクセス解析はまだ入っていない**（GA4 も Search Console 連携もリポジトリ内に無く、あるのは Meta ピクセルのみ）。したがって「よく読まれている記事」は実データではなく編集部の選定。GA4 を入れたら、この選定を実績ベースに置き換える。
 
 ### カバー画像（記事のトップ画像）
+- **最優先は、ChatGPT で作ったタイトル入りの画像（在庫）。** キューの項目に `coverTitle` があれば、手元の定期タスクが ChatGPT で作った画像が `assets/img/cover-queue/<キューID>.png`（ミエルームは `mieroom/assets/cover-queue/<キューID>.png`）に置いてある。
+  - **記事のタイトルは coverTitle と一字一句同じにする**（画像はそのタイトルを ChatGPT に渡して作ってあり、見出しにも描かれているため。変えると画像と食い違う）
+  - `node scripts/seo-queue.js done <id> <slug>` がこの画像を `covers/<slug>.png` にコピーし、ビルドはそれを作り直さずにそのまま使う
+  - 在庫フォルダ（cover-queue）の中身はルーティンから触らない。作り方・ChatGPT への指示文は `assets/img/cover-queue/README.md`
+- 在庫が無い記事は、以下のとおりコードでカバーを作る（従来どおり）。
 - カバーは `scripts/gen-covers.js` が生成する。**記事のテーマに合わせた背景画像**を敷き、その上に見出しを重ねる形。
 - 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.{webp,jpg}`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）。ミエルーム側は同じ絵柄を webp と jpg の両方で置く（ページ表示は webp、カバー生成は jpg。resvg が webp を読めないため）
 - 記事ごとに割り当てたいときは `gen-covers.js` の `BG_BY_SLUG` に slug を足す。無ければ `BG_BY_CATEGORY` の絵柄が使われるので、新しい記事でも自動でカバーが付く

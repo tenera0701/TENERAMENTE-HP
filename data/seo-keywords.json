@@ -424,7 +424,9 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "Googleマップの順位が急に下がった原因と確認手順",
+      "coverImage": "assets/img/cover-queue/k015.png"
     },
     {
       "id": "k063",
@@ -441,7 +443,9 @@
         "2026-09-04-ai-tool-kaihatsu-irai-junbi",
         "2026-09-04-ai-gyomu-kaizen-susumekata"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "業務フロー図の書き方｜システム化の前に業務を整理する手順",
+      "coverImage": "assets/img/cover-queue/k063.png"
     },
     {
       "id": "k073",
@@ -457,7 +461,9 @@
       "related": [
         "2026-09-08-meo-taisaku-jibun-de-yarikata"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方",
+      "coverImage": "assets/img/cover-queue/k073.png"
     },
     {
       "id": "k017",

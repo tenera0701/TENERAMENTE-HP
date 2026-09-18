@@ -430,7 +430,9 @@
         "moushikomi-kanrihyo-tsukurikata",
         "chintai-keiyakusho-jusetsu-jitan"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "申込書の不備を減らす方法｜差し戻しが起きる箇所と、その場で防ぐ手順",
+      "coverImage": "mieroom/assets/cover-queue/m027.png"
     },
     {
       "id": "m028",
@@ -447,7 +449,9 @@
         "moushikomi-kanrihyo-tsukurikata",
         "go-ad-nyukin-kanrihyo"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "保証会社の審査の流れと店舗側の準備｜止まりやすい工程を先に潰す",
+      "coverImage": "mieroom/assets/cover-queue/m028.png"
     },
     {
       "id": "m019",
@@ -464,7 +468,9 @@
         "lead-response-speed",
         "media-roi"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "ポータルの反響メールを自動で取り込む仕組み｜転記ゼロで対応を速くする",
+      "coverImage": "mieroom/assets/cover-queue/m019.png"
     },
     {
       "id": "m029",
