@@ -445,9 +445,11 @@
         "2026-09-04-ai-tool-kaihatsu-irai-junbi",
         "2026-09-04-ai-gyomu-kaizen-susumekata"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "業務フロー図の書き方｜システム化の前に業務を整理する手順",
-      "coverImage": "assets/img/cover-queue/k063.png"
+      "coverImage": "assets/img/cover-queue/k063.png",
+      "slug": "2026-09-20-gyomu-flow-zu-kakikata",
+      "doneAt": "2026-09-19"
     },
     {
       "id": "k073",

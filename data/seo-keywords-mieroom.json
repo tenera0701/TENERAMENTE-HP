@@ -451,9 +451,11 @@
         "moushikomi-kanrihyo-tsukurikata",
         "go-ad-nyukin-kanrihyo"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "保証会社の審査の流れと店舗側の準備｜止まりやすい工程を先に潰す",
-      "coverImage": "mieroom/assets/cover-queue/m028.png"
+      "coverImage": "mieroom/assets/cover-queue/m028.png",
+      "slug": "hosho-gaisha-shinsa-nagare",
+      "doneAt": "2026-09-19"
     },
     {
       "id": "m019",
