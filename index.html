@@ -300,7 +300,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     var wrap = document.getElementById('home-posts');
     wrap.innerHTML = posts.map(function (p) {
       return '<a class="post-row" href="' + encodeURIComponent(p.slug) + '.html">' +
-        '<div class="thumb">' + (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" decoding="async">' : '') + '</div>' +
+        '<div class="thumb">' + (p.image ? '<img src="' + esc(p.imageCard || p.image) + '" alt="" width="640" height="336" loading="lazy" decoding="async">' : '') + '</div>' +
         '<div><div class="meta"><span>' + esc(p.dateLabel || p.date) + '</span><span>' + esc(catLabel[p.category] || p.categoryLabel || '') + '</span><span>' + esc(p.readMin) + ' min read</span></div>' +
         '<h3>' + esc(p.title) + '</h3><p>' + esc(p.excerpt) + '</p></div>' +
         '<span class="a">' + ARROW + '</span></a>';

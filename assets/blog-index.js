@@ -28,7 +28,7 @@
         </div>
         <div class="featured-visual">
           ${p.image
-            ? `<img src="${esc(p.image)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+            ? `<img src="${esc(p.imageHero || p.image)}" alt="" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
             : `<div class="glyph">${esc(p.glyph || 'A')}</div>`}
         </div>
       </article>`;
@@ -39,7 +39,7 @@
     return `
       <a class="article-card reveal" href="${encodeURIComponent(p.slug)}.html" data-cat="${esc(p.categoryGroup)}">
         <div class="visual${visualClass}">${p.image
-          ? `<img src="${esc(p.image)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+          ? `<img src="${esc(p.imageCard || p.image)}" alt="" width="640" height="336" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
           : `<div class="gl"><div class="gl-text">${esc(p.number)}</div></div>`}</div>
         <div class="meta-row">
           <span class="cat">${esc(p.categoryLabel)}</span>

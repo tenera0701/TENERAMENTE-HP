@@ -180,6 +180,7 @@ git push
 - 記事ごとに割り当てたいときは `gen-covers.js` の `BG_BY_SLUG` に slug を足す。無ければ `BG_BY_CATEGORY` の絵柄が使われるので、新しい記事でも自動でカバーが付く
 - ミエルームも TENERAMENTE と同じく**タイトル入りのカバーを自動生成**する（2026-09-06〜）。`scripts/gen-covers-mieroom.js` が `mieroom/assets/covers/<slug>.png`（1200×675）を作り、記事ヒーロー・`blog.html` のカード・OGP画像に使う。背景の絵柄は `scripts/build-mieroom.js` の `COVER_BY_SLUG` / `COVER_BY_CATEGORY` で決まり、その上に「MIEROOM — BLOG」ラベル・タイトル・META の `hook`・日付が乗る。作り直したいときは PNG を消して再ビルドする
 - 新しい背景を足すときは、既存と同じ配色・同じ作り（画面の右側に絵柄、左半分は余白、文字なし、横長）にそろえる
+- **表示用の WebP は自動で作られる**（2026-09-20〜）。`scripts/gen-webp.js` がカバーPNGから `<slug>.webp`（記事ヒーロー用・元の幅）と `<slug>-card.webp`（一覧カード用・幅640px）を作り、ビルドが一覧・トップ・記事ヒーローでそれを使う。**PNG は OGP 用に残す**（SNS が WebP を読めないことがあるため）。変換には Python(Pillow) か sharp のどちらかが要る。両方無い環境では変換をスキップし、既にある WebP をそのまま使う（新しい記事だけ PNG 表示になる）
 
 ### 図版（記事に1枚入れる）
 - 記事1本につき図版を1枚入れる。手順は次のとおり。

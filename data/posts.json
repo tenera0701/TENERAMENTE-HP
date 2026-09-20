@@ -62,7 +62,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.png"
+    "image": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.png",
+    "imageHero": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.webp",
+    "imageCard": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata-card.webp"
   },
   {
     "slug": "2026-09-19-google-map-juni-sagatta",
@@ -132,7 +134,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-09-19-google-map-juni-sagatta.png"
+    "image": "assets/img/covers/2026-09-19-google-map-juni-sagatta.png",
+    "imageHero": "assets/img/covers/2026-09-19-google-map-juni-sagatta.webp",
+    "imageCard": "assets/img/covers/2026-09-19-google-map-juni-sagatta-card.webp"
   },
   {
     "slug": "2026-09-18-kensaku-juni-agaranai-genin",
@@ -197,7 +201,9 @@
     ],
     "visual": "v-cyan",
     "number": "03",
-    "image": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin.png"
+    "image": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin.png",
+    "imageHero": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin.webp",
+    "imageCard": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin-card.webp"
   },
   {
     "slug": "2026-09-17-dx-towa-chusho-kigyo",
@@ -262,7 +268,9 @@
     ],
     "visual": "default",
     "number": "04",
-    "image": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.png"
+    "image": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.png",
+    "imageHero": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.webp",
+    "imageCard": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo-card.webp"
   },
   {
     "slug": "2026-09-16-hyoka-hikui-kuchikomi-taio",
@@ -327,7 +335,9 @@
     ],
     "visual": "v-violet",
     "number": "05",
-    "image": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.png"
+    "image": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.png",
+    "imageHero": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.webp",
+    "imageCard": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio-card.webp"
   },
   {
     "slug": "2026-09-15-seo-taisaku-jibun-de-yarikata",
@@ -391,7 +401,9 @@
     ],
     "visual": "v-cyan",
     "number": "06",
-    "image": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.png"
+    "image": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.png",
+    "imageHero": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.webp",
+    "imageCard": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata-card.webp"
   },
   {
     "slug": "2026-09-14-gyomu-koritsuka-tool-erabikata",
@@ -451,7 +463,9 @@
     ],
     "visual": "default",
     "number": "07",
-    "image": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.png"
+    "image": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.png",
+    "imageHero": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.webp",
+    "imageCard": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata-card.webp"
   },
   {
     "slug": "2026-09-13-chatgpt-kensaku-jisha-hyoji",
@@ -516,7 +530,9 @@
     ],
     "visual": "v-violet",
     "number": "08",
-    "image": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.png"
+    "image": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.png",
+    "imageHero": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.webp",
+    "imageCard": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji-card.webp"
   },
   {
     "slug": "2026-09-12-kuchikomi-henshin-reibun",
@@ -581,7 +597,9 @@
     ],
     "visual": "v-cyan",
     "number": "09",
-    "image": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png"
+    "image": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png",
+    "imageHero": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.webp",
+    "imageCard": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun-card.webp"
   },
   {
     "slug": "2026-09-11-yoyaku-kanri-system-jisha-senyo",
@@ -646,7 +664,9 @@
     ],
     "visual": "default",
     "number": "10",
-    "image": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png"
+    "image": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png",
+    "imageHero": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.webp",
+    "imageCard": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo-card.webp"
   },
   {
     "slug": "2026-09-10-gbp-toukou-neta",
@@ -710,7 +730,9 @@
     ],
     "visual": "v-violet",
     "number": "11",
-    "image": "assets/img/covers/2026-09-10-gbp-toukou-neta.png"
+    "image": "assets/img/covers/2026-09-10-gbp-toukou-neta.png",
+    "imageHero": "assets/img/covers/2026-09-10-gbp-toukou-neta.webp",
+    "imageCard": "assets/img/covers/2026-09-10-gbp-toukou-neta-card.webp"
   },
   {
     "slug": "2026-09-09-homepage-renewal-timing",
@@ -774,7 +796,9 @@
     ],
     "visual": "v-cyan",
     "number": "12",
-    "image": "assets/img/covers/2026-09-09-homepage-renewal-timing.png"
+    "image": "assets/img/covers/2026-09-09-homepage-renewal-timing.png",
+    "imageHero": "assets/img/covers/2026-09-09-homepage-renewal-timing.webp",
+    "imageCard": "assets/img/covers/2026-09-09-homepage-renewal-timing-card.webp"
   },
   {
     "slug": "2026-09-08-meo-taisaku-jibun-de-yarikata",
@@ -843,7 +867,9 @@
     ],
     "visual": "default",
     "number": "13",
-    "image": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png"
+    "image": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png",
+    "imageHero": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.webp",
+    "imageCard": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata-card.webp"
   },
   {
     "slug": "2026-09-07-gyomu-app-naisei-gaichu-handan",
@@ -908,7 +934,9 @@
     ],
     "visual": "v-violet",
     "number": "14",
-    "image": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png"
+    "image": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png",
+    "imageHero": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.webp",
+    "imageCard": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan-card.webp"
   },
   {
     "slug": "2026-09-06-seisei-ai-shanai-rule-template",
@@ -973,7 +1001,9 @@
     ],
     "visual": "v-cyan",
     "number": "15",
-    "image": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png"
+    "image": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png",
+    "imageHero": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.webp",
+    "imageCard": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template-card.webp"
   },
   {
     "slug": "2026-09-05-meo-hiyo-souba-uchiwake",
@@ -1033,7 +1063,9 @@
     ],
     "visual": "default",
     "number": "16",
-    "image": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.png"
+    "image": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.png",
+    "imageHero": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.webp",
+    "imageCard": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake-card.webp"
   },
   {
     "slug": "2026-09-04-ai-app-kaihatsu-hiyo-kikan",
@@ -1098,7 +1130,9 @@
     ],
     "visual": "v-violet",
     "number": "17",
-    "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png"
+    "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png",
+    "imageHero": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.webp",
+    "imageCard": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan-card.webp"
   },
   {
     "slug": "2026-09-04-ai-gyomu-kaizen-susumekata",
@@ -1158,7 +1192,9 @@
     ],
     "visual": "v-cyan",
     "number": "18",
-    "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png"
+    "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png",
+    "imageHero": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.webp",
+    "imageCard": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata-card.webp"
   },
   {
     "slug": "2026-09-04-ai-kaihatsu-kigyo-erabikata",
@@ -1218,7 +1254,9 @@
     ],
     "visual": "default",
     "number": "19",
-    "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png"
+    "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png",
+    "imageHero": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.webp",
+    "imageCard": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata-card.webp"
   },
   {
     "slug": "2026-09-04-ai-tool-kaihatsu-irai-junbi",
@@ -1278,7 +1316,9 @@
     ],
     "visual": "v-violet",
     "number": "20",
-    "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png"
+    "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png",
+    "imageHero": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.webp",
+    "imageCard": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi-card.webp"
   },
   {
     "slug": "2026-09-04-claude-code-app-kaihatsu-chigai",
@@ -1338,7 +1378,9 @@
     ],
     "visual": "v-cyan",
     "number": "21",
-    "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png"
+    "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png",
+    "imageHero": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.webp",
+    "imageCard": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai-card.webp"
   },
   {
     "slug": "2026-09-04-gyomu-kaizen-ai-tsukaikata",
@@ -1404,7 +1446,9 @@
     "pickup": 3,
     "visual": "default",
     "number": "22",
-    "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png"
+    "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png",
+    "imageHero": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.webp",
+    "imageCard": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata-card.webp"
   },
   {
     "slug": "2026-09-04-hojin-ai-kenshu-erabikata",
@@ -1469,7 +1513,9 @@
     ],
     "visual": "v-violet",
     "number": "23",
-    "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png"
+    "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png",
+    "imageHero": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.webp",
+    "imageCard": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata-card.webp"
   },
   {
     "slug": "2026-07-12-ai-gyomu-kaizen-app-kaihatsu",
@@ -1535,7 +1581,9 @@
     "pickup": 2,
     "visual": "v-cyan",
     "number": "24",
-    "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png"
+    "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png",
+    "imageHero": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.webp",
+    "imageCard": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu-card.webp"
   },
   {
     "slug": "2026-07-02-meo-taisaku-complete-guide",
@@ -1601,7 +1649,9 @@
     "pickup": 1,
     "visual": "default",
     "number": "25",
-    "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png"
+    "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png",
+    "imageHero": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.webp",
+    "imageCard": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide-card.webp"
   },
   {
     "slug": "2026-07-01-aio-cited-site",
@@ -1661,7 +1711,9 @@
     ],
     "visual": "v-violet",
     "number": "26",
-    "image": "assets/img/covers/2026-07-01-aio-cited-site.png"
+    "image": "assets/img/covers/2026-07-01-aio-cited-site.png",
+    "imageHero": "assets/img/covers/2026-07-01-aio-cited-site.webp",
+    "imageCard": "assets/img/covers/2026-07-01-aio-cited-site-card.webp"
   },
   {
     "slug": "2026-06-30-gyomu-app-kanzen-guide",
@@ -1726,7 +1778,9 @@
     ],
     "visual": "v-cyan",
     "number": "27",
-    "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png"
+    "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png",
+    "imageHero": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.webp",
+    "imageCard": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide-card.webp"
   },
   {
     "slug": "2026-06-28-gbp-monthly-checklist",
@@ -1786,7 +1840,9 @@
     ],
     "visual": "default",
     "number": "28",
-    "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png"
+    "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png",
+    "imageHero": "assets/img/covers/2026-06-28-gbp-monthly-checklist.webp",
+    "imageCard": "assets/img/covers/2026-06-28-gbp-monthly-checklist-card.webp"
   },
   {
     "slug": "2026-06-27-google-kuchikomi-fuyasu",
@@ -1850,7 +1906,9 @@
     ],
     "visual": "v-violet",
     "number": "29",
-    "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png"
+    "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png",
+    "imageHero": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.webp",
+    "imageCard": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu-card.webp"
   },
   {
     "slug": "2026-06-26-ai-first-step",
@@ -1905,7 +1963,9 @@
     ],
     "visual": "v-cyan",
     "number": "30",
-    "image": "assets/img/covers/2026-06-26-ai-first-step.png"
+    "image": "assets/img/covers/2026-06-26-ai-first-step.png",
+    "imageHero": "assets/img/covers/2026-06-26-ai-first-step.webp",
+    "imageCard": "assets/img/covers/2026-06-26-ai-first-step-card.webp"
   },
   {
     "slug": "2026-06-25-kozoka-data-json-ld-guide",
@@ -1970,7 +2030,9 @@
     ],
     "visual": "default",
     "number": "31",
-    "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png"
+    "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png",
+    "imageHero": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.webp",
+    "imageCard": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide-card.webp"
   },
   {
     "slug": "2026-06-23-ai-overviews-taisaku",
@@ -2035,7 +2097,9 @@
     ],
     "visual": "v-violet",
     "number": "32",
-    "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png"
+    "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png",
+    "imageHero": "assets/img/covers/2026-06-23-ai-overviews-taisaku.webp",
+    "imageCard": "assets/img/covers/2026-06-23-ai-overviews-taisaku-card.webp"
   },
   {
     "slug": "2026-06-20-chatgpt-gyomu-katsuyo",
@@ -2100,7 +2164,9 @@
     ],
     "visual": "v-cyan",
     "number": "33",
-    "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png"
+    "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png",
+    "imageHero": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.webp",
+    "imageCard": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo-card.webp"
   },
   {
     "slug": "2026-06-17-rag-shanai-knowledge",
@@ -2170,7 +2236,9 @@
     ],
     "visual": "default",
     "number": "34",
-    "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png"
+    "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png",
+    "imageHero": "assets/img/covers/2026-06-17-rag-shanai-knowledge.webp",
+    "imageCard": "assets/img/covers/2026-06-17-rag-shanai-knowledge-card.webp"
   },
   {
     "slug": "2026-06-14-ai-donyu-shippai-kaihi",
@@ -2235,7 +2303,9 @@
     ],
     "visual": "v-violet",
     "number": "35",
-    "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png"
+    "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png",
+    "imageHero": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.webp",
+    "imageCard": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi-card.webp"
   },
   {
     "slug": "2026-06-11-excel-kanri-genkai-systemka",
@@ -2315,7 +2385,9 @@
     ],
     "visual": "v-cyan",
     "number": "36",
-    "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png"
+    "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png",
+    "imageHero": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.webp",
+    "imageCard": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka-card.webp"
   },
   {
     "slug": "2026-06-08-webapp-kaihatsu-hiyo-souba",
@@ -2380,7 +2452,9 @@
     ],
     "visual": "default",
     "number": "37",
-    "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png"
+    "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png",
+    "imageHero": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.webp",
+    "imageCard": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba-card.webp"
   },
   {
     "slug": "2026-06-05-homepage-seisaku-hiyo-guide",
@@ -2445,6 +2519,8 @@
     ],
     "visual": "v-violet",
     "number": "38",
-    "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png"
+    "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png",
+    "imageHero": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.webp",
+    "imageCard": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide-card.webp"
   }
 ]

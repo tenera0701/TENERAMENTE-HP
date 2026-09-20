@@ -268,7 +268,7 @@ ${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
   </div>
 </section>
 <div class="post-cover">
-  ${p.cover ? `<div class="band band--img"><img src="../${p.cover}" alt="${esc(p.title)}" width="1200" height="675"></div>`
+  ${p.cover ? `<div class="band band--img"><img src="../${p.coverHero || p.cover}" alt="${esc(p.title)}" width="1200" height="675" decoding="async"></div>`
   : coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
   : `<div class="band" style="background:linear-gradient(${st.grad})">
     <span class="ring" style="width:220px;height:220px;top:-50px;right:60px"></span>
@@ -308,7 +308,7 @@ function cardHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
   const searchText = [p.title, ...(p.tags || [])].join(' ');
   return `      <a class="bpost" data-cat="${esc(p.category)}" data-text="${esc(searchText)}" href="articles/${encodeURIComponent(p.slug)}.html">
-        ${p.cover ? `<div class="bcover bcover--img"><img src="${p.cover}" alt="${esc(p.title)}" loading="lazy" width="1200" height="675"></div>`
+        ${p.cover ? `<div class="bcover bcover--img"><img src="${p.coverCard || p.cover}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="640" height="360"></div>`
         : coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
         : `<div class="bcover" style="background:linear-gradient(${st.grad})">
           <span class="ring" style="width:150px;height:150px;top:-30px;right:-30px"></span>
@@ -356,6 +356,14 @@ function main() {
   posts.forEach(p => { p.coverBg = coverName(p); });
   const withCover = covers.generate(posts, ROOT);
   posts.forEach(p => { p.cover = withCover.has(p.slug) ? `assets/covers/${p.slug}.png` : ''; });
+
+  // 表示用の軽い WebP（作れない環境では PNG のまま表示する）
+  const webp = require('./gen-webp').generate(path.join(ROOT, 'mieroom/assets/covers'));
+  posts.forEach(p => {
+    const ok = p.cover && webp.has(p.slug);
+    p.coverHero = ok ? `assets/covers/${p.slug}.webp` : '';
+    p.coverCard = ok ? `assets/covers/${p.slug}-card.webp` : '';
+  });
 
   // 記事ページ（ミルページ由来のものだけを作り直す。手書きの既存記事には触らない）
   fs.mkdirSync(ARTICLES_DIR, { recursive: true });

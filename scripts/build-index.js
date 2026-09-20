@@ -148,6 +148,18 @@ function main() {
     console.warn('△ カバー画像の生成に失敗:', e.message);
   }
 
+  // 表示用の軽い WebP（一覧カード用・Featured用）。作れない環境では PNG のまま表示する
+  try {
+    const webp = require('./gen-webp').generate(path.join(ROOT, 'assets/img/covers'));
+    posts.forEach(p => {
+      if (!p.image || !webp.has(p.slug)) return;
+      p.imageHero = `assets/img/covers/${p.slug}.webp`;
+      p.imageCard = `assets/img/covers/${p.slug}-card.webp`;
+    });
+  } catch (e) {
+    console.warn('△ WebP の生成に失敗:', e.message);
+  }
+
   // 書き出し
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.writeFileSync(OUT_JSON, JSON.stringify(posts, null, 2) + '\n', 'utf8');
