@@ -32,7 +32,7 @@ META-->
 
 反響の入口は、大きくメールとフォームの2つに分かれます。仕組みとしては別物なので、分けて設計します。
 
-<figure class="fig"><img src="../assets/figures/hankyo-mail-jido-torikomi.png" alt="反響の受信・媒体の判別・項目の抽出・一覧への登録・担当の割り振り・初動と次の期日の記録という反響自動取込の流れ" width="1600" height="582" loading="lazy" decoding="async"><figcaption>自動で進むのは登録までです。割り振りから先は、人の仕事として残ります。</figcaption></figure>
+<figure class="fig"><img src="../assets/figures/hankyo-mail-jido-torikomi.png" alt="反響を受け取る・媒体を判別する・項目を抽出する・一覧に登録する・担当を割り振る・初動を記録するという反響自動取込の流れ" width="1600" height="582" loading="lazy" decoding="async"><figcaption>自動で進むのは登録までです。割り振りから先は、人の仕事として残ります。</figcaption></figure>
 
 **メール経由**は、ポータルサイトから届く反響通知メールを受け取り、本文から必要な項目を読み取って一覧に登録する方式です。専用の受信アドレスを用意し、各ポータルの通知先をそこへ向けます。個人のアドレスに届けたままにせず、店舗として受ける窓口を1つ作るのが前提になります。
 
