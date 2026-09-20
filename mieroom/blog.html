@@ -478,6 +478,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </a>
 
     </div>
+    <nav class="pager" id="pager" aria-label="記事一覧のページ送り"></nav>
     <div class="noresult" id="noresult">該当する記事が見つかりませんでした。別のキーワードでお試しください。</div>
   </div>
 </section>
@@ -564,9 +565,28 @@ var chips=document.querySelectorAll('.cchip');
 var posts=document.querySelectorAll('.bpost');
 var noresult=document.getElementById('noresult');
 var curCat='all';
-function apply(){
+var PER_PAGE=12, curPage=1, pager=document.getElementById('pager');
+
+function renderPager(totalPages){
+  if(!pager) return;
+  pager.innerHTML='';
+  if(totalPages<=1) return;
+  var mk=function(label,page,opt){
+    var b=document.createElement('button');
+    b.type='button'; b.textContent=label;
+    if(opt&&opt.current) b.setAttribute('aria-current','page');
+    if(opt&&opt.disabled) b.disabled=true;
+    else b.addEventListener('click',function(){ curPage=page; apply(true); });
+    return b;
+  };
+  pager.appendChild(mk('前へ',curPage-1,{disabled:curPage===1}));
+  for(var i=1;i<=totalPages;i++) pager.appendChild(mk(String(i),i,{current:i===curPage}));
+  pager.appendChild(mk('次へ',curPage+1,{disabled:curPage===totalPages}));
+}
+
+function apply(scroll){
   var term=(q.value||'').trim().toLowerCase();
-  var shown=0;
+  var matched=[];
   posts.forEach(function(p){
     var okCat = curCat==='all' || p.dataset.cat===curCat;
     var okTerm = !term || (p.dataset.text+' '+p.textContent).toLowerCase().indexOf(term)>=0;
@@ -574,17 +594,39 @@ function apply(){
     p.classList.toggle('hide',!show);
     // featured layout only when unfiltered
     if(p.classList.contains('feat')) p.classList.toggle('feat-off', !(curCat==='all'&&!term));
-    if(show) shown++;
+    if(show) matched.push(p);
   });
-  noresult.classList.toggle('show',shown===0);
+
+  var totalPages=Math.max(1,Math.ceil(matched.length/PER_PAGE));
+  if(curPage>totalPages) curPage=totalPages;
+  var start=(curPage-1)*PER_PAGE;
+  matched.forEach(function(p,i){ p.classList.toggle('page-off', i<start || i>=start+PER_PAGE); });
+
+  noresult.classList.toggle('show',matched.length===0);
+  renderPager(totalPages);
+  if(scroll){
+    var grid=document.querySelector('.blog-grid');
+    if(grid) window.scrollTo({top:grid.offsetTop-80,behavior:'smooth'});
+  }
 }
-q.addEventListener('input',apply);
+
+q.addEventListener('input',function(){ curPage=1; apply(false); });
 chips.forEach(function(c){c.addEventListener('click',function(){
   chips.forEach(function(x){x.classList.remove('on')});
-  c.classList.add('on');curCat=c.dataset.cat;apply();
+  c.classList.add('on');curCat=c.dataset.cat;curPage=1;apply(false);
 });});
+apply(false);
 </script>
 <style>
+/* ページ送り */
+.bpost.page-off{display:none}
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-top:44px}
+.pager button{min-width:44px;height:44px;padding:0 14px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:13.5px;color:var(--ink-2);background:#fff;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;transition:all .2s ease}
+.pager button:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.pager button[aria-current="page"]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 10px 22px -10px rgba(20,160,133,.6)}
+.pager button:disabled{opacity:.35;cursor:default}
+@media(max-width:560px){.pager{gap:6px}.pager button{min-width:40px;height:40px;padding:0 10px;font-size:12.5px}}
+
 /* when filtering, featured card becomes normal sized */
 .bpost.feat.feat-off{grid-column:auto;flex-direction:column}
 .bpost.feat.feat-off .bcover{width:100%;min-height:150px;height:150px}
@@ -595,5 +637,6 @@ chips.forEach(function(c){c.addEventListener('click',function(){
 .bpost.feat.feat-off p{-webkit-line-clamp:3;font-size:13px}
 </style>
 <script src="../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
 </body>
 </html>

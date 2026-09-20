@@ -75,35 +75,103 @@
   featHost.innerHTML = featuredHTML(featured);
   grid.innerHTML = others.map(cardHTML).join('');
 
-  // Filter
+  // 一覧は 12件ずつのページ送り。カードは DOM に残したまま CSS で出し入れする
+  const PER_PAGE = 12;
+  const pagerHost = document.querySelector('[data-pager]');
+  const fHost = document.querySelector('[data-featured-host]');
   const featuredEl = document.querySelector('.featured-card');
-  const cards = grid.querySelectorAll('.article-card');
+  const cards = Array.prototype.slice.call(grid.querySelectorAll('.article-card'));
+  let curFilter = 'all';
+  let curPage = 1;
 
-  function applyFilter(f) {
-    let visible = 0;
+  function pagerButton(label, page, opts) {
+    const o = opts || {};
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = label;
+    if (o.current) b.setAttribute('aria-current', 'page');
+    if (o.disabled) b.disabled = true;
+    else b.addEventListener('click', () => { go(page); });
+    return b;
+  }
+
+  function renderPager(totalPages) {
+    if (!pagerHost) return;
+    pagerHost.innerHTML = '';
+    if (totalPages <= 1) return;
+    pagerHost.appendChild(pagerButton('前へ', curPage - 1, { disabled: curPage === 1 }));
+    for (let i = 1; i <= totalPages; i++) {
+      pagerHost.appendChild(pagerButton(String(i).padStart(2, '0'), i, { current: i === curPage }));
+    }
+    pagerHost.appendChild(pagerButton('次へ', curPage + 1, { disabled: curPage === totalPages }));
+  }
+
+  function syncUrl() {
+    const q = [];
+    if (curFilter !== 'all') q.push('cat=' + encodeURIComponent(curFilter));
+    if (curPage > 1) q.push('p=' + curPage);
+    const url = location.pathname + (q.length ? '?' + q.join('&') : '');
+    history.replaceState(null, '', url);
+  }
+
+  function apply(scroll) {
+    const matched = [];
     cards.forEach(c => {
-      const match = f === 'all' || c.getAttribute('data-cat') === f;
+      const match = curFilter === 'all' || c.getAttribute('data-cat') === curFilter;
       c.classList.toggle('hidden', !match);
-      if (match) visible++;
+      if (match) matched.push(c);
     });
-    const fHost = document.querySelector('[data-featured-host]');
+
+    const totalPages = Math.max(1, Math.ceil(matched.length / PER_PAGE));
+    if (curPage > totalPages) curPage = totalPages;
+    const start = (curPage - 1) * PER_PAGE;
+    matched.forEach((c, i) => {
+      c.classList.toggle('page-off', i < start || i >= start + PER_PAGE);
+    });
+
+    // 大きく出す Featured は「すべて・1ページ目」のときだけ
+    let visible = matched.length;
     if (featuredEl && fHost) {
-      const fMatch = f === 'all' || featuredEl.getAttribute('data-cat') === f;
-      fHost.style.display = fMatch ? '' : 'none';
+      const fMatch = curFilter === 'all' || featuredEl.getAttribute('data-cat') === curFilter;
+      fHost.style.display = (fMatch && curPage === 1) ? '' : 'none';
       if (fMatch) visible++;
     }
+
     if (countEl) countEl.textContent = String(visible).padStart(2, '0') + ' articles';
+    renderPager(totalPages);
+    syncUrl();
+    if (scroll) {
+      const top = document.querySelector('.articles');
+      if (top) window.scrollTo({ top: top.offsetTop - 80, behavior: 'smooth' });
+    }
+  }
+
+  function go(page) {
+    curPage = Math.max(1, page);
+    apply(true);
   }
 
   tabs.forEach(t => {
     t.addEventListener('click', () => {
       tabs.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
-      applyFilter(t.getAttribute('data-filter'));
+      curFilter = t.getAttribute('data-filter');
+      curPage = 1;
+      apply(false);
     });
   });
 
-  applyFilter('all');
+  // URL（?cat=meo&p=2）から初期状態を復元する
+  const params = new URLSearchParams(location.search);
+  const cat = params.get('cat');
+  if (cat) {
+    const hit = Array.prototype.slice.call(tabs).find(t => t.getAttribute('data-filter') === cat);
+    if (hit) { tabs.forEach(x => x.classList.remove('active')); hit.classList.add('active'); curFilter = cat; }
+  }
+  const p = parseInt(params.get('p'), 10);
+  if (p > 1) curPage = p;
+
+  apply(false);
 
   // shared.js の reveal IntersectionObserver はロード時に一度しか走らないので、
   // 動的に追加した要素は手動で `.in` を付けて表示する。

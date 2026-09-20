@@ -293,6 +293,7 @@ ${tags ? `\n  <div class="post-tags">${tags}</div>` : ''}
 <div data-chrome="footer"></div>
 <script src="../assets/site.js"></script>
 <script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
 </body>
 </html>
 `;

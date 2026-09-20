@@ -122,4 +122,13 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
     window.addEventListener('resize', () => { if (window.innerWidth > 1024) setMenu(false); }, { passive: true });
   }
+
+  /* 計測タグ（ID は assets/analytics.js の先頭にまとめてある） */
+  if (!document.querySelector('script[data-analytics]')) {
+    const a = document.createElement('script');
+    a.src = '/assets/analytics.js';
+    a.defer = true;
+    a.setAttribute('data-analytics', '');
+    document.head.appendChild(a);
+  }
 })();
