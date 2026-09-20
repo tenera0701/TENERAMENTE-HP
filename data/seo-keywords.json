@@ -465,9 +465,11 @@
       "related": [
         "2026-09-08-meo-taisaku-jibun-de-yarikata"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方",
-      "coverImage": "assets/img/cover-queue/k073.png"
+      "coverImage": "assets/img/cover-queue/k073.png",
+      "slug": "2026-09-21-seo-keyword-sentei-yarikata",
+      "doneAt": "2026-09-20"
     },
     {
       "id": "k017",
