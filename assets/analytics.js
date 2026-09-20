@@ -9,14 +9,14 @@
  *   CLARITY_ID … Microsoft Clarity の「プロジェクトID」。10文字前後の英数字
  *                取得先: clarity.microsoft.com → Settings → Setup → プロジェクトID
  *
- * Google Search Console は JavaScript では認証できないため、
- * 確認コード（HTMLタグ）を index.html の <head> に貼る必要があります。
+ * Google Search Console は 2026-09-20 時点で設定済み（ドメインプロパティ
+ * sc-domain:teneramente.jp。sitemap.xml も送信済み）。ここでは何もしない。
  * ------------------------------------------------------------------
  */
 (function () {
   'use strict';
 
-  var GA4_ID = '';
+  var GA4_ID = 'G-7GB2364PBY';   // TENERAMENTE HP（GA4プロパティ: teneramente.jp）
   var CLARITY_ID = '';
 
   // ローカル確認（localhost / 127.0.0.1 / file://）では計測しない
