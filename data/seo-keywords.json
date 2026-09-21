@@ -485,9 +485,11 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "MEO対策の効果が出るまでの期間と、途中でやめないための見方",
-      "coverImage": "assets/img/cover-queue/k017.png"
+      "coverImage": "assets/img/cover-queue/k017.png",
+      "slug": "2026-09-22-meo-kouka-kikan",
+      "doneAt": "2026-09-21"
     },
     {
       "id": "k064",

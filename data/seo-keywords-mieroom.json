@@ -492,9 +492,11 @@
       "related": [
         "gyoshakan-site-bukken-kensaku"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "鍵の管理方法｜貸出の記録と、紛失・返却漏れを防ぐ運用",
-      "coverImage": "mieroom/assets/cover-queue/m029.png"
+      "coverImage": "mieroom/assets/cover-queue/m029.png",
+      "slug": "kagi-kanri-hoho",
+      "doneAt": "2026-09-21"
     },
     {
       "id": "m030",
