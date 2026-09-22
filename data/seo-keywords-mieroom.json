@@ -513,7 +513,9 @@
         "media-roi",
         "hankyo-kanri-hoho"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "bukken-shokaibun-kakikata",
+      "doneAt": "2026-09-22"
     },
     {
       "id": "m031",
