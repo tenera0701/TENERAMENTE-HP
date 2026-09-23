@@ -465,9 +465,11 @@
       "related": [
         "2026-09-08-meo-taisaku-jibun-de-yarikata"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方",
-      "coverImage": "assets/img/cover-queue/k073.png"
+      "coverImage": "assets/img/cover-queue/k073.png",
+      "slug": "2026-09-21-seo-keyword-sentei-yarikata",
+      "doneAt": "2026-09-20"
     },
     {
       "id": "k017",
@@ -483,9 +485,11 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "MEO対策の効果が出るまでの期間と、途中でやめないための見方",
-      "coverImage": "assets/img/cover-queue/k017.png"
+      "coverImage": "assets/img/cover-queue/k017.png",
+      "slug": "2026-09-22-meo-kouka-kikan",
+      "doneAt": "2026-09-21"
     },
     {
       "id": "k064",
@@ -502,7 +506,9 @@
         "2026-09-04-ai-gyomu-kaizen-susumekata",
         "2026-09-06-seisei-ai-shanai-rule-template"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-23-gyomu-manual-tsukurikata",
+      "doneAt": "2026-09-22"
     },
     {
       "id": "k074",
