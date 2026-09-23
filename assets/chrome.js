@@ -123,7 +123,7 @@
     window.addEventListener('resize', () => { if (window.innerWidth > 1024) setMenu(false); }, { passive: true });
   }
 
-  /* 計測タグ（ID は assets/analytics.js の先頭にまとめてある） */
+  /* 社内端末の計測除外（?noanalytics=1）。GA4・Clarity の読み込みはミルページが行う（assets/analytics.js 参照） */
   if (!document.querySelector('script[data-analytics]')) {
     const a = document.createElement('script');
     a.src = '/assets/analytics.js';

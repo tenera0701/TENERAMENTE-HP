@@ -167,7 +167,7 @@ git push
 ### トップページに出す「おすすめ記事」
 - TENERAMENTE のトップ（index.html）のブログ3件は、`scripts/build-index.js` の `HOME_PICKUP` に並べた slug の順で表示される。ここを空にすると従来どおり最新3件になる。
 - ミエルームのトップ（mieroom/index.html）のブログ3件は、HTML に直接書いてある（`a.btcard` が3つ）。画像は `assets/cover-bg/<name>.webp` を使う。
-- **アクセス解析はまだ入っていない**（GA4 も Search Console 連携もリポジトリ内に無く、あるのは Meta ピクセルのみ）。したがって「よく読まれている記事」は実データではなく編集部の選定。GA4 を入れたら、この選定を実績ベースに置き換える。
+- **アクセス解析**（2026-09-23 時点）: GA4（G-7GB2364PBY）と Clarity（xyhqpguofs）は**ミルページ**が読み込む（ID はミルページの管理画面で設定。Cookie バナーで「同意する」を押した訪問者だけ計測）。Search Console は sc-domain:teneramente.jp で設定済み。**assets/analytics.js で計測タグを読み込まないこと**（同意前にも計測してしまい、同意した人は二重に数えられる）。「よく読まれている記事」はまだ編集部の選定。GA4 にデータが溜まったら実績ベースに置き換える。
 
 ### カバー画像（記事のトップ画像）
 - **最優先は、ChatGPT で作ったタイトル入りの画像（在庫）。** キューの項目に `coverTitle` があれば、手元の定期タスクが ChatGPT で作った画像が `assets/img/cover-queue/<キューID>.png`（ミエルームは `mieroom/assets/cover-queue/<キューID>.png`）に置いてある。

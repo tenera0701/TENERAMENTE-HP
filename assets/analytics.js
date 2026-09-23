@@ -1,53 +1,31 @@
 /**
- * 計測タグの一元管理
+ * 計測（アクセス解析）について
  * ------------------------------------------------------------------
- * ここに ID を入れると、TENERAMENTE と ミエルーム の全ページで計測が始まります。
- * 空のままなら、そのツールは一切読み込まれません（表示速度に影響しません）。
+ * GA4 と Clarity（ヒートマップ）は、ミルページが読み込む
+ * （assets/milpage.js → ミルページの embed/site.js）。ID はミルページの管理画面で設定する。
+ *   GA4 の測定ID          … G-7GB2364PBY（プロパティ: teneramente.jp）
+ *   Clarity のプロジェクトID … xyhqpguofs
+ * 訪問者が Cookie バナーで「同意する」を押したときだけ計測が始まる
+ * （ミルページの設定「同意を得るまで計測しない」がオン）。
  *
- *   GA4_ID     … Google アナリティクス4 の「測定ID」。G- で始まる文字列
- *                取得先: analytics.google.com → 管理 → データストリーム → ウェブ
- *   CLARITY_ID … Microsoft Clarity の「プロジェクトID」。10文字前後の英数字
- *                取得先: clarity.microsoft.com → Settings → Setup → プロジェクトID
+ * ⚠ このファイルで GA4 や Clarity を読み込まないこと。
+ *   同意の前や「拒否」の後にも計測してしまい、同意した人は二重に数えられる
+ *   （2026-09-20〜23 に実際にそうなっていた）。
  *
- * Google Search Console は 2026-09-20 時点で設定済み（ドメインプロパティ
- * sc-domain:teneramente.jp。sitemap.xml も送信済み）。ここでは何もしない。
+ * このファイルに残している機能は「社内の端末を計測から外す」だけ:
+ *   一度 ?noanalytics=1 を付けて開くと、その端末は以後計測されない
+ *   （ミルページの同意状態を「拒否」にしておく）。
+ *
+ * Google Search Console はドメインプロパティ sc-domain:teneramente.jp で設定済み。
  * ------------------------------------------------------------------
  */
 (function () {
   'use strict';
-
-  var GA4_ID = 'G-7GB2364PBY';   // TENERAMENTE HP（GA4プロパティ: teneramente.jp）
-  var CLARITY_ID = '';
-
-  // ローカル確認（localhost / 127.0.0.1 / file://）では計測しない
-  var host = location.hostname;
-  if (!host || host === 'localhost' || host === '127.0.0.1' || location.protocol === 'file:') return;
-
-  // 社内アクセスを外したいとき: 一度 ?noanalytics=1 付きで開くと、その端末は以後除外される
+  var STORE = (window.MILPAGE && window.MILPAGE.storeId) || '4e9ded06944b4fdbab4fc27f1bb36c41';
   try {
-    if (location.search.indexOf('noanalytics=1') >= 0) localStorage.setItem('tnr-no-analytics', '1');
-    if (localStorage.getItem('tnr-no-analytics') === '1') return;
-  } catch (e) { /* localStorage が使えない環境はそのまま計測する */ }
-
-  /* ---------- Google アナリティクス4 ---------- */
-  if (GA4_ID) {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
-    document.head.appendChild(s);
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA4_ID);
-  }
-
-  /* ---------- Microsoft Clarity（ヒートマップ・録画） ---------- */
-  if (CLARITY_ID) {
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, 'clarity', 'script', CLARITY_ID);
-  }
+    var optOut = location.search.indexOf('noanalytics=1') >= 0 || localStorage.getItem('tnr-no-analytics') === '1';
+    if (!optOut) return;
+    localStorage.setItem('tnr-no-analytics', '1');
+    localStorage.setItem('mp_consent_' + STORE, 'denied');
+  } catch (e) { /* localStorage が使えない環境では何もしない */ }
 })();
