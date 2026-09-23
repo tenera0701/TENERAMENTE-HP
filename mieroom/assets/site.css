@@ -481,3 +481,6 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 .post-body details.faq[open] > summary::after{transform:rotate(-135deg);margin-top:-2px}
 .post-body details.faq > summary:hover{background:var(--bg-soft)}
 .post-body details.faq .faq-a{padding:0 20px 18px;color:var(--ink-2);font-size:14.5px;line-height:1.95}
+
+/* 狭い画面ではボタンを「無料デモ」と短く出す（ヘッダー・下部固定バー） */
+@media(max-width:640px){ .nav-cta .lbl-full, .mobile-cta .lbl-full { display:none } }
