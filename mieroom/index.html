@@ -585,31 +585,29 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 .pain-card.simple p{font-size:13.5px}
 @media(max-width:820px){.pain-grid.six{grid-template-columns:1fr 1fr;gap:12px}.pain-card.simple{padding:18px 14px}.pain-card.simple h3{white-space:normal;font-size:13.5px;line-height:1.5}.pain-card.simple p{font-size:12px;line-height:1.7}}
 
-/* ===== NEW: feature slider ===== */
-.fslider-wrap{position:relative}
-.fchips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:30px}
-.fchip{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13px;color:#bfe9dd;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);padding:9px 17px;border-radius:999px;cursor:pointer;transition:all .2s;white-space:nowrap}
-.fchip:hover{background:rgba(255,255,255,.12);color:#fff}
-.fchip.on{background:#fff;border-color:#fff;color:var(--blue-d);box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
-.ftrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 20px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-.ftrack::-webkit-scrollbar{height:8px}
-.ftrack::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
-.ftrack::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:99px}
-.fslide{flex:0 0 300px;scroll-snap-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:26px 24px;transition:background .25s, transform .35s var(--ease-bounce), box-shadow .35s;display:flex;flex-direction:column}
-.fslide:hover{background:rgba(255,255,255,.1);transform:translateY(-6px);box-shadow:0 24px 46px -20px rgba(0,0,0,.55)}
-.fslide.dim{opacity:.4}
-.fslide .fi{width:50px;height:50px;border-radius:13px;background:linear-gradient(180deg,#2bbfa3,#14a085);display:grid;place-items:center;margin-bottom:16px;transition:transform .4s var(--ease-bounce)}
-.fslide:hover .fi{transform:rotate(-8deg) scale(1.08)}
-.fslide .fi svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:2}
-.fslide .fno{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:11px;letter-spacing:.1em;color:#7fe3cd;margin-bottom:6px}
-.fslide h3{font-size:17px;font-weight:700;margin-bottom:9px;color:#fff}
-.fslide p{font-size:12.5px;color:#aecdc4;font-weight:500;flex:1;line-height:1.75}
-.fslide .more{margin-top:16px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:12.5px;color:#7fe3cd;display:inline-flex;gap:6px;align-items:center}
-.fslide:hover .more .arr{transform:translateX(4px);transition:transform .25s}
-.fnav{display:flex;justify-content:center;gap:12px;margin-top:6px}
-.fnav button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;font-size:18px;cursor:pointer;display:grid;place-items:center;transition:all .2s}
-.fnav button:hover{background:#fff;color:var(--blue-d);border-color:#fff}
-.swipe-hint{text-align:center;color:#7fa89e;font-size:11.5px;font-weight:600;margin-top:14px}
+/* ===== 機能一覧（16カード。絵は assets/icons/fNN-*.webp。画像が読めなかったときだけ番号を表示） ===== */
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.fcard{background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;color:var(--ink);transition:transform .35s var(--ease-bounce),box-shadow .35s}
+.fcard:hover{transform:translateY(-5px);box-shadow:0 26px 44px -20px rgba(0,0,0,.6)}
+.fc-art{position:relative;aspect-ratio:3/2;background:#fff;border-bottom:1px solid var(--line);overflow:hidden}
+.fc-art.noimg::before{content:attr(data-no);position:absolute;inset:0;display:grid;place-items:center;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:clamp(40px,5vw,64px);letter-spacing:.02em;color:#d3eee6}
+.fc-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.fc-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+.fc-no{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:11px;letter-spacing:.12em;color:var(--blue)}
+.fcard h3{font-size:16px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fcard p{font-size:12.5px;line-height:1.7;color:var(--ink-2);font-weight:500}
+@media(max-width:920px){.fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){
+  .fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .fcard{border-radius:12px}
+  .fc-body{padding:10px 11px 13px;gap:2px}
+  .fc-no{font-size:10px}
+  .fcard h3{font-size:14px}
+  .fcard p{font-size:11.5px;line-height:1.6}
+}
+/* 説明文は文節の切れ目でだけ改行する（「連／携。」のような単語の途中の改行を防ぐ） */
+.fcard p .ph{display:inline-block}
+@media(max-width:340px){.fc-body{padding:9px 8px 12px}.fcard h3{font-size:13px}.fcard p{font-size:10.5px}}
 
 /* ===== NEW: cases section ===== */
 .cases{background:var(--bg-soft);position:relative;overflow:hidden}
@@ -673,8 +671,6 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 .btcard:hover .more .arr{transform:translateX(4px);transition:transform .25s}
 @media(max-width:820px){.bt-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 2px 16px;-webkit-overflow-scrolling:touch}.bt-grid>.btcard{flex:0 0 78vw;scroll-snap-align:center}}
 .btcard .bcov img{width:100%;height:100%;object-fit:cover}
-.fslide .fi.fi-img{background:#fff}
-.fslide .fi-img img{width:30px;height:30px;object-fit:contain}
 
 /* ===== NEW: faq ===== */
 .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
@@ -699,9 +695,6 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .prob-mascot{width:80px!important;height:80px!important}
   .pain-bridge .big{font-size:19px;line-height:1.62}
   .pain-bridge .big br{display:none}
-  .fslide{flex:0 0 80vw}
-  .fchips{gap:7px}
-  .fchip{font-size:12px;padding:8px 13px}
   .ccard{padding:24px 20px}
   .ba-col{padding:26px 22px}
   .xtext h2{font-size:20px}
@@ -718,9 +711,7 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .hero h1{font-size:26px}
   .statgrid{grid-template-columns:1fr 1fr}
   .feat-grid{grid-template-columns:1fr}
-  .fslide{flex:0 0 84vw}
   .sec-head h2{font-size:24px}
-  .swipe-hint{font-size:11px}
 }
 /* モバイル: SOLUTION実画面カードを横スワイプに（baseの.feat-gridより後に置いて優先させる） */
 @media(max-width:560px){
@@ -778,13 +769,7 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .cpoint h3{margin:0;font-size:17px}
   .cpoint p{grid-column:1/-1;margin:0}
 
-  .fslide{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:12px}
-  .fslide .fi{grid-column:1;grid-row:1/3;margin-bottom:0}
-  .fslide .fno{grid-column:2;grid-row:1;margin-bottom:4px}
-  .fslide h3{grid-column:2;grid-row:2;margin-bottom:0}
-  .fslide p{grid-column:1/-1;grid-row:3;margin-top:12px}
-  .fslide p, .ftext ul li span:last-child{text-wrap:pretty}
-  .fslide .more{grid-column:1/-1;grid-row:4}
+  .ftext ul li span:last-child{text-wrap:pretty}
 }
 </style>
 <template id="__bundler_thumbnail">
@@ -1060,100 +1045,71 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <p>賃貸仲介に必要な40以上の機能を、<br>ミエルーム1本に集約しました。</p>
       <a class="seeall" href="features.html" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff">主要機能をすべて見る <span class="arr">→</span></a>
     </div>
-    <div class="fslider-wrap reveal">
-      <div class="fchips" id="fchips">
-        <button class="fchip on" data-i="0">申込・入金管理</button>
-        <button class="fchip" data-i="1">成績可視化</button>
-        <button class="fchip" data-i="2">接客管理</button>
-        <button class="fchip" data-i="3">反響分析</button>
-        <button class="fchip" data-i="4">フォーム自動取込</button>
-        <button class="fchip" data-i="5">メール対応</button>
-        <button class="fchip" data-i="6">間取り作成</button>
-        <button class="fchip" data-i="7">契約書類</button>
-        <button class="fchip" data-i="8">物件コンバータ</button>
-        <button class="fchip" data-i="9">業者間サイト連携</button>
-        <button class="fchip" data-i="10">LINE・SMS追客</button>
-        <button class="fchip" data-i="11">経理・給与</button>
-      </div>
-      <div class="ftrack" id="ftrack">
-        <a class="fslide" data-i="0" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-seikyu.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 01</div><h3>申込・入金管理</h3>
-          <p>申込・入金・未入金の一覧をワンクリックで切替。誰がいくら未入金かが一目で分かります。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="1" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-kpi.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 02</div><h3>接客・反響成績の可視化</h3>
-          <p>スタッフ別の反響数・接客数・成約率・目標達成率を自動集計。誰が伸びているか一目で分かります。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="2" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-kokyaku.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 03</div><h3>接客管理</h3>
-          <p>来店から接客・他決・申込までステータスで管理。接客数や申込率が自動で見えます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="3" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-ai.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 04</div><h3>反響分析</h3>
-          <p>SUUMO・HOMES・athome等の媒体別に反響数とCV・費用対効果を集計。予算配分が根拠で決まります。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="4" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-task.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 05</div><h3>フォーム自動取込</h3>
-          <p>Web予約・来店アンケート・入居申込フォームの内容が、転記なしで各管理表へ自動反映されます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="5" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-sms.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 06</div><h3>メール自動取込</h3>
-          <p>受信メールを自動取込してチャット形式で返信。未返信はアラートで通知し、取りこぼしを防ぎます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="6" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-device.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 07</div><h3>間取り作成</h3>
-          <p>間取りの下絵をなぞるだけで清書。フォルダ管理・印刷に対応し、外注コストを削減します。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="7" href="features.html">
-          <div class="fi fi-img"><img src="assets/icons/ic-keiyaku.webp" alt="" loading="lazy" decoding="async" width="96" height="96"></div>
-          <div class="fno">FEATURE 08</div><h3>社内契約フォーマット自動取込</h3>
-          <p>自社のExcel契約書をアップロードするだけ。顧客情報を差し込み、契約書類を自動で作成・一括出力できます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="8" href="features.html">
-          <div class="fi"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="5" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.7 10.7l6.6-4.4M8.7 13.3l6.6 4.4"/></svg></div>
-          <div class="fno">FEATURE 09</div><h3>物件コンバータ</h3>
-          <p>物件を1回入力するだけで、SUUMO・HOME'S等13媒体の連動項目に合わせてCSVを一斉出力。AIがPRコメントも自動生成します。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="9" href="features.html">
-          <div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
-          <div class="fno">FEATURE 10</div><h3>業者間サイト連携</h3>
-          <p>Chrome拡張で業者間サイトと連携。物確・掲載分析・44サイト一括検索・初期費用の自動入力が、ワンクリックで使えます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="10" href="features.html">
-          <div class="fi"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M8 10h8M8 14h5"/></svg></div>
-          <div class="fno">FEATURE 11</div><h3>LINE・SMS自動追客</h3>
-          <p>反響の瞬間に自動返信、テンプレを順番に自動送信。送り切ったあとはAIが文面を作って追客を続けます。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-        <a class="fslide" data-i="11" href="features.html">
-          <div class="fi"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M8 15h2M12 11h2M12 15h2M16 11v4"/></svg></div>
-          <div class="fno">FEATURE 12</div><h3>経理・勤怠・給与</h3>
-          <p>月次PL・勤怠・有休・給与計算までひとつに。領収書・請求書は撮影するだけでAIが読み取り、経理へ反映します。</p>
-          <span class="more">詳しく見る <span class="arr">→</span></span>
-        </a>
-      </div>
-      <div class="fnav">
-        <button id="fprev" aria-label="前へ">‹</button>
-        <button id="fnext" aria-label="次へ">›</button>
-      </div>
-      <div class="swipe-hint">← スワイプ・トピックタップで切り替え →</div>
+    <div class="fgrid reveal">
+      <a class="fcard" href="features.html#payment">
+        <div class="fc-art" data-no="01"><img src="assets/icons/f01-moushikomi.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">01</span><h3>申込・入金管理</h3><p><span class="ph">未入金も</span><span class="ph">後ADも、</span><span class="ph">ひとつの表で。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#performance">
+        <div class="fc-art" data-no="02"><img src="assets/icons/f02-uriage.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">02</span><h3>売上管理</h3><p><span class="ph">店舗・担当・日次の</span><span class="ph">売上がすぐ分かる。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#lead">
+        <div class="fc-art" data-no="03"><img src="assets/icons/f03-hankyo.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">03</span><h3>反響分析</h3><p><span class="ph">媒体ごとの</span><span class="ph">費用対効果を</span><span class="ph">自動で集計。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#service">
+        <div class="fc-art" data-no="04"><img src="assets/icons/f04-sekkyaku.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">04</span><h3>接客管理</h3><p><span class="ph">来店から申込まで、</span><span class="ph">状況をひと目で。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#performance">
+        <div class="fc-art" data-no="05"><img src="assets/icons/f05-seiseki.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">05</span><h3>成績の可視化</h3><p><span class="ph">反響・接客の成績を</span><span class="ph">自動でランキング。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#form">
+        <div class="fc-art" data-no="06"><img src="assets/icons/f06-form.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">06</span><h3>フォーム自動取込</h3><p><span class="ph">予約・申込フォームを</span><span class="ph">転記なしで反映。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#mail">
+        <div class="fc-art" data-no="07"><img src="assets/icons/f07-mail.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">07</span><h3>メール自動取込</h3><p><span class="ph">反響メールを</span><span class="ph">チャット形式で返信。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#linesms">
+        <div class="fc-art" data-no="08"><img src="assets/icons/f08-line.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">08</span><h3>LINE自動配信</h3><p><span class="ph">友だち追加をきっかけに</span><span class="ph">自動で配信。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#linesms">
+        <div class="fc-art" data-no="09"><img src="assets/icons/f09-sms.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">09</span><h3>SMS・AI追客</h3><p><span class="ph">電話番号だけの反響にも</span><span class="ph">自動で連絡。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#bukken">
+        <div class="fc-art" data-no="10"><img src="assets/icons/f10-converter.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">10</span><h3>物件コンバータ</h3><p><span class="ph">1回の入力で</span><span class="ph">13媒体へ一斉出力。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#extension">
+        <div class="fc-art" data-no="11"><img src="assets/icons/f11-bukkaku.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">11</span><h3>物確・掲載ウォッチ</h3><p><span class="ph">募集状況の変化を</span><span class="ph">自動でキャッチ。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#extension">
+        <div class="fc-art" data-no="12"><img src="assets/icons/f12-shokihiyo.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">12</span><h3>初期費用の見積</h3><p><span class="ph">接客中に作って、</span><span class="ph">URLでお客様へ。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#floorplan">
+        <div class="fc-art" data-no="13"><img src="assets/icons/f13-madori.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">13</span><h3>間取り・マイソク</h3><p><span class="ph">下絵をなぞって、</span><span class="ph">その場で作図。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#contract">
+        <div class="fc-art" data-no="14"><img src="assets/icons/f14-keiyaku.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">14</span><h3>契約書類の自動作成</h3><p><span class="ph">自社の書式に</span><span class="ph">顧客情報を差し込み。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#service">
+        <div class="fc-art" data-no="15"><img src="assets/icons/f15-chat.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">15</span><h3>社内チャット</h3><p><span class="ph">ChatWork・Slackとも</span><span class="ph">相互に連携。</span></p></div>
+      </a>
+      <a class="fcard" href="features.html#backoffice">
+        <div class="fc-art" data-no="16"><img src="assets/icons/f16-keiri.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
+        <div class="fc-body"><span class="fc-no">16</span><h3>経理・勤怠・給与</h3><p><span class="ph">月次PLから</span><span class="ph">給与計算まで。</span></p></div>
+      </a>
     </div>
   </div>
   <div class="sec-wave bot"><svg viewBox="0 0 1440 52" preserveAspectRatio="none"><path d="M0,52 H1440 V27 C1200,52 960,8 720,28 C480,48 240,8 0,30 Z" fill="#f3faf7"/></svg></div>
@@ -1560,35 +1516,6 @@ window.addEventListener('scroll',()=>{
   });
 },{passive:true});
 
-// ===== feature slider =====
-(function(){
-  const track=document.getElementById('ftrack');
-  if(!track) return;
-  const slides=[...track.querySelectorAll('.fslide')];
-  const chips=[...document.querySelectorAll('#fchips .fchip')];
-  function activeIndex(){
-    const c=track.scrollLeft+track.clientWidth/2;
-    let best=0,bd=1e9;
-    slides.forEach((s,i)=>{const center=s.offsetLeft+s.offsetWidth/2;const d=Math.abs(center-c-track.scrollLeft+track.scrollLeft);const dist=Math.abs((s.offsetLeft+s.offsetWidth/2)-(track.scrollLeft+track.clientWidth/2));if(dist<bd){bd=dist;best=i}});
-    return best;
-  }
-  function highlight(i){
-    chips.forEach(c=>c.classList.toggle('on', +c.dataset.i===i));
-    slides.forEach((s,si)=>s.classList.toggle('dim', si!==i));
-  }
-  function goTo(i){
-    i=Math.max(0,Math.min(slides.length-1,i));
-    const s=slides[i];
-    track.scrollTo({left:s.offsetLeft-(track.clientWidth-s.offsetWidth)/2,behavior:'smooth'});
-    highlight(i);
-  }
-  chips.forEach(c=>c.addEventListener('click',()=>goTo(+c.dataset.i)));
-  document.getElementById('fprev').addEventListener('click',()=>goTo(activeIndex()-1));
-  document.getElementById('fnext').addEventListener('click',()=>goTo(activeIndex()+1));
-  let st;
-  track.addEventListener('scroll',()=>{clearTimeout(st);st=setTimeout(()=>highlight(activeIndex()),90)},{passive:true});
-  highlight(0);
-})();
 </script>
 <script src="../assets/milpage.js" async></script>
 <script src="/assets/analytics.js" defer data-analytics></script>

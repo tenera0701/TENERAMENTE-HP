@@ -404,6 +404,9 @@ chips.forEach(function(c){c.addEventListener('click',function(){
     card.classList.toggle('hide', !show);
   });
 });});
+// 機能一覧（トップ）から features.html#payment のように来たら、そのカテゴリで絞り込む
+var h=(location.hash||'').slice(1);
+if(/^[a-z]+$/.test(h)){var t=document.querySelector('.fchip[data-cat="'+h+'"]');if(t)t.click();}
 </script>
 <script src="../assets/milpage.js" async></script>
 <script src="/assets/analytics.js" defer data-analytics></script>
