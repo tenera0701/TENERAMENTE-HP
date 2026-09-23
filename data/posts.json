@@ -62,7 +62,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.png"
+    "image": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.png",
+    "imageHero": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.webp",
+    "imageCard": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata-card.webp"
   },
   {
     "slug": "2026-09-22-meo-kouka-kikan",
@@ -127,7 +129,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-09-22-meo-kouka-kikan.png"
+    "image": "assets/img/covers/2026-09-22-meo-kouka-kikan.png",
+    "imageHero": "assets/img/covers/2026-09-22-meo-kouka-kikan.webp",
+    "imageCard": "assets/img/covers/2026-09-22-meo-kouka-kikan-card.webp"
   },
   {
     "slug": "2026-09-21-seo-keyword-sentei-yarikata",
