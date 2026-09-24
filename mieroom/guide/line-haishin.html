@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE自動配信の使い方｜友だち追加やタグをきっかけに、決まった日に自動で送る｜ミエルーム</title>
+<meta name="description" content="ミエルームのLINE自動配信（ステップ配信・一斉配信）の使い方を3ステップで紹介します。友だち追加やタグをきっかけに、決めた日時にメッセージを自動で送れます。契約2年後の更新案内などにも使えます。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/guide/line-haishin.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LINE自動配信の使い方｜友だち追加やタグをきっかけに、決まった日に自動で送る">
+<meta property="og:description" content="ミエルームのLINE自動配信（ステップ配信・一斉配信）の使い方を3ステップで紹介します。友だち追加やタグをきっかけに、決めた日時にメッセージを自動で送れます。契約2年後の更新案内などにも使えます。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/guide/line-haishin.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/guide/og/line-haishin.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+<link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"主要機能","item":"https://teneramente.jp/mieroom/#features"},{"@type":"ListItem","position":3,"name":"LINE自動配信の使い方","item":"https://teneramente.jp/mieroom/guide/line-haishin.html"}]},{"@context":"https://schema.org","@type":"Article","headline":"LINE自動配信の使い方｜友だち追加やタグをきっかけに、決まった日に自動で送る","description":"ミエルームのLINE自動配信（ステップ配信・一斉配信）の使い方を3ステップで紹介します。友だち追加やタグをきっかけに、決めた日時にメッセージを自動で送れます。契約2年後の更新案内などにも使えます。","image":"https://teneramente.jp/mieroom/assets/guide/og/line-haishin.jpg","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/guide/line-haishin.html","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}}}]</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html" class="on">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article class="g-page">
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <nav class="crumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a><span class="sep">/</span>
+        <a href="../index.html#features">主要機能</a><span class="sep">/</span>
+        <span>LINE自動配信</span>
+      </nav>
+      <div class="g-head">
+        <img class="g-icon" src="../assets/icons/f08-line.webp" alt="" width="720" height="480">
+        <div class="g-head-text">
+          <div class="g-label">FEATURE 08<span class="g-opt">オプション</span></div>
+          <h1><span class="ph">LINE自動配信</span><span class="ph">の使い方</span></h1>
+        </div>
+      </div>
+      <p class="g-lead">公式LINEの友だちに、決めた日時でメッセージを自動で送る機能です。友だち追加やタグ（例：契約者）をきっかけに動かせるので、契約2年後の更新案内のような先の連絡も<span class="og">自動にできます。</span></p>
+    </div>
+  </div>
+</section>
+<div class="g-cover">
+  <figure class="g-shot g-shot--hero"><a href="../assets/guide/line-steps.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/line-steps.webp" alt="LINE自動配信の画面（デモ画面）" width="1400" height="875" fetchpriority="high" decoding="async"></a></figure>
+  <p class="g-note">画面はデモ用のデータです。画像を押すと<span class="og">大きく開きます。</span></p>
+</div>
+<div class="post-body">
+  <h2><span class="ph">こんな</span><span class="ph">困りごとに</span></h2>
+  <ul class="g-pains">
+    <li>友だち追加のあと、フォローの連絡が<span class="og">続かない</span></li>
+    <li>更新案内など、何年も先の連絡を<span class="og">忘れてしまう</span></li>
+    <li>お知らせを送るたびに、手作業で<span class="og">送り分けている</span></li>
+  </ul>
+
+  <h2><span class="ph">この機能で</span><span class="ph">できること</span></h2>
+  <ul>
+    <li>友だち追加やタグをきっかけに、何日後の何時に何を送るかを<span class="og">決めて自動配信</span></li>
+    <li>テキスト・画像・ボタン付きのカードを、1回に<span class="og">最大5通まとめて送信</span></li>
+    <li>友だち全員や、タグで絞った人に一斉配信<span class="og">（日時の指定もできる）</span></li>
+  </ul>
+  <p class="g-where"><span class="g-where-l">メニューの場所</span>左メニュー「LINE連携 › <span class="og">ステップ配信／一斉配信」</span></p>
+
+  <div class="callout"><div class="ct"><span class="ci">!</span><span><span class="ph">オプション</span><span class="ph">機能です</span></span></div><p>LINE連携は<span class="og">オプションです。</span><br>ご利用の条件は、お気軽に<span class="og">お問い合わせください。</span></p></div>
+
+  <h2><span class="ph">使い方</span><span class="ph">（3ステップ）</span></h2>
+  <ol class="g-steps">
+      <li class="g-step">
+        <span class="g-num">1</span>
+        <div class="g-step-body">
+          <h3>公式LINEをつなぐ<span class="og">（最初の1回だけ）</span></h3>
+          <p>「LINE連携」の設定の案内に沿って、公式LINEをミエルームにつなぎます。所要時間は10〜15分ほどで、最初に<span class="og">1回だけ行います。</span></p>
+          
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">2</span>
+        <div class="g-step-body">
+          <h3>シナリオを作る</h3>
+          <p>「LINE連携 › ステップ配信」でシナリオを作り、きっかけ（友だち追加したとき／タグが付いたとき）を選びます。続けて「きっかけから730日後（2年後）に更新案内」のように、配信のタイミングと本文を登録します。本文に {name} と書くと、お客様の名前に<span class="og">置き換わります。</span></p>
+          
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">3</span>
+        <div class="g-step-body">
+          <h3>中身を<span class="og">仕上げて動かす</span></h3>
+          <p>メッセージはテキスト・画像・カード（ボタン付き）から選べ、右の携帯の画面で、届いたときの見え方を確かめられます。あとは、きっかけのタグを付けるだけで、決めた日時に自動で<span class="og">届きます。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/line-step-phone.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/line-step-phone.webp" alt="LINE自動配信：中身を仕上げて動かす（デモ画面）" width="1318" height="789" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+  </ol>
+
+  <h2>よくある質問</h2>
+  <details class="faq"><summary>お客様から返信があったら、配信を止められますか？</summary><div class="faq-a">シナリオの設定で「返信があったら以降の配信を止める」をオンにできます。止まるのは、そのシナリオのメッセージをすでに1通以上受け取った人と、次の配信が7日以内の人です。更新の案内のように、ずっと先の配信は<span class="og">止まりません。</span></div></details>
+  <details class="faq"><summary>配信すると、LINEのメッセージ通数を使いますか？</summary><div class="faq-a">使います。配信には、LINE公式アカウントのメッセージ通数を使います（本文と画像は2通として数えます）。ブロックされている友だちには<span class="og">送られません。</span></div></details>
+
+  <h2><span class="ph">あわせて</span><span class="ph">使いたい機能</span></h2>
+  <div class="g-related">
+    <a class="g-rel" href="./sms-tsuikyaku.html">
+      <img src="../assets/icons/f09-sms.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 09</span><span class="g-rel-name"><span class="og">SMS・</span><span class="og">AI追客</span></span><span class="g-rel-catch">電話番号だけの反響にも<span class="og">自動で連絡。</span></span></span>
+    </a>
+    <a class="g-rel" href="./mail-torikomi.html">
+      <img src="../assets/icons/f07-mail.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 07</span><span class="g-rel-name">メール自動取込</span><span class="g-rel-catch">反響メールを<span class="og">チャット形式で返信。</span></span></span>
+    </a>
+    <a class="g-rel" href="./form-torikomi.html">
+      <img src="../assets/icons/f06-form.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 06</span><span class="g-rel-name">フォーム自動取込</span><span class="g-rel-catch">予約・申込フォームを<span class="og">転記なしで反映。</span></span></span>
+    </a>
+  </div>
+  <p class="g-back"><a href="../index.html#features">← 主要機能の一覧にもどる</a></p>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>賃貸仲介の業務を、<span class="og">ミエルームひとつに。</span></h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日で<span class="og">スタートできます。</span></p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <img src="../assets/logo-mark-sm.webp" alt="ミエルーム" loading="lazy">
+          <span class="name">ミ<b>エ</b>ルーム</span>
+        </div>
+        <p>反響・接客・売上・申込・契約書類から物件入力・業者間サイト連携・LINE追客・経理まで、40以上の機能をひとつに。1〜複数店舗の賃貸仲介会社に<span class="og">特化した業務管理ツールです。</span></p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>サービス</h4>
+          <a href="../index.html#features">主要機能</a>
+          <a href="../features.html">活用事例</a>
+          <a href="../compare.html">比較</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+        </div>
+        <div>
+          <h4>会社</h4>
+          <a href="../../company.html">運営会社（会社概要）</a>
+          <a href="../../index.html">TENERAMENTE公式サイト</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/guide.js" defer></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

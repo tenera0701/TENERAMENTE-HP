@@ -233,8 +233,13 @@ function main() {
     .filter(f => f.endsWith('.html'))
     .sort()
     .map(f => `mieroom/articles/${f}`);
+  // ミエルームの「機能の使い方」ページ（mieroom/guide/*.html。scripts/build-mieroom-guide.js が作る）
+  const GUIDE_DIR = path.join(ROOT, 'mieroom', 'guide');
+  const mieroomGuides = fs.existsSync(GUIDE_DIR)
+    ? fs.readdirSync(GUIDE_DIR).filter(f => f.endsWith('.html')).sort().map(f => `mieroom/guide/${f}`)
+    : [];
   const postUrls = posts.map(p => `${p.slug}.html`);
-  const all = [...staticUrls, ...mieroomArticles, ...postUrls];
+  const all = [...staticUrls, ...mieroomGuides, ...mieroomArticles, ...postUrls];
 
   // URL → 更新日。記事は記事の公開日を使う（ミエルームは元の .md から拾う）
   const lastmod = {};

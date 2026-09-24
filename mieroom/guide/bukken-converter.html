@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物件コンバータの使い方｜物件を1回入力して、13媒体向けに一斉出力｜ミエルーム</title>
+<meta name="description" content="ミエルームの物件コンバータの使い方を3ステップで紹介します。物件を一度入力するだけで、SUUMO・HOME'S・at homeなど13媒体の連動項目に合わせたデータを一斉に出力できます。コメントはAIでまとめて作れます。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/guide/bukken-converter.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物件コンバータの使い方｜物件を1回入力して、13媒体向けに一斉出力">
+<meta property="og:description" content="ミエルームの物件コンバータの使い方を3ステップで紹介します。物件を一度入力するだけで、SUUMO・HOME'S・at homeなど13媒体の連動項目に合わせたデータを一斉に出力できます。コメントはAIでまとめて作れます。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/guide/bukken-converter.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/guide/og/bukken-converter.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+<link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"主要機能","item":"https://teneramente.jp/mieroom/#features"},{"@type":"ListItem","position":3,"name":"物件コンバータの使い方","item":"https://teneramente.jp/mieroom/guide/bukken-converter.html"}]},{"@context":"https://schema.org","@type":"Article","headline":"物件コンバータの使い方｜物件を1回入力して、13媒体向けに一斉出力","description":"ミエルームの物件コンバータの使い方を3ステップで紹介します。物件を一度入力するだけで、SUUMO・HOME'S・at homeなど13媒体の連動項目に合わせたデータを一斉に出力できます。コメントはAIでまとめて作れます。","image":"https://teneramente.jp/mieroom/assets/guide/og/bukken-converter.jpg","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/guide/bukken-converter.html","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}}}]</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html" class="on">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article class="g-page">
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <nav class="crumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a><span class="sep">/</span>
+        <a href="../index.html#features">主要機能</a><span class="sep">/</span>
+        <span>物件コンバータ</span>
+      </nav>
+      <div class="g-head">
+        <img class="g-icon" src="../assets/icons/f10-converter.webp" alt="" width="720" height="480">
+        <div class="g-head-text">
+          <div class="g-label">FEATURE 10<span class="g-opt">オプション</span></div>
+          <h1><span class="ph">物件コンバータ</span><span class="ph">の使い方</span></h1>
+        </div>
+      </div>
+      <p class="g-lead">物件を一度入力するだけで、SUUMO・HOME'S・at home・CHINTAI・スモッカなど13媒体の連動項目に合わせたCSVを、一斉に<span class="og">出力できる機能です。</span></p>
+    </div>
+  </div>
+</section>
+<div class="g-cover">
+  <figure class="g-shot g-shot--hero"><a href="../assets/guide/converter-new.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/converter-new.webp" alt="物件コンバータの画面（デモ画面）" width="1400" height="875" fetchpriority="high" decoding="async"></a></figure>
+  <p class="g-note">画面はデモ用のデータです。画像を押すと<span class="og">大きく開きます。</span></p>
+</div>
+<div class="post-body">
+  <h2><span class="ph">こんな</span><span class="ph">困りごとに</span></h2>
+  <ul class="g-pains">
+    <li>同じ物件を、媒体ごとに何度も<span class="og">入力している</span></li>
+    <li>物件コメントやセールスポイントを書くのに<span class="og">時間がかかる</span></li>
+    <li>入力のルールが、<span class="og">担当者ごとにばらばら</span></li>
+  </ul>
+
+  <h2><span class="ph">この機能で</span><span class="ph">できること</span></h2>
+  <ul>
+    <li>1回の入力で、13媒体の連動項目に合わせたCSVを<span class="og">一斉出力</span></li>
+    <li>キャッチコピー・物件コメント・セールスポイントなどを、<span class="og">AIがまとめて作成</span></li>
+    <li>表示する項目・必須項目・初期値・禁止単語などを、会社で<span class="og">決めておける</span></li>
+  </ul>
+  <p class="g-where"><span class="g-where-l">メニューの場所</span>左メニュー「物件入力 › <span class="og">物件コンバータ」</span></p>
+
+  <div class="callout"><div class="ct"><span class="ci">!</span><span><span class="ph">オプション</span><span class="ph">機能です</span></span></div><p>物件コンバータは<span class="og">オプションです。</span><br>ご利用の条件は、お気軽に<span class="og">お問い合わせください。</span></p></div>
+
+  <h2><span class="ph">使い方</span><span class="ph">（3ステップ）</span></h2>
+  <ol class="g-steps">
+      <li class="g-step">
+        <span class="g-num">1</span>
+        <div class="g-step-body">
+          <h3>物件を<span class="og">登録する</span></h3>
+          <p>一覧の上の「＋ 新規物件」を押し、上のタブ（基本／所在地・交通／賃料・契約／設備・条件 など）を順に切り替えながら入力します。郵便番号から住所を探せる「かんたん住所入力」も<span class="og">使えます。</span></p>
+          
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">2</span>
+        <div class="g-step-body">
+          <h3>写真とコメントを<span class="og">仕上げる</span></h3>
+          <p>「画像」タブに写真を最大50枚まで、ドラッグ＆ドロップで登録します（1枚目が代表画像）。「取引・備考」タブの「✨ 一括コメント自動生成」で、キャッチコピーや物件コメントなどを<span class="og">AIがまとめて作ります。</span></p>
+          
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">3</span>
+        <div class="g-step-body">
+          <h3>ポータル用に<span class="og">一斉出力する</span></h3>
+          <p>保存前に「👁 反映イメージ」で、ポータルに載ったときの見え方を確かめられます。保存した物件は一覧に並び、一覧の上の「📤 選択した物件を一斉出力」で出力先のポータルを選んで<span class="og">出力します。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/converter-top.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/converter-top.webp" alt="物件コンバータ：ポータル用に一斉出力する（デモ画面）" width="1400" height="459" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+  </ol>
+
+  <h2>よくある質問</h2>
+  <details class="faq"><summary>入力のルールを会社でそろえられますか？</summary><div class="faq-a">そろえられます。「⚙ 設定」タブで、入力画面に出す項目・空欄では保存できない必須項目・新規物件の初期値・物件番号の自動採番・禁止単語などを、会社全体で<span class="og">決められます。</span></div></details>
+  <details class="faq"><summary>写真のコメントも自動で作れますか？</summary><div class="faq-a">作れます。各画像の✨ボタンで、AIが写真を見て画像コメントを作ります。コメントが空の画像をまとめて作る<span class="og">こともできます。</span></div></details>
+
+  <h2><span class="ph">あわせて</span><span class="ph">使いたい機能</span></h2>
+  <div class="g-related">
+    <a class="g-rel" href="./bukkaku.html">
+      <img src="../assets/icons/f11-bukkaku.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 11</span><span class="g-rel-name"><span class="og">物確・</span><span class="og">掲載ウォッチ</span></span><span class="g-rel-catch">募集状況の変化を自動で<span class="og">キャッチ。</span></span></span>
+    </a>
+    <a class="g-rel" href="./madori-maisoku.html">
+      <img src="../assets/icons/f13-madori.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 13</span><span class="g-rel-name"><span class="og">間取り・</span><span class="og">マイソク</span></span><span class="g-rel-catch">下絵をなぞって、<span class="og">その場で作図。</span></span></span>
+    </a>
+    <a class="g-rel" href="./shoki-hiyo.html">
+      <img src="../assets/icons/f12-shokihiyo.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 12</span><span class="g-rel-name">初期費用の見積</span><span class="g-rel-catch">接客中に作って、URLで<span class="og">お客様へ。</span></span></span>
+    </a>
+  </div>
+  <p class="g-back"><a href="../index.html#features">← 主要機能の一覧にもどる</a></p>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>賃貸仲介の業務を、<span class="og">ミエルームひとつに。</span></h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日で<span class="og">スタートできます。</span></p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <img src="../assets/logo-mark-sm.webp" alt="ミエルーム" loading="lazy">
+          <span class="name">ミ<b>エ</b>ルーム</span>
+        </div>
+        <p>反響・接客・売上・申込・契約書類から物件入力・業者間サイト連携・LINE追客・経理まで、40以上の機能をひとつに。1〜複数店舗の賃貸仲介会社に<span class="og">特化した業務管理ツールです。</span></p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>サービス</h4>
+          <a href="../index.html#features">主要機能</a>
+          <a href="../features.html">活用事例</a>
+          <a href="../compare.html">比較</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+        </div>
+        <div>
+          <h4>会社</h4>
+          <a href="../../company.html">運営会社（会社概要）</a>
+          <a href="../../index.html">TENERAMENTE公式サイト</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/guide.js" defer></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

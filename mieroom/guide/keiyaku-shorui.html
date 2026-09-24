@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>契約書類の自動作成の使い方｜自社の書式にお客様の情報を差し込んで作る｜ミエルーム</title>
+<meta name="description" content="ミエルームの契約フォーマットと契約管理の使い方を3ステップで紹介します。自社のExcelの書式を登録しておくと、契約書や帳票にお客様の情報と会社情報を自動で差し込んで作れます。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/guide/keiyaku-shorui.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="契約書類の自動作成の使い方｜自社の書式にお客様の情報を差し込んで作る">
+<meta property="og:description" content="ミエルームの契約フォーマットと契約管理の使い方を3ステップで紹介します。自社のExcelの書式を登録しておくと、契約書や帳票にお客様の情報と会社情報を自動で差し込んで作れます。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/guide/keiyaku-shorui.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/guide/og/keiyaku-shorui.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+<link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"主要機能","item":"https://teneramente.jp/mieroom/#features"},{"@type":"ListItem","position":3,"name":"契約書類の自動作成の使い方","item":"https://teneramente.jp/mieroom/guide/keiyaku-shorui.html"}]},{"@context":"https://schema.org","@type":"Article","headline":"契約書類の自動作成の使い方｜自社の書式にお客様の情報を差し込んで作る","description":"ミエルームの契約フォーマットと契約管理の使い方を3ステップで紹介します。自社のExcelの書式を登録しておくと、契約書や帳票にお客様の情報と会社情報を自動で差し込んで作れます。","image":"https://teneramente.jp/mieroom/assets/guide/og/keiyaku-shorui.jpg","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/guide/keiyaku-shorui.html","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}}}]</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html" class="on">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article class="g-page">
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <nav class="crumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a><span class="sep">/</span>
+        <a href="../index.html#features">主要機能</a><span class="sep">/</span>
+        <span>契約書類の自動作成</span>
+      </nav>
+      <div class="g-head">
+        <img class="g-icon" src="../assets/icons/f14-keiyaku.webp" alt="" width="720" height="480">
+        <div class="g-head-text">
+          <div class="g-label">FEATURE 14<span class="g-opt">オプション</span></div>
+          <h1><span class="ph">契約書類の自動作成</span><span class="ph">の使い方</span></h1>
+        </div>
+      </div>
+      <p class="g-lead">自社で使っている契約書や帳票のExcelの書式に、お客様の情報と会社情報を自動で差し込んで書類を作る機能です。申込から鍵渡しまでのチェックリストも、入居日から逆算した期限つきで<span class="og">管理できます。</span></p>
+    </div>
+  </div>
+</section>
+<div class="g-cover">
+  <figure class="g-shot g-shot--hero"><a href="../assets/guide/keiyaku-list.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/keiyaku-list.webp" alt="契約書類の自動作成の画面（デモ画面）" width="1400" height="875" fetchpriority="high" decoding="async"></a></figure>
+  <p class="g-note">画面はデモ用のデータです。画像を押すと<span class="og">大きく開きます。</span></p>
+</div>
+<div class="post-body">
+  <h2><span class="ph">こんな</span><span class="ph">困りごとに</span></h2>
+  <ul class="g-pains">
+    <li>契約書に、お客様の名前や住所を毎回手で<span class="og">書き写している</span></li>
+    <li>書類ごとに入力して、<span class="og">書き間違いが起きる</span></li>
+    <li>鍵渡しまでの手続きに、<span class="og">抜け漏れがないか心配</span></li>
+  </ul>
+
+  <h2><span class="ph">この機能で</span><span class="ph">できること</span></h2>
+  <ul>
+    <li>自社のExcelの書式に、お客様の情報と会社情報を自動で<span class="og">差し込み</span></li>
+    <li>作った書類はExcelで出力。まとめて保存<span class="og">（ZIP）もできる</span></li>
+    <li>申込から鍵渡しまでの手続きを、入居日から<span class="og">逆算した期限つきで管理</span></li>
+  </ul>
+  <p class="g-where"><span class="g-where-l">メニューの場所</span>左メニュー「各種設定 › 契約フォーマット」「事務作業 › <span class="og">契約管理」</span></p>
+
+  <div class="callout"><div class="ct"><span class="ci">!</span><span><span class="ph">オプション</span><span class="ph">機能です</span></span></div><p>契約書類を作る「契約管理」は<span class="og">オプションです。</span><br>ご利用の条件は、お気軽に<span class="og">お問い合わせください。</span></p></div>
+
+  <h2><span class="ph">使い方</span><span class="ph">（3ステップ）</span></h2>
+  <ol class="g-steps">
+      <li class="g-step">
+        <span class="g-num">1</span>
+        <div class="g-step-body">
+          <h3>書式を<span class="og">登録する</span></h3>
+          <p>先に会社情報を登録しておきます。自社のExcelの書式の差し込みたい場所に {{会社名}} のような目印を書いて、「各種設定 › 契約フォーマット」の「📄 Excelをアップロード」から<span class="og">登録します。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/keiyaku-format.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/keiyaku-format.webp" alt="契約書類の自動作成：書式を登録する（デモ画面）" width="1400" height="875" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">2</span>
+        <div class="g-step-body">
+          <h3>お客様を選んで<span class="og">書類を作る</span></h3>
+          <p>「事務作業 › 契約管理」には、申込済みのお客様が並びます。各行の操作ボタンから、登録した書式で契約書類を作り、画面で直してからExcelで<span class="og">出力します。</span></p>
+          
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">3</span>
+        <div class="g-step-body">
+          <h3>鍵渡しまでを<span class="og">管理する</span></h3>
+          <p>「鍵渡しまで」の欄を押すと、申込書類の受領から鍵渡し・入居までのチェックリストが開きます。期限は入居日から逆算して表示され、期限を過ぎた項目は<span class="og">赤くなります。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/keiyaku-checklist.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/keiyaku-checklist.webp" alt="契約書類の自動作成：鍵渡しまでを管理する（デモ画面）" width="1280" height="1180" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+  </ol>
+
+  <h2>よくある質問</h2>
+  <details class="faq"><summary>保証会社や管理会社の申込用紙（PDF）にも入力できますか？</summary><div class="faq-a">できます。「事務作業 › 申込書類作成」で申込用紙のPDFを登録すると、用紙の入れたい場所をクリックして、そのまま文字を入力できます。元のPDFは<span class="og">加工しません。</span></div></details>
+  <details class="faq"><summary>チェックリストの項目は自社用に変えられますか？</summary><div class="faq-a">変えられます。チェックリストの「⚙ 項目を編集」から、項目の追加・並び替え・使わない項目を外すことができます（オーナー・<span class="og">マネージャー・店長）。</span></div></details>
+
+  <h2><span class="ph">あわせて</span><span class="ph">使いたい機能</span></h2>
+  <div class="g-related">
+    <a class="g-rel" href="./moushikomi-nyukin.html">
+      <img src="../assets/icons/f01-moushikomi.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 01</span><span class="g-rel-name"><span class="og">申込・</span><span class="og">入金管理</span></span><span class="g-rel-catch">未入金も後ADも、<span class="og">ひとつの表で。</span></span></span>
+    </a>
+    <a class="g-rel" href="./shoki-hiyo.html">
+      <img src="../assets/icons/f12-shokihiyo.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 12</span><span class="g-rel-name">初期費用の見積</span><span class="g-rel-catch">接客中に作って、URLで<span class="og">お客様へ。</span></span></span>
+    </a>
+    <a class="g-rel" href="./form-torikomi.html">
+      <img src="../assets/icons/f06-form.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 06</span><span class="g-rel-name">フォーム自動取込</span><span class="g-rel-catch">予約・申込フォームを<span class="og">転記なしで反映。</span></span></span>
+    </a>
+  </div>
+  <p class="g-back"><a href="../index.html#features">← 主要機能の一覧にもどる</a></p>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>賃貸仲介の業務を、<span class="og">ミエルームひとつに。</span></h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日で<span class="og">スタートできます。</span></p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <img src="../assets/logo-mark-sm.webp" alt="ミエルーム" loading="lazy">
+          <span class="name">ミ<b>エ</b>ルーム</span>
+        </div>
+        <p>反響・接客・売上・申込・契約書類から物件入力・業者間サイト連携・LINE追客・経理まで、40以上の機能をひとつに。1〜複数店舗の賃貸仲介会社に<span class="og">特化した業務管理ツールです。</span></p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>サービス</h4>
+          <a href="../index.html#features">主要機能</a>
+          <a href="../features.html">活用事例</a>
+          <a href="../compare.html">比較</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+        </div>
+        <div>
+          <h4>会社</h4>
+          <a href="../../company.html">運営会社（会社概要）</a>
+          <a href="../../index.html">TENERAMENTE公式サイト</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/guide.js" defer></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

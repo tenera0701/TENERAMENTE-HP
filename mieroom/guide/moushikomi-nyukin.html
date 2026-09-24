@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申込・入金管理の使い方｜申込の登録から入金の確認・売上計上まで｜ミエルーム</title>
+<meta name="description" content="ミエルームの申込・入金管理（申込管理表）の使い方を3ステップで紹介します。申込ごとの仲介手数料・AD・その他費用と入金状況をひとつの表で管理し、後ADや相殺、未入金も分けて確認できます。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/guide/moushikomi-nyukin.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="申込・入金管理の使い方｜申込の登録から入金の確認・売上計上まで">
+<meta property="og:description" content="ミエルームの申込・入金管理（申込管理表）の使い方を3ステップで紹介します。申込ごとの仲介手数料・AD・その他費用と入金状況をひとつの表で管理し、後ADや相殺、未入金も分けて確認できます。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/guide/moushikomi-nyukin.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/guide/og/moushikomi-nyukin.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+<link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"主要機能","item":"https://teneramente.jp/mieroom/#features"},{"@type":"ListItem","position":3,"name":"申込・入金管理の使い方","item":"https://teneramente.jp/mieroom/guide/moushikomi-nyukin.html"}]},{"@context":"https://schema.org","@type":"Article","headline":"申込・入金管理の使い方｜申込の登録から入金の確認・売上計上まで","description":"ミエルームの申込・入金管理（申込管理表）の使い方を3ステップで紹介します。申込ごとの仲介手数料・AD・その他費用と入金状況をひとつの表で管理し、後ADや相殺、未入金も分けて確認できます。","image":"https://teneramente.jp/mieroom/assets/guide/og/moushikomi-nyukin.jpg","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/guide/moushikomi-nyukin.html","datePublished":"2026-09-24","dateModified":"2026-09-24","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}}}]</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html" class="on">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article class="g-page">
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <nav class="crumb" aria-label="パンくずリスト">
+        <a href="../index.html">ホーム</a><span class="sep">/</span>
+        <a href="../index.html#features">主要機能</a><span class="sep">/</span>
+        <span>申込・入金管理</span>
+      </nav>
+      <div class="g-head">
+        <img class="g-icon" src="../assets/icons/f01-moushikomi.webp" alt="" width="720" height="480">
+        <div class="g-head-text">
+          <div class="g-label">FEATURE 01</div>
+          <h1><span class="ph">申込・入金管理</span><span class="ph">の使い方</span></h1>
+        </div>
+      </div>
+      <p class="g-lead">申込ごとの仲介手数料・AD・その他費用と、その入金状況をひとつの表で管理する機能です。店長・オーナーが承認した入金は、そのまま入金月の<span class="og">売上として集計されます。</span></p>
+    </div>
+  </div>
+</section>
+<div class="g-cover">
+  <figure class="g-shot g-shot--hero"><a href="../assets/guide/moushikomi-list.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/moushikomi-list.webp" alt="申込・入金管理の画面（デモ画面）" width="1400" height="875" fetchpriority="high" decoding="async"></a></figure>
+  <p class="g-note">画面はデモ用のデータです。画像を押すと<span class="og">大きく開きます。</span></p>
+</div>
+<div class="post-body">
+  <h2><span class="ph">こんな</span><span class="ph">困りごとに</span></h2>
+  <ul class="g-pains">
+    <li>誰がいくら未入金なのか、すぐに<span class="og">答えられない</span></li>
+    <li>後ADや相殺の管理が、担当者の<span class="og">記憶頼みになっている</span></li>
+    <li>入金の確認があいまいで、月末に売上の数字が<span class="og">合わない</span></li>
+  </ul>
+
+  <h2><span class="ph">この機能で</span><span class="ph">できること</span></h2>
+  <ul>
+    <li>申込ごとに仲介手数料・AD・その他費用・入金日を<span class="og">まとめて記録</span></li>
+    <li>入金は「報告 → 承認」で確定し、入金月の売上に<span class="og">自動で集計</span></li>
+    <li>ADは「相殺」「後AD」を選んで記録。未入金と入金済みを<span class="og">分けて一覧に</span></li>
+  </ul>
+  <p class="g-where"><span class="g-where-l">メニューの場所</span>左メニュー「営業分析 › <span class="og">申込管理表」</span></p>
+
+  <h2><span class="ph">使い方</span><span class="ph">（3ステップ）</span></h2>
+  <ol class="g-steps">
+      <li class="g-step">
+        <span class="g-num">1</span>
+        <div class="g-step-body">
+          <h3>申込を<span class="og">登録する</span></h3>
+          <p>右上の「＋ 新規入力」を押し、申込日・担当・媒体・物件名・お客様名・仲介手数料・AD金額などを入れて保存します。審査で「○」を選ぶと、ステータスは自動で<span class="og">「契約」になります。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/moushikomi-input.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/moushikomi-input.webp" alt="申込・入金管理：申込を登録する（デモ画面）" width="1400" height="911" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">2</span>
+        <div class="g-step-body">
+          <h3>入金を報告して、<span class="og">承認する</span></h3>
+          <p>一覧の入金欄の「報告」を押して、入金日を選びます。店長・オーナーが「承認」すると入金が確定し、その月の売上に集計されます。確定した入金は、画面の下の「入金済み一覧」に並びます。承認待ちの報告は、右上のベルのお知らせにも<span class="og">出ます。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/moushikomi-paid.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/moushikomi-paid.webp" alt="申込・入金管理：入金を報告して、承認する（デモ画面）" width="1400" height="875" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+      <li class="g-step">
+        <span class="g-num">3</span>
+        <div class="g-step-body">
+          <h3>後ADと未入金を<span class="og">確かめる</span></h3>
+          <p>AD入金日の欄で「相殺」「後AD」を選べます。画面の下の「未入金一覧」で、まだ入っていないお金を案件ごとに<span class="og">確認できます。</span></p>
+          <figure class="g-shot"><a href="../assets/guide/moushikomi-unpaid.webp" target="_blank" rel="noopener" title="画像を大きく開く"><img src="../assets/guide/moushikomi-unpaid.webp" alt="申込・入金管理：後ADと未入金を確かめる（デモ画面）" width="1400" height="875" loading="lazy" decoding="async"></a></figure>
+        </div>
+      </li>
+  </ol>
+
+  <h2>よくある質問</h2>
+  <details class="faq"><summary>自社で使っている項目（例：消毒・紹介元）を足せますか？</summary><div class="faq-a">足せます。新規入力フォームから、付帯項目や申込情報の項目を追加したり、ステータスの名前を変えたり、「審査中」などのステータスを追加したりできます。追加と編集はオーナー／店長が<span class="og">行えます。</span></div></details>
+  <details class="faq"><summary>間違えて削除した申込は戻せますか？</summary><div class="faq-a">戻せます。削除したデータは10日間保管され、左メニュー「バックオフィス › 変更・削除ログ」から元の内容のまま戻せます<span class="og">（オーナー／店長）。</span></div></details>
+
+  <h2><span class="ph">あわせて</span><span class="ph">使いたい機能</span></h2>
+  <div class="g-related">
+    <a class="g-rel" href="./uriage-kanri.html">
+      <img src="../assets/icons/f02-uriage.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 02</span><span class="g-rel-name">売上管理</span><span class="g-rel-catch">店舗・担当ごとの<span class="og">売上がすぐ分かる。</span></span></span>
+    </a>
+    <a class="g-rel" href="./keiyaku-shorui.html">
+      <img src="../assets/icons/f14-keiyaku.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 14</span><span class="g-rel-name"><span class="og">契約書類の</span><span class="og">自動作成</span></span><span class="g-rel-catch">自社の書式に顧客情報を<span class="og">差し込み。</span></span></span>
+    </a>
+    <a class="g-rel" href="./shoki-hiyo.html">
+      <img src="../assets/icons/f12-shokihiyo.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
+      <span class="g-rel-body"><span class="g-rel-no">FEATURE 12</span><span class="g-rel-name">初期費用の見積</span><span class="g-rel-catch">接客中に作って、URLで<span class="og">お客様へ。</span></span></span>
+    </a>
+  </div>
+  <p class="g-back"><a href="../index.html#features">← 主要機能の一覧にもどる</a></p>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>賃貸仲介の業務を、<span class="og">ミエルームひとつに。</span></h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日で<span class="og">スタートできます。</span></p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo">
+          <img src="../assets/logo-mark-sm.webp" alt="ミエルーム" loading="lazy">
+          <span class="name">ミ<b>エ</b>ルーム</span>
+        </div>
+        <p>反響・接客・売上・申込・契約書類から物件入力・業者間サイト連携・LINE追客・経理まで、40以上の機能をひとつに。1〜複数店舗の賃貸仲介会社に<span class="og">特化した業務管理ツールです。</span></p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>サービス</h4>
+          <a href="../index.html#features">主要機能</a>
+          <a href="../features.html">活用事例</a>
+          <a href="../compare.html">比較</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+        </div>
+        <div>
+          <h4>会社</h4>
+          <a href="../../company.html">運営会社（会社概要）</a>
+          <a href="../../index.html">TENERAMENTE公式サイト</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/guide.js" defer></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

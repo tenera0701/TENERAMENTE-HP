@@ -297,6 +297,7 @@ python3 -m http.server 8000
 - **読者**: 賃貸仲介・不動産仲介の店舗オーナー、店長、これから開業する人。「です・ます」調。一人称は「ミエルーム」または「当社」
 - **内部リンク**（記事は `mieroom/articles/` に置かれるので相対パスに注意）: 製品トップ `../index.html`、機能・事例 `../features.html`、他の記事 `./<slug>.html`、TENERAMENTE 側のページ `../../lp-ai.html` など
 - **書いてよい製品の事実**: 申込管理表／売上管理／反響管理／接客管理／申込・入金管理（後ADを案件ごとに記録、一部入金・分割入金、確定売上と見込みの分離）／接客・反響成績の可視化／反響分析／フォーム自動取込・メール自動取込／間取り作成／社内契約フォーマット自動取込／物件コンバータ／業者間サイト連携／LINE・SMS自動追客／経理・勤怠・給与／デモアカウント発行／最短即日スタート／Excel データのインポートと初期設定の代行に対応。**無料お試し期間は無い**（FAQ に明記。「無料で試せる」と書かない）。**料金は書かない**（ページに記載がない）
+- **機能の使い方ページ**（2026-09-24〜）: `mieroom/guide/<slug>.html` の16枚（トップの「主要機能」カードから開く）は `node scripts/build-mieroom-guide.js` が作る**生成ページ**。手で直さない。中身は `scripts/mieroom-guide-data.js`（出典はアプリ本体の使い方ガイド `templates/guide.html` だけ。オプションかどうかは `app.py` の NAV_PERM_OPTION_KEYS・PLAN_OPTION_DEFS も見て、option に明記）、実画面は `scripts/make-mieroom-guide-shots.py` がアプリの `static/manual/*.png`（一部は LP 用の実画面 `mieroom/assets/app-*.webp` と、アプリのフォルダ内の営業資料・営業LPの素材 `app:`）から切り出す。開発用URL・QR・電話番号・メールアドレス・住所（番地）・免許番号・実在の企業名はぼかす（位置は元画像の座標で決め打ち。元画像が撮り直されるとスクリプトが止まるので、ぼかし位置を確かめてから `--accept` で作り直す）。毎朝の自動投稿では触らない（sitemap への掲載だけ build-index.js が行う）
 - **比較ページ**: `mieroom/compare.html`（賃貸仲介の業務管理システム比較）。他社情報は公式サイトに記載のある内容のみ・出典リンク付き・自社サービスを含む比較である旨を明記する。他社の短所は書かない。更新するときは確認日も直す
 - **狙いキーワード**: `data/seo-keywords-mieroom.json`（`node scripts/seo-queue.js next --site=mieroom` / `done <id> <slug> --site=mieroom`）
 - 数値・事例・実績の捏造禁止、競合批判なし、連絡先を書かない、は TENERAMENTE ブログと同じ

@@ -1,0 +1,150 @@
+{
+ "bukkaku-list": {
+  "src": "lp:app-bukkaku.webp",
+  "sha1": "c207ebd3b156911f178fdd53c2160c7eec527baa"
+ },
+ "chat": {
+  "src": "chat.png",
+  "sha1": "d0fda4cd6604c3568cefd2a07afb9e277f869e0e"
+ },
+ "chat-group": {
+  "src": "chat-group-store.png",
+  "sha1": "6b557c9d478d576d1d90d5f155ab90d98fd09ba6"
+ },
+ "converter-new": {
+  "src": "modal-converter-new.png",
+  "sha1": "b88bcca0d9fba12a8018f61f25be6bfe3a343cb9"
+ },
+ "converter-top": {
+  "src": "converter.png",
+  "sha1": "599b6410e7d165d2f4fde38fef77e59a9bdf4583"
+ },
+ "form-apply": {
+  "src": "application-form.png",
+  "sha1": "c0c4ca4a98a7769e5bb7dcb02c251c933e5e9cce"
+ },
+ "form-reserve": {
+  "src": "reservation-settings.png",
+  "sha1": "0d289e98062b49fff86891a9b3a5a3db380182d1"
+ },
+ "form-visit": {
+  "src": "store-visits.png",
+  "sha1": "7cfd0a767e74ac30213ded945f011300613ad1d9"
+ },
+ "hankyo-table": {
+  "src": "app:営業資料/deck-src/img/leads.png",
+  "sha1": "4fe0febbfe2812523e247f3016fe10cbc85bfae2"
+ },
+ "hankyo-top": {
+  "src": "app:営業資料/deck-src/img/leads.png",
+  "sha1": "4fe0febbfe2812523e247f3016fe10cbc85bfae2"
+ },
+ "keiri": {
+  "src": "accounting.png",
+  "sha1": "fa8a46f43f405ef49251fd34ab8b34225ce724ac"
+ },
+ "keiri-receipts": {
+  "src": "accounting-receipts.png",
+  "sha1": "782eb4e50a8fd65a1632ebb9721e37b303d09fd0"
+ },
+ "keiyaku-checklist": {
+  "src": "contract-checklist.png",
+  "sha1": "033645d6275b21002afdbcdcc962c2a859313985"
+ },
+ "keiyaku-format": {
+  "src": "doc-templates.png",
+  "sha1": "ba7687acecd827352b503de105ce8f321ef88a24"
+ },
+ "keiyaku-list": {
+  "src": "contract-customers.png",
+  "sha1": "90bb1c3089cdf3f7b80775e11991b6371f90e586"
+ },
+ "kintai": {
+  "src": "attendance.png",
+  "sha1": "9adf29ee783db28faa59e7e66c167abaef31b802"
+ },
+ "kyuyo": {
+  "src": "payroll.png",
+  "sha1": "533ef3d51149b6d9066591be649566697c1d2dfa"
+ },
+ "line-step-phone": {
+  "src": "line_steps-phone.png",
+  "sha1": "514ff9d00c54783bbc73af8cfbc3c0da2dab90a5"
+ },
+ "line-steps": {
+  "src": "line_steps.png",
+  "sha1": "0b35a16c9ebd43d609461eba158dbf878c5f9ca5"
+ },
+ "mail-reply": {
+  "src": "echo-reply-mobile.png",
+  "sha1": "2493c97926b00b43aed40bac7a910507f6b45bde"
+ },
+ "mail-settings": {
+  "src": "mail-import.png",
+  "sha1": "fca9412d0e74f475ecd50859d3409067106a55bc"
+ },
+ "maisoku-sheet": {
+  "src": "myosoku-sheet.png",
+  "sha1": "2dceec30b86059ec5cb11d030b4cc8dc4f52f774"
+ },
+ "moushikomi-input": {
+  "src": "modal-cm-input.png",
+  "sha1": "18d30074b2c3bcfe65453ba1a7ab40af3114be80"
+ },
+ "moushikomi-list": {
+  "src": "customer-management.png",
+  "sha1": "409dbd79f1c9d7e43c4a54fd82edff2a03cc3e8f"
+ },
+ "moushikomi-paid": {
+  "src": "customer-management.png",
+  "sha1": "409dbd79f1c9d7e43c4a54fd82edff2a03cc3e8f"
+ },
+ "moushikomi-unpaid": {
+  "src": "customer-management.png",
+  "sha1": "409dbd79f1c9d7e43c4a54fd82edff2a03cc3e8f"
+ },
+ "seiseki-annual": {
+  "src": "staff-annual.png",
+  "sha1": "dbbe9d13a9b5fe40a884c7775b2f18a969e9f1bd"
+ },
+ "seiseki-kpi": {
+  "src": "lp:app-sales.webp",
+  "sha1": "83b9fb76beda747224124fa4b8e34eca752220b2"
+ },
+ "sekkyaku-card": {
+  "src": "handoff.png",
+  "sha1": "03713a67b940be8c494f03225aca3539e2c998ae"
+ },
+ "sekkyaku-list": {
+  "src": "customer-service.png",
+  "sha1": "698392dd6e5edc25aa51a9baa3111767de7f6030"
+ },
+ "shoki-input": {
+  "src": "initial-cost.png",
+  "sha1": "876725a3714374ce3f383fb84c3b5bf69381e2d7"
+ },
+ "shoki-share": {
+  "src": "initial-cost-share.png",
+  "sha1": "a251de2411f74cab22f11eb16a7124420fd25f6f"
+ },
+ "tsuikyaku-ai": {
+  "src": "mail-automation.png",
+  "sha1": "0e3f86e906a97b0e98c14b1d9337c0451c54ae95"
+ },
+ "tsuikyaku-settings": {
+  "src": "mail-automation.png",
+  "sha1": "0e3f86e906a97b0e98c14b1d9337c0451c54ae95"
+ },
+ "uriage-media": {
+  "src": "executive.png",
+  "sha1": "7a3816be46254932996a6c279aa8256cd6e104ee"
+ },
+ "uriage-staff": {
+  "src": "executive.png",
+  "sha1": "7a3816be46254932996a6c279aa8256cd6e104ee"
+ },
+ "uriage-top": {
+  "src": "executive.png",
+  "sha1": "7a3816be46254932996a6c279aa8256cd6e104ee"
+ }
+}
