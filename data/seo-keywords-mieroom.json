@@ -550,7 +550,9 @@
         "excel-to-saas",
         "staff-visualization"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "不動産DXとは何をすることか｜小規模な仲介店舗が現実的に取り組む順番",
+      "coverImage": "mieroom/assets/cover-queue/m020.png"
     },
     {
       "id": "m032",
@@ -567,7 +569,9 @@
         "kaigyo-chokugo-shukyaku",
         "media-roi"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "賃貸仲介の閑散期にやること｜繁忙期前の9〜12月に仕込む5つの準備",
+      "coverImage": "mieroom/assets/cover-queue/m032.png"
     },
     {
       "id": "m033",

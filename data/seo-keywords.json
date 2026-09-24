@@ -542,7 +542,9 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由",
+      "coverImage": "assets/img/cover-queue/k019.png"
     },
     {
       "id": "k065",
@@ -559,7 +561,9 @@
         "2026-09-07-gyomu-app-naisei-gaichu-handan",
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "todo",
+      "coverTitle": "ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面",
+      "coverImage": "assets/img/cover-queue/k065.png"
     },
     {
       "id": "k075",
