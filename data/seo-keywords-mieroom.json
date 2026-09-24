@@ -550,9 +550,11 @@
         "excel-to-saas",
         "staff-visualization"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "不動産DXとは何をすることか｜小規模な仲介店舗が現実的に取り組む順番",
-      "coverImage": "mieroom/assets/cover-queue/m020.png"
+      "coverImage": "mieroom/assets/cover-queue/m020.png",
+      "slug": "fudosan-dx-toha-chusho",
+      "doneAt": "2026-09-24"
     },
     {
       "id": "m032",

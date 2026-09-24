@@ -542,9 +542,11 @@
       "related": [
         "2026-07-02-meo-taisaku-complete-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由",
-      "coverImage": "assets/img/cover-queue/k019.png"
+      "coverImage": "assets/img/cover-queue/k019.png",
+      "slug": "2026-09-25-local-seo-meo-chigai",
+      "doneAt": "2026-09-24"
     },
     {
       "id": "k065",
