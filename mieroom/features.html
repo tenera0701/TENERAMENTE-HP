@@ -49,7 +49,8 @@
 .case-card .cno{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:11.5px;letter-spacing:.12em;color:var(--blue)}
 .case-card .cat{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--bg-soft);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
 .case-card .ctop{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.case-card h3{font-size:18px;font-weight:900;line-height:1.5;margin-bottom:10px}
+.case-card h3{font-size:18px;font-weight:900;line-height:1.5;margin-bottom:10px;text-wrap:balance}   /* 行の長さをそろえて、最後の行だけ短くなるのを防ぐ */
+.case-card h3 .ph{display:inline-block}   /* 文節ごとに包んで、その切れ目でだけ折り返す（「一／斉出力」のような語の途中の改行を、Safari でも防ぐ） */
 .case-card p{font-size:13.5px;color:var(--ink-2);font-weight:500;flex:1}
 .case-card .more{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:13.5px;color:var(--blue)}
 .case-card .more .arr{transition:transform .25s ease}
@@ -153,7 +154,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-moushikomi.webp" alt="申込管理表の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-01</span><span class="cat">申込・入金管理</span></div>
-          <h3>申込・入金・未入金をひとつの表で管理し、回収漏れをゼロに</h3>
+          <h3><span class="ph">申込・</span><span class="ph">入金・</span><span class="ph">未入金を</span><span class="ph">ひとつの</span><span class="ph">表で</span><span class="ph">管理し、</span><span class="ph">回収漏れをゼロに</span></h3>
           <p>申込から入金確認までをひとつの管理表に集約。申込一覧・入金済み・未入金をワンクリックで切替、仲手やADの入金状況、店長承認までまとめて管理。</p>
         </div>
       </div>
@@ -161,7 +162,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-uriage.webp" alt="売上分析の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-02</span><span class="cat">成績可視化</span></div>
-          <h3>スタッフの接客・反響成績を自動でランキング化し、評価と育成に活かす</h3>
+          <h3><span class="ph">スタッフの</span><span class="ph">接客・</span><span class="ph">反響成績を</span><span class="ph">自動で</span><span class="ph">ランキング化し、</span><span class="ph">評価と</span><span class="ph">育成に活かす</span></h3>
           <p>スタッフ別の反響数・接客数・申込数・成約率・目標達成率を自動でランキング化。会議を待たずに成績が見え、評価の納得感と育成スピードが上がります。</p>
         </div>
       </div>
@@ -169,7 +170,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-sekkyaku.webp" alt="接客管理表の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-03</span><span class="cat">接客管理</span></div>
-          <h3>接客数・他決・申込が一目で分かる接客管理表で、対応の質を底上げ</h3>
+          <h3><span class="ph">接客数・</span><span class="ph">他決・</span><span class="ph">申込が</span><span class="ph">一目で</span><span class="ph">分かる</span><span class="ph">接客管理表で、</span><span class="ph">対応の質を底上げ</span></h3>
           <p>来店した顧客の接客状況を一覧で管理。対応種別・申込・他決などのステータスを記録し、接客数・申込率を自動集計。誰の接客が成果につながっているかが見えます。</p>
         </div>
       </div>
@@ -177,7 +178,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-hankyo.webp" alt="反響管理表の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-04</span><span class="cat">反響分析</span></div>
-          <h3>媒体別の費用対効果を可視化し、広告の垂れ流しを止めて予算を最適配分</h3>
+          <h3><span class="ph">媒体別の</span><span class="ph">費用対効果を</span><span class="ph">可視化し、</span><span class="ph">広告の</span><span class="ph">垂れ流しを</span><span class="ph">止めて</span><span class="ph">予算を最適配分</span></h3>
           <p>ポータル媒体ごとの反響数・成約・広告費を集計し費用対効果を可視化。どの媒体に予算を寄せるべきかが数字で分かり、効かない広告の垂れ流しを止められます。</p>
         </div>
       </div>
@@ -187,7 +188,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-05</span><span class="cat">フォーム自動取込</span></div>
-          <h3>予約・来店・申込フォームから、入力がそのまま管理表へ自動で取り込まれる</h3>
+          <h3><span class="ph">予約・</span><span class="ph">来店・</span><span class="ph">申込フォームから、</span><span class="ph">入力が</span><span class="ph">そのまま</span><span class="ph">管理表へ</span><span class="ph">自動で</span><span class="ph">取り込まれる</span></h3>
           <p>予約・来店・申込フォームをQRやURLで配布。顧客が入力した内容が予約カレンダーや接客管理表、申込一覧へ自動で取り込まれ、手入力の転記作業がなくなります。</p>
         </div>
       </div>
@@ -197,7 +198,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-06</span><span class="cat">メール対応</span></div>
-          <h3>ポータル反響メールをチャット形式で対応、返信し忘れはアラートで防止</h3>
+          <h3><span class="ph">ポータル</span><span class="ph">反響メールを</span><span class="ph">チャット形式で</span><span class="ph">対応、</span><span class="ph">返信し忘れは</span><span class="ph">アラートで防止</span></h3>
           <p>ポータルからの反響メールを自動で取り込み、顧客ごとにチャット形式で表示。そのまま返信でき、未返信の反響はアラートで知らせるので、対応漏れによる機会損失を防げます。</p>
         </div>
       </div>
@@ -207,7 +208,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-07</span><span class="cat">間取り作成</span></div>
-          <h3>下絵をなぞるだけで、きれいな間取り図を社内で内製化</h3>
+          <h3><span class="ph">下絵を</span><span class="ph">なぞるだけで、</span><span class="ph">きれいな間取り図を</span><span class="ph">社内で内製化</span></h3>
           <p>手書きやポータルの間取りを下絵として取り込み、なぞるだけできれいな間取り図を作成。フォルダで物件ごとに整理でき、印刷・保存も簡単。間取り作成の外注をなくせます。</p>
         </div>
       </div>
@@ -217,15 +218,15 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-08</span><span class="cat">契約書類</span></div>
-          <h3>御社の契約書フォーマットに、顧客情報を自動で差し込んで書類を一括作成</h3>
+          <h3><span class="ph">御社の</span><span class="ph">契約書</span><span class="ph">フォーマットに、</span><span class="ph">顧客情報を</span><span class="ph">自動で</span><span class="ph">差し込んで</span><span class="ph">書類を一括作成</span></h3>
           <p>御社が普段使っている契約書・重説などのExcelフォーマットをそのままアップロード。顧客情報を自動で差し込み、書類を作成・一括Excel/PDF出力。書式を変えずに転記作業だけをなくせます。</p>
         </div>
       </div>
       <div class="case-card" data-cat="bukken">
-        <div class="visual shot"><img src="assets/app-converter.webp" alt="物件コンバータの実画面（デモデータ）" loading="lazy"></div>
+        <div class="visual shot"><img src="assets/guide/converter-new.webp" alt="物件コンバータの物件入力画面（デモ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-09</span><span class="cat">物件入力</span></div>
-          <h3>物件を1回入力するだけで、13媒体へ連動項目に合わせて一斉出力</h3>
+          <h3><span class="ph">物件を</span><span class="ph">1回</span><span class="ph">入力するだけで、</span><span class="ph">13媒体へ</span><span class="ph">連動項目に</span><span class="ph">合わせて一斉出力</span></h3>
           <p>SUUMO・HOME'S・at home・CHINTAIなど13媒体のCSVを一斉出力。出力前の掲載テスト・禁止単語チェック、AIによるPRコメント自動生成つき。媒体ごとの入力し直しがなくなります。</p>
         </div>
       </div>
@@ -233,7 +234,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-bukkaku.webp" alt="物件確認（物確）の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-10</span><span class="cat">業者間サイト連携</span></div>
-          <h3>募集状況の一括確認と定期ウォッチで、掲載終了・条件変更を自動キャッチ</h3>
+          <h3><span class="ph">募集状況の</span><span class="ph">一括確認と</span><span class="ph">定期ウォッチで、</span><span class="ph">掲載終了・</span><span class="ph">条件変更を</span><span class="ph">自動キャッチ</span></h3>
           <p>自社の掲載物件が“今”も募集中かをワンクリックで一括確認。電話で聞いた結果も履歴に残り、定期ウォッチが新着・掲載終了・条件変更の差分を知らせます。</p>
         </div>
       </div>
@@ -243,7 +244,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-11</span><span class="cat">業者間サイト連携</span></div>
-          <h3>エリアの掲載件数・賃料相場を自動集計し、44サイトをまとめて検索</h3>
+          <h3><span class="ph">エリアの</span><span class="ph">掲載件数・</span><span class="ph">賃料相場を</span><span class="ph">自動集計し、</span><span class="ph">44サイトを</span><span class="ph">まとめて検索</span></h3>
           <p>都道府県・駅名を入れるだけで、ポータルの掲載件数・賃料相場・間取り別内訳を自動集計。業者間サイト＋ポータル44サイトの一括検索で、物件探しの往復もなくなります。</p>
         </div>
       </div>
@@ -251,7 +252,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-shokihiyo.webp" alt="初期費用計算の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-12</span><span class="cat">業者間サイト連携</span></div>
-          <h3>接客中にその場で初期費用の見積を作成し、URLでお客様のスマホへ</h3>
+          <h3><span class="ph">接客中に</span><span class="ph">その場で</span><span class="ph">初期費用の</span><span class="ph">見積を</span><span class="ph">作成し、</span><span class="ph">URLで</span><span class="ph">お客様のスマホへ</span></h3>
           <p>賃料と入居予定日から日割り・次月家賃・一時金まで自動計算。業者間サイトの物件ページからワンクリックで自動入力し、物件写真つきの見積URLを発行できます。</p>
         </div>
       </div>
@@ -261,7 +262,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-13</span><span class="cat">業者間サイト連携</span></div>
-          <h3>物件マスタから募集図面（マイソク）をその場で作成・印刷・PDF化</h3>
+          <h3><span class="ph">物件マスタから</span><span class="ph">募集図面</span><span class="ph">（マイソク）を</span><span class="ph">その場で</span><span class="ph">作成・</span><span class="ph">印刷・PDF化</span></h3>
           <p>A4横1枚のマイソクを物件マスタから自動生成。マーカーや囲み・文字入れで直接アピールでき、お客様用と業者用の2枚を出し分け。会社のひな型も保存できます。</p>
         </div>
       </div>
@@ -269,7 +270,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-linestep.webp" alt="LINEステップ配信の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-14</span><span class="cat">LINE・SMS</span></div>
-          <h3>友だち追加やタグを起点に自動配信。契約2年後の更新案内まで自動化</h3>
+          <h3><span class="ph">友だち追加や</span><span class="ph">タグを</span><span class="ph">起点に</span><span class="ph">自動配信。</span><span class="ph">契約2年後の</span><span class="ph">更新案内まで自動化</span></h3>
           <p>「契約者」タグから730日後に更新案内、来店前フォローなど、シナリオを一度作れば自動で配信。Instagram・チラシなど流入経路別の友だち化率も計測できます。</p>
         </div>
       </div>
@@ -279,7 +280,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-15</span><span class="cat">LINE・SMS</span></div>
-          <h3>電話番号しかない反響にも、SMSとAIで自動アプローチ</h3>
+          <h3><span class="ph">電話番号しかない</span><span class="ph">反響にも、</span><span class="ph">SMSとAIで</span><span class="ph">自動アプローチ</span></h3>
           <p>新着反響へ自動SMSを送信し、メールはテンプレを決めた日数で順送り。テンプレを送り切ったあとはAIが文面を生成して追客を継続します。開封・URLクリックも計測。</p>
         </div>
       </div>
@@ -287,7 +288,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="visual shot"><img src="assets/app-keiri.webp" alt="経理・PL管理の実画面（デモデータ）" loading="lazy"></div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-16</span><span class="cat">バックオフィス</span></div>
-          <h3>売上・広告費・人件費が自動で集まる月次PL。領収書はAIが読み取り</h3>
+          <h3><span class="ph">売上・</span><span class="ph">広告費・</span><span class="ph">人件費が</span><span class="ph">自動で</span><span class="ph">集まる</span><span class="ph">月次PL。</span><span class="ph">領収書は</span><span class="ph">AIが読み取り</span></h3>
           <p>申込の入金と反響分析の広告費が自動でPLに反映（二重計上なし）。領収書・請求書は撮影するだけでAIが明細化し、経費申請→承認までアプリ内で完結します。</p>
         </div>
       </div>
@@ -297,7 +298,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-17</span><span class="cat">バックオフィス</span></div>
-          <h3>打刻から給与明細まで。歩合給も会社ごとの設定で自動計算</h3>
+          <h3><span class="ph">打刻から</span><span class="ph">給与明細まで。</span><span class="ph">歩合給も会社ごとの</span><span class="ph">設定で自動計算</span></h3>
           <p>出退勤の打刻・シフト・有休の法定付与を管理し、勤怠と申込実績から給与を自動計算。スタッフは自分の給与明細をいつでもアプリで確認できます。</p>
         </div>
       </div>
@@ -307,7 +308,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-18</span><span class="cat">バックオフィス</span></div>
-          <h3>店舗・個人・グループの社内チャット。ChatWork・Slackとも相互連携</h3>
+          <h3><span class="ph">店舗・</span><span class="ph">個人・</span><span class="ph">グループの</span><span class="ph">社内チャット。</span><span class="ph">ChatWork・</span><span class="ph">Slackとも相互連携</span></h3>
           <p>全社・店舗別・1対1のチャットにスタンプ・既読・返信機能。社外の業者が使うChatWork・Slackとも紐付けでき、ミエルームの画面だけでやり取りが完結します。</p>
         </div>
       </div>
@@ -317,7 +318,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-19</span><span class="cat">成績可視化</span></div>
-          <h3>全店舗の売上・反響・ランキングを1画面で。AIが経営サマリーを作成</h3>
+          <h3><span class="ph">全店舗の</span><span class="ph">売上・</span><span class="ph">反響・</span><span class="ph">ランキングを</span><span class="ph">1画面で。</span><span class="ph">AIが</span><span class="ph">経営サマリーを作成</span></h3>
           <p>店舗別実績の比較・月次推移・目標未達アラートを本部視点で横断把握。AIが全店舗のデータを読んで、今月の状況と課題を文章でまとめます。</p>
         </div>
       </div>
@@ -327,7 +328,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div class="body">
           <div class="ctop"><span class="cno">CASE-20</span><span class="cat">接客管理</span></div>
-          <h3>おすすめ物件をまとめて1本のURLに。お客様の反応も見える</h3>
+          <h3><span class="ph">おすすめ物件を</span><span class="ph">まとめて</span><span class="ph">1本の</span><span class="ph">URLに。</span><span class="ph">お客様の</span><span class="ph">反応も見える</span></h3>
           <p>複数の物件を提案リストにまとめてLINE・メールで送付。お客様はスマホで開くだけで、物件ごとのリアクションも取得。紹介ページはログイン不要・スマホ最適化済みです。</p>
         </div>
       </div>
@@ -375,9 +376,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </div>
         <div>
           <h4>会社情報</h4>
-          <a href="#">運営会社</a>
-          <a href="#">プライバシーポリシー</a>
-          <a href="#">利用規約</a>
+          <a href="../company.html">運営会社</a>
+          <a href="https://app.mieroom.cloud/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a>
         </div>
       </div>
     </div>

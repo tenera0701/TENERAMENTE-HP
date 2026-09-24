@@ -205,7 +205,8 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 /* sticky mobile cta */
 .mobile-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;gap:10px;padding:10px 14px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
 .mobile-cta .btn{flex:1;padding:14px;font-size:14px}
-@media(max-width:920px){.mobile-cta{display:flex}body{padding-bottom:74px}}
+@media(max-width:920px){.mobile-cta{display:flex}body:has(.mobile-cta){padding-bottom:74px}}   /* 固定ボタンがあるページだけ下をあける */
+@supports not selector(:has(a)){@media(max-width:920px){body{padding-bottom:74px}}}
 
 @media(prefers-reduced-motion:reduce){.reveal,.r-left,.r-right,.r-pop,.stagger>*{opacity:1;transform:none;transition:none}}
 
@@ -484,3 +485,21 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 
 /* 狭い画面ではボタンを「無料デモ」と短く出す（ヘッダー・下部固定バー） */
 @media(max-width:640px){ .nav-cta .lbl-full, .mobile-cta .lbl-full { display:none } }
+
+/* ヘッダー：メニュー・ボタン・社名は途中で改行させない。タブレット〜小さめのPC（921〜1180px）は幅が足りず、
+   社名とメニューが折り返して重なっていたので、すき間とロゴを詰める（2026-09-25。トップ index.html は自前の CSS で同じ対応） */
+.nav-links a,.brand .name,.nav-cta .btn{white-space:nowrap}
+@media(min-width:921px) and (max-width:1180px){
+  .nav-links{gap:18px}
+  .brand img.logo{width:60px;height:60px}
+  .nav-cta .btn{padding:10px 14px}
+}
+@media(min-width:921px) and (max-width:1060px){
+  .brand{gap:8px}
+  .brand img.logo{width:46px;height:46px}
+  .brand .name{font-size:19px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:13.5px}
+  .nav-cta{gap:6px}
+  .nav-cta .btn{padding:9px 11px;font-size:13px}
+}

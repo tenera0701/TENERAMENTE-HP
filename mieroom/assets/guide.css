@@ -73,22 +73,7 @@ body{word-break:auto-phrase}   /* 対応ブラウザ（Chrome・Edge など）�
 /* 見出し・質問・関連機能の名前は、行の長さをそろえて折り返す（2行目だけ短くならないように） */
 .g-page summary,.post-body .g-step h3,.g-rel-name{text-wrap:balance}
 
-/* ヘッダー：メニュー・ボタン・社名は途中で改行させない。タブレット横（921〜1180px）は幅が足りないので、すき間とロゴを少し詰める */
-.nav-links a,.brand .name,.nav-cta .btn{white-space:nowrap}
-@media(min-width:921px) and (max-width:1180px){
-  .nav-links{gap:18px}
-  .brand img.logo{width:60px;height:60px}
-  .nav-cta .btn{padding:10px 14px}
-}
-@media(min-width:921px) and (max-width:1060px){   /* いちばん狭い幅では、社名とメニューが重ならないようにもう一段詰める */
-  .brand{gap:8px}
-  .brand img.logo{width:46px;height:46px}
-  .brand .name{font-size:19px}
-  .nav-links{gap:12px}
-  .nav-links a{font-size:13.5px}
-  .nav-cta{gap:6px}
-  .nav-cta .btn{padding:9px 11px;font-size:13px}
-}
+/* ヘッダーの折り返し対策は共通の site.css に移した（2026-09-25） */
 
 /* 末尾の申込ボックス：狭いスマホでボタンが箱の縁に付かないように、余白を詰めてボタンを箱の幅いっぱいにする */
 @media(max-width:400px){

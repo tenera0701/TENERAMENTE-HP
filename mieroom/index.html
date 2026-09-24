@@ -29,7 +29,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
-<script src="image-slot.js"></script>
 <style>
 :root{
   --blue:#14a085;
@@ -812,6 +811,30 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   .nav-cta { gap: 6px; flex: none; }
   .nav-cta .btn { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
 }
+/* タブレット〜小さめのPC（921〜1180px）は、メニュー6つとボタン3つが入りきらず、社名もメニューも折り返して重なるので、
+   「運営会社サイト」（フッターにもある）を隠し、すき間と文字を少し詰める */
+@media (min-width: 921px) and (max-width: 1180px) {
+  .brand img.mark { width: 56px; height: 56px; }
+  .brand .name, .nav-links a, .nav-cta .btn { white-space: nowrap; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 13px; }
+  .nav-links a[href="../index.html"] { display: none; }
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 10px 12px; font-size: 13px; }
+}
+/* いちばん狭いスマホ（〜380px）は、社名が「ログイン」ボタンに重なる・途中で切れるので、もう一段詰める（②） */
+@media (max-width: 380px) {
+  .nav { gap: 6px; }
+  .brand { gap: 6px; overflow: visible; }
+  .brand img.mark { width: 30px; height: 30px; }
+  .brand .name { font-size: 14px; white-space: nowrap; }
+  .nav-cta { gap: 4px; }
+  .nav-cta .btn { padding: 9px 7px; font-size: 11px; }
+}
+/* 313px 以下（折りたたみスマホの外側の画面など）は、それでもボタンに重なる・すき間が無くなるので社名を隠してロゴだけにする */
+@media (max-width: 313px) {
+  .brand .name { display: none; }
+}
 </style>
 </head>
 <body>
@@ -1177,8 +1200,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </div>
       <div class="fvisual r-left">
         <div class="shotframe">
-          <div class="topbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="urlbar">app.mieroom.cloud ／ 本部ダッシュボード</div></div>
-          <img src="assets/app-honbu.webp" alt="ミエルーム 本部ダッシュボードの実画面" class="shot-img" loading="lazy">
+          <div class="topbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="urlbar">app.mieroom.cloud ／ 売上分析</div></div>
+          <img src="assets/app-honbu.webp" alt="ミエルーム 売上分析の実画面" class="shot-img" loading="lazy">
         </div>
       </div>
     </div>
@@ -1202,7 +1225,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <div class="fvisual r-right">
         <div class="shotframe">
           <div class="topbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="urlbar">app.mieroom.cloud ／ 反響分析</div></div>
-          <img src="assets/app-media.webp" alt="ミエルーム 反響分析（媒体別 費用対効果）の実画面" class="shot-img" loading="lazy">
+          <img src="assets/app-bunseki.webp" alt="ミエルーム 反響分析（媒体別 費用対効果）の実画面" class="shot-img" loading="lazy">
         </div>
       </div>
     </div>
@@ -1476,8 +1499,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <h4>会社・規約</h4>
           <a href="../company.html">運営会社（会社概要）</a>
           <a href="../index.html">TENERAMENTE公式サイト</a>
-          <a href="#">プライバシーポリシー</a>
-          <a href="#">利用規約</a>
+          <a href="https://app.mieroom.cloud/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a>
           <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
         </div>
       </div>
@@ -1493,14 +1516,16 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 </div>
 
 <script>
+// 14%見えたら出す。画面の何倍も長い要素は14%まで見えないことがあるので、画面の2割以上を占めたら出す（2026-09-25）
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{
-  if(e.isIntersecting){
+  const vh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight;
+  if(e.isIntersecting&&(e.intersectionRatio>=.14||e.intersectionRect.height>=vh*.2)){
     e.target.classList.add('in');
     if(e.target.classList.contains('bars')) e.target.classList.add('grown');
     if(e.target.classList.contains('roi-list')) e.target.querySelectorAll('.roi-bar').forEach(b=>b.classList.add('grown'));
     io.unobserve(e.target);
   }
-})},{threshold:.14});
+})},{threshold:[0,.02,.05,.1,.14]});
 document.querySelectorAll('.reveal,.r-left,.r-right,.r-pop,.stagger,.bars,.roi-list').forEach(el=>io.observe(el));
 
 // hero float-card subtle parallax on scroll
