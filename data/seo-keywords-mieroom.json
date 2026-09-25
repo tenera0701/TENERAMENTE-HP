@@ -571,9 +571,11 @@
         "kaigyo-chokugo-shukyaku",
         "media-roi"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "賃貸仲介の閑散期にやること｜繁忙期前の9〜12月に仕込む5つの準備",
-      "coverImage": "mieroom/assets/cover-queue/m032.png"
+      "coverImage": "mieroom/assets/cover-queue/m032.png",
+      "slug": "kansanki-yarukoto",
+      "doneAt": "2026-09-25"
     },
     {
       "id": "m033",

@@ -563,9 +563,11 @@
         "2026-09-07-gyomu-app-naisei-gaichu-handan",
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面",
-      "coverImage": "assets/img/cover-queue/k065.png"
+      "coverImage": "assets/img/cover-queue/k065.png",
+      "slug": "2026-09-26-nocode-gyomu-app",
+      "doneAt": "2026-09-25"
     },
     {
       "id": "k075",
