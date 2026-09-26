@@ -592,9 +592,11 @@
         "getsumatsu-uriage-shukei-jidoka",
         "staff-seiseki-kanri"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "繁忙期の売上目標の立て方｜前年実績を店舗別・担当別に分解する",
-      "coverImage": "mieroom/assets/cover-queue/m033.png"
+      "coverImage": "mieroom/assets/cover-queue/m033.png",
+      "slug": "hanbouki-uriage-mokuhyo",
+      "doneAt": "2026-09-26"
     },
     {
       "id": "m034",

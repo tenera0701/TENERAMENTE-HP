@@ -583,9 +583,11 @@
       "related": [
         "2026-06-05-homepage-seisaku-hiyo-guide"
       ],
-      "status": "todo",
+      "status": "done",
       "coverTitle": "メタディスクリプションの書き方｜順位ではなくクリック率を動かす",
-      "coverImage": "assets/img/cover-queue/k075.png"
+      "coverImage": "assets/img/cover-queue/k075.png",
+      "slug": "2026-09-27-meta-description-kakikata",
+      "doneAt": "2026-09-26"
     },
     {
       "id": "k022",
