@@ -613,7 +613,9 @@
         "media-roi",
         "getsumatsu-uriage-shukei-jidoka"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "tenpo-soneki-arari-handan",
+      "doneAt": "2026-09-27"
     },
     {
       "id": "m021",
