@@ -622,7 +622,9 @@
         "2026-09-04-ai-gyomu-kaizen-susumekata",
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-29-rpa-toha-chusho-kigyo",
+      "doneAt": "2026-09-28"
     },
     {
       "id": "k076",
