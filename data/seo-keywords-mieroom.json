@@ -651,7 +651,9 @@
         "staff-seiseki-kanri",
         "staff-visualization"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "shinjin-ikusei-junban",
+      "doneAt": "2026-09-29"
     },
     {
       "id": "m036",

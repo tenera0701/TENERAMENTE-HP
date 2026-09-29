@@ -640,7 +640,9 @@
       "related": [
         "2026-09-08-meo-taisaku-jibun-de-yarikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-09-30-search-console-tsukaikata",
+      "doneAt": "2026-09-29"
     },
     {
       "id": "k024",
