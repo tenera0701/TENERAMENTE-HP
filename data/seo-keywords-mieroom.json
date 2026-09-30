@@ -670,7 +670,9 @@
         "staff-seiseki-kanri",
         "kaigyo-chokugo-shukyaku"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "hanbouki-shift-jinin-keikaku",
+      "doneAt": "2026-09-30"
     },
     {
       "id": "m037",
