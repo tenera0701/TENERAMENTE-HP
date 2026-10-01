@@ -689,7 +689,9 @@
         "excel-to-saas",
         "fudosan-gyomu-tool-minaoshi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "kami-excel-konzai-ikou",
+      "doneAt": "2026-10-01"
     },
     {
       "id": "m022",

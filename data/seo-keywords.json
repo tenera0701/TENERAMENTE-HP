@@ -677,7 +677,9 @@
         "2026-09-11-yoyaku-kanri-system-jisha-senyo",
         "2026-09-07-gyomu-app-naisei-gaichu-handan"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-02-saas-jisha-kaihatsu-erabikata",
+      "doneAt": "2026-10-01"
     },
     {
       "id": "k077",
