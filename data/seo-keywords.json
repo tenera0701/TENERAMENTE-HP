@@ -695,7 +695,9 @@
       "related": [
         "2026-06-25-kozoka-data-json-ld-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-03-naibu-link-harikata",
+      "doneAt": "2026-10-02"
     },
     {
       "id": "k027",

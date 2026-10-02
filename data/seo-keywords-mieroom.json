@@ -708,7 +708,9 @@
         "media-roi",
         "month-end-closing"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "kaigyo-ichinenme-yarukoto",
+      "doneAt": "2026-10-02"
     }
   ]
 }
