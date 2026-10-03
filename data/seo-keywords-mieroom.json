@@ -711,6 +711,25 @@
       "status": "done",
       "slug": "kaigyo-ichinenme-yarukoto",
       "doneAt": "2026-10-02"
+    },
+    {
+      "id": "m038",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 来店予約 キャンセル 減らす",
+      "sub": [
+        "来店 ドタキャン 対策",
+        "内見 予約 無断キャンセル"
+      ],
+      "title": "来店予約のキャンセルを減らす方法｜予約から当日までの連絡の組み方",
+      "intent": "予約は入るのに来店につながらない",
+      "pillar": "../index.html",
+      "related": [
+        "lead-response-speed",
+        "naiken-junbi-annai"
+      ],
+      "status": "done",
+      "slug": "raiten-cancel-herasu",
+      "doneAt": "2026-10-03"
     }
   ]
 }
