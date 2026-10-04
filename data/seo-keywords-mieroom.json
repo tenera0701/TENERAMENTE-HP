@@ -730,6 +730,25 @@
       "status": "done",
       "slug": "raiten-cancel-herasu",
       "doneAt": "2026-10-03"
+    },
+    {
+      "id": "m039",
+      "category": "業務効率化",
+      "keyword": "賃貸 法人契約 対応",
+      "sub": [
+        "社宅 斡旋 流れ",
+        "法人契約 必要書類"
+      ],
+      "title": "賃貸の法人契約・社宅対応の進め方｜個人契約との違いと必要書類",
+      "intent": "法人契約の進め方が分からない",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomisho-fubi-herasu",
+        "hosho-gaisha-shinsa-nagare"
+      ],
+      "status": "done",
+      "slug": "houjin-keiyaku-shataku-taio",
+      "doneAt": "2026-10-04"
     }
   ]
 }
