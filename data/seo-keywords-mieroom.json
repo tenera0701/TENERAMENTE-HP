@@ -749,6 +749,25 @@
       "status": "done",
       "slug": "houjin-keiyaku-shataku-taio",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "m040",
+      "category": "DX",
+      "keyword": "賃貸 電子契約 導入",
+      "sub": [
+        "不動産 電子契約 やり方",
+        "IT重説 準備"
+      ],
+      "title": "賃貸契約の電子化はどこから始めるか｜電子契約・IT重説の進め方",
+      "intent": "電子契約を入れたいが何から手を付けるか分からない",
+      "pillar": "../index.html",
+      "related": [
+        "chintai-keiyakusho-jusetsu-jitan",
+        "kami-excel-konzai-ikou"
+      ],
+      "status": "done",
+      "slug": "denshi-keiyaku-donyu",
+      "doneAt": "2026-10-05"
     }
   ]
 }

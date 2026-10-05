@@ -750,7 +750,9 @@
       "related": [
         "2026-09-09-homepage-renewal-timing"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-06-blog-riraito-yarikata",
+      "doneAt": "2026-10-05"
     },
     {
       "id": "k029",
