@@ -90,9 +90,10 @@ function bgDataUri(p) {
 function coverSVG(p) {
   const date = String(p.date || '');
   const label = LABELS[p.category] || 'BLOG';
-  // 記事専用の背景が置かれていれば、その絵を必ず使う
+  // 背景の絵柄（記事専用／build-mieroom.js が決めた coverBg）が見つかれば、その絵を使う。
+  // 絵が1枚も無いときだけ、日付で選ぶコード生成のレイアウトに落ちる。
   const variant = VARIANT_BY_SLUG[p.slug]
-    || (findBg(p.slug) ? 'photo' : pickLayout(date, LAYOUT_OFFSET));
+    || (bgDataUri(p) ? 'photo' : pickLayout(date, LAYOUT_OFFSET));
   return buildCover({
     W, H,
     palette: PALETTE,

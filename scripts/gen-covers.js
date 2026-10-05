@@ -85,10 +85,6 @@ function findBg(name) {
   }
   return null;
 }
-/** その記事のためだけに置かれた画像があるか */
-function hasOwnBg(post) {
-  return !!findBg(post.slug);
-}
 const bgCache = new Map();
 function bgDataUri(post) {
   const file = findBg(post.slug)
@@ -104,9 +100,10 @@ function bgDataUri(post) {
 
 function coverSVG(post) {
   const date = String(post.date || '');
-  // 記事専用の背景が置かれていれば、その絵を必ず使う（日替わりの構図より優先）
+  // 背景の絵柄（記事専用／BG_BY_SLUG／カテゴリ共通のどれか）が見つかれば、その絵を使う。
+  // 絵が1枚も無いときだけ、日付で選ぶコード生成のレイアウトに落ちる。
   const variant = VARIANT_BY_SLUG[post.slug]
-    || (hasOwnBg(post) ? 'photo' : pickLayout(date));
+    || (bgDataUri(post) ? 'photo' : pickLayout(date));
   return buildCover({
     W, H,
     palette: PALETTE,
