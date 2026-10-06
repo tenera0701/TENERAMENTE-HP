@@ -381,7 +381,10 @@ function topRight(o) {
 function onArtwork(o) {
   const { W, H, P, tags } = o;
   const lines = wrapTitle(o.title, 10, 4);
-  const size = lines.length >= 4 ? 43 : lines.length === 3 ? 48 : 54;
+  // 行数だけでなく、いちばん長い行が左半分に収まる大きさまで下げる
+  const widest = lines.reduce((m, l) => Math.max(m, textWidth(l)), 1);
+  const base = lines.length >= 4 ? 43 : lines.length === 3 ? 48 : 54;
+  const size = Math.max(32, Math.min(base, Math.floor(500 / widest)));
   const blockH = lines.length * size * 1.44;
   const topY = (H - blockH) / 2 + 6;
   const t = title(72, topY, lines, size, P, { markMax: 450, lh: 1.44 });

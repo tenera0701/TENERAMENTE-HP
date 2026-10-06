@@ -768,6 +768,57 @@
       "status": "done",
       "slug": "denshi-keiyaku-donyu",
       "doneAt": "2026-10-05"
+    },
+    {
+      "id": "m041",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 クレーム 対応",
+      "sub": [
+        "賃貸 入居後 トラブル 窓口",
+        "クレーム 記録 共有"
+      ],
+      "title": "賃貸仲介のクレーム対応｜一次対応の型と、店舗で記録を残す範囲",
+      "intent": "クレーム対応が担当者任せになっている",
+      "pillar": "../index.html",
+      "related": [
+        "raiten-hearing-koumoku",
+        "staff-seiseki-kanri"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m042",
+      "category": "集客・広告",
+      "keyword": "賃貸 空室 募集条件 見直し",
+      "sub": [
+        "空室 長期化 対策",
+        "オーナー 提案 資料"
+      ],
+      "title": "空室が動かないときの募集条件の見直し｜オーナーへの提案の組み立て方",
+      "intent": "空室が長引いて提案に困っている",
+      "pillar": "../index.html",
+      "related": [
+        "bukken-shokaibun-kakikata",
+        "kansanki-yarukoto"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m043",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 業務マニュアル 作り方",
+      "sub": [
+        "不動産 店舗 マニュアル 項目",
+        "手順書 定着"
+      ],
+      "title": "賃貸仲介の業務マニュアルの作り方｜使われる粒度と置き場所の決め方",
+      "intent": "マニュアルを作っても使われない",
+      "pillar": "../index.html",
+      "related": [
+        "shinjin-ikusei-junban",
+        "kami-excel-konzai-ikou"
+      ],
+      "status": "todo"
     }
   ]
 }
