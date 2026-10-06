@@ -784,7 +784,9 @@
         "raiten-hearing-koumoku",
         "staff-seiseki-kanri"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-kuremu-taio",
+      "doneAt": "2026-10-06"
     },
     {
       "id": "m042",
