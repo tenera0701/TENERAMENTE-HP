@@ -26,8 +26,8 @@
 .hero-2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
 @media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
 /* 実画面 */
-.lp-shot .frame { --h: auto; --zoom: 100%; }
-@media (max-width: 960px) { .lp-shot .frame { --h: clamp(200px, 44vw, 330px); --zoom: 135%; } }
+.lp-shot .frame { --ar: auto; }
+@media (max-width: 960px) { .lp-shot .frame { --ar: 7 / 5; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>

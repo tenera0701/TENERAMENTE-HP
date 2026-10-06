@@ -28,8 +28,8 @@
 .zero { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--fg-2); padding: 9px 12px; border: 1px solid var(--line-2); border-radius: 2px; }
 .zero::before { content: ''; width: 6px; height: 6px; background: var(--line-green); }
 /* 実画面 */
-.lp-shot .frame { --h: clamp(260px, 27vw, 420px); --zoom: 135%; }
-@media (max-width: 960px) { .lp-shot .frame { --h: clamp(220px, 46vw, 380px); --zoom: 150%; } }
+.lp-shot .frame { --ar: 151 / 100; } /* 下段のカード2枚の切れ目で切る */
+
 </style>
 <!-- Meta Pixel Code -->
 <script>
