@@ -803,7 +803,9 @@
         "bukken-shokaibun-kakikata",
         "kansanki-yarukoto"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "kushitsu-boshu-joken-minaoshi",
+      "doneAt": "2026-10-07"
     },
     {
       "id": "m043",
