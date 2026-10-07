@@ -5,6 +5,10 @@ ChatGPT で作ったブログのトップ画像を、毎朝のルーティンに
 
   python scripts/place-ai-cover.py <teneramente|mieroom> <キューID> <元画像のパス> "<記事のタイトル>" [--logo] [--wipe=x0,y0,x1,y1]
 
+  --published を付けると、公開済み（done）の記事のカバーを差し替える（在庫切れでコード生成のカバーになった記事用）。
+  在庫ではなく covers/<slug>.png に直接書き、古い WebP を消す。そのあと build-mieroom.js → build-index.js を実行する。
+  差し替えが要る記事は `node scripts/seo-queue.js nocover`（--site=mieroom）で一覧できる。
+
 やること
   1. 既存のカバーと同じ寸法に切り抜く（TENERAMENTE 1200x630 / ミエルーム 1200x675。中央基準）
   2. --logo を付けたときだけ、左上に本物のロゴを載せる（左上が空いている絵のときだけ使う。
@@ -32,11 +36,13 @@ SITES = {
         'size': (1200, 630),
         'queue': os.path.join('data', 'seo-keywords.json'),
         'out': os.path.join('assets', 'img', 'cover-queue'),
+        'covers': os.path.join('assets', 'img', 'covers'),
     },
     'mieroom': {
         'size': (1200, 675),
         'queue': os.path.join('data', 'seo-keywords-mieroom.json'),
         'out': os.path.join('mieroom', 'assets', 'cover-queue'),
+        'covers': os.path.join('mieroom', 'assets', 'covers'),
     },
 }
 
@@ -123,8 +129,12 @@ def main():
     item = next((i for i in q['items'] if i['id'] == qid), None)
     if not item:
         sys.exit(f'キューに {qid} がありません')
-    if item.get('status') != 'todo':
-        sys.exit(f'{qid} はすでに {item.get("status")} です（書き終えた記事には使えません）')
+    published = '--published' in sys.argv
+    if published:
+        if item.get('status') != 'done' or not item.get('slug'):
+            sys.exit(f'{qid} はまだ公開されていません（--published は done の記事だけに使えます）')
+    elif item.get('status') != 'todo':
+        sys.exit(f'{qid} はすでに {item.get("status")} です（書き終えた記事は --published を付けて差し替える）')
 
     im = Image.open(src).convert('RGB')
     im = fit(im, *cfg['size'])
@@ -141,16 +151,23 @@ def main():
         else:
             draw_logo(im)
 
-    out_dir = os.path.join(ROOT, cfg['out'])
+    out_dir = os.path.join(ROOT, cfg['covers'] if published else cfg['out'])
     os.makedirs(out_dir, exist_ok=True)
-    out = os.path.join(out_dir, f'{qid}.png')
+    out = os.path.join(out_dir, f'{item["slug"]}.png' if published else f'{qid}.png')
+    if published:
+        # 古いカバーから作った WebP を消す（ビルドが新しい PNG から作り直す。作れない環境では PNG 表示になる）
+        for suffix in ('.webp', '-card.webp'):
+            stale = os.path.join(out_dir, item['slug'] + suffix)
+            if os.path.exists(stale):
+                os.remove(stale)
     # 256色に減色して軽くする（イラストなので見た目はほとんど変わらない）
     im.quantize(colors=256, method=Image.Quantize.FASTOCTREE,
                 dither=Image.Dither.FLOYDSTEINBERG).save(out, optimize=True)
 
     rel = os.path.relpath(out, ROOT).replace(os.sep, '/')
     item['coverTitle'] = title
-    item['coverImage'] = rel
+    if not published:
+        item['coverImage'] = rel
     with open(qpath, 'w', encoding='utf-8', newline='\n') as f:
         f.write(json.dumps(q, ensure_ascii=False, indent=2) + '\n')
     print(f'✓ {rel} を作りました（{cfg["size"][0]}x{cfg["size"][1]}、{os.path.getsize(out) // 1024}KB）')

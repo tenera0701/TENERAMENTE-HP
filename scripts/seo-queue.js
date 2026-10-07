@@ -2,13 +2,17 @@
 /**
  * seo-queue.js — 狙いキーワードの待ち行列を操作する。
  *
- *   node scripts/seo-queue.js next                次の todo を1件（JSON）表示。無ければ何も出さない
+ *   node scripts/seo-queue.js next                次の todo を1件（JSON）表示。無ければ何も出さない。
+ *                                                 ChatGPT の画像の在庫がある todo を優先し、無いときだけ先頭の todo を出す
  *   node scripts/seo-queue.js done <id> <slug>    その id を done にし、記事 slug と日付を記録する。
  *                                                 ChatGPT で作った画像の在庫（coverImage）があれば、
  *                                                 その記事のカバーとして covers/<slug>.png にコピーする
  *   node scripts/seo-queue.js upcoming [n]        次の n 件（既定3）を、画像の在庫の有無つきで JSON 表示
  *   node scripts/seo-queue.js list                全件を状態つきで表示
  *   node scripts/seo-queue.js remaining           todo の件数だけ表示
+ *   node scripts/seo-queue.js nocover [since]     公開済みなのに ChatGPT のカバーが無い記事（コード生成のカバーのまま）を一覧。
+ *                                                 since（YYYY-MM-DD、既定 2026-09-25）以降に公開したものだけ。
+ *                                                 差し替えは place-ai-cover.py の --published で行う
  *
  *   --site=mieroom を付けると data/seo-keywords-mieroom.json（ミエルーム ブログ用）を操作する。
  *   省略時は data/seo-keywords.json（TENERAMENTE ブログ用）。
@@ -36,7 +40,8 @@ const cmd = args[0];
 const hasStock = it => !!(it.coverImage && fs.existsSync(path.join(ROOT, it.coverImage)));
 
 if (cmd === 'next') {
-  const it = q.items.find(i => i.status === 'todo');
+  // コード生成のカバーで出さないよう、在庫のある項目を先に書く
+  const it = q.items.find(i => i.status === 'todo' && hasStock(i)) || q.items.find(i => i.status === 'todo');
   if (it) console.log(JSON.stringify(it, null, 2));
 } else if (cmd === 'done') {
   const [, id, slug] = args;
@@ -61,8 +66,13 @@ if (cmd === 'next') {
   console.log(JSON.stringify(list, null, 2));
 } else if (cmd === 'list') {
   q.items.forEach(i => console.log(`${i.status.padEnd(4)} ${i.id.padEnd(6)} ${i.category.padEnd(6)} ${i.keyword}${i.slug ? '  → ' + i.slug : ''}${hasStock(i) && i.status === 'todo' ? '  [画像あり]' : ''}`));
+} else if (cmd === 'nocover') {
+  const since = args[1] || '2026-09-25';
+  const list = q.items.filter(i => i.status === 'done' && i.slug && !i.coverTitle && (i.doneAt || '') >= since)
+    .map(i => ({ id: i.id, slug: i.slug, doneAt: i.doneAt }));
+  console.log(JSON.stringify(list, null, 2));
 } else if (cmd === 'remaining') {
   console.log(q.items.filter(i => i.status === 'todo').length);
 } else {
-  console.log('usage: seo-queue.js next | done <id> <slug> | upcoming [n] | list | remaining   [--site=mieroom]');
+  console.log('usage: seo-queue.js next | done <id> <slug> | upcoming [n] | list | remaining | nocover [since]   [--site=mieroom]');
 }

@@ -174,7 +174,11 @@ git push
   - **記事のタイトルは coverTitle と一字一句同じにする**（画像はそのタイトルを ChatGPT に渡して作ってあり、見出しにも描かれているため。変えると画像と食い違う）
   - `node scripts/seo-queue.js done <id> <slug>` がこの画像を `covers/<slug>.png` にコピーし、ビルドはそれを作り直さずにそのまま使う
   - 在庫フォルダ（cover-queue）の中身はルーティンから触らない。作り方・ChatGPT への指示文は `assets/img/cover-queue/README.md`
-- 在庫が無い記事は、以下のとおりコードでカバーを作る（従来どおり）。
+- **テンプレ（コード生成）のカバーで記事を出しっぱなしにしない。** カバーは毎日 ChatGPT で1記事1枚作る。
+  - `seo-queue.js next` は在庫のある項目を優先して返す。在庫が1件も無い日だけ、ビルドがコードでカバーを仮に作る
+  - 仮のカバーで出た記事は `node scripts/seo-queue.js nocover`（ミエルームは `--site=mieroom`）に出る。手元のタスクで ChatGPT の画像を作り、
+    `python scripts/place-ai-cover.py <site> <キューID> <元画像> "<記事のタイトル>" --published` で差し替えてから `build-mieroom.js` → `build-index.js` を実行する（タイトルは公開中の記事のタイトルと同じにする）
+- 以下は、仮のカバーをコードで作る仕組みの説明。
 - カバーは `scripts/gen-covers.js` が生成する。**記事のテーマに合わせた背景画像**を敷き、その上に見出しを重ねる形。
 - 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.{webp,jpg}`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）。ミエルーム側は同じ絵柄を webp と jpg の両方で置く（ページ表示は webp、カバー生成は jpg。resvg が webp を読めないため）
 - 記事ごとに割り当てたいときは `gen-covers.js` の `BG_BY_SLUG` に slug を足す。無ければ `BG_BY_CATEGORY` の絵柄が使われるので、新しい記事でも自動でカバーが付く

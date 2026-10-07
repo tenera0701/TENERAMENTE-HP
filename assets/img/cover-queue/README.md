@@ -24,6 +24,17 @@
 
 在庫はローカルの定期タスク「ブログのトップ画像を ChatGPT で補充」が毎日補充します。手で作るときも同じ手順です。
 
+### 在庫切れで仮のカバーになった記事を差し替える（毎日、補充より先にやる）
+
+テンプレ（コード生成）のカバーのまま記事を残さない。手元のタスクは毎日、次の順で動く。
+
+1. `node scripts/seo-queue.js nocover`（ミエルームは `--site=mieroom`）で、仮のカバーのまま公開されている記事を確認する
+2. 各記事を「2. ChatGPT への頼み方」と同じ1行で作る。`{記事のタイトル}` は**公開中の記事のタイトル**
+3. `python scripts/place-ai-cover.py <teneramente|mieroom> <キューID> <元画像> "<記事のタイトル>" --published`
+   （在庫ではなく `covers/<slug>.png` に直接書き、古い WebP を消し、キューに coverTitle を記録する。nocover の一覧から消える）
+4. `node scripts/build-mieroom.js` → `node scripts/build-index.js` を実行してコミット・push する
+5. そのあとで次の3件ぶんの在庫を補充する
+
 ---
 
 ## 2. ChatGPT への頼み方（指示は1行だけ）
