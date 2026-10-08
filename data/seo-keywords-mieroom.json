@@ -822,7 +822,9 @@
         "shinjin-ikusei-junban",
         "kami-excel-konzai-ikou"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "gyomu-manual-tsukurikata",
+      "doneAt": "2026-10-08"
     }
   ]
 }

@@ -805,7 +805,9 @@
       "related": [
         "2026-09-10-gbp-toukou-neta"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-09-kiji-midashi-kousei-tsukurikata",
+      "doneAt": "2026-10-08"
     },
     {
       "id": "k031",

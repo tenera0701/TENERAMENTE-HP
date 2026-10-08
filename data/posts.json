@@ -1,5 +1,70 @@
 [
   {
+    "slug": "2026-10-09-kiji-midashi-kousei-tsukurikata",
+    "title": "SEO記事の見出し構成の作り方｜書く前に決める設計手順と型",
+    "date": "2026-10-09",
+    "dateLabel": "Oct 9, 2026",
+    "category": "hp",
+    "categoryLabel": "HP / LP",
+    "categoryGroup": "hp",
+    "excerpt": "SEO記事の見出し構成の作り方を、書く前に決めることから4つの手順、使える構成の型、見出しの文の書き方、公開前の確認までまとめました。本文を書き始める前に順路を決めるための設計手順です。",
+    "tags": [
+      "記事構成",
+      "SEO",
+      "見出し",
+      "コンテンツ運用",
+      "ホームページ"
+    ],
+    "readMin": 7,
+    "glyph": "H",
+    "featured": false,
+    "toc": [
+      {
+        "id": "h1",
+        "n": "01",
+        "label": "見出し構成とは、読者が答えに届く順路のこと"
+      },
+      {
+        "id": "h2",
+        "n": "02",
+        "label": "構成を作る前に決める3つのこと"
+      },
+      {
+        "id": "h3",
+        "n": "03",
+        "label": "見出し構成の作り方：4つの手順"
+      },
+      {
+        "id": "h4",
+        "n": "04",
+        "label": "使える構成の型を4つ"
+      },
+      {
+        "id": "h5",
+        "n": "05",
+        "label": "見出しの文の書き方"
+      },
+      {
+        "id": "h6",
+        "n": "06",
+        "label": "やりがちな失敗"
+      },
+      {
+        "id": "h7",
+        "n": "07",
+        "label": "公開前に、見出しだけで確認する5項目"
+      },
+      {
+        "id": "h8",
+        "n": "08",
+        "label": "まとめ：構成が決まれば、本文は埋めるだけになる"
+      }
+    ],
+    "visual": "default",
+    "number": "01",
+    "image": "assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.png"
+  },
+  {
     "slug": "2026-10-08-api-renkei-toha",
     "title": "API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること",
     "date": "2026-10-08",
@@ -60,8 +125,8 @@
         "label": "まとめ：つなぐ前に、範囲と向きを決める"
       }
     ],
-    "visual": "default",
-    "number": "01",
+    "visual": "v-violet",
+    "number": "02",
     "image": "assets/img/covers/2026-10-08-api-renkei-toha.png",
     "imageHero": "assets/img/covers/2026-10-08-api-renkei-toha.webp",
     "imageCard": "assets/img/covers/2026-10-08-api-renkei-toha-card.webp"
@@ -127,8 +192,8 @@
         "label": "まとめ：空欄を埋め、返信を止めないところから"
       }
     ],
-    "visual": "v-violet",
-    "number": "02",
+    "visual": "v-cyan",
+    "number": "03",
     "image": "assets/img/covers/2026-10-07-fudosan-meo-taisaku.png",
     "imageHero": "assets/img/covers/2026-10-07-fudosan-meo-taisaku.webp",
     "imageCard": "assets/img/covers/2026-10-07-fudosan-meo-taisaku-card.webp"
@@ -193,8 +258,8 @@
         "label": "まとめ：新しく書く前に、あと一歩の記事を探す"
       }
     ],
-    "visual": "v-cyan",
-    "number": "03",
+    "visual": "default",
+    "number": "04",
     "image": "assets/img/covers/2026-10-06-blog-riraito-yarikata.png",
     "imageHero": "assets/img/covers/2026-10-06-blog-riraito-yarikata.webp",
     "imageCard": "assets/img/covers/2026-10-06-blog-riraito-yarikata-card.webp"
@@ -259,8 +324,8 @@
         "label": "まとめ：ばらつきを見て、困るところだけ決める"
       }
     ],
-    "visual": "default",
-    "number": "04",
+    "visual": "v-violet",
+    "number": "05",
     "image": "assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata.png",
     "imageHero": "assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata.webp",
     "imageCard": "assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata-card.webp"
@@ -325,8 +390,8 @@
         "label": "まとめ：そろえる・任せる・確かめるの3つに分ける"
       }
     ],
-    "visual": "v-violet",
-    "number": "05",
+    "visual": "v-cyan",
+    "number": "06",
     "image": "assets/img/covers/2026-10-04-tatenpo-meo-unyo.png",
     "imageHero": "assets/img/covers/2026-10-04-tatenpo-meo-unyo.webp",
     "imageCard": "assets/img/covers/2026-10-04-tatenpo-meo-unyo-card.webp"
@@ -391,8 +456,8 @@
         "label": "まとめ：中心を決めてから、文脈のある場所に1本ずつ"
       }
     ],
-    "visual": "v-cyan",
-    "number": "06",
+    "visual": "default",
+    "number": "07",
     "image": "assets/img/covers/2026-10-03-naibu-link-harikata.png",
     "imageHero": "assets/img/covers/2026-10-03-naibu-link-harikata.webp",
     "imageCard": "assets/img/covers/2026-10-03-naibu-link-harikata-card.webp"
@@ -458,8 +523,8 @@
         "label": "まとめ：選ぶ順番は「SaaSを先に当てる」"
       }
     ],
-    "visual": "default",
-    "number": "07",
+    "visual": "v-violet",
+    "number": "08",
     "image": "assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata.png",
     "imageHero": "assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata.webp",
     "imageCard": "assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata-card.webp"
@@ -519,8 +584,8 @@
         "label": "まとめ：カテゴリは年に一度見直す設定"
       }
     ],
-    "visual": "v-violet",
-    "number": "08",
+    "visual": "v-cyan",
+    "number": "09",
     "image": "assets/img/covers/2026-10-01-gbp-category-erabikata.png",
     "imageHero": "assets/img/covers/2026-10-01-gbp-category-erabikata.webp",
     "imageCard": "assets/img/covers/2026-10-01-gbp-category-erabikata-card.webp"
@@ -585,8 +650,8 @@
         "label": "まとめ：4つの画面を、月に1回の同じ順番で"
       }
     ],
-    "visual": "v-cyan",
-    "number": "09",
+    "visual": "default",
+    "number": "10",
     "image": "assets/img/covers/2026-09-30-search-console-tsukaikata.png",
     "imageHero": "assets/img/covers/2026-09-30-search-console-tsukaikata.webp",
     "imageCard": "assets/img/covers/2026-09-30-search-console-tsukaikata-card.webp"
@@ -652,8 +717,8 @@
         "label": "まとめ：手順を揃えることが、自動化の本体"
       }
     ],
-    "visual": "default",
-    "number": "10",
+    "visual": "v-violet",
+    "number": "11",
     "image": "assets/img/covers/2026-09-29-rpa-toha-chusho-kigyo.png",
     "imageHero": "assets/img/covers/2026-09-29-rpa-toha-chusho-kigyo.webp",
     "imageCard": "assets/img/covers/2026-09-29-rpa-toha-chusho-kigyo-card.webp"
@@ -714,8 +779,8 @@
         "label": "まとめ：土台を直してから、施策を足す"
       }
     ],
-    "visual": "v-violet",
-    "number": "11",
+    "visual": "v-cyan",
+    "number": "12",
     "image": "assets/img/covers/2026-09-28-nap-touitsu-meo.png",
     "imageHero": "assets/img/covers/2026-09-28-nap-touitsu-meo.webp",
     "imageCard": "assets/img/covers/2026-09-28-nap-touitsu-meo-card.webp"
@@ -781,8 +846,8 @@
         "label": "まとめ：説明文は、今日から直せる一手"
       }
     ],
-    "visual": "v-cyan",
-    "number": "12",
+    "visual": "default",
+    "number": "13",
     "image": "assets/img/covers/2026-09-27-meta-description-kakikata.png",
     "imageHero": "assets/img/covers/2026-09-27-meta-description-kakikata.webp",
     "imageCard": "assets/img/covers/2026-09-27-meta-description-kakikata-card.webp"
@@ -848,8 +913,8 @@
         "label": "まとめ：小さく作って、限界が見えたら切り替える"
       }
     ],
-    "visual": "default",
-    "number": "13",
+    "visual": "v-violet",
+    "number": "14",
     "image": "assets/img/covers/2026-09-26-nocode-gyomu-app.png",
     "imageHero": "assets/img/covers/2026-09-26-nocode-gyomu-app.webp",
     "imageCard": "assets/img/covers/2026-09-26-nocode-gyomu-app-card.webp"
@@ -915,8 +980,8 @@
         "label": "まとめ：範囲を分けて、両方を並行させる"
       }
     ],
-    "visual": "v-violet",
-    "number": "14",
+    "visual": "v-cyan",
+    "number": "15",
     "image": "assets/img/covers/2026-09-25-local-seo-meo-chigai.png",
     "imageHero": "assets/img/covers/2026-09-25-local-seo-meo-chigai.webp",
     "imageCard": "assets/img/covers/2026-09-25-local-seo-meo-chigai-card.webp"
@@ -982,8 +1047,8 @@
         "label": "まとめ：タイトルタグは、最も早く効く一手"
       }
     ],
-    "visual": "v-cyan",
-    "number": "15",
+    "visual": "default",
+    "number": "16",
     "image": "assets/img/covers/2026-09-24-title-tag-kakikata.png",
     "imageHero": "assets/img/covers/2026-09-24-title-tag-kakikata.webp",
     "imageCard": "assets/img/covers/2026-09-24-title-tag-kakikata-card.webp"
@@ -1049,8 +1114,8 @@
         "label": "まとめ：マニュアルは、仕組み化の下ごしらえになる"
       }
     ],
-    "visual": "default",
-    "number": "16",
+    "visual": "v-violet",
+    "number": "17",
     "image": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.png",
     "imageHero": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.webp",
     "imageCard": "assets/img/covers/2026-09-23-gyomu-manual-tsukurikata-card.webp"
@@ -1116,8 +1181,8 @@
         "label": "まとめ：期間ではなく、動いている数字で判断する"
       }
     ],
-    "visual": "v-violet",
-    "number": "17",
+    "visual": "v-cyan",
+    "number": "18",
     "image": "assets/img/covers/2026-09-22-meo-kouka-kikan.png",
     "imageHero": "assets/img/covers/2026-09-22-meo-kouka-kikan.webp",
     "imageCard": "assets/img/covers/2026-09-22-meo-kouka-kikan-card.webp"
@@ -1183,8 +1248,8 @@
         "label": "まとめ：選定は、書ける語から順に"
       }
     ],
-    "visual": "v-cyan",
-    "number": "18",
+    "visual": "default",
+    "number": "19",
     "image": "assets/img/covers/2026-09-21-seo-keyword-sentei-yarikata.png",
     "imageHero": "assets/img/covers/2026-09-21-seo-keyword-sentei-yarikata.webp",
     "imageCard": "assets/img/covers/2026-09-21-seo-keyword-sentei-yarikata-card.webp"
@@ -1250,8 +1315,8 @@
         "label": "まとめ：整理した1枚を、相談の入口にする"
       }
     ],
-    "visual": "default",
-    "number": "19",
+    "visual": "v-violet",
+    "number": "20",
     "image": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.png",
     "imageHero": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.webp",
     "imageCard": "assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata-card.webp"
@@ -1322,8 +1387,8 @@
         "label": "まとめ：下がったときほど、触る前に確認する"
       }
     ],
-    "visual": "v-violet",
-    "number": "20",
+    "visual": "v-cyan",
+    "number": "21",
     "image": "assets/img/covers/2026-09-19-google-map-juni-sagatta.png",
     "imageHero": "assets/img/covers/2026-09-19-google-map-juni-sagatta.webp",
     "imageCard": "assets/img/covers/2026-09-19-google-map-juni-sagatta-card.webp"
@@ -1389,8 +1454,8 @@
         "label": "まとめ：順位は結果であって、直す対象ではない"
       }
     ],
-    "visual": "v-cyan",
-    "number": "21",
+    "visual": "default",
+    "number": "22",
     "image": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin.png",
     "imageHero": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin.webp",
     "imageCard": "assets/img/covers/2026-09-18-kensaku-juni-agaranai-genin-card.webp"
@@ -1456,8 +1521,8 @@
         "label": "まとめ：DXは言葉ではなく、順番の問題"
       }
     ],
-    "visual": "default",
-    "number": "22",
+    "visual": "v-violet",
+    "number": "23",
     "image": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.png",
     "imageHero": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.webp",
     "imageCard": "assets/img/covers/2026-09-17-dx-towa-chusho-kigyo-card.webp"
@@ -1523,8 +1588,8 @@
         "label": "まとめ：削除できるものとできないものを、先に分ける"
       }
     ],
-    "visual": "v-violet",
-    "number": "23",
+    "visual": "v-cyan",
+    "number": "24",
     "image": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.png",
     "imageHero": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.webp",
     "imageCard": "assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio-card.webp"
@@ -1589,8 +1654,8 @@
         "label": "まとめ：まず3か月、同じ手順を回す"
       }
     ],
-    "visual": "v-cyan",
-    "number": "24",
+    "visual": "default",
+    "number": "25",
     "image": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.png",
     "imageHero": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.webp",
     "imageCard": "assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata-card.webp"
@@ -1651,8 +1716,8 @@
         "label": "選び終わってからが本番"
       }
     ],
-    "visual": "default",
-    "number": "25",
+    "visual": "v-violet",
+    "number": "26",
     "image": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.png",
     "imageHero": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.webp",
     "imageCard": "assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata-card.webp"
@@ -1718,8 +1783,8 @@
         "label": "まとめ：AI検索の露出は、情報の整理から"
       }
     ],
-    "visual": "v-violet",
-    "number": "26",
+    "visual": "v-cyan",
+    "number": "27",
     "image": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.png",
     "imageHero": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.webp",
     "imageCard": "assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji-card.webp"
@@ -1785,8 +1850,8 @@
         "label": "まとめ：例文は型として使い、自店の言葉に置き換える"
       }
     ],
-    "visual": "v-cyan",
-    "number": "27",
+    "visual": "default",
+    "number": "28",
     "image": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png",
     "imageHero": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.webp",
     "imageCard": "assets/img/covers/2026-09-12-kuchikomi-henshin-reibun-card.webp"
@@ -1852,8 +1917,8 @@
         "label": "まとめ：合わない部分を人が埋め始めたら検討する"
       }
     ],
-    "visual": "default",
-    "number": "28",
+    "visual": "v-violet",
+    "number": "29",
     "image": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png",
     "imageHero": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.webp",
     "imageCard": "assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo-card.webp"
@@ -1918,8 +1983,8 @@
         "label": "まとめ：ネタは探さず、貯めておく"
       }
     ],
-    "visual": "v-violet",
-    "number": "29",
+    "visual": "v-cyan",
+    "number": "30",
     "image": "assets/img/covers/2026-09-10-gbp-toukou-neta.png",
     "imageHero": "assets/img/covers/2026-09-10-gbp-toukou-neta.webp",
     "imageCard": "assets/img/covers/2026-09-10-gbp-toukou-neta-card.webp"
@@ -1984,8 +2049,8 @@
         "label": "まとめ：落ちている場所を特定してから決める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "30",
+    "visual": "default",
+    "number": "31",
     "image": "assets/img/covers/2026-09-09-homepage-renewal-timing.png",
     "imageHero": "assets/img/covers/2026-09-09-homepage-renewal-timing.webp",
     "imageCard": "assets/img/covers/2026-09-09-homepage-renewal-timing-card.webp"
@@ -2055,8 +2120,8 @@
         "label": "まとめ：まず90日、同じ手順を回してみる"
       }
     ],
-    "visual": "default",
-    "number": "31",
+    "visual": "v-violet",
+    "number": "32",
     "image": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png",
     "imageHero": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.webp",
     "imageCard": "assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata-card.webp"
@@ -2122,8 +2187,8 @@
         "label": "まとめ：判断は「規模」ではなく「続くかどうか」"
       }
     ],
-    "visual": "v-violet",
-    "number": "32",
+    "visual": "v-cyan",
+    "number": "33",
     "image": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png",
     "imageHero": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.webp",
     "imageCard": "assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan-card.webp"
@@ -2189,8 +2254,8 @@
         "label": "まとめ：ルールは「使ってよい範囲」を書いた分だけ機能する"
       }
     ],
-    "visual": "v-cyan",
-    "number": "33",
+    "visual": "default",
+    "number": "34",
     "image": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png",
     "imageHero": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.webp",
     "imageCard": "assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template-card.webp"
@@ -2251,8 +2316,8 @@
         "label": "まとめ：金額を比べる前に、作業を比べる"
       }
     ],
-    "visual": "default",
-    "number": "34",
+    "visual": "v-violet",
+    "number": "35",
     "image": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.png",
     "imageHero": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake.webp",
     "imageCard": "assets/img/covers/2026-09-05-meo-hiyo-souba-uchiwake-card.webp"
@@ -2318,8 +2383,8 @@
         "label": "まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "35",
+    "visual": "v-cyan",
+    "number": "36",
     "image": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png",
     "imageHero": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.webp",
     "imageCard": "assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan-card.webp"
@@ -2380,8 +2445,8 @@
         "label": "各段階の「進む基準」と「やめどき」一覧"
       }
     ],
-    "visual": "v-cyan",
-    "number": "36",
+    "visual": "default",
+    "number": "37",
     "image": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.png",
     "imageHero": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata.webp",
     "imageCard": "assets/img/covers/2026-09-04-ai-gyomu-kaizen-susumekata-card.webp"
@@ -2442,8 +2507,8 @@
         "label": "まとめ：AI開発企業の7つの比較ポイントを、初回相談で確かめる"
       }
     ],
-    "visual": "default",
-    "number": "37",
+    "visual": "v-violet",
+    "number": "38",
     "image": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.png",
     "imageHero": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata.webp",
     "imageCard": "assets/img/covers/2026-09-04-ai-kaihatsu-kigyo-erabikata-card.webp"
@@ -2504,8 +2569,8 @@
         "label": "まとめ：7項目を一枚にして、小さく始める"
       }
     ],
-    "visual": "v-violet",
-    "number": "38",
+    "visual": "v-cyan",
+    "number": "39",
     "image": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.png",
     "imageHero": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi.webp",
     "imageCard": "assets/img/covers/2026-09-04-ai-tool-kaihatsu-irai-junbi-card.webp"
@@ -2566,8 +2631,8 @@
         "label": "まとめ：速さより「画面で決められること」を買う"
       }
     ],
-    "visual": "v-cyan",
-    "number": "39",
+    "visual": "default",
+    "number": "40",
     "image": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png",
     "imageHero": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.webp",
     "imageCard": "assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai-card.webp"
@@ -2634,8 +2699,8 @@
       }
     ],
     "pickup": 3,
-    "visual": "default",
-    "number": "40",
+    "visual": "v-violet",
+    "number": "41",
     "image": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png",
     "imageHero": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.webp",
     "imageCard": "assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata-card.webp"
@@ -2701,8 +2766,8 @@
         "label": "まとめ：研修は「設計」で選ぶ"
       }
     ],
-    "visual": "v-violet",
-    "number": "41",
+    "visual": "v-cyan",
+    "number": "42",
     "image": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png",
     "imageHero": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.webp",
     "imageCard": "assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata-card.webp"
@@ -2769,8 +2834,8 @@
       }
     ],
     "pickup": 2,
-    "visual": "v-cyan",
-    "number": "42",
+    "visual": "default",
+    "number": "43",
     "image": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png",
     "imageHero": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.webp",
     "imageCard": "assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu-card.webp"
@@ -2837,8 +2902,8 @@
       }
     ],
     "pickup": 1,
-    "visual": "default",
-    "number": "43",
+    "visual": "v-violet",
+    "number": "44",
     "image": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.png",
     "imageHero": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide.webp",
     "imageCard": "assets/img/covers/2026-07-02-meo-taisaku-complete-guide-card.webp"
@@ -2899,8 +2964,8 @@
         "label": "まとめ：まず何から始めるか"
       }
     ],
-    "visual": "v-violet",
-    "number": "44",
+    "visual": "v-cyan",
+    "number": "45",
     "image": "assets/img/covers/2026-07-01-aio-cited-site.png",
     "imageHero": "assets/img/covers/2026-07-01-aio-cited-site.webp",
     "imageCard": "assets/img/covers/2026-07-01-aio-cited-site-card.webp"
@@ -2966,8 +3031,8 @@
         "label": "まずは小さく始める"
       }
     ],
-    "visual": "v-cyan",
-    "number": "45",
+    "visual": "default",
+    "number": "46",
     "image": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.png",
     "imageHero": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide.webp",
     "imageCard": "assets/img/covers/2026-06-30-gyomu-app-kanzen-guide-card.webp"
@@ -3028,8 +3093,8 @@
         "label": "月次チェックリスト（まとめ）"
       }
     ],
-    "visual": "default",
-    "number": "46",
+    "visual": "v-violet",
+    "number": "47",
     "image": "assets/img/covers/2026-06-28-gbp-monthly-checklist.png",
     "imageHero": "assets/img/covers/2026-06-28-gbp-monthly-checklist.webp",
     "imageCard": "assets/img/covers/2026-06-28-gbp-monthly-checklist-card.webp"
@@ -3094,8 +3159,8 @@
         "label": "まとめ：仕組みで増やし、返信で育てる"
       }
     ],
-    "visual": "v-violet",
-    "number": "47",
+    "visual": "v-cyan",
+    "number": "48",
     "image": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png",
     "imageHero": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.webp",
     "imageCard": "assets/img/covers/2026-06-27-google-kuchikomi-fuyasu-card.webp"
@@ -3151,8 +3216,8 @@
         "label": "最初の一歩（まとめ）"
       }
     ],
-    "visual": "v-cyan",
-    "number": "48",
+    "visual": "default",
+    "number": "49",
     "image": "assets/img/covers/2026-06-26-ai-first-step.png",
     "imageHero": "assets/img/covers/2026-06-26-ai-first-step.webp",
     "imageCard": "assets/img/covers/2026-06-26-ai-first-step-card.webp"
@@ -3218,8 +3283,8 @@
         "label": "まとめ：小さく入れて、正しく検証する"
       }
     ],
-    "visual": "default",
-    "number": "49",
+    "visual": "v-violet",
+    "number": "50",
     "image": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png",
     "imageHero": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.webp",
     "imageCard": "assets/img/covers/2026-06-25-kozoka-data-json-ld-guide-card.webp"
@@ -3285,8 +3350,8 @@
         "label": "まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる"
       }
     ],
-    "visual": "v-violet",
-    "number": "50",
+    "visual": "v-cyan",
+    "number": "51",
     "image": "assets/img/covers/2026-06-23-ai-overviews-taisaku.png",
     "imageHero": "assets/img/covers/2026-06-23-ai-overviews-taisaku.webp",
     "imageCard": "assets/img/covers/2026-06-23-ai-overviews-taisaku-card.webp"
@@ -3352,8 +3417,8 @@
         "label": "まとめ：小さく始めて、ルールとセットで育てる"
       }
     ],
-    "visual": "v-cyan",
-    "number": "51",
+    "visual": "default",
+    "number": "52",
     "image": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png",
     "imageHero": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.webp",
     "imageCard": "assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo-card.webp"
@@ -3424,8 +3489,8 @@
         "label": "まとめ：ナレッジ整備から始める社内AI"
       }
     ],
-    "visual": "default",
-    "number": "52",
+    "visual": "v-violet",
+    "number": "53",
     "image": "assets/img/covers/2026-06-17-rag-shanai-knowledge.png",
     "imageHero": "assets/img/covers/2026-06-17-rag-shanai-knowledge.webp",
     "imageCard": "assets/img/covers/2026-06-17-rag-shanai-knowledge-card.webp"
@@ -3491,8 +3556,8 @@
         "label": "まとめ：小さく始めて、確かめながら広げる"
       }
     ],
-    "visual": "v-violet",
-    "number": "53",
+    "visual": "v-cyan",
+    "number": "54",
     "image": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.png",
     "imageHero": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi.webp",
     "imageCard": "assets/img/covers/2026-06-14-ai-donyu-shippai-kaihi-card.webp"
@@ -3573,8 +3638,8 @@
         "label": "まとめ：小さく始める「脱Excel」から"
       }
     ],
-    "visual": "v-cyan",
-    "number": "54",
+    "visual": "default",
+    "number": "55",
     "image": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.png",
     "imageHero": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka.webp",
     "imageCard": "assets/img/covers/2026-06-11-excel-kanri-genkai-systemka-card.webp"
@@ -3640,8 +3705,8 @@
         "label": "まとめ：相場を知り、内訳を読み、小さく始める"
       }
     ],
-    "visual": "default",
-    "number": "55",
+    "visual": "v-violet",
+    "number": "56",
     "image": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.png",
     "imageHero": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba.webp",
     "imageCard": "assets/img/covers/2026-06-08-webapp-kaihatsu-hiyo-souba-card.webp"
@@ -3707,8 +3772,8 @@
         "label": "まとめ：金額ではなく「公開後」で選ぶ"
       }
     ],
-    "visual": "v-violet",
-    "number": "56",
+    "visual": "v-cyan",
+    "number": "57",
     "image": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png",
     "imageHero": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.webp",
     "imageCard": "assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide-card.webp"
