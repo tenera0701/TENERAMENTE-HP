@@ -825,6 +825,25 @@
       "status": "done",
       "slug": "gyomu-manual-tsukurikata",
       "doneAt": "2026-10-08"
+    },
+    {
+      "id": "m044",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 申込キャンセル 処理",
+      "sub": [
+        "賃貸 申込 取り消し 売上",
+        "契約キャンセル 成績 反映"
+      ],
+      "title": "申込キャンセルが出たときの処理｜売上の戻し方と記録の残し方",
+      "intent": "キャンセルのたびに数字の直し方で迷う",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "getsumatsu-uriage-shukei-jidoka"
+      ],
+      "status": "done",
+      "slug": "moushikomi-cancel-shori",
+      "doneAt": "2026-10-09"
     }
   ]
 }
