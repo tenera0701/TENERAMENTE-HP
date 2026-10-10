@@ -844,6 +844,25 @@
       "status": "done",
       "slug": "moushikomi-cancel-shori",
       "doneAt": "2026-10-09"
+    },
+    {
+      "id": "m045",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 店長 仕事",
+      "sub": [
+        "不動産 店長 やること",
+        "店長 数字 管理"
+      ],
+      "title": "賃貸仲介の店長がやること｜一日・一週間・一か月の見る順番",
+      "intent": "店長になったが何を見ればいいか分からない",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "hanbouki-uriage-mokuhyo"
+      ],
+      "status": "done",
+      "slug": "tencho-shigoto-dandori",
+      "doneAt": "2026-10-10"
     }
   ]
 }

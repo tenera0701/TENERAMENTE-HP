@@ -842,7 +842,9 @@
         "2026-06-11-excel-kanri-genkai-systemka",
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-11-excel-kyoyu-doji-henshu-genkai",
+      "doneAt": "2026-10-10"
     },
     {
       "id": "k080",
