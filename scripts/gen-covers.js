@@ -68,11 +68,41 @@ const BG_BY_SLUG = {
 const BG_BY_CATEGORY = { meo: 'meo-map', aio: 'aio-grid', ai: 'ai-wave', app: 'app-flow', hp: 'aio-grid' };
 const BG_DIR = path.join(__dirname, '..', 'assets', 'img', 'cover-bg');
 
+// カテゴリ共通の絵柄だけだと、同じカテゴリの記事が全部同じ見た目になる。
+// そこで背景は全部の絵柄を日付順に順番に回す（隣り合う記事は必ず別の絵柄になる）。
+// 似た系統が続かないように並べてある。cover-bg に新しい絵柄を足すと末尾に自動で加わる。
+const BG_ROTATION = ['meo-map', 'app-flow', 'ai-wave', 'aio-grid', 'app-cost', 'meo-diy',
+  'ai-kenshu', 'app-5steps', 'ai-shiwake', 'app-7items', 'app-erabikata', 'app-claudecode'];
+const bgBySlugRotation = new Map();
+function assignRotation(posts) {
+  const extra = fs.existsSync(BG_DIR)
+    ? fs.readdirSync(BG_DIR).filter(f => /\.(jpe?g|png)$/i.test(f)).map(f => f.replace(/\.[^.]+$/, ''))
+      .filter(n => !BG_ROTATION.includes(n) && !posts.some(p => p.slug === n)).sort()
+    : [];
+  const pool = BG_ROTATION.concat(extra).filter(n => findBg(n));
+  if (!pool.length) return;
+  // 古い順に並べて番号を振る（新しい記事は末尾に足されるので、既存の記事の割り当ては動かない）
+  const sorted = posts.slice().sort((a, b) =>
+    String(a.date).localeCompare(String(b.date)) || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+  // 記事ごとに決めた絵柄（専用画像・BG_BY_SLUG）とも並ばないよう、直前の記事と同じ絵柄になる番は1つ飛ばす
+  let i = 0, prev = '';
+  sorted.forEach(p => {
+    let name = findBg(p.slug) ? p.slug : (findBg(BG_BY_SLUG[p.slug]) ? BG_BY_SLUG[p.slug] : '');
+    if (!name) {
+      if (pool[i % pool.length] === prev) i++;
+      name = pool[i++ % pool.length];
+      bgBySlugRotation.set(p.slug, name);
+    }
+    prev = name;
+  });
+}
+
 /**
  * 背景画像の探し方。上から順に見て、最初に見つかったものを使う。
  *   1. assets/img/cover-bg/<slug>.jpg … その記事専用。置くだけで使われる（設定不要）
  *   2. BG_BY_SLUG の指定
- *   3. BG_BY_CATEGORY のカテゴリ共通の絵柄
+ *   3. BG_ROTATION（全部の絵柄を日付順に回す）
+ *   4. BG_BY_CATEGORY のカテゴリ共通の絵柄（3で見つからないときだけ）
  * ChatGPT などで作った絵を 1 の名前で置けば、その記事のカバーがその絵になる。
  * 対応する拡張子は .jpg / .jpeg / .png（resvg は webp を読めない）。
  */
@@ -89,6 +119,7 @@ const bgCache = new Map();
 function bgDataUri(post) {
   const file = findBg(post.slug)
     || findBg(BG_BY_SLUG[post.slug])
+    || findBg(bgBySlugRotation.get(post.slug))
     || findBg(BG_BY_CATEGORY[post.category]);
   if (!file) return null;
   if (bgCache.has(file)) return bgCache.get(file);
@@ -127,6 +158,7 @@ function coverSVG(post) {
 
 /** posts配列を受け取り、無いカバーだけ生成。生成/既存の slug 一覧を返す */
 function generate(posts, rootDir) {
+  assignRotation(posts);
   const Resvg = loadResvg();
   const outDir = path.join(rootDir, 'assets', 'img', 'covers');
   if (!Resvg) {

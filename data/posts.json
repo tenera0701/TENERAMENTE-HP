@@ -62,7 +62,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.png"
+    "image": "assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.png",
+    "imageHero": "assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.webp",
+    "imageCard": "assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai-card.webp"
   },
   {
     "slug": "2026-10-10-biyoushitsu-meo-taisaku",
@@ -127,7 +129,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.png"
+    "image": "assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.png",
+    "imageHero": "assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.webp",
+    "imageCard": "assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku-card.webp"
   },
   {
     "slug": "2026-10-09-kiji-midashi-kousei-tsukurikata",
@@ -192,7 +196,9 @@
     ],
     "visual": "v-cyan",
     "number": "03",
-    "image": "assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.png"
+    "image": "assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.png",
+    "imageHero": "assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.webp",
+    "imageCard": "assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata-card.webp"
   },
   {
     "slug": "2026-10-08-api-renkei-toha",
