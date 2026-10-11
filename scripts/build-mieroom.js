@@ -328,24 +328,22 @@ ${tags ? `\n  <div class="post-tags">${tags}</div>` : ''}
 // 記事テーマに合わせたカバー画像（mieroom/assets/cover-bg/*.webp）
 const COVER_BY_SLUG = {"moushikomi-kanrihyo-tsukurikata": "moushikomi", "gyomu-kaizen-tool-teichaku": "teichaku", "tenpo-muke-tool-hitsuyo-kino": "nagare", "fudosan-chukai-gyomu-kaizen-tool-donyu": "teichaku", "fudosan-kaigyo-junbi-checklist": "kaigyo", "hitori-fudosan-kaigyo-tool": "kaigyo", "fudosan-ai-katsuyo-bamen": "ai-katsuyo", "fudosan-gyomu-tool-minaoshi": "nagare", "chintai-keiyakusho-jusetsu-jitan": "keiyakusho", "denshi-keiyaku-donyu": "keiyakusho"};
 const COVER_BY_CATEGORY = {"売上管理": "moushikomi", "業務効率化": "nagare", "集客・広告": "ai-katsuyo", "組織・育成": "kaigyo", "DX": "teichaku"};
-// カテゴリ共通の絵柄だけだと同じカテゴリの記事が全部同じ見た目になるので、全部の絵柄を日付順に回す
-const COVER_ROTATION = ['moushikomi', 'nagare', 'kaigyo', 'ai-katsuyo', 'keiyakusho', 'teichaku'];
-const coverRotation = new Map();
-function assignCoverRotation(posts) {
-  const sorted = posts.slice().sort((a, b) => a.date.localeCompare(b.date) || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
-  // 記事ごとに決めた絵柄（COVER_BY_SLUG）とも並ばないよう、直前の記事と同じ絵柄になる番は1つ飛ばす
-  let i = 0, prev = '';
-  sorted.forEach(p => {
-    let name = COVER_BY_SLUG[p.slug];
-    if (!name) {
-      if (COVER_ROTATION[i % COVER_ROTATION.length] === prev) i++;
-      name = COVER_ROTATION[i++ % COVER_ROTATION.length];
-      coverRotation.set(p.slug, name);
-    }
-    prev = name;
-  });
+// 背景の絵柄は1記事につき1回だけ使う（使用台帳 data/cover-bg-used-mieroom.json）。
+// COVER_BY_SLUG はその記事専用の指定。COVER_BY_CATEGORY はもう使わない（同じ絵柄が何度も出るため）。
+const coverLedger = require('./cover-bg-ledger');
+const COVER_LEDGER_FILE = path.join(ROOT, 'data', 'cover-bg-used-mieroom.json');
+let coverBook = null;
+function assignCovers(posts) {
+  coverBook = coverLedger.open(COVER_LEDGER_FILE);
+  const coverDir = path.join(ROOT, 'mieroom', 'assets', 'covers');
+  const bgDir = path.join(ROOT, 'mieroom', 'assets', 'cover-bg');
+  const needing = posts.filter(p => !fs.existsSync(path.join(coverDir, `${p.slug}.png`)));
+  const slugs = new Set(posts.map(p => p.slug));
+  const pool = coverLedger.listBgs(bgDir, ['.jpg', '.jpeg', '.png']).filter(n => !slugs.has(n));
+  coverLedger.assign(coverBook, needing, pool, p => COVER_BY_SLUG[p.slug] && pool.includes(COVER_BY_SLUG[p.slug]) ? COVER_BY_SLUG[p.slug] : null);
+  coverBook.save();
 }
-function coverName(p) { return COVER_BY_SLUG[p.slug] || coverRotation.get(p.slug) || COVER_BY_CATEGORY[p.category] || ''; }
+function coverName(p) { return (coverBook && coverBook.owned(p.slug)) || ''; }
 
 /** blog.html に差し込む記事カード */
 function cardHtml(p) {
@@ -397,7 +395,7 @@ function main() {
   }).sort((a, b) => b.date.localeCompare(a.date) || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));   // 同じ日付は slug 順（ファイルの読み出し順はパソコンごとに違うため）
 
   // カバー画像（記事タイトル入り）。作れた記事は生成PNG、作れなければ従来の背景画像を使う
-  assignCoverRotation(posts);
+  assignCovers(posts);
   posts.forEach(p => { p.coverBg = coverName(p); });
   const withCover = covers.generate(posts, ROOT);
   posts.forEach(p => { p.cover = withCover.has(p.slug) ? `assets/covers/${p.slug}.png` : ''; });

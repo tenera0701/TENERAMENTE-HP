@@ -57,6 +57,14 @@ const MOTIFS = {
   '売上管理': 'grid', '業務効率化': 'flow', '集客・広告': 'radial',
   '組織・育成': 'stack', 'DX': 'wave',
 };
+// 絵柄の型は日付で順番に回す（カテゴリで決めると、同じカテゴリの記事が同じ型ばかりになるため）。
+// 1日ずれれば必ず別の型になる。ミエルーム側は 2 つずらして、同じ日に両ブログが同じ型にならないようにする。
+const MOTIF_ORDER = ['flow', 'radial', 'wave', 'grid', 'stack'];
+function motifFor(date) {
+  const d = Date.parse(String(date) + 'T00:00:00Z');
+  const day = Number.isNaN(d) ? 0 : Math.floor(d / 86400000);
+  return MOTIF_ORDER[(((day + 2) % MOTIF_ORDER.length) + MOTIF_ORDER.length) % MOTIF_ORDER.length];
+}
 // 記事ごとにレイアウトを固定したいときだけ指定する
 const VARIANT_BY_SLUG = {};
 
@@ -91,9 +99,9 @@ function coverSVG(p) {
   const date = String(p.date || '');
   const label = LABELS[p.category] || 'BLOG';
   // 背景の絵柄（記事専用／build-mieroom.js が決めた coverBg）が見つかれば、その絵を使う。
-  // 絵が1枚も無いときだけ、日付で選ぶコード生成のレイアウトに落ちる。
+  // 空いている絵柄が無い（台帳で使い切った）ときは、slug から描く記事ごとに違う絵（art）にする。
   const variant = VARIANT_BY_SLUG[p.slug]
-    || (bgDataUri(p) ? 'photo' : pickLayout(date, LAYOUT_OFFSET));
+    || (bgDataUri(p) ? 'photo' : 'art');
   return buildCover({
     W, H,
     palette: PALETTE,
@@ -108,7 +116,7 @@ function coverSVG(p) {
     tags: Array.isArray(p.tags) ? p.tags : [],
     scene: SCENES[p.category] || 'dash',
     tag: p.category || '',
-    motif: MOTIFS[p.category] || 'flow',
+    motif: motifFor(p.date),
     seed: p.slug,
     useLogo: false,
     hook: (p.hook || '').trim(),

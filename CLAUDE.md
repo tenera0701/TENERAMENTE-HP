@@ -186,8 +186,11 @@ git push
 - 以下は、仮のカバーをコードで作る仕組みの説明。
 - カバーは `scripts/gen-covers.js` が生成する。**記事のテーマに合わせた背景画像**を敷き、その上に見出しを重ねる形。
 - 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.{webp,jpg}`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）。ミエルーム側は同じ絵柄を webp と jpg の両方で置く（ページ表示は webp、カバー生成は jpg。resvg が webp を読めないため）
-- 記事ごとに割り当てたいときは `gen-covers.js` の `BG_BY_SLUG` に slug を足す。無ければ**全部の背景を日付順に順番に回す**（`gen-covers.js` の `BG_ROTATION`、ミエルームは `build-mieroom.js` の `COVER_ROTATION`。2026-10-11〜）。以前はカテゴリごとに1枚だったため、同じカテゴリの記事が全部同じ絵柄になっていた。隣り合う記事は必ず別の絵柄になる。新しい背景を cover-bg に足すと回す対象が増える（ミエルームは `COVER_ROTATION` に名前を足す）
-- ミエルームも TENERAMENTE と同じく**タイトル入りのカバーを自動生成**する（2026-09-06〜）。`scripts/gen-covers-mieroom.js` が `mieroom/assets/covers/<slug>.png`（1200×675）を作り、記事ヒーロー・`blog.html` のカード・OGP画像に使う。背景の絵柄は `scripts/build-mieroom.js` の `COVER_BY_SLUG` / `COVER_BY_CATEGORY` で決まり、その上に「MIEROOM — BLOG」ラベル・タイトル・META の `hook`・日付が乗る。作り直したいときは PNG を消して再ビルドする
+- **背景の絵柄は1記事につき1回だけ使う。一度使った絵柄は、ほかの記事には二度と使わない**（2026-10-11〜）。使用台帳 `data/cover-bg-used.json`（ミエルームは `data/cover-bg-used-mieroom.json`）に「絵柄 → 使った記事」が残る。台帳を手で消したり、使用済みの絵柄を別の記事に指定したりしない
+  - 割り当ての順番: その記事専用の絵柄（`cover-bg/<slug>.jpg`、`gen-covers.js` の `BG_BY_SLUG`、ミエルームは `build-mieroom.js` の `COVER_BY_SLUG`）→ まだ誰も使っていない絵柄。`BG_BY_CATEGORY` / `COVER_BY_CATEGORY` はもう使わない
+  - 空いている絵柄が無いときは、slug から描く**記事ごとに違うコード生成の絵**（`art` レイアウト）になる。絵の型（flow / radial / wave / grid / stack）は日付で回すので、隣り合う日は必ず別の型になる
+  - 新しい背景を cover-bg に足すと、次にカバーを作る記事がそれを1回だけ使う
+- ミエルームも TENERAMENTE と同じく**タイトル入りのカバーを自動生成**する（2026-09-06〜）。`scripts/gen-covers-mieroom.js` が `mieroom/assets/covers/<slug>.png`（1200×675）を作り、記事ヒーロー・`blog.html` のカード・OGP画像に使う。背景の絵柄は上の使用台帳のルール（1記事1回）で決まり、その上に「MIEROOM — BLOG」ラベル・タイトル・META の `hook`・日付が乗る。作り直したいときは PNG を消して再ビルドする
 - 新しい背景を足すときは、既存と同じ配色・同じ作り（画面の右側に絵柄、左半分は余白、文字なし、横長）にそろえる
 - **表示用の WebP は自動で作られる**（2026-09-20〜）。`scripts/gen-webp.js` がカバーPNGから `<slug>.webp`（記事ヒーロー用・元の幅）と `<slug>-card.webp`（一覧カード用・幅640px）を作り、ビルドが一覧・トップ・記事ヒーローでそれを使う。**PNG は OGP 用に残す**（SNS が WebP を読めないことがあるため）。変換には Python(Pillow) か sharp のどちらかが要る。両方無い環境では変換をスキップし、既にある WebP をそのまま使う（新しい記事だけ PNG 表示になる）
 
