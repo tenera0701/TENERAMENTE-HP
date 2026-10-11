@@ -863,6 +863,25 @@
       "status": "done",
       "slug": "tencho-shigoto-dandori",
       "doneAt": "2026-10-10"
+    },
+    {
+      "id": "m046",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 引き継ぎ 属人化",
+      "sub": [
+        "不動産 担当変更 引き継ぎ",
+        "案件 情報共有 残し方"
+      ],
+      "title": "賃貸仲介の引き継ぎで困らない記録の残し方｜属人化を防ぐ5項目",
+      "intent": "担当が変わると案件の経緯が分からなくなる",
+      "pillar": "../index.html",
+      "related": [
+        "raiten-hearing-koumoku",
+        "moushikomi-kanrihyo-tsukurikata"
+      ],
+      "status": "done",
+      "slug": "tantou-hikitsugi-kiroku",
+      "doneAt": "2026-10-11"
     }
   ]
 }
