@@ -882,6 +882,25 @@
       "status": "done",
       "slug": "tantou-hikitsugi-kiroku",
       "doneAt": "2026-10-11"
+    },
+    {
+      "id": "m047",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 成約済み物件 掲載 取り下げ",
+      "sub": [
+        "おとり物件 ならないため 掲載管理",
+        "ポータルサイト 掲載 棚卸し"
+      ],
+      "title": "成約済み物件の掲載を止める運用｜おとり物件を防ぐ棚卸しの手順",
+      "intent": "決まった物件の掲載を止める運用を決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "hankyo-kanri-hoho",
+        "bukken-shokaibun-kakikata"
+      ],
+      "status": "done",
+      "slug": "keisai-bukken-torisage",
+      "doneAt": "2026-10-12"
     }
   ]
 }
