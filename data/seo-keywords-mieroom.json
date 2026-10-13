@@ -901,6 +901,25 @@
       "status": "done",
       "slug": "keisai-bukken-torisage",
       "doneAt": "2026-10-12"
+    },
+    {
+      "id": "m048",
+      "category": "業務効率化",
+      "keyword": "賃貸 間取り図 作成",
+      "sub": [
+        "間取り図 自分で 作る",
+        "物件 図面 作成 ツール"
+      ],
+      "title": "賃貸仲介の間取り図を自分で作る手順｜見やすい図面にそろえる基準",
+      "intent": "図面が無い物件や見づらい図面の間取り図を自分で用意したい",
+      "pillar": "../index.html",
+      "related": [
+        "bukken-shashin-torikata",
+        "bukken-shokaibun-kakikata"
+      ],
+      "status": "done",
+      "slug": "madorizu-tsukurikata",
+      "doneAt": "2026-10-13"
     }
   ]
 }
