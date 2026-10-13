@@ -188,7 +188,8 @@ git push
 - 背景は `assets/img/cover-bg/<name>.jpg`（TENERAMENTE、紙白×黒×青）と `mieroom/assets/cover-bg/<name>.{webp,jpg}`（ミエルーム、緑×テラコッタ）。ChatGPT の画像生成で作り、1200×675 に整えてある。**文字は入れない**（見出しはビルド時に重ねるため）。ミエルーム側は同じ絵柄を webp と jpg の両方で置く（ページ表示は webp、カバー生成は jpg。resvg が webp を読めないため）
 - **背景の絵柄は1記事につき1回だけ使う。一度使った絵柄は、ほかの記事には二度と使わない**（2026-10-11〜）。使用台帳 `data/cover-bg-used.json`（ミエルームは `data/cover-bg-used-mieroom.json`）に「絵柄 → 使った記事」が残る。台帳を手で消したり、使用済みの絵柄を別の記事に指定したりしない
   - 割り当ての順番: その記事専用の絵柄（`cover-bg/<slug>.jpg`、`gen-covers.js` の `BG_BY_SLUG`、ミエルームは `build-mieroom.js` の `COVER_BY_SLUG`）→ まだ誰も使っていない絵柄。`BG_BY_CATEGORY` / `COVER_BY_CATEGORY` はもう使わない
-  - 空いている絵柄が無いときは、slug から描く**記事ごとに違うコード生成の絵**（`art` レイアウト）になる。絵の型（flow / radial / wave / grid / stack）は日付で回すので、隣り合う日は必ず別の型になる
+  - 空いている絵柄が無いときは、slug から描く**記事ごとに違うコード生成の絵**（`art` レイアウト）になる。絵の型は13種類（flow / radial / wave / grid / stack / bars / orbit / funnel / contour / mesh / steps / tiles / arcs）あり、`cover-art.js` の `assignMotifs()` が **slug から選んだうえで、近い7本とは必ず違う型**になるよう割り当てる（日付で回すと型の数だけ日が空いたとき同じ絵に戻るため、2026-10-13 にこの方式へ変えた）。型が同じでも中心・大きさ・傾き・要素の数・差し色の位置は記事ごとに変わるので、同じ絵にはならない
+  - 既に出したコード生成のカバーを作り直すときは `COVER_REGEN=1 node scripts/build-mieroom.js` → `COVER_REGEN=1 node scripts/build-index.js`。ChatGPT の在庫を使った記事と背景画像を使った記事は上書きしない（PNG を消す必要はない）
   - 新しい背景を cover-bg に足すと、次にカバーを作る記事がそれを1回だけ使う
 - ミエルームも TENERAMENTE と同じく**タイトル入りのカバーを自動生成**する（2026-09-06〜）。`scripts/gen-covers-mieroom.js` が `mieroom/assets/covers/<slug>.png`（1200×675）を作り、記事ヒーロー・`blog.html` のカード・OGP画像に使う。背景の絵柄は上の使用台帳のルール（1記事1回）で決まり、その上に「MIEROOM — BLOG」ラベル・タイトル・META の `hook`・日付が乗る。作り直したいときは PNG を消して再ビルドする
 - 新しい背景を足すときは、既存と同じ配色・同じ作り（画面の右側に絵柄、左半分は余白、文字なし、横長）にそろえる

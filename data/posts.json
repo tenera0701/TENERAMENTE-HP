@@ -62,7 +62,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-10-13-google-map-junni-kimarikata.png"
+    "image": "assets/img/covers/2026-10-13-google-map-junni-kimarikata.png",
+    "imageHero": "assets/img/covers/2026-10-13-google-map-junni-kimarikata.webp",
+    "imageCard": "assets/img/covers/2026-10-13-google-map-junni-kimarikata-card.webp"
   },
   {
     "slug": "2026-10-12-blog-koushin-hindo-seo",
@@ -127,7 +129,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-10-12-blog-koushin-hindo-seo.png"
+    "image": "assets/img/covers/2026-10-12-blog-koushin-hindo-seo.png",
+    "imageHero": "assets/img/covers/2026-10-12-blog-koushin-hindo-seo.webp",
+    "imageCard": "assets/img/covers/2026-10-12-blog-koushin-hindo-seo-card.webp"
   },
   {
     "slug": "2026-10-11-excel-kyoyu-doji-henshu-genkai",

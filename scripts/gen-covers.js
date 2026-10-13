@@ -50,13 +50,13 @@ const TAGS = { meo: 'マップ集客', aio: 'AI検索', ai: 'AI活用', app: '�
 // 自動生成する背景の絵柄（cover-art.js の型）
 const MOTIFS = { meo: 'radial', aio: 'grid', ai: 'wave', app: 'flow', hp: 'stack' };
 
-// 絵柄の型は日付で順番に回す（カテゴリで決めると、同じカテゴリの記事が同じ型ばかりになるため）。
-// 1日ずれれば必ず別の型になる。TENERAMENTE側は 0 つずらして、同じ日に両ブログが同じ型にならないようにする。
-const MOTIF_ORDER = ['flow', 'radial', 'wave', 'grid', 'stack'];
-function motifFor(date) {
-  const d = Date.parse(String(date) + 'T00:00:00Z');
-  const day = Number.isNaN(d) ? 0 : Math.floor(d / 86400000);
-  return MOTIF_ORDER[(((day + 0) % MOTIF_ORDER.length) + MOTIF_ORDER.length) % MOTIF_ORDER.length];
+// 絵柄の型は cover-art.js の assignMotifs() が記事ごとに割り当てる。
+// 日付で順番に回すと型の数だけ日が空いたときに同じ絵へ戻るため、slug から選び、
+// 近い時期の記事とは必ず違う型になるようずらす（古い記事の割り当ては後から変わらない）。
+const { assignMotifs } = require('./cover-art');
+let motifMap = {};
+function motifFor(post) {
+  return motifMap[post.slug];   // 未割り当てのときは cover-art 側が slug から選ぶ
 }
 // 記事ごとにレイアウトを固定したいときだけ指定する（未指定は日付で自動）
 const VARIANT_BY_SLUG = {};
@@ -112,6 +112,16 @@ function bgDataUri(post) {
   return uri;
 }
 
+/** ChatGPT で作った画像を置いた記事の slug（作り直しの対象から外す） */
+function stockSlugs() {
+  const set = new Set();
+  try {
+    const q = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'seo-keywords.json'), 'utf8'));
+    q.items.forEach(i => { if (i.slug && (i.coverImage || i.coverTitle)) set.add(i.slug); });
+  } catch (e) { /* 待ち行列が読めないときは何も除外しない */ }
+  return set;
+}
+
 function coverSVG(post) {
   const date = String(post.date || '');
   // 背景の絵柄（記事専用／BG_BY_SLUG／カテゴリ共通のどれか）が見つかれば、その絵を使う。
@@ -132,7 +142,7 @@ function coverSVG(post) {
     tags: Array.isArray(post.tags) ? post.tags : [],
     scene: SCENES[post.category] || 'dash',
     tag: TAGS[post.category] || '',
-    motif: motifFor(post.date),
+    motif: motifFor(post),
     seed: post.slug,
     year: (date.slice(0, 4) || '') + '年版',
     bgUri: bgDataUri(post),
@@ -141,12 +151,17 @@ function coverSVG(post) {
 
 /** posts配列を受け取り、無いカバーだけ生成。生成/既存の slug 一覧を返す */
 function generate(posts, rootDir) {
+  motifMap = assignMotifs(posts, 'teneramente');
   bgLedger = ledger.open(LEDGER_FILE);
   const coverDir = path.join(rootDir, 'assets', 'img', 'covers');
   const needing = posts.filter(p => !fs.existsSync(path.join(coverDir, `${p.slug}.png`)));
   const slugs = new Set(posts.map(p => p.slug));
   const pool = ledger.listBgs(BG_DIR, BG_EXT).filter(n => !slugs.has(n));
   ledger.assign(bgLedger, needing, pool, p => findBg(p.slug) ? p.slug : (findBg(BG_BY_SLUG[p.slug]) ? BG_BY_SLUG[p.slug] : null));
+  // COVER_REGEN=1 を付けて実行すると、コード生成の絵（art）のカバーを作り直す。
+  // ChatGPT で作った画像を置いた記事（待ち行列の coverImage）と、背景画像を使う記事は上書きしない。
+  const force = process.env.COVER_REGEN === '1';
+  const stock = force ? stockSlugs() : new Set();
   const Resvg = loadResvg();
   const outDir = path.join(rootDir, 'assets', 'img', 'covers');
   if (!Resvg) {
@@ -161,7 +176,8 @@ function generate(posts, rootDir) {
   let created = 0;
   for (const p of posts) {
     const out = path.join(outDir, `${p.slug}.png`);
-    if (!fs.existsSync(out)) {
+    const redraw = force && !stock.has(p.slug) && !bgDataUri(p) && !VARIANT_BY_SLUG[p.slug];
+    if (!fs.existsSync(out) || redraw) {
       const png = new Resvg(coverSVG(p), {
         font: { loadSystemFonts: true, fontFiles: fonts, defaultFontFamily: 'Zen Kaku Gothic New' },
       }).render().asPng();
@@ -170,7 +186,7 @@ function generate(posts, rootDir) {
     }
     done.add(p.slug);
   }
-  if (created) console.log(`✓ カバー画像を${created}枚生成しました (assets/img/covers/)`);
+  if (created) console.log(`✓ カバー画像を${created}枚${force ? '作り直し' : '生成'}ました (assets/img/covers/)`);
   bgLedger.save();
   return done;
 }

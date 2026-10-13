@@ -57,13 +57,12 @@ const MOTIFS = {
   '売上管理': 'grid', '業務効率化': 'flow', '集客・広告': 'radial',
   '組織・育成': 'stack', 'DX': 'wave',
 };
-// 絵柄の型は日付で順番に回す（カテゴリで決めると、同じカテゴリの記事が同じ型ばかりになるため）。
-// 1日ずれれば必ず別の型になる。ミエルーム側は 2 つずらして、同じ日に両ブログが同じ型にならないようにする。
-const MOTIF_ORDER = ['flow', 'radial', 'wave', 'grid', 'stack'];
-function motifFor(date) {
-  const d = Date.parse(String(date) + 'T00:00:00Z');
-  const day = Number.isNaN(d) ? 0 : Math.floor(d / 86400000);
-  return MOTIF_ORDER[(((day + 2) % MOTIF_ORDER.length) + MOTIF_ORDER.length) % MOTIF_ORDER.length];
+// 絵柄の型は cover-art.js の assignMotifs() が記事ごとに割り当てる（TENERAMENTE 側と同じ）。
+// salt を 'mieroom' にしてあるので、同じ日に両ブログが同じ型になることもない。
+const { assignMotifs } = require('./cover-art');
+let motifMap = {};
+function motifFor(p) {
+  return motifMap[p.slug];   // 未割り当てのときは cover-art 側が slug から選ぶ
 }
 // 記事ごとにレイアウトを固定したいときだけ指定する
 const VARIANT_BY_SLUG = {};
@@ -95,6 +94,16 @@ function bgDataUri(p) {
   return uri;
 }
 
+/** ChatGPT で作った画像を置いた記事の slug（作り直しの対象から外す） */
+function stockSlugs() {
+  const set = new Set();
+  try {
+    const q = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'seo-keywords-mieroom.json'), 'utf8'));
+    q.items.forEach(i => { if (i.slug && (i.coverImage || i.coverTitle)) set.add(i.slug); });
+  } catch (e) { /* 待ち行列が読めないときは何も除外しない */ }
+  return set;
+}
+
 function coverSVG(p) {
   const date = String(p.date || '');
   const label = LABELS[p.category] || 'BLOG';
@@ -116,7 +125,7 @@ function coverSVG(p) {
     tags: Array.isArray(p.tags) ? p.tags : [],
     scene: SCENES[p.category] || 'dash',
     tag: p.category || '',
-    motif: motifFor(p.date),
+    motif: motifFor(p),
     seed: p.slug,
     useLogo: false,
     hook: (p.hook || '').trim(),
@@ -130,11 +139,15 @@ function coverSVG(p) {
  * 生成できた（または既にある）slug の Set を返す。呼び出し側はこれで出し分ける。
  */
 function generate(posts, rootDir) {
+  motifMap = assignMotifs(posts, 'mieroom');
   const outDir = path.join(rootDir, 'mieroom', 'assets', 'covers');
   const existing = () => new Set(fs.existsSync(outDir)
     ? fs.readdirSync(outDir).filter(f => f.endsWith('.png')).map(f => f.replace(/\.png$/, ''))
     : []);
 
+  // COVER_REGEN=1 でコード生成の絵（art）のカバーを作り直す（TENERAMENTE 側と同じ）
+  const force = process.env.COVER_REGEN === '1';
+  const stock = force ? stockSlugs() : new Set();
   const Resvg = loadResvg();
   if (!Resvg) {
     console.warn('△ @resvg/resvg-js が見つからないためミエルームのカバー画像はスキップしました');
@@ -146,7 +159,8 @@ function generate(posts, rootDir) {
   let created = 0;
   for (const p of posts) {
     const out = path.join(outDir, `${p.slug}.png`);
-    if (!fs.existsSync(out)) {
+    const redraw = force && !stock.has(p.slug) && !bgDataUri(p) && !VARIANT_BY_SLUG[p.slug];
+    if (!fs.existsSync(out) || redraw) {
       const png = new Resvg(coverSVG(p), {
         font: { loadSystemFonts: true, fontFiles: fonts, defaultFontFamily: 'Zen Kaku Gothic New' },
       }).render().asPng();
