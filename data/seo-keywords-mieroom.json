@@ -920,6 +920,25 @@
       "status": "done",
       "slug": "madorizu-tsukurikata",
       "doneAt": "2026-10-13"
+    },
+    {
+      "id": "m049",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 日報 書き方",
+      "sub": [
+        "不動産 営業 日報 項目",
+        "店舗 日報 続かない"
+      ],
+      "title": "賃貸仲介の日報の書き方｜翌日の動きが決まる項目と運用",
+      "intent": "店舗で続く日報の形と項目を決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "tencho-shigoto-dandori"
+      ],
+      "status": "done",
+      "slug": "nippou-kakikata",
+      "doneAt": "2026-10-14"
     }
   ]
 }
