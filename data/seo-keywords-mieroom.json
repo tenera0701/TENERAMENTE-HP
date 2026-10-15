@@ -939,6 +939,25 @@
       "status": "done",
       "slug": "nippou-kakikata",
       "doneAt": "2026-10-14"
+    },
+    {
+      "id": "m050",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 スタッフ 採用",
+      "sub": [
+        "不動産 一人 店舗 人を雇う",
+        "賃貸仲介 初めての採用 タイミング"
+      ],
+      "title": "一人店舗が初めてスタッフを雇うとき｜判断の目安と任せる順番",
+      "intent": "一人で回している店舗が、採用の時機と任せ方を決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "shinjin-ikusei-junban",
+        "tencho-shigoto-dandori"
+      ],
+      "status": "done",
+      "slug": "hajimete-staff-saiyo",
+      "doneAt": "2026-10-15"
     }
   ]
 }
