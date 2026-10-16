@@ -958,6 +958,25 @@
       "status": "done",
       "slug": "hajimete-staff-saiyo",
       "doneAt": "2026-10-15"
+    },
+    {
+      "id": "m051",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 賃料交渉 進め方",
+      "sub": [
+        "家賃交渉 どこまで できる",
+        "フリーレント 交渉 仲介"
+      ],
+      "title": "賃料や条件の交渉を通す進め方｜確認の順番と、断られたときの代替案",
+      "intent": "入居希望者からの条件交渉を、通る形で管理会社に出したい",
+      "pillar": "../index.html",
+      "related": [
+        "kushitsu-boshu-joken-minaoshi",
+        "moushikomi-kanrihyo-tsukurikata"
+      ],
+      "status": "done",
+      "slug": "joken-kousho-susumekata",
+      "doneAt": "2026-10-16"
     }
   ]
 }
