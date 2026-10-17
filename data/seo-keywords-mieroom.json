@@ -977,6 +977,25 @@
       "status": "done",
       "slug": "joken-kousho-susumekata",
       "doneAt": "2026-10-16"
+    },
+    {
+      "id": "m052",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 歩合給 決め方",
+      "sub": [
+        "不動産 インセンティブ 設計",
+        "賃貸仲介 給与 歩合 割合"
+      ],
+      "title": "賃貸仲介の歩合給の決め方｜対象にする成果と、キャンセル時の扱い",
+      "intent": "店舗の歩合給を、揉めない形で決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "tenpo-soneki-arari-handan"
+      ],
+      "status": "done",
+      "slug": "buai-kyu-kimekata",
+      "doneAt": "2026-10-17"
     }
   ]
 }
