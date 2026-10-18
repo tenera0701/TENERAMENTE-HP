@@ -996,6 +996,25 @@
       "status": "done",
       "slug": "buai-kyu-kimekata",
       "doneAt": "2026-10-17"
+    },
+    {
+      "id": "m053",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 2店舗目 出店",
+      "sub": [
+        "不動産 多店舗展開 タイミング",
+        "賃貸仲介 店舗 増やす 判断"
+      ],
+      "title": "賃貸仲介で2店舗目を出すときの判断｜見る数字と、先に整える順番",
+      "intent": "2店舗目を出すかどうかを、感覚ではなく数字と状態で判断したい",
+      "pillar": "../index.html",
+      "related": [
+        "tenpo-soneki-arari-handan",
+        "staff-seiseki-kanri"
+      ],
+      "status": "done",
+      "slug": "nitenpome-shutten-handan",
+      "doneAt": "2026-10-18"
     }
   ]
 }
