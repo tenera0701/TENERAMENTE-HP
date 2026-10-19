@@ -1015,6 +1015,25 @@
       "status": "done",
       "slug": "nitenpome-shutten-handan",
       "doneAt": "2026-10-18"
+    },
+    {
+      "id": "m054",
+      "category": "DX",
+      "keyword": "賃貸仲介 個人情報 管理",
+      "sub": [
+        "不動産 顧客情報 管理 方法",
+        "賃貸 申込書 保管"
+      ],
+      "title": "賃貸仲介店舗の個人情報の扱い方｜漏れやすい場所と、決めておく社内ルール",
+      "intent": "店舗で預かる個人情報を、事故が起きない形で管理したい",
+      "pillar": "../index.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "tantou-hikitsugi-kiroku"
+      ],
+      "status": "done",
+      "slug": "kojin-joho-toriatsukai",
+      "doneAt": "2026-10-19"
     }
   ]
 }
