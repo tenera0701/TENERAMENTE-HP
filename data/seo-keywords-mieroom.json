@@ -1034,6 +1034,25 @@
       "status": "done",
       "slug": "kojin-joho-toriatsukai",
       "doneAt": "2026-10-19"
+    },
+    {
+      "id": "m055",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 失注 掘り起こし",
+      "sub": [
+        "不動産 休眠反響 追客",
+        "賃貸 反響 再アプローチ 時期"
+      ],
+      "title": "賃貸仲介の失注客の掘り起こし方｜繁忙期前に声をかける相手の選び方",
+      "intent": "過去に決まらなかった反響に、もう一度声をかけて来店につなげたい",
+      "pillar": "../index.html",
+      "related": [
+        "hankyo-kanri-hoho",
+        "kansanki-yarukoto"
+      ],
+      "status": "done",
+      "slug": "shitchu-horiokoshi",
+      "doneAt": "2026-10-20"
     }
   ]
 }
