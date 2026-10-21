@@ -1053,6 +1053,25 @@
       "status": "done",
       "slug": "shitchu-horiokoshi",
       "doneAt": "2026-10-20"
+    },
+    {
+      "id": "m056",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 勤怠管理",
+      "sub": [
+        "不動産 残業時間 把握",
+        "賃貸仲介 シフト 打刻 管理"
+      ],
+      "title": "賃貸仲介店舗の勤怠管理｜繁忙期の残業を、あとで揉めない形で残す",
+      "intent": "繁忙期の勤怠と残業を、正確に記録して給与まで通したい",
+      "pillar": "../index.html",
+      "related": [
+        "hanbouki-shift-jinin-keikaku",
+        "staff-seiseki-kanri"
+      ],
+      "status": "done",
+      "slug": "kintai-kanri-hoho",
+      "doneAt": "2026-10-21"
     }
   ]
 }
