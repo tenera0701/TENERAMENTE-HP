@@ -1053,6 +1053,25 @@
       "status": "done",
       "slug": "shitchu-horiokoshi",
       "doneAt": "2026-10-20"
+    },
+    {
+      "id": "m056",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 電話対応 マニュアル",
+      "sub": [
+        "不動産 電話対応 一次対応",
+        "賃貸 問い合わせ電話 聞くこと"
+      ],
+      "title": "賃貸仲介の電話対応マニュアルの作り方｜一次対応で聞く項目と記録の残し方",
+      "intent": "電話の一次対応を誰が出ても同じ形にして、来店につなげたい",
+      "pillar": "../index.html",
+      "related": [
+        "hankyo-kanri-hoho",
+        "raiten-hearing-koumoku"
+      ],
+      "status": "done",
+      "slug": "denwa-taio-manual",
+      "doneAt": "2026-10-22"
     }
   ]
 }
