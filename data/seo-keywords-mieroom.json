@@ -1072,6 +1072,25 @@
       "status": "done",
       "slug": "denwa-taio-manual",
       "doneAt": "2026-10-22"
+    },
+    {
+      "id": "m057",
+      "category": "集客・広告",
+      "keyword": "賃貸 物件入稿 効率化",
+      "sub": [
+        "不動産 ポータル 物件登録 手間",
+        "賃貸 物件情報 更新漏れ"
+      ],
+      "title": "物件入稿の作業を短くする手順｜複数ポータルの重複入力と更新漏れをなくす",
+      "intent": "複数の掲載先に物件を出す作業の時間を短くし、更新漏れをなくしたい",
+      "pillar": "../index.html",
+      "related": [
+        "keisai-bukken-torisage",
+        "bukken-shokaibun-kakikata"
+      ],
+      "status": "done",
+      "slug": "bukken-nyuko-tejun",
+      "doneAt": "2026-10-23"
     }
   ]
 }
