@@ -1058,7 +1058,9 @@
       "related": [
         "2026-06-28-gbp-monthly-checklist"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-25-gbp-shohin-service-kinou",
+      "doneAt": "2026-10-24"
     },
     {
       "id": "k058",

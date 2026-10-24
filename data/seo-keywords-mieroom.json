@@ -1091,6 +1091,25 @@
       "status": "done",
       "slug": "bukken-nyuko-tejun",
       "doneAt": "2026-10-23"
+    },
+    {
+      "id": "m058",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 付帯収益 管理",
+      "sub": [
+        "火災保険 手数料 計上",
+        "保証会社 手数料 売上管理"
+      ],
+      "title": "賃貸仲介の付帯収益の管理｜保険や保証会社の手数料を取りこぼさない",
+      "intent": "仲介手数料以外の収益を案件ごとに記録し、請求漏れと計上漏れをなくしたい",
+      "pillar": "../index.html",
+      "related": [
+        "go-ad-nyukin-kanrihyo",
+        "getsumatsu-uriage-shukei-jidoka"
+      ],
+      "status": "done",
+      "slug": "futai-shueki-kanri",
+      "doneAt": "2026-10-24"
     }
   ]
 }
