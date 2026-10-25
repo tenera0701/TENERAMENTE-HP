@@ -1110,6 +1110,25 @@
       "status": "done",
       "slug": "futai-shueki-kanri",
       "doneAt": "2026-10-24"
+    },
+    {
+      "id": "m059",
+      "category": "DX",
+      "keyword": "不動産 物件データ 取り込み",
+      "sub": [
+        "賃貸 物件情報 Excel 変換",
+        "物件データ 打ち直し 手間"
+      ],
+      "title": "物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる",
+      "intent": "管理会社や業者間サイトから届く物件データを打ち直さずに使える形にしたい",
+      "pillar": "../index.html",
+      "related": [
+        "bukken-nyuko-tejun",
+        "gyoshakan-site-bukken-kensaku"
+      ],
+      "status": "done",
+      "slug": "bukken-data-torikomi",
+      "doneAt": "2026-10-25"
     }
   ]
 }

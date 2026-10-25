@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる｜ミエルーム ブログ</title>
+<meta name="description" content="管理会社や業者間サイトから届く物件データを、打ち直さずに使える形にそろえる手順をまとめました。自店で持つ項目の決め方、届く経路ごとの扱い方、取り込んだあとの更新の進め方まで整理しています。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/bukken-data-torikomi.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる">
+<meta property="og:description" content="管理会社や業者間サイトから届く物件データを、打ち直さずに使える形にそろえる手順をまとめました。自店で持つ項目の決め方、届く経路ごとの扱い方、取り込んだあとの更新の進め方まで整理しています。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/bukken-data-torikomi.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/covers/bukken-data-torikomi.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる","description":"管理会社や業者間サイトから届く物件データを、打ち直さずに使える形にそろえる手順をまとめました。自店で持つ項目の決め方、届く経路ごとの扱い方、取り込んだあとの更新の進め方まで整理しています。","datePublished":"2026-10-26","dateModified":"2026-10-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/bukken-data-torikomi.html","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"物件データ, Excel, DX, 業務効率化, 賃貸仲介"}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>DX</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">DX</span>
+      <h1>物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.10.26</span>
+        <span class="sep"></span>
+        <span>6分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band band--img"><img src="../assets/covers/bukken-data-torikomi.png" alt="物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる" width="1200" height="675" decoding="async"></div>
+</div>
+<div class="post-body">
+<p>管理会社からはExcel、業者間サイトからは画面のコピー、別の会社からはPDFの図面だけ。賃貸仲介の店舗に届く物件データは、<strong>届く形がそろっていないまま毎日増えていきます</strong>。そのうえで自店の管理表に打ち直しているため、物件が増えるほど入力の時間も間違いも増えていきます。</p>
+<div class="conclusion">
+  <h4>この記事の結論</h4>
+  <p>打ち直しを減らす順番は、ツールを探すことではなく「自店で持つ項目を決めること」から始まります。<strong>項目が決まっていないデータは、どんな形で届いても毎回判断が必要になります</strong>。項目をそろえてから、届く経路ごとに取り込み方を決めるのが現実的な進め方です。</p>
+</div>
+<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+      <a href="#h1"><span class="n">01</span><span>届いた形がそろっていないと、毎回判断が必要になる</span></a>
+      <a href="#h2"><span class="n">02</span><span>先に決めるのは、自店で持つ項目</span></a>
+      <a href="#h3"><span class="n">03</span><span>届く経路ごとに、できる取り込み方が違う</span></a>
+      <a href="#h4"><span class="n">04</span><span>Excelで届いたデータは、列の対応を先に決める</span></a>
+      <a href="#h5"><span class="n">05</span><span>図面やPDFは、どこまで入力するかを決めておく</span></a>
+      <a href="#h6"><span class="n">06</span><span>取り込んだあとは、更新のほうが漏れる</span></a>
+      <a href="#h7"><span class="n">07</span><span>よくある失敗</span></a>
+      <a href="#h8"><span class="n">08</span><span>まとめ：打ち直しを減らすのは、項目を決めることから</span></a>
+    </div>
+  </nav>
+<h2 id="h1">届いた形がそろっていないと、毎回判断が必要になる</h2>
+<p>同じ物件の情報でも、送り主によって並び方と呼び方が変わります。賃料と管理費が1つの欄にまとまっているもの、敷金が「1ヶ月」と書かれているものと金額で書かれているもの、設備が文章でつながっているもの。</p>
+<p>打ち直す作業が重いのは、入力の量ではなく、この<strong>変換の判断を1件ごとにやり直しているから</strong>です。担当者が違えば判断も変わるため、同じ物件が店内で2通りの形で残ることもあります。</p>
+<p>さらに、届いたファイルがメールの中にしか無い状態だと、後から見返すときに探す時間がかかります。元データがどこにあるか分からない物件は、条件を確認するたびに送り主へ聞き直すことになります。</p>
+<h2 id="h2">先に決めるのは、自店で持つ項目</h2>
+<p>取り込みを楽にする最初の作業は、ファイルを触ることではありません。<strong>自店で必ず持つ項目を一度決めること</strong>です。</p>
+<figure class="fig"><img src="../assets/figures/bukken-data-torikomi.png" alt="届いたデータを受け取る、自店で持つ項目にそろえる、検索に使う項目だけ入力して元データを添付する、提案と掲載に回す、変更を記録に反映するという、物件データを受け取ってから使うまでの流れを並べた図" width="1600" height="439" loading="lazy" decoding="async"><figcaption>直す場所を1か所にしておくと、変更の反映で漏れが出ません。</figcaption></figure>
+<p>最低限そろえるのは、次のあたりです。</p>
+<ul>
+<li>所在地と物件名、部屋番号</li>
+<li>賃料、管理費・共益費、敷金・礼金（金額で持つか、月数で持つか決める）</li>
+<li>面積、間取り、築年</li>
+<li>入居可能時期と、現況（空室・居住中）</li>
+<li>元付・管理会社と、連絡の窓口</li>
+<li>元データの置き場所（ファイルかURL）</li>
+</ul>
+<p>ここで決めるべきなのは、項目の名前だけではなく<strong>持ち方</strong>です。敷金を「1ヶ月」で持つのか金額で持つのかを決めておけば、届いたデータがどちらの形でも、変換の判断は一度で済みます。</p>
+<p>図面や写真をどこに置くかも、このときに決めます。物件の記録から辿れない図面は、無いのと同じ扱いになります。</p>
+<h2 id="h3">届く経路ごとに、できる取り込み方が違う</h2>
+<p>経路によって、手の入れ方が変わります。全部を同じ手順で扱おうとすると、どこかで必ず止まります。</p>
+<div class="tw"><table>
+<thead><tr><th>届く形</th><th>取り込み方</th><th>手がかかるところ</th></tr></thead>
+<tbody><tr><td>Excel・CSV</td><td>列の対応を一度決めて読み込む</td><td>送り主ごとに列の並びが違う</td></tr>
+<tr><td>業者間サイトの画面</td><td>必要な項目だけ転記、URLを残す</td><td>画面が変わると手順も変わる</td></tr>
+<tr><td>PDFの図面・物件概要</td><td>項目だけ入力し、本体は添付で持つ</td><td>文字が画像になっていると拾えない</td></tr>
+<tr><td>FAX・紙</td><td>項目だけ入力し、画像にして添付</td><td>そのままでは検索できない</td></tr></tbody>
+</table></div>
+<p><strong>力を入れる価値があるのは、同じ送り主から繰り返し届くもの</strong>です。月に何件も届く管理会社のExcelは、列の対応を一度決めれば以後ずっと効きます。年に1件しか来ない形式のために手順を作る必要はありません。</p>
+<h2 id="h4">Excelで届いたデータは、列の対応を先に決める</h2>
+<p>Excelが届いたときに毎回やっているのは、どの列が自店のどの項目にあたるかの読み替えです。これを送り主ごとに1回だけ決めて、メモとして残します。</p>
+<p>手順はこの順番です。</p>
+<ol>
+<li>届いたファイルの列と、自店の項目を1対1で並べる</li>
+<li>対応しない列（先方の社内メモなど）は使わないと決める</li>
+<li>単位や表記が違う項目（敷金の月数と金額、面積の単位）の変換の形を決める</li>
+<li>次に同じ送り主から届いたときは、そのメモのとおりに読み込む</li>
+</ol>
+<p>2回目以降は判断が要らなくなるので、作業は確認だけになります。<strong>同じ送り主のファイルを毎回ゼロから読み替えているうちは、何件やっても速くなりません</strong>。</p>
+<p>一度そろえた物件データは、掲載や提案にそのまま回せます。掲載先へ出すときの進め方は<a href="./bukken-nyuko-tejun.html">物件入稿の作業を短くする手順</a>に、探して提案するまでの流れは<a href="./gyoshakan-site-bukken-kensaku.html">物件検索・提案を速くする方法</a>に分けて書いています。</p>
+<div class="callout">
+  <div class="ct"><span class="ci">✓</span>全部を取り込まなくてよい</div>
+  <p>届いたデータの全項目を自店の形に入れる必要はありません。検索や提案で使う項目だけを入力し、それ以外は元のファイルを添付して残せば足ります。項目を増やすほど、入力も更新も重くなります。</p>
+</div>
+<h2 id="h5">図面やPDFは、どこまで入力するかを決めておく</h2>
+<p>PDFや紙で届くものは、文字として取り出せないことが多いため、全部を入力しようとすると手が止まります。ここは割り切りが必要です。</p>
+<p>入力するのは、<strong>探すときに条件として使う項目だけ</strong>にします。所在地、賃料、面積、間取り、入居可能時期。これだけ入っていれば、条件での絞り込みはできます。</p>
+<p>設備の細かい記載や、注意書き、申込時の条件は、元のファイルを添付しておけば提案の場で開けます。無理に打ち込むより、元が見られる状態のほうが正確です。</p>
+<p>紙やFAXで届いたものは、スキャンか撮影で画像にして、物件の記録に添付します。机の上に紙で置いたままにすると、担当者以外には存在が分かりません。</p>
+<h2 id="h6">取り込んだあとは、更新のほうが漏れる</h2>
+<p>最初の取り込みは意識して行うので、意外と漏れません。漏れるのは、そのあとの変更です。</p>
+<p>賃料の変更、申込が入って募集停止、入居可能時期の変更。元付からの連絡はメールや電話で来るため、記録を直さないまま提案に使ってしまうことがあります。</p>
+<p>防ぎ方は2つです。1つは、<strong>直す場所を1か所にすること</strong>。自店の記録を直せば、掲載や提案に使う情報もそこを見る形にしておきます。もう1つは、変更の連絡が来たときに「記録を直す」までを一続きの作業にすることです。</p>
+<div class="callout warn">
+  <div class="ct"><span class="ci">✓</span>古い情報のほうが、手間は大きい</div>
+  <p>募集が終わった物件を案内してしまうと、お客様への謝罪と再提案が発生します。入力の手間を惜しんで記録を直さないほうが、結果として時間を使うことになります。</p>
+</div>
+<h2 id="h7">よくある失敗</h2>
+<p>取り込みの仕組みづくりでつまずく形は、だいたい次の3つです。</p>
+<p>1つ目は、<strong>先に項目を決めずにファイルから手をつけること</strong>です。届いたExcelの並びのまま取り込むと、送り主ごとに違う形のデータが並び、あとで検索できなくなります。</p>
+<p>2つ目は、全部の経路を同じ手順でそろえようとすることです。紙やPDFまでExcelと同じ扱いにしようとすると、作業が止まります。経路ごとに、どこまでやるかを分けてください。</p>
+<p>3つ目は、元データを残さないことです。項目だけ入力して元のファイルを捨てると、条件を確認したいときに送り主へ聞き直すことになります。</p>
+<details class="faq"><summary>Excelの形式が送り主ごとに違うのですが、そろえてもらうべきですか？</summary><div class="faq-a">送り主に形式の変更をお願いするのは現実的ではないことが多いため、自店側で読み替えの対応を決めておくほうが早く済みます。届く形はそのままで構いません。重要なのは、同じ送り主から届くファイルについて、どの列が自店のどの項目にあたるかを一度決めて残しておくことです。</div></details>
+<details class="faq"><summary>物件数が少ない店舗でも、取り込みの手順を決める意味はありますか？</summary><div class="faq-a">件数が少ないうちは手入力でも回りますが、項目の持ち方だけは早い段階で決めておく価値があります。あとから項目をそろえ直す作業は、既にある物件の分だけ発生するためです。件数が少ないときに決めておけば、増えてからの作業が軽くなります。</div></details>
+<details class="faq"><summary>紙やFAXで届く物件は、どう扱えばよいですか？</summary><div class="faq-a">スキャンか撮影で画像にして、物件の記録に添付する形をおすすめします。入力するのは検索の条件に使う項目だけで十分です。紙のまま保管すると、担当者が不在のときに他のスタッフが探せず、問い合わせへの回答が遅れます。画像にしておけば、少なくとも「どこにあるか」は決まります。</div></details>
+<h2 id="h8">まとめ：打ち直しを減らすのは、項目を決めることから</h2>
+<p>届く物件データの形はそろいません。そろえられるのは、受け取る側の形だけです。自店で持つ項目と持ち方を決め、経路ごとにどこまで入力するかを分け、繰り返し届くものだけ読み替えの対応を決める。この順番で進めると、件数が増えても入力は増えません。</p>
+<p>更新の反映は、直す場所を1か所にして、連絡が来たときに記録を直すまでを一続きにします。<strong>入力の速さを上げるのではなく、同じ情報を打ち込む回数を減らすのが要点です</strong>。</p>
+<p><a href="../index.html">ミエルーム</a>なら、他社フォーマットの物件データを変換して取り込む物件コンバータと、業者間サイトとの連携で、届いたデータの打ち直しを減らせます。Excelで持っている既存の物件データのインポートと初期設定の代行にも対応しているため、今の管理表から移すところも含めてそろえられます。物件の記録と提案・掲載が同じ場所でつながるので、賃料や募集状況が変わったときに直す場所を探さずに済みます。デモアカウントの発行やご相談は、この下のボタンからお気軽にどうぞ。</p>
+
+  <div class="post-tags"><span class="pt">#物件データ</span><span class="pt">#Excel</span><span class="pt">#DX</span><span class="pt">#業務効率化</span><span class="pt">#賃貸仲介</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>機能・事例</h4>
+          <a href="../features.html">機能一覧</a>
+          <a href="../guide/moushikomi-nyukin.html">申込・入金管理</a>
+          <a href="../guide/hankyo-bunseki.html">反響分析</a>
+          <a href="../guide/seiseki-kashika.html">成績可視化</a></div>
+        <div><h4>サービス</h4>
+          <a href="../index.html">ホーム</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a></div>
+        <div><h4>会社情報</h4>
+          <a href="../../company.html">運営会社</a>
+          <a href="https://app.mieroom.cloud/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>
