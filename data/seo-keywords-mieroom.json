@@ -1129,6 +1129,25 @@
       "status": "done",
       "slug": "bukken-data-torikomi",
       "doneAt": "2026-10-25"
+    },
+    {
+      "id": "m060",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 管理会社 客付け報告",
+      "sub": [
+        "元付 募集状況 報告",
+        "賃貸 物件 反響 報告"
+      ],
+      "title": "管理会社への客付け報告の進め方｜募集状況をそろえて物件を任される店舗になる",
+      "intent": "管理会社や元付へ送る募集状況の報告を、毎回ゼロから作らずにそろえたい",
+      "pillar": "../index.html",
+      "related": [
+        "hankyo-kanri-hoho",
+        "keisai-bukken-torisage"
+      ],
+      "status": "done",
+      "slug": "kyakuzuke-hokoku",
+      "doneAt": "2026-10-26"
     }
   ]
 }

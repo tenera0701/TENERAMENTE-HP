@@ -1094,7 +1094,9 @@
       "related": [
         "2026-06-20-chatgpt-gyomu-katsuyo"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-10-27-chatgpt-claude-gemini-chigai",
+      "doneAt": "2026-10-26"
     },
     {
       "id": "k013",
