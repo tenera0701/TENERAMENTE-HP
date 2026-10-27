@@ -1148,6 +1148,25 @@
       "status": "done",
       "slug": "kyakuzuke-hokoku",
       "doneAt": "2026-10-26"
+    },
+    {
+      "id": "m061",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 営業時間外 反響 対応",
+      "sub": [
+        "不動産 問い合わせ 夜間 対応",
+        "賃貸 定休日 反響 取りこぼし"
+      ],
+      "title": "営業時間外に入った反響の拾い方｜翌営業日までの連絡と取りこぼしの防ぎ方",
+      "intent": "夜間や定休日に入った問い合わせを取りこぼさない体制を作りたい",
+      "pillar": "../index.html",
+      "related": [
+        "lead-response-speed",
+        "hankyo-kanri-hoho"
+      ],
+      "status": "done",
+      "slug": "eigyo-jikangai-hankyo",
+      "doneAt": "2026-10-27"
     }
   ]
 }
