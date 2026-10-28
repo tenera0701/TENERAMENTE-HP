@@ -1167,6 +1167,25 @@
       "status": "done",
       "slug": "eigyo-jikangai-hankyo",
       "doneAt": "2026-10-27"
+    },
+    {
+      "id": "m062",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 スタッフ 定着",
+      "sub": [
+        "不動産 営業 辞める 理由",
+        "賃貸仲介 離職 防止"
+      ],
+      "title": "賃貸仲介でスタッフが定着する店舗の作り方｜辞める前に出るサインと打つ手",
+      "intent": "採用したスタッフが続かない状態を変えたい",
+      "pillar": "../index.html",
+      "related": [
+        "shinjin-ikusei-junban",
+        "hajimete-staff-saiyo"
+      ],
+      "status": "done",
+      "slug": "staff-teichaku",
+      "doneAt": "2026-10-28"
     }
   ]
 }
