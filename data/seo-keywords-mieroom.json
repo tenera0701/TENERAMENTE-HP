@@ -1204,7 +1204,9 @@
         "hanbouki-shift-jinin-keikaku",
         "hanbouki-uriage-mokuhyo"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "hanbouki-mae-junbi-checklist",
+      "doneAt": "2026-10-29"
     },
     {
       "id": "m101",
