@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,131 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-09-homepage-renewal-timing";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準","description":"ホームページのリニューアルのタイミングは、見た目の古さではなく「今のサイトが機会を落としているか」で判断します。作り直しを検討すべき7つのサイン、まだ全面改修が不要な場合の見分け方、着手前に決めておくことを整理しました。","datePublished":"2026-09-09","dateModified":"2026-09-09","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-09-homepage-renewal-timing.html","image":"https://teneramente.jp/assets/img/covers/2026-09-09-homepage-renewal-timing.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, リニューアル, Web制作, サイト改善"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準","description":"ホームページのリニューアルのタイミングは、見た目の古さではなく「今のサイトが機会を落としているか」で判断します。作り直しを検討すべき7つのサイン、まだ全面改修が不要な場合の見分け方、着手前に決めておくことを整理しました。","datePublished":"2026-09-09","dateModified":"2026-09-09","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-09-homepage-renewal-timing.html","image":"https://teneramente.jp/assets/img/covers/2026-09-09-homepage-renewal-timing.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, リニューアル, Web制作, サイト改善"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準","item":"https://teneramente.jp/2026-09-09-homepage-renewal-timing.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ホームページのリニューアルはどれくらいの期間がかかりますか？","acceptedAnswer":{"@type":"Answer","text":"ページ数と、写真・文章をどこまで新しく用意するかで大きく変わります。期間を左右するのは制作作業そのものより、掲載内容を社内で決める時間です。原稿と写真の準備を先に始めておくと、全体が短くなります。"}},{"@type":"Question","name":"URLが変わると検索結果に影響しますか？","acceptedAnswer":{"@type":"Answer","text":"ページの住所（URL）が変わる場合は、旧URLから新URLへの転送設定が必要です。ここを省くと、これまで評価されていたページが見つからなくなります。リニューアルの見積もりに、既存URLの引き継ぎが含まれているかを確認してください。"}},{"@type":"Question","name":"今のサイトの制作会社と連絡が取れません。作り直せますか？","acceptedAnswer":{"@type":"Answer","text":"ドメイン（URL）とサーバーの管理権限が誰にあるかを先に確認してください。この2つが自社側にあれば、別の制作会社でも進められます。権限が分からない場合は、ドメインの登録情報とサーバーの契約者を調べるところから始めます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 9, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-09-homepage-renewal-timing.webp" alt="ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>「何年で作り直すか」では決まらない</a><a href="#h2"><span class="n">02</span>作り直しを検討すべき7つのサイン</a><a href="#h3"><span class="n">03</span>スマートフォンでの見え方は最優先で確認する</a><a href="#h4"><span class="n">04</span>サインが出ていても、全面改修が不要な場合</a><a href="#h5"><span class="n">05</span>全面改修・部分改修・運用改善の使い分け</a><a href="#h6"><span class="n">06</span>着手する前に決めておく4つのこと</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：落ちている場所を特定してから決める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">ホームページのリニューアルのタイミングで迷っている方に、先に結論をお伝えします。判断の軸は、<strong>見た目が古いかどうかではなく、今のサイトが機会を落としているかどうか</strong>です。この記事では、作り直しを検討すべき7つのサインと、サインが出ていても全面改修までは要らない場合の見分け方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>リニューアルの適期は「何年経ったか」では決まりません。<strong>問い合わせ・採用・信頼の3つのどれかが、サイトのせいで落ちているとき</strong>が着手のタイミングです。まず落ちている場所を特定し、全面改修が必要か部分改修で足りるかを分けて判断します。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>「何年で作り直すか」では決まらない</h2>
+<p>ホームページのリニューアルは、何年周期という決まりがありません。5年経っても十分に機能しているサイトもあれば、公開から2年で役目を果たせなくなるサイトもあります。分かれ目は経過年数ではなく、事業の内容とサイトの内容がずれていないかです。</p>
+<p>扱う商品が変わった、主力の客層が変わった、採用を始めた、拠点が増えた。こうした変化があったのにサイトが当時のままなら、それは古いのではなく<strong>事実として合っていない</strong>状態です。</p>
+<p>逆に、事業が大きく変わっておらず、スマートフォンで問題なく閲覧でき、問い合わせも届いているなら、急いで作り直す理由はありません。デザインの流行は毎年動きますが、それだけを理由に全面改修する必要はないと考えています。</p>
+<h2 id="h2"><span class="h-num">02</span>作り直しを検討すべき7つのサイン</h2>
+<p>判断のためのサインを、影響の大きい順に並べます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-09-homepage-renewal-timing.png" alt="スマートフォン対応から情報の古さまで、ホームページの作り直しを検討すべき7つのサインを並べた図" width="1600" height="956" loading="lazy" decoding="async"><figcaption>上の2つは早めに手を打つ性質のものです。全部が当てはまる必要はありません。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>見る順番</h4>
+    <p>上から2つは、当てはまるなら早めに手を打つ性質のものです。下に行くほど「気づいたときに直す」で間に合います。全部が当てはまる必要はありません。</p>
+  </div>
+</div>
+
+<p>サインの数を数えることより、<strong>どのサインが出ているかを特定するほう</strong>が大切です。落ちているものが問い合わせなのか、採用の応募なのか、それとも初対面の相手からの信頼なのかで、手を入れる場所が変わります。</p>
+<p>たとえば「自分たちで更新できない」だけが当てはまるなら、必要なのはデザインの刷新ではなく、更新できる仕組みへの移行です。「事業内容とサイトの内容がずれている」なら、優先すべきは掲載内容の作り直しで、見た目は後からで構いません。<strong>サインごとに打つ手が違う</strong>ので、まとめて「古いから作り直す」と決めないでください。</p>
+<h2 id="h3"><span class="h-num">03</span>スマートフォンでの見え方は最優先で確認する</h2>
+<p>7つのうち、最初に確かめてほしいのがスマートフォンでの見え方です。会社案内サイトであっても、名刺交換のあとや検索から訪れる人の多くは手元の端末で開きます。</p>
+<p>自分の端末で自社サイトを開き、次を確認してください。<strong>文字を拡大しないと読めない、横にスクロールしないと収まらない、ボタンが小さすぎて押しにくい、電話番号をタップしても発信できない</strong>。どれか1つでも当てはまれば、それは見た目の問題ではなく、相手が用を足せない状態です。</p>
+<p>同時に、表示までの待ち時間も見ます。回線の速い環境で待たされるなら、外出先ではさらに待つことになります。読み込みの遅さは、内容を読む前に離脱される原因になります。</p>
+<h2 id="h4"><span class="h-num">04</span>サインが出ていても、全面改修が不要な場合</h2>
+<p>サインが出た＝作り直し、ではありません。次のような場合は、部分的な手当てで十分なことがあります。</p>
+<ul>
+<li><strong>情報が古いだけ</strong>：サービス内容、実績、料金の記載を更新すれば済む</li>
+<li><strong>1ページだけ足りない</strong>：新しいサービスの説明ページや採用ページを追加すれば足りる</li>
+<li><strong>問い合わせ導線が弱いだけ</strong>：フォームの項目を減らす、各ページに導線を置くなど、局所的な改善で変わる</li>
+<li><strong>文章が読みにくいだけ</strong>：見出しと段落を整理し、専門用語に説明を足すだけで伝わり方が変わる</li>
+</ul>
+<p>判断の分かれ目は、<strong>土台が使えるかどうか</strong>です。スマートフォンで問題なく閲覧でき、更新の手段があり、必要なページを足せる構造なら、土台は生きています。逆に、更新するたびに制作会社に依頼が必要で、少し直すだけで費用と日数がかかるなら、そこが作り直しの理由になります。</p>
+<h2 id="h5"><span class="h-num">05</span>全面改修・部分改修・運用改善の使い分け</h2>
+<p>進め方は3つに分かれます。どれを選ぶかで、費用も期間も変わります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>進め方</th>
+<th>向いている状況</th>
+<th>主な内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全面改修</td>
+<td>事業内容とサイトが合っていない／スマホ対応ができていない／自分で更新できない</td>
+<td>構成から作り直す。ページ設計・デザイン・実装・移行</td>
+</tr>
+<tr>
+<td>部分改修</td>
+<td>土台は使えるが、特定のページや導線が足りない</td>
+<td>ページの追加・差し替え、フォームや導線の改善</td>
+</tr>
+<tr>
+<td>運用改善</td>
+<td>構造に問題はなく、中身が更新されていない</td>
+<td>情報の更新、実績や事例の追加、写真の差し替え</td>
+</tr>
+</tbody></table></div>
+<p>多くの場合、<strong>運用改善から始めて足りない部分を部分改修で埋め、それでも届かないときに全面改修</strong>という順番が無理がありません。費用の考え方そのものは<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作の費用相場と失敗しない依頼方法</a>にまとめています。</p>
+<blockquote>
+<p>作り直しても更新されなければ、2年後に同じ相談をすることになります。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>着手する前に決めておく4つのこと</h2>
+<p>リニューアルで最も多い失敗は、目的を決めないまま見た目の話から始めることです。着手前に、次の4つを社内で決めておいてください。</p>
+<ol>
+<li><strong>誰に届けるサイトか</strong>：新規の見込み客か、既存の取引先か、応募者か。優先する相手を1つ決めます</li>
+<li><strong>何をしてほしいか</strong>：問い合わせ、資料請求、来社、応募。ページごとに「次にとってほしい行動」を1つに絞ります</li>
+<li><strong>公開後、誰が更新するか</strong>：担当者と更新頻度を先に決めます。ここが決まっていないと、更新できる仕組みを入れても使われません</li>
+<li><strong>今のサイトから何を引き継ぐか</strong>：残す文章、差し替える写真、削除するページを一覧にします</li>
+</ol>
+<p>特に3つ目が抜けたまま進むと、公開直後がいちばん新しい状態になり、そこから古くなる一方になります。<strong>リニューアルは公開が終わりではなく、更新の始まり</strong>です。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>ホームページのリニューアルはどれくらいの期間がかかりますか？</summary><div class="faq-a">ページ数と、写真・文章をどこまで新しく用意するかで大きく変わります。期間を左右するのは制作作業そのものより、掲載内容を社内で決める時間です。原稿と写真の準備を先に始めておくと、全体が短くなります。</div></details>
+
+<details class="faq"><summary>URLが変わると検索結果に影響しますか？</summary><div class="faq-a">ページの住所（URL）が変わる場合は、旧URLから新URLへの転送設定が必要です。ここを省くと、これまで評価されていたページが見つからなくなります。リニューアルの見積もりに、既存URLの引き継ぎが含まれているかを確認してください。</div></details>
+
+<details class="faq"><summary>今のサイトの制作会社と連絡が取れません。作り直せますか？</summary><div class="faq-a">ドメイン（URL）とサーバーの管理権限が誰にあるかを先に確認してください。この2つが自社側にあれば、別の制作会社でも進められます。権限が分からない場合は、ドメインの登録情報とサーバーの契約者を調べるところから始めます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：落ちている場所を特定してから決める</h2>
+<p>ホームページのリニューアルのタイミングは、年数でも流行でもなく、<strong>今のサイトのせいで落ちているものがあるか</strong>で判断します。まずスマートフォンでの見え方を確かめ、次に事業内容とサイトの内容がずれていないかを見る。そのうえで、運用改善・部分改修・全面改修のどれで足りるかを分けて考えてください。</p>
+<p>作り直すと決めたら、着手前に「誰に・何をしてほしいか・誰が更新するか・何を引き継ぐか」の4つを決めます。この4つが決まっているリニューアルは、公開後に効いてきます。</p>
+<p>TENERAMENTEでは、<a href="lp-hplp.html">ホームページ・LP制作</a>を、公開後に自分たちで更新できる形まで含めてご一緒しています。全面的に作り直すべきか、部分的な改善で足りるのかを一緒に見極めたい段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ホームページ制作</span><span>#リニューアル</span><span>#Web制作</span><span>#サイト改善</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +295,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +323,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-15-seo-taisaku-jibun-de-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEO対策を自分でやるやり方｜外注せずに始める手順と続け方</h4>
+      </a>
+      <a class="related-card" href="2026-09-18-kensaku-juni-agaranai-genin.html">
+        <span class="cat">HP / LP</span>
+        <h4>検索順位が上がらない原因｜確認する順番と直す優先度の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-21-seo-keyword-sentei-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

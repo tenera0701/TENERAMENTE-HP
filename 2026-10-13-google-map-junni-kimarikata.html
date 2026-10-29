@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,138 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-13-google-map-junni-kimarikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素","description":"Googleマップの掲載順位を決める関連性・距離・知名度の3要素を、店舗が自分で動かせる部分と動かせない部分に分けて解説します。どの要素が足りていないのかを確かめる手順と、順位についてよくある誤解もまとめました。","datePublished":"2026-10-13","dateModified":"2026-10-13","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-13-google-map-junni-kimarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-13-google-map-junni-kimarikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleマップ, ローカル検索, GBP, 検索順位"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素","description":"Googleマップの掲載順位を決める関連性・距離・知名度の3要素を、店舗が自分で動かせる部分と動かせない部分に分けて解説します。どの要素が足りていないのかを確かめる手順と、順位についてよくある誤解もまとめました。","datePublished":"2026-10-13","dateModified":"2026-10-13","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-13-google-map-junni-kimarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-13-google-map-junni-kimarikata.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleマップ, ローカル検索, GBP, 検索順位"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素","item":"https://teneramente.jp/2026-10-13-google-map-junni-kimarikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"関連性を上げたら、どれくらいで順位に反映されますか？","acceptedAnswer":{"@type":"Answer","text":"反映までの期間は、情報の種類や地域の競合状況によって変わるため、一律の日数は言えません。ただしカテゴリやサービスの修正のように、Google が持っている情報そのものを変える作業は、口コミを積む作業より早く変化が見える傾向があります。変えた日付と変えた内容を記録しておき、2〜4週間ごとに表示されている検索語を確認するのが現実的な見方です。"}},{"@type":"Question","name":"競合店が自店より上に出る理由を知る方法はありますか？","acceptedAnswer":{"@type":"Answer","text":"正確な理由は公開されていませんが、3要素に当てはめて比べれば見当はつきます。相手のプロフィールを開き、カテゴリとサービスの書き方、写真の枚数、口コミの件数と直近の投稿日、そして所在地を確認してください。自店に欠けている項目が見つかれば、そこが差になっている可能性が高い部分です。相手の真似をするのではなく、自店の欠けを埋める材料として使ってください。"}},{"@type":"Question","name":"店舗を持たない事業でもマップに出せますか？","acceptedAnswer":{"@type":"Answer","text":"来客対応のない事業でも、サービス提供地域を設定する形で登録できる場合があります。ただし所在地を非公開にするため、距離の扱いが実店舗とは変わります。この形で登録する場合は、関連性と知名度の比重がより大きくなるため、サービスの書き方と自社サイト側の情報を先に整えるほうが効果的です。登録の要件は Google のポリシーで定められているので、申請前に該当するかを確認してください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 13, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-13-google-map-junni-kimarikata.webp" alt="Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>Googleマップの掲載順位を決める3つの要素</a><a href="#h2"><span class="n">02</span>関連性：検索された言葉と、プロフィールの中身が合っているか</a><a href="#h3"><span class="n">03</span>距離：検索した場所からの近さは、前提として扱う</a><a href="#h4"><span class="n">04</span>知名度：ウェブ全体でどれだけ知られているか</a><a href="#h5"><span class="n">05</span>3要素のうち、自分で動かせるのはどこか</a><a href="#h6"><span class="n">06</span>自店はどの要素が弱いのかを確かめる手順</a><a href="#h7"><span class="n">07</span>順位についてよくある誤解</a><a href="#h8"><span class="n">08</span>まとめ：仕組みが分かれば、やることは絞られる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「近くの〇〇」で検索したときに、なぜあの店が上に出て自店は出ないのか。<strong>Googleマップの掲載順位は、関連性・距離・知名度という3つの要素の組み合わせで決まります</strong>。Google 自身がこの考え方を公開しており、順位を上げる作業は、3つのうち自分で動かせる部分に手を入れることに尽きます。投稿の回数を増やす前に、どの要素が足りていないのかを見分けてください。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>掲載順位は3要素の総合で決まり、どれか1つを満点にして上がるものではありません。<strong>自分で動かせる度合いがいちばん大きいのは関連性で、距離はほぼ動かせません</strong>。関連性を先に埋め、知名度を時間をかけて積む。この順番が結果として最短になります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>Googleマップの掲載順位を決める3つの要素</h2>
+<p>Google はローカル検索の結果の並び方について、関連性・距離・知名度の3つをもとにしていると説明しています。検索された言葉と店舗の情報がどれだけ合っているか、検索された場所から店舗がどれだけ近いか、そしてその店舗がどれだけ知られているか、の3つです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-13-google-map-junni-kimarikata.png" alt="関連性は検索語とプロフィールの一致で自分で動かせる度合いが大きい、距離は検索した場所からの近さでほぼ動かせない、知名度はウェブ全体での認知と口コミで時間がかかるという、Googleマップの掲載順位を決める3要素を並べた図" width="1600" height="723" loading="lazy" decoding="async"><figcaption>3つは足し合わされて効きます。どれか1つで順位は決まりません。</figcaption></figure>
+
+<p>大事なのは、<strong>3つが足し合わされて効く</strong>という点です。距離が少し遠くても、関連性と知名度が高ければ上に出ることがあります。逆に、いちばん近い店舗でも情報が薄ければ、少し離れた店舗に抜かれます。</p>
+<p>ここを押さえておくと、「近いのに出ない」「口コミは多いのに出ない」といった状態に説明がつきます。順位はどれか1つの要素で決まっていない、というのが出発点です。MEO対策の全体像は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策完全ガイド</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>関連性：検索された言葉と、プロフィールの中身が合っているか</h2>
+<p>関連性は、検索された言葉に対して、その店舗の情報がどれだけ答えになっているかという見方です。ここは<strong>3つのうちで最も自分で動かせる</strong>部分です。</p>
+<p>材料になるのは、ビジネスプロフィールのカテゴリ、サービスやメニューの一覧、説明文、営業時間、駐車場の有無などの属性情報です。検索する人が使う言葉と、プロフィールに書かれている言葉がずれていると、関連性は上がりません。</p>
+<p>よくあるのは、実際に提供しているサービスが説明文に1行も書かれていない状態です。扱っているなら書く、扱っていないなら書かない。この当たり前の作業が、関連性にそのまま効きます。カテゴリの決め方は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>に整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>距離：検索した場所からの近さは、前提として扱う</h2>
+<p>距離は、検索した人の現在地、または検索語に含まれた地名から、店舗までの近さです。ここは<strong>ほぼ動かせません</strong>。移転しない限り変わらないからです。</p>
+<p>そのため、距離は動かす対象ではなく前提として扱うのが現実的です。自店から離れた場所で検索した人の画面に出ないのは、異常ではありません。マップで表示される範囲は、店舗の周辺に限られます。</p>
+<p>できることは2つあります。所在地の情報を正確に保つこと、つまり地図上の位置ずれを直し、住所の表記をそろえることです。そしてエリアを広げたい場合は、マップ以外の経路を用意することです。表記のそろえ方は<a href="2026-09-28-nap-touitsu-meo.html">NAP統一</a>で扱っています。</p>
+<h2 id="h4"><span class="h-num">04</span>知名度：ウェブ全体でどれだけ知られているか</h2>
+<p>知名度は、その店舗がどれだけ知られているかという見方です。マップの中だけの話ではなく、ウェブ全体の情報が材料になります。自社サイトの内容、ほかのサイトでの紹介、そして口コミの件数と評価です。</p>
+<p>ここは動かせますが、<strong>関連性に比べて時間がかかります</strong>。今日作業して明日変わる部分ではありません。だからこそ知名度から手を付けると、「やっているのに変わらない」という感覚になりがちです。</p>
+<p>進め方としては、自社サイトで扱っているサービスと地域をきちんと説明し、来店されたお客様に口コミをお願いする流れを作ること。派手な施策ではありませんが、この2つを続けることが知名度の積み上げになります。</p>
+<h2 id="h5"><span class="h-num">05</span>3要素のうち、自分で動かせるのはどこか</h2>
+<p>3つを並べ直すと、手を入れる順番が自然に決まります。</p>
+<ul>
+<li><strong>関連性</strong>：動かせる度合いが大きい。今日直せるので、最初に埋めます</li>
+<li><strong>知名度</strong>：動かせるが時間がかかる。続ける前提で設計します</li>
+<li><strong>距離</strong>：ほぼ動かせない。前提として受け入れます</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>順位を見る前に、表示されている検索語を見る</h4>
+    <p>「順位が低い」と感じるとき、そもそも想定した言葉で表示されていないことがあります。関連性が足りていないと、順位の問題ではなく候補に入っていない状態になります。順位の上下より先に、どの言葉で表示されているかを確かめてください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>自店はどの要素が弱いのかを確かめる手順</h2>
+<p>見えている状態から、疑う要素を絞り込めます。次の表の順で確認してください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見えている状態</th>
+<th>疑う要素</th>
+<th>確認すること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>店名では出るが、サービス名では出ない</td>
+<td>関連性</td>
+<td>カテゴリ、サービス一覧、説明文にその言葉があるか</td>
+</tr>
+<tr>
+<td>店の前で検索しても下のほうに出る</td>
+<td>関連性・知名度</td>
+<td>情報の欠けがないか、口コミが止まっていないか</td>
+</tr>
+<tr>
+<td>少し移動すると表示されなくなる</td>
+<td>距離</td>
+<td>正常な挙動。範囲を広げる手段は別に考える</td>
+</tr>
+<tr>
+<td>以前は出ていたのに出なくなった</td>
+<td>プロフィールの状態</td>
+<td>直前に自分で触った内容と、情報の削除や統合</td>
+</tr>
+</tbody></table></div>
+<p><strong>確認の順番を関連性から始める</strong>のが効率的です。関連性は確認も修正も当日できるため、ここを埋めてから知名度の作業に移ると、やったことと結果の関係が追いやすくなります。急に下がった場合の切り分けは<a href="2026-09-19-google-map-juni-sagatta.html">Googleマップの順位が下がったときの確認手順</a>にまとめています。</p>
+<h2 id="h7"><span class="h-num">07</span>順位についてよくある誤解</h2>
+<p>仕組みが分かると、次の3つは誤解だと分かります。</p>
+<p><strong>1つめは、費用を払えば順位が上がるという話</strong>です。広告枠は別にありますが、マップの通常の掲載順位そのものを購入することはできません。「上位表示を保証する」という説明は、仕組みの上で無理があります。</p>
+<p><strong>2つめは、投稿の回数が順位を決めるという話</strong>です。投稿は来店前の疑問を解消する材料として役立ちますが、回数そのものが順位の指標ではありません。中身のない投稿を毎日増やしても、関連性も知名度も動きません。</p>
+<p><strong>3つめは、口コミの評価が高ければ必ず上に出るという話</strong>です。口コミは知名度の材料の一部で、評価だけで順位が決まるわけではありません。件数が少なかったり更新が止まっていたりすれば、評価が高くても効きにくくなります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>短期間で順位だけを動かす手法は避ける</h4>
+    <p>実在しない所在地での登録や、依頼して書いてもらった口コミは、Google のポリシーに反します。一時的に表示が変わっても、プロフィールの停止や口コミの削除につながれば、積み上げてきた知名度ごと失います。仕組みに沿って関連性から埋めるほうが、結果として早く済みます。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>関連性を上げたら、どれくらいで順位に反映されますか？</summary><div class="faq-a">反映までの期間は、情報の種類や地域の競合状況によって変わるため、一律の日数は言えません。ただしカテゴリやサービスの修正のように、Google が持っている情報そのものを変える作業は、口コミを積む作業より早く変化が見える傾向があります。変えた日付と変えた内容を記録しておき、2〜4週間ごとに表示されている検索語を確認するのが現実的な見方です。</div></details>
+
+<details class="faq"><summary>競合店が自店より上に出る理由を知る方法はありますか？</summary><div class="faq-a">正確な理由は公開されていませんが、3要素に当てはめて比べれば見当はつきます。相手のプロフィールを開き、カテゴリとサービスの書き方、写真の枚数、口コミの件数と直近の投稿日、そして所在地を確認してください。自店に欠けている項目が見つかれば、そこが差になっている可能性が高い部分です。相手の真似をするのではなく、自店の欠けを埋める材料として使ってください。</div></details>
+
+<details class="faq"><summary>店舗を持たない事業でもマップに出せますか？</summary><div class="faq-a">来客対応のない事業でも、サービス提供地域を設定する形で登録できる場合があります。ただし所在地を非公開にするため、距離の扱いが実店舗とは変わります。この形で登録する場合は、関連性と知名度の比重がより大きくなるため、サービスの書き方と自社サイト側の情報を先に整えるほうが効果的です。登録の要件は Google のポリシーで定められているので、申請前に該当するかを確認してください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：仕組みが分かれば、やることは絞られる</h2>
+<p>Googleマップの掲載順位は、関連性・距離・知名度の3つで決まります。このうち距離は動かせず、知名度は時間がかかり、関連性は今日動かせます。<strong>やることが多すぎて手が止まっているなら、関連性から順に埋めるだけで十分</strong>です。</p>
+<p>そして、3要素のどれに当たる作業なのかを意識しておくと、施策の説明を受けたときの判断もしやすくなります。どの要素をどう動かす話なのかが説明されない提案は、いったん保留にして構いません。</p>
+<p>TENERAMENTEなら、カテゴリやサービスの書き方といった関連性の部分を具体的に洗い出し、口コミと自社サイトの手入れまで含めて、どの順番で進めるかをご一緒に決められます。自店がどの要素でつまずいているか分からない段階でも整理からお手伝いできますので、<a href="lp-meo.html">MEO対策</a>の内容をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleマップ</span><span>#ローカル検索</span><span>#GBP</span><span>#検索順位</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +302,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +330,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-10-biyoushitsu-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる</h4>
+      </a>
+      <a class="related-card" href="2026-10-16-inshokuten-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方</h4>
+      </a>
+      <a class="related-card" href="2026-10-17-kuchikomi-henshin-ai.html">
+        <span class="cat">MEO</span>
+        <h4>口コミ返信をAIで効率化する方法と、やってはいけない使い方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

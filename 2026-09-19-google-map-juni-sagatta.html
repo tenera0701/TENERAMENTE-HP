@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,169 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-19-google-map-juni-sagatta";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleマップの順位が急に下がった原因と確認手順","description":"Googleマップの順位が急に下がったとき、原因は自社で加えた変更・プロフィールの状態・外側の変化のどれかに収まります。焦って情報を触る前に確認する順番と、原因ごとの直し方をまとめました。","datePublished":"2026-09-19","dateModified":"2026-09-19","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-19-google-map-juni-sagatta.html","image":"https://teneramente.jp/assets/img/covers/2026-09-19-google-map-juni-sagatta.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, Googleマップ, 順位変動, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleマップの順位が急に下がった原因と確認手順","description":"Googleマップの順位が急に下がったとき、原因は自社で加えた変更・プロフィールの状態・外側の変化のどれかに収まります。焦って情報を触る前に確認する順番と、原因ごとの直し方をまとめました。","datePublished":"2026-09-19","dateModified":"2026-09-19","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-19-google-map-juni-sagatta.html","image":"https://teneramente.jp/assets/img/covers/2026-09-19-google-map-juni-sagatta.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, Googleマップ, 順位変動, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleマップの順位が急に下がった原因と確認手順","item":"https://teneramente.jp/2026-09-19-google-map-juni-sagatta.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"順位が下がってから、どのくらいで戻りますか？","acceptedAnswer":{"@type":"Answer","text":"明確な日数は決まっていません。設定の誤りが原因であれば、修正が反映された時点で戻ることがあります。一方、停止からの復旧や重複の統合は審査をはさむため、時間がかかります。いずれの場合も、待っている間に情報を何度も書き換えないでください。変更が重なると、何が効いたのか判断できなくなります。"}},{"@type":"Question","name":"店舗の近くでは上位に出るのに、少し離れると出てきません。異常ですか？","acceptedAnswer":{"@type":"Answer","text":"異常ではありません。マップの検索結果は検索した人の現在地に強く影響されるため、店舗から離れるほど表示されにくくなるのは通常の動きです。判断するときは自分で検索した結果ではなく、管理画面の表示回数や行動数の推移を見てください。"}},{"@type":"Question","name":"プロフィールが停止された場合、新しく作り直してもよいですか？","acceptedAnswer":{"@type":"Answer","text":"作り直しは避けてください。重複した情報が生まれ、統合の手間が増えるうえ、停止の原因が解消されないまま再登録すると同じ結果になります。まず停止の理由を確認し、該当箇所を直したうえで再審査を申請する流れが基本です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleマップの順位が急に下がった原因と確認手順</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 19, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">8 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-19-google-map-juni-sagatta.webp" alt="Googleマップの順位が急に下がった原因と確認手順" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>順位が下がる原因は、自社・プロフィール・外の変化に分かれる</a><a href="#h2"><span class="n">02</span>確認する順番を決める</a><a href="#h3"><span class="n">03</span>まず「本当に下がったのか」を確かめる</a><a href="#h4"><span class="n">04</span>直前に自社で何を触ったかを洗い出す</a><a href="#h5"><span class="n">05</span>プロフィールの状態を確認する</a><a href="#h6"><span class="n">06</span>口コミ・写真・投稿の動きを見る</a><a href="#h7"><span class="n">07</span>外の変化を見る：競合とGoogle側の更新</a><a href="#h8"><span class="n">08</span>原因別の直す優先度</a><a href="#h9"><span class="n">09</span>まとめ：下がったときほど、触る前に確認する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleマップの順位が急に下がったとき、いちばん危険なのは<strong>原因が分からないまま情報を何か所も書き換えること</strong>です。順位が落ちる原因の候補は限られています。見る順番さえ決めておけば、何が起点だったかはその日のうちに絞り込めます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>Googleマップの順位が下がった原因は、自社で加えた変更・プロフィールの状態・外側の変化の3つに分かれます。<strong>まず自社が直前に何を触ったかを洗い出すのが最短です</strong>。心当たりがない場合だけ、プロフィールの状態と外の変化を順に見ていきます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>順位が下がる原因は、自社・プロフィール・外の変化に分かれる</h2>
+<p>原因を並べると無数にあるように見えますが、実際には次の3つのどれかに収まります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-19-google-map-juni-sagatta.png" alt="自社で加えた変更・プロフィールの状態・外側の変化という3つの原因を並べた図" width="1600" height="741" loading="lazy" decoding="async"><figcaption>左から順に確認します。上の2つが片付かないと、外の変化かどうかの判定ができません。</figcaption></figure>
+
+<p>ひとつめは<strong>自社で加えた変更</strong>です。店舗名や住所の表記を直した、カテゴリを変えた、営業時間を更新した、写真を大量に入れ替えた。直前の操作が起点になっているケースが最も多く、そして最も見つけやすい原因です。</p>
+<p>ふたつめは<strong>プロフィールそのものの状態</strong>です。停止（サスペンド）や審査中になっている、重複したプロフィールが生まれている、オーナー確認が外れている。この場合は順位が下がったというより、表示される資格を失っている状態に近くなります。</p>
+<p>みっつめが<strong>外側の変化</strong>で、競合が対策を始めた、Google側の更新があった、検索する人の場所が変わった、といったものです。自社では動かせない要因が含まれるため、最後に見ます。</p>
+<p><strong>この順番を守る理由は、上の2つが片付かないと3つめの判定ができない</strong>からです。プロフィールが停止しているのに競合分析をしても意味がありません。</p>
+<h2 id="h2"><span class="h-num">02</span>確認する順番を決める</h2>
+<p>原因の切り分けは、上から順に「問題なし」を確定させていき、引っかかったところで止めて直すのが最短です。実際に見る順番は次のとおりです。</p>
+<ol>
+<li><strong>本当に下がったのかを数字で確かめる</strong>（自分で検索した結果では判断しない）</li>
+<li><strong>直前に自社で触った箇所を洗い出す</strong>（変化の起点の日付と照合する）</li>
+<li><strong>プロフィールの状態を見る</strong>（停止・審査中・重複・オーナー確認）</li>
+<li><strong>口コミや投稿の動きを見る</strong>（更新が止まった時期と重なっていないか）</li>
+<li><strong>外の変化を見る</strong>（競合の動き、Google側の更新）</li>
+</ol>
+<p><strong>上から順に見る理由は、上の段が壊れていると下の段の判定ができない</strong>からです。表示回数がそもそも落ちていなければ、原因を探す必要すらありません。各項目の具体的な見方はこのあとのセクションで扱います。MEO全体の考え方は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>に整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>まず「本当に下がったのか」を確かめる</h2>
+<p>自分でスマートフォンから検索した結果は、順位ではありません。ここを飛ばすと、起きていない問題を追いかけることになります。</p>
+<p>マップの表示順位は、<strong>検索した人の現在地によって大きく変わります</strong>。店舗の近くで検索すれば上位に出て、少し離れると出てこないのは通常の動きです。自社の店内で検索して確認していた人が、自宅から検索して「下がった」と感じるケースは珍しくありません。</p>
+<p>ログイン状態や検索履歴の影響も受けます。確認するときは、ビジネスプロフィールの管理画面で、検索に表示された回数やマップの表示回数といった数字の推移を見てください。<strong>順位という1つの数字ではなく、表示回数と行動数（ルート検索・電話・サイト訪問）がいつから落ちたか</strong>を見ると、変化の起点の日付が分かります。</p>
+<p>起点の日付が特定できれば、その前後に自社が何をしたかを照合できます。ここまでが調査の土台になります。</p>
+<h2 id="h4"><span class="h-num">04</span>直前に自社で何を触ったかを洗い出す</h2>
+<p>起点の日付が見えたら、その前後の操作を棚卸しします。順位に影響しやすい変更は決まっています。</p>
+<ul>
+<li><strong>店舗名（ビジネス名）の変更</strong>：看板や登記と違う名前、キーワードを足した名前は違反として扱われます</li>
+<li><strong>カテゴリの変更</strong>：メインカテゴリを変えると、表示される検索そのものが変わります</li>
+<li><strong>住所・電話番号の表記</strong>：サイトや他の掲載先と食い違うと、同じ店舗だと判断されにくくなります</li>
+<li><strong>営業時間</strong>：臨時休業や「一時休業中」の設定が残っていると、表示が大きく落ちます</li>
+<li><strong>サービス提供地域</strong>：エリア設定を広げすぎると、かえって絞り込まれることがあります</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>店舗名にキーワードを足していないか</h4>
+    <p>「店舗名＋地域名＋サービス名」のようにキーワードを詰め込んだ名称は、Googleのガイドラインで認められていません。一時的に効いたように見えても、修正や停止の対象になります。実在する看板どおりの名称に戻してください。</p>
+  </div>
+</div>
+
+<p>複数人で管理している場合は、自分以外の操作も確認します。管理画面のオーナー・管理者一覧を見て、心当たりのない権限が増えていないかもあわせて見てください。</p>
+<h2 id="h5"><span class="h-num">05</span>プロフィールの状態を確認する</h2>
+<p>自社の操作に心当たりがない場合、次はプロフィールの状態です。ここは判定がはっきりします。</p>
+<p>確認するのは3点です。まず<strong>停止・審査中になっていないか</strong>。管理画面に警告や審査中の表示が出ていれば、順位の話ではなく復旧の話になります。次に<strong>オーナー確認が有効か</strong>。確認が外れると、情報の一部が反映されなくなります。そして<strong>重複したプロフィールが存在しないか</strong>です。</p>
+<p>重複は、移転時に新しく作り直した、複数の担当者がそれぞれ登録した、といった経緯で生まれます。同じ店舗の情報が2つあると評価が分散し、どちらも上がりにくくなります。見つけたら統合を申請してください。</p>
+<blockquote>
+<p>順位が下がったように見えるとき、実際には「表示される資格」の側が止まっていることがあります。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>口コミ・写真・投稿の動きを見る</h2>
+<p>プロフィールが正常なら、次は日々の運用側です。ここは順位そのものより、選ばれる確率に効きます。</p>
+<p>見るのは、口コミが一定期間まったく付いていないか、返信が止まっていないか、低評価が続いていないか、写真や投稿の更新が途切れていないかです。<strong>更新が止まった時期と、数字が落ち始めた時期が重なっていないか</strong>を照合してください。</p>
+<p>口コミが削除されて件数が減っていることもあります。ガイドライン違反と判定された口コミは、投稿者側の問題であっても消えます。件数の減少自体は自社では止められないので、削除を追うより、新しい口コミが入る流れを戻すほうが現実的です。低評価への向き合い方は<a href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">評価の低い口コミへの対応</a>にまとめました。</p>
+<h2 id="h7"><span class="h-num">07</span>外の変化を見る：競合とGoogle側の更新</h2>
+<p>ここまでで原因が見つからない場合、外側の変化を疑います。ただし、<strong>自社側を確認し終えてから見ること</strong>が前提です。</p>
+<p>競合側では、新しい店舗が近くにできた、既存店が口コミ集めや情報の整備を始めた、といった動きがあります。自分の順位が下がったのではなく、相手が上がった結果として押し出されている状態です。この場合、対策は通常のMEOと同じで、特別な緊急対応はありません。</p>
+<p>Google側の更新は、特定の地域や業種でまとめて順位が動く形で現れます。判断の目安は、<strong>自社だけが落ちたのか、周辺の同業も含めて並びが変わったのか</strong>です。同業全体で並びが変わっているなら、個別の施策ミスではない可能性が高くなります。この場合は数日から数週間の様子見をはさみ、その間に情報を触りすぎないほうが安全です。</p>
+<p>通常の検索（マップ以外）でも同時に落ちている場合は、サイト側の問題が混じっていることがあります。切り分けの手順は<a href="2026-09-18-kensaku-juni-agaranai-genin.html">検索順位が上がらない原因</a>を参照してください。</p>
+<h2 id="h8"><span class="h-num">08</span>原因別の直す優先度</h2>
+<p>確認が終わったら、見つかった状態に応じて着手の順番を決めます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見つかった状態</th>
+<th>緊急度</th>
+<th>対応</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>プロフィールが停止・審査中</td>
+<td>最優先</td>
+<td>再審査を申請。復旧するまで他の施策は保留</td>
+</tr>
+<tr>
+<td>重複プロフィールがある</td>
+<td>高い</td>
+<td>統合を申請し、正しい1件に情報を集約</td>
+</tr>
+<tr>
+<td>店舗名がガイドライン違反</td>
+<td>高い</td>
+<td>実在する名称に戻す。放置すると停止につながる</td>
+</tr>
+<tr>
+<td>一時休業・営業時間の誤り</td>
+<td>高い</td>
+<td>設定を戻す。反映まで日数がかかる場合がある</td>
+</tr>
+<tr>
+<td>カテゴリ変更が起点</td>
+<td>中くらい</td>
+<td>元のカテゴリに戻し、しばらく変えない</td>
+</tr>
+<tr>
+<td>口コミ・投稿が止まっている</td>
+<td>中くらい</td>
+<td>運用を戻す。急な巻き返しは狙わない</td>
+</tr>
+<tr>
+<td>競合の動き・Google側の更新</td>
+<td>低い</td>
+<td>通常のMEOを継続。触りすぎない</td>
+</tr>
+</tbody></table></div>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>やってはいけないこと</h4>
+    <p>順位が下がった直後に、店舗名・カテゴリ・住所を一度に書き換えるのは避けてください。変更が重なると、どれが効いたのか分からなくなるうえ、短期間の頻繁な編集そのものが審査の対象になります。直すのは1か所ずつ、反映を待つ期間を決めてからにします。</p>
+  </div>
+</div>
+
+<p>日常の運用手順を一から組み直したい場合は、<a href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">MEO対策を自分でやる方法</a>に基本の流れをまとめています。</p>
+<h2 id="h9"><span class="h-num">09</span>まとめ：下がったときほど、触る前に確認する</h2>
+<p>Googleマップの順位が急に下がった原因を探すときに必要なのは、新しい施策ではなく確認の順番です。本当に下がったのかを数字で確かめ、直前に自社が触った箇所を洗い出し、プロフィールの状態を見て、最後に外の変化を見る。この順で進めれば、どこが起点だったかは絞り込めますし、無関係な場所を書き換えて状況を悪くすることもありません。直すのは1か所ずつ、反映を待つ期間を決めてから。これだけで、次に何かが起きたときの判断材料も残ります。</p>
+<p>TENERAMENTEは、ビジネスプロフィールの状態確認から日々の運用までを一貫してお手伝いしています。今どこで止まっているのかの切り分けから始められるよう、対応できる範囲を<a href="lp-meo.html">MEO対策</a>にまとめました。自社で確認してみたものの原因が絞りきれない、という段階でも構いませんので、<a href="contact.html">ご相談</a>からお気軽にお声がけください。</p>
+<details class="faq"><summary>順位が下がってから、どのくらいで戻りますか？</summary><div class="faq-a">明確な日数は決まっていません。設定の誤りが原因であれば、修正が反映された時点で戻ることがあります。一方、停止からの復旧や重複の統合は審査をはさむため、時間がかかります。いずれの場合も、待っている間に情報を何度も書き換えないでください。変更が重なると、何が効いたのか判断できなくなります。</div></details>
+
+<details class="faq"><summary>店舗の近くでは上位に出るのに、少し離れると出てきません。異常ですか？</summary><div class="faq-a">異常ではありません。マップの検索結果は検索した人の現在地に強く影響されるため、店舗から離れるほど表示されにくくなるのは通常の動きです。判断するときは自分で検索した結果ではなく、管理画面の表示回数や行動数の推移を見てください。</div></details>
+
+<details class="faq"><summary>プロフィールが停止された場合、新しく作り直してもよいですか？</summary><div class="faq-a">作り直しは避けてください。重複した情報が生まれ、統合の手間が増えるうえ、停止の原因が解消されないまま再登録すると同じ結果になります。まず停止の理由を確認し、該当箇所を直したうえで再審査を申請する流れが基本です。</div></details>
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleビジネスプロフィール</span><span>#Googleマップ</span><span>#順位変動</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +333,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +361,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">
+        <span class="cat">MEO</span>
+        <h4>低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準</h4>
+      </a>
+      <a class="related-card" href="2026-09-22-meo-kouka-kikan.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の効果が出るまでの期間と、途中でやめないための見方</h4>
+      </a>
+      <a class="related-card" href="2026-09-13-chatgpt-kensaku-jisha-hyoji.html">
+        <span class="cat">AIO</span>
+        <h4>ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順</h4>
+      </a>
+    </div>
   </div>
 </section>
 

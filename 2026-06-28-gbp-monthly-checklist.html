@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,149 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-28-gbp-monthly-checklist";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleビジネスプロフィール 月次運用チェックリスト","description":"Googleマップの順位は「作って終わり」では守れません。NAPの点検、投稿・写真、口コミ対応、インサイト確認——毎月見るべき項目を、店舗運用の現場目線でチェックリストにまとめました。","datePublished":"2026-06-28","dateModified":"2026-06-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-28-gbp-monthly-checklist.html","image":"https://teneramente.jp/assets/img/covers/2026-06-28-gbp-monthly-checklist.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleマップ, ローカルSEO, 口コミ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleビジネスプロフィール 月次運用チェックリスト","description":"Googleマップの順位は「作って終わり」では守れません。NAPの点検、投稿・写真、口コミ対応、インサイト確認——毎月見るべき項目を、店舗運用の現場目線でチェックリストにまとめました。","datePublished":"2026-06-28","dateModified":"2026-06-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-28-gbp-monthly-checklist.html","image":"https://teneramente.jp/assets/img/covers/2026-06-28-gbp-monthly-checklist.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleマップ, ローカルSEO, 口コミ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleビジネスプロフィール 月次運用チェックリスト","item":"https://teneramente.jp/2026-06-28-gbp-monthly-checklist.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どのくらいで順位は上がりますか？","acceptedAnswer":{"@type":"Answer","text":"商圏の競争状況によりますが、MEOは比較的反映が早い領域です。とはいえ一度の対応で決まるものではなく、毎月の継続が前提になります。"}},{"@type":"Question","name":"投稿は何を書けばいい？","acceptedAnswer":{"@type":"Answer","text":"新商品・キャンペーン・季節の話題・営業時間の変更など、ユーザーに役立つ情報で十分です。難しく考えず、月数回の更新を続けることが大切です。"}},{"@type":"Question","name":"自分でやるか、代行に頼むか？","acceptedAnswer":{"@type":"Answer","text":"仕組みを理解すれば自店運用も可能です。ただし継続が難しい場合は、計測と運用を「見える化」した代行に任せると、抜け漏れなく続けられます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleビジネスプロフィール 月次運用チェックリスト</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 28, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">3 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-28-gbp-monthly-checklist.webp" alt="Googleビジネスプロフィール 月次運用チェックリスト" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>なぜ「毎月の運用」が順位を分けるのか</a><a href="#h2"><span class="n">02</span>1. 基本情報（NAP）の点検</a><a href="#h3"><span class="n">03</span>2. 投稿・写真の更新</a><a href="#h4"><span class="n">04</span>3. 口コミ対応</a><a href="#h5"><span class="n">05</span>4. インサイトの確認</a><a href="#h6"><span class="n">06</span>5. 競合との比較</a><a href="#h7"><span class="n">07</span>月次チェックリスト（まとめ）</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleマップでの見え方は、<strong>毎月のひと手間</strong>で守られます。プロフィールを整えた直後は良くても、放置すれば情報は古び、競合に追い抜かれます。本記事では、<em>Googleビジネスプロフィール</em>（GBP）の運用で当社が毎月確認している項目を、チェックリスト形式でまとめます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>MEOは「正確な基本情報 × 継続的な更新 × 誠実な口コミ対応」の積み重ね。<strong>派手な裏技より、毎月の地道な点検が順位を支えます。</strong>まずは月初に30分、決まった項目を見る習慣をつくりましょう。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>なぜ「毎月の運用」が順位を分けるのか</h2>
+<p>Googleは、<strong>最新で正確、かつ活発に運用されている</strong>プロフィールを評価する傾向があります。情報が古い、写真が増えない、口コミに返信がない——こうした“放置サイン”は、ユーザーにもGoogleにもマイナスに働きます。</p>
+<p>逆に言えば、月に一度きちんと手を入れるだけで、多くの競合と差がつきます。MEOは<em>ローカルSEO</em>の中でも、努力が比較的すぐ反映されやすい領域です。</p>
+<h2 id="h2"><span class="h-num">02</span>1. 基本情報（NAP）の点検</h2>
+<p><em>NAP</em>（Name・Address・Phone＝店名・住所・電話）は、ローカル検索の土台です。表記ゆれや古い情報は、評価を分散させます。</p>
+<ul>
+<li>店名・住所・電話番号が<strong>サイトや他媒体と完全に一致</strong>しているか</li>
+<li>営業時間（<strong>祝日・臨時休業</strong>含む）は最新か</li>
+<li>カテゴリ（業種）は適切か、サブカテゴリの追加余地はないか</li>
+</ul>
+<h2 id="h3"><span class="h-num">03</span>2. 投稿・写真の更新</h2>
+<p>「最近の活動」が見えることが大切です。</p>
+<ul>
+<li>月に数回の<strong>投稿</strong>（お知らせ・イベント・季節の情報）</li>
+<li><strong>写真</strong>を毎月追加（外観・内観・商品・スタッフ）</li>
+<li>古い・低品質な写真の差し替え</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>「新しい写真を月に数枚足す」だけでも、プロフィールの印象は大きく変わります。プロ撮影でなくても、明るく・ブレずに・実物が分かる写真であれば十分に効果的です。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>3. 口コミ対応</h2>
+<p>口コミは「数」だけでなく「<strong>対応の姿勢</strong>」が見られています。</p>
+<ul>
+<li>新着の口コミに<strong>できるだけ早く返信</strong>する</li>
+<li>高評価には感謝を、低評価には<strong>誠実に・感情的にならず</strong>対応</li>
+<li>返信文は定型のコピペにせず、内容に触れる</li>
+</ul>
+<h2 id="h5"><span class="h-num">05</span>4. インサイトの確認</h2>
+<p>GBPの<strong>インサイト</strong>（パフォーマンス）で、ユーザーの動きを把握します。</p>
+<ul>
+<li>検索された<strong>キーワード</strong>の傾向</li>
+<li>電話・ルート検索・サイト訪問などの<strong>アクション数</strong></li>
+<li>先月との変化と、その要因の仮説出し</li>
+</ul>
+<h2 id="h6"><span class="h-num">06</span>5. 競合との比較</h2>
+<p>同じ商圏の競合が、写真・投稿・口コミでどう動いているかを月に一度ながめます。<strong>自店に足りない要素</strong>を一つ見つけ、翌月の打ち手にします。</p>
+<h2 id="h7"><span class="h-num">07</span>月次チェックリスト（まとめ）</h2>
+<p>最後に、毎月の確認項目を一覧にします。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>区分</th>
+<th>確認項目</th>
+<th>頻度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基本情報</td>
+<td>NAP・営業時間・カテゴリ</td>
+<td>毎月</td>
+</tr>
+<tr>
+<td>投稿</td>
+<td>お知らせ・季節情報</td>
+<td>月数回</td>
+</tr>
+<tr>
+<td>写真</td>
+<td>新規追加・差し替え</td>
+<td>毎月</td>
+</tr>
+<tr>
+<td>口コミ</td>
+<td>新着への返信</td>
+<td>都度（早く）</td>
+</tr>
+<tr>
+<td>分析</td>
+<td>インサイト・競合比較</td>
+<td>毎月</td>
+</tr>
+</tbody></table></div>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>口コミの自作自演や、ガイドラインに反する依頼は厳禁です。アカウント停止や順位下落のリスクがあり、長期的には必ず損をします。正攻法の運用を続けましょう。</p>
+  </div>
+</div>
+
+<details class="faq">
+  <summary>どのくらいで順位は上がりますか？</summary>
+  <div class="faq-a">商圏の競争状況によりますが、MEOは比較的反映が早い領域です。とはいえ一度の対応で決まるものではなく、毎月の継続が前提になります。</div>
+</details>
+<details class="faq">
+  <summary>投稿は何を書けばいい？</summary>
+  <div class="faq-a">新商品・キャンペーン・季節の話題・営業時間の変更など、ユーザーに役立つ情報で十分です。難しく考えず、月数回の更新を続けることが大切です。</div>
+</details>
+<details class="faq">
+  <summary>自分でやるか、代行に頼むか？</summary>
+  <div class="faq-a">仕組みを理解すれば自店運用も可能です。ただし継続が難しい場合は、計測と運用を「見える化」した代行に任せると、抜け漏れなく続けられます。</div>
+</details>
+
+<p>当社では、独自ツールで順位を毎日計測しながら、投稿・口コミ・情報整備までを**“見える”MEO運用代行**でお手伝いしています。「毎月の運用が続かない」とお悩みなら、まずは無料相談からどうぞ。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#Googleマップ</span><span>#ローカルSEO</span><span>#口コミ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +313,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +341,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-27-google-kuchikomi-fuyasu.html">
+        <span class="cat">MEO</span>
+        <h4>Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点</h4>
+      </a>
+      <a class="related-card" href="2026-06-25-kozoka-data-json-ld-guide.html">
+        <span class="cat">AIO</span>
+        <h4>構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方</h4>
+      </a>
+      <a class="related-card" href="2026-07-01-aio-cited-site.html">
+        <span class="cat">AIO</span>
+        <h4>AI検索（AIO）時代に、“引用されるサイト”の作り方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

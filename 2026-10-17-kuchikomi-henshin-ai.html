@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,153 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-17-kuchikomi-henshin-ai";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"口コミ返信をAIで効率化する方法と、やってはいけない使い方","description":"口コミ返信をAIで効率化するには、下書きまでをAIに任せ、事実確認と判断を人が持つ形にします。渡す前に決めておく条件、プロンプトの型、投稿前に見る4つの確認、そして規約に触れる使い方までを整理しました。","datePublished":"2026-10-17","dateModified":"2026-10-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-17-kuchikomi-henshin-ai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-17-kuchikomi-henshin-ai.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ, AI活用, Googleビジネスプロフィール, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"口コミ返信をAIで効率化する方法と、やってはいけない使い方","description":"口コミ返信をAIで効率化するには、下書きまでをAIに任せ、事実確認と判断を人が持つ形にします。渡す前に決めておく条件、プロンプトの型、投稿前に見る4つの確認、そして規約に触れる使い方までを整理しました。","datePublished":"2026-10-17","dateModified":"2026-10-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-17-kuchikomi-henshin-ai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-17-kuchikomi-henshin-ai.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ, AI活用, Googleビジネスプロフィール, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"口コミ返信をAIで効率化する方法と、やってはいけない使い方","item":"https://teneramente.jp/2026-10-17-kuchikomi-henshin-ai.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AIで書いた返信だと、読む人に分かってしまいませんか？","acceptedAnswer":{"@type":"Answer","text":"そのまま投稿すると分かる場合があります。理由は文体ではなく、内容が一般的すぎることです。口コミに書かれている固有の内容に触れていない返信は、AIで書いたかどうかにかかわらず定型文に見えます。下書きを人が直す段階で、その口コミ特有の点を一言足してください。「お席のご案内でお待たせした」「ご指摘いただいた手順」など、読んだことが伝わる一文があれば、定型には見えません。"}},{"@type":"Question","name":"返信の数を一気に増やしても問題ありませんか？","acceptedAnswer":{"@type":"Answer","text":"溜まっていた返信をまとめて付けること自体は問題ありません。ただし内容を確認せずに短時間で処理すると、事実と違う返信や、同じ文面の連続が生じます。まとめて処理する場合も、1件ずつ目を通す工程は残してください。古い口コミに返信する場合は、時間が経っていることに触れたうえで、現在の状況を書くほうが自然に読めます。"}},{"@type":"Question","name":"どのAIサービスを使えばよいですか？","acceptedAnswer":{"@type":"Answer","text":"返信の下書きづくりであれば、一般的な対話型のサービスで足ります。選ぶ基準は性能よりも、入力した内容の扱いを設定で選べるか、社内の誰が使えるかを管理できるかです。無料の範囲で始めて、運用が定着してから業務向けのプランを検討する形で問題ありません。重要なのはサービスの選択より、渡す条件と確認の工程を決めておくことです。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">口コミ返信をAIで効率化する方法と、やってはいけない使い方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 17, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-17-kuchikomi-henshin-ai.webp" alt="口コミ返信をAIで効率化する方法と、やってはいけない使い方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>口コミ返信のどこをAIに任せられるか</a><a href="#h2"><span class="n">02</span>AIに渡す前に決めておく3つのこと</a><a href="#h3"><span class="n">03</span>実際に使うプロンプトの型</a><a href="#h4"><span class="n">04</span>出てきた下書きを人が直す4つの確認</a><a href="#h5"><span class="n">05</span>AIに任せないほうがよい口コミ</a><a href="#h6"><span class="n">06</span>やってはいけない使い方</a><a href="#h7"><span class="n">07</span>週1回の運用に落とす</a><a href="#h8"><span class="n">08</span>まとめ：型はAI、判断は人</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">口コミへの返信は、溜まると手が止まります。1件に10分かけていた文章づくりは、AIに任せられる部分が確かにあります。ただし<strong>AIに任せられるのは下書きまでで、事実の確認と「何を書かないか」の判断は人が持ったままにする</strong>必要があります。この線引きを決めずに使い始めると、返信の数は増えても、信頼を落とす返信が混じります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>口コミ返信のAI活用は、作業を分けるところから始めます。<strong>文章の形を作るのはAI、事実の確認と謝罪の範囲を決めるのは人</strong>。この分担と、渡す前に決めておく店舗の条件さえ用意すれば、返信の質を落とさずに時間を減らせます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>口コミ返信のどこをAIに任せられるか</h2>
+<p>返信を書く作業は、ひとかたまりに見えて実は5つに分かれています。口コミを読んで状況を理解する、何を伝えるか決める、文章の形にする、事実と表現を確認する、投稿する。このうちAIが速いのは3つめだけです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>作業</th>
+<th>任せ方</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>口コミを読んで状況を把握する</td>
+<td>人</td>
+<td>来店時の記録や担当者の記憶と照らす必要がある</td>
+</tr>
+<tr>
+<td>何を伝えるか決める</td>
+<td>人</td>
+<td>謝罪、説明、感謝のどれを前に出すかは店舗の判断</td>
+</tr>
+<tr>
+<td>文章の形にする</td>
+<td>AI</td>
+<td>言い換え、長さの調整、敬語の整えが速い</td>
+</tr>
+<tr>
+<td>事実と固有名詞を確認する</td>
+<td>人</td>
+<td>AIは書かれていない内容を補ってしまうことがある</td>
+</tr>
+<tr>
+<td>投稿する</td>
+<td>人</td>
+<td>投稿前に必ず目を通す工程を残す</td>
+</tr>
+</tbody></table></div>
+<p><strong>AIを使っても、返信1件にかける時間はゼロにはなりません</strong>。それでも、白紙から書き始める負荷が消えるため、溜まっていた返信を一気に片付ける用途では効きます。返信そのものの型は<a href="2026-09-12-kuchikomi-henshin-reibun.html">Google口コミ返信の例文集</a>にまとめているので、AIに渡す前の下地として使えます。</p>
+<h2 id="h2"><span class="h-num">02</span>AIに渡す前に決めておく3つのこと</h2>
+<p>毎回ゼロから指示を書くと、返信の口調が揃いません。先に次の3つを決めて、文章で保存しておいてください。</p>
+<ul>
+<li><strong>店舗の名乗りと一人称</strong>：店名の表記、「当店」か「スタッフ一同」か。署名を入れるかどうかも決めます</li>
+<li><strong>書かないこと</strong>：値引きや無料対応の約束、他のお客様の情報、担当者の実名、来店日などの個別情報</li>
+<li><strong>返信の長さと構成</strong>：高評価は2〜3文、低評価は4〜5文など、長さの上限を決めておく</li>
+</ul>
+<p>この3つは一度決めれば使い回せます。<strong>指示文のうち毎回変わるのは口コミの本文だけ</strong>という状態にしておくと、担当者が変わっても返信の雰囲気が揺れません。</p>
+<h2 id="h3"><span class="h-num">03</span>実際に使うプロンプトの型</h2>
+<p>AIに渡す指示は、口コミを貼るだけでは足りません。前提と制約を同じ形で毎回渡します。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>指示文の例</h4>
+    <p>「あなたは店舗の返信担当です。以下の口コミに対する返信の下書きを3案作ってください。条件：当店の名乗りは『当店』。3文以内。値引きや無料対応の約束はしない。担当者名と来店日は書かない。口コミに書かれていない事実は補わない。分からない点があれば、推測せず質問として挙げてください。」</p>
+  </div>
+</div>
+
+<p>ポイントは最後の一文です。<strong>「推測せず質問として挙げる」と指定しておくと、AIが勝手に状況を補う代わりに、確認が必要な箇所を返してきます</strong>。3案出させるのも効きます。1案だけだと、出てきた文をそのまま使いたくなるためです。</p>
+<p>低評価への返信は、同じ型に「第三者が読む前提で書く」という条件を足してください。返信は投稿者だけでなく、検索して比較している人が読んでいます。</p>
+<h2 id="h4"><span class="h-num">04</span>出てきた下書きを人が直す4つの確認</h2>
+<p>下書きが出たら、必ず次の順で目を通します。ここを飛ばすと、AIを使った意味よりリスクが先に立ちます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-17-kuchikomi-henshin-ai.png" alt="事実、固有名詞、約束、謝罪の範囲という、AIが作った口コミ返信の下書きを投稿する前に人が確認する4つの項目を順番に並べた図" width="1600" height="543" loading="lazy" decoding="async"><figcaption>3つめと4つめは、AIが善意で入れてくる部分です。</figcaption></figure>
+
+<ol>
+<li><strong>事実</strong>：口コミに書かれていない内容が入っていないか。設備や対応の説明が実態と合っているか</li>
+<li><strong>固有名詞</strong>：店名の表記、商品名、担当者名。実名は原則入れません</li>
+<li><strong>約束</strong>：「次回は無料で」「必ず改善します」のような、履行できない約束が入っていないか</li>
+<li><strong>謝罪の範囲</strong>：事実確認が済んでいない点まで謝っていないか。経緯を調べる旨にとどめる</li>
+</ol>
+<p>とくに3つめと4つめは、AIが善意で入れてくる部分です。文章としては整っていても、店舗として約束できない内容が含まれます。<strong>投稿前に声に出して読む</strong>と、約束と断定はたいてい引っかかります。</p>
+<h2 id="h5"><span class="h-num">05</span>AIに任せないほうがよい口コミ</h2>
+<p>すべての口コミを同じ扱いにしないでください。次の3つは、下書きの作成もAIに任せず、人が最初から書いたほうが速く、安全です。</p>
+<p>ひとつは、具体的な金銭や健康に関わる指摘です。返信の一文が、そのまま店舗の見解として扱われます。ふたつめは、事実関係が食い違っている口コミです。先に社内で経緯を確認しないと、返信の方向が決まりません。みっつめは、ポリシー違反が疑われる投稿です。返信より先に判断すべきことがあります。</p>
+<blockquote>
+<p>返信は訂正の場ではなく、第三者に向けた説明の場です。</p>
+</blockquote>
+<p>低評価が付いたときの仕分けと、削除を報告できる条件は<a href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">低評価の口コミへの対応手順</a>で整理しています。AIを使うかどうかの前に、この仕分けを通してください。</p>
+<h2 id="h6"><span class="h-num">06</span>やってはいけない使い方</h2>
+<p>効率化の方向を間違えると、評価を落とします。次の4つは避けてください。</p>
+<p><strong>1つめは、下書きをそのまま投稿することです。</strong> 読まずに投稿する運用になった時点で、事実と違う返信が混じるのは時間の問題です。</p>
+<p><strong>2つめは、口コミ自体をAIに書かせることです。</strong> 体験していない内容のレビューを作る行為は、プラットフォームのポリシーに反します。依頼の文面づくりにAIを使うのは問題ありませんが、レビュー本文を用意して投稿してもらう形は規約違反の側です。口コミを増やす進め方は<a href="2026-06-27-google-kuchikomi-fuyasu.html">Googleの口コミを増やす方法</a>に沿ってください。</p>
+<p><strong>3つめは、全件に同じ文を貼ることです。</strong> AIを使うと量が出るぶん、似た文が並びがちです。読む側には一目で分かります。</p>
+<p><strong>4つめは、個人情報を入力することです。</strong> 口コミに実名や連絡先が書かれていても、それを含めたままAIに貼らないでください。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>入力した内容の扱いを先に確認する</h4>
+    <p>業務でAIサービスを使う場合、入力した内容が学習に使われるかどうかは設定とプランで変わります。顧客の情報を扱う前に、使うサービスの設定を確認し、社内で入力してよい範囲を決めておいてください。口コミ本文は公開情報ですが、社内の記録や顧客情報を一緒に貼る運用は避けます。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>週1回の運用に落とす</h2>
+<p>AI活用がうまくいかない原因は、たいてい手順ではなく運用です。次の形まで決めてください。</p>
+<p>まず、確認の周期を決めます。毎日見るより、週に1回まとめて処理するほうが続きます。次に、担当と判断の線を決めます。下書きの作成と投稿は担当者、低評価と事実が食い違う案件は責任者、という分け方が現実的です。</p>
+<p>そして、使った指示文を1か所に保存します。<strong>担当者の手元にしかない指示文は、引き継ぎで消えます</strong>。保存してある指示文を少しずつ直していくと、店舗の言葉に寄っていきます。返信済みかどうかの記録も残してください。返信漏れは、文章の質より先に効きます。</p>
+<details class="faq"><summary>AIで書いた返信だと、読む人に分かってしまいませんか？</summary><div class="faq-a">そのまま投稿すると分かる場合があります。理由は文体ではなく、内容が一般的すぎることです。口コミに書かれている固有の内容に触れていない返信は、AIで書いたかどうかにかかわらず定型文に見えます。下書きを人が直す段階で、その口コミ特有の点を一言足してください。「お席のご案内でお待たせした」「ご指摘いただいた手順」など、読んだことが伝わる一文があれば、定型には見えません。</div></details>
+
+<details class="faq"><summary>返信の数を一気に増やしても問題ありませんか？</summary><div class="faq-a">溜まっていた返信をまとめて付けること自体は問題ありません。ただし内容を確認せずに短時間で処理すると、事実と違う返信や、同じ文面の連続が生じます。まとめて処理する場合も、1件ずつ目を通す工程は残してください。古い口コミに返信する場合は、時間が経っていることに触れたうえで、現在の状況を書くほうが自然に読めます。</div></details>
+
+<details class="faq"><summary>どのAIサービスを使えばよいですか？</summary><div class="faq-a">返信の下書きづくりであれば、一般的な対話型のサービスで足ります。選ぶ基準は性能よりも、入力した内容の扱いを設定で選べるか、社内の誰が使えるかを管理できるかです。無料の範囲で始めて、運用が定着してから業務向けのプランを検討する形で問題ありません。重要なのはサービスの選択より、渡す条件と確認の工程を決めておくことです。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：型はAI、判断は人</h2>
+<p>口コミ返信のAI活用は、作業を分けることが前提になります。文章の形を作るのはAI、事実の確認と謝罪の範囲を決めるのは人。渡す前に名乗り・書かないこと・長さを決め、出てきた下書きを事実・固有名詞・約束・謝罪の範囲の順で確認します。</p>
+<p><strong>やってはいけないのは、下書きをそのまま投稿することと、口コミ自体を作ることです</strong>。前者は信頼を、後者は掲載そのものを失います。効率化で削るのは書く時間であって、確認の工程ではありません。</p>
+<p>TENERAMENTEなら、返信の指示文と確認の手順を店舗の言葉に合わせて用意し、誰が見ても同じ基準で返信できる形までご一緒に整えます。返信が担当者の文章力に左右されなくなり、溜めずに回る状態を作れます。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#口コミ</span><span>#AI活用</span><span>#Googleビジネスプロフィール</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +317,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +345,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-16-inshokuten-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方</h4>
+      </a>
+      <a class="related-card" href="2026-10-18-gbp-shashin-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度</h4>
+      </a>
+      <a class="related-card" href="2026-10-19-tokubetsu-eigyojikan-settei.html">
+        <span class="cat">MEO</span>
+        <h4>特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール</h4>
+      </a>
+    </div>
   </div>
 </section>
 

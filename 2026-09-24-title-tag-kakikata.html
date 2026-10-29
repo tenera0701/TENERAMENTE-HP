@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,152 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-24-title-tag-kakikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型","description":"タイトルタグの書き方を、文字数の目安・主キーワードの置き場所・クリックされる型の3点から整理しました。Googleに書き換えられたときの考え方と、公開後の見直し手順まで、今日から直せる形でまとめています。","datePublished":"2026-09-24","dateModified":"2026-09-24","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-24-title-tag-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-24-title-tag-kakikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, タイトルタグ, ホームページ制作, 検索順位, 内部対策"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型","description":"タイトルタグの書き方を、文字数の目安・主キーワードの置き場所・クリックされる型の3点から整理しました。Googleに書き換えられたときの考え方と、公開後の見直し手順まで、今日から直せる形でまとめています。","datePublished":"2026-09-24","dateModified":"2026-09-24","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-24-title-tag-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-24-title-tag-kakikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, タイトルタグ, ホームページ制作, 検索順位, 内部対策"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型","item":"https://teneramente.jp/2026-09-24-title-tag-kakikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"タイトルタグと h1 は同じ文章でよいですか？","acceptedAnswer":{"@type":"Answer","text":"同じでも問題はありませんが、役割が違います。タイトルタグは検索結果で読まれる一行、h1はページを開いた人が最初に読む見出しです。タイトルタグは幅の制約があるため簡潔に、h1はページ内で読みやすい表現に、と書き分けると両方が活きます。内容がずれないことのほうが重要です。"}},{"@type":"Question","name":"タイトルを変えると順位は下がりますか？","acceptedAnswer":{"@type":"Answer","text":"内容に合った形に整える変更であれば、過度に心配する必要はありません。ただし短期間に何度も変えると、効果の判断ができなくなります。変更したら記録を残し、しばらく様子を見てから次に進んでください。"}},{"@type":"Question","name":"地域名は入れたほうがよいですか？","acceptedAnswer":{"@type":"Answer","text":"地域で探される業種であれば有効です。ただし全ページの先頭に同じ地域名を入れると、ページごとの違いが見えなくなります。サービスページなど、地域で探される可能性の高いページに絞って入れてください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 24, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-24-title-tag-kakikata.webp" alt="タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>タイトルタグは、検索結果で最初に読まれる一行</a><a href="#h2"><span class="n">02</span>文字数の目安は全角30文字前後。ただし決めているのは幅</a><a href="#h3"><span class="n">03</span>タイトルタグの書き方は、この5手順で決まる</a><a href="#h4"><span class="n">04</span>クリックされるタイトルには、いくつかの型がある</a><a href="#h5"><span class="n">05</span>やりがちな失敗と、その直し方</a><a href="#h6"><span class="n">06</span>書いたタイトルが、検索結果で書き換わることがある</a><a href="#h7"><span class="n">07</span>公開したら終わりにせず、見直しを回す</a><a href="#h8"><span class="n">08</span>まとめ：タイトルタグは、最も早く効く一手</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">検索順位を上げたいとき、最も費用がかからず、最も早く直せるのが<strong>タイトルタグ</strong>です。ページの中身を書き直すより先に、ここを整えるだけで検索結果での見え方が変わります。ただし、文字数を数えることだけがタイトルタグの書き方ではありません。決めるべき順番があります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>タイトルタグは<strong>主キーワードを前半に置き、全角30文字前後に収める</strong>のが基本です。ただし表示の切れ目を決めているのは文字数ではなく幅なので、数え方より「先に読まれる位置に何を置くか」で考えます。ページごとに1つずつ、重複なく付けてください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>タイトルタグは、検索結果で最初に読まれる一行</h2>
+<p>タイトルタグ（<code>&lt;title&gt;</code>）は、そのページが何のページかをブラウザと検索エンジンに伝える要素です。検索結果では青い見出しとして表示され、ブラウザのタブやブックマークの名前にもなります。SNSで共有されたときの見出しにも使われます。</p>
+<p>重要なのは、<strong>検索結果で読み手が最初に目にする文字列がここだ</strong>という点です。検索した人は、一覧に並んだ見出しを上から順に眺めて、開くページを選びます。順位が上がっても、見出しが自分の探しものと関係なさそうに見えれば、そのページは開かれません。</p>
+<p>ページの中身がどれだけ充実していても、タイトルタグが「トップページ」「サービス」のままでは、その良さが検索結果に出てきません。自社サイトを見直すとき、最初に全ページのタイトルタグを一覧にしてみてください。サイトそのものの作り替えを検討している段階であれば、<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作費用のガイド</a>で全体の進め方を確認してから、細部に入るほうが手戻りがありません。</p>
+<h2 id="h2"><span class="h-num">02</span>文字数の目安は全角30文字前後。ただし決めているのは幅</h2>
+<p>タイトルタグの文字数の目安としてよく言われるのが、<strong>全角30文字前後</strong>です。これより長い部分は検索結果で「…」と省略されます。まずはこの範囲を目安に書いてください。</p>
+<p>ただし、厳密に文字数で切られているわけではありません。表示が切れる位置を決めているのは<strong>文字の幅</strong>です。同じ30文字でも、ひらがなと漢字が中心の文と、英数字や記号が多い文では、実際に表示される量が変わります。半角英数字は全角の半分程度の幅なので、英語のサービス名が入ると少し多く表示できます。</p>
+<p>また、スマートフォンとパソコンでも表示される量は変わります。文字数ぴったりに詰めることを目標にしても、環境によっては結局切れます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>数えるより、前半を守る</h4>
+    <p>文字数の調整に時間をかけるより、<strong>先頭20文字までで用件が伝わるか</strong>を確認するほうが実用的です。後ろが切れても意味が通る並びにしておけば、環境による差を気にせずに済みます。会社名をタイトルの末尾に置く慣習は、この考え方に沿ったものです。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>タイトルタグの書き方は、この5手順で決まる</h2>
+<p>文章のセンスは要りません。次の順に決めていけば形になります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-24-title-tag-kakikata.png" alt="主キーワードを1つ決める・読み手の目的を一言にする・前半に主キーワードを置く・差が出る一語を足す・幅を確認して後ろから削るの5手順を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>文字数を整えるのは最後です。先に主キーワードと読み手の目的を決めると、迷わずに書けます。</figcaption></figure>
+
+<p>まず<strong>そのページで狙う主キーワードを1つに決めます</strong>。1ページに2つも3つも詰め込むと、どれも中途半端になります。キーワードの選び方そのものに迷う場合は、<a href="2026-09-21-seo-keyword-sentei-yarikata.html">SEOキーワードの選び方</a>から先に整理してください。</p>
+<p>次に、そのページを開く人が<strong>何を知りたくて検索しているか</strong>を一言にします。「費用を知りたい」「やり方を知りたい」「比較したい」。ここが決まると、タイトルに足すべき言葉が見えてきます。</p>
+<p>そのうえで主キーワードを前半に置き、他社と差が出る一語を足し、最後に幅を確認して削ります。削るのは後ろからです。</p>
+<h2 id="h4"><span class="h-num">04</span>クリックされるタイトルには、いくつかの型がある</h2>
+<p>読み手の目的に応じて、使える型が決まっています。無理に考え出すより、型に当てはめるほうが早く、外れも少なくなります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>型</th>
+<th>形</th>
+<th>向いているページ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>説明型</td>
+<td>主キーワード｜内容の補足</td>
+<td>サービス紹介・会社案内</td>
+</tr>
+<tr>
+<td>方法型</td>
+<td>主キーワード｜〜のやり方と手順</td>
+<td>ノウハウ記事・ガイド</td>
+</tr>
+<tr>
+<td>比較型</td>
+<td>主キーワード｜違いと選び方</td>
+<td>比較ページ・選定の記事</td>
+</tr>
+<tr>
+<td>数字型</td>
+<td>主キーワード｜◯つの手順</td>
+<td>チェックリスト・手順書</td>
+</tr>
+<tr>
+<td>対象明示型</td>
+<td>主キーワード｜〜の方へ</td>
+<td>業種別・地域別のページ</td>
+</tr>
+</tbody></table></div>
+<p>区切りには「｜」や「【】」がよく使われます。読みやすさのための記号なので、多用すると逆に読みにくくなります。<strong>1つのタイトルに区切り記号は1〜2個まで</strong>にしてください。</p>
+<p>数字を入れる型は目を引きますが、記事の中身と数が合っていることが条件です。「5つの手順」と書いて本文に3つしかない状態は、読み手の信頼を損ないます。</p>
+<h2 id="h5"><span class="h-num">05</span>やりがちな失敗と、その直し方</h2>
+<p>作業していて頻出するのが次の5つです。どれも直すのは数分で済みます。</p>
+<ul>
+<li><strong>全ページが同じタイトル</strong>：サイト名だけが並んでいる状態です。ページごとに固有の内容を先頭に置きます</li>
+<li><strong>会社名が先頭にある</strong>：社名で検索される場合を除き、社名は末尾に回します。先頭の貴重な位置を、毎ページ同じ文字列で使うのは損です</li>
+<li><strong>キーワードの詰め込み</strong>：「名古屋 ホームページ制作 格安 安い 制作会社」のような羅列は、読み手にとって意味が取れません</li>
+<li><strong>中身と合っていない</strong>：料金が書かれていないページに「料金」と入れるなど。開いた人はすぐ戻ります</li>
+<li><strong>空欄や初期値のまま</strong>：「新規ページ」「Home」が残っているケースは、実際によく見つかります</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>同じタイトルが並んでいないか確認する</h4>
+    <p>タイトルの重複は、自分では気づきにくい問題です。Search Console や、サイト内を巡回してタイトルを一覧化するツールを使えば、重複しているページをまとめて洗い出せます。まず一覧にして、同じ文字列が並んでいないかだけ確かめてください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>書いたタイトルが、検索結果で書き換わることがある</h2>
+<p>設定したタイトルタグが、検索結果ではそのまま表示されないことがあります。Google は、検索した言葉との関係でより適切だと判断した場合、ページ内の見出しなど他の部分から見出しを作ることがあると公表しています。</p>
+<p>書き換えが起きやすいのは、タイトルが極端に長い場合、キーワードが羅列されている場合、そしてページの中身と合っていない場合です。逆に言えば、<strong>内容を素直に表した簡潔なタイトルは書き換えられにくい</strong>ということです。</p>
+<p>書き換えられたときに、無理に元へ戻そうとする必要はありません。まず本文の見出し構成を見直してください。タイトルと<code>&lt;h1&gt;</code>、そして本文の内容がずれていないかを確認すると、原因が見つかることがあります。</p>
+<h2 id="h7"><span class="h-num">07</span>公開したら終わりにせず、見直しを回す</h2>
+<p>タイトルタグは一度書いて放置せず、反応を見て直します。手順は簡単です。</p>
+<ol>
+<li>Search Console で、表示回数はあるのにクリックが少ないページを洗い出す</li>
+<li>そのページのタイトルを、検索されている言葉と見比べる</li>
+<li>直すのは<strong>前半の20文字だけ</strong>。全体を書き換えない</li>
+<li>直した日付を記録し、数週間おいてから同じ指標を見る</li>
+<li>一度に直すのは数ページまで。まとめて変えると、何が効いたか分からなくなる</li>
+</ol>
+<p>順位が上がらない原因はタイトルだけとは限りません。<a href="2026-09-18-kensaku-juni-agaranai-genin.html">検索順位が上がらない原因</a>もあわせて確認すると、手を付ける順番が整理できます。</p>
+<details class="faq"><summary>タイトルタグと h1 は同じ文章でよいですか？</summary><div class="faq-a">同じでも問題はありませんが、役割が違います。タイトルタグは検索結果で読まれる一行、h1はページを開いた人が最初に読む見出しです。タイトルタグは幅の制約があるため簡潔に、h1はページ内で読みやすい表現に、と書き分けると両方が活きます。内容がずれないことのほうが重要です。</div></details>
+
+<details class="faq"><summary>タイトルを変えると順位は下がりますか？</summary><div class="faq-a">内容に合った形に整える変更であれば、過度に心配する必要はありません。ただし短期間に何度も変えると、効果の判断ができなくなります。変更したら記録を残し、しばらく様子を見てから次に進んでください。</div></details>
+
+<details class="faq"><summary>地域名は入れたほうがよいですか？</summary><div class="faq-a">地域で探される業種であれば有効です。ただし全ページの先頭に同じ地域名を入れると、ページごとの違いが見えなくなります。サービスページなど、地域で探される可能性の高いページに絞って入れてください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：タイトルタグは、最も早く効く一手</h2>
+<p>タイトルタグの書き方は、主キーワードを1つに絞り、前半に置き、全角30文字前後を目安に収める。型に当てはめ、区切り記号は控えめにし、中身と合っていることを確かめる。この順番です。文字数を厳密に数えることより、先頭20文字で用件が伝わるかを見てください。</p>
+<p>そして、タイトルタグの見直しが効くのは、<strong>直したい人が自分で直せる状態にサイトがあるとき</strong>です。更新のたびに制作会社へ依頼が必要な作りだと、この小さな改善が回らなくなります。</p>
+<p>TENERAMENTEでは、公開後に自分たちで育てられることを前提とした<a href="lp-hplp.html">HP/LP作成</a>をお引き受けしています。いまのサイトのタイトルを見直したい、あるいは作り直しを検討中という段階でしたら、<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#SEO</span><span>#タイトルタグ</span><span>#ホームページ制作</span><span>#検索順位</span><span>#内部対策</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +316,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +344,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-21-seo-keyword-sentei-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-27-meta-description-kakikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>メタディスクリプションの書き方｜順位ではなくクリック率を動かす</h4>
+      </a>
+      <a class="related-card" href="2026-09-18-kensaku-juni-agaranai-genin.html">
+        <span class="cat">HP / LP</span>
+        <h4>検索順位が上がらない原因｜確認する順番と直す優先度の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

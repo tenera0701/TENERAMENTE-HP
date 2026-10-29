@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,132 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-16-inshokuten-meo-taisaku";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方","description":"飲食店のMEO対策で先に直すべき項目を、来店前にお客様が確かめることから逆算して整理しました。営業時間・メニュー・属性・写真・口コミ返信の優先順位と、月1回の確認のしかたまでまとめています。","datePublished":"2026-10-16","dateModified":"2026-10-16","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-16-inshokuten-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-16-inshokuten-meo-taisaku.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 飲食店, Googleマップ, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方","description":"飲食店のMEO対策で先に直すべき項目を、来店前にお客様が確かめることから逆算して整理しました。営業時間・メニュー・属性・写真・口コミ返信の優先順位と、月1回の確認のしかたまでまとめています。","datePublished":"2026-10-16","dateModified":"2026-10-16","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-16-inshokuten-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-16-inshokuten-meo-taisaku.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 飲食店, Googleマップ, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方","item":"https://teneramente.jp/2026-10-16-inshokuten-meo-taisaku.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"口コミは増やしたほうがよいですか、返信を優先したほうがよいですか？","acceptedAnswer":{"@type":"Answer","text":"どちらも必要ですが、手が足りないうちは返信を優先してください。口コミの件数は依頼を続ければ時間とともに増えますが、返信の無い状態はその場で読まれて印象になります。とくに厳しい内容に返信が付いていないと、店として確認していないように見えます。依頼は会計のタイミングで声をかける形に固定し、返信は週に1回まとめて行う運用にすると、どちらも止まりにくくなります。"}},{"@type":"Question","name":"メニューをすべて登録する必要はありますか？","acceptedAnswer":{"@type":"Answer","text":"すべて登録する必要はありません。来店前の判断に使われるのは、看板商品が何かと、価格帯が自分の予算に合うかの2点です。数品でも入っていれば判断はできます。全品を入れる運用にすると、価格改定のたびに修正が必要になり、更新が止まって古い価格が残るほうが問題になります。更新しきれない場合は、メニューページのURLを入れておく形でも構いません。"}},{"@type":"Question","name":"臨時休業はどこに書けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"特別営業時間の項目に、その日付を指定して登録します。投稿で告知するだけでは、営業時間の表示は通常のまま残ります。急な臨時休業の場合も、まず特別営業時間を入れ、そのうえで投稿で理由を添えると行き違いが減ります。長期の休業が決まっている場合は、休業の開始前に登録しておくと、期間中の来店と電話を減らせます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 16, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-16-inshokuten-meo-taisaku.webp" alt="飲食店のMEO対策｜「近くの◯◯」で選ばれる店舗情報の整え方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>飲食店のMEO対策は、比較される前提で情報を整える</a><a href="#h2"><span class="n">02</span>最初に直すのは営業時間と特別営業時間</a><a href="#h3"><span class="n">03</span>メニューと価格を、Googleの中で読める形にする</a><a href="#h4"><span class="n">04</span>属性を埋めると、絞り込みで残れる</a><a href="#h5"><span class="n">05</span>写真は、料理より先に「入りやすさ」から</a><a href="#h6"><span class="n">06</span>口コミは、評価の数字より返信の中身</a><a href="#h7"><span class="n">07</span>月1回の確認を、同じ項目で回す</a><a href="#h8"><span class="n">08</span>まとめ：直す順番を決めてから、順位を気にする</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">スマートフォンで「近くのラーメン」「駅名＋居酒屋」と調べ、地図の一覧から1軒を選ぶ。飲食店の来店は、この数十秒で決まっています。<strong>飲食店のMEO対策で効くのは、順位を上げる工夫より、来店前の疑問が店舗情報だけで解けている状態を作ることです</strong>。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>一覧に並んだ時点で、お客様は「今開いているか・何が食べられるか・いくらか」の3つで比べています。<strong>この3つが空欄の店は、順位が高くても候補から外れます</strong>。営業時間、メニューと価格、属性の順に埋めるところから始めてください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>飲食店のMEO対策は、比較される前提で情報を整える</h2>
+<p>地図検索の結果は、1軒だけを見る場所ではありません。一覧に数軒が並び、上から順にタップされて比べられます。つまり飲食店のMEO対策は、自店を目立たせる作業ではなく、<strong>比較の場で落とされない状態を作る作業</strong>です。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-16-inshokuten-meo-taisaku.png" alt="営業時間と特別営業時間、メニューと価格、属性、写真、口コミ返信という、飲食店のMEO対策で店舗情報を整える順番を並べた図" width="1600" height="580" loading="lazy" decoding="async"><figcaption>順位を動かす前に、出たときに選ばれる状態を作る順番です。</figcaption></figure>
+
+<p>落とされ方は決まっています。営業時間が書かれていないので今行けるか分からない。写真が1枚しかないので店の雰囲気が読めない。価格が分からないので予算が合うか判断できない。どれも順位とは関係のない理由です。</p>
+<p>検索結果に出ること自体は、<a href="2026-10-13-google-map-junni-kimarikata.html">Googleマップの順位が決まる仕組み</a>で説明したとおり距離や関連性に左右されます。一方で、出たあとに選ばれるかどうかは、店舗情報の埋まり具合でほぼ決まります。手を入れて確実に変わるのは後者です。</p>
+<h2 id="h2"><span class="h-num">02</span>最初に直すのは営業時間と特別営業時間</h2>
+<p>飲食店で最初に直すのは営業時間です。来店の判断が「今から行けるか」で始まるためです。ランチとディナーで分かれている店は、時間帯ごとに分けて登録してください。通し営業に見える登録のまま中休みに来店されると、口コミで指摘が残ります。</p>
+<p>あわせて設定しておきたいのが<strong>特別営業時間</strong>です。祝日、年末年始、お盆、臨時休業の日をあらかじめ入れておくと、その日だけ別の時間として表示されます。入れていない場合、通常営業として案内され続けます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に埋めておくと手が止まらない</h4>
+    <p>定休日と祝日の扱いを、年のはじめに一度まとめて入れておく運用が現実的です。直前に思い出して入れる形にすると、忙しい時期から順に抜けていきます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>メニューと価格を、Googleの中で読める形にする</h2>
+<p>メニューが分からない店は、候補から外れます。公式サイトやSNSに載せているから大丈夫、とは言えません。地図の一覧を見ている人は、別のサイトへ移動する手間をかけずに次の店へ進むためです。</p>
+<p>Googleビジネスプロフィールには、メニューを登録する項目と、メニューページのURLを入れる項目があります。全品を登録する必要はありません。<strong>看板商品と価格帯が分かる数品が入っていれば、予算の判断はできます</strong>。</p>
+<p>価格を書くことに抵抗がある場合も、幅を持たせた表記で構いません。来店前に知りたいのは正確な金額ではなく、自分の予算と合うかどうかです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>来店前に確かめること</th>
+<th>埋める場所</th>
+<th>空欄のときに起きること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>今から行けるか</td>
+<td>営業時間・特別営業時間</td>
+<td>候補から外れる、または来店後の不満になる</td>
+</tr>
+<tr>
+<td>何が食べられるか</td>
+<td>メニュー・メニューURL・写真</td>
+<td>他店のメニューと比べられず、検討から抜ける</td>
+</tr>
+<tr>
+<td>いくらか</td>
+<td>メニューの価格・価格帯</td>
+<td>予算が合うか分からず、見送られる</td>
+</tr>
+<tr>
+<td>入れる状態か</td>
+<td>属性（テイクアウト・席・設備）</td>
+<td>条件で絞り込まれたときに表示されない</td>
+</tr>
+</tbody></table></div>
+<h2 id="h4"><span class="h-num">04</span>属性を埋めると、絞り込みで残れる</h2>
+<p>属性は、店の設備やサービスを選択式で登録する項目です。テイクアウト、店内飲食、デリバリー、予約の可否、支払い方法、設備といった内容が該当します。</p>
+<p>属性が効くのは、お客様が条件で絞り込むときです。「テイクアウトができる店」「予約できる店」を探している人に対して、該当する登録がなければ候補に残りません。<strong>やっているのに登録していない項目は、やっていない店として扱われます</strong>。</p>
+<p>逆に、やっていないことを登録するのは避けてください。来店後の落差は、そのまま口コミに書かれます。属性は実際の運用と一致させることが前提です。年に1回は、実際の提供内容と照らして見直しておくと安心です。</p>
+<h2 id="h5"><span class="h-num">05</span>写真は、料理より先に「入りやすさ」から</h2>
+<p>飲食店の写真は料理から増やしたくなりますが、来店前に不安になるのは店の中です。初めて行く店で気になるのは、席の広さ、席の種類、1人でも入れる雰囲気か、子ども連れで行けるか。これらは料理の写真では分かりません。</p>
+<p>順番としては、外観（夜と昼の両方）、入口、店内の全体、席の種類が分かるもの、そのあとに料理です。<strong>外観が分かる写真があると、店の前まで来てから探し回る時間が消えます</strong>。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>古い写真を残したままにしない</h4>
+    <p>内装やメニューを変えた店は、変更前の写真が残っていないか確認してください。写真と実際が違うと、期待と違ったという評価につながります。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>口コミは、評価の数字より返信の中身</h2>
+<p>口コミは依頼して増やすものですが、評価の平均を上げようとするより、<strong>新しい口コミが途切れていないことと、返信が付いていること</strong>を優先してください。読む側は平均点より、直近の投稿内容を見ています。</p>
+<p>返信は、良い内容にも、厳しい内容にも付けます。厳しい口コミへの返信は、反論ではなく事実の確認と、変えた点を短く書く形が無難です。読んでいるのは投稿者だけでなく、これから来店を検討している人だからです。</p>
+<p>依頼の時機は、会計のタイミングが自然です。席に案内する前や食事中に声をかけると、体験が終わっていないため具体的な内容になりません。</p>
+<h2 id="h7"><span class="h-num">07</span>月1回の確認を、同じ項目で回す</h2>
+<p>飲食店の店舗情報は放っておくと崩れます。メニューの改定、価格変更、営業時間の変更、季節メニューの入れ替えが起きるためです。確認は月1回、同じ項目で回すのが続けやすい形です。</p>
+<p>見るのは、営業時間と特別営業時間、メニューと価格、属性、新しい写真、未返信の口コミの5つです。確認の手順は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月次チェックリスト</a>にまとめてあるので、項目を決めるときの下敷きにしてください。</p>
+<p>また、Googleビジネスプロフィールには、ルート検索や電話の回数が見られる画面があります。順位が見えなくても、ここが動いているかどうかで手応えは確認できます。</p>
+<details class="faq"><summary>口コミは増やしたほうがよいですか、返信を優先したほうがよいですか？</summary><div class="faq-a">どちらも必要ですが、手が足りないうちは返信を優先してください。口コミの件数は依頼を続ければ時間とともに増えますが、返信の無い状態はその場で読まれて印象になります。とくに厳しい内容に返信が付いていないと、店として確認していないように見えます。依頼は会計のタイミングで声をかける形に固定し、返信は週に1回まとめて行う運用にすると、どちらも止まりにくくなります。</div></details>
+
+<details class="faq"><summary>メニューをすべて登録する必要はありますか？</summary><div class="faq-a">すべて登録する必要はありません。来店前の判断に使われるのは、看板商品が何かと、価格帯が自分の予算に合うかの2点です。数品でも入っていれば判断はできます。全品を入れる運用にすると、価格改定のたびに修正が必要になり、更新が止まって古い価格が残るほうが問題になります。更新しきれない場合は、メニューページのURLを入れておく形でも構いません。</div></details>
+
+<details class="faq"><summary>臨時休業はどこに書けばよいですか？</summary><div class="faq-a">特別営業時間の項目に、その日付を指定して登録します。投稿で告知するだけでは、営業時間の表示は通常のまま残ります。急な臨時休業の場合も、まず特別営業時間を入れ、そのうえで投稿で理由を添えると行き違いが減ります。長期の休業が決まっている場合は、休業の開始前に登録しておくと、期間中の来店と電話を減らせます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：直す順番を決めてから、順位を気にする</h2>
+<p>飲食店のMEO対策は、営業時間 → メニューと価格 → 属性 → 写真 → 口コミ返信の順に整えるのが、手戻りの少ない進め方です。順位を動かす前に、出たときに選ばれる状態を作るほうが先です。</p>
+<p>TENERAMENTEなら、この5項目を店舗の実情に合わせて埋めたうえで、月1回どこを見るかまで決めた状態でお渡しします。何を直せばよいか分からないまま店舗情報を触る時間がなくなり、営業時間やメニューの変更が出たときだけ手を入れる運用に落ち着きます。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#飲食店</span><span>#Googleマップ</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +296,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +324,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-17-kuchikomi-henshin-ai.html">
+        <span class="cat">MEO</span>
+        <h4>口コミ返信をAIで効率化する方法と、やってはいけない使い方</h4>
+      </a>
+      <a class="related-card" href="2026-10-18-gbp-shashin-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度</h4>
+      </a>
+      <a class="related-card" href="2026-10-13-google-map-junni-kimarikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素</h4>
+      </a>
+    </div>
   </div>
 </section>
 

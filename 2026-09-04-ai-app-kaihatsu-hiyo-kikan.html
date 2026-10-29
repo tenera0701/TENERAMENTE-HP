@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,133 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-04-ai-app-kaihatsu-hiyo-kikan";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方","description":"業務改善AIアプリの開発費用は「初期費用」と「月額」に分けて読むと判断がぶれません。初期費用30万円〜に何が含まれ何が月額なのか、期間の目安の考え方、費用を左右する要因、見積もりの読み方、3回のミーティングで小さく始める進め方を解説します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-ai-app-kaihatsu-hiyo-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIアプリ開発, 開発費用, 業務改善アプリ, 開発期間, Claude Code"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方","description":"業務改善AIアプリの開発費用は「初期費用」と「月額」に分けて読むと判断がぶれません。初期費用30万円〜に何が含まれ何が月額なのか、期間の目安の考え方、費用を左右する要因、見積もりの読み方、3回のミーティングで小さく始める進め方を解説します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-ai-app-kaihatsu-hiyo-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIアプリ開発, 開発費用, 業務改善アプリ, 開発期間, Claude Code"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方","item":"https://teneramente.jp/2026-09-04-ai-app-kaihatsu-hiyo-kikan.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"初期費用30万円には何が含まれますか？","acceptedAnswer":{"@type":"Answer","text":"要件整理・設計・実装・テスト・公開作業までです。サーバー・ドメイン費用、システム監視、月1回の修正対応は月額定額の保守に含まれます。最初の版を小さくするほど、初期費用は抑えられます。"}},{"@type":"Question","name":"期間はどれくらいかかりますか？","acceptedAnswer":{"@type":"Answer","text":"小さなPoCなら最短2週間で触れる形になります。本開発は画面数・外部連携・権限・データ移行・AI精度の要件で期間が決まり、決められる人がミーティングに同席するほど短くなります。"}},{"@type":"Question","name":"公開後に機能を足したくなったらどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"月額に含まれる月1回の修正対応で足していきます。「あったら便利」は最初の版に入れず、使いながら足すほうが総額も期間も抑えられます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 4, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-04-ai-app-kaihatsu-hiyo-kikan.webp" alt="業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>費用は「初期費用」と「月額」に分けて読む</a><a href="#h2"><span class="n">02</span>期間の目安：3回のミーティングで完成まで</a><a href="#h3"><span class="n">03</span>費用を左右する5つの要因</a><a href="#h4"><span class="n">04</span>見積もりの読み方：確認すべき7項目</a><a href="#h5"><span class="n">05</span>小さく始める進め方：PoCから本番へ</a><a href="#h6"><span class="n">06</span>AI支援開発で費用と期間はどう変わったか</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">業務改善AIアプリの開発費用と期間は、「初期費用に何が含まれ、何が月額なのか」「ミーティングを何回で終えるか」の2点を押さえると、見積もりの比較がぶれなくなります。<strong>金額の大小より先に、内訳の区切り方をそろえる</strong>ことが、判断をぶらさない近道です。この記事では、費用の内訳、期間の目安の考え方、費用を左右する要因、見積もりの読み方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>業務改善AIアプリの費用は「初期費用に何が含まれ、何が月額か」で読み、期間は「決める速さ」で決まります。<strong>初期費用に設計・テスト・公開作業まで入るか、月額に何が入るかを揃えてから比べる</strong>のが、判断をぶらさない読み方です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>費用は「初期費用」と「月額」に分けて読む</h2>
+<p>開発費用が分かりにくい最大の理由は、初期に払うものと毎月払うものが見積書の中で混ざっていることです。まず2つに分けて読みます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-04-ai-app-kaihatsu-hiyo-kikan.png" alt="初期費用に含まれる範囲と、月額に含まれる範囲を並べた図" width="1600" height="610" loading="lazy" decoding="async"><figcaption>見積もりは金額の大小より、初期費用と月額のどちらに何が入っているかで比べます。</figcaption></figure>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>費目</th>
+<th>含まれるもの</th>
+<th>支払い</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初期費用</td>
+<td>要件整理・設計・実装・テスト・公開作業</td>
+<td>一度</td>
+</tr>
+<tr>
+<td>月額費用</td>
+<td>サーバー・ドメイン費用、システム監視、月1回の修正対応</td>
+<td>毎月定額</td>
+</tr>
+</tbody></table></div>
+<p>一例として、初期費用30万円〜からフェーズを区切り、月額は定額でサーバー・ドメイン費用、システム監視、月1回の修正対応までを含める、という区切り方があります。<strong>「作った後にいくらかかるか」を最初に固定する</strong>のが、初期費用の安さより大切なポイントです。公開後に「サーバー代は別」「修正は都度見積もり」と後から積み上がる構成だと、総額は初期費用だけでは判断できません。</p>
+<h2 id="h2"><span class="h-num">02</span>期間の目安：3回のミーティングで完成まで</h2>
+<p>期間を左右するのは、開発の手の速さより「決める速さ」です。ミーティングを、要件整理→仕様確認→最終確認の3回に区切る進め方を例に、何が期間を決めるのかを見てみます。</p>
+<ol>
+<li>要件整理：いまの業務と困りごとを聞き、作る範囲と作らない範囲を決めます</li>
+<li>仕様確認：画面と流れを実際に触れる形で確認し、ズレを直します</li>
+<li>最終確認：テスト済みのアプリを一緒に確認し、公開します</li>
+</ol>
+<p>小さな<em>PoC</em>（Proof of Concept：試作）であれば、数週間という単位で「触れる形」に届くこともあります。見積もりを取るときは「最初に触れるものが出るのはいつか」を必ず聞いてください。その先の本開発の期間は、次の節で挙げる5つの要因（画面数・外部連携・権限・データ移行・AI精度）でほぼ決まります。それでも、ミーティングの回数を固定しておくと、<strong>期間が延びる原因が「決まらないこと」だと見える</strong>ようになります。社内で決裁できる人がミーティングに同席できるかどうかが、実は期間に最も効く要素です。</p>
+<h2 id="h3"><span class="h-num">03</span>費用を左右する5つの要因</h2>
+<p>同じ「業務改善アプリ」でも、次の5点で費用は大きく変わります。見積もりを依頼する前に、自社の要件がどこに当たるか確認してください。</p>
+<ul>
+<li>画面と帳票の数：一覧・登録・詳細の基本画面に、PDF帳票やCSV出力が加わるほど増える</li>
+<li>外部連携：LINE、メール、会計ソフト、カレンダーなどとの接続は、連携先ごとに設計が必要</li>
+<li>ログインと権限：誰が何を見られるかの制御。複数店舗や部門で分けるほど複雑になる</li>
+<li>既存データの移行：Excelや旧システムからの取り込み。表記ゆれの整理に手間がかかる</li>
+<li>AI処理の精度要件：「下書きで十分」か「そのまま送信できる精度」かで、検証の工数が変わる</li>
+</ul>
+<p>このうち、最初の版に本当に必要なものだけを残すと、初期費用は自然に下がります。<strong>「あったら便利」は運用後の月1回の修正枠で足す</strong>方が、結果的に安く、しかも使われる機能になります。</p>
+<h2 id="h4"><span class="h-num">04</span>見積もりの読み方：確認すべき7項目</h2>
+<p>見積書を受け取ったら、金額の前に次の7項目を確認してください。</p>
+<ol>
+<li>初期費用に含まれる範囲（設計・テスト・公開作業まで入っているか）</li>
+<li>月額に含まれるもの（サーバー・ドメイン・監視・修正のどこまでか）</li>
+<li>修正対応の回数と範囲（月に何回、どの程度の変更まで）</li>
+<li>データとソースコードの扱い（解約時にデータを持ち出せるか）</li>
+<li>仕様変更が起きたときの扱い（追加費用の基準）</li>
+<li>ミーティングの回数と、誰が同席するか</li>
+<li>公開後の障害対応（誰が、どの時間帯に対応するか）</li>
+</ol>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>安い見積もりの見方</h4>
+    <p>初期費用だけが際立って安い場合は、月額や修正費用の欄を必ず確認します。安さ自体は問題ではなく、「どこで回収する構成か」が読めない見積もりが問題です。</p>
+  </div>
+</div>
+
+<p>規模別の相場感や、費用を抑えるコツについては<a href="2026-06-08-webapp-kaihatsu-hiyo-souba.html">業務Webアプリ開発の費用相場</a>で詳しく解説しています。</p>
+<h2 id="h5"><span class="h-num">05</span>小さく始める進め方：PoCから本番へ</h2>
+<p>費用と期間の両方を抑える最も確実な方法は、最初の版を小さくすることです。順番としては次のように進めます。</p>
+<ul>
+<li>毎日さわる・転記が多い・属人化している業務を1つ選ぶ</li>
+<li>その業務の「一覧が見える」「入力が楽になる」だけの試作を作る</li>
+<li>現場が使ってみて、足りない機能を月1回の修正枠で足す</li>
+<li>効果が出た業務から、隣の業務へ広げる</li>
+</ul>
+<p>PoCの段階では、見た目の作り込みや細かな権限設定は後回しで構いません。最初から全部門の要望を盛り込むと、初期費用も期間も膨らみ、公開が遠のくほど現場の熱は冷めます。<strong>小さく出して、使いながら直す</strong>方が、結果として総額も期間も小さく収まります。</p>
+<h2 id="h6"><span class="h-num">06</span>AI支援開発で費用と期間はどう変わったか</h2>
+<p>設計・実装・テストの工程に <em>Claude Code</em>（Anthropic社のAIコーディング支援ツール）を組み込む進め方があります。ここで変わるのは、単にコードを書く速さではありません。要件を聞いたその場で画面の試作を作り、見てもらい、直す。この往復をミーティングの中で回せるようになったことで、「仕様書を読んで想像する」工程が減り、認識のズレによる手戻りが起きにくくなりました。</p>
+<p>技術構成は、<em>Next.js</em> と <em>PostgreSQL</em> のように広く使われている組み合わせかを確認しておくと、あとで別の会社へ引き継ぐ選択肢が残ります。要件整理から運用までを同じチームが担うのかも、手戻りの多さに直結する確認点です。業務改善アプリ開発の全体像や開発会社の選び方は、<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善アプリ開発 完全ガイド</a>にまとめています。</p>
+<p>発注側にとっても、仕様書を作り込む時間より、<strong>早い段階で試作を触って感想を返す時間</strong>のほうが価値を持つようになりました。詳しくは<a href="2026-09-04-claude-code-app-kaihatsu-chigai.html">Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用</a>で解説しています。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>初期費用30万円には何が含まれますか？</summary><div class="faq-a">要件整理・設計・実装・テスト・公開作業までです。サーバー・ドメイン費用、システム監視、月1回の修正対応は月額定額の保守に含まれます。最初の版を小さくするほど、初期費用は抑えられます。</div></details>
+<details class="faq"><summary>期間はどれくらいかかりますか？</summary><div class="faq-a">小さなPoCなら最短2週間で触れる形になります。本開発は画面数・外部連携・権限・データ移行・AI精度の要件で期間が決まり、決められる人がミーティングに同席するほど短くなります。</div></details>
+<details class="faq"><summary>公開後に機能を足したくなったらどうなりますか？</summary><div class="faq-a">月額に含まれる月1回の修正対応で足していきます。「あったら便利」は最初の版に入れず、使いながら足すほうが総額も期間も抑えられます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：業務改善AIアプリ開発は、内訳を読んで小さく始める</h2>
+<p>業務改善AIアプリの費用は「初期費用30万円〜」という数字だけでなく、初期と月額の内訳、費用を動かす5つの要因、見積もりの7項目で判断してください。期間は、ミーティングを3回に絞り、決める人が同席することで短くなります。複数の見積もりを比べるときは、金額の欄をいったん隠して内訳だけを読んでみると、違いがはっきり見えます。</p>
+<p>TENERAMENTEは名古屋のAI開発企業として、<a href="lp-ai-app.html">AI×WEBアプリ開発</a>を初期費用30万円〜、要件整理・仕様確認・最終確認の3回のミーティングで進め、公開後はサーバー・ドメイン費用・システム監視・月1回の修正対応を含む月額定額の保守に移ります。「この業務をアプリにすると、いくらで、いつまでにできるのか」を概算で知りたい段階からで構いません。<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AIアプリ開発</span><span>#開発費用</span><span>#業務改善アプリ</span><span>#開発期間</span><span>#Claude Code</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +297,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +325,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-ai-gyomu-kaizen-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>AI業務改善の進め方｜定型業務の棚卸しから自動化・アプリ化までの5段階</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-kaihatsu-kigyo-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>AI開発企業の選び方｜名古屋の中小企業が失敗しない7つの比較ポイント</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-tool-kaihatsu-irai-junbi.html">
+        <span class="cat">Web App</span>
+        <h4>AIツール開発を依頼する前に決めておく7つのこと｜要件の伝え方と相談準備</h4>
+      </a>
+    </div>
   </div>
 </section>
 

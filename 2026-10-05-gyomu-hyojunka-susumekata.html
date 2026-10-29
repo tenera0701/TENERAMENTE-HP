@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,164 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-05-gyomu-hyojunka-susumekata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方","description":"業務標準化の進め方を、対象の選び方からばらつきの確かめ方、決める粒度、守られる状態にする仕組み、改訂の続け方まで手順で整理しました。マニュアルを作る前に決めておくことに重点を置いています。","datePublished":"2026-10-05","dateModified":"2026-10-05","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-05-gyomu-hyojunka-susumekata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務標準化, 属人化, 業務改善, 業務アプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方","description":"業務標準化の進め方を、対象の選び方からばらつきの確かめ方、決める粒度、守られる状態にする仕組み、改訂の続け方まで手順で整理しました。マニュアルを作る前に決めておくことに重点を置いています。","datePublished":"2026-10-05","dateModified":"2026-10-05","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-05-gyomu-hyojunka-susumekata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務標準化, 属人化, 業務改善, 業務アプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方","item":"https://teneramente.jp/2026-10-05-gyomu-hyojunka-susumekata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"標準化は現場の裁量を奪うことになりませんか？","acceptedAnswer":{"@type":"Answer","text":"決める範囲を間違えると、そうなります。そろえるのは後工程に渡る情報と判断の基準、守るべき期限や順序までで、作業の進め方や言い回しは任せたままにします。むしろ、判断の基準が明文化されていない状態のほうが、担当者はいちいち確認しなければならず裁量がありません。基準が決まっていれば、その範囲内で自分で判断できます。"}},{"@type":"Question","name":"人数が少ない会社でも標準化は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"人が増えてから始めるより、少人数のうちに決めておくほうが負担は軽くなります。ただし対象は絞ってください。複数の人が関わり、繰り返し発生し、ばらつきが後工程に影響している業務だけで十分です。1人しか担当していない業務については、標準化ではなく「その人が休んでも止まらないか」という別の観点で見ます。"}},{"@type":"Question","name":"マニュアルを作ったのに使われません。どこから直せばよいですか？","acceptedAnswer":{"@type":"Answer","text":"文書の出来より、置き場所と粒度を先に見てください。作業する画面から離れた場所にあるマニュアルは、忙しいときに開かれません。そして、手順が細かすぎると読む時間のほうが長くなります。使われる形に近いのは、守るべき項目だけを作業画面のそばに短く置き、残りは必要なときだけ参照する構成です。可能であれば、入力の必須項目や選択式の欄として仕組みに組み込むと、読まなくても結果がそろいます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 5, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-05-gyomu-hyojunka-susumekata.webp" alt="業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>業務標準化とは「判断の基準をそろえること」</a><a href="#h2"><span class="n">02</span>標準化する業務の選び方</a><a href="#h3"><span class="n">03</span>現状のばらつきを確かめる</a><a href="#h4"><span class="n">04</span>決める粒度：そろえるところと、任せるところ</a><a href="#h5"><span class="n">05</span>守られる状態にするのは、文書より仕組み</a><a href="#h6"><span class="n">06</span>改訂が止まると、標準は形だけになる</a><a href="#h7"><span class="n">07</span>よくある失敗と、その見分け方</a><a href="#h8"><span class="n">08</span>まとめ：ばらつきを見て、困るところだけ決める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">同じ作業なのに、担当者によって手順も所要時間も違う。<strong>業務標準化の進め方で最初にやることは、手順書を書くことではなく、どこがばらついているかを先に見つけること</strong>です。ばらつきの正体が分からないまま手順書を作ると、現場のやり方と合わない文書が1つ増えるだけで終わります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>標準化とは作業を縛ることではなく、<strong>判断の基準をそろえること</strong>です。手順のうち「誰がやっても同じでなければ困るところ」だけを決め、残りは任せる。この線引きを先に引くと、現場が守れる標準になります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>業務標準化とは「判断の基準をそろえること」</h2>
+<p>業務標準化（<em>standardization</em>）は、同じ業務を誰が担当しても同じ結果になる状態を作ることです。ここで言う結果とは、出来上がったものの中身と、所要時間、そして後工程に渡る情報のことを指します。</p>
+<p>よくある誤解は、標準化を「作業の手順をすべて文書にすること」と捉えることです。手順をすべて書き出しても、<strong>判断が必要な場面で何を基準に決めるかが書かれていなければ、結果はそろいません</strong>。たとえば見積書を作る業務なら、入力欄の埋め方よりも、値引きをどこまで自分で判断していいかのほうが結果を左右します。</p>
+<p>標準化とマニュアル化は別の工程です。標準化は「何をそろえるかを決める」こと、マニュアル化は「決まったことを人に渡せる形にする」こと。この順番が逆になると、書いた本人以外は使えない文書ができます。マニュアルそのものの書き方は<a href="2026-09-23-gyomu-manual-tsukurikata.html">業務マニュアルの作り方</a>に整理していますが、その前段にあるのがこの記事の内容です。</p>
+<h2 id="h2"><span class="h-num">02</span>標準化する業務の選び方</h2>
+<p>全部をいちどに標準化しようとすると、まず止まります。対象は次の3つを満たすものから選びます。</p>
+<ul>
+<li><strong>複数の人がやっている</strong>：1人しかやっていない業務は、標準をそろえる相手がいません（別の課題です）</li>
+<li><strong>繰り返し発生する</strong>：月に数回以上。年1回の業務は手順メモで足ります</li>
+<li><strong>ばらつきが誰かに迷惑をかけている</strong>：後工程の手戻り、問い合わせ、再入力が起きている</li>
+</ul>
+<p>3つ目が判断の軸です。やり方が人によって違っても、誰も困っていなければ標準化の優先度は低くなります。逆に、<strong>前の工程の書き方が人によって違うせいで後工程が毎回確認している業務</strong>は、優先度が高いと考えてください。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>「困っている人」から探すと対象が決まる</h4>
+    <p>標準化の対象は、作業している本人より後工程の担当者に聞くと早く見つかります。「どの依頼が来たときに確認が必要になりますか」と聞けば、ばらつきが問題になっている業務が具体的に挙がります。本人は自分のやり方を標準だと思っているため、本人だけに聞くと差が出てきません。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>現状のばらつきを確かめる</h2>
+<p>対象が決まったら、標準を決める前に現状を見ます。順番は次のとおりです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-05-gyomu-hyojunka-susumekata.png" alt="担当者に実際の手順で説明してもらう・違っていた箇所だけを書き出す・結果に影響するかで仕分ける・なぜそうしているかを聞く・後工程に渡る情報の欠けを確認する、という5つの手順を縦に並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>違っているやり方には理由があります。片方だけが正しいとは限りません。</figcaption></figure>
+
+<ol>
+<li><strong>担当者2〜3人に、同じ作業を実際の手順で説明してもらう</strong>。記憶ではなく画面を開きながら</li>
+<li><strong>違っていた箇所だけを書き出す</strong>。同じところは書かない</li>
+<li><strong>違いが結果に影響するか、しないかで仕分ける</strong></li>
+<li><strong>影響するものについて、なぜそうしているかを聞く</strong></li>
+<li><strong>後工程に渡る情報のうち、欠けると困るものを確認する</strong></li>
+</ol>
+<p>3と4が肝心です。手順が違っても結果が同じなら、そろえる必要はありません。そして、違っているやり方には理由があることが多く、<strong>片方だけが正しいとは限りません</strong>。両方の理由を聞いてから、どちらを標準にするかを決めます。</p>
+<p>この工程を飛ばして、できる人のやり方をそのまま標準にすると、他の人がなぜその手順なのかを理解できないまま形だけ真似る状態になります。業務の流れ全体を図にして見る方法は<a href="2026-09-20-gyomu-flow-zu-kakikata.html">業務フロー図の書き方</a>にまとめています。</p>
+<h2 id="h4"><span class="h-num">04</span>決める粒度：そろえるところと、任せるところ</h2>
+<p>標準化でいちばん失敗するのは、決めすぎることです。粒度の判断は次の表で分けます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>種類</th>
+<th>扱い</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>後工程に渡る情報</td>
+<td>そろえる</td>
+<td>記入する項目、ファイル名、置き場所</td>
+</tr>
+<tr>
+<td>判断の基準</td>
+<td>そろえる</td>
+<td>自分で決めてよい範囲、上に確認する条件</td>
+</tr>
+<tr>
+<td>守るべき期限・順序</td>
+<td>そろえる</td>
+<td>いつまでに、どの工程の前に終わらせるか</td>
+</tr>
+<tr>
+<td>作業の進め方</td>
+<td>任せる</td>
+<td>どのツールの画面から入るか、作業の順番</td>
+</tr>
+<tr>
+<td>文章の言い回し</td>
+<td>任せる</td>
+<td>連絡文の表現、メモの書き方</td>
+</tr>
+</tbody></table></div>
+<p>線引きの基準は1つです。<strong>それが人によって違うと、他の誰かが困るかどうか</strong>。困らないものを決めると、現場は「言われたから守る決まり」として扱い、やがて守られなくなります。</p>
+<blockquote>
+<p>標準化で決めるのは手順の全部ではなく、揃っていないと誰かが困る部分だけです。</p>
+</blockquote>
+<h2 id="h5"><span class="h-num">05</span>守られる状態にするのは、文書より仕組み</h2>
+<p>決めた標準が守られるかどうかは、書いた文書の出来よりも、<strong>守るのが自然になっているかどうか</strong>で決まります。段階としては3つあります。</p>
+<p>もっとも弱いのが、文書に書いて周知する形です。読む手間がかかるため、忙しいときに真っ先に省かれます。次が、使う場所に置く形。入力画面の横に注意書きを置く、テンプレートを配るなど、作業の流れの中で目に入るようにします。</p>
+<p>いちばん強いのは、<strong>仕組みの側に埋め込む</strong>形です。入力フォームの必須項目にする、選択式にして表記を統一する、期限を過ぎたものが一覧に出るようにする。こうすると、標準を覚えていなくても結果がそろいます。</p>
+<p>ここまで来ると、標準化は業務アプリやツールの話とつながります。ただし順番は、標準を決めてから仕組みに落とすことです。決まっていないものをそのままシステムにすると、ばらつきが固定されます。ツール選びの考え方は<a href="2026-09-14-gyomu-koritsuka-tool-erabikata.html">業務効率化ツールの選び方</a>が参考になります。</p>
+<h2 id="h6"><span class="h-num">06</span>改訂が止まると、標準は形だけになる</h2>
+<p>標準は作った時点から古くなります。改訂が続く形にしておかないと、実際のやり方と文書が食い違い、やがて誰も見なくなります。</p>
+<p>続けるために決めておくのは3つです。</p>
+<ul>
+<li><strong>誰が直せるか</strong>：1人に限定すると、その人が忙しいときに止まります。業務を担当している人が直せる形にします</li>
+<li><strong>いつ見直すか</strong>：期間ではなく出来事で決めます。手戻りが起きたとき、人が増えたとき、ツールを変えたとき</li>
+<li><strong>変えたことをどう伝えるか</strong>：更新履歴を1行残し、関係者に一言流すところまでを手順に含めます</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>例外を認めないと、標準は裏で破られる</h4>
+    <p>現場には標準に当てはまらない案件が必ず出てきます。例外を認めない運用にすると、報告されないまま独自のやり方で処理され、記録にも残りません。「例外のときは誰に相談するか」を標準の中に書いておくと、例外が見える形で上がってきて、次の改訂の材料になります。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>よくある失敗と、その見分け方</h2>
+<p>標準化が進まないときは、たいてい次のどれかに当てはまります。</p>
+<ul>
+<li><strong>文書を作ることが目的になっている</strong>：使われた回数を誰も見ていない状態です</li>
+<li><strong>できる人のやり方をそのまま標準にした</strong>：理由が共有されていないため、応用が利きません</li>
+<li><strong>決めすぎている</strong>：守る項目が多すぎて、全部守る人がいなくなります</li>
+<li><strong>直す人が決まっていない</strong>：最初の食い違いが出た時点で放置されます</li>
+<li><strong>ばらつきを見ないまま決めた</strong>：現場の実態と合わず、裏で別のやり方が残ります</li>
+</ul>
+<p>見分け方は簡単で、<strong>標準化したはずの業務について、後工程の担当者に確認の手間が減ったかを聞く</strong>ことです。減っていなければ、そろえた場所が間違っています。進め方の全体像は<a href="2026-09-04-ai-gyomu-kaizen-susumekata.html">AI業務改善の進め方</a>の段階分けと合わせて読むと整理しやすくなります。</p>
+<details class="faq"><summary>標準化は現場の裁量を奪うことになりませんか？</summary><div class="faq-a">決める範囲を間違えると、そうなります。そろえるのは後工程に渡る情報と判断の基準、守るべき期限や順序までで、作業の進め方や言い回しは任せたままにします。むしろ、判断の基準が明文化されていない状態のほうが、担当者はいちいち確認しなければならず裁量がありません。基準が決まっていれば、その範囲内で自分で判断できます。</div></details>
+
+<details class="faq"><summary>人数が少ない会社でも標準化は必要ですか？</summary><div class="faq-a">人が増えてから始めるより、少人数のうちに決めておくほうが負担は軽くなります。ただし対象は絞ってください。複数の人が関わり、繰り返し発生し、ばらつきが後工程に影響している業務だけで十分です。1人しか担当していない業務については、標準化ではなく「その人が休んでも止まらないか」という別の観点で見ます。</div></details>
+
+<details class="faq"><summary>マニュアルを作ったのに使われません。どこから直せばよいですか？</summary><div class="faq-a">文書の出来より、置き場所と粒度を先に見てください。作業する画面から離れた場所にあるマニュアルは、忙しいときに開かれません。そして、手順が細かすぎると読む時間のほうが長くなります。使われる形に近いのは、守るべき項目だけを作業画面のそばに短く置き、残りは必要なときだけ参照する構成です。可能であれば、入力の必須項目や選択式の欄として仕組みに組み込むと、読まなくても結果がそろいます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：ばらつきを見て、困るところだけ決める</h2>
+<p>業務標準化の進め方は、対象を絞り、現状のばらつきを確かめ、そろえる範囲を決め、仕組みに落とし、改訂を続ける流れになります。手順書から着手しないことが、いちばんの要点です。</p>
+<p>そして、決める基準は<strong>人によって違うと誰かが困るかどうか</strong>の一点です。困らないものは任せる。困るものは文書で呼びかけるのではなく、入力項目や一覧の形で仕組みに埋める。この形にできると、新しく入った人が特別な説明なしに同じ結果を出せるようになります。</p>
+<p>TENERAMENTEでは、業務のばらつきを洗い出す段階からご一緒し、決まった標準を入力フォームや一覧として形にするところまでを支援しています。業務アプリとしての作り方は<a href="lp-ai-app.html">AI業務アプリ開発</a>のページにまとめていますので、どこから標準化すべきか迷っている段階でも、<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務標準化</span><span>#属人化</span><span>#業務改善</span><span>#業務アプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +328,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +356,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-02-saas-jisha-kaihatsu-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務</h4>
+      </a>
+      <a class="related-card" href="2026-10-08-api-renkei-toha.html">
+        <span class="cat">Web App</span>
+        <h4>API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること</h4>
+      </a>
+      <a class="related-card" href="2026-09-29-rpa-toha-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>RPAとは｜中小企業での使いどころと、AIとの使い分けを整理</h4>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,155 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-21-meo-report-mikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める","description":"MEOレポートの数字を見ても次の手が決まらない、という状態を抜けるための読み方をまとめました。検索語句・閲覧数・ルート検索をどの順番で見るか、どこで止まっているかの特定方法、月次比較の注意点、レポートに固定する項目まで整理しています。","datePublished":"2026-10-21","dateModified":"2026-10-21","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-21-meo-report-mikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-21-meo-report-mikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleマップ, 効果測定, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める","description":"MEOレポートの数字を見ても次の手が決まらない、という状態を抜けるための読み方をまとめました。検索語句・閲覧数・ルート検索をどの順番で見るか、どこで止まっているかの特定方法、月次比較の注意点、レポートに固定する項目まで整理しています。","datePublished":"2026-10-21","dateModified":"2026-10-21","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-21-meo-report-mikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-21-meo-report-mikata.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleマップ, 効果測定, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める","item":"https://teneramente.jp/2026-10-21-meo-report-mikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"表示回数が増えているのに問い合わせが増えません。何から見ればよいですか？","acceptedAnswer":{"@type":"Answer","text":"プロフィールの中身から見てください。閲覧数が増えているのにルート検索・通話・ウェブサイトのクリックが増えていない状態は、見られてはいるが選ぶ判断に至っていないことを示します。確認するのは、営業時間が実態と合っているか、写真の1枚目で何の店か分かるか、電話番号とウェブサイトが入っているか、口コミに返信があるか、の4点です。順位を上げる作業よりも先に、ここを埋めたほうが反応は動きます。"}},{"@type":"Question","name":"MEOレポートの数字は、どのくらいさかのぼって見られますか？","acceptedAnswer":{"@type":"Answer","text":"管理画面で確認できるのは直近の数か月分です。それより前の数字は画面から消えるため、月次で見る項目を決めて手元に控えておく必要があります。前年同月と比べたい業種では、この控えがないと季節の影響を切り分けられません。月に一度、同じ5項目を書き写すだけの形にしておけば、1年分がたまった時点で判断の精度が上がります。"}},{"@type":"Question","name":"複数店舗ある場合、レポートは店舗ごとに見るべきですか？","acceptedAnswer":{"@type":"Answer","text":"店舗ごとに見てください。商圏も競合も店舗ごとに違うため、合計しても打ち手は決まりません。見る項目は全店で同じ5項目に揃え、店舗ごとに並べる形にします。そのうえで、特定の店舗だけ閲覧数が細い、反応だけ弱いといった差を探すと、その店舗の店舗情報に原因があるのかどうかが見えます。全店の合計は、報告用としては使えますが、改善の判断には向きません。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 21, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-21-meo-report-mikata.webp" alt="MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>MEOレポートの数字は、4つの段階に分けて見る</a><a href="#h2"><span class="n">02</span>検索語句は「どう呼ばれているか」を確かめる項目</a><a href="#h3"><span class="n">03</span>閲覧数が伸びないときに見るところ</a><a href="#h4"><span class="n">04</span>ルート検索・通話・クリックは、閲覧数とセットで見る</a><a href="#h5"><span class="n">05</span>先月と比べるときに、やりがちな間違い</a><a href="#h6"><span class="n">06</span>止まっている場所から、次の一手を決める</a><a href="#h7"><span class="n">07</span>毎月のレポートは、同じ5項目に固定する</a><a href="#h8"><span class="n">08</span>まとめ：レポートは「どこで止まったか」を探す道具</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">表示回数は増えているのに、問い合わせも来店も変わらない。MEOレポートを前にして止まってしまう原因は、数字が足りないことではなく、見る順番が決まっていないことです。<strong>MEOレポートは全部の数字を読むためのものではなく、「探された・見られた・反応された」のどこで止まっているかを特定するために見ます</strong>。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>MEOレポートは、検索語句 → 閲覧数 → ルート検索・通話・ウェブサイトのクリック、という順に上から見ていきます。<strong>打ち手が変わるのは「どの段階で数字が細くなっているか」だけ</strong>です。閲覧数が増えて反応が増えないなら店舗情報の中身、閲覧数そのものが動かないならカテゴリと検索語句を疑う、という切り分けで十分に回せます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>MEOレポートの数字は、4つの段階に分けて見る</h2>
+<p>Googleビジネスプロフィールの管理画面で見られる数字は、「パフォーマンス」にまとまっています。検索語句、プロフィールの閲覧数、ルート検索、通話、メッセージ、予約、ウェブサイトのクリックといった項目が並びます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-21-meo-report-mikata.png" alt="検索語句、プロフィールの閲覧数、ルート検索・通話・ウェブサイトのクリック、来店・問い合わせという、MEOレポートをお客様がたどる順番で4つの段階に分けて並べた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>最後の段だけは管理画面に出ないため、店舗側で数える必要があります。</figcaption></figure>
+
+<p>この並びを、お客様がたどる順番に置き換えると見方が決まります。</p>
+<p>まず、どんな言葉で探されたか（検索語句）。次に、その検索でプロフィールが見られたか（閲覧数）。そのあと、地図や電話に手が伸びたか（ルート検索・通話・クリック）。最後に、実際に来店や問い合わせに至ったか。最後の段階だけは管理画面に出ないので、店舗側で数える必要があります。</p>
+<p><strong>数字が細くなっている段を見つければ、見るべき項目はその1つ手前に決まります</strong>。全項目を並べて眺めても判断材料は増えません。MEO対策全体の進め方は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>検索語句は「どう呼ばれているか」を確かめる項目</h2>
+<p>検索語句は、プロフィールが表示されたときに使われた語句の一覧です。ここで確かめるのは順位ではなく、<strong>自店が想定している呼び方と、実際に使われている言葉が合っているか</strong>です。</p>
+<p>見方は3つに分かれます。1つめは、店名での検索が多いか、サービス名や地域名での検索が多いか。店名ばかりなら、すでに店を知っている方にしか届いていない状態です。2つめは、提供しているのに語句として出てこないサービスがないか。3つめは、扱っていないサービスの語句で表示されていないか。</p>
+<p>2つめと3つめは、どちらもカテゴリと説明文の調整につながります。語句として出てこないサービスは、カテゴリの追加かサービス項目への登録で拾えることがあります。カテゴリの決め方は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>を参照してください。</p>
+<h2 id="h3"><span class="h-num">03</span>閲覧数が伸びないときに見るところ</h2>
+<p>閲覧数は、Google検索とGoogleマップでプロフィールが見られた数です。ここが動かないときは、そもそも候補に入っていないか、候補に入っても選ばれていない、どちらかです。</p>
+<p>先に確かめるのは、自店が候補として出ているかどうかです。店舗の近くから、お客様が使いそうな語句で実際に検索してみてください。一覧に出てこないのであれば、閲覧数の問題ではなく、掲載順位の問題として扱います。見られている語句に偏りがあるなら、カテゴリと説明文の範囲が狭すぎる可能性があります。</p>
+<blockquote>
+<p>閲覧数は、工夫の成果ではなく「候補に入れてもらえた結果」です。数字を動かす操作は、レポートの中ではなく店舗情報の側にあります。</p>
+</blockquote>
+<p>一覧に出ているのに閲覧数が伸びない場合は、一覧で見える要素、つまり店名、カテゴリ、写真の1枚目、口コミの星と件数が判断材料になっています。順位が下がった場合の原因の切り分けは<a href="2026-09-19-google-map-juni-sagatta.html">Googleマップの順位が下がったとき</a>にまとめました。</p>
+<h2 id="h4"><span class="h-num">04</span>ルート検索・通話・クリックは、閲覧数とセットで見る</h2>
+<p>ルート検索、通話、ウェブサイトのクリックは、プロフィールを見た方が次の行動に移った数です。<strong>この3つは単独の件数ではなく、閲覧数と並べて見ます</strong>。</p>
+<p>閲覧数が増えているのに3つが増えていない場合、プロフィールの中身で判断が止まっています。考えられるのは、営業時間が実態と違う、写真が店内の様子を伝えていない、電話番号やウェブサイトが入っていない、口コミへの返信がない、といった点です。</p>
+<p>逆に、閲覧数が横ばいのまま3つが増えているときは、情報の整備が効いている状態です。この場合は同じ方向を続けて、閲覧数を増やす側の作業に移ります。</p>
+<p>どの数字が増えやすいかは業種で変わります。飲食や美容のように当日の来店が多い業種はルート検索と通話が動きやすく、見積りや相談が前提の業種はウェブサイトのクリックが動きやすい傾向があります。自店の形に合った項目を主に見てください。</p>
+<h2 id="h5"><span class="h-num">05</span>先月と比べるときに、やりがちな間違い</h2>
+<p>月次で並べたときに見誤りやすいのが、比べる期間です。注意したいのは次の点です。</p>
+<ol>
+<li>月の日数が違う（31日の月と28日の月を同じ条件で比べない）</li>
+<li>期間の指定が先月と同じ長さになっているかを確認する</li>
+<li>季節で動く業種は、前月ではなく前年同月と比べる</li>
+<li>掲載や広告を動かした月は、その影響が混ざる前提で見る</li>
+<li>数字が取れる期間には限りがあるため、残したい月は手元に控えておく</li>
+</ol>
+<p>とくに3つめは、繁忙期のある業種で判断を狂わせます。前月比で下がっていても、前年同月で上がっているなら施策は効いています。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>数字の上下に名前を付けて記録する</h4>
+    <p>月次の数字の横に、その月にやったこと（写真を追加、営業時間を修正、投稿を増やした、など）を1行で書き添えてください。半年たつと、数字だけでは何が効いたか分からなくなります。記録は数字と同じ場所に残すのが確実です。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>止まっている場所から、次の一手を決める</h2>
+<p>段階ごとの症状と、先に手を付ける場所を整理しておきます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>数字の状態</th>
+<th>疑うところ</th>
+<th>先にやること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>検索語句が店名ばかり</td>
+<td>知らない人に届いていない</td>
+<td>カテゴリとサービス項目の見直し</td>
+</tr>
+<tr>
+<td>提供しているサービスの語句が出ない</td>
+<td>カテゴリ・説明文の範囲が狭い</td>
+<td>カテゴリの追加、説明文への記載</td>
+</tr>
+<tr>
+<td>閲覧数が動かない</td>
+<td>候補に入っていない</td>
+<td>近くから実検索、順位側の確認</td>
+</tr>
+<tr>
+<td>閲覧数は増えたが反応が増えない</td>
+<td>プロフィールの中身</td>
+<td>営業時間、写真、電話・URL、口コミ返信</td>
+</tr>
+<tr>
+<td>ルート検索だけ極端に少ない</td>
+<td>所在地・地図ピンの精度</td>
+<td>住所表記とピンの位置を確認</td>
+</tr>
+<tr>
+<td>通話が減った</td>
+<td>電話番号の項目、営業時間</td>
+<td>番号の記載と特別営業時間を確認</td>
+</tr>
+</tbody></table></div>
+<p>表の右の列は、どれも管理画面の数字をいじる作業ではありません。<strong>レポートは原因の場所を指すだけで、直す場所は常に店舗情報の側</strong>です。ここを分けて考えると、作業が具体的になります。</p>
+<h2 id="h7"><span class="h-num">07</span>毎月のレポートは、同じ5項目に固定する</h2>
+<p>毎月見る項目を決めていないと、その月に目立った数字だけを追う形になり、比較ができなくなります。固定するのは次の5つで十分です。</p>
+<p>プロフィールの閲覧数、検索語句の上位、ルート検索、通話、ウェブサイトのクリック。この5つを前月と前年同月の横に並べ、その月にやったことを1行添える。これだけの形にしておけば、毎月の作業は短時間で終わります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>項目を増やすと続かなくなる</h4>
+    <p>はじめから細かく分けたレポートを作ると、作業に時間がかかって数か月で止まります。止まったレポートは比較に使えません。少ない項目で続けたほうが、判断材料として役に立ちます。</p>
+  </div>
+</div>
+
+<p>店舗情報の点検とレポートの確認は、同じ日にまとめてしまうのが現実的です。確認項目の立て方は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月次チェックリスト</a>を下敷きにしてください。</p>
+<details class="faq"><summary>表示回数が増えているのに問い合わせが増えません。何から見ればよいですか？</summary><div class="faq-a">プロフィールの中身から見てください。閲覧数が増えているのにルート検索・通話・ウェブサイトのクリックが増えていない状態は、見られてはいるが選ぶ判断に至っていないことを示します。確認するのは、営業時間が実態と合っているか、写真の1枚目で何の店か分かるか、電話番号とウェブサイトが入っているか、口コミに返信があるか、の4点です。順位を上げる作業よりも先に、ここを埋めたほうが反応は動きます。</div></details>
+
+<details class="faq"><summary>MEOレポートの数字は、どのくらいさかのぼって見られますか？</summary><div class="faq-a">管理画面で確認できるのは直近の数か月分です。それより前の数字は画面から消えるため、月次で見る項目を決めて手元に控えておく必要があります。前年同月と比べたい業種では、この控えがないと季節の影響を切り分けられません。月に一度、同じ5項目を書き写すだけの形にしておけば、1年分がたまった時点で判断の精度が上がります。</div></details>
+
+<details class="faq"><summary>複数店舗ある場合、レポートは店舗ごとに見るべきですか？</summary><div class="faq-a">店舗ごとに見てください。商圏も競合も店舗ごとに違うため、合計しても打ち手は決まりません。見る項目は全店で同じ5項目に揃え、店舗ごとに並べる形にします。そのうえで、特定の店舗だけ閲覧数が細い、反応だけ弱いといった差を探すと、その店舗の店舗情報に原因があるのかどうかが見えます。全店の合計は、報告用としては使えますが、改善の判断には向きません。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：レポートは「どこで止まったか」を探す道具</h2>
+<p>MEOレポートの見方は、検索語句 → 閲覧数 → ルート検索・通話・クリック、という順に上から見て、細くなっている段を見つけるだけです。見つかったら、その1つ手前の店舗情報に手を入れる。この往復を月に一度繰り返す形が、いちばん続きます。</p>
+<p>数字を読む力より、見る項目を決めて続けることのほうが効きます。固定した5項目と、やったことの1行メモ。これだけで次の一手は決まります。</p>
+<p>TENERAMENTEなら、毎月見る項目を自店の業種に合わせて絞り込んだうえで、数字の状態からどこに手を入れるかという対応表まで決めた形でお渡しし、店舗情報の修正までを合わせて進めます。レポートを前に何をするか迷う時間がなくなり、確認は月に一度の短い作業で済むようになります。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#Googleマップ</span><span>#効果測定</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +319,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +347,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-20-clinic-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>クリニック・医院のMEO対策｜広告規制に配慮した情報整備と口コミ対応</h4>
+      </a>
+      <a class="related-card" href="2026-10-19-tokubetsu-eigyojikan-settei.html">
+        <span class="cat">MEO</span>
+        <h4>特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール</h4>
+      </a>
+      <a class="related-card" href="2026-10-18-gbp-shashin-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度</h4>
+      </a>
+    </div>
   </div>
 </section>
 

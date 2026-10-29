@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,125 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-04-claude-code-app-kaihatsu-chigai";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用","description":"Claude Codeでのアプリ開発は、触れる試作が早く出て、仕様の擦り合わせが画面ベースになり、修正の往復が軽くなります。発注側が確認すべきテスト・レビュー・保守の体制、費用と期間への影響の考え方、向く案件と向かない案件を整理しました。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-claude-code-app-kaihatsu-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"Claude Code, AIアプリ開発, AI支援開発, 受託開発, 開発会社の選び方"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用","description":"Claude Codeでのアプリ開発は、触れる試作が早く出て、仕様の擦り合わせが画面ベースになり、修正の往復が軽くなります。発注側が確認すべきテスト・レビュー・保守の体制、費用と期間への影響の考え方、向く案件と向かない案件を整理しました。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-claude-code-app-kaihatsu-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"Claude Code, AIアプリ開発, AI支援開発, 受託開発, 開発会社の選び方"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用","item":"https://teneramente.jp/2026-09-04-claude-code-app-kaihatsu-chigai.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Claude Codeで作ったアプリは、ほかの開発会社でも保守できますか？","acceptedAnswer":{"@type":"Answer","text":"一般的な技術構成で作られていれば、特定のツールには依存しません。確認すべきは技術構成と、引き継ぎ用の資料があるかどうかです。"}},{"@type":"Question","name":"AIが書いたコードは安全ですか？","acceptedAnswer":{"@type":"Answer","text":"ツールの種類より、人によるレビュー、テスト、権限やデータ分離の設計で決まります。契約前に、確認の方法を具体的に聞いてください。"}},{"@type":"Question","name":"発注側もClaude Codeを使えるようになる必要がありますか？","acceptedAnswer":{"@type":"Answer","text":"ありません。発注側に必要なのは、試作を早く触り、業務の目線で感想を返すことです。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 4, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">5 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-04-claude-code-app-kaihatsu-chigai.webp" alt="Claude Codeでのアプリ開発は何が違う？｜進め方・品質・費用" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>Claude Codeとは何か：発注側が知っておけば十分な範囲</a><a href="#h2"><span class="n">02</span>進め方はどう変わるか：試作が早い・画面で決める・修正が軽い</a><a href="#h3"><span class="n">03</span>品質面で発注側が確認すべきこと：テスト・レビュー・保守</a><a href="#h4"><span class="n">04</span>費用と期間への影響：言えることと言えないこと</a><a href="#h5"><span class="n">05</span>向く案件・向かない案件</a><a href="#h6"><span class="n">06</span>よくある質問</a><a href="#h7"><span class="n">07</span>まとめ：速さより「画面で決められること」を買う</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Claude Codeでのアプリ開発が従来と違うのは、コードを書く速さそのものより、<strong>発注側が「触れる画面」を見ながら仕様を決められる</strong>ことです。この記事では、Claude Codeとは何かという基本から、進め方・品質・費用と期間への影響、向く案件と向かない案件までを、発注する側の目線で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>Claude Codeを使う開発会社に頼む価値は「安く速い」だけではありません。<strong>試作を早く見て、画面ベースで直し続けられる進め方</strong>が本質で、テスト・レビュー・保守の体制を確認したうえで選べば、AI支援開発の利点を安心して受け取れます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>Claude Codeとは何か：発注側が知っておけば十分な範囲</h2>
+<p><em>Claude Code</em>は、Anthropic社が提供するAIコーディング支援ツールです。開発者がAIと対話しながらコードの作成・修正・テストを進めるためのもので、こうしたツールを設計から実装、テストまでの工程に組み込む開発のやり方は、<em>AI支援開発</em>と呼ばれます。</p>
+<p>発注側が仕組みの詳細を知る必要はありません。押さえておきたいのは次の2点です。</p>
+<ul>
+<li>開発者の手が速くなるので、「作って見せる」までの時間が短くなる</li>
+<li>AIが書いたコードであっても、動作の確認と品質の責任は開発会社にある</li>
+</ul>
+<p>つまり、<strong>Claude Codeは開発会社の道具であって、品質の保証書ではない</strong>ということです。道具が良くなった分、発注側は「何を早く見せてもらい、何を確認するか」に集中できます。この記事の残りは、その具体的な中身です。</p>
+<h2 id="h2"><span class="h-num">02</span>進め方はどう変わるか：試作が早い・画面で決める・修正が軽い</h2>
+<p>従来の受託開発では、仕様書を読んで完成形を想像し、数か月後に出てきた画面を見て「思っていたのと違う」と気づくことが少なくありませんでした。AI支援開発では、この順番が変わります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-04-claude-code-app-kaihatsu-chigai.png" alt="従来の進め方と、試作を見ながら決める進め方を比べた図" width="1600" height="610" loading="lazy" decoding="async"><figcaption>触れる画面が早く出るぶん、発注側の感想が早いほど完成も早くなります。</figcaption></figure>
+
+<ul>
+<li>触れる試作が早く出る：小さな<em>PoC</em>（Proof of Concept：試作）であれば、数週間という単位で「触れる形」に届きます</li>
+<li>仕様の擦り合わせが画面ベースになる：文書で合意する代わりに、実際の画面を触りながら「この列は要らない」「この順番で入力したい」と言えます</li>
+<li>修正の往復が軽い：小さな直しが次のミーティングまでに反映されるので、確認の回数を増やしても負担になりません</li>
+</ul>
+<p>発注側の役割も変わります。仕様書を細かく書くことより、<strong>早い段階で触って感想を返すこと</strong>が最大の貢献になります。触る人と決める人を最初に決めておくと、往復がさらに速くなります。</p>
+<h2 id="h3"><span class="h-num">03</span>品質面で発注側が確認すべきこと：テスト・レビュー・保守</h2>
+<p>速く作れる分、確認すべきことは減りません。むしろ「動いているように見える」状態が早く来るので、次の3点は契約前に聞いておきます。</p>
+<h3>テスト</h3>
+<p>自動テストがあるか、本番公開前にどんな手順で確認するか、そして「この入力でこの結果が出れば完成」というテストケースが仕様に書かれているか。テストケースは発注側が用意できる、いちばん効く品質管理です。</p>
+<h3>レビュー</h3>
+<p>AIが書いたコードを、開発会社のエンジニアが読んで確認しているか。特にログイン・権限・データの分離など、複数の会社や店舗が使う仕組みでは、他社のデータが見えないことをどう確かめているかを聞きます。</p>
+<h3>保守</h3>
+<p>コードが一般的な技術（たとえば<em>Next.js</em>と<em>PostgreSQL</em>）で書かれ、ほかのエンジニアでも読める状態か。修正依頼の窓口はどこで、月にどれくらい対応してもらえるか。<strong>速く書けた分だけコードの量が増えていないか</strong>も、保守のしやすさに関わる確認点です。</p>
+<h2 id="h4"><span class="h-num">04</span>費用と期間への影響：言えることと言えないこと</h2>
+<p>「AIを使えば費用も期間も半分」といった一般化は、案件によって当てはまらないので、そのまま受け取らないほうが安全です。代わりに、構造として言えることを整理します。</p>
+<p>AI支援開発で減るのは、主に実装と修正にかかる時間です。減らないのは、業務の中身を決める時間、元データを整える時間、発注側が動作を確認する時間です。つまり、<strong>期間は開発会社の速さと同じくらい、発注側の準備で決まります</strong>。</p>
+<p>費用は初期費用と月額に分けて見ます。初期費用に要件整理・設計・実装・テスト・公開作業まで入るか、月額にサーバー・ドメイン費用やシステム監視、修正対応が何回入るか。この2つを各社そろえて書いてもらえば、AI支援開発を使う会社とそうでない会社を、金額ではなく中身で比べられます。生成AIのAPI利用料が別途かかる構成なら、誰が負担するかを見積もりの段階で確認してください。内訳の考え方は<a href="2026-09-04-ai-app-kaihatsu-hiyo-kikan.html">業務改善AIアプリ開発の費用と期間</a>で詳しく解説しています。</p>
+<h2 id="h5"><span class="h-num">05</span>向く案件・向かない案件</h2>
+<p>Claude Codeでのアプリ開発は万能ではありません。相性を整理すると次のようになります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>案件のタイプ</th>
+<th>相性</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Excelやスプレッドシートで回している管理業務のアプリ化</td>
+<td>向く</td>
+<td>入力と出力が明確で、画面を見ながら詰めやすい</td>
+</tr>
+<tr>
+<td>反響・申込・請求など「一覧＋ステータス」型の業務</td>
+<td>向く</td>
+<td>型が決まっており、試作から本番まで段階を踏みやすい</td>
+</tr>
+<tr>
+<td>既存システムへの小さな機能追加や連携</td>
+<td>条件つき</td>
+<td>既存側の仕様やAPIの有無に左右される</td>
+</tr>
+<tr>
+<td>業務ルールがまだ決まっていない新規事業</td>
+<td>向かない</td>
+<td>何を作るか自体が固まっておらず、速さが活きない</td>
+</tr>
+<tr>
+<td>厳密な検証記録が求められる基幹システム</td>
+<td>慎重に</td>
+<td>検証と文書化の工数が大きく、開発速度の利点が小さい</td>
+</tr>
+</tbody></table></div>
+<p>向く案件に共通するのは、<strong>業務の入口と出口が言葉にできていること</strong>です。逆に、決まっていないことが多い案件では、まず業務を決める相談から始めたほうが結果的に早く進みます。</p>
+<h2 id="h6"><span class="h-num">06</span>よくある質問</h2>
+<details class="faq"><summary>Claude Codeで作ったアプリは、ほかの開発会社でも保守できますか？</summary><div class="faq-a">一般的な技術構成で作られていれば、特定のツールには依存しません。確認すべきは技術構成と、引き継ぎ用の資料があるかどうかです。</div></details>
+<details class="faq"><summary>AIが書いたコードは安全ですか？</summary><div class="faq-a">ツールの種類より、人によるレビュー、テスト、権限やデータ分離の設計で決まります。契約前に、確認の方法を具体的に聞いてください。</div></details>
+<details class="faq"><summary>発注側もClaude Codeを使えるようになる必要がありますか？</summary><div class="faq-a">ありません。発注側に必要なのは、試作を早く触り、業務の目線で感想を返すことです。</div></details>
+
+<h2 id="h7"><span class="h-num">07</span>まとめ：速さより「画面で決められること」を買う</h2>
+<p>Claude Codeでのアプリ開発の価値は、開発が速いこと自体より、発注側が早い段階で触れる画面を見ながら仕様を決められることにあります。その利点を受け取るには、テスト・レビュー・保守の体制を確認し、<strong>発注側も早く触って早く返す</strong>体制を用意することが条件です。AI業務改善の全体像は<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善アプリ開発 完全ガイド</a>にまとめています。</p>
+<p>TENERAMENTEは名古屋のAI開発企業として、全工程でClaude CodeなどのAI支援開発を活用し、ミエルーム・ミルページ・LDash・MEOツールの4つの自社プロダクトを自ら開発・運用しています。<a href="lp-ai-app.html">AI×WEBアプリ開発</a>は初期費用30万円〜、要件整理・仕様確認・最終確認の3回のミーティングで進め、公開後は月額定額の保守・運用に移ります。「この業務なら、どんな画面になるのか」を試作で見てみたい段階からで構いません。<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#Claude Code</span><span>#AIアプリ開発</span><span>#AI支援開発</span><span>#受託開発</span><span>#開発会社の選び方</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +289,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +317,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-ai-app-kaihatsu-hiyo-kikan.html">
+        <span class="cat">Web App</span>
+        <h4>業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-gyomu-kaizen-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>AI業務改善の進め方｜定型業務の棚卸しから自動化・アプリ化までの5段階</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-kaihatsu-kigyo-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>AI開発企業の選び方｜名古屋の中小企業が失敗しない7つの比較ポイント</h4>
+      </a>
+    </div>
   </div>
 </section>
 

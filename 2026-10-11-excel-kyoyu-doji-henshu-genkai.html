@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,146 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-11-excel-kyoyu-doji-henshu-genkai";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準","description":"Excelの共有・同時編集で起きるトラブルを、原因と移行の判断基準から整理しました。共有方法ごとにできることの違い、移行を考えはじめる5つのサイン、Excelのままで改善できる範囲、移行の順番までをまとめています。","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-11-excel-kyoyu-doji-henshu-genkai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"Excel, 業務アプリ, 脱Excel, 業務効率化, システム化"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準","description":"Excelの共有・同時編集で起きるトラブルを、原因と移行の判断基準から整理しました。共有方法ごとにできることの違い、移行を考えはじめる5つのサイン、Excelのままで改善できる範囲、移行の順番までをまとめています。","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-11-excel-kyoyu-doji-henshu-genkai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"Excel, 業務アプリ, 脱Excel, 業務効率化, システム化"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準","item":"https://teneramente.jp/2026-10-11-excel-kyoyu-doji-henshu-genkai.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"クラウドのExcelに移せば、同時編集の問題は解決しますか？","acceptedAnswer":{"@type":"Answer","text":"同時に開いて編集できるようにはなります。ただしブラウザ版では一部の関数やマクロが動かず、行数の多い表は重くなります。また、列ごとに見せる範囲を分けたり、入力の間違いをその場で止めたり、承認の段階を持たせることはできません。「同時に開けない」が困りごとの中心ならクラウド化で足りますが、権限と制御が必要ならシステム化の検討対象です。"}},{"@type":"Question","name":"何人以上になったら移行を考えるべきですか？","acceptedAnswer":{"@type":"Answer","text":"人数で一律には決まりません。1人が入力し他は見るだけなら人数が多くても成り立ちますし、2人でも同じ列を同時に直す業務なら無理が出ます。見るのは人数ではなく、同じデータを同時に書き換える人が何人いるか、そして順番に開くなどの運用でしのいでいるかどうかです。"}},{"@type":"Question","name":"いまのExcelの数式やマクロは引き継げますか？","acceptedAnswer":{"@type":"Answer","text":"そのままの形では引き継げません。ただし中身の「何をどう計算しているか」は要件として引き継ぎます。移行の作業で時間がかかるのはここで、作った人が残っていない場合は、出力結果から逆算して仕様を確かめることになります。マクロが多い場合は、移行を考えはじめた時点で処理の内容を文書に残しておくと後が楽になります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 11, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-11-excel-kyoyu-doji-henshu-genkai.webp" alt="Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>Excelの共有・同時編集で起きることは、だいたい決まっている</a><a href="#h2"><span class="n">02</span>なぜ壊れるのか：ファイル単位で持ち回る構造</a><a href="#h3"><span class="n">03</span>共有のやり方ごとに、どこまでできるか</a><a href="#h4"><span class="n">04</span>移行を判断する5つのサイン</a><a href="#h5"><span class="n">05</span>Excelのままで、先にやれること</a><a href="#h6"><span class="n">06</span>移行するときの順番と、つまずきやすいところ</a><a href="#h7"><span class="n">07</span>まとめ：限界のサインは「人が気をつけて回していること」</a><a href="#h8"><span class="n">08</span>次の一歩：いまの困りごとがどちらなのかを分ける</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">ファイルを開いたら「読み取り専用で開きますか」と聞かれる。保存しようとしたら別名で保存される。先週直したはずの数字が元に戻っている。<strong>Excelの共有・同時編集の限界は、機能が足りないというより、複数人が同時に触る前提で作られていないところに無理をかけている状態</strong>です。壊れてから慌てるより、どこで判断するかを先に決めておくほうが安全です。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>移行を判断する分かれ目は、ファイルの大きさや人数ではなく<strong>「人が気をつけていないと壊れる状態になっているか」</strong>です。声をかけ合って順番に開く、バックアップを自分で取る、月末に手で突き合わせる。こうした運用でもっている場合、限界はすでに来ています。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>Excelの共有・同時編集で起きることは、だいたい決まっている</h2>
+<p>複数人でExcelを共有していて出てくる不具合は、現場が違っても似ています。先に並べておきます。</p>
+<ul>
+<li>誰かが開いたままで、他の人が編集できない（読み取り専用でしか開けない）</li>
+<li>同じファイルのコピーが複数でき、どれが最新か分からなくなる</li>
+<li>同時に保存して、片方の変更が消える</li>
+<li>行の挿入や並べ替えで、数式の参照先がずれる</li>
+<li>共有フォルダ上で開いていて、ファイルが壊れて開けなくなる</li>
+<li>誰がいつ何を直したのか分からず、間違いの原因をたどれない</li>
+</ul>
+<p>どれも操作の失敗のように見えますが、<strong>原因は使う人の注意力ではなく、ファイルを単位にして共有している構造</strong>にあります。注意で防ごうとすると、人が増えたときに必ず破れます。</p>
+<h2 id="h2"><span class="h-num">02</span>なぜ壊れるのか：ファイル単位で持ち回る構造</h2>
+<p>Excelのファイルは、1つのかたまりとして保存されます。開くときはその全体を読み込み、保存するときは全体を書き戻します。この作り自体は、1人が作業するぶんには速くて扱いやすいものです。</p>
+<p>ところが複数人が同時に書き戻そうとすると、後から保存したほうの内容で上書きされます。これが「変更が消える」の正体です。ネットワーク越しの共有フォルダ上で開いている場合は、保存の途中で通信が切れるとファイルそのものが壊れることもあります。</p>
+<p>対してシステムやデータベースは、<strong>データを行ごとに扱い、書き込みが重なったときの順番を仕組みの側で解決します</strong>。AさんがB列を直し、同時にBさんがC列を直しても、どちらも残ります。ここがExcelとの根本的な違いで、人数が増えたときの差になります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>「壊れた」より厄介なのは「静かに間違う」</h4>
+    <p>ファイルが開けなくなればすぐ気づきます。本当に困るのは、数式の参照先がずれて、もっともらしい数字が出続けている状態です。気づくのは月末や期末で、どこから間違っていたのか追えません。Excelの限界は、止まる形ではなく静かに間違う形で現れます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>共有のやり方ごとに、どこまでできるか</h2>
+<p>同じ「Excelを共有する」でも、やり方によってできる範囲が違います。いま自社がどれに当たるかを確かめてください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>共有のやり方</th>
+<th>同時編集</th>
+<th>主な限界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>社内の共有フォルダに置く</td>
+<td>できない（先に開いた人が優先）</td>
+<td>開いたままで他の人が編集できない。壊れると復旧が難しい</td>
+</tr>
+<tr>
+<td>ファイルをメールやチャットで送る</td>
+<td>できない</td>
+<td>コピーが増え、最新がどれか分からなくなる</td>
+</tr>
+<tr>
+<td>クラウドストレージ（ブラウザ版）</td>
+<td>できる</td>
+<td>重い表や一部の関数・マクロが動かない。履歴はあるが権限は細かく分けにくい</td>
+</tr>
+<tr>
+<td>クラウドストレージ（デスクトップ版）</td>
+<td>条件つきでできる</td>
+<td>同期のずれで競合コピーができる。オフライン編集と衝突しやすい</td>
+</tr>
+</tbody></table></div>
+<p>クラウド上での同時編集に切り替えると、不具合の多くは収まります。<strong>ただし同時に開けるようになることと、業務に必要な管理ができることは別の話</strong>です。誰がどの範囲まで見ていいかを分ける、入力の間違いをその場で止める、承認の段階を持たせる。このあたりはシートの共有では作りきれません。</p>
+<h2 id="h4"><span class="h-num">04</span>移行を判断する5つのサイン</h2>
+<p>人数や行数で線を引くより、運用の様子で判断するほうが外しません。次のうち複数に当てはまるなら、検討する段階です。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-11-excel-kyoyu-doji-henshu-genkai.png" alt="順番に開いている・コピーの最新を人が判断している・月末に手で突き合わせている・直せる人が1人しかいない・見せたくない列を隠して運用しているという、Excelからの移行を判断する5つのサインを並べた図" width="1600" height="852" loading="lazy" decoding="async"><figcaption>人数や行数ではなく、人が気をつけていないと壊れる状態かどうかで判断します。</figcaption></figure>
+
+<ul>
+<li><strong>声をかけ合って順番に開いている</strong>：運用でしのいでいる状態で、人が増えると回らなくなります</li>
+<li><strong>コピーが増え、最新を人が判断している</strong>：「どれが本番か」を覚えている人に依存しています</li>
+<li><strong>月末に手で突き合わせている</strong>：数字が一致しない前提で動いており、確認の作業が毎月発生します</li>
+<li><strong>直せる人が1人しかいない</strong>：数式やマクロを作った人が離れると、誰も触れなくなります</li>
+<li><strong>見せたくない列を隠して運用している</strong>：権限で分けられないので、情報の範囲を人の配慮で守っています</li>
+</ul>
+<p>逆に、<strong>使うのが1〜2人で、集計が目的で、壊れても作り直せる</strong>なら、Excelのままが適切です。移行にはお金と時間がかかるので、困っていないものを置き換える必要はありません。判断の考え方は<a href="2026-06-11-excel-kanri-genkai-systemka.html">Excel管理の限界とシステム化の判断</a>にもう少し詳しく整理しています。</p>
+<h2 id="h5"><span class="h-num">05</span>Excelのままで、先にやれること</h2>
+<p>移行を決める前に、Excelの範囲で効く手当てがあります。ここで収まるなら、それがいちばん安く済みます。</p>
+<p>まず<strong>入力する場所と集計する場所を分ける</strong>こと。1枚のシートで入力も集計もしているから、行の挿入で数式が崩れます。入力用のシートは1行1件の素のデータだけにして、集計は別シートから参照します。</p>
+<p>次に<strong>入力規則とシートの保護</strong>をかけること。日付やコード、選択肢をプルダウンにして、数式の入っているセルは編集できないようにします。これだけで「静かに間違う」はかなり減ります。</p>
+<p>そして<strong>最新の置き場所を1つに決める</strong>こと。クラウド上の1ファイルを本番とし、手元にコピーを置かないルールにします。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>マクロで固めるのは、慎重に</h4>
+    <p>不便を埋めるためにマクロを足していくと、短期的には楽になりますが、作った人以外が直せないものになります。属人化はExcelの限界そのものより厄介で、移行するときにも中身が分からず作り直しになります。マクロを足す前に、その処理が本当にExcel上にあるべきかを一度考えてください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>移行するときの順番と、つまずきやすいところ</h2>
+<p>移行で失敗するのは、たいてい<strong>いまのExcelをそのまま再現しようとしたとき</strong>です。長年の例外対応が全部要件に入り、作るものが膨らみます。</p>
+<p>順番としては、まず1つの業務に絞ります。いちばん人数が触っていて、いちばん手で突き合わせている業務が候補です。次に、その業務で<strong>本当に必要な項目だけを残します</strong>。使っていない列、過去の経緯で残っている列は持ち込みません。そのうえで数か月動かし、問題がなければ次の業務に広げます。</p>
+<p>データの移し替えは、思ったより手間がかかる部分です。同じ意味の値が「東京都」「東京」「13」と混ざっている、日付が文字列になっている、空欄と0が混在している。ここの整理を先にやっておくと、後の作業が軽くなります。全体の進め方は<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発の完全ガイド</a>にまとめています。</p>
+<h2 id="h7"><span class="h-num">07</span>まとめ：限界のサインは「人が気をつけて回していること」</h2>
+<p>Excelの共有・同時編集の限界は、ファイルを単位にして持ち回る構造から来ています。クラウド上での同時編集に切り替えれば不具合の多くは収まりますが、権限や入力の制御、承認の段階まで必要になると、シートの共有では作りきれません。</p>
+<p>判断の基準は人数や行数ではなく、<strong>人が気をつけていないと壊れる状態になっているかどうか</strong>です。順番に開く、コピーの最新を人が覚えている、月末に手で突き合わせる。これらが日常になっているなら、壊れる前が動くタイミングです。移行するときは1業務に絞り、いまのExcelを再現せず、必要な項目だけで作り直してください。</p>
+<details class="faq"><summary>クラウドのExcelに移せば、同時編集の問題は解決しますか？</summary><div class="faq-a">同時に開いて編集できるようにはなります。ただしブラウザ版では一部の関数やマクロが動かず、行数の多い表は重くなります。また、列ごとに見せる範囲を分けたり、入力の間違いをその場で止めたり、承認の段階を持たせることはできません。「同時に開けない」が困りごとの中心ならクラウド化で足りますが、権限と制御が必要ならシステム化の検討対象です。</div></details>
+
+<details class="faq"><summary>何人以上になったら移行を考えるべきですか？</summary><div class="faq-a">人数で一律には決まりません。1人が入力し他は見るだけなら人数が多くても成り立ちますし、2人でも同じ列を同時に直す業務なら無理が出ます。見るのは人数ではなく、同じデータを同時に書き換える人が何人いるか、そして順番に開くなどの運用でしのいでいるかどうかです。</div></details>
+
+<details class="faq"><summary>いまのExcelの数式やマクロは引き継げますか？</summary><div class="faq-a">そのままの形では引き継げません。ただし中身の「何をどう計算しているか」は要件として引き継ぎます。移行の作業で時間がかかるのはここで、作った人が残っていない場合は、出力結果から逆算して仕様を確かめることになります。マクロが多い場合は、移行を考えはじめた時点で処理の内容を文書に残しておくと後が楽になります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>次の一歩：いまの困りごとがどちらなのかを分ける</h2>
+<p>最初に切り分けたいのは、困っているのが「同時に開けない」なのか「管理が足りない」なのかです。前者ならクラウド化で収まります。後者なら、どの業務から作り直すかを決める話になります。</p>
+<p>TENERAMENTEなら、いまお使いのExcelをもとに、同時に入力しても消えない・見せる範囲を人ごとに分けられる・入力の間違いをその場で止める業務Webアプリに置き換えられます。順番待ちや月末の突き合わせがなくなり、「壊さないように気をつける」仕事そのものが消えます。小さな試作（PoC）なら最短2週間で触れる形をご用意でき、初期費用は30万円からです。詳しくは<a href="lp-ai-app.html">業務Webアプリ開発</a>のページをご覧のうえ、「うちのExcelの場合は？」という段階でも<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#Excel</span><span>#業務アプリ</span><span>#脱Excel</span><span>#業務効率化</span><span>#システム化</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +310,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +338,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-08-api-renkei-toha.html">
+        <span class="cat">Web App</span>
+        <h4>API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること</h4>
+      </a>
+      <a class="related-card" href="2026-10-05-gyomu-hyojunka-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方</h4>
+      </a>
+      <a class="related-card" href="2026-10-02-saas-jisha-kaihatsu-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務</h4>
+      </a>
+    </div>
   </div>
 </section>
 

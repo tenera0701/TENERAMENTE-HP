@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,165 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-05-homepage-seisaku-hiyo-guide";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ホームページ制作の費用相場と失敗しない依頼方法｜安さで選ぶ前に知っておきたいこと","description":"ホームページ制作の費用は「制作費＋維持費」の2階建てで考えるのが基本です。依頼先別の相場感、見積もりで確認すべき項目、安さで選んで後悔しないためのポイントをまとめました。","datePublished":"2026-06-05","dateModified":"2026-06-05","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-05-homepage-seisaku-hiyo-guide.html","image":"https://teneramente.jp/assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, 費用相場, HP制作, Web制作, LP"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ホームページ制作の費用相場と失敗しない依頼方法｜安さで選ぶ前に知っておきたいこと","description":"ホームページ制作の費用は「制作費＋維持費」の2階建てで考えるのが基本です。依頼先別の相場感、見積もりで確認すべき項目、安さで選んで後悔しないためのポイントをまとめました。","datePublished":"2026-06-05","dateModified":"2026-06-05","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-05-homepage-seisaku-hiyo-guide.html","image":"https://teneramente.jp/assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, 費用相場, HP制作, Web制作, LP"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ホームページ制作の費用相場と失敗しない依頼方法｜安さで選ぶ前に知っておきたいこと","item":"https://teneramente.jp/2026-06-05-homepage-seisaku-hiyo-guide.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ホームページ制作の期間はどれくらいかかりますか？","acceptedAnswer":{"@type":"Answer","text":"規模によりますが、小規模なサイトで1〜2ヶ月程度、コーポレートサイトで2〜4ヶ月程度が一般的な目安です。原稿や写真の準備に時間がかかることも多いため、公開希望日から逆算して早めに動き出すのがおすすめです。"}},{"@type":"Question","name":"とりあえず安く始めて、後から作り直すのはアリですか？","acceptedAnswer":{"@type":"Answer","text":"アリです。まず1ページのLPや簡易サイトで始め、事業の成長に合わせて拡張する進め方は合理的です。ただしその場合も、ドメインは最初から自社名義で取得しておいてください。ドメインに蓄積される評価は、作り直しても引き継げます。"}},{"@type":"Question","name":"自分で更新できるようにしたいのですが、可能ですか？","acceptedAnswer":{"@type":"Answer","text":"可能です。CMS（Contents Management System：管理画面から更新できる仕組み）を導入すれば、お知らせやブログの更新は専門知識なしで行えます。依頼時に「自分たちで更新したい範囲」を伝えておくと、それに合った設計を提案してもらえます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">ホームページ制作の費用相場と失敗しない依頼方法｜安さで選ぶ前に知っておきたいこと</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 5, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-05-homepage-seisaku-hiyo-guide.webp" alt="ホームページ制作の費用相場と失敗しない依頼方法｜安さで選ぶ前に知っておきたいこと" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>費用の全体像──「制作費＋維持費」の2階建て</a><a href="#h2"><span class="n">02</span>依頼先別の費用相場と向き不向き</a><a href="#h3"><span class="n">03</span>見積もりで必ず確認すべき項目</a><a href="#h4"><span class="n">04</span>「作って終わり」のホームページが成果を出せない理由</a><a href="#h5"><span class="n">05</span>公開後の運用こそ本体──ブログ・SEO・更新</a><a href="#h6"><span class="n">06</span>安さで選んで後悔する典型パターン</a><a href="#h7"><span class="n">07</span>制作会社への上手な伝え方</a><a href="#h8"><span class="n">08</span>まとめ：金額ではなく「公開後」で選ぶ</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「ホームページを作りたいけれど、いくらかかるのか見当がつかない」──これは当社に寄せられるご相談で、もっとも多い質問のひとつです。実は費用そのものより大切なのは、<strong>費用の「構造」を知ってから依頼先を選ぶ</strong>こと。本記事では、相場の考え方から見積もりの読み方、失敗しない依頼方法までを順番に解説します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>ホームページの費用は「制作費」と「維持費」の2階建てで考えるのが基本です。<strong>金額の安さではなく、「公開後に成果を出す運用まで含めて考えられているか」で依頼先を選ぶ</strong>ことが、後悔しないための最大のポイントです。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>費用の全体像──「制作費＋維持費」の2階建て</h2>
+<p>ホームページの費用は、大きく2つに分かれます。</p>
+<ul>
+<li><strong>制作費（初期費用）</strong>：設計・デザイン・実装など、公開までにかかる一度きりの費用</li>
+<li><strong>維持費（ランニング費用）</strong>：ドメイン・サーバー・保守・更新など、公開後に毎月〜毎年かかる費用</li>
+</ul>
+<p>見積もりでは制作費ばかりに目が行きがちですが、サイトは何年も使うものです。**「初期がいくらか」だけでなく「5年間でいくらか」**という視点で比べると、判断を誤りにくくなります。初期費用が安くても月額費用が高い契約は、長期では割高になることがあるためです。</p>
+<h2 id="h2"><span class="h-num">02</span>依頼先別の費用相場と向き不向き</h2>
+<p>制作の依頼先は大きく4つに分かれます。金額はあくまで一般的な目安の幅であり、要件やページ数によって大きく変わる点にご注意ください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>依頼先</th>
+<th>制作費の目安</th>
+<th>向いているケース</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自作ツール（<em>CMS</em>・ノーコード）</td>
+<td>無料〜数万円程度</td>
+<td>まず名刺代わりの1ページが欲しい</td>
+<td>制作・更新の手間は自分持ち</td>
+</tr>
+<tr>
+<td>フリーランス</td>
+<td>数万〜数十万円程度</td>
+<td>小規模サイトを柔軟に・早く</td>
+<td>品質と継続性は人による差が大きい</td>
+</tr>
+<tr>
+<td>中小の制作会社</td>
+<td>数十万〜百数十万円程度</td>
+<td>設計から任せたい・運用も相談したい</td>
+<td>会社ごとの得意分野を見極める</td>
+</tr>
+<tr>
+<td>大手制作会社</td>
+<td>数百万円規模〜</td>
+<td>大規模サイト・ブランド全体の刷新</td>
+<td>小規模案件では割高になりやすい</td>
+</tr>
+</tbody></table></div>
+<p>大切なのは「どこが一番安いか」ではなく、<strong>自社の目的と規模に合った依頼先を選ぶ</strong>ことです。1ページの<em>LP</em>（Landing Page：1枚完結の集客ページ）と、採用や集客を担うコーポレートサイトでは、適した依頼先がそもそも異なります。</p>
+<h2 id="h3"><span class="h-num">03</span>見積もりで必ず確認すべき項目</h2>
+<p>金額の比較の前に、**「その金額に何が含まれているか」**を揃える必要があります。最低限、次の点は確認しましょう。</p>
+<ul>
+<li><strong>ドメインの名義</strong>：自社名義か、制作会社名義か（自社名義でないと、解約時にドメインを持ち出せないことがあります）</li>
+<li><strong>サーバーの契約主体と月額費用</strong>：誰が契約し、いくらかかるのか</li>
+<li><strong>公開後の更新費用</strong>：文言修正やお知らせ追加は月額に含まれるのか、都度見積もりか</li>
+<li><strong>ページ数と原稿・写真の分担</strong>：文章や写真は誰が用意するのか</li>
+<li><strong>スマホ対応・SEOの基本設定</strong>：含まれているか、オプションか</li>
+<li><strong>解約時の扱い</strong>：データやデザインの所有権は自社に残るのか</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>ご相談のなかで少なくないのが、「以前の制作会社と連絡が取れず、ドメインもサーバーも触れない」というケースです。ドメインとサーバーの名義・管理権限を自社側に置いておくだけで、将来のリニューアルや引っ越しが格段にスムーズになります。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>「作って終わり」のホームページが成果を出せない理由</h2>
+<p>きれいなサイトを公開したのに問い合わせが来ない──その多くは、<strong>公開後に誰にも見つけてもらえていない</strong>ことが原因です。</p>
+<p>検索エンジンは、公開直後の新しいサイトをすぐには評価しません。コンテンツが増えず更新も止まったサイトは、時間が経っても検索結果で上位に出にくいままです。また、情報が古いままのサイトは、訪れた人に「この会社、動いているのかな」という不安すら与えてしまいます。</p>
+<p>つまりホームページは、<strong>公開した日がスタート地点</strong>です。「作ること」がゴールになっている計画は、この時点でつまずいています。</p>
+<h2 id="h5"><span class="h-num">05</span>公開後の運用こそ本体──ブログ・SEO・更新</h2>
+<p>では公開後に何をするのか。基本は次の3つです。</p>
+<ol>
+<li><strong>コンテンツの追加</strong>：ブログや事例紹介で、自社の専門性を伝えるページを増やす</li>
+<li><strong><em>SEO</em>（検索エンジン最適化）の継続</strong>：狙うキーワードを決め、検索からの流入を育てる</li>
+<li><strong>情報の鮮度維持</strong>：営業時間・サービス内容・実績など、基本情報を最新に保つ</li>
+</ol>
+<p>近年は、検索エンジンだけでなく生成AIが情報源としてサイトを参照する流れも強まっており、<strong>継続的に更新される一次情報</strong>の価値はむしろ高まっています。制作の予算を考えるときは、この運用に使える余力を残しておくことが重要です。</p>
+<h2 id="h6"><span class="h-num">06</span>安さで選んで後悔する典型パターン</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>「初期費用0円」「月額のみ」という契約には、長期の縛りや高めの月額、解約時にサイトが手元に残らない条件が含まれていることがあります。契約前に、総額・契約期間・解約時のデータの扱いを必ず確認してください。</p>
+  </div>
+</div>
+
+<p>安さ自体が悪いわけではありません。問題は、<strong>安さの理由を確認しないまま契約する</strong>ことです。よくある後悔のパターンは次の通りです。</p>
+<ul>
+<li>テンプレートそのままで、競合と見分けがつかないサイトになった</li>
+<li>更新のたびに費用がかかり、結局ほとんど更新しなくなった</li>
+<li>スマホ表示や表示速度が考慮されておらず、作り直しになった</li>
+<li>担当者と連絡が取れなくなり、修正も引っ越しもできなくなった</li>
+</ul>
+<p>いずれも、前述の「見積もり確認項目」を事前に押さえていれば防げるものです。</p>
+<h2 id="h7"><span class="h-num">07</span>制作会社への上手な伝え方</h2>
+<p>良い提案を引き出すには、依頼側の伝え方も重要です。次の3点を整理してから相談すると、話が早く、見積もりの精度も上がります。</p>
+<ul>
+<li><strong>目的</strong>：誰に見てもらい、どんな行動をしてほしいのか（問い合わせ、採用応募、来店など）</li>
+<li><strong>参考サイト</strong>:「こんな雰囲気にしたい」サイトを2〜3個。逆に「こうはしたくない」例も有効です</li>
+<li><strong>予算感</strong>:概算でも伝えたほうが、予算内で実現できる最適な提案を受けやすくなります</li>
+</ul>
+<p>予算を伝えると足元を見られるのでは、と心配される方もいますが、実際は逆のことが多いです。予算が分からないと、制作会社は過剰か過小か分からない提案しかできません。<strong>「この予算で何ができますか」と聞く</strong>のが、もっとも建設的な相談の仕方です。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：金額ではなく「公開後」で選ぶ</h2>
+<p>ホームページ制作の費用は、制作費と維持費の2階建てで捉え、依頼先ごとの向き不向きを踏まえて選ぶ。見積もりでは含まれる範囲と権利の所在を確認し、公開後の運用に余力を残す──この基本を押さえれば、「安さで選んで後悔」はほぼ避けられます。</p>
+<details class="faq">
+  <summary>ホームページ制作の期間はどれくらいかかりますか？</summary>
+  <div class="faq-a">規模によりますが、小規模なサイトで1〜2ヶ月程度、コーポレートサイトで2〜4ヶ月程度が一般的な目安です。原稿や写真の準備に時間がかかることも多いため、公開希望日から逆算して早めに動き出すのがおすすめです。</div>
+</details>
+<details class="faq">
+  <summary>とりあえず安く始めて、後から作り直すのはアリですか？</summary>
+  <div class="faq-a">アリです。まず1ページのLPや簡易サイトで始め、事業の成長に合わせて拡張する進め方は合理的です。ただしその場合も、ドメインは最初から自社名義で取得しておいてください。ドメインに蓄積される評価は、作り直しても引き継げます。</div>
+</details>
+<details class="faq">
+  <summary>自分で更新できるようにしたいのですが、可能ですか？</summary>
+  <div class="faq-a">可能です。CMS（Contents Management System：管理画面から更新できる仕組み）を導入すれば、お知らせやブログの更新は専門知識なしで行えます。依頼時に「自分たちで更新したい範囲」を伝えておくと、それに合った設計を提案してもらえます。</div>
+</details>
+
+<p>当社TENERAMENTEでは、ホームページ・LP制作を「公開後に成果を出す運用」までセットで設計しています。自社で手軽に更新できるCMS「ミルページ」もご用意しており、作った後に育てられるサイトづくりが特徴です。費用感のご相談だけでも歓迎ですので、お気軽にお問い合わせください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ホームページ制作</span><span>#費用相場</span><span>#HP制作</span><span>#Web制作</span><span>#LP</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +329,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +357,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-09-homepage-renewal-timing.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準</h4>
+      </a>
+      <a class="related-card" href="2026-09-15-seo-taisaku-jibun-de-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEO対策を自分でやるやり方｜外注せずに始める手順と続け方</h4>
+      </a>
+      <a class="related-card" href="2026-09-18-kensaku-juni-agaranai-genin.html">
+        <span class="cat">HP / LP</span>
+        <h4>検索順位が上がらない原因｜確認する順番と直す優先度の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,146 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-28-nap-touitsu-meo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO","description":"NAP情報の統一とは何か、表記ゆれがMEOにどう影響するのかを整理しました。正本の決め方、掲載先の洗い出し、直す順番、直したあとの確認まで、今日から手を付けられる手順でまとめています。","datePublished":"2026-09-28","dateModified":"2026-09-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-28-nap-touitsu-meo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-28-nap-touitsu-meo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, NAP, Googleビジネスプロフィール, ローカル検索, 店舗集客"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO","description":"NAP情報の統一とは何か、表記ゆれがMEOにどう影響するのかを整理しました。正本の決め方、掲載先の洗い出し、直す順番、直したあとの確認まで、今日から手を付けられる手順でまとめています。","datePublished":"2026-09-28","dateModified":"2026-09-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-28-nap-touitsu-meo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-28-nap-touitsu-meo.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, NAP, Googleビジネスプロフィール, ローカル検索, 店舗集客"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO","item":"https://teneramente.jp/2026-09-28-nap-touitsu-meo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"店舗名にキーワードを入れてもよいですか？","acceptedAnswer":{"@type":"Answer","text":"実際に使っている店舗名以外を入れることは、Googleビジネスプロフィールのガイドラインで認められていません。看板や登記と異なる名称を登録すると、修正や停止の対象になることがあります。正本は、実際に使っている名称に合わせてください。"}},{"@type":"Question","name":"広告用の転送番号は使ってはいけないのですか？","acceptedAnswer":{"@type":"Answer","text":"計測の目的で使う場合はあります。ただし、どこを正本とするかを決めずに混在させている状態は避けてください。Googleビジネスプロフィールには店舗の主電話番号を登録し、転送番号は補助的に扱うのが整理しやすい形です。"}},{"@type":"Question","name":"自分で登録していないサイトに情報が出ています。消せますか？","acceptedAnswer":{"@type":"Answer","text":"サイトごとに窓口が異なり、修正・削除の依頼フォームが用意されている場合があります。すべてを消せるとは限りませんので、反響につながっている掲載先から優先して修正を依頼してください。反響のない小さな掲載先は、優先度を下げて構いません。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 28, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-28-nap-touitsu-meo.webp" alt="NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>NAP情報の統一とは、3つの情報を全掲載先でそろえること</a><a href="#h2"><span class="n">02</span>表記ゆれがMEOに与える影響は、「確信度」の低下として出る</a><a href="#h3"><span class="n">03</span>表記ゆれが起きやすいのは、この4か所</a><a href="#h4"><span class="n">04</span>まず「正本」を1つ決める</a><a href="#h5"><span class="n">05</span>掲載先を洗い出して、上から直す</a><a href="#h6"><span class="n">06</span>直した効果は、すぐには見えない</a><a href="#h7"><span class="n">07</span>まとめ：土台を直してから、施策を足す</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleマップに出ている電話番号と、自社サイトに書いてある番号が違う。ポータルサイトには昔の住所が残っている。こうした<strong>掲載先ごとのばらつきを揃える作業が、NAP情報の統一</strong>です。派手な施策ではありませんが、MEO対策の土台にあたる部分で、ここが崩れていると他の施策が効きにくくなります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>NAP情報の統一とは、店舗名・住所・電話番号を<strong>すべての掲載先で一字一句そろえること</strong>です。まず社内で「正本」を1つ決め、掲載先を洗い出し、Googleビジネスプロフィールから順に直します。作業自体は地味ですが、順位が伸びない原因がここに潜んでいることは少なくありません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>NAP情報の統一とは、3つの情報を全掲載先でそろえること</h2>
+<p>NAPとは、<em>Name</em>（店舗名・事業者名）、<em>Address</em>（住所）、<em>Phone</em>（電話番号）の頭文字をとった呼び方です。ローカル検索の分野で使われる用語で、店舗を特定するための基本情報を指します。</p>
+<p>NAP情報の統一とは、この3つを<strong>自社サイト・Googleビジネスプロフィール・各種ポータルサイト・SNSのプロフィールなど、店舗情報を載せているすべての場所でそろえる</strong>ことを言います。「だいたい同じ」では足りません。番地の「1-2-3」と「一丁目2番3号」、「株式会社」と「(株)」、ハイフンの有無まで含めて、同じ書き方にそろえます。</p>
+<p>なぜそこまで厳密なのか。検索エンジンは、あちこちに散らばった店舗情報を照らし合わせて「これは同じ店だ」と判断しています。人間なら同じ店だと分かる表記の違いでも、機械的な照合では別の情報として扱われる余地が残ります。</p>
+<h2 id="h2"><span class="h-num">02</span>表記ゆれがMEOに与える影響は、「確信度」の低下として出る</h2>
+<p>表記がばらついていると、ペナルティのように順位が落とされるわけではありません。影響はもっと地味な形で出ます。</p>
+<p>ひとつは、<strong>店舗情報の確からしさが上がりにくくなること</strong>です。検索エンジンから見て、複数の場所で同じ情報が一致していれば「この店の住所はここで間違いない」と判断しやすくなります。逆に、A社のポータルでは旧住所、自社サイトでは新住所、という状態だと、どちらが正しいのか判断材料が足りません。</p>
+<p>もうひとつは、<strong>利用者側で起きる実害</strong>です。古い電話番号が残っていれば、そこにかけた人はつながらないまま離れていきます。マップの表示順より前に、来店機会そのものを失っています。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>「順位が上がらない」の前に確認する</h4>
+    <p>投稿や口コミの施策を積み増しても伸びない場合、基本情報のばらつきが残っていることがあります。施策を足す前に、いま出ている情報が正しいかを見てください。確認は無料で、その日にできます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>表記ゆれが起きやすいのは、この4か所</h2>
+<p>ばらつきは、たいてい決まった場所から生まれます。</p>
+<p><strong>移転・改称の取り残し</strong>が最も多い箇所です。自社サイトとGoogleビジネスプロフィールは直したものの、登録した記憶のないポータルサイトや業界団体の名簿に古い情報が残ります。</p>
+<p>次に、<strong>担当者が違うことで生まれるずれ</strong>です。サイトは制作会社、ポータル掲載は営業担当、Googleビジネスプロフィールは店長が管理している。それぞれが自分の感覚で書くと、法人格の位置や支店名の付け方が変わります。</p>
+<p>3つ目は、<strong>電話番号の使い分け</strong>です。広告用に発行した転送番号をポータルに載せ、自社サイトには代表番号を書いている状態。計測のために意図してそうしている場合もありますが、意図なくそうなっているなら統一の対象です。</p>
+<p>4つ目は、<strong>ビル名・階数の省略</strong>です。「○○ビル3F」を書く場所と書かない場所が混在します。</p>
+<h2 id="h4"><span class="h-num">04</span>まず「正本」を1つ決める</h2>
+<p>直し始める前に、社内で1つの正しい書き方を決めます。これを決めずに手を動かすと、直した先で新しいゆれが生まれます。</p>
+<p>決めるのは次の4つです。</p>
+<ol>
+<li><strong>店舗名</strong> … 法人格を付けるか、付ける場合は前か後か。支店名・店舗名をどう続けるか。看板や登記と照らして決める</li>
+<li><strong>住所</strong> … 都道府県から書くか、番地はハイフン表記か漢数字か、ビル名と階数を含めるか</li>
+<li><strong>電話番号</strong> … 代表番号を正本とするか、店舗直通を正本とするか。市外局番からのハイフン区切りをそろえる</li>
+<li><strong>決めた内容の置き場所</strong> … 1枚のメモやスプレッドシートにして、誰でも見られる場所に置く</li>
+</ol>
+<p>よくあるゆれと、決め方の目安を並べておきます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>ゆれやすい例</th>
+<th>決め方の目安</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>店舗名</td>
+<td>「株式会社○○」と「(株)○○」</td>
+<td>看板・登記に合わせ、略記は使わない</td>
+</tr>
+<tr>
+<td>支店名</td>
+<td>「○○店」を付ける／付けない</td>
+<td>実際に使っている名称に統一する</td>
+</tr>
+<tr>
+<td>住所（番地）</td>
+<td>「1-2-3」と「一丁目2番3号」</td>
+<td>どちらかに固定し、全掲載先でそろえる</td>
+</tr>
+<tr>
+<td>ビル名・階数</td>
+<td>書く／書かない</td>
+<td>含める。来店時の迷いを減らす</td>
+</tr>
+<tr>
+<td>電話番号</td>
+<td>区切りなし／ハイフンあり／転送番号</td>
+<td>正本を1つ決め、区切り方もそろえる</td>
+</tr>
+</tbody></table></div>
+<p>「正本」が文字で残っていることが重要です。口頭の合意は、担当者が変わった時点で消えます。</p>
+<h2 id="h5"><span class="h-num">05</span>掲載先を洗い出して、上から直す</h2>
+<p>正本が決まったら、直す対象を洗い出します。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-28-nap-touitsu-meo.png" alt="Googleビジネスプロフィール・自社サイトの全ページ・反響の多いポータル・その他の掲載先という順にNAP情報を直す4手順を並べた図" width="1600" height="625" loading="lazy" decoding="async"><figcaption>自社サイトはトップページだけでなく、フッターや会社概要まで含めて直します。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>洗い出し方</h4>
+    <p>店舗名や電話番号でそのまま検索します。自社サイト以外に出てくる掲載先を、ページのURLごと一覧にしてください。心当たりのないポータルや地図サイトに載っていることがよくあります。</p>
+  </div>
+</div>
+
+<p>直す順番は、影響の大きい順です。<strong>Googleビジネスプロフィール → 自社サイト（全ページ・フッターと会社概要も） → 反響の多いポータル → その他の掲載先</strong>。この順で進めます。</p>
+<p>自社サイトは見落としが出やすい場所です。トップページだけ直して、フッター・会社概要・お問い合わせページ・ブログの著者欄が古いまま、という状態がよく残ります。サイト内を電話番号で検索して、出てきた箇所をすべて直してください。</p>
+<p>修正の申請が必要な掲載先は、反映までに日数がかかります。申請した日と、反映を確認した日を記録に残しておくと、二重申請を防げます。</p>
+<h2 id="h6"><span class="h-num">06</span>直した効果は、すぐには見えない</h2>
+<p>直してすぐ順位が動くことは、あまり期待しないでください。検索エンジンが各掲載先を読み直すまでに時間がかかりますし、そもそもNAP情報の統一は<strong>順位を押し上げる施策というより、押し下げる要因を取り除く作業</strong>です。</p>
+<p>見るべきは順位より先に、電話の通じ方や経路案内の正確さです。マップからの電話がつながるか、ナビが正しい場所を指すか。ここが直っていれば、作業の目的は果たせています。</p>
+<p>順位の変化を追う場合は、<a href="2026-09-22-meo-kouka-kikan.html">MEOの効果が出るまでの期間</a>で触れているとおり、週単位ではなく月単位で見ます。そして直したあとは、基本情報が勝手に書き換わっていないかを定期的に確認します。確認の回し方は<a href="2026-06-28-gbp-monthly-checklist.html">GBPの月次チェックリスト</a>にまとめています。</p>
+<details class="faq"><summary>店舗名にキーワードを入れてもよいですか？</summary><div class="faq-a">実際に使っている店舗名以外を入れることは、Googleビジネスプロフィールのガイドラインで認められていません。看板や登記と異なる名称を登録すると、修正や停止の対象になることがあります。正本は、実際に使っている名称に合わせてください。</div></details>
+
+<details class="faq"><summary>広告用の転送番号は使ってはいけないのですか？</summary><div class="faq-a">計測の目的で使う場合はあります。ただし、どこを正本とするかを決めずに混在させている状態は避けてください。Googleビジネスプロフィールには店舗の主電話番号を登録し、転送番号は補助的に扱うのが整理しやすい形です。</div></details>
+
+<details class="faq"><summary>自分で登録していないサイトに情報が出ています。消せますか？</summary><div class="faq-a">サイトごとに窓口が異なり、修正・削除の依頼フォームが用意されている場合があります。すべてを消せるとは限りませんので、反響につながっている掲載先から優先して修正を依頼してください。反響のない小さな掲載先は、優先度を下げて構いません。</div></details>
+
+<h2 id="h7"><span class="h-num">07</span>まとめ：土台を直してから、施策を足す</h2>
+<p>NAP情報の統一とは、店舗名・住所・電話番号を全掲載先で一字一句そろえることです。正本を1つ決め、掲載先を洗い出し、Googleビジネスプロフィールから順に直し、直した日を記録する。この順番で進めます。</p>
+<p>表記ゆれは、投稿数や口コミ数のように目に見える指標ではないため、後回しにされがちです。ですが、つながらない電話番号が残っているうちは、上位に出ても取りこぼしが続きます。<strong>施策を足す前に、いま出ている情報が正しいかを確かめる</strong>。順番としてはこちらが先です。</p>
+<p>TENERAMENTEでは、こうした基本情報の整備から日々の運用までを含めた<a href="lp-meo.html">MEO対策</a>をお引き受けしています。どこから直すべきか分からない、掲載先の洗い出しから相談したいという段階でしたら、<a href="contact.html">お問い合わせ</a>からご相談ください。初回相談60分は無料です。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#NAP</span><span>#Googleビジネスプロフィール</span><span>#ローカル検索</span><span>#店舗集客</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +310,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +338,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-25-local-seo-meo-chigai.html">
+        <span class="cat">MEO</span>
+        <h4>ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由</h4>
+      </a>
+      <a class="related-card" href="2026-10-01-gbp-category-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-22-meo-kouka-kikan.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の効果が出るまでの期間と、途中でやめないための見方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

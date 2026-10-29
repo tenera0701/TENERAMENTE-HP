@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,149 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-27-google-kuchikomi-fuyasu";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点","description":"Googleの口コミは、MEOの順位にも来店の意思決定にも効く重要な資産です。規約違反にならない増やし方7選と、依頼時の声かけ、低評価への返信の考え方までを丁寧に解説します。","datePublished":"2026-06-27","dateModified":"2026-06-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-27-google-kuchikomi-fuyasu.html","image":"https://teneramente.jp/assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"口コミ, Googleビジネスプロフィール, MEO, レビュー"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点","description":"Googleの口コミは、MEOの順位にも来店の意思決定にも効く重要な資産です。規約違反にならない増やし方7選と、依頼時の声かけ、低評価への返信の考え方までを丁寧に解説します。","datePublished":"2026-06-27","dateModified":"2026-06-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-27-google-kuchikomi-fuyasu.html","image":"https://teneramente.jp/assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"口コミ, Googleビジネスプロフィール, MEO, レビュー"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点","item":"https://teneramente.jp/2026-06-27-google-kuchikomi-fuyasu.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"口コミの依頼自体は規約違反ではないのですか？","acceptedAnswer":{"@type":"Answer","text":"口コミをお願いすること自体は問題ありません。違反になるのは、見返り（割引・金銭・プレゼント）との引き換え、内容や星の指定、自作自演、低評価者の選別除外などです。「率直な感想」を条件なしでお願いしましょう。"}},{"@type":"Question","name":"低評価の口コミは削除できますか？","acceptedAnswer":{"@type":"Answer","text":"お店側が自由に削除することはできません。誹謗中傷や事実無根、営業妨害などポリシー違反に該当する場合は、Googleに削除を申請できます。該当しない「厳しい感想」には、誠実な返信で向き合うのが基本です。"}},{"@type":"Question","name":"口コミへの返信はすべてに必要ですか？","acceptedAnswer":{"@type":"Answer","text":"理想は全件返信です。難しい場合は、低評価と内容の濃い口コミを優先しつつ、短くてもお礼を返す運用から始めましょう。返信の型を決めておくと負担が大きく減ります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 27, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">5 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-27-google-kuchikomi-fuyasu.webp" alt="Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>口コミがMEOと来店に効く理由</a><a href="#h2"><span class="n">02</span>口コミが増えない「本当の原因」</a><a href="#h3"><span class="n">03</span>口コミを増やす方法7選</a><a href="#h4"><span class="n">04</span>依頼時の声かけ・文面の考え方</a><a href="#h5"><span class="n">05</span>やってはいけないこと：規約違反のリスク</a><a href="#h6"><span class="n">06</span>低評価への返信の考え方と姿勢</a><a href="#h7"><span class="n">07</span>返信を「資産」にする：継続のための工夫</a><a href="#h8"><span class="n">08</span>まとめ：仕組みで増やし、返信で育てる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">お店選びの最後のひと押しは、いつも口コミです。Googleマップの口コミは、<strong>MEOの順位にも、来店の意思決定にも効く「二重の資産」</strong>。しかし「お客様に頼みづらい」「頼んでも書いてもらえない」という声も多く聞きます。本記事では、規約に沿った口コミの増やし方と、返信を資産に変える考え方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>口コミが増えない最大の原因は、満足度ではなく「依頼の仕組みがないこと」。<strong>満足度が最も高い瞬間に、書きやすい導線（QRコードなど）を添えて自然にお願いする</strong>──この仕組み化だけで、口コミは着実に積み上がります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>口コミがMEOと来店に効く理由</h2>
+<p>Googleはローカル検索の順位要素として「関連性・距離・知名度」を挙げており、口コミは、このうち<strong>知名度（Prominence）を構成する代表的なシグナル</strong>とされています。数・評価・内容の新しさ、そして口コミに含まれる言葉（「子連れで行きやすい」「駐車場が広い」など）が、検索との関連づけにも役立ちます。</p>
+<p>そしてもう一つの効果が、人への影響です。マップで店を比較するユーザーは、写真と星評価、そして<strong>直近の口コミの内容</strong>を見て行くかどうかを決めます。順位が同じでも、口コミの厚みで選ばれ方は大きく変わります。</p>
+<h2 id="h2"><span class="h-num">02</span>口コミが増えない「本当の原因」</h2>
+<p>「うちはお客様の満足度が高いのに口コミが少ない」──よくあるご相談ですが、原因のほとんどは満足度ではありません。</p>
+<ul>
+<li><strong>そもそも依頼していない</strong>：満足したお客様でも、頼まれなければ書かないのが普通です</li>
+<li><strong>書くまでの手間が多い</strong>：店名を検索して、プロフィールを開いて、ログインして…と手順が多いほど離脱します</li>
+<li><strong>依頼のタイミングが悪い</strong>：会計後の慌ただしい瞬間や、後日のメールだけでは動いてもらえません</li>
+</ul>
+<p>裏を返せば、**「依頼する」「手間を減らす」「タイミングを合わせる」**の3点を仕組みにすれば、口コミは増えます。</p>
+<h2 id="h3"><span class="h-num">03</span>口コミを増やす方法7選</h2>
+<h3>1. 満足のピークで直接お願いする</h3>
+<p>施術後の「楽になった」、食後の「おいしかった」の一言が出た瞬間が最良のタイミングです。<strong>感情が動いた直後</strong>にお願いしましょう。</p>
+<h3>2. QRコードで導線を最短にする</h3>
+<p>口コミ投稿画面に直接飛べるURLをQRコード化し、レジ横・テーブル・診察券などに設置します。<strong>検索の手間をゼロ</strong>にするのが目的です。</p>
+<h3>3. お会計時の声かけを「型」にする</h3>
+<p>スタッフによって頼んだり頼まなかったりでは増えません。「お帰りの際にこのQRから感想をいただけると励みになります」など、<strong>全員が同じ一言を言える型</strong>を作ります。</p>
+<h3>4. サンクスカード・カードPOPを渡す</h3>
+<p>その場で書けなかった人のために、QRつきのカードをお渡しします。帰宅後や待ち時間に書いてもらえる余地を残せます。</p>
+<h3>5. 再来店のお客様・常連さんにお願いする</h3>
+<p>関係性ができているお客様ほど、快く協力してくれます。<strong>「いつもありがとうございます」の延長</strong>で自然に頼めるのが強みです。</p>
+<h3>6. 口コミへの返信を全件続ける</h3>
+<p>「返信してくれる店」という空気は、次の投稿者を呼びます。返信は投稿へのお礼であると同時に、<strong>これから書く人への招待状</strong>でもあります。</p>
+<h3>7. 体験そのものに「語りたくなる一点」を作る</h3>
+<p>最後は王道です。写真を撮りたくなる盛り付け、想像を超えるひと手間。<strong>口コミに書きやすい特徴</strong>があると、依頼しなくても言及が生まれます。</p>
+<h2 id="h4"><span class="h-num">04</span>依頼時の声かけ・文面の考え方</h2>
+<p>例文を丸暗記するより、次の3要素を押さえるほうが応用が利きます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>意図</th>
+<th>声かけの例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>感謝</td>
+<td>依頼ではなく御礼から入る</td>
+<td>「本日はありがとうございました」</td>
+</tr>
+<tr>
+<td>理由</td>
+<td>なぜお願いするのかを正直に</td>
+<td>「感想が今後の改善とスタッフの励みになります」</td>
+</tr>
+<tr>
+<td>手軽さ</td>
+<td>負担が小さいことを伝える</td>
+<td>「こちらのQRから1分ほどで書けます」</td>
+</tr>
+</tbody></table></div>
+<p>大切なのは、<strong>評価の内容を指定しないこと</strong>。「星5でお願いします」ではなく「率直なご感想をお聞かせください」と伝えるのが、規約面でも信頼面でも正解です。</p>
+<h2 id="h5"><span class="h-num">05</span>やってはいけないこと：規約違反のリスク</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意：これらはGoogleのポリシー違反です</h4>
+    <p>①割引・プレゼント・金銭など<strong>見返りと引き換えの口コミ依頼</strong>、②自分や従業員による<strong>自作自演の投稿</strong>、③業者からの<strong>口コミ購入</strong>、④低評価者だけを除外して依頼する<strong>選別（レビューゲーティング）</strong>。これらは口コミの削除にとどまらず、ビジネスプロフィール自体の停止につながるリスクがあります。短期的に数が増えても、失うものの方がはるかに大きい行為です。</p>
+  </div>
+</div>
+
+<p>「口コミを買いませんか」という営業を受けることがあるかもしれませんが、応じないのが賢明です。<strong>正攻法で積み上げた口コミだけが、長期的な資産</strong>になります。</p>
+<h2 id="h6"><span class="h-num">06</span>低評価への返信の考え方と姿勢</h2>
+<p>低評価がついたときこそ、お店の姿勢が見られています。返信の基本は次の流れです。</p>
+<ol>
+<li><strong>お礼</strong>：時間を割いて意見をくれたことへの感謝</li>
+<li><strong>受け止め</strong>：不快にさせた点への率直なお詫び（事実確認前なら「ご不便をおかけした点」に対して）</li>
+<li><strong>改善</strong>：具体的にどう対応するか</li>
+<li><strong>再訪の余地</strong>：可能であれば、次の機会への一言</li>
+</ol>
+<p>反論や言い訳を並べるのは逆効果です。この返信を読むのは投稿者本人だけでなく、<strong>これから来店を検討するすべての人</strong>だからです。事実と異なる誹謗中傷にあたる場合は、感情的に返信せず、Googleへの削除申請という正規の手段を検討しましょう。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>当社の運用では、低評価への返信こそ丁寧に書くことを推奨しています。誠実な返信がついた低評価は、むしろ「きちんと向き合う店」という印象を与え、プロフィール全体の信頼を底上げしてくれるためです。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>返信を「資産」にする：継続のための工夫</h2>
+<p>口コミ返信は、1件ずつは小さな作業でも、続けるとなると負担になります。継続のコツは、<strong>返信のトーンと型をあらかじめ決めておくこと</strong>。お礼→内容への言及→次への一言、という骨格を決めておけば、迷う時間が減ります。</p>
+<p>最近は、口コミの内容を読み取って返信文の下書きを作る<strong>AI返信支援ツール</strong>も増えてきました。AIの下書きをそのまま送るのではなく、店の言葉に直して送る──この使い方なら、品質を保ちながら返信を習慣化できます。返信の蓄積は、Googleへのシグナルであると同時に、<strong>未来のお客様への接客記録</strong>でもあります。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：仕組みで増やし、返信で育てる</h2>
+<p>口コミ対策の本質は、テクニックではなく**「依頼の仕組み化」と「返信の習慣化」**です。満足のピークでお願いし、QRコードで手間をなくし、全件に誠実に返信する。規約違反の近道を選ばず、この正攻法を続けたお店から、口コミは確実に育っていきます。</p>
+<details class="faq">
+  <summary>口コミの依頼自体は規約違反ではないのですか？</summary>
+  <div class="faq-a">口コミをお願いすること自体は問題ありません。違反になるのは、見返り（割引・金銭・プレゼント）との引き換え、内容や星の指定、自作自演、低評価者の選別除外などです。「率直な感想」を条件なしでお願いしましょう。</div>
+</details>
+<details class="faq">
+  <summary>低評価の口コミは削除できますか？</summary>
+  <div class="faq-a">お店側が自由に削除することはできません。誹謗中傷や事実無根、営業妨害などポリシー違反に該当する場合は、Googleに削除を申請できます。該当しない「厳しい感想」には、誠実な返信で向き合うのが基本です。</div>
+</details>
+<details class="faq">
+  <summary>口コミへの返信はすべてに必要ですか？</summary>
+  <div class="faq-a">理想は全件返信です。難しい場合は、低評価と内容の濃い口コミを優先しつつ、短くてもお礼を返す運用から始めましょう。返信の型を決めておくと負担が大きく減ります。</div>
+</details>
+
+<p>TENERAMENTEでは、MEO運用代行の一環として、口コミ獲得の仕組みづくりから返信の代行・AIを活用した返信支援までをご提供しています。「口コミがなかなか増えない」「返信が追いつかない」という段階からでも、お気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#口コミ</span><span>#Googleビジネスプロフィール</span><span>#MEO</span><span>#レビュー</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +313,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +341,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-28-gbp-monthly-checklist.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィール 月次運用チェックリスト</h4>
+      </a>
+      <a class="related-card" href="2026-06-25-kozoka-data-json-ld-guide.html">
+        <span class="cat">AIO</span>
+        <h4>構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方</h4>
+      </a>
+      <a class="related-card" href="2026-06-23-ai-overviews-taisaku.html">
+        <span class="cat">AIO</span>
+        <h4>Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手</h4>
+      </a>
+    </div>
   </div>
 </section>
 

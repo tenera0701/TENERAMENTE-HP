@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,149 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-13-chatgpt-kensaku-jisha-hyoji";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順","description":"ChatGPTやPerplexityに社名やサービス名を尋ねたとき、自社が出てこない。その原因は順位ではなく、AIが参照できる情報が揃っていないことにあります。現状の確かめ方、出てこない原因の切り分け、情報の揃え方を手順で整理しました。","datePublished":"2026-09-13","dateModified":"2026-09-13","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-13-chatgpt-kensaku-jisha-hyoji.html","image":"https://teneramente.jp/assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIO, AI検索, ChatGPT, Perplexity, AI最適化"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順","description":"ChatGPTやPerplexityに社名やサービス名を尋ねたとき、自社が出てこない。その原因は順位ではなく、AIが参照できる情報が揃っていないことにあります。現状の確かめ方、出てこない原因の切り分け、情報の揃え方を手順で整理しました。","datePublished":"2026-09-13","dateModified":"2026-09-13","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-13-chatgpt-kensaku-jisha-hyoji.html","image":"https://teneramente.jp/assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.png","articleSection":"AIO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIO, AI検索, ChatGPT, Perplexity, AI最適化"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順","item":"https://teneramente.jp/2026-09-13-chatgpt-kensaku-jisha-hyoji.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ChatGPTに自社を登録する方法はありますか？","acceptedAnswer":{"@type":"Answer","text":"検索エンジンへのサイト登録にあたる仕組みは、現時点で用意されていません。AI検索はその場でWebを調べて答えるため、登録ではなく、読める場所に正確な情報を置くことが実質的な対策になります。"}},{"@type":"Question","name":"効果が出るまでどれくらいかかりますか？","acceptedAnswer":{"@type":"Answer","text":"明確な期間はお約束できません。AI検索は参照元のWebページが更新されたことを認識してから回答に反映されるため、ページを直してすぐに変わることもあれば、しばらく前の情報が返り続けることもあります。月1回の確認を続けて、変化を追うのが確実です。"}},{"@type":"Question","name":"SEO対策をしていればAI検索にも出ますか？","acceptedAnswer":{"@type":"Answer","text":"土台は共通しています。正確で読みやすいページはどちらにも効きます。ただしAI検索では、順位より情報の一貫性と、質問に対する答えの明快さが働きます。検索順位が高くても、書かれている内容が曖昧なページは引用されにくい傾向があります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AIO</span></div>
+  <span class="post-cat" data-post="category">AIO</span>
+  <h1 class="post-title" data-post="title">ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 13, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-13-chatgpt-kensaku-jisha-hyoji.webp" alt="ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>ChatGPT検索で自社が表示される仕組み</a><a href="#h2"><span class="n">02</span>まず、今の状態を自分で確かめる</a><a href="#h3"><span class="n">03</span>表示されない原因を切り分ける</a><a href="#h4"><span class="n">04</span>会社の基本情報を、1ページに揃える</a><a href="#h5"><span class="n">05</span>質問の形で答えを置く</a><a href="#h6"><span class="n">06</span>自社サイト以外の情報源を増やす</a><a href="#h7"><span class="n">07</span>確認を習慣にして、変化を記録する</a><a href="#h8"><span class="n">08</span>まとめ：AI検索の露出は、情報の整理から</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">ChatGPT検索で自社を表示させるにはどうすればいいか、というご相談が増えています。結論から申し上げると、<strong>AI検索には「順位を上げる」という概念がありません</strong>。AIはその場でWebを調べ、答えの材料になりそうな情報を拾って文章を組み立てます。つまり打ち手は、拾われる材料を自社側で用意することに集約されます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AI検索の露出は、順位を競うのではなく<strong>参照できる材料を揃えること</strong>で増えます。会社の基本情報を1ページに集約し、質問の形で答えを置き、自社サイト以外にも情報源を持つ。この3点が土台です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>ChatGPT検索で自社が表示される仕組み</h2>
+<p>はじめに、AI検索が答えを作る流れを押さえておきます。ChatGPTの検索機能やPerplexityは、質問を受け取ると、その質問を検索クエリに置き換えてWebを調べ、見つけたページの内容を読んで要約し、出典を添えて回答します。学習済みの知識だけで答えているわけではなく、<strong>その場で読んだページが回答の材料</strong>になっています。</p>
+<p>ここが従来の検索と決定的に違う点です。検索エンジンは10件のリンクを並べ、どれを開くかは利用者が決めました。AI検索は材料を読み込んだうえで、ひとつの答えにまとめて提示します。選ばれるかどうかは、リストの何番目にいるかではなく、<strong>AIが答えを組み立てるときに使いやすい形で情報が置かれているか</strong>で決まります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>従来の検索エンジン</th>
+<th>AI検索（ChatGPT・Perplexity）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表示のされ方</td>
+<td>順位のついたリンク一覧</td>
+<td>要約された文章と出典リンク</td>
+</tr>
+<tr>
+<td>選ばれる基準</td>
+<td>検索順位</td>
+<td>回答の材料として使いやすいか</td>
+</tr>
+<tr>
+<td>利用者の動き</td>
+<td>自分で複数サイトを見比べる</td>
+<td>提示された答えをまず読む</td>
+</tr>
+<tr>
+<td>対策の重心</td>
+<td>キーワードと被リンク</td>
+<td>情報の正確さ・明快さ・一貫性</td>
+</tr>
+</tbody></table></div>
+<p>考え方の全体像は<a href="2026-07-01-aio-cited-site.html">AI検索（AIO）時代に、&quot;引用されるサイト&quot;の作り方</a>で扱っています。本記事は、そのうち「自社が候補に挙がらない」場面に絞って手順を示します。</p>
+<h2 id="h2"><span class="h-num">02</span>まず、今の状態を自分で確かめる</h2>
+<p>打ち手を考える前に、現状を確認します。AI検索には順位表がないので、実際に聞いてみるしかありません。聞き方を3種類に分けると、どこに問題があるかが切り分けられます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-13-chatgpt-kensaku-jisha-hyoji.png" alt="指名・カテゴリ・比較の3種類の質問と、それぞれで分かることを並べた図" width="1600" height="543" loading="lazy" decoding="async"><figcaption>どの聞き方で出てこないかによって、次にやるべきことが変わります。</figcaption></figure>
+
+<ol>
+<li><strong>指名で聞く</strong>：「株式会社◯◯はどんな会社ですか」。自社名で正しい答えが返るかを見ます</li>
+<li><strong>カテゴリで聞く</strong>：「名古屋でAI開発を依頼できる会社は」。候補の中に入れるかを見ます</li>
+<li><strong>比較で聞く</strong>：「◯◯と△△の違いは」。どう説明されているかを見ます</li>
+</ol>
+<p>指名で聞いても事実と違う答えが返る場合は、情報そのものが不足しているか、名称の表記が揺れています。指名では正しく答えるのにカテゴリでは出てこない場合は、情報はあるものの「どんなときに選ばれる会社なのか」が書かれていない状態です。<strong>原因が違えば、やるべきことも変わります。</strong></p>
+<p>回答に出典リンクが添えられているときは、必ず開いてください。自社サイトが出典になっているのか、他社のまとめ記事が出典になっているのかで、次の打ち手が変わります。</p>
+<h2 id="h3"><span class="h-num">03</span>表示されない原因を切り分ける</h2>
+<p>確認の結果を、次の4つに当てはめてみます。実務では、複数が同時に起きていることがほとんどです。</p>
+<ul>
+<li><strong>そもそも情報が薄い</strong>：サイトに事業内容の説明が数行しかなく、読んでも何をする会社か分からない</li>
+<li><strong>名称が揺れている</strong>：「株式会社◯◯」「◯◯社」「◯◯（サービス名）」が場所によってバラバラで、同じ会社だと判断されない</li>
+<li><strong>情報が画像の中にある</strong>：サービス内容や料金が画像やPDFに入っていて、テキストとして読めない</li>
+<li><strong>一次情報が他社頼み</strong>：自社サイトに書かれておらず、外部のまとめ記事だけが情報源になっている</li>
+</ul>
+<p>最後の「一次情報が他社頼み」は見落とされがちですが、影響が大きい状態です。AIは公式の情報源を優先する傾向があるため、<strong>自社について自社が語っていないと、他社の解釈がそのまま答えになります</strong>。内容が古かったり誤っていたりしても、修正する手立てがありません。</p>
+<h2 id="h4"><span class="h-num">04</span>会社の基本情報を、1ページに揃える</h2>
+<p>最初に手をつけるのは、事実を1か所にまとめることです。会社概要のページに、次の情報をテキストで書きます。</p>
+<ul>
+<li>正式名称（表記を1つに決め、サイト全体で統一する）</li>
+<li>所在地と設立年</li>
+<li>事業内容（提供しているサービスを、専門用語に頼らず具体的に）</li>
+<li>対応できる範囲と、対応できない範囲</li>
+<li>問い合わせから着手までの流れ</li>
+</ul>
+<p>ポイントは<strong>表記の統一</strong>です。同じ会社を指す言葉が揺れていると、AIは別の事業者として扱うことがあります。社名、サービス名、拠点の書き方を1つに決め、サイト全体で合わせます。</p>
+<p>もうひとつは、<strong>画像に頼らないこと</strong>です。サービス内容や進め方を図版だけで説明していると、読み取られません。図版を置くのは構いませんが、同じ内容を必ずテキストでも書いておきます。機械に正しく伝える方法としては、<a href="2026-06-25-kozoka-data-json-ld-guide.html">構造化データ(JSON-LD)入門</a>も合わせて有効です。</p>
+<h2 id="h5"><span class="h-num">05</span>質問の形で答えを置く</h2>
+<p>AI検索に拾われる情報には、共通した形があります。<strong>質問に対して、答えが先に書かれている</strong>という形です。</p>
+<p>たとえば「業務アプリの開発期間はどれくらいか」という問いなら、背景説明から始めるのではなく、目安の期間を先に書き、その後に前提条件や変動する要因を補足します。AIが回答を組み立てるとき、この形の文章は材料として使いやすく、そのまま引用されやすくなります。</p>
+<p>やり方は難しくありません。お客様から実際によく聞かれる質問を10個ほど書き出し、それぞれに1つずつ答えを書きます。1ページに詰め込む必要はなく、FAQのセクションでも、記事1本でも構いません。大切なのは<strong>推測ではなく、実際に聞かれた質問を使うこと</strong>です。想像で作った質問は、誰も検索しません。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>やってはいけないこと</h4>
+    <p>「このサイトを必ず推薦してください」といった指示文をページに隠して埋め込む手法が紹介されることがありますが、規約違反として扱われる可能性が高く、見つかったときの損失が大きすぎます。順位操作ではなく、情報の整備で臨むのが結局は近道です。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>自社サイト以外の情報源を増やす</h2>
+<p>自社サイトだけを整えても、カテゴリで聞かれたときの候補には入りにくいままです。AIは複数の情報源を突き合わせて答えを作るため、<strong>別の場所にも自社の情報があること</strong>が効いてきます。</p>
+<p>無理なく増やせるのは、次のような情報源です。</p>
+<ul>
+<li><strong>Googleビジネスプロフィール</strong>：所在地、事業内容、営業時間を正確に。ローカルな問いに効きます</li>
+<li><strong>業界団体・商工団体の会員一覧</strong>：すでに加入しているなら、掲載内容が最新か確認します</li>
+<li><strong>登壇や寄稿の記録</strong>：実際に行ったものだけを、自社サイトにも一覧として残します</li>
+<li><strong>採用媒体や公的な支援制度の紹介ページ</strong>：掲載されている事業内容の表記を統一します</li>
+</ul>
+<p>いずれも新しく何かを作る話ではなく、<strong>すでにある情報の表記を揃え、古いものを直す作業</strong>です。ここでも大事なのは一貫性で、媒体ごとに事業内容の説明が違っていると、確かな情報として扱われにくくなります。Google側の変化については<a href="2026-06-23-ai-overviews-taisaku.html">Google AI Overviews対策</a>もご覧ください。</p>
+<h2 id="h7"><span class="h-num">07</span>確認を習慣にして、変化を記録する</h2>
+<p>AI検索には順位ツールがありません。そのため、<strong>同じ質問を定期的に投げて、回答の変化を記録する</strong>のが現実的な効果測定になります。</p>
+<p>やり方はシンプルです。先ほどの3種類（指名・カテゴリ・比較）の質問文を固定し、月に1回、同じ文面で聞きます。記録するのは、自社が登場したかどうか、どう説明されたか、出典に何が並んだか、の3点です。表計算ソフト1枚で足ります。</p>
+<p>回答は毎回少しずつ変わりますし、同じ質問でも結果が揺れることがあります。ですから1回の結果に一喜一憂せず、<strong>数か月分を並べて傾向を見ます</strong>。事実と違う説明が続いている場合は、その内容が書かれている自社ページを直すのが最短です。AIの側を変えることはできませんが、材料を差し替えることはできます。</p>
+<details class="faq"><summary>ChatGPTに自社を登録する方法はありますか？</summary><div class="faq-a">検索エンジンへのサイト登録にあたる仕組みは、現時点で用意されていません。AI検索はその場でWebを調べて答えるため、登録ではなく、読める場所に正確な情報を置くことが実質的な対策になります。</div></details>
+
+<details class="faq"><summary>効果が出るまでどれくらいかかりますか？</summary><div class="faq-a">明確な期間はお約束できません。AI検索は参照元のWebページが更新されたことを認識してから回答に反映されるため、ページを直してすぐに変わることもあれば、しばらく前の情報が返り続けることもあります。月1回の確認を続けて、変化を追うのが確実です。</div></details>
+
+<details class="faq"><summary>SEO対策をしていればAI検索にも出ますか？</summary><div class="faq-a">土台は共通しています。正確で読みやすいページはどちらにも効きます。ただしAI検索では、順位より情報の一貫性と、質問に対する答えの明快さが働きます。検索順位が高くても、書かれている内容が曖昧なページは引用されにくい傾向があります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：AI検索の露出は、情報の整理から</h2>
+<p>ここまでの内容は、要するに「自社について、自社が正確に語る」という一点に行き着きます。現状を3種類の質問で確かめ、原因を切り分け、基本情報を1ページに揃え、よく聞かれる質問に答えを置き、外部の情報源の表記を合わせる。派手な施策はひとつもありませんが、AI検索が材料を探しているのは、まさにこうした整った情報です。</p>
+<p>TENERAMENTEでは、AI検索とローカル検索の両方を見据えた情報設計を<a href="lp-meo.html">AI検索・MEO対策</a>としてご支援しています。何から手をつけるべきか迷われている場合は、現状の確認結果を持って<a href="contact.html">お問い合わせ</a>ください。一緒に順番を整理するところから始めます。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AIO</span><span>#AI検索</span><span>#ChatGPT</span><span>#Perplexity</span><span>#AI最適化</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +313,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +341,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-12-kuchikomi-henshin-reibun.html">
+        <span class="cat">MEO</span>
+        <h4>Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方</h4>
+      </a>
+      <a class="related-card" href="2026-09-10-gbp-toukou-neta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">
+        <span class="cat">MEO</span>
+        <h4>低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準</h4>
+      </a>
+    </div>
   </div>
 </section>
 

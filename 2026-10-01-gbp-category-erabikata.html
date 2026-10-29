@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,145 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-01-gbp-category-erabikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方","description":"Googleビジネスプロフィールのカテゴリの選び方を、メインカテゴリと追加カテゴリの役割の違いから整理しました。判断基準・迷いやすいケース・変更するときの手順までまとめています。","datePublished":"2026-10-01","dateModified":"2026-10-01","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-01-gbp-category-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-01-gbp-category-erabikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, GBP, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方","description":"Googleビジネスプロフィールのカテゴリの選び方を、メインカテゴリと追加カテゴリの役割の違いから整理しました。判断基準・迷いやすいケース・変更するときの手順までまとめています。","datePublished":"2026-10-01","dateModified":"2026-10-01","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-01-gbp-category-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-01-gbp-category-erabikata.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, GBP, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方","item":"https://teneramente.jp/2026-10-01-gbp-category-erabikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"追加カテゴリは上限まで埋めたほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"埋める必要はありません。実際に提供しているサービスだけを選んでください。提供していない業態を入れると、メインで伝えたい業態がぼやけ、受けられない問い合わせも増えます。"}},{"@type":"Question","name":"カテゴリを変えると順位は下がりますか？","acceptedAnswer":{"@type":"Answer","text":"変更後しばらくは表示が変動することがあります。合っていないカテゴリのままにしておくほうが機会損失は大きいので、必要な変更は行ったうえで、2週間から1か月ほど様子を見て判断してください。"}},{"@type":"Question","name":"店舗名にキーワードを入れれば、カテゴリは気にしなくていいですか？","acceptedAnswer":{"@type":"Answer","text":"店舗名は実際に使っている名称を入れる項目で、検索されたい言葉を足す欄ではありません。ガイドラインに反した表記は修正や停止の対象になります。業態を伝える役割はカテゴリが担っています。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 1, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-01-gbp-category-erabikata.webp" alt="Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>カテゴリは「何の店か」をGoogleに伝える設定</a><a href="#h2"><span class="n">02</span>メインカテゴリと追加カテゴリは役割が違う</a><a href="#h3"><span class="n">03</span>メインカテゴリの選び方：3つの判断基準</a><a href="#h4"><span class="n">04</span>追加カテゴリは「提供しているもの」だけを足す</a><a href="#h5"><span class="n">05</span>迷いやすいケースの考え方</a><a href="#h6"><span class="n">06</span>カテゴリを変更するときの手順と注意点</a><a href="#h7"><span class="n">07</span>まとめ：カテゴリは年に一度見直す設定</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">最初に登録したきりで、それ以来触っていない。カテゴリの設定でいちばん多いのがこの状態です。<strong>Googleビジネスプロフィールのカテゴリは、検索されたときに自社が候補に入るかどうかを決める設定</strong>で、写真や投稿を増やすより先に見直す価値があります。メインを1つ選び、追加を必要な分だけ足す。順番が決まれば、迷う時間はほとんどなくなります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>カテゴリ選びは<strong>メインカテゴリを1つに絞り込む作業</strong>です。メインは「いちばん売上をつくっている業態」を、追加は「実際に提供していること」だけを選びます。<strong>関連しそうだからという理由で追加カテゴリを増やすのは逆効果</strong>で、伝えたい業態がぼやけます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>カテゴリは「何の店か」をGoogleに伝える設定</h2>
+<p>カテゴリは、自社がどんな業態なのかをGoogleに伝えるための項目です。自由に文章を書く欄ではなく、Googleがあらかじめ用意した一覧から選ぶ形式になっています。独自の名称を作ることはできません。</p>
+<p>この設定が効いてくるのは、ユーザーが業種名で検索したときです。「名古屋 ○○」のような検索や、マップ上での絞り込みで表示される候補は、登録されたカテゴリをもとに組み立てられています。<strong>カテゴリに入っていない業態の検索では、そもそも候補に入りません</strong>。どれだけ口コミが多くても、土俵に上がっていなければ表示されないということです。</p>
+<p>もうひとつ、カテゴリは<strong>使える機能も決めます</strong>。予約のボタン、メニューの掲載、サービス一覧といった項目は、カテゴリによって出たり出なかったりします。「他店にはある欄が自社には無い」という場合、原因がカテゴリにあることは珍しくありません。</p>
+<h2 id="h2"><span class="h-num">02</span>メインカテゴリと追加カテゴリは役割が違う</h2>
+<p>この2つを同列に考えていると、選び方を間違えます。役割が違うためです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>メインカテゴリ</th>
+<th>追加カテゴリ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>設定できる数</td>
+<td>1つだけ</td>
+<td>複数（上限あり。管理画面で確認できます）</td>
+</tr>
+<tr>
+<td>位置づけ</td>
+<td>自社の業態そのもの</td>
+<td>提供している他のサービス</td>
+</tr>
+<tr>
+<td>表示への影響</td>
+<td>大きい</td>
+<td>メインより小さい</td>
+</tr>
+<tr>
+<td>増やすと</td>
+<td>―</td>
+<td>多すぎると業態がぼやける</td>
+</tr>
+<tr>
+<td>選ぶ基準</td>
+<td>売上の柱</td>
+<td>実際に提供しているか</td>
+</tr>
+</tbody></table></div>
+<p>メインカテゴリは1つしか設定できず、そのぶん重みがあります。<strong>プロフィール上で「この店は何屋か」を決めているのはメインカテゴリ</strong>だと考えてください。追加カテゴリは補足です。</p>
+<p>追加カテゴリの数には上限があります。上限は変わることがあるので、実際の数は管理画面の入力欄で確認してください。大事なのは、上限まで埋めることが目的ではないという点です。</p>
+<h2 id="h3"><span class="h-num">03</span>メインカテゴリの選び方：3つの判断基準</h2>
+<p>メインを決めるときは、次の順番で考えると迷いません。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-01-gbp-category-erabikata.png" alt="売上の柱になっている業態を選ぶ・その言葉で実際に検索して確かめる・同業の競合が選んでいるカテゴリを見る・1つに絞って残りを追加カテゴリに回す、という4手順を並べた図" width="1600" height="625" loading="lazy" decoding="async"><figcaption>3つとも見てから絞ります。やりたい業態ではなく、今いちばん収益をつくっている業態が基準です。</figcaption></figure>
+
+<p>第一に、<strong>売上の柱になっている業態を選ぶ</strong>こと。やりたい業態や将来広げたい業態ではなく、今いちばん収益をつくっている業態です。複数の事業を持っている場合ほど、ここを曖昧にしたままにしがちです。</p>
+<p>第二に、<strong>その言葉で実際に検索されるかを確かめる</strong>こと。社内で使っている呼び方と、お客様が検索する言葉が違うことはよくあります。候補のカテゴリ名をそのまま検索窓に入れて、出てくる結果が自社と同じ業態かを見てください。違う業種が並ぶなら、そのカテゴリは合っていません。</p>
+<p>第三に、<strong>同じ業態の競合が何を選んでいるかを見る</strong>こと。上位に出ている同業のプロフィールを開けば、カテゴリ名は公開されています。真似をするためではなく、Googleがその業態をどのカテゴリで扱っているかの確認です。</p>
+<p>3つとも見たうえで1つに絞り、残った候補は追加カテゴリに回します。</p>
+<h2 id="h4"><span class="h-num">04</span>追加カテゴリは「提供しているもの」だけを足す</h2>
+<p>追加カテゴリの判断基準は、ひとつだけです。<strong>その業態のサービスを、実際に提供しているかどうか</strong>。これに尽きます。</p>
+<p>関連がありそうだから、検索されそうだから、という理由で足すと、次の問題が起きます。提供していないサービスを期待した問い合わせが増えること。そして、メインで伝えたい業態がぼやけることです。カテゴリは足せば足すほど有利になる設定ではありません。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>やりがちな失敗</h4>
+    <p>「対応できなくはない」レベルのサービスをカテゴリに入れてしまうケースです。カテゴリは看板と同じで、書いてある以上は問い合わせが来ます。受けきれない業態を入れると、現場の負担と口コミの評価の両方に跳ね返ります。</p>
+  </div>
+</div>
+
+<p>迷ったときは、そのカテゴリで来店したお客様を実際に満足させられるか、を基準にしてください。</p>
+<h2 id="h5"><span class="h-num">05</span>迷いやすいケースの考え方</h2>
+<p><strong>複数の事業を1つの店舗でやっている場合</strong>。メインは売上の柱にし、他は追加に入れます。どの事業も同じくらい重要で分けたい場合は、事業ごとに実体（別の住所・別の担当・別の看板）があるかどうかが判断の分かれ目になります。実体が同じ場所にひとつしかないなら、プロフィールを分けることはできません。</p>
+<p><strong>似たカテゴリが複数ある場合</strong>。より具体的なほうを選びます。広いカテゴリは検索範囲が広いように見えますが、競合も広がり、探している人の目的とずれやすくなります。</p>
+<p><strong>該当するカテゴリが見つからない場合</strong>。近いものの中から、提供内容がいちばん重なるものを選びます。一覧は随時更新されるため、しばらくしてから再度探すと追加されていることもあります。</p>
+<p>日常の運用でどこを見るかは、<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月次チェックリスト</a>で扱っています。</p>
+<h2 id="h6"><span class="h-num">06</span>カテゴリを変更するときの手順と注意点</h2>
+<p>変更そのものは管理画面から数分で終わりますが、順番と時期に注意が必要です。</p>
+<ol>
+<li><strong>変更前の状態を控えておく</strong>。メイン・追加ともに、今の設定をメモか画面の記録で残します</li>
+<li><strong>一度に変えるのは1か所だけ</strong>にする。メインと追加を同時に入れ替えると、効果の判定ができません</li>
+<li><strong>変更する</strong>。管理画面の「ビジネス情報」から編集します</li>
+<li><strong>審査を待つ</strong>。カテゴリの変更は反映まで時間がかかることがあり、確認を求められる場合もあります</li>
+<li><strong>2週間から1か月後に見直す</strong>。表示のされ方や問い合わせの内容が変わったかを確認します</li>
+</ol>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>繁忙期の直前には変えない</h4>
+    <p>カテゴリを変更すると、反映まで時間がかかったり、一時的に表示が不安定になったりすることがあります。問い合わせが集中する時期の直前は避け、落ち着いている時期に変更してください。</p>
+  </div>
+</div>
+
+<p>順位が下がったように見えるときの切り分け方は、<a href="2026-09-19-google-map-juni-sagatta.html">Googleマップの順位が下がったときの原因</a>にまとめています。</p>
+<details class="faq"><summary>追加カテゴリは上限まで埋めたほうがいいですか？</summary><div class="faq-a">埋める必要はありません。実際に提供しているサービスだけを選んでください。提供していない業態を入れると、メインで伝えたい業態がぼやけ、受けられない問い合わせも増えます。</div></details>
+
+<details class="faq"><summary>カテゴリを変えると順位は下がりますか？</summary><div class="faq-a">変更後しばらくは表示が変動することがあります。合っていないカテゴリのままにしておくほうが機会損失は大きいので、必要な変更は行ったうえで、2週間から1か月ほど様子を見て判断してください。</div></details>
+
+<details class="faq"><summary>店舗名にキーワードを入れれば、カテゴリは気にしなくていいですか？</summary><div class="faq-a">店舗名は実際に使っている名称を入れる項目で、検索されたい言葉を足す欄ではありません。ガイドラインに反した表記は修正や停止の対象になります。業態を伝える役割はカテゴリが担っています。</div></details>
+
+<h2 id="h7"><span class="h-num">07</span>まとめ：カテゴリは年に一度見直す設定</h2>
+<p>カテゴリは、一度決めたら終わりの設定ではありません。事業の中身は変わりますし、Googleのカテゴリ一覧も更新されます。売上の柱が変わったのに、メインカテゴリだけが開業当時のままになっている店舗は少なくありません。</p>
+<p>年に一度、決算や期の切り替わりのタイミングで、メインが今の売上の柱と合っているかを確認してください。作業自体は短時間で終わります。写真の追加や投稿の更新より地味ですが、<strong>表示される検索そのものを決めている設定</strong>なので、手をつける順番としては先です。</p>
+<p>TENERAMENTEでは、カテゴリの見直しを含めたMEOの運用支援を行っています。何を直せば表示が変わるのかを、現状の設定を見ながら整理するところから始めます。詳しくは<a href="lp-meo.html">MEO対策のサービス紹介</a>をご覧ください。自社の設定が合っているかを確認したい方は、<a href="contact.html">お問い合わせ</a>からご相談ください。初回相談60分は無料です。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleビジネスプロフィール</span><span>#GBP</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +309,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +337,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-28-nap-touitsu-meo.html">
+        <span class="cat">MEO</span>
+        <h4>NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO</h4>
+      </a>
+      <a class="related-card" href="2026-10-04-tatenpo-meo-unyo.html">
+        <span class="cat">MEO</span>
+        <h4>多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目</h4>
+      </a>
+      <a class="related-card" href="2026-09-25-local-seo-meo-chigai.html">
+        <span class="cat">MEO</span>
+        <h4>ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由</h4>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,182 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-03-naibu-link-harikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き","description":"内部リンクの貼り方を、どのページを中心に置くかの設計から、アンカーテキストの書き方、やりすぎの線引きまで手順で整理しました。記事を増やしても回遊が増えない状態から抜け出すための判断基準をまとめています。","datePublished":"2026-10-03","dateModified":"2026-10-03","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-03-naibu-link-harikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-03-naibu-link-harikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"内部リンク, SEO, サイト設計, ホームページ運用"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き","description":"内部リンクの貼り方を、どのページを中心に置くかの設計から、アンカーテキストの書き方、やりすぎの線引きまで手順で整理しました。記事を増やしても回遊が増えない状態から抜け出すための判断基準をまとめています。","datePublished":"2026-10-03","dateModified":"2026-10-03","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-03-naibu-link-harikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-03-naibu-link-harikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"内部リンク, SEO, サイト設計, ホームページ運用"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き","item":"https://teneramente.jp/2026-10-03-naibu-link-harikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"1記事に入れる内部リンクは何本が適切ですか？","acceptedAnswer":{"@type":"Answer","text":"本数の正解はありません。文脈があって読者が押す理由のある場所にだけ置く、という基準で決めてください。結果として2〜4本に収まることが多いですが、本数を先に決めて埋めるのは逆効果です。関係の薄いリンクは、入れないほうが読みやすくなります。"}},{"@type":"Question","name":"古い記事に、新しい記事へのリンクを後から足してもよいですか？","acceptedAnswer":{"@type":"Answer","text":"むしろ推奨されます。新しいページはどこからもリンクされていない状態で公開されるため、既存の記事から1本足すだけで見つけてもらいやすくなります。足す場所は、その記事の本文が新しい記事の話題に触れている段落です。足した日付をメモに残しておくと、後で結果を見るときに役立ちます。"}},{"@type":"Question","name":"リンクを増やしたのに回遊が増えません。何を見直せばよいですか？","acceptedAnswer":{"@type":"Answer","text":"置き場所と行き先の2つを確認してください。記事の末尾にまとめて並べているだけなら、本文の途中で話題に触れている段落へ移します。それでも変わらない場合は、行き先のページが読者の次の疑問に答えていない可能性があります。リンクの数より、隣の疑問を正しく捉えているかが効きます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 3, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-03-naibu-link-harikata.webp" alt="内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>内部リンクは「次に読むもの」を提示する仕組み</a><a href="#h2"><span class="n">02</span>貼る前に決めること：どのページを中心にするか</a><a href="#h3"><span class="n">03</span>内部リンクの貼り方：5つの手順</a><a href="#h4"><span class="n">04</span>アンカーテキストの書き方</a><a href="#h5"><span class="n">05</span>置く場所で効果が変わる</a><a href="#h6"><span class="n">06</span>やりすぎの線引き</a><a href="#h7"><span class="n">07</span>貼ったあとに確認すること</a><a href="#h8"><span class="n">08</span>まとめ：中心を決めてから、文脈のある場所に1本ずつ</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">記事は増えたのに、1人が読むのは1ページで終わってしまう。<strong>内部リンクの貼り方は、関連記事をたくさん並べることではなく、どのページを中心に置くかを先に決めること</strong>から始まります。中心が決まっていないサイトでは、リンクを増やすほど導線が散らばっていきます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>先に決めるのは<strong>中心に置くページ（まとめ役のページ）が何か</strong>の1点です。そのうえで、個別の記事から中心へ1回、中心から個別へ1回ずつ、<strong>本文中の文脈のある場所に置く</strong>のが基本形になります。数を増やすこと自体は目的になりません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>内部リンクは「次に読むもの」を提示する仕組み</h2>
+<p>内部リンク（<em>internal link</em>）は、同じサイト内のページ同士をつなぐリンクです。外部サイトからのリンクと違い、自分の判断だけで設計できるのが特徴です。</p>
+<p>役割は2つあります。ひとつは<strong>読者に次に読むものを提示する</strong>こと。検索から入ってきた人は、その1ページだけで疑問が解けるとは限りません。隣の疑問に答えるページがあることを、本文の流れの中で知らせる役目です。</p>
+<p>もうひとつは、<strong>検索エンジンにページの存在と関係を伝える</strong>ことです。どこからもリンクされていないページは、見つけてもらうまでに時間がかかります。また、どのページが多くリンクされているかは、サイトの中で何が中心なのかを示す手がかりになります。</p>
+<p>この2つは、たいてい同じ方向を向きます。読者が自然に次を知りたくなる場所に置いたリンクは、検索エンジンにとっても関係性の分かるリンクになります。逆に、読者が押さないリンクを増やしても、どちらの役割も果たしません。</p>
+<h2 id="h2"><span class="h-num">02</span>貼る前に決めること：どのページを中心にするか</h2>
+<p>手を動かす前に、サイトの地図を1枚書きます。やることは1つで、<strong>中心に置くページを決める</strong>ことです。</p>
+<p>中心になるのは、扱う範囲が広く、長く使えるページです。サービスの説明ページや、1つのテーマを通しで解説したページがこれに当たります。そこから枝分かれする形で、個別の疑問に答える記事を並べます。</p>
+<p>地図ができたら、つなぎ方は2方向です。</p>
+<ul>
+<li><strong>個別の記事 → 中心のページ</strong>：記事の最後に1回。そのテーマ全体を知りたい人の出口になります</li>
+<li><strong>中心のページ → 個別の記事</strong>：中心のページから、関係する記事へそれぞれ1回</li>
+</ul>
+<p>このとき、<strong>個別の記事どうしを無条件に横につながない</strong>のが要点です。横のつながりは、読者の疑問が実際に隣り合っているときだけ置きます。全記事を相互にリンクさせると、どのページが中心なのかが分からなくなります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>新しいページは「どこからリンクするか」を同時に決める</h4>
+    <p>ページを公開してから内部リンクを考えると、たいてい後回しになります。公開の作業に、既存のどのページから1本リンクを足すかを組み込んでおくと、どこからもつながっていないページが生まれません。追加するリンクは1本で十分です。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>内部リンクの貼り方：5つの手順</h2>
+<p>実際の作業は次の順番で進めます。1記事あたり10分ほどの作業です。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-03-naibu-link-harikata.png" alt="記事が答えている疑問を1文で書く・隣の疑問に答えるページを探す・話が隣に触れる段落を探す・文脈に合う言葉をリンクにする・戻るリンクがあるか確認する、という5手順を並べた図" width="1600" height="625" loading="lazy" decoding="async"><figcaption>本数を先に決めて埋めると、関係の薄いページを当てはめることになります。置き場所が先です。</figcaption></figure>
+
+<ol>
+<li><strong>その記事が答えている疑問を1文で書く</strong>。隣の疑問を探す基準になります</li>
+<li><strong>既存のページから、隣の疑問に答えているものを探す</strong>。見つからなければ無理に貼りません</li>
+<li><strong>本文のどの段落で話が隣に触れるかを探す</strong>。触れている場所が置き場所です</li>
+<li><strong>その文脈に合う言葉をリンクにする</strong>。文章を書き換えてリンクを差し込む形でも構いません</li>
+<li><strong>リンク先から、こちらへ戻るリンクがあるかを確認する</strong>。片方向のままでよい場合もあります</li>
+</ol>
+<p>この順番のいいところは、<strong>置き場所を先に探してからリンクを決める</strong>点です。「関連記事を3本入れる」と決めてから探すと、関係の薄いページを無理に当てはめることになります。</p>
+<h2 id="h4"><span class="h-num">04</span>アンカーテキストの書き方</h2>
+<p>アンカーテキスト（リンクになっている文字）は、押す前に行き先が分かる言葉にします。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>書き方</th>
+<th>例</th>
+<th>評価</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>行き先の内容を示す</td>
+<td>タイトルタグの書き方</td>
+<td>読者も検索エンジンも行き先が分かる</td>
+</tr>
+<tr>
+<td>文中の語句をそのまま</td>
+<td>構造化データの設定方法</td>
+<td>文脈が自然で、押しやすい</td>
+</tr>
+<tr>
+<td>指示語だけ</td>
+<td>こちら／詳細はこちら</td>
+<td>行き先が分からない。多用は避ける</td>
+</tr>
+<tr>
+<td>URLをそのまま</td>
+<td>https://…</td>
+<td>読みにくく、内容が伝わらない</td>
+</tr>
+</tbody></table></div>
+<p>避けたいのは、同じアンカーテキストを機械的に使い回すことです。たとえば狙っている言葉をそのままリンク文字にして全記事に貼ると、文脈から浮いて読みにくくなります。<strong>行き先の内容を表す言葉であれば、記事ごとに言い方が変わって構いません</strong>。言葉の選び方そのものについては<a href="2026-09-21-seo-keyword-sentei-yarikata.html">SEOキーワードの選定</a>の考え方が参考になります。</p>
+<h2 id="h5"><span class="h-num">05</span>置く場所で効果が変わる</h2>
+<p>同じリンクでも、置く場所によって押される度合いが変わります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>置く場所</th>
+<th>読者への働き</th>
+<th>向いている用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本文の途中</td>
+<td>疑問が生まれた瞬間に出るため押されやすい</td>
+<td>隣の疑問に答える記事へ</td>
+</tr>
+<tr>
+<td>記事の末尾</td>
+<td>読み終えた人が次を探す場所</td>
+<td>中心のページ、次の一歩</td>
+</tr>
+<tr>
+<td>パンくず・ナビ</td>
+<td>常に出るが、意識して押されることは少ない</td>
+<td>階層の案内、迷ったときの戻り先</td>
+</tr>
+<tr>
+<td>サイドバーの一覧</td>
+<td>流し見されやすい</td>
+<td>新着・人気の提示</td>
+</tr>
+</tbody></table></div>
+<p>もっとも効くのは<strong>本文の途中</strong>です。読者がその話題に触れている最中なので、押す理由がはっきりしています。一方で、パンくずは押されるためというより、サイトの階層を読者と検索エンジンの両方に示すためのものです。階層の情報は<a href="2026-06-25-kozoka-data-json-ld-guide.html">構造化データ（JSON-LD）の書き方</a>で機械にも読める形にしておくと、検索結果の表示にも反映されます。</p>
+<h2 id="h6"><span class="h-num">06</span>やりすぎの線引き</h2>
+<p>内部リンクは増やせば効くというものではありません。線引きは数ではなく、次の4つで判断します。</p>
+<ul>
+<li><strong>文脈があるか</strong>：その段落で話が実際に隣に触れているか。触れていなければ不要です</li>
+<li><strong>読者が押す理由があるか</strong>：押した先で疑問が1つ解けるか</li>
+<li><strong>同じページへ重複していないか</strong>：1記事から同じページへは1回で足ります</li>
+<li><strong>全記事に同じリンクを入れていないか</strong>：どのページにも同じリンクが並ぶと、意味の差がなくなります</li>
+</ul>
+<blockquote>
+<p>リンクの本数ではなく、押す理由の数を増やすほうが結果につながります。</p>
+</blockquote>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>本文を埋め尽くすリンクは、読みにくさとして返ってくる</h4>
+    <p>1つの段落に複数のリンクが並ぶと、どれを押すべきか判断できず、結果としてどれも押されません。目安として、1つの段落に入れるリンクは1本までにしてください。足したいリンクが多い場合は、記事を分けるか、末尾にまとめる形を検討します。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>貼ったあとに確認すること</h2>
+<p>貼って終わりにせず、月に1回だけ確認します。見るのは2点です。</p>
+<p>ひとつは、<strong>サイト内で多くリンクされているページが、中心に置いたページになっているか</strong>です。Search Consoleの「リンク」の画面から、内部リンクの多い順に一覧を見られます。中心に置いたつもりのページが下のほうにあれば、設計と実態がずれています。確認の手順は<a href="2026-09-30-search-console-tsukaikata.html">Search Consoleの使い方</a>にまとめています。</p>
+<p>もうひとつは、<strong>どこからもリンクされていないページがないか</strong>です。同じ画面で、一覧に出てこないページがそれに当たります。公開したまま忘れていたページは、ここで見つかります。</p>
+<p>確認の頻度は月1回で十分です。リンクを足した結果が検索結果に反映されるまでには時間がかかるため、数日単位で見ても判断材料になりません。</p>
+<details class="faq"><summary>1記事に入れる内部リンクは何本が適切ですか？</summary><div class="faq-a">本数の正解はありません。文脈があって読者が押す理由のある場所にだけ置く、という基準で決めてください。結果として2〜4本に収まることが多いですが、本数を先に決めて埋めるのは逆効果です。関係の薄いリンクは、入れないほうが読みやすくなります。</div></details>
+
+<details class="faq"><summary>古い記事に、新しい記事へのリンクを後から足してもよいですか？</summary><div class="faq-a">むしろ推奨されます。新しいページはどこからもリンクされていない状態で公開されるため、既存の記事から1本足すだけで見つけてもらいやすくなります。足す場所は、その記事の本文が新しい記事の話題に触れている段落です。足した日付をメモに残しておくと、後で結果を見るときに役立ちます。</div></details>
+
+<details class="faq"><summary>リンクを増やしたのに回遊が増えません。何を見直せばよいですか？</summary><div class="faq-a">置き場所と行き先の2つを確認してください。記事の末尾にまとめて並べているだけなら、本文の途中で話題に触れている段落へ移します。それでも変わらない場合は、行き先のページが読者の次の疑問に答えていない可能性があります。リンクの数より、隣の疑問を正しく捉えているかが効きます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：中心を決めてから、文脈のある場所に1本ずつ</h2>
+<p>内部リンクの貼り方は、中心に置くページを決めることから始まります。個別の記事から中心へ1回、中心から個別へ1回。横のつながりは、読者の疑問が実際に隣り合っているときだけ置く。この形を守るだけで、記事を増やしたときに導線が散らばらなくなります。</p>
+<p>そして、<strong>判断基準は本数ではなく文脈</strong>です。その段落で話が隣に触れているか、押した先で疑問が1つ解けるか。この2つを満たすリンクだけを残していくと、読者にも検索エンジンにも、サイトの中で何が中心なのかが伝わる状態になります。</p>
+<p>TENERAMENTEでは、サイトを作る段階からページ同士の関係と導線を設計し、公開後に何を見て何を直すかまでを含めてお手伝いしています。集客を前提としたサイトの考え方は<a href="lp-hplp.html">ホームページ・LP制作</a>のページにまとめていますので、いまのサイトで記事と導線をどう整理すべきか迷っている場合は、<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#内部リンク</span><span>#SEO</span><span>#サイト設計</span><span>#ホームページ運用</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +346,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +374,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-30-search-console-tsukaikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>Search Consoleの使い方｜最初に見る4つの画面と改善点の見つけ方</h4>
+      </a>
+      <a class="related-card" href="2026-10-06-blog-riraito-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか</h4>
+      </a>
+      <a class="related-card" href="2026-09-27-meta-description-kakikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>メタディスクリプションの書き方｜順位ではなくクリック率を動かす</h4>
+      </a>
+    </div>
   </div>
 </section>
 

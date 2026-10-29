@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,153 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-27-meta-description-kakikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"メタディスクリプションの書き方｜順位ではなくクリック率を動かす","description":"メタディスクリプションの書き方を、文字数の目安・ページ種別ごとの中身・よくある失敗の3点から整理しました。検索結果で書き換えられる理由と、公開後に見直す手順まで、今日から手を付けられる形でまとめています。","datePublished":"2026-09-27","dateModified":"2026-09-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-27-meta-description-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-27-meta-description-kakikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, メタディスクリプション, ホームページ制作, クリック率, 内部対策"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"メタディスクリプションの書き方｜順位ではなくクリック率を動かす","description":"メタディスクリプションの書き方を、文字数の目安・ページ種別ごとの中身・よくある失敗の3点から整理しました。検索結果で書き換えられる理由と、公開後に見直す手順まで、今日から手を付けられる形でまとめています。","datePublished":"2026-09-27","dateModified":"2026-09-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-27-meta-description-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-27-meta-description-kakikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, メタディスクリプション, ホームページ制作, クリック率, 内部対策"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"メタディスクリプションの書き方｜順位ではなくクリック率を動かす","item":"https://teneramente.jp/2026-09-27-meta-description-kakikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"メタディスクリプションを書かないと、順位は下がりますか？","acceptedAnswer":{"@type":"Answer","text":"順位そのものが下がることはありません。未設定の場合はGoogleが本文から文章を抜き出して表示します。ただし、抜き出される箇所を選べないため、意図しない一文が出ることがあります。主要なページだけでも設定しておくことをおすすめします。"}},{"@type":"Question","name":"キーワードは入れたほうがよいですか？","acceptedAnswer":{"@type":"Answer","text":"順位への効果はありませんが、検索した言葉が説明文に含まれていると太字で表示され、目に留まりやすくなります。詰め込むのではなく、読み手に向けた自然な文章の中に1回含める程度が適切です。"}},{"@type":"Question","name":"ブログ記事にも毎回書くべきですか？","acceptedAnswer":{"@type":"Answer","text":"記事数が多い場合は、すべてに手をかける必要はありません。アクセスの多い記事と、これから伸ばしたい記事から優先して書いてください。記事の冒頭を要約する形で書けば、内容とのずれも起きにくくなります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">メタディスクリプションの書き方｜順位ではなくクリック率を動かす</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 27, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-27-meta-description-kakikata.webp" alt="メタディスクリプションの書き方｜順位ではなくクリック率を動かす" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>メタディスクリプションは、順位ではなくクリック率を動かす</a><a href="#h2"><span class="n">02</span>文字数の目安は全角120文字前後。スマホでは半分以下</a><a href="#h3"><span class="n">03</span>メタディスクリプションの書き方は、この4手順で決まる</a><a href="#h4"><span class="n">04</span>ページの種類ごとに、書く中身は変わる</a><a href="#h5"><span class="n">05</span>やりがちな失敗と、その直し方</a><a href="#h6"><span class="n">06</span>書いた文章が、検索結果に出ないことがある</a><a href="#h7"><span class="n">07</span>公開したら終わりにせず、見直しを回す</a><a href="#h8"><span class="n">08</span>まとめ：説明文は、今日から直せる一手</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">検索結果に並ぶ見出しの下、2〜3行の説明文。これが<strong>メタディスクリプション</strong>です。順位を直接動かす要素ではありませんが、同じ順位でも開かれるページと素通りされるページを分けています。書き方には、決まった順番があります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>メタディスクリプションは<strong>順位ではなくクリック率を動かす要素</strong>です。全角120文字前後を目安に、前半で「誰の何の悩みに答えるページか」を言い切り、後半に具体を足します。ページごとに1つずつ、重複なく書いてください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>メタディスクリプションは、順位ではなくクリック率を動かす</h2>
+<p>メタディスクリプション（<em>meta description</em>）は、HTMLの<code>&lt;head&gt;</code>に書く説明文です。検索結果では、青いタイトルの下に表示される灰色の文章として使われます。この部分を含めた検索結果の1件分の表示を<em>スニペット</em>と呼びます。</p>
+<p>まず前提として、<strong>この要素は検索順位を直接引き上げるものではありません</strong>。Googleは、メタディスクリプションをランキングの要素として使わないという立場を示しています。ここにキーワードを詰め込んでも、順位は動きません。</p>
+<p>ではなぜ書くのか。検索した人が、開くページを選ぶときに読んでいるからです。タイトルで興味を持った人が、その下の2〜3行を見て「自分の探しものに近いか」を判断します。順位を上げる施策には時間がかかりますが、説明文の書き直しは今日できて、翌週には反応が見えます。<a href="2026-09-24-title-tag-kakikata.html">タイトルタグの書き方</a>とあわせて整えると、検索結果での見え方がまとまります。</p>
+<h2 id="h2"><span class="h-num">02</span>文字数の目安は全角120文字前後。スマホでは半分以下</h2>
+<p>メタディスクリプションの文字数は、<strong>パソコンで全角120文字前後、スマートフォンで全角50〜70文字前後</strong>が表示の目安です。これを超えた部分は「…」で省略されます。</p>
+<p>つまり、スマホで読まれることを考えると、<strong>前半のおよそ50文字で用件が伝わっている必要があります</strong>。パソコンの表示幅いっぱいに書いた文章の後半は、多くの閲覧者には届きません。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>前半50文字・後半70文字で役割を分ける</h4>
+    <p>前半50文字に<strong>「誰の、何の悩みに答えるページか」</strong>を置き、後半70文字に具体的な内容（対応範囲・進め方・何が分かるか）を足す。こう分けておけば、スマホで切れても意味が通り、パソコンでは情報量のある説明文になります。</p>
+  </div>
+</div>
+
+<p>文字数は厳密な上限ではなく、表示幅で切られています。数え方に神経を使うより、前半で言い切る形になっているかを確認するほうが実用的です。</p>
+<h2 id="h3"><span class="h-num">03</span>メタディスクリプションの書き方は、この4手順で決まる</h2>
+<p>文章力は要りません。次の順に埋めていけば形になります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-27-meta-description-kakikata.png" alt="検索した言葉と知りたいことを書き出す・何が分かるかを一文で言い切る・具体を後半に足す・幅を確認して後ろから削る、という4手順を並べた図" width="1600" height="625" loading="lazy" decoding="async"><figcaption>文字数を整えるのは最後です。前半で言い切る形ができていれば、スマホで切れても意味が通ります。</figcaption></figure>
+
+<p>まず、そのページを開く人が<strong>検索したときに使った言葉と、知りたいこと</strong>を書き出します。「費用を知りたい」「対応エリアを確かめたい」「やり方を調べたい」。ここが曖昧なまま書き始めると、どのページにも当てはまる文章になります。</p>
+<p>次に、<strong>そのページを読めば何が分かるのかを一文で</strong>言い切ります。これが前半になります。そのうえで、他社との違いや具体的な対応範囲を後半に足し、最後に幅を確認して後ろから削ります。</p>
+<blockquote>
+<p>説明文は、ページの要約ではありません。検索した人への「ここに答えがあります」という返事です。</p>
+</blockquote>
+<h2 id="h4"><span class="h-num">04</span>ページの種類ごとに、書く中身は変わる</h2>
+<p>同じ型をサイト全体に流用すると、検索結果でどのページも同じに見えます。ページの役割ごとに、入れる中身を変えてください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ページの種類</th>
+<th>前半に置くこと</th>
+<th>後半に足すこと</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>トップページ</td>
+<td>何の会社か・どこで・誰向けか</td>
+<td>主なサービスを2〜3語で</td>
+</tr>
+<tr>
+<td>サービスページ</td>
+<td>そのサービスで解決できること</td>
+<td>対応範囲・進め方・費用の考え方</td>
+</tr>
+<tr>
+<td>事例・実績</td>
+<td>どんな業種の、どんな課題か</td>
+<td>取り組んだ内容と結果の要点</td>
+</tr>
+<tr>
+<td>ブログ記事</td>
+<td>記事で答える問い</td>
+<td>読むと分かること・対象読者</td>
+</tr>
+<tr>
+<td>会社案内</td>
+<td>社名・所在地・事業内容</td>
+<td>沿革や体制など、確認されやすい情報</td>
+</tr>
+</tbody></table></div>
+<p>判断に迷ったら、そのページを開いてほしい人がどんな言葉で検索するかに立ち返ります。サイト全体の設計から見直す段階であれば、<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作費用のガイド</a>で進め方を確認してから細部に入ると、手戻りがありません。</p>
+<h2 id="h5"><span class="h-num">05</span>やりがちな失敗と、その直し方</h2>
+<p>現場でよく見かけるのは、次の5つです。</p>
+<ul>
+<li><strong>全ページ同じ文章</strong>：テンプレートのまま公開されている。ページごとに1つずつ書き分ける</li>
+<li><strong>キーワードの羅列</strong>：「名古屋 ホームページ制作 格安 SEO」のような並び。読み手に向けた文章に直す</li>
+<li><strong>会社の紹介だけで終わる</strong>：「私たちは◯◯な会社です」。読み手が得るものを書く</li>
+<li><strong>本文にない内容を書く</strong>：中身と合っていないと、検索結果で書き換えられやすくなる</li>
+<li><strong>未設定のまま放置</strong>：Googleが本文から自動で抜き出すため、意図しない一文が出ることがある</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>まず「未設定」と「重複」を潰す</h4>
+    <p>全ページを一覧にして、空欄と同じ文章のものに印を付けてください。書き方の巧拙より、この2つを解消するほうが先に効きます。Search Console の管理画面や、サイト内のページ一覧から確認できます。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>書いた文章が、検索結果に出ないことがある</h2>
+<p>設定したはずの説明文と違う文章が表示される。これは不具合ではありません。Googleは、<strong>検索された言葉に対してより適切だと判断した場合、ページ本文から文章を抜き出して表示します</strong>。同じページでも、検索語によって表示される説明文が変わることがあります。</p>
+<p>書き換えが起きやすいのは、説明文が極端に短い場合、キーワードが並んでいるだけの場合、そしてページの中身と合っていない場合です。逆に、<strong>本文の内容を素直に要約した文章は、そのまま使われやすい</strong>ということになります。</p>
+<p>書き換えられたときに、無理に元へ戻そうとする必要はありません。まず本文の冒頭を見直してください。読み手の問いに対する答えが冒頭に書かれていれば、抜き出される文章も自然と的確になります。</p>
+<h2 id="h7"><span class="h-num">07</span>公開したら終わりにせず、見直しを回す</h2>
+<p>書きっぱなしにせず、反応を見て直します。手順は次のとおりです。</p>
+<ol>
+<li>Search Console で、<strong>表示回数はあるのにクリック率が低いページ</strong>を洗い出す</li>
+<li>そのページが実際にどんな検索語で表示されているかを確認する</li>
+<li>説明文の前半50文字を、その検索語に答える形に書き直す</li>
+<li>直した日付を記録し、数週間おいてから同じ指標を見比べる</li>
+<li>一度に直すのは数ページまで。まとめて変えると、何が効いたか分からなくなる</li>
+</ol>
+<p>クリック率が変わらない場合、原因が説明文にないこともあります。<a href="2026-09-18-kensaku-juni-agaranai-genin.html">検索順位が上がらない原因</a>もあわせて確認すると、手を付ける順番が整理できます。</p>
+<details class="faq"><summary>メタディスクリプションを書かないと、順位は下がりますか？</summary><div class="faq-a">順位そのものが下がることはありません。未設定の場合はGoogleが本文から文章を抜き出して表示します。ただし、抜き出される箇所を選べないため、意図しない一文が出ることがあります。主要なページだけでも設定しておくことをおすすめします。</div></details>
+
+<details class="faq"><summary>キーワードは入れたほうがよいですか？</summary><div class="faq-a">順位への効果はありませんが、検索した言葉が説明文に含まれていると太字で表示され、目に留まりやすくなります。詰め込むのではなく、読み手に向けた自然な文章の中に1回含める程度が適切です。</div></details>
+
+<details class="faq"><summary>ブログ記事にも毎回書くべきですか？</summary><div class="faq-a">記事数が多い場合は、すべてに手をかける必要はありません。アクセスの多い記事と、これから伸ばしたい記事から優先して書いてください。記事の冒頭を要約する形で書けば、内容とのずれも起きにくくなります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：説明文は、今日から直せる一手</h2>
+<p>メタディスクリプションの書き方は、前半50文字で「誰の何の悩みに答えるか」を言い切り、後半に具体を足し、全角120文字前後に収める。ページごとに書き分け、本文の内容と合わせる。この順番です。順位は動かしませんが、同じ順位での開かれ方は変わります。</p>
+<p>そして、この改善が回るかどうかは、<strong>直したい人が自分で直せる状態にサイトがあるか</strong>で決まります。説明文ひとつ変えるのに毎回依頼が必要な作りだと、小さな見直しが積み上がりません。</p>
+<p>TENERAMENTEでは、公開後に自分たちで育てられることを前提とした<a href="lp-hplp.html">HP/LP作成</a>をお引き受けしています。いまのサイトの見え方を整えたい、あるいは作り直しを検討中という段階でしたら、<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#SEO</span><span>#メタディスクリプション</span><span>#ホームページ制作</span><span>#クリック率</span><span>#内部対策</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +317,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +345,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-24-title-tag-kakikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>タイトルタグの書き方｜SEOで効く文字数の目安と、クリックされる型</h4>
+      </a>
+      <a class="related-card" href="2026-09-30-search-console-tsukaikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>Search Consoleの使い方｜最初に見る4つの画面と改善点の見つけ方</h4>
+      </a>
+      <a class="related-card" href="2026-09-21-seo-keyword-sentei-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

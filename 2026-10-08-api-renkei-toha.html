@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,142 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-08-api-renkei-toha";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること","description":"API連携とは何かを、業務システムをつなぐ仕組みの話として整理しました。手作業のデータ移しとの違い、CSVやRPAとの使い分け、できること・できないこと、依頼前に確認する6項目までまとめています。","datePublished":"2026-10-08","dateModified":"2026-10-08","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-08-api-renkei-toha.html","image":"https://teneramente.jp/assets/img/covers/2026-10-08-api-renkei-toha.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"API連携, 業務システム, システム連携, データ連携, 業務Webアプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること","description":"API連携とは何かを、業務システムをつなぐ仕組みの話として整理しました。手作業のデータ移しとの違い、CSVやRPAとの使い分け、できること・できないこと、依頼前に確認する6項目までまとめています。","datePublished":"2026-10-08","dateModified":"2026-10-08","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-08-api-renkei-toha.html","image":"https://teneramente.jp/assets/img/covers/2026-10-08-api-renkei-toha.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"API連携, 業務システム, システム連携, データ連携, 業務Webアプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること","item":"https://teneramente.jp/2026-10-08-api-renkei-toha.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"つなぎたいシステムにAPIがない場合はどうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"CSVなどのファイル出力と取り込みに対応していれば、ファイル連携で同じ目的を果たせます。出力もできない場合は画面操作の自動化が選択肢になりますが、画面の変更で止まりやすいため、連携を理由にシステム自体の見直しを検討したほうがよい場合もあります。"}},{"@type":"Question","name":"API連携は内製できますか？","acceptedAnswer":{"@type":"Answer","text":"社内に開発できる人がいれば可能です。判断の分かれ目は作るときの難易度ではなく、止まったときに直せる人が常にいるかどうかです。担当者1人に依存する形になるなら、作る範囲を小さくするか、保守の体制を決めてから進めてください。"}},{"@type":"Question","name":"どのくらいの件数からつなぐ価値がありますか？","acceptedAnswer":{"@type":"Answer","text":"件数だけでは決まりません。毎日発生していて、ずれると金額や納期に影響する種類のデータなら、件数が少なくても対象になります。逆に件数が多くても、月1回の集計で済んでいて誰も困っていない作業は優先度が下がります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 8, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-08-api-renkei-toha.webp" alt="API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>API連携とは、システム同士がデータを受け渡す約束事</a><a href="#h2"><span class="n">02</span>手作業のデータ移しと何が違うのか</a><a href="#h3"><span class="n">03</span>つなぎ方はAPIだけではない</a><a href="#h4"><span class="n">04</span>API連携でできること・できないこと</a><a href="#h5"><span class="n">05</span>依頼する前に確認する6つのこと</a><a href="#h6"><span class="n">06</span>費用と期間の読み方</a><a href="#h7"><span class="n">07</span>よくある失敗</a><a href="#h8"><span class="n">08</span>まとめ：つなぐ前に、範囲と向きを決める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">複数のシステムを使っていると、同じ情報を2回入力する作業が必ず出てきます。これを解消する手段が<strong>API連携</strong>です。API連携とは、業務システム同士がデータを自動で受け渡すための約束事であり、人が画面を開いて写す工程をなくすための仕組みです。この記事では、仕組みの考え方と、外部に依頼する前に確認しておくことを順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>API連携とは、システムが<strong>相手のシステムに直接データを渡す・受け取るための窓口</strong>です。重要なのは技術の名前ではなく、つなぎたい両方のシステムにその窓口が用意されているかどうかです。<strong>窓口の有無と、渡すデータの範囲と向きを先に確認する</strong>と、依頼の精度が一気に上がります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>API連携とは、システム同士がデータを受け渡す約束事</h2>
+<p><em>API</em>（Application Programming Interface）とは、あるシステムが外部に向けて開けている窓口のことです。人が使う画面とは別に、プログラムが呼び出すための入口が用意されている、という状態を指します。</p>
+<p>たとえば、ある販売管理システムに「受注データを登録する窓口」と「在庫を問い合わせる窓口」があるとします。この窓口を別のシステムから呼び出せば、画面を開かずに受注が登録され、在庫が返ってきます。この呼び出しをつないだものがAPI連携です。</p>
+<p>押さえておきたいのは、<strong>APIは相手側が用意していなければ使えない</strong>という点です。自社側でどれだけ作り込んでも、相手のシステムに窓口がなければ正面からはつながりません。だからAPI連携の検討は、機能の設計より先に「窓口があるか」の確認から始まります。</p>
+<h2 id="h2"><span class="h-num">02</span>手作業のデータ移しと何が違うのか</h2>
+<p>いま多くの現場で行われているのは、片方のシステムからCSVを出して、もう片方に取り込む作業です。または画面を2つ開いて目で見ながら入力する作業です。API連携との違いは、速さだけではありません。</p>
+<p>違いは3つあります。第一に、<strong>タイミングが人に依存しなくなる</strong>こと。手作業だと「担当者が出社してから」「月末にまとめて」という間隔が生まれます。第二に、<strong>写し間違いが構造的に消える</strong>こと。桁の読み違いや行のずれは、人が介在する限り確率で起こります。第三に、<strong>作業の記録が残る</strong>こと。いつ何件渡したかがログに残り、不一致が出たときに追えます。</p>
+<p>逆に言えば、手作業で問題が起きていない業務は急いでつなぐ必要がありません。<strong>つなぐ優先順位は、件数の多さと、ずれたときの影響の大きさで決まります</strong>。受注や入金のように金額が動くデータは優先度が高く、年に数回の集計は後回しでかまいません。</p>
+<h2 id="h3"><span class="h-num">03</span>つなぎ方はAPIだけではない</h2>
+<p>「つなぐ」という相談を受けたとき、選択肢はAPIに限りません。相手のシステムの状態によって、現実的な手段は変わります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>つなぎ方</th>
+<th>向く場面</th>
+<th>注意する点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API連携</td>
+<td>両方に窓口があり、随時やり取りしたい</td>
+<td>相手の仕様変更に追従する保守が必要</td>
+</tr>
+<tr>
+<td>ファイル連携（CSVなど）</td>
+<td>窓口がないが、出力と取り込みはできる</td>
+<td>受け渡しの置き場所と実行の時刻を決める必要がある</td>
+</tr>
+<tr>
+<td>RPA・画面操作の自動化</td>
+<td>窓口も出力もなく、画面しか触れない</td>
+<td>画面の変更で止まりやすい</td>
+</tr>
+<tr>
+<td>中間データベースを置く</td>
+<td>3つ以上をつなぐ、履歴も残したい</td>
+<td>構成が増えるため設計と運用の負担が上がる</td>
+</tr>
+</tbody></table></div>
+<p>この表で確かめるのは、<strong>自社がどの行に当てはまるか</strong>です。1行目でないなら、API連携という言葉を使わずに「ファイル連携」として設計したほうが、安く確実に済む場合があります。手段の名前にこだわる必要はありません。</p>
+<p>画面操作の自動化が向く場面とその限界は、<a href="2026-09-29-rpa-toha-chusho-kigyo.html">RPAとは何か</a>で詳しく扱っています。</p>
+<h2 id="h4"><span class="h-num">04</span>API連携でできること・できないこと</h2>
+<p>できることは、おおむね次の範囲です。データの登録、取得、更新、削除。それと、相手側で何かが起きたときに通知を受け取ること。この4つと通知の組み合わせで、ほとんどの連携は組めます。</p>
+<p>一方で、できないことも明確にあります。</p>
+<ul>
+<li><strong>相手のAPIにない情報は取れない</strong>。画面に表示されていても、APIで公開されていない項目はあります</li>
+<li><strong>一度に扱える件数や呼び出し回数に上限がある</strong>ことが多い。大量の過去データを一気に移す用途には向きません</li>
+<li><strong>項目の意味の違いは埋まらない</strong>。「顧客名」が片方は会社名、片方は担当者名なら、どちらに入れるかを人が決める必要があります</li>
+<li><strong>業務の判断は代わりにできない</strong>。例外が入る処理は、つなぐ前にルールを決めておく必要があります</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>確かめ方</h4>
+    <p>候補のシステムの名前に「API ドキュメント」「開発者向け」を足して検索してください。公開された仕様書があれば、取れる項目と上限がその場で分かります。見つからない、または問い合わせないと出てこない場合は、その確認自体に時間がかかる前提で計画してください。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>依頼する前に確認する6つのこと</h2>
+<p>外部に相談する前に、次の6つを自社で押さえておくと、見積もりの精度が変わります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-08-api-renkei-toha.png" alt="つなぐシステム名とプラン・渡すデータの項目・データの向き・反映のタイミング・件数の目安・例外が出たときの扱いという、API連携を依頼する前に確認する6項目を縦に並べた図" width="1600" height="814" loading="lazy" decoding="async"><figcaption>この6つが書き出せていれば、技術の選択は相談先に任せてかまいません。</figcaption></figure>
+
+<p><strong>つなぐ2つのシステム名とプラン</strong>。同じサービスでも、上位プランでなければAPIが使えない場合があります。<strong>渡すデータの項目</strong>。全項目ではなく、実際に必要な項目だけを書き出します。<strong>データの向き</strong>。片方向か双方向か。双方向にすると、どちらを正とするかの設計が必要になり、難しさが上がります。</p>
+<p><strong>反映のタイミング</strong>。即時か、1時間ごとか、1日1回か。即時が必要な業務は意外に少なく、ここを緩めると構成が単純になります。<strong>件数の目安</strong>。1日あたり何件動くのかで、設計が変わります。<strong>例外が出たときの扱い</strong>。エラーで止めるのか、飛ばして記録するのか、人に通知するのか。</p>
+<p>依頼時に整理しておく情報の全体像は、<a href="2026-09-04-ai-tool-kaihatsu-irai-junbi.html">AIツール開発を依頼する前の準備</a>にもまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>費用と期間の読み方</h2>
+<p>API連携の費用は、つなぐシステムの数ではなく、<strong>項目数と例外処理の多さ</strong>で決まります。項目が5つで片方向なら小さく収まり、双方向で例外の分岐が多ければ、そちらのほうが大きくなります。</p>
+<p>TENERAMENTEの業務Webアプリ開発は初期費用30万円〜で、要件に応じた見積もりになります。連携だけを単体で依頼する場合も、まずつなぐ範囲を1つに絞って小さく作り、動くものを見てから広げる進め方をおすすめしています。最短2週間でPoC（試作）を用意できるため、紙の上で仕様を固めきる前に、実際のデータが通るかを確かめられます。</p>
+<p>見積もりで見るべきなのは金額の大小ではなく、<strong>公開後の保守がどう扱われているか</strong>です。相手のシステムが仕様を変えれば、連携は止まります。止まったときに誰がどのくらいの時間で直すのかを、契約の前に確認してください。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>止まる前提で設計する</h4>
+    <p>API連携は必ずいつか止まります。相手の計画メンテナンス、仕様変更、通信の一時的な不調が原因です。問題になるのは止まることではなく、止まったことに気づかないまま日数が経つことです。失敗を通知する仕組みと、手作業に戻せる経路を最初から用意しておいてください。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>よくある失敗</h2>
+<p><strong>全項目をつなごうとする</strong>。使っていない項目まで対象にすると、設計も検証も膨らみます。まず動かしたいのは、毎日人が写している項目だけです。</p>
+<p><strong>双方向を安易に選ぶ</strong>。両方から更新できる構成にすると、同じレコードが両側で変わったときの扱いを決めなければなりません。片方向で足りるなら、片方向にしてください。</p>
+<p><strong>過去データの移行を連携に混ぜる</strong>。日々の受け渡しと、過去分の一括移行は別の作業です。同じ仕組みでやろうとすると、呼び出し回数の上限に当たります。</p>
+<p><strong>認証情報の管理を決めていない</strong>。APIの利用には鍵や認証情報が必要です。誰が保管し、担当者が変わったときにどう引き継ぐかを決めていないと、運用の途中で動かせなくなります。</p>
+<details class="faq"><summary>つなぎたいシステムにAPIがない場合はどうすればよいですか？</summary><div class="faq-a">CSVなどのファイル出力と取り込みに対応していれば、ファイル連携で同じ目的を果たせます。出力もできない場合は画面操作の自動化が選択肢になりますが、画面の変更で止まりやすいため、連携を理由にシステム自体の見直しを検討したほうがよい場合もあります。</div></details>
+
+<details class="faq"><summary>API連携は内製できますか？</summary><div class="faq-a">社内に開発できる人がいれば可能です。判断の分かれ目は作るときの難易度ではなく、止まったときに直せる人が常にいるかどうかです。担当者1人に依存する形になるなら、作る範囲を小さくするか、保守の体制を決めてから進めてください。</div></details>
+
+<details class="faq"><summary>どのくらいの件数からつなぐ価値がありますか？</summary><div class="faq-a">件数だけでは決まりません。毎日発生していて、ずれると金額や納期に影響する種類のデータなら、件数が少なくても対象になります。逆に件数が多くても、月1回の集計で済んでいて誰も困っていない作業は優先度が下がります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：つなぐ前に、範囲と向きを決める</h2>
+<p>API連携とは、業務システム同士がデータを受け渡すための窓口を使う仕組みです。検討の順番は、窓口があるかの確認、渡す項目の絞り込み、向きとタイミングの決定、例外の扱いの決定です。この4つが決まっていれば、実装はその後の作業になります。</p>
+<p>逆に、この4つを決めずに「つないでほしい」と相談すると、見積もりは大きく振れます。手元で書き出せるのは項目と向きとタイミングまでで、それだけで十分です。技術の選択は相談先に任せてかまいません。</p>
+<p>TENERAMENTEでは、業務の棚卸しから連携範囲の切り分け、必要な部分だけを対象にした開発までを一貫して支援しています。詳しくは<a href="lp-ai-app.html">業務改善AIアプリ開発のサービス紹介</a>をご覧ください。どこをつなげば手作業が減るのか整理したい方は、<a href="contact.html">お問い合わせ</a>からご相談ください。初回相談60分は無料です。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#API連携</span><span>#業務システム</span><span>#システム連携</span><span>#データ連携</span><span>#業務Webアプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +306,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +334,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-05-gyomu-hyojunka-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方</h4>
+      </a>
+      <a class="related-card" href="2026-10-11-excel-kyoyu-doji-henshu-genkai.html">
+        <span class="cat">Web App</span>
+        <h4>Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準</h4>
+      </a>
+      <a class="related-card" href="2026-10-02-saas-jisha-kaihatsu-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務</h4>
+      </a>
+    </div>
   </div>
 </section>
 

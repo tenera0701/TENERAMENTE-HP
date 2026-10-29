@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,150 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-23-gyomu-manual-tsukurikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み","description":"業務マニュアルは、書く前に読み手と範囲を決め、判断の基準まで書き出すと属人化が外れます。作る順番、1本あたりの項目、更新が止まらない仕組みまで、明日から着手できる形でまとめました。","datePublished":"2026-09-23","dateModified":"2026-09-23","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-23-gyomu-manual-tsukurikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, マニュアル, 属人化, 手順書, 業務アプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み","description":"業務マニュアルは、書く前に読み手と範囲を決め、判断の基準まで書き出すと属人化が外れます。作る順番、1本あたりの項目、更新が止まらない仕組みまで、明日から着手できる形でまとめました。","datePublished":"2026-09-23","dateModified":"2026-09-23","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-23-gyomu-manual-tsukurikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, マニュアル, 属人化, 手順書, 業務アプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み","item":"https://teneramente.jp/2026-09-23-gyomu-manual-tsukurikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"マニュアルは動画と文書のどちらがよいですか？","acceptedAnswer":{"@type":"Answer","text":"更新のしやすさで選んでください。文書は一部だけ直せますが、動画は撮り直しになります。変更が多い業務は文書、画面の操作が複雑で言葉にしにくい部分だけ短い動画を添える、という組み合わせが現実的です。"}},{"@type":"Question","name":"どこから作り始めるべきですか？","acceptedAnswer":{"@type":"Answer","text":"「その人が休むと止まる業務」からです。件数の多い業務より、代われる人がいない業務のほうがリスクが大きくなります。次は、近く引き継ぎが発生する業務です。"}},{"@type":"Question","name":"作る時間が取れません。どうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"完成品を目指さず、作業しながら画面を撮り、番号を振るところまでで一度公開してください。文章は後から足せます。読み手が詰まった箇所だけを追記していくほうが、机上で仕上げるより早く実用に届きます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 23, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-23-gyomu-manual-tsukurikata.webp" alt="業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>マニュアルが読まれない理由は、作り方の順番にある</a><a href="#h2"><span class="n">02</span>書く前に決める3つのこと</a><a href="#h3"><span class="n">03</span>マニュアルの作り方は、この5段階で進める</a><a href="#h4"><span class="n">04</span>1本のマニュアルに入れる項目をそろえる</a><a href="#h5"><span class="n">05</span>属人化を外すのは、手順ではなく「判断」の記述</a><a href="#h6"><span class="n">06</span>更新が続く仕組みを、最初にセットで作る</a><a href="#h7"><span class="n">07</span>生成AIを下書きに使うときの注意</a><a href="#h8"><span class="n">08</span>まとめ：マニュアルは、仕組み化の下ごしらえになる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">引き継ぎのたびに同じ説明を繰り返している。そう感じたときに作るのが<strong>業務マニュアル</strong>です。ただ、いきなり書き始めたマニュアルは、たいてい完成しないか、完成しても読まれません。必要なのは文章力ではなく、書く前に決めることと、更新が続く置き方です。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>業務マニュアルは、網羅性ではなく<strong>読み手と範囲を先に決めること</strong>で使えるものになります。作業の手順だけでなく判断の基準まで書き出すと属人化が外れ、更新の担当と時期を決めておくと陳腐化が止まります。まず1業務、1枚から始めてください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>マニュアルが読まれない理由は、作り方の順番にある</h2>
+<p>使われないマニュアルには共通点があります。分厚い、探せない、古い。この3つです。いずれも文章の巧拙ではなく、作り方の順番から生まれます。</p>
+<p>最も多いのが、<strong>読み手を決めずに書き始める</strong>ケースです。初日の新人と、半年経った担当者では、必要な情報がまったく違います。両方に向けて書こうとすると、前提の説明と例外処理が同じ紙に同居し、どちらにとっても読みにくいものになります。</p>
+<p>次に多いのが、完璧に仕上げてから公開しようとして、公開されないまま止まるケース。そして、書いた人が異動した瞬間に更新が止まるケースです。<strong>マニュアルは書き切ることではなく、更新され続けることで価値が出ます</strong>。だから最初から、直しやすい単位で作ります。</p>
+<h2 id="h2"><span class="h-num">02</span>書く前に決める3つのこと</h2>
+<p>着手前に次の3点を決めてください。ここを飛ばすと、書き直しになります。</p>
+<p>ひとつめは<strong>読み手</strong>です。「入社1日目の人」「異動してきた別部署の人」「月に一度だけこの作業をする人」。一人に絞ります。想定読者が絞れると、どこまで前提を説明すべきかが自動的に決まります。</p>
+<p>ふたつめは<strong>範囲</strong>です。1本のマニュアルが扱う業務を、始点と終点で言い切ります。「請求書の発行から送付まで」のように区切れば、書くべき工程が有限になります。業務全体を1本にまとめようとすると、ほぼ確実に途中で止まります。</p>
+<p>みっつめは<strong>置き場所</strong>です。書き上がったものをどこに置き、どう探すか。これを先に決めないと、書いたのに使われないという結果になります。検索できる場所に、業務名で見つかる名前を付けて置きます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>種類</th>
+<th>読み手</th>
+<th>書く内容</th>
+<th>適した分量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>手順書</td>
+<td>実際に作業する人</td>
+<td>画面操作・入力値・順番</td>
+<td>1作業1枚</td>
+</tr>
+<tr>
+<td>業務マニュアル</td>
+<td>その業務を担当する人</td>
+<td>手順書の集合＋判断の基準</td>
+<td>業務単位</td>
+</tr>
+<tr>
+<td>業務フロー図</td>
+<td>その業務をやらない人</td>
+<td>担当と受け渡しの流れ</td>
+<td>1業務1枚</td>
+</tr>
+</tbody></table></div>
+<p>先に全体像を整理したい場合は、<a href="2026-09-20-gyomu-flow-zu-kakikata.html">業務フロー図の書き方</a>から入ると範囲を決めやすくなります。</p>
+<h2 id="h3"><span class="h-num">03</span>マニュアルの作り方は、この5段階で進める</h2>
+<p>順番どおりに進めれば、文章の得意不得意にかかわらず形になります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-23-gyomu-manual-tsukurikata.png" alt="読み手と範囲を決める・作業しながら記録する・項目をそろえて書く・判断の基準を足す・他の人に試してもらうの5段階を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>文章を整えるのは最後です。実際にやりながら記録する段階を飛ばすと、無意識の操作が抜けます。</figcaption></figure>
+
+<p>作業を洗い出したら、まず<strong>実際にやりながら記録します</strong>。頭の中で思い出して書くと、無意識にやっている操作が抜けます。画面のスクリーンショットを撮りながら一度通して作業するのが、最も早く正確です。</p>
+<p>下書きができたら、<strong>その業務をやったことがない人に、それだけを見て作業してもらいます</strong>。詰まった箇所が、説明の足りない箇所です。書いた本人には見つけられません。この一手間が、読まれるマニュアルとそうでないものを分けます。</p>
+<h2 id="h4"><span class="h-num">04</span>1本のマニュアルに入れる項目をそろえる</h2>
+<p>書式がばらばらだと、読む側は毎回どこを見ればいいか探すことになります。項目を固定してください。</p>
+<ul>
+<li><strong>この作業の目的</strong>：なぜやるのかを1〜2文。目的が分かると、例外に出会ったときに自分で判断できます</li>
+<li><strong>いつ・誰がやるか</strong>：タイミングと担当。月次なのか、依頼を受けたときなのか</li>
+<li><strong>必要なもの</strong>：使うシステム、権限、参照する資料</li>
+<li><strong>手順</strong>：番号付きで、1ステップ1動作。画面があるならスクリーンショットを添える</li>
+<li><strong>判断が必要な場面と基準</strong>：後述します。ここが属人化を外す中心です</li>
+<li><strong>終わったことの確認方法</strong>：何がどうなっていれば完了か</li>
+<li><strong>困ったときの連絡先</strong>：部署名や役割名で書きます（個人名は異動で古くなります）</li>
+</ul>
+<p>手順は<strong>1ステップ1動作</strong>を守ります。「顧客情報を入力して保存し、承認依頼を送る」は3ステップです。まとめると、途中で止まった人が自分の位置を見失います。</p>
+<h2 id="h5"><span class="h-num">05</span>属人化を外すのは、手順ではなく「判断」の記述</h2>
+<p>ここが最も重要です。引き継ぎがうまくいかない原因は、手順が書かれていないことではありません。<strong>手順は書けても、判断の基準が書かれていない</strong>ことです。</p>
+<p>ベテランは「この案件は先に確認を取る」「この金額なら上長承認が要る」といった判断を無意識に行っています。本人にとっては当たり前なので、マニュアルに書く発想が出てきません。結果、手順どおりにやったのに間違えるという状況が生まれます。</p>
+<p>判断を引き出すには、聞き方を変えます。「どうやるか」ではなく、**「どういうときに、いつもと違うことをしますか」**と尋ねます。例外の話から入ると、判断の基準が言葉になって出てきます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>書き方の例</h4>
+    <p>「金額が大きい場合は上長に確認」ではなく、「税抜○万円以上は上長承認を取る」と数字で書きます。基準が数字や条件で書けないものは、まだ言語化できていない判断です。その場合は判断した実例を2〜3件並べておくだけでも、次の人の助けになります。</p>
+  </div>
+</div>
+
+<p>判断の基準が書き出せると、<strong>その業務を仕組みに載せられるようになります</strong>。条件が明文化されているということは、そのままシステムの分岐条件になるということだからです。</p>
+<h2 id="h6"><span class="h-num">06</span>更新が続く仕組みを、最初にセットで作る</h2>
+<p>マニュアルは作った瞬間から古くなります。更新の仕組みを本体とセットで用意してください。</p>
+<ul>
+<li><strong>更新の担当を役割で決める</strong>：個人名ではなく「経理担当」のように役割で持たせます</li>
+<li><strong>見直しの時期を決める</strong>：半年に一度など、日付を先に入れておきます</li>
+<li><strong>最終更新日を先頭に書く</strong>：読む側が、情報の鮮度を自分で判断できます</li>
+<li><strong>直す人を限定しない</strong>：気づいた人が直せる場所に置きます。申請が要ると誰も直しません</li>
+<li><strong>業務が変わった日に直す</strong>：システムを入れ替えた、担当が変わった。そのタイミングで手を付けるのが最も確実です</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>一度に全業務のマニュアルを揃えようとしないでください。担当者の負荷が一気に増え、途中で止まります。止まったマニュアルは「あるのに古い」という、無いより厄介な状態になります。まず引き継ぎ予定のある業務、または特定の一人しかできない業務の1本から始めてください。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>生成AIを下書きに使うときの注意</h2>
+<p>作業の記録を渡して文章に整えてもらう用途では、生成AIが下書きの時間を大きく縮めます。箇条書きのメモから手順書の形に起こす、書式をそろえる、抜けていそうな項目を洗い出す。このあたりは得意な領域です。</p>
+<p>ただし、<strong>社内の判断基準や例外処理は、AIが知り得ない情報です</strong>。それらしい一般論で埋められてしまうと、間違ったマニュアルが出来上がります。判断の部分は必ず人が書き、AIには形式を整える役割を任せてください。</p>
+<p>社内で使う際のルールづくりは<a href="2026-09-06-seisei-ai-shanai-rule-template.html">生成AIの社内ルール</a>に整理しています。顧客情報や取引先名をそのまま入力しない、といった線引きを先に決めておくと安心して使えます。</p>
+<details class="faq"><summary>マニュアルは動画と文書のどちらがよいですか？</summary><div class="faq-a">更新のしやすさで選んでください。文書は一部だけ直せますが、動画は撮り直しになります。変更が多い業務は文書、画面の操作が複雑で言葉にしにくい部分だけ短い動画を添える、という組み合わせが現実的です。</div></details>
+
+<details class="faq"><summary>どこから作り始めるべきですか？</summary><div class="faq-a">「その人が休むと止まる業務」からです。件数の多い業務より、代われる人がいない業務のほうがリスクが大きくなります。次は、近く引き継ぎが発生する業務です。</div></details>
+
+<details class="faq"><summary>作る時間が取れません。どうすればよいですか？</summary><div class="faq-a">完成品を目指さず、作業しながら画面を撮り、番号を振るところまでで一度公開してください。文章は後から足せます。読み手が詰まった箇所だけを追記していくほうが、机上で仕上げるより早く実用に届きます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：マニュアルは、仕組み化の下ごしらえになる</h2>
+<p>業務マニュアルの作り方は、読み手・範囲・置き場所を決め、実際にやりながら記録し、他の人に試してもらい、判断の基準まで書き出す。この順番です。属人化を外す鍵は手順ではなく判断の記述にあり、更新の担当と時期を決めておけば陳腐化も止まります。</p>
+<p>そして、<strong>判断の基準まで書けた業務は、そのままシステムに載せられます</strong>。誰が・いつ・どの条件で何をするかが明文化されていれば、入力や転記、承認の流れを仕組みに置き換える検討に進めるからです。マニュアルを作る作業は、そのための下ごしらえでもあります。</p>
+<p>TENERAMENTEでは、業務の棚卸しから一緒に進める形で<a href="lp-ai-app.html">業務アプリ開発</a>をお引き受けしています。マニュアルが手書きのメモの段階でも構いません。特定の一人しかできない業務が残っていて仕組みにしたいとお考えでしたら、<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務改善</span><span>#マニュアル</span><span>#属人化</span><span>#手順書</span><span>#業務アプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +314,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +342,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-20-gyomu-flow-zu-kakikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務フロー図の書き方｜システム化の前に業務を整理する手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-26-nocode-gyomu-app.html">
+        <span class="cat">Web App</span>
+        <h4>ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面</h4>
+      </a>
+      <a class="related-card" href="2026-09-17-dx-towa-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>DXとは何か｜中小企業が最初に手をつける範囲と進める順番</h4>
+      </a>
+    </div>
   </div>
 </section>
 

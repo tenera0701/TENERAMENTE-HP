@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,151 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-19-tokubetsu-eigyojikan-settei";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール","description":"Googleビジネスプロフィールの特別営業時間と臨時休業の設定手順を、忘れたときに何が起きるかから逆算して整理しました。祝日・年末年始の入れ方、投稿との使い分け、年1回まとめて入れる運用ルールまでまとめています。","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-19-tokubetsu-eigyojikan-settei.html","image":"https://teneramente.jp/assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 営業時間, Googleマップ, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール","description":"Googleビジネスプロフィールの特別営業時間と臨時休業の設定手順を、忘れたときに何が起きるかから逆算して整理しました。祝日・年末年始の入れ方、投稿との使い分け、年1回まとめて入れる運用ルールまでまとめています。","datePublished":"2026-10-19","dateModified":"2026-10-19","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-19-tokubetsu-eigyojikan-settei.html","image":"https://teneramente.jp/assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 営業時間, Googleマップ, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール","item":"https://teneramente.jp/2026-10-19-tokubetsu-eigyojikan-settei.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"臨時休業は投稿で知らせるだけでは足りませんか？","acceptedAnswer":{"@type":"Answer","text":"足りません。投稿は読んだ方にだけ伝わる案内で、検索結果やマップに表示される営業時間は変わらないためです。地図の一覧から店名をタップした方が見るのは、投稿ではなく営業時間の表示です。手順としては、特別営業時間で当日を休業にしたうえで、投稿で理由と再開の見込みを添える形が確実です。投稿は補助、表示を変えるのは特別営業時間、と役割を分けて考えてください。"}},{"@type":"Question","name":"特別営業時間はどのくらい先まで入れられますか？","acceptedAnswer":{"@type":"Answer","text":"数か月から1年程度先の日付まで指定できます。管理画面には近い祝日が候補として並びますが、候補に無い日も「日付を追加」から指定できます。年末年始やお盆のように毎年の日程がほぼ決まっているものは、日程が確定した時点でまとめて入れてしまうのが安全です。設定した日が過ぎれば自動的に通常の営業時間に戻るため、過去の設定を削除する必要はありません。"}},{"@type":"Question","name":"定休日は特別営業時間に入れるべきですか？","acceptedAnswer":{"@type":"Answer","text":"毎週決まった定休日は、通常の営業時間でその曜日を「定休日」に設定してください。特別営業時間に毎週分を入れる必要はありません。特別営業時間を使うのは、通常の設定と違う日だけです。たとえば「定休日の月曜が祝日なので営業する」「祝日の翌日を振替で休む」といった、通常の繰り返しから外れる日が対象になります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 19, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.webp" alt="特別営業時間・臨時休業の設定を忘れると起きること｜設定手順と運用ルール" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>設定を忘れると、店舗側に何が起きるか</a><a href="#h2"><span class="n">02</span>営業時間・特別営業時間・投稿の役割はそれぞれ違う</a><a href="#h3"><span class="n">03</span>設定手順：祝日と、日付を指定する休業</a><a href="#h4"><span class="n">04</span>祝日・年末年始・お盆は、年のはじめにまとめて入れる</a><a href="#h5"><span class="n">05</span>当日の急な休業は、特別営業時間が最優先</a><a href="#h6"><span class="n">06</span>長期休業と「一時休業」の使い分け</a><a href="#h7"><span class="n">07</span>複数店舗ある場合は、店舗ごとに入れる</a><a href="#h8"><span class="n">08</span>月1回の確認に、この項目を入れておく</a><a href="#h9"><span class="n">09</span>まとめ：入れる日を決めてしまえば、抜けは防げる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">祝日に閉めていたのに「営業中」と表示され、来店したお客様を帰してしまった。地図検索まわりで最も多い行き違いのひとつです。<strong>特別営業時間は、Googleビジネスプロフィールの中で唯一「その日だけ」の表示を上書きできる項目で、ここが空のままだと通常営業として案内され続けます</strong>。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>臨時休業や祝日の短縮営業は、投稿で告知しても営業時間の表示は変わりません。<strong>変わるのは特別営業時間に日付を入れたときだけです</strong>。祝日と年末年始は年のはじめにまとめて登録し、急な休業はその日のうちに特別営業時間へ入れる、という2段構えで運用してください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>設定を忘れると、店舗側に何が起きるか</h2>
+<p>特別営業時間が空欄のとき、Googleマップと検索結果には通常の営業時間がそのまま表示されます。祝日も、年末年始も、臨時休業の日も、通常営業として案内されます。</p>
+<p>起きることは3つに分かれます。1つめは、閉まっている店に来店されること。2つめは、閉店時刻を過ぎてからの電話や来店が続くこと。3つめが見落としやすいのですが、<strong>「営業時間が不正確」という指摘が口コミに残ること</strong>です。</p>
+<p>3つめは時間が経っても消えません。来店した方が書いた指摘は、その後に検討する方がそのまま読みます。設定の抜けが、店の印象として残る形になります。</p>
+<h2 id="h2"><span class="h-num">02</span>営業時間・特別営業時間・投稿の役割はそれぞれ違う</h2>
+<p>混ざりやすい3つの項目を、先に分けておきます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-19-tokubetsu-eigyojikan-settei.png" alt="通常の営業時間は毎週繰り返す基本の時間、特別営業時間は日付を指定してその日だけ上書きする項目、投稿は理由を伝える項目という、Googleビジネスプロフィールで営業時間に関わる3つの項目の役割を並べた図" width="1600" height="760" loading="lazy" decoding="async"><figcaption>表示される時間を変えられるのは、真ん中の特別営業時間だけです。</figcaption></figure>
+
+<p>通常の営業時間は、毎週繰り返される基本の時間です。曜日ごとに設定し、変更するとその後ずっと適用されます。</p>
+<p>特別営業時間は、日付を指定してその日だけ上書きする項目です。「10月19日は休業」「1月2日は12時から17時」のように、日付と時間を指定します。指定した日が過ぎれば、自動的に通常の営業時間へ戻ります。</p>
+<p>投稿は、理由や案内を伝える項目です。表示される営業時間そのものは変わりません。<strong>投稿だけで済ませると、時間の表示は通常営業のまま残ります</strong>。</p>
+<h2 id="h3"><span class="h-num">03</span>設定手順：祝日と、日付を指定する休業</h2>
+<p>設定はGoogleビジネスプロフィールの管理画面から行います。検索結果やマップ上の自店の管理表示、またはビジネスプロフィール マネージャから「営業時間」の編集に入ると、通常の営業時間の下に特別営業時間の欄があります。</p>
+<p>手順は次のとおりです。</p>
+<ol>
+<li>営業時間の編集画面を開き、「特別営業時間」を選ぶ</li>
+<li>近い祝日が候補として一覧に並ぶので、該当日の営業時間を入力するか「休業」を選ぶ</li>
+<li>一覧に無い日は「日付を追加」から日付を指定して入力する</li>
+<li>短縮営業の場合は開店・閉店の時刻を入れる（休業の場合は時刻を入れずに休業を指定）</li>
+<li>保存し、検索結果の表示が切り替わったかを翌日に確認する</li>
+</ol>
+<p>候補として並ぶ祝日は、入力しないと「未設定」の状態で残ります。候補に出ていること自体は設定済みを意味しません。ここを見落とすと、祝日だけ通常営業として案内されます。</p>
+<h2 id="h4"><span class="h-num">04</span>祝日・年末年始・お盆は、年のはじめにまとめて入れる</h2>
+<p>直前に思い出して入れる運用にすると、忙しい時期から順に抜けていきます。年末年始、お盆、ゴールデンウィークは、まさに来店も検索も増える時期です。</p>
+<p>現実的なのは、<strong>年のはじめに1年分の祝日と長期休業をまとめて入れてしまう形</strong>です。作業は年1回で済み、その後は急な変更だけを足していく運用になります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>休業の種類</th>
+<th>入れる時機</th>
+<th>入れる場所</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>祝日・定休日と重なる祝日</td>
+<td>年のはじめに1年分</td>
+<td>特別営業時間</td>
+</tr>
+<tr>
+<td>年末年始・お盆・連休</td>
+<td>日程が決まった時点</td>
+<td>特別営業時間（＋投稿で案内）</td>
+</tr>
+<tr>
+<td>研修・棚卸しなどの臨時休業</td>
+<td>日程が決まった時点</td>
+<td>特別営業時間</td>
+</tr>
+<tr>
+<td>当日の急な休業</td>
+<td>その日のうち</td>
+<td>特別営業時間（＋投稿で理由）</td>
+</tr>
+<tr>
+<td>時間の短縮（繁忙期の早仕舞いなど）</td>
+<td>決まった時点</td>
+<td>特別営業時間に時刻を指定</td>
+</tr>
+</tbody></table></div>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>定休日と祝日が重なる週は要注意</h4>
+    <p>「祝日は営業、翌日を振替休業」という運用の店舗は、祝日と振替日の両方を特別営業時間に入れてください。片方だけ入れると、営業している日が休業と表示される逆の行き違いが起きます。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>当日の急な休業は、特別営業時間が最優先</h2>
+<p>急な休業が決まったときの順番は決まっています。まず特別営業時間に当日を入れて休業にする。そのうえで、投稿で理由と再開の見込みを書く。この順番です。</p>
+<p>逆にしてしまうと、投稿を読んだ方には伝わりますが、地図の一覧から直行した方には通常営業として表示されます。<strong>表示を変える操作を先に済ませる</strong>と覚えてください。</p>
+<p>電話が通じない時間が続く場合は、電話番号の削除まではせず、特別営業時間で休業を示すだけにとどめるのが無難です。項目を消すと、再開のときに戻し忘れが起きます。</p>
+<h2 id="h6"><span class="h-num">06</span>長期休業と「一時休業」の使い分け</h2>
+<p>数日から1週間程度の休業は、特別営業時間で日付ごとに指定します。一方、改装や移転の準備で<strong>数週間以上営業しない場合は「一時休業」の設定</strong>があります。</p>
+<p>一時休業にすると、プロフィール全体が休業中として表示されます。再開したら解除します。注意したいのは、閉店と一時休業は別の設定だという点です。閉店にすると検索結果での扱いが変わり、元に戻す手間も大きくなります。</p>
+<p>迷ったときの目安は、再開する日が決まっているかどうかです。決まっているなら特別営業時間、見通しが立たないなら一時休業、という切り分けが扱いやすい形です。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>再開後の解除を忘れない</h4>
+    <p>一時休業の解除は自動では行われません。再開日を決めた時点で、解除する日をカレンダーに入れておいてください。休業中の表示が残ると、営業しているのに候補から外れ続けます。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>複数店舗ある場合は、店舗ごとに入れる</h2>
+<p>複数の店舗を運営している場合、特別営業時間は店舗ごとの設定です。本部で一括して入れたつもりでも、店舗単位で反映されているかは個別に確認する必要があります。</p>
+<p>管理画面で複数拠点をまとめて管理している場合、営業時間の一括編集に対応している項目と、していない項目があります。<strong>一括で入れたあと、必ず1〜2店舗を検索して表示を確かめる</strong>手順を入れてください。</p>
+<p>店舗ごとに定休日が違う、祝日の扱いが違うというケースでは、一括編集のほうが抜けを生みやすくなります。拠点数が少ないうちは、店舗ごとに入れたほうが確実です。多店舗での情報の揃え方は<a href="2026-10-04-tatenpo-meo-unyo.html">複数店舗のMEO運用</a>にまとめています。</p>
+<h2 id="h8"><span class="h-num">08</span>月1回の確認に、この項目を入れておく</h2>
+<p>特別営業時間は、入れた時点では正しくても、予定が変わると実態とずれます。確認を習慣にするのが結局いちばん早い方法です。</p>
+<p>見るのは3点です。翌月の祝日が入っているか、通常の営業時間が実際と合っているか、終わった休業の設定が残っていないか。<strong>確認は翌月分を前月に見る</strong>形にすると、直前の慌ただしさに巻き込まれません。</p>
+<p>この確認は、他の店舗情報の点検と同じ日にまとめてしまうのが現実的です。項目の立て方は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月次チェックリスト</a>を下敷きにしてください。営業時間は、そのチェックリストの中でも最初に見る項目です。</p>
+<details class="faq"><summary>臨時休業は投稿で知らせるだけでは足りませんか？</summary><div class="faq-a">足りません。投稿は読んだ方にだけ伝わる案内で、検索結果やマップに表示される営業時間は変わらないためです。地図の一覧から店名をタップした方が見るのは、投稿ではなく営業時間の表示です。手順としては、特別営業時間で当日を休業にしたうえで、投稿で理由と再開の見込みを添える形が確実です。投稿は補助、表示を変えるのは特別営業時間、と役割を分けて考えてください。</div></details>
+
+<details class="faq"><summary>特別営業時間はどのくらい先まで入れられますか？</summary><div class="faq-a">数か月から1年程度先の日付まで指定できます。管理画面には近い祝日が候補として並びますが、候補に無い日も「日付を追加」から指定できます。年末年始やお盆のように毎年の日程がほぼ決まっているものは、日程が確定した時点でまとめて入れてしまうのが安全です。設定した日が過ぎれば自動的に通常の営業時間に戻るため、過去の設定を削除する必要はありません。</div></details>
+
+<details class="faq"><summary>定休日は特別営業時間に入れるべきですか？</summary><div class="faq-a">毎週決まった定休日は、通常の営業時間でその曜日を「定休日」に設定してください。特別営業時間に毎週分を入れる必要はありません。特別営業時間を使うのは、通常の設定と違う日だけです。たとえば「定休日の月曜が祝日なので営業する」「祝日の翌日を振替で休む」といった、通常の繰り返しから外れる日が対象になります。</div></details>
+
+<h2 id="h9"><span class="h-num">09</span>まとめ：入れる日を決めてしまえば、抜けは防げる</h2>
+<p>特別営業時間と臨時休業の設定は、難しい作業ではありません。抜ける原因は、入れる時機を決めていないことだけです。年のはじめに祝日と長期休業をまとめて入れ、急な休業はその日のうちに入れ、月1回翌月分を確認する。この3つで、行き違いはほぼ防げます。</p>
+<p>営業時間の正しさは、順位の工夫よりも先に効きます。来店の判断が「今から行けるか」で始まるためです。</p>
+<p>TENERAMENTEなら、年間の祝日と定休日の扱いを特別営業時間に入れた状態でお渡しし、月1回どこを見るかという確認手順まで決めてから運用に移します。繁忙期に設定を思い出して慌てる時間がなくなり、予定が変わった日だけ手を入れれば済む状態になります。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#営業時間</span><span>#Googleマップ</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +315,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +343,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-18-gbp-shashin-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールに載せる写真の選び方｜枚数・種類・更新頻度</h4>
+      </a>
+      <a class="related-card" href="2026-10-20-clinic-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>クリニック・医院のMEO対策｜広告規制に配慮した情報整備と口コミ対応</h4>
+      </a>
+      <a class="related-card" href="2026-10-17-kuchikomi-henshin-ai.html">
+        <span class="cat">MEO</span>
+        <h4>口コミ返信をAIで効率化する方法と、やってはいけない使い方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

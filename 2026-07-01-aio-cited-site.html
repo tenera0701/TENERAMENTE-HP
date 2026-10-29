@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,137 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-07-01-aio-cited-site";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI検索（AIO）時代に、“引用されるサイト”の作り方","description":"ChatGPTやPerplexity、Google AI Overviewsが「答え」を返す時代。検索結果に並ぶのではなく、AIに“引用される”側へ。AIO（AI最適化）の考え方と、今日から打てる具体策をまとめました。","datePublished":"2026-07-01","dateModified":"2026-07-01","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-07-01-aio-cited-site.html","image":"https://teneramente.jp/assets/img/covers/2026-07-01-aio-cited-site.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIO, AI検索, schema.org, llms.txt, Perplexity"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"AI検索（AIO）時代に、“引用されるサイト”の作り方","description":"ChatGPTやPerplexity、Google AI Overviewsが「答え」を返す時代。検索結果に並ぶのではなく、AIに“引用される”側へ。AIO（AI最適化）の考え方と、今日から打てる具体策をまとめました。","datePublished":"2026-07-01","dateModified":"2026-07-01","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-07-01-aio-cited-site.html","image":"https://teneramente.jp/assets/img/covers/2026-07-01-aio-cited-site.png","articleSection":"AIO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIO, AI検索, schema.org, llms.txt, Perplexity"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"AI検索（AIO）時代に、“引用されるサイト”の作り方","item":"https://teneramente.jp/2026-07-01-aio-cited-site.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SEO対策はもう不要になりますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。良質なSEOはAIOの土台です。検索に正しく評価されるサイトほど、AIにも引用されやすくなります。両方を分けずに、ひとつの設計として進めるのがおすすめです。"}},{"@type":"Question","name":"すぐに効果は出ますか？","acceptedAnswer":{"@type":"Answer","text":"AIの学習・参照には時間差があり、即効性は期待しすぎないほうが健全です。構造化と一次情報の蓄積を続けることで、中長期に効いてきます。"}},{"@type":"Question","name":"何を最初にやるべき？","acceptedAnswer":{"@type":"Answer","text":"会社情報・記事・FAQの構造化データ、結論先出しの書き方、更新日の明示。この3つは費用をかけずに今日から始められます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AIO</span></div>
+  <span class="post-cat" data-post="category">AIO</span>
+  <h1 class="post-title" data-post="title">AI検索（AIO）時代に、“引用されるサイト”の作り方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jul 1, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">4 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-07-01-aio-cited-site.webp" alt="AI検索（AIO）時代に、“引用されるサイト”の作り方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>AIO（AI最適化）とは何か</a><a href="#h2"><span class="n">02</span>なぜ「引用される」ことが重要なのか</a><a href="#h3"><span class="n">03</span>SEOとAIOの違い</a><a href="#h4"><span class="n">04</span>引用されるサイトの“条件”</a><a href="#h5"><span class="n">05</span>構造化データと llms.txt</a><a href="#h6"><span class="n">06</span>専門性と一次情報が、最後にものを言う</a><a href="#h7"><span class="n">07</span>まとめ：まず何から始めるか</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">検索の景色が変わりました。ユーザーは10本の青いリンクではなく、AIがまとめた「答え」を最初に読みます。そこで問われるのは、上位に並ぶことよりも──<strong>AIに“引用される”かどうか</strong>。本記事では、<em>AI Optimization</em>（AIO）の基本と、今日から打てる打ち手を、当社（TENERAMENTE）の運用目線で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AIOの本質は小手先のテクニックではなく、<strong>「AIが事実として引用しやすい形」で、信頼できる一次情報を構造的に置くこと</strong>。SEOの土台の上に、構造化データ・明快な見出し・明確な結論を重ねるのが近道です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>AIO（AI最適化）とは何か</h2>
+<p><em>AIO（AI Optimization）</em> とは、ChatGPT・Perplexity・Google AI Overviews といった<strong>生成AIの回答に、自社の情報が引用・参照される</strong>ことを目指す最適化の考え方です。検索エンジン向けの <em>SEO</em> が「順位」を競うのに対し、AIOは「<strong>AIの答えの中に、出典として現れる</strong>」ことを狙います。</p>
+<p>AIは大量の情報から「確からしい事実」を選んで要約します。つまり、曖昧な表現や根拠の薄い主張は選ばれにくく、<strong>明確・具体的・出典のはっきりした情報</strong>が選ばれやすい、という性質があります。</p>
+<h2 id="h2"><span class="h-num">02</span>なぜ「引用される」ことが重要なのか</h2>
+<p>AIの回答に引用されると、ユーザーがクリックする前の段階で「この会社は詳しい」という第一印象を与えられます。検索順位が1位でも、AIの要約に登場しなければ、ユーザーの目に触れないまま終わることも起こり得ます。</p>
+<p>これは特に、専門性が問われる <em>BtoB</em> やローカルビジネスで影響が大きくなります。「<strong>誰が言っているか</strong>」がAIの引用判断に効くためです。</p>
+<h2 id="h3"><span class="h-num">03</span>SEOとAIOの違い</h2>
+<p>両者は対立しません。AIOはSEOの上に積み上げるものです。違いを整理すると次のようになります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>観点</th>
+<th>SEO（従来）</th>
+<th>AIO（AI最適化）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ゴール</td>
+<td>検索順位を上げる</td>
+<td>AIの回答に引用される</td>
+</tr>
+<tr>
+<td>評価対象</td>
+<td>ページ全体・被リンク</td>
+<td>文単位の明確さ・事実性</td>
+</tr>
+<tr>
+<td>効く書き方</td>
+<td>キーワード設計</td>
+<td>結論先出し・定義の明示</td>
+</tr>
+<tr>
+<td>土台</td>
+<td>―</td>
+<td>良質なSEOがそのまま土台になる</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p>順位のためでなく、「引用に足る一文」を積み上げる。それがAIO時代の書き方です。</p>
+</blockquote>
+<h2 id="h4"><span class="h-num">04</span>引用されるサイトの“条件”</h2>
+<p>当社が運用で重視しているのは、次のような観点です。</p>
+<ul>
+<li><strong>結論を先に書く</strong>：各セクションの冒頭で要点を言い切る</li>
+<li><strong>定義を明示する</strong>：専門用語は初出で「○○とは△△です」と説明する</li>
+<li><strong>具体と固有名詞</strong>：抽象論より、対象・条件・手順を具体的に</li>
+<li><strong>一次情報</strong>：自社の実体験・独自データ（範囲は誠実に）</li>
+<li><strong>更新日を明確に</strong>：情報の鮮度をAIに伝える</li>
+<li><strong>構造化</strong>：見出し階層・箇条書き・表で、機械が読みやすく</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>「FAQを質問文そのままの見出しにする」だけでも、AIが質問に対する答えとして拾いやすくなります。ユーザーの“聞き方”に、ページの“見出し”を寄せるのがコツです。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>構造化データと llms.txt</h2>
+<p>機械可読性を高める代表的な手段が <em>schema.org</em> の**構造化データ（JSON-LD）**です。会社情報（Organization）、記事（Article）、FAQ（FAQPage）などをマークアップすると、検索・AIの双方が内容を正確に理解しやすくなります。</p>
+<p>近年は、AIクローラ向けに方針やコンテンツの所在を示す <strong><code>llms.txt</code></strong> という提案も広がりつつあります。必須ではありませんが、サイトの「読まれ方」を意識する姿勢は、これからの基本になっていくでしょう。</p>
+<h2 id="h6"><span class="h-num">06</span>専門性と一次情報が、最後にものを言う</h2>
+<p>小手先の最適化は、いずれ平準化します。最終的にAIにも人にも選ばれるのは、<strong>実際に手を動かした人の一次情報</strong>です。数字を誇張せず、できることとできないことを正直に書く。その誠実さこそが、引用に値する信頼をつくります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>AIに拾われたい一心で、根拠のない数字や断定を並べるのは逆効果です。誤りはAIにも見抜かれ、信頼を損ねます。「曖昧なことは曖昧なまま、正確に」書きましょう。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>まとめ：まず何から始めるか</h2>
+<p>AIOは特別な魔法ではなく、<strong>「正確で、構造的で、出典のはっきりした情報」を積み上げる</strong>地道な営みです。まずは主要ページに構造化データを入れ、各セクションの結論を先出しし、FAQを質問文の見出しで整える。ここから始めるのが現実的です。</p>
+<details class="faq">
+  <summary>SEO対策はもう不要になりますか？</summary>
+  <div class="faq-a">いいえ。良質なSEOはAIOの土台です。検索に正しく評価されるサイトほど、AIにも引用されやすくなります。両方を分けずに、ひとつの設計として進めるのがおすすめです。</div>
+</details>
+<details class="faq">
+  <summary>すぐに効果は出ますか？</summary>
+  <div class="faq-a">AIの学習・参照には時間差があり、即効性は期待しすぎないほうが健全です。構造化と一次情報の蓄積を続けることで、中長期に効いてきます。</div>
+</details>
+<details class="faq">
+  <summary>何を最初にやるべき？</summary>
+  <div class="faq-a">会社情報・記事・FAQの構造化データ、結論先出しの書き方、更新日の明示。この3つは費用をかけずに今日から始められます。</div>
+</details>
+
+<p>当社では、MEO/AIO運用代行のなかで、こうした「引用される設計」までを一気通貫でご支援しています。「うちのサイトはAIに見つけてもらえている？」と思ったら、まずは無料相談からお気軽にどうぞ。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AIO</span><span>#AI検索</span><span>#schema.org</span><span>#llms.txt</span><span>#Perplexity</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +301,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +329,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-07-02-meo-taisaku-complete-guide.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策とは？やり方・費用相場・業者選びまで完全ガイド【2026年版】</h4>
+      </a>
+      <a class="related-card" href="2026-06-28-gbp-monthly-checklist.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィール 月次運用チェックリスト</h4>
+      </a>
+      <a class="related-card" href="2026-06-27-google-kuchikomi-fuyasu.html">
+        <span class="cat">MEO</span>
+        <h4>Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点</h4>
+      </a>
+    </div>
   </div>
 </section>
 

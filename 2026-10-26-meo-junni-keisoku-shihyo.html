@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,141 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-26-meo-junni-keisoku-shihyo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方","description":"MEO対策の成果を数字で確認するための順位計測ツールの使い方をまとめました。1つの順位だけを見ても判断できない理由、地点を分けて測るジオグリッドの考え方、計測で確認すべき指標、測る語と地点の決め方、動いた数字の読み方までを整理しています。","datePublished":"2026-10-26","dateModified":"2026-10-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-26-meo-junni-keisoku-shihyo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 順位計測, ジオグリッド, 効果測定, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方","description":"MEO対策の成果を数字で確認するための順位計測ツールの使い方をまとめました。1つの順位だけを見ても判断できない理由、地点を分けて測るジオグリッドの考え方、計測で確認すべき指標、測る語と地点の決め方、動いた数字の読み方までを整理しています。","datePublished":"2026-10-26","dateModified":"2026-10-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-26-meo-junni-keisoku-shihyo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 順位計測, ジオグリッド, 効果測定, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方","item":"https://teneramente.jp/2026-10-26-meo-junni-keisoku-shihyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"順位計測ツールは必ず必要ですか？","acceptedAnswer":{"@type":"Answer","text":"店舗が1つで、商圏も徒歩圏に限られる場合は、Googleビジネスプロフィールの管理画面にある検索語句と閲覧数の推移だけでも、しばらくは判断できます。ツールが必要になるのは、商圏が広い場合、複数の店舗を比べたい場合、地域名を含む語で届く範囲を確認したい場合です。まず管理画面の数字を続けて見て、判断に足りないと感じた時点で検討してください。"}},{"@type":"Question","name":"順位が下がったら、何から確認すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"先に自店の情報が変わっていないかを確認してください。営業時間、カテゴリ、所在地の表記、電話番号の変更、写真の削除などが原因であることがあります。自店側に変更がなければ、上位に出ている店舗の情報を見比べます。周辺に同業の店舗が増えた、他店の情報が整えられたという理由でも順位は動きます。施策を増やすのは、この確認のあとです。"}},{"@type":"Question","name":"何位を目指せばよいですか？","acceptedAnswer":{"@type":"Answer","text":"数字の目標より、「来店してもらいたい範囲の地点で、マップ検索の結果に表示されている状態」を目安にしてください。マップ検索では上部に数件が表示され、そこに入るかどうかで見られ方が大きく変わります。ただし地点によって結果が違うため、全地点で同じ順位を目指す形にはなりません。届いていない地点を1つずつ減らしていく進め方が現実的です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 26, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.webp" alt="MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>「見える化」が必要になるのは、打ち手と結果が離れているから</a><a href="#h2"><span class="n">02</span>順位が1つに決まらないのは、検索した場所で変わるから</a><a href="#h3"><span class="n">03</span>順位計測ツールで確認すべき指標</a><a href="#h4"><span class="n">04</span>測る語は、絞ってから固定する</a><a href="#h5"><span class="n">05</span>動いた数字は、3つの型で読む</a><a href="#h6"><span class="n">06</span>計測の頻度は、月1回で足りる</a><a href="#h7"><span class="n">07</span>よくある失敗を、先に知っておく</a><a href="#h8"><span class="n">08</span>まとめ：測るのは、続けるかどうかを決めるため</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">MEO対策を続けていると、「やっていることは分かるが、効いているのかが分からない」という状態になりがちです。これを抜けるために使うのが順位計測ツールですが、<strong>見るべきなのは「今何位か」ではなく、どの語で・どの場所で・どちらへ動いたか</strong>です。測り方と、確認すべき指標を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>マップ検索の順位は検索した場所によって変わるため、1つの数字では判断できません。<strong>順位計測ツールは「店舗の周辺を複数の地点に分けて、同じ語を定期的に測る」ために使います</strong>。見るのは順位そのものではなく、地点ごとの差と、時間の経過による向きです。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>「見える化」が必要になるのは、打ち手と結果が離れているから</h2>
+<p>MEO対策の作業は、カテゴリの見直し、営業時間の正確化、写真の追加、口コミへの返信、投稿の継続といった地道なものです。どれも効果が出るまでに時間がかかり、1つの作業と1つの結果が線で結びつきません。</p>
+<p>そのため、作業を続けているのに手応えがないという状態になります。ここで起きやすいのは、効いているかどうかを確かめずに施策を増やすことです。増やすほど、何が効いたのかはさらに分からなくなります。</p>
+<p>見える化とは、きれいなグラフを作ることではありません。<strong>打ち手を続けるか、やめるか、変えるかを判断できる材料を定期的に手元に置くこと</strong>です。そのために必要な数字は、それほど多くありません。MEO対策全体の進め方は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>順位が1つに決まらないのは、検索した場所で変わるから</h2>
+<p>マップ検索の結果は、検索した人がどこにいるかによって変わります。店舗の前で検索したときに上位に出ていても、2駅離れた場所からの検索では圏外ということが普通に起きます。</p>
+<p>つまり「当店は〇位です」という言い方そのものが成立しません。自分の店舗や自宅で検索して確認する方法では、その1地点の結果しか分からないうえ、自店の情報を見慣れた端末から検索しているという偏りも乗ります。</p>
+<p>ここを埋めるのが、<em>geo grid</em>（ジオグリッド）という考え方です。店舗の周辺を網目状の複数の地点に分け、それぞれの地点から同じ語で検索したときの順位を一覧にします。順位計測ツールの多くは、この形で結果を表示します。</p>
+<p><strong>見たいのは1つの順位ではなく、どの範囲まで上位に出ているか</strong>です。範囲が分かれば、商圏のどこに届いていないかが分かります。</p>
+<h2 id="h3"><span class="h-num">03</span>順位計測ツールで確認すべき指標</h2>
+<p>ツールによって画面は違いますが、判断に使う指標は共通しています。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-26-meo-junni-keisoku-shihyo.png" alt="地点ごとの順位、順位の推移、語ごとの順位の差、上位に出ている店舗という、MEOの順位計測ツールで確認する4つの指標と、それぞれで何が分かるかを並べた図" width="1600" height="620" loading="lazy" decoding="async"><figcaption>管理画面の閲覧数と合わせて見ると、順位の動きが反応につながったかまで確認できます。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>導入前に確認すること</h4>
+    <p>無料で使える範囲、測れる語の数、地点の数、記録が残る期間はツールによって違います。長く続けるものなので、測れる語の数より「過去の記録がどれだけ残るか」を先に確認してください。比較するための過去がないと、順位の数字は判断材料になりません。</p>
+  </div>
+</div>
+
+<p>指標は次のように役割が分かれています。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指標</th>
+<th>何が分かるか</th>
+<th>見る頻度の目安</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>地点ごとの順位</td>
+<td>商圏のどこまで届いているか</td>
+<td>月1回</td>
+</tr>
+<tr>
+<td>順位の推移</td>
+<td>施策の後に向きが変わったか</td>
+<td>月1回</td>
+</tr>
+<tr>
+<td>語ごとの順位の差</td>
+<td>どの言い方で弱いか</td>
+<td>月1回</td>
+</tr>
+<tr>
+<td>上位に出ている店舗</td>
+<td>何がそろっている店舗が上位か</td>
+<td>施策を決めるとき</td>
+</tr>
+</tbody></table></div>
+<p>管理画面側の数字（閲覧数やルート検索）と合わせて見ると、順位の動きが反応につながったかまで確認できます。管理画面の数字の読み方は<a href="2026-10-21-meo-report-mikata.html">MEOレポートの見方</a>に分けて書いています。</p>
+<h2 id="h4"><span class="h-num">04</span>測る語は、絞ってから固定する</h2>
+<p>計測の設定でつまずくのは、測る語を決める場面です。思いつく語を全部入れると、毎月見る量が増えて続きません。</p>
+<p>決め方は3つの観点で足ります。1つ目は、<strong>来店につながる言い方</strong>。「地域名＋業種」のように、探している人が実際に打つ形です。2つ目は、業種の言い方の違い。「整体」と「整骨院」のように複数の呼び方があるものは、両方を入れておくと弱い側が分かります。3つ目は、主力のサービス名です。</p>
+<p>語は一度決めたら、しばらく変えずに固定してください。語を入れ替えると、過去との比較ができなくなります。</p>
+<p>地点のほうは、店舗を中心に、来店してもらいたい範囲を覆う形で置きます。徒歩圏だけで足りる店舗と、車で30分の範囲を見たい店舗では、置き方が変わります。<strong>来ていただける距離より広く測っても、判断には使えません</strong>。</p>
+<h2 id="h5"><span class="h-num">05</span>動いた数字は、3つの型で読む</h2>
+<p>計測を始めると、毎月の数字をどう読むかで迷います。読み方は3つの型に分けると決まります。</p>
+<p>1つ目は、<strong>順位も閲覧数も上がっている</strong>とき。これは続ける判断です。直前に何をしたかを記録に残し、同じことを他の語や地点にも広げます。</p>
+<p>2つ目は、順位は上がったが閲覧数や反応が動かないとき。上位に出ても選ばれていない状態なので、見るのは順位ではなく店舗情報の中身です。写真、口コミ、営業時間、サービスの記載といった、見た人が判断する材料のほうに原因があります。</p>
+<p>3つ目は、順位が動かないときです。ここで施策を増やす前に、測り方を疑ってください。語が実際には検索されていない、地点が商圏から外れている、施策から日が浅い、のいずれかであることが多いです。</p>
+<blockquote>
+<p>数字が動かないことと、打ち手が効いていないことは、同じではありません。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>計測の頻度は、月1回で足りる</h2>
+<p>毎日見ても判断は変わりません。順位は日によって揺れるため、短い間隔で見るほど、揺れを変化と読み違えます。</p>
+<p>現実的なのは、<strong>月1回、同じ日あたりに同じ語・同じ地点で測って記録する</strong>形です。測った結果は、スクリーンショットだけでなく、数字と「その月にやったこと」を1行で並べて残してください。半年たったときに、効いた施策を見返せるのはこの記録だけです。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>順位を目的にしない</h4>
+    <p>順位は、来店や問い合わせの手前にある途中の数字です。上位に出ること自体を目標にすると、情報の正確さや口コミへの対応といった、本来の判断材料を整える作業が後回しになります。最終的に見るのは、来店数と問い合わせ数のほうです。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>よくある失敗を、先に知っておく</h2>
+<p>計測でつまずく形は、だいたい次の3つです。</p>
+<p>1つ目は、<strong>自分の端末で検索して順位を確認すること</strong>です。検索履歴や現在地の影響を受けるため、他の人が見ている結果とは違います。確認したつもりが、自店に都合のよい結果だけを見ていることになります。</p>
+<p>2つ目は、測る語を毎月変えてしまうことです。順位が思ったように上がらないと、別の語を試したくなります。しかし語を変えると、前月との比較という唯一の判断材料が消えます。</p>
+<p>3つ目は、記録を残さないことです。ツールの画面を見ただけで終えると、翌月には前の状態を思い出せません。数字と施策を並べて1行ずつ残すだけで、判断の精度が変わります。</p>
+<details class="faq"><summary>順位計測ツールは必ず必要ですか？</summary><div class="faq-a">店舗が1つで、商圏も徒歩圏に限られる場合は、Googleビジネスプロフィールの管理画面にある検索語句と閲覧数の推移だけでも、しばらくは判断できます。ツールが必要になるのは、商圏が広い場合、複数の店舗を比べたい場合、地域名を含む語で届く範囲を確認したい場合です。まず管理画面の数字を続けて見て、判断に足りないと感じた時点で検討してください。</div></details>
+
+<details class="faq"><summary>順位が下がったら、何から確認すればよいですか？</summary><div class="faq-a">先に自店の情報が変わっていないかを確認してください。営業時間、カテゴリ、所在地の表記、電話番号の変更、写真の削除などが原因であることがあります。自店側に変更がなければ、上位に出ている店舗の情報を見比べます。周辺に同業の店舗が増えた、他店の情報が整えられたという理由でも順位は動きます。施策を増やすのは、この確認のあとです。</div></details>
+
+<details class="faq"><summary>何位を目指せばよいですか？</summary><div class="faq-a">数字の目標より、「来店してもらいたい範囲の地点で、マップ検索の結果に表示されている状態」を目安にしてください。マップ検索では上部に数件が表示され、そこに入るかどうかで見られ方が大きく変わります。ただし地点によって結果が違うため、全地点で同じ順位を目指す形にはなりません。届いていない地点を1つずつ減らしていく進め方が現実的です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：測るのは、続けるかどうかを決めるため</h2>
+<p>MEO対策の見える化は、順位を数字で眺めるためのものではありません。マップ検索の順位は検索した場所で変わるため、店舗の周辺を複数の地点に分けて、同じ語を同じ条件で定期的に測ります。</p>
+<p>進め方は、測る語を3つの観点で絞って固定する、来店してもらいたい範囲に地点を置く、月1回測って数字とその月の施策を1行で残す、動いた数字を3つの型で読む。これだけで、打ち手を続けるか変えるかの判断はできます。<strong>順位は途中の数字で、見る目的は来店と問い合わせの変化を説明できるようにすることです</strong>。</p>
+<p>TENERAMENTEなら、測る語と地点の設計から、月1回の記録の型づくり、順位が動いたときにどこを見るかの判断基準の整理まで、店舗の商圏に合わせて組み立てます。毎月の確認が担当者の感覚に頼らず同じ手順で終わり、施策を続けるかどうかを数字で決められるようになります。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#順位計測</span><span>#ジオグリッド</span><span>#効果測定</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +305,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +333,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-25-gbp-shohin-service-kinou.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番</h4>
+      </a>
+      <a class="related-card" href="2026-10-24-seitai-sekkotsuin-meo.html">
+        <span class="cat">MEO</span>
+        <h4>整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用</h4>
+      </a>
+      <a class="related-card" href="2026-10-21-meo-report-mikata.html">
+        <span class="cat">MEO</span>
+        <h4>MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める</h4>
+      </a>
+    </div>
   </div>
 </section>
 

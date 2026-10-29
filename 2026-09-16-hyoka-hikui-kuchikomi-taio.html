@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,126 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-16-hyoka-hikui-kuchikomi-taio";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準","description":"低評価の口コミが付いたとき、削除を申請すべきものと、返信で対応すべきものは分かれます。Googleのポリシーに照らした判断の基準、削除を報告する手順、通らなかった場合の現実的な打ち手までを整理しました。","datePublished":"2026-09-16","dateModified":"2026-09-16","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-16-hyoka-hikui-kuchikomi-taio.html","image":"https://teneramente.jp/assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ対応, Googleビジネスプロフィール, GBP, レピュテーション"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準","description":"低評価の口コミが付いたとき、削除を申請すべきものと、返信で対応すべきものは分かれます。Googleのポリシーに照らした判断の基準、削除を報告する手順、通らなかった場合の現実的な打ち手までを整理しました。","datePublished":"2026-09-16","dateModified":"2026-09-16","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-16-hyoka-hikui-kuchikomi-taio.html","image":"https://teneramente.jp/assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ対応, Googleビジネスプロフィール, GBP, レピュテーション"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準","item":"https://teneramente.jp/2026-09-16-hyoka-hikui-kuchikomi-taio.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"事実と明らかに違う口コミでも削除されないのですか？","acceptedAnswer":{"@type":"Answer","text":"店舗側から見て事実と違っていても、投稿者の体験に基づく主観的な評価と判断されれば、削除の対象にはなりにくいのが実情です。まったく取引のない相手からの投稿や、別の店舗についての内容であれば報告の対象になり得ますが、認識の食い違いは返信で対応する前提に立つほうが現実的です。"}},{"@type":"Question","name":"低評価に返信すると、かえって目立ちませんか？","acceptedAnswer":{"@type":"Answer","text":"返信の有無で口コミの表示順が変わるわけではありません。低評価は返信が無くても読まれます。返信が無い状態は「指摘に向き合っていない」という印象だけを残すため、短くても返しておくほうが読む人には伝わります。"}},{"@type":"Question","name":"投稿者に連絡して取り下げてもらうのは問題ありますか？","acceptedAnswer":{"@type":"Answer","text":"金銭や特典と引き換えに削除を求める行為はポリシー違反にあたります。指摘への対応として店舗から連絡を取ること自体が禁じられているわけではありませんが、取り下げを条件にしないでください。Googleへの報告と、返信での対応に絞るのが安全です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 16, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-16-hyoka-hikui-kuchikomi-taio.webp" alt="低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>低評価が付いたとき、最初にやるのは削除申請ではない</a><a href="#h2"><span class="n">02</span>低評価の口コミを4つに仕分ける</a><a href="#h3"><span class="n">03</span>Googleに削除を報告できるのは、ポリシー違反の場合だけ</a><a href="#h4"><span class="n">04</span>削除を報告する手順と、通らなかったときの考え方</a><a href="#h5"><span class="n">05</span>削除できない低評価には、第三者に向けて返信する</a><a href="#h6"><span class="n">06</span>低評価が続くときは、1件ずつではなく母数を見る</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：削除できるものとできないものを、先に分ける</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">低評価の口コミへの対応で最初に決めるべきなのは、文面ではなく<strong>その口コミが削除申請の対象になるかどうか</strong>です。ここを分けずに動くと、消えない口コミの削除を待ち続けたり、逆に返信すべきものを放置したりします。この記事では、低評価の口コミを4つに仕分ける判断基準と、削除を報告する手順を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>低評価の口コミは、内容がGoogleのポリシーに違反しているかどうかで対応が変わります。<strong>削除申請が通るのはポリシー違反だけで、「事実と違う」「不当だと感じる」は理由になりません</strong>。大半は返信で対応する前提に立つほうが、結果的に早く片付きます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>低評価が付いたとき、最初にやるのは削除申請ではない</h2>
+<p>星1つの通知が届いた直後は、消したいという判断に傾きます。ですが、削除の報告をしてから結果が返るまでの間、店舗側でできることはありません。<strong>待っている時間だけが進み、口コミは表示され続けます</strong>。</p>
+<p>先にやるのは、口コミの内容を読んで仕分けることです。Googleが削除の対象にしているのは、ポリシーに違反している投稿であって、店舗にとって不都合な投稿ではありません。ここを取り違えたまま申請を繰り返すと、対応が止まります。</p>
+<p>もう一つ、最初にやってはいけないことがあります。投稿者に直接連絡を取って取り下げを求めることです。金銭や特典と引き換えに削除を依頼する行為はポリシー違反にあたり、店舗側の信用を損ないます。<strong>削除を頼む相手はGoogleであって、投稿者ではありません</strong>。</p>
+<h2 id="h2"><span class="h-num">02</span>低評価の口コミを4つに仕分ける</h2>
+<p>読んだ内容を、次の4つのどれかに割り当てます。仕分けが決まれば、対応はほぼ自動的に決まります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-16-hyoka-hikui-kuchikomi-taio.png" alt="ポリシー違反の疑い・事実誤認・妥当な指摘・星だけ、という低評価の口コミの4分類と、それぞれの対応を並べた図" width="1600" height="665" loading="lazy" decoding="async"><figcaption>削除の報告に進むのは①だけです。残りは返信で対応すると決めておくと、迷う時間が消えます。</figcaption></figure>
+
+<p><strong>①ポリシー違反の疑いがある</strong>のは、別の店舗の内容が書かれている、まったく取引のない相手からの投稿である、個人名や連絡先が晒されている、といったケースです。ここだけが削除の報告に進みます。</p>
+<p><strong>②事実誤認を含むが違反ではない</strong>のは、待ち時間や料金の認識が食い違っている場合。悔しい内容ですが、投稿者が実際に体験した感想である以上、削除の対象にはなりにくい部分です。<strong>③来店の実態があり指摘も妥当</strong>なものは、削除ではなく改善と返信で応じます。<strong>④星だけ・短文で内容が読み取れない</strong>投稿は判断材料そのものが無いため、短く窓口を開けておく返信に留めます。</p>
+<p>仕分けの精度より、<strong>全件をどれかに割り当てて止めないこと</strong>のほうが大事です。判断に迷ったものは②として扱い、返信に進んでください。</p>
+<h2 id="h3"><span class="h-num">03</span>Googleに削除を報告できるのは、ポリシー違反の場合だけ</h2>
+<p>Googleのビジネスプロフィールには、口コミの投稿内容に関するポリシーが公開されています。削除の報告が通る可能性があるのは、投稿がこれに触れている場合です。</p>
+<p>代表的なものを挙げます。実際の取引や来店の事実がないのに投稿された内容、報酬を受けて書かれた内容、同一人物による繰り返し投稿といった<strong>スパムや虚偽のエンゲージメントにあたるもの</strong>。店舗やサービスと関係のない話題、政治的な主張などの<strong>関連性のない内容</strong>。差別的・侮辱的な表現、他人の個人情報、なりすまし、利害関係者による投稿も対象に含まれます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>報告の対象になりうる内容</th>
+<th>対象になりにくい内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>取引・来店の事実がない投稿</td>
+<td>対応が遅かった、待たされた</td>
+</tr>
+<tr>
+<td>報酬を受けて書かれた投稿</td>
+<td>価格が高い、期待外れだった</td>
+</tr>
+<tr>
+<td>別の店舗・別の支店についての内容</td>
+<td>事実と食い違う体験談</td>
+</tr>
+<tr>
+<td>個人名や連絡先が書かれている</td>
+<td>星だけで内容が無い投稿</td>
+</tr>
+<tr>
+<td>差別的・侮辱的な表現、なりすまし</td>
+<td>従業員個人への不満（表現が穏当な場合）</td>
+</tr>
+</tbody></table></div>
+<p>対象になりにくいのは「対応が遅かった」「価格が高い」「期待外れだった」といった<strong>主観的な評価</strong>です。店舗側から見て事実と違っていても、その人の体験に基づく感想である限り、削除の理由にはなりません。まずここを切り分けてください。</p>
+<h2 id="h4"><span class="h-num">04</span>削除を報告する手順と、通らなかったときの考え方</h2>
+<p>報告自体は数分で終わります。Googleビジネスプロフィールの管理画面、またはGoogleマップの店舗ページから該当の口コミを開き、メニューから報告に進み、違反しているポリシーの種類を選びます。選択肢は前のセクションで挙げた分類に対応しています。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>報告するときの注意</h4>
+    <p>審査と判断を行うのはGoogleで、店舗側から結果や期間を左右することはできません。同じ口コミを何度も報告しても判断が変わるわけではないため、1回報告したら返信の準備に進んでください。</p>
+  </div>
+</div>
+
+<p>通らなかった場合は、その口コミは表示され続ける前提で運用を組み直します。現実的な打ち手は3つです。<strong>返信を付けて第三者に読ませる</strong>こと。<strong>同じ指摘が出ないように運用を直す</strong>こと。そして<strong>新しい口コミが入る流れを作り、その1件の比重を下げる</strong>ことです。3つ目については<a href="2026-06-27-google-kuchikomi-fuyasu.html">Google口コミを増やす方法</a>にまとめています。</p>
+<h2 id="h5"><span class="h-num">05</span>削除できない低評価には、第三者に向けて返信する</h2>
+<p>返信の宛先は投稿者ですが、実際にいちばん読むのは、これから来店するか迷っている人です。<strong>その人が読んで納得できるかどうか</strong>を基準に書くと、文面が決まります。</p>
+<p>順番は、謝罪 → 事実の確認 → 対応 → お礼です。言い訳から始めない、書いた対応は実際にやる、この2つが条件になります。事実と違う内容が書かれている場合も、否定から入らず「そのように受け取られた点」への謝意を先に置き、そのうえで店舗としての事実を簡潔に添えます。感情的な反論は、読む人にとって店舗側の印象が下がるだけです。</p>
+<p>パターン別の具体的な文面は<a href="2026-09-12-kuchikomi-henshin-reibun.html">Google口コミ返信の例文集</a>に整理してあります。あわせて、低評価のうちどこからを店長や本部に上げるかの線引きを、返信を書き始める前に決めておいてください。</p>
+<blockquote>
+<p>読む人が見ているのは、星の数ではなく、その下に返信があるかどうかです。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>低評価が続くときは、1件ずつではなく母数を見る</h2>
+<p>低評価が単発ではなく続いている場合、対応すべきなのは口コミではありません。同じ指摘が複数の投稿に出ているなら、それは運用側の課題が表に出ている状態です。指摘の中身を分類して、いちばん多いものから直すほうが早く効きます。</p>
+<p>同時に確認したいのが、口コミの母数です。総数が少ない状態では、1件の低評価が平均点を大きく動かします。<strong>依頼する仕組みが無いまま放置されていると、不満を持った人だけが自発的に投稿する</strong>という偏りが起きます。満足した方にも依頼が届く導線を用意することが、結果的にいちばん効く低評価対策になります。</p>
+<p>ただし、依頼の方法には制約があります。特典と引き換えに高評価を求める、店内の端末で自社の口コミだけを投稿させるといった行為はポリシー違反です。月単位での点検項目は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィール 月次運用チェックリスト</a>にまとめています。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>事実と明らかに違う口コミでも削除されないのですか？</summary><div class="faq-a">店舗側から見て事実と違っていても、投稿者の体験に基づく主観的な評価と判断されれば、削除の対象にはなりにくいのが実情です。まったく取引のない相手からの投稿や、別の店舗についての内容であれば報告の対象になり得ますが、認識の食い違いは返信で対応する前提に立つほうが現実的です。</div></details>
+
+<details class="faq"><summary>低評価に返信すると、かえって目立ちませんか？</summary><div class="faq-a">返信の有無で口コミの表示順が変わるわけではありません。低評価は返信が無くても読まれます。返信が無い状態は「指摘に向き合っていない」という印象だけを残すため、短くても返しておくほうが読む人には伝わります。</div></details>
+
+<details class="faq"><summary>投稿者に連絡して取り下げてもらうのは問題ありますか？</summary><div class="faq-a">金銭や特典と引き換えに削除を求める行為はポリシー違反にあたります。指摘への対応として店舗から連絡を取ること自体が禁じられているわけではありませんが、取り下げを条件にしないでください。Googleへの報告と、返信での対応に絞るのが安全です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：削除できるものとできないものを、先に分ける</h2>
+<p>低評価の口コミへの対応が長引くのは、削除で解決するものと、返信で解決するものを混ぜて考えているからです。ポリシー違反にあたるかどうかで仕分け、該当するものは1回報告し、それ以外は第三者に向けた返信に切り替える。この順番にするだけで、迷う時間がほとんど無くなります。</p>
+<p>今日できるのは、いま付いている低評価を読み返して4つに仕分けることです。文面の準備はそのあとで構いません。そして低評価が続いているなら、口コミそのものより、指摘されている運用のほうを先に見てください。</p>
+<p>TENERAMENTEでは、<a href="lp-meo.html">MEO対策</a>を、口コミの集め方から低評価が付いたときの判断まで、店舗側で回せる形に整えることを重視しています。どこまで自社でやり、どこから任せるかを整理したい段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#口コミ対応</span><span>#Googleビジネスプロフィール</span><span>#GBP</span><span>#レピュテーション</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +290,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +318,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-13-chatgpt-kensaku-jisha-hyoji.html">
+        <span class="cat">AIO</span>
+        <h4>ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-19-google-map-juni-sagatta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleマップの順位が急に下がった原因と確認手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-12-kuchikomi-henshin-reibun.html">
+        <span class="cat">MEO</span>
+        <h4>Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

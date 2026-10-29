@@ -1186,6 +1186,363 @@
       "status": "done",
       "slug": "staff-teichaku",
       "doneAt": "2026-10-28"
+    },
+    {
+      "id": "m114",
+      "category": "組織・育成",
+      "keyword": "賃貸 繁忙期 準備",
+      "sub": [
+        "繁忙期前 やること 不動産",
+        "賃貸仲介 年末 準備"
+      ],
+      "title": "繁忙期前に賃貸仲介の店舗がやっておく準備｜11月・12月のチェックリスト",
+      "intent": "1〜3月の繁忙期に備えて、今のうちにやっておくことを知りたい",
+      "pillar": "../index.html",
+      "related": [
+        "hanbouki-shift-jinin-keikaku",
+        "hanbouki-uriage-mokuhyo"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m101",
+      "category": "業務効率化",
+      "keyword": "物確 自動化",
+      "sub": [
+        "物件確認 電話 減らす",
+        "空室確認 自動"
+      ],
+      "title": "物確（物件確認）の電話を減らす方法｜空室確認を自動化する仕組みと運用",
+      "intent": "物確の電話に時間を取られている。自動化できるなら知りたい（製品について書くのは CLAUDE.md 10章の「書いてよい製品の事実」だけ）",
+      "pillar": "../features.html",
+      "related": [
+        "gyoshakan-site-bukken-kensaku",
+        "bukken-data-torikomi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m106",
+      "category": "集客・広告",
+      "keyword": "反響 来店率 上げる",
+      "sub": [
+        "賃貸 反響 来店 につなげる",
+        "来店予約 取り方"
+      ],
+      "title": "反響からの来店率を上げる方法｜初回返信から予約確定までの型",
+      "intent": "反響は来ているのに来店につながらない",
+      "pillar": "../features.html",
+      "related": [
+        "lead-response-speed",
+        "raiten-cancel-herasu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m115",
+      "category": "売上管理",
+      "keyword": "申込管理 システム化 タイミング",
+      "sub": [
+        "申込管理表 限界",
+        "賃貸 申込 管理 ソフト"
+      ],
+      "title": "申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら",
+      "intent": "Excelの申込管理表で漏れや二重入力が出てきた",
+      "pillar": "../compare.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "go-ad-nyukin-kanrihyo"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m103",
+      "category": "業務効率化",
+      "keyword": "業者間流通サイト 比較",
+      "sub": [
+        "不動産 業者間サイト 使い分け",
+        "賃貸 物件検索 業者間"
+      ],
+      "title": "業者間流通サイトの使い分け｜賃貸仲介の店舗が物件探しを速くする組み合わせ方",
+      "intent": "複数の業者間サイトをどう使い分ければよいか知りたい（各サイトの料金や機能は断定しない。店舗側の使い分けの観点で書く。批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "gyoshakan-site-bukken-kensaku",
+        "bukken-data-torikomi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m104",
+      "category": "集客・広告",
+      "keyword": "賃貸 追客メール 例文",
+      "sub": [
+        "反響 返信 例文 不動産",
+        "追客 文面 賃貸"
+      ],
+      "title": "賃貸仲介の追客メール例文｜反響から来店予約につなげる送り方",
+      "intent": "反響への返信や追客の文面をすぐ使える形で知りたい",
+      "pillar": "../features.html",
+      "related": [
+        "chintai-tsuikyaku-line-jidoka",
+        "lead-response-speed"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m116",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 売上管理 ソフト 選び方",
+      "sub": [
+        "不動産 売上管理 システム",
+        "賃貸 確定売上 見込み"
+      ],
+      "title": "賃貸仲介の売上管理ソフトの選び方｜確定売上と見込みを分けて見られるか",
+      "intent": "売上管理をソフトに移したいが、何を基準に選べばよいか分からない（ミエルームの料金は書かない）",
+      "pillar": "../compare.html",
+      "related": [
+        "getsumatsu-uriage-shukei-jidoka",
+        "go-ad-management"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m102",
+      "category": "集客・広告",
+      "keyword": "賃貸 募集図面 帯替え",
+      "sub": [
+        "マイソク 帯替え 方法",
+        "賃貸 図面 作成 時間"
+      ],
+      "title": "賃貸の募集図面（マイソク）の帯替えを速くする方法｜手作業を減らす手順",
+      "intent": "図面の帯替えに毎日時間を取られている（製品について書くのは CLAUDE.md 10章の「書いてよい製品の事実」だけ）",
+      "pillar": "../features.html",
+      "related": [
+        "madorizu-tsukurikata",
+        "bukken-shokaibun-kakikata"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m105",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 KPI",
+      "sub": [
+        "反響数 来店率 成約率",
+        "不動産 店舗 数字 管理"
+      ],
+      "title": "賃貸仲介のKPIの決め方｜反響・来店・成約・単価のどこを追うか",
+      "intent": "店舗の数字を何で管理すればよいか決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "staff-seiseki-kanri",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m109",
+      "category": "業務効率化",
+      "keyword": "不動産 顧客管理 Excel 項目",
+      "sub": [
+        "賃貸 顧客管理表 テンプレート",
+        "顧客台帳 Excel 限界"
+      ],
+      "title": "賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング",
+      "intent": "Excelで顧客管理表を作りたい、または今の表に限界を感じている",
+      "pillar": "../compare.html",
+      "related": [
+        "chintai-crm-erabikata",
+        "excel-to-saas"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m113",
+      "category": "集客・広告",
+      "keyword": "反響 自動返信 不動産",
+      "sub": [
+        "反響メール 自動返信 文面",
+        "賃貸 問い合わせ 自動応答"
+      ],
+      "title": "反響メールの自動返信の作り方｜すぐ返す内容と、人が返す内容の分け方",
+      "intent": "反響への返信が遅れがちなので、自動返信を整えたい",
+      "pillar": "../features.html",
+      "related": [
+        "hankyo-mail-jido-torikomi",
+        "lead-response-speed"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m108",
+      "category": "DX",
+      "keyword": "賃貸仲介 独立 フランチャイズ",
+      "sub": [
+        "不動産 FC 独立 比較",
+        "賃貸仲介 開業 FCか単独か"
+      ],
+      "title": "賃貸仲介で独立するならFCか単独か｜開業前に比べておくこと",
+      "intent": "独立開業を考えていて、FC加盟と単独開業のどちらがよいか判断したい（特定のFCを批判しない。数字は書かない）",
+      "pillar": "../index.html",
+      "related": [
+        "hitori-fudosan-kaigyo-tool",
+        "fudosan-kaigyo-junbi-checklist"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m110",
+      "category": "集客・広告",
+      "keyword": "ポータル 反響 増やす",
+      "sub": [
+        "賃貸 ポータル 掲載 改善",
+        "賃貸 反響 増やし方"
+      ],
+      "title": "ポータルサイトの反響を増やす方法｜掲載物件・写真・コメントを見直す順番",
+      "intent": "ポータルに掲載しているが反響が少ない",
+      "pillar": "../features.html",
+      "related": [
+        "bukken-shashin-torikata",
+        "media-roi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m118",
+      "category": "DX",
+      "keyword": "賃貸仲介 業務システム 費用 考え方",
+      "sub": [
+        "不動産 SaaS 月額",
+        "業務管理システム 費用対効果"
+      ],
+      "title": "賃貸仲介の業務システムにかける費用の考え方｜月額と削れる時間で判断する",
+      "intent": "業務システムに月いくらまで払ってよいか判断したい（ミエルームの料金は書かない。数字は書かない）",
+      "pillar": "../compare.html",
+      "related": [
+        "fudosan-chukai-gyomu-kaizen-tool-donyu",
+        "tenpo-muke-tool-hitsuyo-kino"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m107",
+      "category": "売上管理",
+      "keyword": "店長 毎朝 数字 ダッシュボード",
+      "sub": [
+        "賃貸仲介 店長 管理",
+        "店舗 数字 見える化"
+      ],
+      "title": "賃貸仲介の店長が毎朝見るべき数字｜売上と反響を1画面にまとめる方法",
+      "intent": "店長として、毎日何の数字を見ればよいか決めたい",
+      "pillar": "../index.html",
+      "related": [
+        "tencho-shigoto-dandori",
+        "getsumatsu-uriage-shukei-jidoka"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m121",
+      "category": "業務効率化",
+      "keyword": "物件コンバーター",
+      "sub": [
+        "ポータル 一括入稿",
+        "物件データ 変換 連動"
+      ],
+      "title": "物件コンバーターとは｜ポータルへの入稿を一度で済ませる仕組みと選び方",
+      "intent": "ポータルごとに同じ物件を入力し直している",
+      "pillar": "../features.html",
+      "related": [
+        "bukken-nyuko-tejun",
+        "bukken-data-torikomi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m111",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 業務時間 削減",
+      "sub": [
+        "不動産 事務作業 減らす",
+        "賃貸 残業 減らす"
+      ],
+      "title": "賃貸仲介の業務時間を減らす方法｜1日の作業を棚卸しして削る順番",
+      "intent": "残業や事務作業を減らして、接客に時間を使いたい",
+      "pillar": "../features.html",
+      "related": [
+        "tencho-shigoto-dandori",
+        "chintai-gyomu-kaizen-tool"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m117",
+      "category": "DX",
+      "keyword": "不動産 システム 乗り換え データ移行",
+      "sub": [
+        "顧客データ 移行 手順",
+        "業務システム 切り替え"
+      ],
+      "title": "業務システムの乗り換え手順｜顧客・物件データの移行で失敗しない順番",
+      "intent": "今のシステムから乗り換えたいが、データ移行が不安",
+      "pillar": "../compare.html",
+      "related": [
+        "kami-excel-konzai-ikou",
+        "fudosan-gyomu-tool-minaoshi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m112",
+      "category": "DX",
+      "keyword": "AI 物件提案 文章",
+      "sub": [
+        "物件紹介文 AI",
+        "不動産 ChatGPT 提案"
+      ],
+      "title": "AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点",
+      "intent": "AIを使ってお客様への物件提案を速くしたい（製品について書くのは CLAUDE.md 10章の「書いてよい製品の事実」だけ）",
+      "pillar": "../features.html",
+      "related": [
+        "bukken-shokaibun-kakikata",
+        "fudosan-ai-katsuyo-bamen"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m119",
+      "category": "組織・育成",
+      "keyword": "賃貸 接客 流れ 成約率",
+      "sub": [
+        "来店 接客 流れ 賃貸",
+        "賃貸 接客 マニュアル"
+      ],
+      "title": "賃貸仲介の成約率を上げる接客の流れ｜来店から申込までの5つの場面",
+      "intent": "来店はあるのに申込につながらない。接客の流れを見直したい",
+      "pillar": "../index.html",
+      "related": [
+        "raiten-hearing-koumoku",
+        "naiken-junbi-annai"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "m120",
+      "category": "集客・広告",
+      "keyword": "オンライン内見 やり方",
+      "sub": [
+        "賃貸 物件動画 撮り方",
+        "遠方 お客様 内見"
+      ],
+      "title": "オンライン内見・物件動画の始め方｜遠方のお客様の申込につなげる手順",
+      "intent": "遠方のお客様や忙しいお客様にも内見してもらいたい（製品について書くのは CLAUDE.md 10章の「書いてよい製品の事実」だけ）",
+      "pillar": "../features.html",
+      "related": [
+        "bukken-shashin-torikata",
+        "naiken-junbi-annai"
+      ],
+      "status": "todo"
     }
   ]
 }

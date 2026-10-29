@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,130 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-26-ai-first-step";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"社内へのAI導入、最初の一歩の決め方","description":"「AIを使いたいが、どこから始めれば？」——その問いで止まっている会社は少なくありません。効く業務の見分け方、スモールスタートの設計、RAGという選択肢まで、導入の最初の一歩を現場目線で解説します。","datePublished":"2026-06-26","dateModified":"2026-06-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-26-ai-first-step.html","image":"https://teneramente.jp/assets/img/covers/2026-06-26-ai-first-step.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI導入, 社内DX, RAG, プロンプト, 業務改善"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"社内へのAI導入、最初の一歩の決め方","description":"「AIを使いたいが、どこから始めれば？」——その問いで止まっている会社は少なくありません。効く業務の見分け方、スモールスタートの設計、RAGという選択肢まで、導入の最初の一歩を現場目線で解説します。","datePublished":"2026-06-26","dateModified":"2026-06-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-26-ai-first-step.html","image":"https://teneramente.jp/assets/img/covers/2026-06-26-ai-first-step.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI導入, 社内DX, RAG, プロンプト, 業務改善"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"社内へのAI導入、最初の一歩の決め方","item":"https://teneramente.jp/2026-06-26-ai-first-step.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"専門知識がなくても始められますか？","acceptedAnswer":{"@type":"Answer","text":"はい。汎用AIで「読む・書く」作業を手伝ってもらうところからなら、特別な知識は不要です。「どこから始める？」の段階から、当社のような伴走者に相談する方法もあります。"}},{"@type":"Question","name":"費用はどのくらいかかりますか？","acceptedAnswer":{"@type":"Answer","text":"汎用AIの利用自体は安価に始められます。RAG構築や業務アプリ組み込みは規模によりますが、まずは小さく試し、効果を確かめてから広げるのが安全です。"}},{"@type":"Question","name":"社内の抵抗が心配です。","acceptedAnswer":{"@type":"Answer","text":"小さな成功を一つ見せるのが最も効果的です。現場が「これは楽だ」と実感できる業務から始め、押し付けずに広げていきましょう。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">社内へのAI導入、最初の一歩の決め方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 26, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">3 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-26-ai-first-step.webp" alt="社内へのAI導入、最初の一歩の決め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>「どこから始める？」が最大の壁</a><a href="#h2"><span class="n">02</span>AIが効く業務の見分け方</a><a href="#h3"><span class="n">03</span>スモールスタートの設計</a><a href="#h4"><span class="n">04</span>RAG（社内データ検索）という選択肢</a><a href="#h5"><span class="n">05</span>失敗しないための注意点</a><a href="#h6"><span class="n">06</span>最初の一歩（まとめ）</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">AIの話題は尽きないのに、いざ自社となると「<strong>どこから手を付ければいいか分からない</strong>」。多くの会社が、この入口で立ち止まっています。本記事では、社内へのAI導入における“最初の一歩”の決め方を、当社（TENERAMENTE）の伴走経験から具体的に解説します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AI導入は「全社一斉」ではなく、<strong>“頻度が高く・定型的で・失敗しても痛くない”ひとつの業務から小さく始める</strong>のが正解。最初の一歩を間違えなければ、その後の展開はずっと楽になります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>「どこから始める？」が最大の壁</h2>
+<p>AI導入でつまずく最大の原因は、技術ではなく<strong>入口の選び方</strong>です。いきなり基幹業務を変えようとすれば、リスクも調整コストも跳ね上がります。逆に、小さく確実な成功を一つつくれば、社内の納得感が生まれ、次が進めやすくなります。</p>
+<h2 id="h2"><span class="h-num">02</span>AIが効く業務の見分け方</h2>
+<p>すべての業務がAI向きではありません。次の特徴が多いほど、効果が出やすい傾向にあります。</p>
+<ul>
+<li><strong>繰り返し</strong>発生する（毎日・毎週）</li>
+<li><strong>文章を読む/書く</strong>作業が中心（要約・下書き・分類）</li>
+<li>答えが<strong>ある程度パターン化</strong>できる</li>
+<li>多少の誤りを<strong>人が確認できる</strong>（致命的でない）</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>問い合わせメールの一次下書き、議事録の要約、社内文書の整形——こうした「読んで・書く」定型作業は、AIが“同僚”として最も力を発揮しやすい領域です。最終確認だけ人が担えば、安全に時短できます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>スモールスタートの設計</h2>
+<p>最初の一歩は、<strong>1業務・少人数・短期間</strong>で区切ります。</p>
+<ol>
+<li>対象業務を1つに絞る</li>
+<li>現状の手順と所要時間を書き出す</li>
+<li>AIに任せる範囲と、人が確認する範囲を決める</li>
+<li>2〜4週間試して、効果と課題を振り返る</li>
+</ol>
+<p>ここで大切なのは、<strong>「やめる基準」も最初に決めておく</strong>こと。合わなければ潔く引き返せる設計が、挑戦のハードルを下げます。</p>
+<h2 id="h4"><span class="h-num">04</span>RAG（社内データ検索）という選択肢</h2>
+<p>汎用AIは社内の事情を知りません。そこで有効なのが <em>RAG</em>（Retrieval-Augmented Generation＝検索拡張生成）です。<strong>自社のマニュアルや過去資料をAIに参照させ</strong>、社内文脈に沿った回答を得る仕組みです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>特徴</th>
+<th>向くケース</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>汎用AIをそのまま使う</td>
+<td>手軽・無料〜安価</td>
+<td>一般的な文章作成・要約</td>
+</tr>
+<tr>
+<td>RAG（社内データ参照）</td>
+<td>自社の情報に基づく回答</td>
+<td>社内QA・問い合わせ対応・マニュアル検索</td>
+</tr>
+<tr>
+<td>業務アプリに組み込む</td>
+<td>既存の流れの中で使える</td>
+<td>日常業務への定着</td>
+</tr>
+</tbody></table></div>
+<p>「まず汎用AIで慣れ、定着したらRAGや業務アプリへ」という順番が、無理がありません。</p>
+<h2 id="h5"><span class="h-num">05</span>失敗しないための注意点</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>機密情報や個人情報の扱いには十分注意し、利用するサービスのデータ取り扱い方針を必ず確認しましょう。また、AIの出力は「下書き」と捉え、重要な判断は人が責任を持つ運用にすることが大切です。</p>
+  </div>
+</div>
+
+<p>ツール選びから入ると目的を見失いがちです。**「どの業務の、どの手間を、どれだけ減らしたいか」**を先に決め、それに合う手段を選びましょう。</p>
+<h2 id="h6"><span class="h-num">06</span>最初の一歩（まとめ）</h2>
+<p>AI導入は、大きな号令ではなく、<strong>ひとつの“面倒”を片づけること</strong>から始まります。効きそうな業務を一つ選び、小さく試し、振り返る。この一周を回せれば、あとは自然に広がっていきます。</p>
+<details class="faq">
+  <summary>専門知識がなくても始められますか？</summary>
+  <div class="faq-a">はい。汎用AIで「読む・書く」作業を手伝ってもらうところからなら、特別な知識は不要です。「どこから始める？」の段階から、当社のような伴走者に相談する方法もあります。</div>
+</details>
+<details class="faq">
+  <summary>費用はどのくらいかかりますか？</summary>
+  <div class="faq-a">汎用AIの利用自体は安価に始められます。RAG構築や業務アプリ組み込みは規模によりますが、まずは小さく試し、効果を確かめてから広げるのが安全です。</div>
+</details>
+<details class="faq">
+  <summary>社内の抵抗が心配です。</summary>
+  <div class="faq-a">小さな成功を一つ見せるのが最も効果的です。現場が「これは楽だ」と実感できる業務から始め、押し付けずに広げていきましょう。</div>
+</details>
+
+<p>当社では、「どこから始める？」の段階から、AI導入・RAG構築・プロンプト設計・研修までを伴走支援しています。現場が使いこなせる形に落とし込むのが得意です。まずはお気軽に無料相談からどうぞ。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI導入</span><span>#社内DX</span><span>#RAG</span><span>#プロンプト</span><span>#業務改善</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +294,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +322,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-20-chatgpt-gyomu-katsuyo.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方</h4>
+      </a>
+      <a class="related-card" href="2026-06-17-rag-shanai-knowledge.html">
+        <span class="cat">AI</span>
+        <h4>RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説</h4>
+      </a>
+      <a class="related-card" href="2026-06-14-ai-donyu-shippai-kaihi.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入が失敗する7つのパターンと回避策｜「入れて終わり」にしないために</h4>
+      </a>
+    </div>
   </div>
 </section>
 

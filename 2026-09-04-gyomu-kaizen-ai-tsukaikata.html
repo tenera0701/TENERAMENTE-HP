@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,144 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-04-gyomu-kaizen-ai-tsukaikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方","description":"業務改善にAIを使う最初の一手は「AIが効く業務」を見つけることです。効く業務・効かない業務の見分け方、営業・事務・経理・採用・カスタマー対応の部門別の使い方、効果が出やすくリスクが低い順の始め方、ありがちなつまずきを整理します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-gyomu-kaizen-ai-tsukaikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, 生成AI, AI業務効率化, 中小企業, ChatGPT"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方","description":"業務改善にAIを使う最初の一手は「AIが効く業務」を見つけることです。効く業務・効かない業務の見分け方、営業・事務・経理・採用・カスタマー対応の部門別の使い方、効果が出やすくリスクが低い順の始め方、ありがちなつまずきを整理します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-gyomu-kaizen-ai-tsukaikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, 生成AI, AI業務効率化, 中小企業, ChatGPT"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方","item":"https://teneramente.jp/2026-09-04-gyomu-kaizen-ai-tsukaikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"無料版のChatGPTでも業務改善に使えますか？","acceptedAnswer":{"@type":"Answer","text":"社内向け文章の下書きや要約なら使えます。ただし、入力してよい情報の線引きを先に決めてください。顧客情報や機密を扱う段階では、入力内容が学習に使われない法人向けプランを検討します。"}},{"@type":"Question","name":"どの部門から始めるのがよいですか？","acceptedAnswer":{"@type":"Answer","text":"言葉を整える作業が多い事務部門は効果が見えやすい場所ですが、部門で決めるより「社内で完結し、間違いは読めば分かる」作業から選ぶほうが確実です。営業なら議事録の整理、採用なら求人票の下書きなど、どの部門にも候補はあります。"}},{"@type":"Question","name":"効果はどう判断すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"売上ではなく作業時間で測ります。時間が減れば隣の業務へ広げ、手直しに元の作業以上の時間がかかるなら用途かルールを見直します。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 4, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-04-gyomu-kaizen-ai-tsukaikata.webp" alt="業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>業務改善でAIが効く業務・効かない業務の見分け方</a><a href="#h2"><span class="n">02</span>部門別の使い方：営業・事務</a><a href="#h3"><span class="n">03</span>部門別の使い方：経理・採用・カスタマー対応</a><a href="#h4"><span class="n">04</span>最初の一歩の選び方：効果が出やすく、リスクが低い順</a><a href="#h5"><span class="n">05</span>ありがちなつまずき</a><a href="#h6"><span class="n">06</span>続けるための測り方と見直しのタイミング</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>「使う」から「仕組みにする」へ</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">業務改善にAIを使うとき、最初にやるべきは「ツールを契約すること」ではなく、<strong>AIが効く業務を1つ見つけること</strong>です。生成AI（ChatGPT・Claude・Gemini など）が得意なのは、言葉を扱う作業と、繰り返しの多い作業。この記事では、効く業務と効かない業務の見分け方、部門別の具体的な使い方、効果が出やすくリスクが低い順の始め方を、中小企業の現場目線で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>業務改善にAIを使う最初の一手は、ツールの契約ではなく、<strong>「言葉を扱い、正しさをその場で判定でき、週に何度も繰り返す」業務を1つ選ぶこと</strong>です。社内向け文章の下書き・要約から始め、効果を作業時間で測るのが、失敗の少ない順番です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>業務改善でAIが効く業務・効かない業務の見分け方</h2>
+<p>生成AIは万能ではありません。向き不向きを最初に押さえると、期待外れが減ります。判断の目安は次の3つの問いです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-04-gyomu-kaizen-ai-tsukaikata.png" alt="AIが効く業務の条件と、効かない業務の条件を並べた図" width="1600" height="555" loading="lazy" decoding="async"><figcaption>3つとも当てはまる業務から始めると、最初の一歩で効果が見えます。</figcaption></figure>
+
+<ul>
+<li>入力と出力が「言葉」か（文章・表・メール・議事録など）</li>
+<li>出力の正しさを、その場で人が判定できるか</li>
+<li>同じ形の作業を週に何度も繰り返しているか</li>
+</ul>
+<p>3つとも「はい」なら、AIが効く業務です。要約、下書き、分類、言い換え、表の整形、過去資料の検索といった作業がここに入ります。たとえば「見積書の説明文を整える」は効きますが、「値引きに応じるかを決める」は効きません。逆に、<strong>最終判断や対外的な約束を伴う作業、社内にデータが存在しない作業、例外だらけで手順が言葉にできない作業</strong>はAIに向きません。「AIで何ができるか」から考えると迷子になります。「この作業は3つの問いに当てはまるか」から考えてください。</p>
+<h2 id="h2"><span class="h-num">02</span>部門別の使い方：営業・事務</h2>
+<h3>営業</h3>
+<p>商談後の音声メモや箇条書きを渡して、議事録と次のアクションを整理させる。過去の提案書と顧客の課題メモから、提案書の骨子を下書きさせる。顧客への返信メールを「丁寧・簡潔」の2案で出させて選ぶ。営業がAIに任せるべきは<strong>書く時間であって、決める時間ではない</strong>と線を引いておくと使い方がぶれません。</p>
+<h3>事務</h3>
+<p>定型の案内文や社内通知の作成、届いた書類の要点整理、Excelに入れる前の表の整形、マニュアルの読みやすい書き直し。事務部門は言葉を整える作業が最も多い部門なので、AIの効果が最初に見えやすい場所です。たとえば、取引先ごとに少しずつ違う案内文を、共通の下書きから相手に合わせて言い換えるだけで、毎回ゼロから書く時間がなくなります。</p>
+<h2 id="h3"><span class="h-num">03</span>部門別の使い方：経理・採用・カスタマー対応</h2>
+<h3>経理</h3>
+<p>仕訳そのものを任せるのではなく、「この経費で確認すべき点は何か」というチェック観点の洗い出し、月次報告の文章化、規程の該当箇所の検索に使います。数字の最終確認は必ず人が行います。</p>
+<h3>採用</h3>
+<p>求人票の下書き、応募者への連絡文、面接での質問項目の設計、面接メモの整理。合否の判断そのものは、公平性の観点からもAIに委ねません。</p>
+<h3>カスタマー対応</h3>
+<p>よくある質問への回答の下書き、問い合わせ内容の分類、対応履歴の要約。社内マニュアルや過去の回答を読み込ませる <em>RAG</em>（Retrieval-Augmented Generation：社内データ検索）に進むと、担当者ごとの回答のばらつきも減らせます。</p>
+<p>部門別の活用例をさらに詳しく知りたい方は、<a href="2026-06-20-chatgpt-gyomu-katsuyo.html">中小企業のChatGPT業務活用ガイド</a>をご覧ください。</p>
+<h2 id="h4"><span class="h-num">04</span>最初の一歩の選び方：効果が出やすく、リスクが低い順</h2>
+<p>どの業務から始めるかは、「効果」と「リスク」の2軸で決めます。リスクは、出力が社外に出るか、個人情報や機密を含むか、間違ったときの被害が大きいか、で判断します。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>順番</th>
+<th>業務の例</th>
+<th>リスクの考え方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>社内向け文章の下書き・要約</td>
+<td>社内で完結し、間違いは読めば分かる</td>
+</tr>
+<tr>
+<td>2</td>
+<td>議事録・会議メモの整理</td>
+<td>個人情報を除けば低リスク</td>
+</tr>
+<tr>
+<td>3</td>
+<td>社内FAQ・マニュアル検索（RAG）</td>
+<td>閲覧権限に沿った設計が前提</td>
+</tr>
+<tr>
+<td>4</td>
+<td>対外文書の下書き（人が確認して送る）</td>
+<td>送信前の確認を工程に固定する</td>
+</tr>
+<tr>
+<td>5</td>
+<td>定型作業の自動化・専用アプリ化</td>
+<td>効果は大きいが、設計と保守が要る</td>
+</tr>
+</tbody></table></div>
+<p><strong>上から順に1つずつ</strong>が原則です。最初から4や5を狙うと、ルールも判断基準も未整備のまま社外に影響が出て、社内の反対が強まります。1で「時間が減った」を体感してから次に進む方が、結果として早く広がります。社外に出る文書は、送信前に人が確認する工程を手順に固定しておけば、リスクは大きく下げられます。</p>
+<h2 id="h5"><span class="h-num">05</span>ありがちなつまずき</h2>
+<ul>
+<li>ツールの契約が先で、用途が後回しになる</li>
+<li>一人だけが使っていて、会社としての効果にならない</li>
+<li>「入力してよい情報」の線引きがなく、現場が怖くて使わない</li>
+<li>出力を完璧にしようとして、手直しに元の作業以上の時間をかける</li>
+<li>効果を測っていないため、続ける根拠も止める根拠もない</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>効果の測り方</h4>
+    <p>売上ではなく「その作業にかかっていた時間」で測ります。始める前に1回分の所要時間を記録し、AIを使った後と比べるだけで十分です。数字を盛る必要はありません。</p>
+  </div>
+</div>
+
+<p>どれも珍しい失敗ではありません。共通するのは、<strong>用途・ルール・測り方の3つを決めずに始めている</strong>ことです。逆に、用途（どの作業を誰が）、ルール（入力してよい情報とだめな情報）、測り方（1回分の作業時間）を紙1枚に書いてから始めれば、つまずきの大半は避けられます。</p>
+<h2 id="h6"><span class="h-num">06</span>続けるための測り方と見直しのタイミング</h2>
+<p>使い始めたら、続けるかどうかは感覚ではなく記録で判断します。やることは4つです。</p>
+<ul>
+<li>始める前に1回分の所要時間を記録する。比べる基準がないと、効果を後から言えません</li>
+<li>週に一度、使った回数と困った点を集める。使えなかった場面こそ、ルールと使い方を直す材料になります</li>
+<li>ルールを1行ずつ育てる。「この情報は入れてよい」「この文章は送信前に確認する」のように、困った点から生まれた決まりを足していきます</li>
+<li>効果が出た業務の隣へ広げる。同じ部門の似た作業から順に広げると、ルールも下書きの型もそのまま使えます</li>
+</ul>
+<p>見直しは月の区切りで十分です。<strong>使われていない用途は外し、毎日使っている用途は手順書に組み込む</strong>。この入れ替えを続けることで、AIの活用は担当者の習慣から会社の仕組みへ変わっていきます。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>無料版のChatGPTでも業務改善に使えますか？</summary><div class="faq-a">社内向け文章の下書きや要約なら使えます。ただし、入力してよい情報の線引きを先に決めてください。顧客情報や機密を扱う段階では、入力内容が学習に使われない法人向けプランを検討します。</div></details>
+<details class="faq"><summary>どの部門から始めるのがよいですか？</summary><div class="faq-a">言葉を整える作業が多い事務部門は効果が見えやすい場所ですが、部門で決めるより「社内で完結し、間違いは読めば分かる」作業から選ぶほうが確実です。営業なら議事録の整理、採用なら求人票の下書きなど、どの部門にも候補はあります。</div></details>
+<details class="faq"><summary>効果はどう判断すればよいですか？</summary><div class="faq-a">売上ではなく作業時間で測ります。時間が減れば隣の業務へ広げ、手直しに元の作業以上の時間がかかるなら用途かルールを見直します。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>「使う」から「仕組みにする」へ</h2>
+<p>個人がAIを使う段階で止まると、担当者が変わった瞬間に効果が消えます。次の段階は、うまくいった使い方を業務手順に組み込み、繰り返しの多い作業は自動化し、毎日さわる業務は専用のアプリに置き換えることです。仕組みにする段階では、「誰がやっても同じ結果になるか」「担当者が休んでも回るか」を判断基準にします。Excelやチャットで回している業務をアプリ化する考え方は、<a href="2026-06-30-gyomu-app-kanzen-guide.html">AI業務改善ツール導入 完全ガイド</a>で詳しく解説しています。</p>
+<p>TENERAMENTEは名古屋のAI開発企業として、<a href="lp-ai.html">AI活用支援</a>で、用途の棚卸し・ツール選定・利用ルールの策定から、部門別の研修、RAG構築、業務自動化、月次の定着支援までを、必要な部分だけ組み合わせてご提供しています。「うちの業務はどれから始めればいいか」を一緒に整理するところからで構いません。初回相談は60分無料です。<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務改善</span><span>#生成AI</span><span>#AI業務効率化</span><span>#中小企業</span><span>#ChatGPT</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +308,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +336,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-hojin-ai-kenshu-erabikata.html">
+        <span class="cat">AI</span>
+        <h4>法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計</h4>
+      </a>
+      <a class="related-card" href="2026-09-06-seisei-ai-shanai-rule-template.html">
+        <span class="cat">AI</span>
+        <h4>生成AIの社内ルールをテンプレートで作る｜最低限決める10項目</h4>
+      </a>
+      <a class="related-card" href="2026-10-23-ai-gijiroku-jidoka.html">
+        <span class="cat">AI</span>
+        <h4>AIで議事録を自動化する方法｜録音から要約・共有までの流れ</h4>
+      </a>
+    </div>
   </div>
 </section>
 

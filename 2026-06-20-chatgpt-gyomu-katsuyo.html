@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,178 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-20-chatgpt-gyomu-katsuyo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方","description":"ChatGPTを業務でどう使えばいいのか、何から始めればいいのか。営業・事務・マーケなど部門別の活用例から、無料版と有料版の違い、情報漏えいを防ぐ社内ルールの作り方まで、中小企業向けにまとめた実践ガイドです。","datePublished":"2026-06-20","dateModified":"2026-06-20","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-20-chatgpt-gyomu-katsuyo.html","image":"https://teneramente.jp/assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ChatGPT, AI活用, 業務効率化, 中小企業, 社内ルール"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方","description":"ChatGPTを業務でどう使えばいいのか、何から始めればいいのか。営業・事務・マーケなど部門別の活用例から、無料版と有料版の違い、情報漏えいを防ぐ社内ルールの作り方まで、中小企業向けにまとめた実践ガイドです。","datePublished":"2026-06-20","dateModified":"2026-06-20","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-20-chatgpt-gyomu-katsuyo.html","image":"https://teneramente.jp/assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ChatGPT, AI活用, 業務効率化, 中小企業, 社内ルール"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方","item":"https://teneramente.jp/2026-06-20-chatgpt-gyomu-katsuyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ITに詳しい社員がいなくても導入できますか？","acceptedAnswer":{"@type":"Answer","text":"できます。ChatGPTはブラウザから使えるため、特別な環境構築は不要です。むしろ重要なのは、入力してよい情報のルール決めと、使い方を共有する運用面です。不安があれば導入時だけ外部の支援を受けるのも一つの方法です。"}},{"@type":"Question","name":"入力した内容が外部に漏れることはありませんか？","acceptedAnswer":{"@type":"Answer","text":"入力内容がAIの学習に使われる設定のまま機密情報を入れるのはリスクがあります。学習に利用しない設定（オプトアウト）や、それが標準の法人向けプランを使い、そもそも社外秘情報は入力しないルールを徹底することで、リスクを大きく下げられます。"}},{"@type":"Question","name":"まず何から始めるのがおすすめですか？","acceptedAnswer":{"@type":"Answer","text":"メールの下書きと議事録の要約がおすすめです。効果を実感しやすく、失敗のリスクも小さい業務だからです。並行して「入力してはいけない情報」を定めた簡単なルールを作れば、最初の一歩としては十分です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 20, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-20-chatgpt-gyomu-katsuyo.webp" alt="中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>なぜ中小企業こそAI活用なのか</a><a href="#h2"><span class="n">02</span>部門別・今日から使える活用例</a><a href="#h3"><span class="n">03</span>無料版と有料版の違い</a><a href="#h4"><span class="n">04</span>プロンプトの基本のコツ3つ</a><a href="#h5"><span class="n">05</span>情報漏えいを防ぐ社内ルールの作り方</a><a href="#h6"><span class="n">06</span>ありがちな失敗</a><a href="#h7"><span class="n">07</span>定着させる運用の工夫</a><a href="#h8"><span class="n">08</span>まとめ：小さく始めて、ルールとセットで育てる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「ChatGPTが便利らしいけれど、業務でどう使えばいいのかわからない」──中小企業の経営者・担当者の方から、当社が最も多くいただく相談のひとつです。本記事では、<strong>今日から使える部門別の活用例と、安心して使うための社内ルールの作り方</strong>を、専任のIT部門がない会社でも実践できる形で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>ChatGPTの業務活用は「高度な使い方を覚えること」ではなく、<strong>日常業務の「下書き・要約・整理」から小さく始めて、最低限の社内ルールとセットで定着させること</strong>が成功の近道です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>なぜ中小企業こそAI活用なのか</h2>
+<p><em>ChatGPT</em> をはじめとする生成AI（<em>Generative AI</em>）は、大企業だけのものではありません。むしろ、<strong>一人が何役もこなす中小企業のほうが恩恵は大きい</strong>と当社は考えています。</p>
+<p>理由はシンプルです。中小企業では、見積書の文面づくり、メール返信、販促文の作成、議事録の整理といった「誰かがやらなければならない事務作業」が、本来の業務の合間に発生します。生成AIはまさに、この種の<strong>文章の下書き・要約・整理</strong>が得意分野です。</p>
+<p>大がかりなシステム導入と違い、アカウントを作ればその日から使い始められる点も、中小企業に向いています。</p>
+<h2 id="h2"><span class="h-num">02</span>部門別・今日から使える活用例</h2>
+<p>「何に使えるか」を部門別に整理します。共通するのは、<strong>ゼロから作らせるのではなく、下書きやたたき台を作らせて人が仕上げる</strong>という使い方です。</p>
+<h3>営業</h3>
+<ul>
+<li>提案書・見積書に添える説明文の下書き</li>
+<li>顧客への返信メールの文面案（丁寧な断り方、リスケの連絡など）</li>
+<li>商談メモの要約と、次回アクションの整理</li>
+</ul>
+<h3>事務・バックオフィス</h3>
+<ul>
+<li>社内案内文・通知文の作成</li>
+<li>議事録の要約、箇条書きへの整形</li>
+<li>Excelの関数や操作方法の質問相手</li>
+</ul>
+<h3>マーケティング・広報</h3>
+<ul>
+<li>ブログ記事・SNS投稿の構成案とたたき台</li>
+<li>キャッチコピーの案出し（複数案を出させて選ぶ）</li>
+<li>チラシやLPの文章の推敲・言い換え</li>
+</ul>
+<h3>カスタマー対応</h3>
+<ul>
+<li>問い合わせ返信のテンプレート整備</li>
+<li>クレーム対応文の言い回しチェック</li>
+<li>よくある質問（FAQ）の整理と文章化</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>当社の支援先でも、最初の一歩は「メールの下書き」と「議事録の要約」から始めるケースがほとんどです。効果を実感しやすく、失敗してもリスクが小さいため、社内にAI活用の空気をつくる入口として適しています。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>無料版と有料版の違い</h2>
+<p>「無料版で十分？」もよくいただく質問です。業務利用の観点で違いを整理します（プラン内容は変更されることがあるため、導入時に公式情報をご確認ください）。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>観点</th>
+<th>無料版</th>
+<th>有料版（Plus等）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>利用できるモデル</td>
+<td>標準モデル中心。高性能モデルは回数制限あり</td>
+<td>高性能モデルを優先的に利用可能</td>
+</tr>
+<tr>
+<td>混雑時の安定性</td>
+<td>制限がかかる場合がある</td>
+<td>比較的安定して利用できる</td>
+</tr>
+<tr>
+<td>ファイル添付・画像生成など</td>
+<td>機能や回数に制限あり</td>
+<td>より多くの機能・回数を利用可能</td>
+</tr>
+<tr>
+<td>業務利用の目安</td>
+<td>お試し・個人の補助的な利用</td>
+<td>日常的に業務で使うなら実用的</td>
+</tr>
+<tr>
+<td>法人向け（Team/Enterprise）</td>
+<td>―</td>
+<td>入力データを学習に使わない設定や管理機能が標準</td>
+</tr>
+</tbody></table></div>
+<p>まずは無料版で「自社の業務に合うか」を試し、日常的に使う人から有料版に切り替えるのが無理のない進め方です。<strong>複数人で本格的に使うなら、管理機能のある法人向けプラン</strong>を検討する段階です。</p>
+<h2 id="h4"><span class="h-num">04</span>プロンプトの基本のコツ3つ</h2>
+<p><em>プロンプト</em>（Prompt：AIへの指示文）の書き方で、回答の質は大きく変わります。難しいテクニックより、まず次の3つを押さえてください。</p>
+<ol>
+<li><strong>役割と状況を伝える</strong>：「あなたは製造業の営業アシスタントです」のように前提を与えると、文脈に合った回答になります</li>
+<li><strong>形式と分量を指定する</strong>：「箇条書きで5つ」「300字程度で」「表形式で」など、欲しいアウトプットの形を先に伝えます</li>
+<li><strong>一度で完璧を求めず、対話で直す</strong>：「もっと丁寧に」「専門用語を減らして」と続けて修正させるのが、結局いちばん速い使い方です</li>
+</ol>
+<blockquote>
+<p>プロンプトは「呪文」ではなく、新人への仕事の頼み方と同じ。前提・形式・見本を伝えるほど、返ってくる仕事の質が上がります。</p>
+</blockquote>
+<h2 id="h5"><span class="h-num">05</span>情報漏えいを防ぐ社内ルールの作り方</h2>
+<p>業務活用で最も注意すべきは情報の取り扱いです。難しく考えすぎて禁止一辺倒にするのではなく、<strong>最低限のルールを明文化して、安全に使える範囲をはっきりさせる</strong>のが現実的です。</p>
+<p>最低限、次の3つを定めることをおすすめします。</p>
+<ol>
+<li><strong>入れてはいけない情報を決める</strong>：顧客の個人情報、取引先との契約内容、未公開の財務情報などは入力しない。「社外秘に当たるものは入れない」と一文で線を引く</li>
+<li><strong>学習に使われない設定・プランを使う</strong>：入力内容をAIの学習に利用しない設定（オプトアウト）や、それが標準の法人向けプランを利用する</li>
+<li><strong>最終確認は必ず人が行う</strong>：AIの回答には誤り（<em>ハルシネーション</em>：もっともらしい誤情報）が含まれ得るため、社外に出す文章・数字・固有名詞は人が確認してから使う</li>
+</ol>
+<p>この3つをA4一枚にまとめて配布するだけでも、「使っていいのか分からないから使わない」「こっそり個人アカウントで使う」という一番危険な状態を避けられます。</p>
+<h2 id="h6"><span class="h-num">06</span>ありがちな失敗</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>ありがちな失敗は3つあります。（1）AIの回答を検証せずそのまま顧客に送ってしまう、（2）ルールがないまま各自が個人アカウントで機密情報を入力してしまう、（3）「全社員必須」と号令だけかけて使い方の共有がなく、結局誰も使わなくなる──いずれも技術ではなく運用の問題です。ツール導入より先に、ルールと共有の仕組みを整えましょう。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>定着させる運用の工夫</h2>
+<p>導入して終わりではなく、日常業務に溶け込ませる工夫が要ります。当社が支援の現場でおすすめしているのは次のような方法です。</p>
+<ul>
+<li><strong>推進役を1人決める</strong>：詳しい人でなくてよいので、社内の質問窓口と事例集めの担当を決める</li>
+<li><strong>うまくいったプロンプトを共有する</strong>：社内チャットに「このプロンプトで議事録要約がうまくいった」と貼るだけで、他の人が真似できる</li>
+<li><strong>業務を1つ選んで型にする</strong>：「議事録は必ずAIで要約してから共有する」のように、特定の業務に組み込むと自然に習慣化する</li>
+<li><strong>小さな成果を見えるようにする</strong>：「この文書作成が早くなった」という声を拾って共有し、次に使う人の心理的ハードルを下げる</li>
+</ul>
+<p>一気に全社展開するより、<strong>小さく始めて、うまくいった型を横に広げる</strong>ほうが確実です。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：小さく始めて、ルールとセットで育てる</h2>
+<p>中小企業のChatGPT活用は、特別な専門知識がなくても始められます。ポイントは、（1）下書き・要約・整理といった得意分野から小さく始めること、（2）入力してよい情報の線引きなど最低限のルールを先に決めること、（3）うまくいった使い方を社内で共有して型にすること。この3点に尽きます。</p>
+<details class="faq">
+  <summary>ITに詳しい社員がいなくても導入できますか？</summary>
+  <div class="faq-a">できます。ChatGPTはブラウザから使えるため、特別な環境構築は不要です。むしろ重要なのは、入力してよい情報のルール決めと、使い方を共有する運用面です。不安があれば導入時だけ外部の支援を受けるのも一つの方法です。</div>
+</details>
+<details class="faq">
+  <summary>入力した内容が外部に漏れることはありませんか？</summary>
+  <div class="faq-a">入力内容がAIの学習に使われる設定のまま機密情報を入れるのはリスクがあります。学習に利用しない設定（オプトアウト）や、それが標準の法人向けプランを使い、そもそも社外秘情報は入力しないルールを徹底することで、リスクを大きく下げられます。</div>
+</details>
+<details class="faq">
+  <summary>まず何から始めるのがおすすめですか？</summary>
+  <div class="faq-a">メールの下書きと議事録の要約がおすすめです。効果を実感しやすく、失敗のリスクも小さい業務だからです。並行して「入力してはいけない情報」を定めた簡単なルールを作れば、最初の一歩としては十分です。</div>
+</details>
+
+<p>当社TENERAMENTEでは、名古屋を拠点に、中小企業向けのAI活用支援──使いどころの整理から社内ルールの整備、業務に合わせたAIツールの開発まで──をご支援しています。「うちの業務ならどこから始めるべき？」という段階のご相談も歓迎です。お気軽にお声がけください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ChatGPT</span><span>#AI活用</span><span>#業務効率化</span><span>#中小企業</span><span>#社内ルール</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +342,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +370,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-17-rag-shanai-knowledge.html">
+        <span class="cat">AI</span>
+        <h4>RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説</h4>
+      </a>
+      <a class="related-card" href="2026-06-14-ai-donyu-shippai-kaihi.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入が失敗する7つのパターンと回避策｜「入れて終わり」にしないために</h4>
+      </a>
+      <a class="related-card" href="2026-06-26-ai-first-step.html">
+        <span class="cat">AI</span>
+        <h4>社内へのAI導入、最初の一歩の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

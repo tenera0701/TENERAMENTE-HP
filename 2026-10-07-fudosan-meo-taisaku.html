@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,157 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-07-fudosan-meo-taisaku";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方","description":"不動産会社のMEO対策で、賃貸仲介の店舗が先に手を付ける項目を順番に整理しました。店舗情報の埋め方、写真の選び方、口コミの依頼と返信の型、月1回の確認項目まで、店舗でそのまま使える形でまとめています。","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-07-fudosan-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-07-fudosan-meo-taisaku.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 不動産, 賃貸仲介, Googleビジネスプロフィール, 店舗集客"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方","description":"不動産会社のMEO対策で、賃貸仲介の店舗が先に手を付ける項目を順番に整理しました。店舗情報の埋め方、写真の選び方、口コミの依頼と返信の型、月1回の確認項目まで、店舗でそのまま使える形でまとめています。","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-07-fudosan-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-07-fudosan-meo-taisaku.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 不動産, 賃貸仲介, Googleビジネスプロフィール, 店舗集客"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方","item":"https://teneramente.jp/2026-10-07-fudosan-meo-taisaku.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"店舗名に「◯◯駅前」や「賃貸」を足すと、表示されやすくなりますか？","acceptedAnswer":{"@type":"Answer","text":"店舗名には、看板や免許証に記載されている正式名称を入れる決まりです。エリア名やサービス名を足すのはガイドラインに反し、修正や掲載の停止につながる可能性があります。駅名を伝えたい場合は、説明欄や投稿の中で触れるほうが安全です。"}},{"@type":"Question","name":"口コミが少ない状態から、どう増やせばよいですか？","acceptedAnswer":{"@type":"Answer","text":"鍵の引き渡しなど、手続きが終わった場面で一言お願いする形をまず定着させてください。全員に依頼する必要はなく、やり取りが円滑に進んだ方にお願いするだけで構いません。謝礼を渡す、内容を指定する、スタッフが代わりに書くといった方法は規約に反するため避けてください。"}},{"@type":"Question","name":"低い評価の口コミが付いたとき、削除はできますか？","acceptedAnswer":{"@type":"Answer","text":"ガイドライン違反（誹謗中傷、個人情報の記載、取引のない人による投稿など）に該当する場合は、Googleに報告して審査を求められます。ただし、サービスへの不満そのものは違反ではないため、多くは削除されません。返信で事実関係を短く示し、やり取りは店頭や電話に移すほうが、他の閲覧者からの見え方としても落ち着きます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 7, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-07-fudosan-meo-taisaku.webp" alt="不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>賃貸仲介の店舗とMEO対策は相性がよい</a><a href="#h2"><span class="n">02</span>店舗情報は「来店できるか」が分かるところまで埋める</a><a href="#h3"><span class="n">03</span>カテゴリは、実際にやっている業務だけを選ぶ</a><a href="#h4"><span class="n">04</span>写真は物件ではなく、店舗と人を見せる</a><a href="#h5"><span class="n">05</span>口コミは、依頼の時機と返信の型を決める</a><a href="#h6"><span class="n">06</span>投稿とQ&amp;Aで、来店前の疑問を先に消す</a><a href="#h7"><span class="n">07</span>月1回、同じ項目で確認する</a><a href="#h8"><span class="n">08</span>まとめ：空欄を埋め、返信を止めないところから</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">部屋を探す人は、いきなり店に電話をかけません。地図アプリで近くの不動産会社を並べ、写真と口コミを見て、行く店を1つか2つに絞ってから連絡します。<strong>不動産会社のMEO対策で問われるのは情報の多さではなく、「この店に行けば話が進みそうか」が画面の中で伝わるかどうか</strong>です。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>先に手を付けるのは<strong>店舗情報の空欄を埋めること</strong>と、口コミへの返信を止めないことの2つです。写真の追加や投稿はそのあとで構いません。来店前の不安を1つずつ消していく作業だと考えると、やる順番が自然に決まります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>賃貸仲介の店舗とMEO対策は相性がよい</h2>
+<p>MEO対策（Googleマップでの上位表示に向けた取り組み）が効きやすいかどうかは、業種によって差があります。賃貸仲介は、効きやすい側の業種です。</p>
+<p>理由は3つあります。まず、部屋探しは最初から地域が決まっています。「新宿 賃貸」のように、検索そのものに地名が入るため、地図の結果が画面の上のほうに出ます。次に、来店が前提の商売です。地図からの電話やルート検索が、そのまま来店につながります。最後に、営業時間や定休日といった情報が、行動を決める材料になります。</p>
+<p>一方で、駅前には同業の店舗が並びます。<strong>地図の上では、自社の店と近隣の店が同じ大きさで横に並びます</strong>。そこで比べられるのは会社の規模ではなく、画面に出ている情報の揃い具合です。MEOの基本的な考え方は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>に整理していますので、全体像から確認したい場合はそちらもあわせてご覧ください。</p>
+<h2 id="h2"><span class="h-num">02</span>店舗情報は「来店できるか」が分かるところまで埋める</h2>
+<p>最初の作業は、Googleビジネスプロフィールの空欄を埋めることです。ここは費用もかからず、その日のうちに終わります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-07-fudosan-meo-taisaku.png" alt="店舗名・住所・電話番号・営業時間と定休日・属性という5つの項目を、不動産店舗のGoogleビジネスプロフィールで先に埋める順に縦に並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>埋め忘れが多いのは、建物名と階数・駐車場の有無・定休日の3つです。</figcaption></figure>
+
+<p>賃貸仲介の店舗で埋め忘れが多いのは、建物名と階数、駐車場の有無、定休日の3つです。雑居ビルの2階にある店は、1階に別の店が入っていると「見つからない」が起きます。車で来店する地域なら、駐車場の有無は来店するかどうかの判断に直結します。</p>
+<ul>
+<li><strong>店舗名</strong>：看板や免許証と同じ正式名称にします。地名やサービス名を足しません</li>
+<li><strong>住所</strong>：建物名と階数、部屋番号まで入れます。入口が分かりにくい場合は説明欄で補います</li>
+<li><strong>電話番号</strong>：店舗の番号を入れます。本部の代表番号にすると、来店の問い合わせが遠回りになります</li>
+<li><strong>営業時間と定休日</strong>：祝日と年末年始の特別営業時間も入れます</li>
+<li><strong>属性</strong>：駐車場、バリアフリー、オンライン相談の可否など、該当するものを選びます</li>
+</ul>
+<p>店舗名・住所・電話番号の3つは、自社サイトやポータルサイトの掲載内容と一字一句そろえてください。考え方は<a href="2026-09-28-nap-touitsu-meo.html">NAP情報の統一とは</a>にまとめています。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>繁忙期の営業時間は、先に入れておく</h4>
+    <p>1月から3月は営業時間を延ばしたり、定休日を変えたりする店舗が多い時期です。変更を反映しないままにすると、閉まっていると思われて別の店に行かれます。特別営業時間は日付を指定して先に入れられるので、年末のうちに登録しておくと手間が減ります。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>カテゴリは、実際にやっている業務だけを選ぶ</h2>
+<p>カテゴリは表示される検索語に関わる項目です。賃貸仲介の店舗なら、メインカテゴリは実際の主業務に合わせます。</p>
+<p>迷いやすいのは、管理業務や売買も扱っている場合です。原則は、<strong>来店する人がいちばん多い業務をメインにし、実際に行っている他の業務をサブに足す</strong>ことです。やっていない業務のカテゴリを入れると、問い合わせの内容と店舗の実態がずれ、断る電話が増えます。評価にもつながりません。</p>
+<p>サブカテゴリは増やしすぎないでください。店舗の実態から離れた語が並ぶと、何の店か分かりにくくなります。選び方の基準は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>で詳しく整理しています。</p>
+<h2 id="h4"><span class="h-num">04</span>写真は物件ではなく、店舗と人を見せる</h2>
+<p>不動産会社のプロフィールでよくあるのが、物件の写真を並べてしまう形です。物件を見せる場所は自社サイトやポータルサイトで、地図の写真が答えるのは別の問いです。</p>
+<p>来店前の人が写真で確かめたいのは、<strong>どこにあるか、入りやすいか、誰が対応するか</strong>の3つです。そろえる写真は次のとおりです。</p>
+<ul>
+<li><strong>外観（引き）</strong>：目印になる建物や交差点が一緒に写っているもの</li>
+<li><strong>入口</strong>：扉と看板が正面から分かるもの。ビルの場合はエントランスも</li>
+<li><strong>店内</strong>：相談スペース、カウンター、待ち合いの様子</li>
+<li><strong>スタッフ</strong>：対応する人の雰囲気が伝わるもの。本人の了解を取って掲載します</li>
+</ul>
+<p>撮るときの注意点が1つあります。店内の写真に、掲示している物件図面や契約書類、モニターの画面が写り込まないようにしてください。入居者や申込者の情報が写ると、個人情報の取り扱いの問題になります。撮影後に必ず拡大して確認してから載せます。</p>
+<h2 id="h5"><span class="h-num">05</span>口コミは、依頼の時機と返信の型を決める</h2>
+<p>口コミは、賃貸仲介でもっとも差が出やすい部分です。契約から引き渡しまでの間に、必ずお客様と対面する機会があるためです。</p>
+<p>依頼の時機は、鍵の引き渡しのときが自然です。部屋が決まり、手続きが終わった直後なので、こちらからお願いしても押し付けになりません。依頼のときに守る点は2つあります。<strong>謝礼や割引と引き換えに口コミを依頼しないこと</strong>、そして内容を指定しないことです。どちらもガイドラインに反します。</p>
+<p>返信は型を決めておくと、担当者が変わっても止まりません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>口コミの種類</th>
+<th>返信の組み立て</th>
+<th>避けること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高評価</td>
+<td>お礼 → 内容に触れる → 入居後も相談できることを添える</td>
+<td>定型文のコピー。全部同じ文面は見れば分かります</td>
+</tr>
+<tr>
+<td>具体的な指摘</td>
+<td>お礼 → 指摘を受け止める → 改めた点か、これから確かめる旨</td>
+<td>言い訳、担当者個人への言及</td>
+</tr>
+<tr>
+<td>事実と違う内容</td>
+<td>事実確認をしたい旨を短く → 直接の連絡先を示さず、店舗で承る旨</td>
+<td>反論、感情的な表現、やり取りの詳細を書くこと</td>
+</tr>
+</tbody></table></div>
+<p>返信で絶対に書いてはいけないのが、<strong>契約内容や物件が特定できる情報</strong>です。「◯◯マンションの件では」と書いた時点で、その人の住所が公開の場に出ます。やり取りの詳細は店頭か電話に移してください。</p>
+<h2 id="h6"><span class="h-num">06</span>投稿とQ&amp;Aで、来店前の疑問を先に消す</h2>
+<p>店舗情報と口コミが整ったら、投稿とQ&amp;Aに手を広げます。この2つは、電話で聞かれることをあらかじめ書いておく場所だと考えると使い道が決まります。</p>
+<p>投稿に向くのは、繁忙期の営業時間、来店予約の方法、取り扱いエリアや物件の種別、オンライン相談の可否といった内容です。物件情報を並べる場所ではありません。</p>
+<p>Q&amp;Aは、自社で質問と回答の両方を登録できます。来店前に聞かれやすいものを先に載せておきます。</p>
+<ul>
+<li>予約なしで行っても相談できますか</li>
+<li>来店のときに必要な持ち物はありますか</li>
+<li>何時までに行けば当日の内見に間に合いますか</li>
+<li>駐車場はありますか</li>
+<li>取り扱っているのは賃貸だけですか</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>宅地建物取引業法の広告ルールは、地図の中でも同じです</h4>
+    <p>投稿や写真で物件を紹介する場合、取引態様の明示や、成約済み物件を載せないといった広告の決まりは自社サイトと同じように適用されます。地図のプロフィールだから緩い、ということはありません。物件を扱うより、店舗の情報と相談の受け方を書くほうが、手間も少なく安全です。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>月1回、同じ項目で確認する</h2>
+<p>MEOは一度整えて終わりではありませんが、毎日見る必要もありません。月に1回、同じ項目を確認する形にすると続きます。</p>
+<ul>
+<li>営業時間が実態と合っているか（翌月の祝日を含む）</li>
+<li>電話番号が転送や欠番になっていないか</li>
+<li>未返信の口コミが残っていないか</li>
+<li>写真に古い内装や退職したスタッフが残っていないか</li>
+<li>プロフィールを編集できる人が社内にいるか（異動・退職の確認）</li>
+</ul>
+<p>最後の項目は見落としがちです。担当者の退職でオーナー権限が失われると、情報の修正ができなくなります。人の入れ替わりがあった月は、権限の一覧を必ず見てください。</p>
+<details class="faq"><summary>店舗名に「◯◯駅前」や「賃貸」を足すと、表示されやすくなりますか？</summary><div class="faq-a">店舗名には、看板や免許証に記載されている正式名称を入れる決まりです。エリア名やサービス名を足すのはガイドラインに反し、修正や掲載の停止につながる可能性があります。駅名を伝えたい場合は、説明欄や投稿の中で触れるほうが安全です。</div></details>
+
+<details class="faq"><summary>口コミが少ない状態から、どう増やせばよいですか？</summary><div class="faq-a">鍵の引き渡しなど、手続きが終わった場面で一言お願いする形をまず定着させてください。全員に依頼する必要はなく、やり取りが円滑に進んだ方にお願いするだけで構いません。謝礼を渡す、内容を指定する、スタッフが代わりに書くといった方法は規約に反するため避けてください。</div></details>
+
+<details class="faq"><summary>低い評価の口コミが付いたとき、削除はできますか？</summary><div class="faq-a">ガイドライン違反（誹謗中傷、個人情報の記載、取引のない人による投稿など）に該当する場合は、Googleに報告して審査を求められます。ただし、サービスへの不満そのものは違反ではないため、多くは削除されません。返信で事実関係を短く示し、やり取りは店頭や電話に移すほうが、他の閲覧者からの見え方としても落ち着きます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：空欄を埋め、返信を止めないところから</h2>
+<p>不動産会社のMEO対策は、順番を決めれば1人でも回せます。まず店舗情報の空欄を埋め、カテゴリを実態に合わせる。次に店舗と人が分かる写真をそろえる。そのうえで、口コミの依頼の時機と返信の型を決めて止めない。投稿とQ&amp;Aは、電話で聞かれることを先に書いておく場所として使う。この順番なら、手を付けた分だけ画面が変わります。</p>
+<p><strong>地図の中で比べられているのは、会社の規模ではなく情報の揃い具合</strong>です。駅前に同業が並ぶ地域ほど、空欄の少なさがそのまま差になります。月1回、同じ項目で見直す形まで作れば、繁忙期に入ってからあわてる場面も減ります。</p>
+<p>TENERAMENTEでは、不動産店舗のGoogleビジネスプロフィールについて、情報の整備から口コミ返信の型づくり、月次の確認までを運用の形に落とすところからお手伝いしています。進め方は<a href="lp-meo.html">MEO対策</a>のページにまとめていますので、どこから手を付けるか迷っている場合は<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#不動産</span><span>#賃貸仲介</span><span>#Googleビジネスプロフィール</span><span>#店舗集客</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +321,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +349,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-04-tatenpo-meo-unyo.html">
+        <span class="cat">MEO</span>
+        <h4>多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目</h4>
+      </a>
+      <a class="related-card" href="2026-10-10-biyoushitsu-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる</h4>
+      </a>
+      <a class="related-card" href="2026-10-01-gbp-category-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

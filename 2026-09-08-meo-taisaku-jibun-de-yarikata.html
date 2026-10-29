@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,155 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-08-meo-taisaku-jibun-de-yarikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方","description":"MEO対策は費用をかけずに自分で始められます。Googleビジネスプロフィールの整備から口コミ・投稿の運用まで、今日から回せる7つの手順と、自分でやるときに起きやすい失敗、任せたほうがよい範囲の線引きを整理しました。","datePublished":"2026-09-08","dateModified":"2026-09-08","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-08-meo-taisaku-jibun-de-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, ローカルSEO, 自社運用"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方","description":"MEO対策は費用をかけずに自分で始められます。Googleビジネスプロフィールの整備から口コミ・投稿の運用まで、今日から回せる7つの手順と、自分でやるときに起きやすい失敗、任せたほうがよい範囲の線引きを整理しました。","datePublished":"2026-09-08","dateModified":"2026-09-08","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-08-meo-taisaku-jibun-de-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, ローカルSEO, 自社運用"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方","item":"https://teneramente.jp/2026-09-08-meo-taisaku-jibun-de-yarikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MEO対策を自分でやる場合、費用はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"Googleビジネスプロフィールの登録・編集・投稿・返信はすべて無料です。かかるのは担当者の時間だけです。有料になるのは、代行を依頼する場合や、専用の管理ツールを使う場合です。"}},{"@type":"Question","name":"どれくらいで変化が出ますか？","acceptedAnswer":{"@type":"Answer","text":"検索する人の位置や競合の状況で変わるため、期間を断言することはできません。基本情報の誤りを直した効果は比較的早く現れますが、口コミや投稿の積み上げは時間がかかります。月1回の確認を続け、数か月単位で判断してください。"}},{"@type":"Question","name":"複数店舗でも自分で管理できますか？","acceptedAnswer":{"@type":"Answer","text":"管理画面ではまとめて扱えますが、店舗数が増えるほど表記のばらつきと更新漏れが起きます。基本情報の書き方をルール化し、店舗ごとの担当を決めることが前提になります。それが難しい規模であれば、整備の部分だけ外に出す判断が現実的です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 8, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-08-meo-taisaku-jibun-de-yarikata.webp" alt="MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>MEO対策は自分でできる。分かれ目は「続けられるか」</a><a href="#h2"><span class="n">02</span>自分でやるMEO対策の7つの手順</a><a href="#h3"><span class="n">03</span>最初にやること：オーナー確認と基本情報の精度</a><a href="#h4"><span class="n">04</span>続ける仕組み：写真・投稿・口コミの回し方</a><a href="#h5"><span class="n">05</span>自分でやるときによくある失敗</a><a href="#h6"><span class="n">06</span>効果はどこで確かめるか</a><a href="#h7"><span class="n">07</span>自分でやる範囲と、任せたほうがよい範囲</a><a href="#h8"><span class="n">08</span>よくある質問</a><a href="#h9"><span class="n">09</span>まとめ：まず90日、同じ手順を回してみる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">MEO対策を自分でやる方法を探している方に、先に結論をお伝えします。<strong>MEO対策の大半は、費用をかけずに自分でできます</strong>。難しいのは作業そのものではなく、片付いた状態を保ち続けることです。この記事では、今日から回せる7つの手順と、自分でやるときにつまずきやすい場所を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>MEO対策で成果を分けるのは、特別な施策ではなく<strong>基本情報の正確さと更新の継続</strong>です。まずは自分で7つの手順を90日回し、時間が続かない部分だけを外に出すのが、いちばん費用対効果の高い順番です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>MEO対策は自分でできる。分かれ目は「続けられるか」</h2>
+<p>MEO対策（<em>Map Engine Optimization</em>）は、Googleマップやローカル検索での見え方を整える取り組みです。中心にあるのはGoogleビジネスプロフィールで、登録も編集も無料です。専門のツールや広告費がなくても、店舗や事務所の担当者がその日から着手できます。</p>
+<p>それでも差がつくのは、作業が単純だからこそです。営業時間の変更、写真の追加、口コミへの返信。どれも1回5分で終わりますが、忙しい時期に止まり、そのまま半年放置される。<strong>MEO対策で最も多い失敗は、間違った施策ではなく更新が止まること</strong>です。</p>
+<p>ですから最初に決めるのは、施策の中身ではなく担当と頻度です。誰が、週に何分使うのか。この2つを決めずに始めると、初期設定だけ立派で中身が古いプロフィールが残ります。</p>
+<h2 id="h2"><span class="h-num">02</span>自分でやるMEO対策の7つの手順</h2>
+<p>全体像は次の7つです。この順番自体に意味があります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-08-meo-taisaku-jibun-de-yarikata.png" alt="オーナー確認から口コミ返信まで、自分でやるMEO対策の7つの手順を並べた図" width="1600" height="911" loading="lazy" decoding="async"><figcaption>上の2つが土台です。ここを飛ばして写真や投稿から始めると、成果が安定しません。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に用意するもの</h4>
+    <p>店舗の正式名称、住所、電話番号、営業時間、定休日、駐車場の有無、提供サービスの一覧。ウェブサイトやチラシと表記がそろっているかを、始める前に確かめておきます。</p>
+  </div>
+</div>
+
+<p>写真や投稿から始める方が多いのですが、<strong>先に権限と基本情報を片付けないと、更新した内容が誤った情報の上に積み上がります</strong>。1つずつ、上から進めてください。</p>
+<h2 id="h3"><span class="h-num">03</span>最初にやること：オーナー確認と基本情報の精度</h2>
+<p>はじめに**オーナー確認（オーナー権限の取得）**を済ませます。これがないと編集も返信もできません。すでに誰かが登録している場合や、以前の担当者しか権限を持っていない場合は、権限のリクエストから進めます。</p>
+<p>次が基本情報です。ここが最も効きます。特に重要なのは次の4つです。</p>
+<ul>
+<li><strong>カテゴリ</strong>：主カテゴリは1つだけ選びます。業態をいちばん正確に表す言葉を選び、迷ったら実際に来る客層で決めます。副カテゴリは実際に提供しているものに限ります</li>
+<li><strong>店舗名</strong>：看板と登記の表記に合わせます。名称にキーワードを足す書き方は規約違反にあたり、修正や停止の対象になります</li>
+<li><strong>住所・電話番号・営業時間</strong>：ウェブサイト、SNS、各種掲載サイトと1文字単位でそろえます</li>
+<li><strong>サービス・商品</strong>：提供しているものを言葉で登録します。検索される言い回しで書くのが基本です</li>
+</ul>
+<p>祝日や年末年始の<strong>特別営業時間</strong>は、その都度入れてください。ここがずれていると、来店した人の体験が直接損なわれます。</p>
+<h2 id="h4"><span class="h-num">04</span>続ける仕組み：写真・投稿・口コミの回し方</h2>
+<p>基本情報が整ったら、更新を回す段階に入ります。頻度は「毎日」でなくて構いません。<strong>続く頻度に落とす</strong>ほうが結果的に積み上がります。</p>
+<p><strong>写真</strong>は、外観・内観・スタッフ・商品やサービスの様子を、明るい時間に撮ったものを定期的に足します。同じ角度の写真を大量に上げるより、来店前に知りたい情報（入口、駐車場、席、待合）が分かる写真が効きます。</p>
+<p><strong>投稿</strong>は、キャンペーンよりも「今のお店の様子」が続けやすいテーマです。新しいメニュー、季節の対応、休業のお知らせ。1回あたり数行で十分です。</p>
+<p><strong>口コミ</strong>は、集める工夫と返信の2つに分かれます。返信はすべてに、できれば数日以内に。低評価にも事実を確認したうえで落ち着いて返します。集め方の具体策は<a href="2026-06-27-google-kuchikomi-fuyasu.html">Googleの口コミを増やす方法</a>にまとめています。</p>
+<h2 id="h5"><span class="h-num">05</span>自分でやるときによくある失敗</h2>
+<p>自社運用でつまずく場所は、だいたい決まっています。</p>
+<ol>
+<li><strong>店舗名にキーワードを入れる</strong>：一時的に見え方が変わっても、規約違反であり修正対象です。やらないでください</li>
+<li><strong>カテゴリを増やしすぎる</strong>：関係のない副カテゴリは、かえって狙いをぼかします</li>
+<li><strong>写真だけを追加して基本情報を放置する</strong>：見た目は更新されていても、営業時間が古いままでは逆効果です</li>
+<li><strong>口コミの返信が途中で止まる</strong>：返信のある店とない店では、読む側の印象がはっきり分かれます</li>
+<li><strong>効果を毎日確認して一喜一憂する</strong>：順位は検索する人の位置で変わります。日単位で追う意味はありません</li>
+</ol>
+<blockquote>
+<p>更新が止まったプロフィールは、閉店したように見えます。これがMEOで最も大きな取りこぼしです。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>効果はどこで確かめるか</h2>
+<p>自分でやる場合こそ、確認する指標を絞ります。管理画面で見られる範囲で十分です。</p>
+<ul>
+<li><strong>表示された検索語</strong>：どんな言葉で見つかっているか。想定と違うなら、サービスの登録語を見直します</li>
+<li><strong>ルート検索・電話・ウェブサイトの操作数</strong>：来店につながる行動の量です。順位より実務に直結します</li>
+<li><strong>口コミの件数と平均評価</strong>：件数の伸び方が、集め方の効き目を表します</li>
+<li><strong>写真の閲覧</strong>：どの写真が見られているかで、次に撮るものが決まります</li>
+</ul>
+<p>見る頻度は<strong>月1回</strong>で構いません。同じ日に同じ項目を見て、前月と比べる。この形にしておくと、施策を変えたときの効果が判断できます。毎月の点検項目は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月次チェックリスト</a>にまとめています。</p>
+<h2 id="h7"><span class="h-num">07</span>自分でやる範囲と、任せたほうがよい範囲</h2>
+<p>全部を自分でやる必要も、全部を任せる必要もありません。線引きの目安は次のとおりです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>自分でやる</th>
+<th>任せたほうがよい場合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基本情報の整備</td>
+<td>◎ 現場が正確に書ける</td>
+<td>店舗数が多く表記統一が難しいとき</td>
+</tr>
+<tr>
+<td>写真・投稿の更新</td>
+<td>◎ 現場でしか撮れない</td>
+<td>更新が3か月以上止まっているとき</td>
+</tr>
+<tr>
+<td>口コミの返信</td>
+<td>◎ 事情を知る人が書ける</td>
+<td>返信が滞留し、対応方針が必要なとき</td>
+</tr>
+<tr>
+<td>掲載情報の整合（他サイト）</td>
+<td>△ 手間がかかる</td>
+<td>掲載先が多く、住所表記がばらばらなとき</td>
+</tr>
+<tr>
+<td>表示されない・停止した場合の復旧</td>
+<td>△ 判断が難しい</td>
+<td>停止や重複が起きたとき</td>
+</tr>
+<tr>
+<td>ウェブサイト側の対応</td>
+<td>△ 技術が必要</td>
+<td>構造化データや店舗ページの整備が必要なとき</td>
+</tr>
+</tbody></table></div>
+<p><strong>自分でやるべきなのは、現場にしか分からない情報を扱う部分</strong>です。逆に、複数サイトの表記統一や、停止・重複といった例外対応は、経験の差が出ます。ここだけを外に出すのは、費用の使い方として無理がありません。</p>
+<h2 id="h8"><span class="h-num">08</span>よくある質問</h2>
+<details class="faq"><summary>MEO対策を自分でやる場合、費用はかかりますか？</summary><div class="faq-a">Googleビジネスプロフィールの登録・編集・投稿・返信はすべて無料です。かかるのは担当者の時間だけです。有料になるのは、代行を依頼する場合や、専用の管理ツールを使う場合です。</div></details>
+
+<details class="faq"><summary>どれくらいで変化が出ますか？</summary><div class="faq-a">検索する人の位置や競合の状況で変わるため、期間を断言することはできません。基本情報の誤りを直した効果は比較的早く現れますが、口コミや投稿の積み上げは時間がかかります。月1回の確認を続け、数か月単位で判断してください。</div></details>
+
+<details class="faq"><summary>複数店舗でも自分で管理できますか？</summary><div class="faq-a">管理画面ではまとめて扱えますが、店舗数が増えるほど表記のばらつきと更新漏れが起きます。基本情報の書き方をルール化し、店舗ごとの担当を決めることが前提になります。それが難しい規模であれば、整備の部分だけ外に出す判断が現実的です。</div></details>
+
+<h2 id="h9"><span class="h-num">09</span>まとめ：まず90日、同じ手順を回してみる</h2>
+<p>MEO対策を自分でやるうえで大切なのは、施策の多さではありません。<strong>オーナー確認を済ませ、基本情報を正確にし、更新と返信を止めない</strong>。この3つが揃っていれば、費用をかけずに土台はつくれます。まずは90日、同じ手順を同じ頻度で回してみてください。続かなかった部分が、そのまま次に任せるべき範囲になります。</p>
+<p>TENERAMENTEは、自社運用で回らなくなった部分だけを引き受ける形も含めて、<a href="lp-meo.html">MEO対策</a>をご一緒しています。まず自分でやってみたうえで判断したい、という段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleビジネスプロフィール</span><span>#ローカルSEO</span><span>#自社運用</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +319,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +347,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-10-gbp-toukou-neta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-05-meo-hiyo-souba-uchiwake.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の費用相場と料金の内訳｜自社運用と代行の分かれ目</h4>
+      </a>
+      <a class="related-card" href="2026-09-12-kuchikomi-henshin-reibun.html">
+        <span class="cat">MEO</span>
+        <h4>Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

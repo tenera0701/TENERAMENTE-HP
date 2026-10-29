@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,148 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-12-blog-koushin-hindo-seo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計","description":"ブログの更新頻度をどう決めるかを、SEOに効く部分と効かない部分の切り分け、自社に必要な本数の出し方、週1・月2・月1それぞれの目安、更新が止まる原因と対処までまとめました。本数を決める前に読んでいただきたい設計の話です。","datePublished":"2026-10-12","dateModified":"2026-10-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-12-blog-koushin-hindo-seo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-12-blog-koushin-hindo-seo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ブログ運用, SEO, 更新頻度, コンテンツ運用, ホームページ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計","description":"ブログの更新頻度をどう決めるかを、SEOに効く部分と効かない部分の切り分け、自社に必要な本数の出し方、週1・月2・月1それぞれの目安、更新が止まる原因と対処までまとめました。本数を決める前に読んでいただきたい設計の話です。","datePublished":"2026-10-12","dateModified":"2026-10-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-12-blog-koushin-hindo-seo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-12-blog-koushin-hindo-seo.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ブログ運用, SEO, 更新頻度, コンテンツ運用, ホームページ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計","item":"https://teneramente.jp/2026-10-12-blog-koushin-hindo-seo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"毎日更新したほうが有利ですか？","acceptedAnswer":{"@type":"Answer","text":"毎日書けるだけの材料と時間があれば記事は早く揃いますが、有利になるのは本数そのものではなく、答えられる検索語が増えることです。毎日という縛りのために内容の薄い記事が混ざると、サイト全体として見たときに評価されにくくなります。更新した日付を増やすことが目的ではないため、1本が誰かの疑問に答えているかを基準に考えてください。"}},{"@type":"Question","name":"しばらく更新が止まっていました。再開はどこから手を付ければよいですか？","acceptedAnswer":{"@type":"Answer","text":"新しく書く前に、既存記事のなかで検索結果に出ているものを探し、情報が古くなっている部分を直すところから始めるのがおすすめです。新規記事より早く反応が出やすく、再開の手応えをつかみやすいからです。そのうえで、次に書くテーマを3本分だけ決めてください。20本の計画を立て直すより、3本の予定を埋めるほうが動き出せます。"}},{"@type":"Question","name":"外部に書いてもらう場合、頻度はどう決めればよいですか？","acceptedAnswer":{"@type":"Answer","text":"外注する場合も、必要な検索語の数と期間から逆算する考え方は同じです。ただし配分は変わります。自社でやるべきなのは、どの検索語を狙うかの決定と、事実確認です。特に数値・事例・料金は、社内でしか正しく判断できません。ここを確認する時間を作業時間に含めて頻度を決めると、公開前に止まることがなくなります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 12, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-12-blog-koushin-hindo-seo.webp" alt="ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>更新頻度そのものが順位を決めるわけではない</a><a href="#h2"><span class="n">02</span>自社に必要な本数を決める3つの材料</a><a href="#h3"><span class="n">03</span>頻度ごとの目安と、必要な体制</a><a href="#h4"><span class="n">04</span>更新が止まる原因は、仕組みの側にある</a><a href="#h5"><span class="n">05</span>新しく書くか、既存記事を直すか</a><a href="#h6"><span class="n">06</span>増やすか減らすかは、何を見て判断するか</a><a href="#h7"><span class="n">07</span>続けるための現実的な設計</a><a href="#h8"><span class="n">08</span>まとめ：頻度は、止まらない形が決まってから決める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「週に何本書けばいいですか」という質問をよくいただきます。けれども<strong>ブログの更新頻度に、業種や規模を問わない正解の本数はありません</strong>。決めるべきは本数ではなく、半年後も同じペースで回っている状態をどう作るかです。順番を逆にすると、最初の1か月だけ本数が出て、そこで止まります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>更新頻度は「多いほど良い」ではなく、<strong>狙う検索語の数を、無理なく出せる速度で割って決める</strong>ものです。更新が止まる原因はやる気ではなく仕組みの側にあります。頻度を上げる前に、止まらない形を先に作ってください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>更新頻度そのものが順位を決めるわけではない</h2>
+<p>検索エンジンが評価しているのは、更新の回数ではなく、検索した人の疑問に答えられているかどうかです。毎日更新していても、どの記事も同じことを浅く書いているなら順位は動きません。逆に本数が少なくても、1本が確実に答えになっていれば読まれます。</p>
+<p>ただし、更新頻度が間接的に効く部分はあります。<strong>記事が増えるほど、答えられる検索語の種類が増える</strong>こと。そして記事同士をつなぐ内部リンクの選択肢が増えることです。1本では線が引けませんが、10本あれば読者が次に読むものを示せます。</p>
+<p>つまり頻度は、結果を直接動かす数字ではなく、結果が出るまでの速度を決める要素だと考えてください。急げば早く揃いますが、品質を落として急ぐと、揃っても効きません。</p>
+<h2 id="h2"><span class="h-num">02</span>自社に必要な本数を決める3つの材料</h2>
+<p>必要な本数は、次の3つを掛け合わせると出ます。感覚で「週1本」と決める前に、この3つを紙に書き出してください。</p>
+<p><strong>1つめは、答えるべき検索語の数</strong>です。お客様から実際に受けている質問、サービスを選ぶときに比較される項目、業種や地域を含む言い方。これを書き出すと、たいてい数十個になります。1つの検索語に1本と考えれば、必要な総本数が見えます。</p>
+<p><strong>2つめは、いつまでに揃えたいか</strong>です。検索から人が来るまでには時間がかかります。半年で揃えたいのか、1年かけるのかで1か月の本数が変わります。</p>
+<p><strong>3つめは、1本にかけられる時間</strong>です。構成を決め、書き、見直して公開するまでの実作業時間を一度計ってみてください。ここを甘く見積もったまま本数を決めると、必ず破綻します。</p>
+<p>総本数 ÷ 期間で出た数が、1本あたりの作業時間の中に収まっているか。収まらなければ、期間を延ばすか、狙う検索語を絞ります。本数を増やすことで解決しようとしないことが大事です。</p>
+<h2 id="h3"><span class="h-num">03</span>頻度ごとの目安と、必要な体制</h2>
+<p>よく選ばれる3つのペースを並べます。どれが正しいというより、自社の体制に合うものを選んでください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ペース</th>
+<th>向く状況</th>
+<th>必要な体制</th>
+<th>気をつける点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>週1本</td>
+<td>狙う検索語が多く、早く揃えたい</td>
+<td>書く人を決め、毎週同じ曜日に時間を確保できる</td>
+<td>1本の質が落ちやすい。構成だけ先に溜めておく</td>
+</tr>
+<tr>
+<td>月2本</td>
+<td>本業と並行して続けたい</td>
+<td>月の前半と後半に1日ずつ確保できる</td>
+<td>間が空くため、書く内容を事前に決めておく必要がある</td>
+</tr>
+<tr>
+<td>月1本</td>
+<td>まず止まらないことを優先したい</td>
+<td>1人でも回せる</td>
+<td>揃うまでに時間がかかる。既存記事の手入れを合わせて行う</td>
+</tr>
+</tbody></table></div>
+<p><strong>最も失敗が少ないのは、月1〜2本から始めて、回ってきたら増やす形</strong>です。最初に週1本と決めて3週で止まるより、月1本を1年続けたほうが記事は積み上がります。</p>
+<h2 id="h4"><span class="h-num">04</span>更新が止まる原因は、仕組みの側にある</h2>
+<p>止まるときの理由は、ほぼ次の5つに分けられます。どれも「忙しかった」という言い方で表に出てきますが、中身は違います。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-12-blog-koushin-hindo-seo.png" alt="書くテーマが決まっていない・1本の型がない・書く時間が予定に入っていない・完成の基準がない・担当が1人に寄っているという、ブログの更新が止まる5つの原因とそれぞれの対処を並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>どれも「忙しかった」という言い方で表に出ますが、対処は原因ごとに違います。</figcaption></figure>
+
+<ul>
+<li><strong>書くテーマが決まっていない</strong>：毎回ゼロから考えるため、着手までに時間がかかります</li>
+<li><strong>1本の型がない</strong>：構成を毎回考え直すと、所要時間が読めません</li>
+<li><strong>書く時間が予定に入っていない</strong>：空いた時間にやる前提だと、忙しい時期から先に消えます</li>
+<li><strong>完成の基準がない</strong>：どこまで直せば公開していいか分からず、下書きのまま溜まります</li>
+<li><strong>担当が1人に寄っている</strong>：その人の繁忙と連動して、サイト全体の更新が止まります</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>止まったあとに再開するほうが重い</h4>
+    <p>一度止まると、次に書くときは「何を書こうとしていたか」を思い出す作業から始まります。この思い出す時間が、書く時間より長くなることがあります。だからこそ、止まりそうになったら本数を落として続けるほうが、休んで再開するより軽く済みます。</p>
+  </div>
+</div>
+
+<p>対処はどれも単純で、原因と1対1で対応します。テーマの一覧を先に作る、1本の型を決めて毎回同じ手順で書く、書く日をカレンダーに入れる、完成の基準を決めておく、書ける人を2人にする。意志を強く持つことではなく、この5つを用意することが対処になります。見出しの型を先に用意しておく方法は<a href="2026-10-09-kiji-midashi-kousei-tsukurikata.html">SEO記事の見出し構成の作り方</a>に整理しています。</p>
+<h2 id="h5"><span class="h-num">05</span>新しく書くか、既存記事を直すか</h2>
+<p>更新頻度を考えるとき、新規記事の本数だけで数えてしまいがちです。けれども記事が20本を超えてきたら、<strong>直す作業も更新に含めて配分したほうが成果が早く出ます</strong>。</p>
+<p>すでに検索結果に出ている記事は、内容を足すだけで動くことがあります。一方、新しく書いた記事が読まれるまでには時間がかかります。つまり、同じ作業時間なら既存記事の手入れのほうが早く返ってくる場面があります。</p>
+<p>目安としては、記事が少ないうちは新規中心、ある程度揃ってきたら「新規2本に対して既存1本を直す」くらいの配分が扱いやすいです。どの記事から直すかの決め方は<a href="2026-10-06-blog-riraito-yarikata.html">ブログ記事リライトのやり方</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>増やすか減らすかは、何を見て判断するか</h2>
+<p>3か月ごとの見直しで見るのは、順位だけではありません。頻度の判断に使えるのは次の3つです。</p>
+<p><strong>1つめは、公開した本数と予定の差</strong>です。月2本の予定で1本しか出ていないなら、頻度が体制に合っていません。意志の問題として扱うと直らないので、予定の数を落とします。</p>
+<p><strong>2つめは、検索から入ってきた記事の種類</strong>です。どのテーマの記事が読まれているかが分かると、次に書くテーマの精度が上がります。読まれている方向に寄せれば、同じ本数でも成果が変わります。確認の仕方は<a href="2026-09-30-search-console-tsukaikata.html">Search Consoleの使い方</a>にまとめています。</p>
+<p><strong>3つめは、1本あたりの実作業時間の変化</strong>です。型が定着すると、同じ品質でも時間は短くなります。短くなったぶんを本数に回すのが、無理のない増やし方です。逆に時間が伸びているなら、テーマが難しすぎるか、完成の基準が曖昧になっています。</p>
+<p>数字が揃わないうちは、<strong>「予定どおり出せたか」の一点だけで判断して構いません</strong>。続いていなければ、ほかの指標を見ても打ち手が決まらないからです。</p>
+<h2 id="h7"><span class="h-num">07</span>続けるための現実的な設計</h2>
+<p>最後に、止まらない形を作るための具体的な進め方です。</p>
+<ol>
+<li><strong>書くテーマを20個、先に一覧にする</strong>。毎回ゼロから考える状態をなくします</li>
+<li><strong>1本の型を決める</strong>。見出しの並びと、入れる要素（結論・表・よくある質問など）を固定します</li>
+<li><strong>公開日をカレンダーに入れる</strong>。月2本なら、月内の2日を先に押さえます</li>
+<li><strong>完成の基準を決める</strong>。「納得するまで直す」にすると公開できません</li>
+<li><strong>3か月ごとに頻度を見直す</strong>。回っていれば増やし、苦しければ減らします</li>
+</ol>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>サイトの作りが古いままだと、本数では追いつかない</h4>
+    <p>記事を増やしても、サイト側の表示が遅い、スマートフォンで読みにくい、問い合わせへの経路が分かりにくいといった状態だと、読まれても次につながりません。更新頻度を上げる前に、サイトそのものを見直す段階かもしれません。判断の目安は<a href="2026-09-09-homepage-renewal-timing.html">ホームページのリニューアル時期</a>に整理しています。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>毎日更新したほうが有利ですか？</summary><div class="faq-a">毎日書けるだけの材料と時間があれば記事は早く揃いますが、有利になるのは本数そのものではなく、答えられる検索語が増えることです。毎日という縛りのために内容の薄い記事が混ざると、サイト全体として見たときに評価されにくくなります。更新した日付を増やすことが目的ではないため、1本が誰かの疑問に答えているかを基準に考えてください。</div></details>
+
+<details class="faq"><summary>しばらく更新が止まっていました。再開はどこから手を付ければよいですか？</summary><div class="faq-a">新しく書く前に、既存記事のなかで検索結果に出ているものを探し、情報が古くなっている部分を直すところから始めるのがおすすめです。新規記事より早く反応が出やすく、再開の手応えをつかみやすいからです。そのうえで、次に書くテーマを3本分だけ決めてください。20本の計画を立て直すより、3本の予定を埋めるほうが動き出せます。</div></details>
+
+<details class="faq"><summary>外部に書いてもらう場合、頻度はどう決めればよいですか？</summary><div class="faq-a">外注する場合も、必要な検索語の数と期間から逆算する考え方は同じです。ただし配分は変わります。自社でやるべきなのは、どの検索語を狙うかの決定と、事実確認です。特に数値・事例・料金は、社内でしか正しく判断できません。ここを確認する時間を作業時間に含めて頻度を決めると、公開前に止まることがなくなります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：頻度は、止まらない形が決まってから決める</h2>
+<p>ブログの更新頻度は、狙う検索語の数と期間、そして1本にかけられる時間から決まります。多く書けば早く揃いますが、途中で止まれば残るのは書きかけの状態です。先に止まらない形を作り、そのうえで出せる本数を決める。この順番が、結果として一番早い道になります。</p>
+<p>そして<strong>頻度は一度決めたら固定するものではありません</strong>。3か月ごとに見直し、回っていれば増やし、苦しければ落とす。続いていること自体が、次の判断材料になります。</p>
+<p>TENERAMENTEなら、狙う検索語の洗い出しから記事の型づくり、公開後にどれを直すかの判断まで、サイトの設計とあわせてご一緒できます。更新が止まる原因がサイトの作りの側にある場合は<a href="lp-hplp.html">ホームページ・LP制作</a>の段階から見直せますので、何本書くべきか迷っている段階でも<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ブログ運用</span><span>#SEO</span><span>#更新頻度</span><span>#コンテンツ運用</span><span>#ホームページ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +312,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +340,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-14-hi-link-fuyashikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>被リンクの増やし方｜中小企業が健全に積める方法と、避けるべき手法</h4>
+      </a>
+      <a class="related-card" href="2026-10-09-kiji-midashi-kousei-tsukurikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEO記事の見出し構成の作り方｜書く前に決める設計手順と型</h4>
+      </a>
+      <a class="related-card" href="2026-10-15-seo-kouka-kikan.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOの効果が出るまでの期間｜途中で成否を判断するための見方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,170 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-23-ai-overviews-taisaku";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手","description":"Google検索の最上部にAIの要約が表示される「AI Overviews」。クリックされる前に答えが出る時代に、自社サイトはどう向き合うべきか。引用される記事の共通点と、今日から実践できる7つの打ち手を整理しました。","datePublished":"2026-06-23","dateModified":"2026-06-23","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-23-ai-overviews-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-06-23-ai-overviews-taisaku.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI Overviews, AIO, AI検索, SEO, ゼロクリック"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手","description":"Google検索の最上部にAIの要約が表示される「AI Overviews」。クリックされる前に答えが出る時代に、自社サイトはどう向き合うべきか。引用される記事の共通点と、今日から実践できる7つの打ち手を整理しました。","datePublished":"2026-06-23","dateModified":"2026-06-23","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-23-ai-overviews-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-06-23-ai-overviews-taisaku.png","articleSection":"AIO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI Overviews, AIO, AI検索, SEO, ゼロクリック"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手","item":"https://teneramente.jp/2026-06-23-ai-overviews-taisaku.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI Overviewsに自社サイトが表示されないのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"表示や引用はGoogleのアルゴリズムが判断するため、単一の原因を特定するのは困難です。ただし、結論が曖昧・構造化データがない・情報が古い・発信者が不明確、といった状態は引用されにくい要因になります。本記事の7つの打ち手から着手するのが現実的です。"}},{"@type":"Question","name":"ゼロクリック検索が増えると、SEOはもう意味がないのでしょうか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。AIの要約は検索で評価されているページから引用される傾向があり、良質なSEOはAIO（AI最適化）の土台です。順位だけを目的にせず、「引用される情報設計」とセットで進めることが重要です。"}},{"@type":"Question","name":"対策の効果はどれくらいで出ますか？","acceptedAnswer":{"@type":"Answer","text":"AIの参照や検索評価には時間差があり、即効性を期待しすぎないほうが健全です。構造の整備と一次情報の蓄積を続けながら、四半期単位で傾向を確認していくことをおすすめします。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AIO</span></div>
+  <span class="post-cat" data-post="category">AIO</span>
+  <h1 class="post-title" data-post="title">Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 23, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-23-ai-overviews-taisaku.webp" alt="Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>AI Overviews（AIによる概要）とは</a><a href="#h2"><span class="n">02</span>従来の検索結果と何が変わったか</a><a href="#h3"><span class="n">03</span>ゼロクリック時代のトラフィックの考え方</a><a href="#h4"><span class="n">04</span>AI Overviewsに引用される記事の共通点</a><a href="#h5"><span class="n">05</span>自社サイトが取るべき7つの打ち手</a><a href="#h6"><span class="n">06</span>やってもムダなこと</a><a href="#h7"><span class="n">07</span>効果測定の考え方</a><a href="#h8"><span class="n">08</span>まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleで検索すると、検索結果の最上部にAIがまとめた「答え」が表示される──これが <em>AI Overviews</em>（AIによる概要）です。ユーザーがリンクをクリックする前に答えを得てしまう時代に、自社サイトは何をすべきか。本記事では、<strong>AI Overviewsに引用されるための具体的な7つの打ち手</strong>を、当社（TENERAMENTE）の運用目線で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AI Overviews対策の本質は、順位争いではなく<strong>「AIが要約の根拠として引用したくなる、明確で信頼できる情報を構造的に置くこと」</strong>。結論先出し・FAQ構造・一次情報・構造化データの積み重ねが、遠回りに見えて最短ルートです。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>AI Overviews（AIによる概要）とは</h2>
+<p><em>AI Overviews</em> とは、Google検索の結果ページ最上部に表示される、<strong>生成AIによる回答の要約</strong>です。日本語では「AIによる概要」と表記されます。ユーザーの検索意図に対してAIが複数のWebページから情報を集め、要約した答えを提示し、その根拠となったページへのリンクを引用元として添えます。</p>
+<p>従来の「10本の青いリンク」が並ぶ検索結果とは異なり、ユーザーはまずAIの要約を読みます。つまり、<strong>検索順位が高くても、AIの要約に引用されなければユーザーの目に触れにくい</strong>という新しい構図が生まれています。</p>
+<p>「自社の情報がAIによる概要に表示されない」という相談が増えているのは、この変化を肌で感じている事業者が多い証拠でもあります。</p>
+<h2 id="h2"><span class="h-num">02</span>従来の検索結果と何が変わったか</h2>
+<p>変化のポイントを整理すると、次のようになります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>観点</th>
+<th>従来の検索結果</th>
+<th>AI Overviews表示後</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ユーザーが最初に見るもの</td>
+<td>タイトルと説明文の一覧</td>
+<td>AIがまとめた「答え」</td>
+</tr>
+<tr>
+<td>クリックの動機</td>
+<td>答えを探しに行く</td>
+<td>答えの根拠・詳細を確かめに行く</td>
+</tr>
+<tr>
+<td>競争の軸</td>
+<td>検索順位</td>
+<td>要約への引用と、その中での存在感</td>
+</tr>
+<tr>
+<td>評価されやすい記事</td>
+<td>キーワード網羅型</td>
+<td>質問に端的に答える構造型</td>
+</tr>
+<tr>
+<td>流入の質</td>
+<td>情報収集段階の訪問も多い</td>
+<td>要約で満足しなかった、意欲の高い訪問</td>
+</tr>
+</tbody></table></div>
+<p>重要なのは、検索という行動そのものがなくなったわけではない点です。<strong>「クリックの意味」が変わった</strong>のです。答えの確認だけで済むユーザーは離脱し、より深く知りたいユーザーだけがサイトを訪れるようになります。</p>
+<h2 id="h3"><span class="h-num">03</span>ゼロクリック時代のトラフィックの考え方</h2>
+<p>AIの要約で完結し、どのサイトもクリックされない検索は「<strong>ゼロクリック検索</strong>」と呼ばれます。これを「流入が減る脅威」とだけ捉えると、打ち手を誤ります。</p>
+<p>当社は、次の2つの視点で捉え直すことをおすすめしています。</p>
+<ul>
+<li><strong>量から質へ</strong>：要約を読んだうえで訪れるユーザーは、課題が明確で検討度が高い傾向があります。訪問数の増減だけでなく、問い合わせや資料請求など「その先の行動」で評価する</li>
+<li><strong>クリック前の接触も資産</strong>：AIの要約に社名やサービス名が引用されること自体が、クリックされなくても「この分野に詳しい会社」という認知につながる</li>
+</ul>
+<blockquote>
+<p>流入の「数」を守る発想から、引用と信頼の「面」を取りに行く発想へ。</p>
+</blockquote>
+<p>つまり、ゼロクリック時代の目標は「クリックを取り戻す」ことではなく、<strong>引用される存在になったうえで、深く知りたい人を確実に受け止める</strong>ことです。</p>
+<h2 id="h4"><span class="h-num">04</span>AI Overviewsに引用される記事の共通点</h2>
+<p>当社がAIO（<em>AI Optimization</em>、AI最適化）の運用で観察してきた範囲では、引用されやすい記事には共通した特徴があります。</p>
+<ul>
+<li><strong>質問に対して端的に答えている</strong>：見出しが質問、直後の1〜2文が答え、という構造</li>
+<li><strong>定義が明確</strong>：「○○とは△△です」と言い切る文がある</li>
+<li><strong>一次情報がある</strong>：実際の経験・自社の運用・独自の観点に基づく記述</li>
+<li><strong>情報の鮮度がわかる</strong>：更新日が明示され、内容も現状に合っている</li>
+<li><strong>発信者が明確</strong>：会社情報・運営者情報・専門性がサイト全体で伝わる</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>当社の運用では、「よくある質問」をユーザーの検索文そのままの見出しにし、直後に結論を1文で置く形に整えたページが、AI検索経由の参照元として拾われやすい傾向を確認しています。ユーザーの「聞き方」に見出しを寄せるのがコツです。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>自社サイトが取るべき7つの打ち手</h2>
+<p>ここからが本題です。今日から着手できる順に、7つの打ち手を挙げます。</p>
+<h3>1. 結論を先に書く</h3>
+<p>各セクションの冒頭で要点を言い切り、その後に理由と補足を続けます。AIは「質問への答え」となる文を探しているため、<strong>結論が埋もれている記事は引用されにくくなります</strong>。</p>
+<h3>2. 見出しを「質問文」に寄せる</h3>
+<p>「料金について」ではなく「ホームページ制作の費用相場はいくら？」のように、ユーザーが実際に検索する言葉を見出しに使います。</p>
+<h3>3. FAQ構造を用意する</h3>
+<p>記事末尾やサービスページに、質問と回答のセットを置きます。<strong>1問1答の形式はAIにとって最も引用しやすい構造</strong>のひとつです。</p>
+<h3>4. 一次情報を増やす</h3>
+<p>他サイトの要約ではなく、自社の経験・運用で得た知見・独自の視点を書きます。どこにでもある情報は、AIにとって「あなたのサイトから引用する理由」がありません。</p>
+<h3>5. E-E-A-Tを整える</h3>
+<p><em>E-E-A-T</em>（Experience, Expertise, Authoritativeness, Trustworthiness：経験・専門性・権威性・信頼性）は、Googleが品質評価で重視する観点です。運営者情報・執筆者の専門性・実績ページなど、「誰が言っているか」をサイト全体で示します。</p>
+<h3>6. 構造化データを実装する</h3>
+<p><em>schema.org</em> の構造化データ（JSON-LD）で、Organization（会社情報）・Article（記事）・FAQPage（FAQ）などをマークアップします。機械が内容を正確に理解できる状態にすることが、引用の前提条件になります。</p>
+<h3>7. 情報を最新に保つ</h3>
+<p>古い情報が残ったままのページは、AIにも人にも選ばれません。更新日を明示し、内容の棚卸しを定期的に行います。</p>
+<h2 id="h6"><span class="h-num">06</span>やってもムダなこと</h2>
+<p>一方で、労力のわりに効果が期待できない、あるいは逆効果になりかねない施策もあります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>「AIに拾われやすいらしい」という理由で、根拠のない数字や大げさな断定を並べるのは逆効果です。誤りや誇張は信頼性の評価を下げ、引用からむしろ遠ざかります。また、キーワードの詰め込みや、他サイトの要約をつなぎ合わせただけの量産記事も、AI検索時代にはほぼ意味を持ちません。</p>
+  </div>
+</div>
+
+<p>AI Overviewsの表示有無や引用先はGoogle側のアルゴリズム次第であり、<strong>「確実に表示させる方法」は存在しない</strong>ことも押さえておくべき前提です。できるのは「引用されやすい状態を整え、確率を高めること」までです。</p>
+<h2 id="h7"><span class="h-num">07</span>効果測定の考え方</h2>
+<p>AI Overviews経由の流入は、現状のアクセス解析では完全に切り分けて計測することが難しい領域です。だからこそ、測れるものを組み合わせて全体像をつかみます。</p>
+<ul>
+<li><strong>Google Search Console</strong>：表示回数とクリック数の乖離（表示は増えたのにクリック率が下がる等）から、要約表示の影響を推測する</li>
+<li><strong>指名検索の推移</strong>：社名・サービス名での検索が増えていれば、クリック前の認知が効いている可能性がある</li>
+<li><strong>問い合わせの質</strong>：訪問数が横ばいでも、問い合わせ内容が具体的になっていれば「質への転換」が進んでいるサイン</li>
+</ul>
+<p>単月の数字で一喜一憂せず、<strong>四半期単位で傾向を見る</strong>のが現実的です。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：AI時代の検索対策は「誠実な情報設計」に尽きる</h2>
+<p>AI Overviews対策と聞くと特別なテクニックを想像しがちですが、実際にやるべきことは、<strong>質問に端的に答え、根拠を示し、構造的に整理し、最新に保つ</strong>という誠実な情報設計の積み重ねです。それはSEOの土台とも矛盾せず、むしろ両方に同時に効いていきます。</p>
+<details class="faq">
+  <summary>AI Overviewsに自社サイトが表示されないのはなぜですか？</summary>
+  <div class="faq-a">表示や引用はGoogleのアルゴリズムが判断するため、単一の原因を特定するのは困難です。ただし、結論が曖昧・構造化データがない・情報が古い・発信者が不明確、といった状態は引用されにくい要因になります。本記事の7つの打ち手から着手するのが現実的です。</div>
+</details>
+<details class="faq">
+  <summary>ゼロクリック検索が増えると、SEOはもう意味がないのでしょうか？</summary>
+  <div class="faq-a">いいえ。AIの要約は検索で評価されているページから引用される傾向があり、良質なSEOはAIO（AI最適化）の土台です。順位だけを目的にせず、「引用される情報設計」とセットで進めることが重要です。</div>
+</details>
+<details class="faq">
+  <summary>対策の効果はどれくらいで出ますか？</summary>
+  <div class="faq-a">AIの参照や検索評価には時間差があり、即効性を期待しすぎないほうが健全です。構造の整備と一次情報の蓄積を続けながら、四半期単位で傾向を確認していくことをおすすめします。</div>
+</details>
+
+<p>当社TENERAMENTEでは、MEO/AIO運用支援のなかで、構造化データの実装から「引用される記事設計」までを一気通貫でお手伝いしています。「AI検索の時代に、うちのサイトはこのままで大丈夫？」と感じたら、現状診断からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI Overviews</span><span>#AIO</span><span>#AI検索</span><span>#SEO</span><span>#ゼロクリック</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +334,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +362,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-25-kozoka-data-json-ld-guide.html">
+        <span class="cat">AIO</span>
+        <h4>構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方</h4>
+      </a>
+      <a class="related-card" href="2026-06-27-google-kuchikomi-fuyasu.html">
+        <span class="cat">MEO</span>
+        <h4>Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点</h4>
+      </a>
+      <a class="related-card" href="2026-06-28-gbp-monthly-checklist.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィール 月次運用チェックリスト</h4>
+      </a>
+    </div>
   </div>
 </section>
 

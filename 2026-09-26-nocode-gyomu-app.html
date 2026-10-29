@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,148 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-26-nocode-gyomu-app";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面","description":"ノーコードで業務アプリはどこまで作れるのか、向いているケースと限界が来る場面を整理しました。作り始める前に決めておくこと、乗り換えを判断する基準まで、自社で試す前に読んでおきたい内容をまとめています。","datePublished":"2026-09-26","dateModified":"2026-09-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-26-nocode-gyomu-app.html","image":"https://teneramente.jp/assets/img/covers/2026-09-26-nocode-gyomu-app.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ノーコード, 業務アプリ, 業務効率化, システム開発, 内製"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面","description":"ノーコードで業務アプリはどこまで作れるのか、向いているケースと限界が来る場面を整理しました。作り始める前に決めておくこと、乗り換えを判断する基準まで、自社で試す前に読んでおきたい内容をまとめています。","datePublished":"2026-09-26","dateModified":"2026-09-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-26-nocode-gyomu-app.html","image":"https://teneramente.jp/assets/img/covers/2026-09-26-nocode-gyomu-app.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ノーコード, 業務アプリ, 業務効率化, システム開発, 内製"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面","item":"https://teneramente.jp/2026-09-26-nocode-gyomu-app.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"プログラミングの知識がまったくなくても作れますか？","acceptedAnswer":{"@type":"Answer","text":"入力フォームと一覧表を作る範囲であれば、知識がなくても形にできます。ただし、条件によって表示を変える、複数のデータを結びつけるといった段階に入ると、表計算の関数を理解している程度の考え方は必要になります。最初から難しい機能に手を出さず、記録と一覧から始めるのが確実です。"}},{"@type":"Question","name":"ノーコードで作ったものを、後から作り替えることはできますか？","acceptedAnswer":{"@type":"Answer","text":"データを書き出せる形で持っていれば、移すことは可能です。移行で手間がかかるのは、データそのものより「運用ルール」の部分です。誰がいつ入力するか、どの項目が必須かといった決めごとを文書に残しておくと、作り替えの相談がスムーズに進みます。"}},{"@type":"Question","name":"途中まで自作して、残りを依頼することはできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。むしろ、実際に運用した画面と溜まったデータがある状態は、要件が具体的に決まっているという点で有利に働きます。使わなかった項目や、運用で追加した例外が分かっているため、設計のやり直しが起きにくくなります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 26, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-26-nocode-gyomu-app.webp" alt="ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>ノーコードで業務アプリは、どこまで作れるのか</a><a href="#h2"><span class="n">02</span>ノーコードが向くのは、この3つのケース</a><a href="#h3"><span class="n">03</span>限界が来るのは、この4つの場面</a><a href="#h4"><span class="n">04</span>ノーコードと、開発を依頼する場合の違い</a><a href="#h5"><span class="n">05</span>作り始める前に決めておく5つのこと</a><a href="#h6"><span class="n">06</span>つまずきやすいところと、乗り換えの判断</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：小さく作って、限界が見えたら切り替える</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">ノーコードのツールが増えたことで、業務アプリを自分たちで作るという選択肢が現実的になりました。<strong>ノーコードで業務アプリは作れます。ただし「どこまで作るか」を決めずに始めると、途中で動かなくなります</strong>。向いている範囲と、限界が来る場面を先に知っておくと、作り直しを避けられます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>ノーコードが向くのは、<strong>使う人が少なく、業務のルールが単純で、止まっても業務が回る範囲</strong>です。限界が来るのは、他システムとの連携・件数の増加・権限の細かさ・業務ルールの例外が絡んだとき。<strong>小さく作って限界を確かめ、越えた部分だけを作り替える</strong>のが現実的な進め方です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>ノーコードで業務アプリは、どこまで作れるのか</h2>
+<p>ノーコード（<em>No-Code</em>）は、コードを書かずに画面上の操作でアプリを組み立てる仕組みです。入力フォーム、一覧表、検索、集計、通知。この4つの組み合わせで済む業務であれば、多くの場合そのまま形になります。</p>
+<p>具体的には、日報や作業報告の提出、備品や在庫の管理、問い合わせの受付と担当者への振り分け、案件の進捗を一覧で見る台帳。こうした「<strong>記録して、探して、集計する</strong>」業務はノーコードの得意な範囲です。Excelで管理していたものを、複数人で同時に見られるようにする用途とも相性がよいと言えます。</p>
+<p>逆に、業務の途中で複雑な計算や判断が入るもの、外部のサービスとデータをやり取りするものは、作れたとしても手間が急に増えます。この境目がどこにあるかを、次に見ていきます。</p>
+<h2 id="h2"><span class="h-num">02</span>ノーコードが向くのは、この3つのケース</h2>
+<p>ひとつ目は、<strong>使う人が10名に満たない範囲で、部署をまたがない業務</strong>です。同じ部署の中で完結していれば、権限の設計が単純で済み、運用ルールも口頭で揃えられます。</p>
+<p>ふたつ目は、<strong>業務のやり方がまだ固まっていない業務</strong>です。何を記録すべきか決まっていない段階で本格的に開発すると、作り終えた頃には項目が合わなくなります。ノーコードは項目の追加・削除がその場でできるため、試しながら形を決める用途に向きます。</p>
+<p>みっつ目は、<strong>止まっても別の手段で回せる業務</strong>です。社内の備品管理や会議室の予約は、仮に使えなくなっても紙やチャットで代替できます。一方、請求や入金のように止められない業務は、別の判断基準が必要になります。内製と外注のどちらで進めるかは<a href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">業務アプリの内製と外注の判断</a>にまとめています。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>「試作」としてのノーコードは効く</h4>
+    <p>本番運用を前提にせず、必要な項目と画面の並びを確かめる道具として使う方法もあります。2週間ほど実際に入力してみると、使わない項目と足りない項目がはっきりします。この結果を持って開発の相談をすると、要件のすり合わせが短く済みます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>限界が来るのは、この4つの場面</h2>
+<p>ノーコードで作った業務アプリが行き詰まるとき、原因はだいたい次の4つのどれかです。</p>
+<p><strong>他システムとの連携</strong>が必要になったときが最も多い場面です。会計ソフトや基幹システムとデータをやり取りしようとすると、ツールが用意した連携先に無い限り手作業でのファイル受け渡しが残ります。結局そこが手間の中心になります。</p>
+<p><strong>件数が増えたとき</strong>も限界が見えます。数百件までは快適に動いていた一覧が、数千件を超えると表示に時間がかかるようになる。ツールごとに上限や課金の区切りがあるため、増え方の見込みは最初に確認が要ります。</p>
+<p><strong>権限を細かく分けたいとき</strong>も難所です。「自分の担当分だけ見せる」「金額だけ一部の人に隠す」といった要求は、ツールの権限機能の粒度に左右されます。</p>
+<p><strong>業務ルールに例外が多いとき</strong>は、画面の操作だけで表現しきれなくなります。例外のたびに項目や分岐が増え、作った本人しか触れないアプリになっていきます。</p>
+<h2 id="h4"><span class="h-num">04</span>ノーコードと、開発を依頼する場合の違い</h2>
+<p>同じ「業務アプリを用意する」でも、進み方と抱えるものが変わります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>ノーコードで自作</th>
+<th>開発を依頼する</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作り始めるまで</td>
+<td>すぐ着手できる</td>
+<td>要件の整理から始まる</td>
+</tr>
+<tr>
+<td>初期の費用</td>
+<td>ツールの利用料が中心</td>
+<td>設計・開発の費用がかかる</td>
+</tr>
+<tr>
+<td>変更のしやすさ</td>
+<td>自分たちですぐ直せる</td>
+<td>依頼と確認の手順が要る</td>
+</tr>
+<tr>
+<td>連携・例外処理</td>
+<td>ツールの範囲に収まる場合のみ</td>
+<td>業務に合わせて作れる</td>
+</tr>
+<tr>
+<td>属人化のリスク</td>
+<td>作った人に依存しやすい</td>
+<td>仕様が形に残る</td>
+</tr>
+<tr>
+<td>向く段階</td>
+<td>やり方が固まっていない時期</td>
+<td>運用が決まり、止められない時期</td>
+</tr>
+</tbody></table></div>
+<p>どちらが優れているという話ではありません。<strong>業務がどの段階にあるかで、合う方が変わります</strong>。やり方が定まっていない段階で作り込むと無駄が出ますし、逆に止められない業務を自作のまま抱えると、担当者が異動した時点で誰も直せなくなります。</p>
+<h2 id="h5"><span class="h-num">05</span>作り始める前に決めておく5つのこと</h2>
+<p>ノーコードで失敗する場合、ツールの選定より前の段階で決め忘れていることがほとんどです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-26-nocode-gyomu-app.png" alt="誰が使うか・何件まで増えるか・入力項目を5つ以内に絞る・誰が直すか・やめるときの出口という5つの確認事項を並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>決め忘れが多いのは5つ目です。データを書き出せないツールを選ぶと、限界が来ても移行できません。</figcaption></figure>
+
+<ol>
+<li><strong>誰が使うか</strong>（人数・部署・社外の人が触るか）</li>
+<li><strong>何件まで増えるか</strong>（1年後の見込み。上限に当たる時期を把握する）</li>
+<li><strong>入力する項目を5つ以内に絞る</strong>（増やすのは後からでもできる）</li>
+<li><strong>誰が直すか</strong>（作った人が不在のとき、誰が触れるようにしておくか）</li>
+<li><strong>やめるときの出口</strong>（データを書き出せる形式を確認しておく）</li>
+</ol>
+<p>5つ目は見落とされがちですが、最も重要です。データを取り出せないツールを選ぶと、限界が来たときに移行できません。契約前に<strong>エクスポートの可否と形式</strong>を必ず確認してください。</p>
+<h2 id="h6"><span class="h-num">06</span>つまずきやすいところと、乗り換えの判断</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>よくある3つの失敗</h4>
+    <p><strong>既存のExcelと並行して運用してしまう</strong>のが最も多い失敗です。二重入力になり、どちらの数字も信用できなくなります。次に多いのが、項目を最初から細かくしすぎて誰も入力しなくなるケース。そして、作った本人しか構造を理解しておらず、その人が異動した時点で修正が止まるケースです。</p>
+  </div>
+</div>
+
+<p>乗り換えを考える目安は、<strong>「ツールの制約を回避するための作業」が業務時間を食い始めたとき</strong>です。毎月の書き出しと貼り付け、上限を越えないための手動の整理、例外処理のための別管理表。これらが常態化していれば、ツールの範囲を越えています。</p>
+<p>判断の順番としては、いきなり全部を作り替えるのではなく、<strong>手間の中心になっている1工程だけを切り出して作る</strong>方法があります。Excelからの移行を含めた進め方は<a href="2026-06-11-excel-kanri-genkai-systemka.html">Excel管理の限界とシステム化</a>、全体の流れは<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発の完全ガイド</a>が参考になります。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>プログラミングの知識がまったくなくても作れますか？</summary><div class="faq-a">入力フォームと一覧表を作る範囲であれば、知識がなくても形にできます。ただし、条件によって表示を変える、複数のデータを結びつけるといった段階に入ると、表計算の関数を理解している程度の考え方は必要になります。最初から難しい機能に手を出さず、記録と一覧から始めるのが確実です。</div></details>
+
+<details class="faq"><summary>ノーコードで作ったものを、後から作り替えることはできますか？</summary><div class="faq-a">データを書き出せる形で持っていれば、移すことは可能です。移行で手間がかかるのは、データそのものより「運用ルール」の部分です。誰がいつ入力するか、どの項目が必須かといった決めごとを文書に残しておくと、作り替えの相談がスムーズに進みます。</div></details>
+
+<details class="faq"><summary>途中まで自作して、残りを依頼することはできますか？</summary><div class="faq-a">できます。むしろ、実際に運用した画面と溜まったデータがある状態は、要件が具体的に決まっているという点で有利に働きます。使わなかった項目や、運用で追加した例外が分かっているため、設計のやり直しが起きにくくなります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：小さく作って、限界が見えたら切り替える</h2>
+<p>ノーコードで業務アプリは作れます。向くのは、使う人が少なく、やり方がまだ固まっておらず、止まっても業務が回る範囲。限界が来るのは、他システムとの連携・件数の増加・権限の細かさ・例外の多さが絡んだときです。</p>
+<p>大切なのは、最初から「全部これで作る」と決めないことです。<strong>小さく作って実際に使い、制約に当たった部分だけを作り替える</strong>。この進め方なら、試した時間が無駄になりません。</p>
+<p>TENERAMENTEでは、こうして見えてきた業務の形をそのまま設計に持ち込み、必要な範囲だけを作る<a href="lp-ai-app.html">業務改善AIアプリの開発</a>をご用意しています。初期費用30万円からで、最短2週間のPoC（<em>Proof of Concept</em>：小さく試す検証）から始められますので、「自作を続けるべきか、作り替えるべきか」の見極めからでも<a href="contact.html">お問い合わせ</a>よりご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ノーコード</span><span>#業務アプリ</span><span>#業務効率化</span><span>#システム開発</span><span>#内製</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +312,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +340,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-23-gyomu-manual-tsukurikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み</h4>
+      </a>
+      <a class="related-card" href="2026-09-29-rpa-toha-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>RPAとは｜中小企業での使いどころと、AIとの使い分けを整理</h4>
+      </a>
+      <a class="related-card" href="2026-09-20-gyomu-flow-zu-kakikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務フロー図の書き方｜システム化の前に業務を整理する手順</h4>
+      </a>
+    </div>
   </div>
 </section>
 

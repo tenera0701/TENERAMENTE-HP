@@ -62,7 +62,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-10-29-tenpo-homepage-contents.png"
+    "image": "assets/img/covers/2026-10-29-tenpo-homepage-contents.png",
+    "imageHero": "assets/img/covers/2026-10-29-tenpo-homepage-contents.webp",
+    "imageCard": "assets/img/covers/2026-10-29-tenpo-homepage-contents-card.webp"
   },
   {
     "slug": "2026-10-28-yoken-teigi-uchiawase",
@@ -194,7 +196,9 @@
     ],
     "visual": "v-cyan",
     "number": "03",
-    "image": "assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.png"
+    "image": "assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.png",
+    "imageHero": "assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.webp",
+    "imageCard": "assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai-card.webp"
   },
   {
     "slug": "2026-10-26-meo-junni-keisoku-shihyo",
@@ -259,7 +263,9 @@
     ],
     "visual": "default",
     "number": "04",
-    "image": "assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.png"
+    "image": "assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.png",
+    "imageHero": "assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo.webp",
+    "imageCard": "assets/img/covers/2026-10-26-meo-junni-keisoku-shihyo-card.webp"
   },
   {
     "slug": "2026-10-25-gbp-shohin-service-kinou",
@@ -324,7 +330,9 @@
     ],
     "visual": "v-violet",
     "number": "05",
-    "image": "assets/img/covers/2026-10-25-gbp-shohin-service-kinou.png"
+    "image": "assets/img/covers/2026-10-25-gbp-shohin-service-kinou.png",
+    "imageHero": "assets/img/covers/2026-10-25-gbp-shohin-service-kinou.webp",
+    "imageCard": "assets/img/covers/2026-10-25-gbp-shohin-service-kinou-card.webp"
   },
   {
     "slug": "2026-10-24-seitai-sekkotsuin-meo",
@@ -389,7 +397,9 @@
     ],
     "visual": "v-cyan",
     "number": "06",
-    "image": "assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.png"
+    "image": "assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.png",
+    "imageHero": "assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.webp",
+    "imageCard": "assets/img/covers/2026-10-24-seitai-sekkotsuin-meo-card.webp"
   },
   {
     "slug": "2026-10-23-ai-gijiroku-jidoka",
@@ -454,7 +464,9 @@
     ],
     "visual": "default",
     "number": "07",
-    "image": "assets/img/covers/2026-10-23-ai-gijiroku-jidoka.png"
+    "image": "assets/img/covers/2026-10-23-ai-gijiroku-jidoka.png",
+    "imageHero": "assets/img/covers/2026-10-23-ai-gijiroku-jidoka.webp",
+    "imageCard": "assets/img/covers/2026-10-23-ai-gijiroku-jidoka-card.webp"
   },
   {
     "slug": "2026-10-21-meo-report-mikata",
@@ -519,7 +531,9 @@
     ],
     "visual": "v-violet",
     "number": "08",
-    "image": "assets/img/covers/2026-10-21-meo-report-mikata.png"
+    "image": "assets/img/covers/2026-10-21-meo-report-mikata.png",
+    "imageHero": "assets/img/covers/2026-10-21-meo-report-mikata.webp",
+    "imageCard": "assets/img/covers/2026-10-21-meo-report-mikata-card.webp"
   },
   {
     "slug": "2026-10-20-clinic-meo-taisaku",
@@ -584,7 +598,9 @@
     ],
     "visual": "v-cyan",
     "number": "09",
-    "image": "assets/img/covers/2026-10-20-clinic-meo-taisaku.png"
+    "image": "assets/img/covers/2026-10-20-clinic-meo-taisaku.png",
+    "imageHero": "assets/img/covers/2026-10-20-clinic-meo-taisaku.webp",
+    "imageCard": "assets/img/covers/2026-10-20-clinic-meo-taisaku-card.webp"
   },
   {
     "slug": "2026-10-19-tokubetsu-eigyojikan-settei",
@@ -654,7 +670,9 @@
     ],
     "visual": "default",
     "number": "10",
-    "image": "assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.png"
+    "image": "assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.png",
+    "imageHero": "assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei.webp",
+    "imageCard": "assets/img/covers/2026-10-19-tokubetsu-eigyojikan-settei-card.webp"
   },
   {
     "slug": "2026-10-18-gbp-shashin-erabikata",
@@ -719,7 +737,9 @@
     ],
     "visual": "v-violet",
     "number": "11",
-    "image": "assets/img/covers/2026-10-18-gbp-shashin-erabikata.png"
+    "image": "assets/img/covers/2026-10-18-gbp-shashin-erabikata.png",
+    "imageHero": "assets/img/covers/2026-10-18-gbp-shashin-erabikata.webp",
+    "imageCard": "assets/img/covers/2026-10-18-gbp-shashin-erabikata-card.webp"
   },
   {
     "slug": "2026-10-17-kuchikomi-henshin-ai",
@@ -784,7 +804,9 @@
     ],
     "visual": "v-cyan",
     "number": "12",
-    "image": "assets/img/covers/2026-10-17-kuchikomi-henshin-ai.png"
+    "image": "assets/img/covers/2026-10-17-kuchikomi-henshin-ai.png",
+    "imageHero": "assets/img/covers/2026-10-17-kuchikomi-henshin-ai.webp",
+    "imageCard": "assets/img/covers/2026-10-17-kuchikomi-henshin-ai-card.webp"
   },
   {
     "slug": "2026-10-16-inshokuten-meo-taisaku",
@@ -849,7 +871,9 @@
     ],
     "visual": "default",
     "number": "13",
-    "image": "assets/img/covers/2026-10-16-inshokuten-meo-taisaku.png"
+    "image": "assets/img/covers/2026-10-16-inshokuten-meo-taisaku.png",
+    "imageHero": "assets/img/covers/2026-10-16-inshokuten-meo-taisaku.webp",
+    "imageCard": "assets/img/covers/2026-10-16-inshokuten-meo-taisaku-card.webp"
   },
   {
     "slug": "2026-10-15-seo-kouka-kikan",
@@ -909,7 +933,9 @@
     ],
     "visual": "v-violet",
     "number": "14",
-    "image": "assets/img/covers/2026-10-15-seo-kouka-kikan.png"
+    "image": "assets/img/covers/2026-10-15-seo-kouka-kikan.png",
+    "imageHero": "assets/img/covers/2026-10-15-seo-kouka-kikan.webp",
+    "imageCard": "assets/img/covers/2026-10-15-seo-kouka-kikan-card.webp"
   },
   {
     "slug": "2026-10-14-hi-link-fuyashikata",
@@ -969,7 +995,9 @@
     ],
     "visual": "v-cyan",
     "number": "15",
-    "image": "assets/img/covers/2026-10-14-hi-link-fuyashikata.png"
+    "image": "assets/img/covers/2026-10-14-hi-link-fuyashikata.png",
+    "imageHero": "assets/img/covers/2026-10-14-hi-link-fuyashikata.webp",
+    "imageCard": "assets/img/covers/2026-10-14-hi-link-fuyashikata-card.webp"
   },
   {
     "slug": "2026-10-13-google-map-junni-kimarikata",

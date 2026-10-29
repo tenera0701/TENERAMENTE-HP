@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,140 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-20-gyomu-flow-zu-kakikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務フロー図の書き方｜システム化の前に業務を整理する手順","description":"業務フロー図は、記号の知識よりも書く順番で決まります。範囲と粒度を先に決め、終わりから逆にたどる手順で書けば、システム化の相談に持っていける1枚になります。書き方と、よくある失敗をまとめました。","datePublished":"2026-09-20","dateModified":"2026-09-20","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-20-gyomu-flow-zu-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, 業務フロー, システム化, 業務アプリ, 要件整理"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務フロー図の書き方｜システム化の前に業務を整理する手順","description":"業務フロー図は、記号の知識よりも書く順番で決まります。範囲と粒度を先に決め、終わりから逆にたどる手順で書けば、システム化の相談に持っていける1枚になります。書き方と、よくある失敗をまとめました。","datePublished":"2026-09-20","dateModified":"2026-09-20","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-20-gyomu-flow-zu-kakikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務改善, 業務フロー, システム化, 業務アプリ, 要件整理"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務フロー図の書き方｜システム化の前に業務を整理する手順","item":"https://teneramente.jp/2026-09-20-gyomu-flow-zu-kakikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"業務フロー図に決まった書き方の作法はありますか？","acceptedAnswer":{"@type":"Answer","text":"BPMNなどの標準的な記法はありますが、社内の整理やシステム化の相談が目的なら、記法にこだわる必要はありません。担当者・工程・受け渡すものが読み取れれば十分です。記法の学習が目的化して図が書かれないほうが、はるかに損失が大きくなります。"}},{"@type":"Question","name":"どのツールで書くのがよいですか？","acceptedAnswer":{"@type":"Answer","text":"最初の1枚は紙とペンを勧めます。書き直しが多いためです。清書するなら、表計算ソフトや無料の作図ツールで足ります。共有と修正がしやすいことだけを基準に選んでください。"}},{"@type":"Question","name":"フロー図が無いとシステム化の相談はできませんか？","acceptedAnswer":{"@type":"Answer","text":"できます。ただし、最初の打ち合わせが業務の聞き取りに費やされます。粗くても図があれば、その時間を要件の検討に回せます。完成度より、現状が書かれていることのほうが重要です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務フロー図の書き方｜システム化の前に業務を整理する手順</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 20, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-20-gyomu-flow-zu-kakikata.webp" alt="業務フロー図の書き方｜システム化の前に業務を整理する手順" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>業務フロー図は「誰が・何を受け取り・何を渡すか」の並び</a><a href="#h2"><span class="n">02</span>書き始める前に決める3つのこと</a><a href="#h3"><span class="n">03</span>終わりから逆にたどって洗い出す</a><a href="#h4"><span class="n">04</span>使う記号は4つで足りる</a><a href="#h5"><span class="n">05</span>分岐と例外は、本流を書き終えてから足す</a><a href="#h6"><span class="n">06</span>書き上がった図から、直す場所が見える</a><a href="#h7"><span class="n">07</span>よくある失敗</a><a href="#h8"><span class="n">08</span>まとめ：整理した1枚を、相談の入口にする</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">システムを作る前に業務を整理したい。そう考えたときに最初に書くのが<strong>業務フロー図</strong>です。ただ、記号の種類を調べるところから始めると、たいてい途中で止まります。実際に必要なのは、書く範囲と粒度を先に決めて、決まった順番でたどることだけです。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>業務フロー図は、作図の知識ではなく<strong>書く順番で品質が決まります</strong>。範囲・粒度・視点の3つを先に決め、終わりから逆にたどって本流だけを一列に並べる。分岐と例外はそのあとに足します。この順番なら、手書きでも1枚にまとまります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>業務フロー図は「誰が・何を受け取り・何を渡すか」の並び</h2>
+<p>業務フロー図とは、ある業務が始まってから終わるまでを、<strong>担当者と受け渡しの順に並べた図</strong>です。難しく考える必要はなく、書くべき情報は3つしかありません。誰がやるか、何を受け取って始めるか、何を渡して終わるか。この3点がすべての工程で埋まっていれば、図として成立します。</p>
+<p>マニュアルとは目的が違います。マニュアルは1つの作業を正しくやるための手順書で、読む相手は担当者本人です。フロー図は業務全体のつながりを示すもので、読む相手は<strong>その業務を自分ではやらない人</strong>です。上司、他部署、そして開発会社が読みます。</p>
+<p>だからこそ、フロー図には作業のコツや画面の操作方法を書きません。書くと粒度が崩れ、1枚に収まらなくなります。詳細は別の紙に逃がして、図では流れだけを見せます。</p>
+<h2 id="h2"><span class="h-num">02</span>書き始める前に決める3つのこと</h2>
+<p>いきなり工程を書き出すと、必ず途中で「どこまで書くべきか」に迷います。先に3つを決めてください。</p>
+<p>ひとつめは<strong>範囲</strong>です。どこから始まって、どこで終わる業務なのかを一文で言い切ります。「受注から請求書の発行まで」のように、始点と終点を名詞で固定します。ここが曖昧だと、図が際限なく広がります。</p>
+<p>ふたつめは<strong>粒度</strong>です。1つの箱に入れる作業の大きさをそろえます。「見積書を作成する」と「テンプレートを開く」が同じ図に並んでいると、読む側は全体像をつかめません。</p>
+<p>みっつめは<strong>視点</strong>です。自部署の中だけを書くのか、お客様や他部署とのやり取りまで含めるのか。システム化を前提にするなら、<strong>部署をまたぐ受け渡しは必ず含めてください</strong>。無駄が生まれているのは、多くの場合その境目だからです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>粒度</th>
+<th>1つの箱の例</th>
+<th>向いている用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>粗い</td>
+<td>受注・手配・請求</td>
+<td>経営層への説明、業務全体の把握</td>
+</tr>
+<tr>
+<td>中くらい</td>
+<td>見積書を作成する／承認を受ける</td>
+<td>システム化の相談、改善点の発見</td>
+</tr>
+<tr>
+<td>細かい</td>
+<td>テンプレートを開く／単価を入力する</td>
+<td>担当者向けのマニュアル</td>
+</tr>
+</tbody></table></div>
+<p>システム化の相談に使うなら、中くらいの粒度が扱いやすくなります。<strong>1つの箱が「担当者が一度に片付ける単位」になっているか</strong>を目安にしてください。</p>
+<h2 id="h3"><span class="h-num">03</span>終わりから逆にたどって洗い出す</h2>
+<p>工程の洗い出しは、始まりからではなく<strong>終わりから逆にたどる</strong>ほうが漏れません。始まりから書くと、思い出した順に並べてしまい、抜けに気づけないからです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-20-gyomu-flow-zu-kakikata.png" alt="終点を置く・直前の工程をさかのぼる・担当と受け渡しを書き添える・本流を一列に並べる・分岐と例外を足すの5段階を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>始まりからではなく、終わりから逆にたどります。本流が一本通るまで、分岐は書きません。</figcaption></figure>
+
+<p>終点を置いたら、「これができる直前に、誰が何をしましたか」と一段ずつさかのぼります。答える人が詰まったら、そこに受け渡しの境目があります。この問いは自分に向けても使えますし、担当者への聞き取りでもそのまま使えます。</p>
+<p>さかのぼりながら、各工程に<strong>担当者名と、受け取るもの・渡すもの</strong>を書き添えます。「営業が受注メールを受け取り、受注一覧に入力して手配部門へ渡す」という形です。渡すものが書けない工程は、たいてい粒度が細かすぎるか、実は独立した工程ではありません。</p>
+<p>始点まで戻ったら、向きを反転させて一列に並べます。この時点では、分岐も例外も書きません。<strong>まず本流を一本通すこと</strong>が目的です。</p>
+<h2 id="h4"><span class="h-num">04</span>使う記号は4つで足りる</h2>
+<p>作図の記法はいくつもありますが、社内の整理とシステム化の相談に使うだけなら、覚える記号は4つで足ります。</p>
+<ul>
+<li><strong>四角</strong>：作業（担当者が手を動かす工程）</li>
+<li><strong>ひし形</strong>：分岐（はい／いいえで道が分かれる判断）</li>
+<li><strong>矢印</strong>：流れの向きと、受け渡されるもの</li>
+<li><strong>帯（レーン）</strong>：担当者や部署。横一列に並べ、その中に四角を置く</li>
+</ul>
+<p><strong>レーンを引くと、部署をまたいだ回数が目で数えられるようになります</strong>。線が何度も行き来している箇所が、そのまま待ち時間の発生源です。</p>
+<p>紙とペンでも、表計算ソフトのセルでも構いません。作図ツールを探すところで時間を使うより、まず1枚描き切ってください。清書は、内容が固まってからで間に合います。</p>
+<h2 id="h5"><span class="h-num">05</span>分岐と例外は、本流を書き終えてから足す</h2>
+<p>本流が一本通ったら、そこに分岐と例外を足します。順番を逆にしないでください。例外から書き始めると、全体像が見えないまま枝葉が増えていきます。</p>
+<p>足すときは、<strong>その分岐が月に何度か起きるかどうか</strong>を基準にします。頻繁に起きるものは図に描き、年に数回しか起きないものは図の外に注記としてまとめます。すべてを図に入れると読めなくなり、読めない図は使われません。</p>
+<p>例外で必ず拾っておきたいのが、<strong>手戻り</strong>です。差し戻し、再確認、やり直し。これらは矢印が後ろ向きに伸びるため、図にすると一目で分かります。システム化で効果が出やすいのは、この後ろ向きの矢印が集まっている箇所です。</p>
+<p>依頼の準備として何を揃えるかは<a href="2026-09-04-ai-tool-kaihatsu-irai-junbi.html">AIツール開発を依頼する前の準備</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>書き上がった図から、直す場所が見える</h2>
+<p>1枚にまとまると、それだけで改善点が浮かびます。見るポイントは決まっています。</p>
+<ol>
+<li><strong>同じ情報を二度以上入力している箇所</strong>（転記は最も削りやすい工程です）</li>
+<li><strong>人の判断を待っている箇所</strong>（承認待ち・確認待ちで止まる時間）</li>
+<li><strong>部署をまたぐ回数</strong>（レーンを越える矢印が多いほど滞りやすい）</li>
+<li><strong>後ろ向きの矢印</strong>（手戻り。原因は前の工程にあります）</li>
+<li><strong>特定の人しか通れない箇所</strong>（属人化している工程）</li>
+</ol>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>図を書いた直後に、見つけた無駄をすべて直そうとしないでください。同時に複数の工程を変えると、効果が出たのか悪化したのかを判断できなくなります。転記の削減のように効果が分かりやすいものから、1つずつ変えていきます。</p>
+  </div>
+</div>
+
+<p>順番を含めた進め方は<a href="2026-09-04-ai-gyomu-kaizen-susumekata.html">AIで業務改善を進める手順</a>で扱っています。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある失敗</h2>
+<p>書き直しになりやすいパターンは、だいたい次のどれかです。</p>
+<p><strong>理想の流れを書いてしまう</strong>。「本来こうあるべき」ではなく、今日実際に起きている流れを書きます。例外処理や口頭での確認も、起きているなら書きます。現状が書かれていない図は、改善の出発点になりません。</p>
+<p><strong>一人で書き上げてしまう</strong>。担当者に確認すると、図に無い工程がほぼ必ず出てきます。書いた本人が知らない手順は、書けないからです。下書きの段階で見せて、違うところを指摘してもらうほうが早く仕上がります。</p>
+<p><strong>きれいに作り込みすぎる</strong>。色と配置を整えているうちに、内容の議論が止まります。手書きの写真で十分に伝わります。</p>
+<p><strong>1枚に全業務を詰め込む</strong>。範囲を決め直して、業務ごとに分けてください。図は1業務1枚が原則です。</p>
+<details class="faq"><summary>業務フロー図に決まった書き方の作法はありますか？</summary><div class="faq-a">BPMNなどの標準的な記法はありますが、社内の整理やシステム化の相談が目的なら、記法にこだわる必要はありません。担当者・工程・受け渡すものが読み取れれば十分です。記法の学習が目的化して図が書かれないほうが、はるかに損失が大きくなります。</div></details>
+
+<details class="faq"><summary>どのツールで書くのがよいですか？</summary><div class="faq-a">最初の1枚は紙とペンを勧めます。書き直しが多いためです。清書するなら、表計算ソフトや無料の作図ツールで足ります。共有と修正がしやすいことだけを基準に選んでください。</div></details>
+
+<details class="faq"><summary>フロー図が無いとシステム化の相談はできませんか？</summary><div class="faq-a">できます。ただし、最初の打ち合わせが業務の聞き取りに費やされます。粗くても図があれば、その時間を要件の検討に回せます。完成度より、現状が書かれていることのほうが重要です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：整理した1枚を、相談の入口にする</h2>
+<p>業務フロー図は、範囲・粒度・視点を決め、終わりから逆にたどり、本流を一本通してから分岐を足す。この順番で書けば、作図の知識が無くても1枚にまとまります。書き上がった図で見るべきは、転記・待ち時間・部署をまたぐ回数・手戻り・属人化の5点です。</p>
+<p>そして、この1枚があると<strong>システム化の話が「何を作るか」から始められます</strong>。業務の説明に時間を使わずに済むため、検討そのものが早く進みます。既製のツールで足りるのか、自社向けに作ったほうが早いのかという判断も、図があれば比べやすくなります。</p>
+<p>TENERAMENTEでは、業務の整理から一緒に進める形で<a href="lp-ai-app.html">業務アプリ開発</a>をお引き受けしています。図がまだ手書きの段階でも構いません。今の業務に手戻りや転記が多いと感じているなら、<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務改善</span><span>#業務フロー</span><span>#システム化</span><span>#業務アプリ</span><span>#要件整理</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +304,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +332,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-17-dx-towa-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>DXとは何か｜中小企業が最初に手をつける範囲と進める順番</h4>
+      </a>
+      <a class="related-card" href="2026-09-23-gyomu-manual-tsukurikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務マニュアルの作り方｜属人化を外す手順と、更新が続く仕組み</h4>
+      </a>
+      <a class="related-card" href="2026-09-14-gyomu-koritsuka-tool-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

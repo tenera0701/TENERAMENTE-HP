@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,107 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-07-gyomu-app-naisei-gaichu-handan";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安","description":"業務アプリを内製するか外注するかは、「作れるか」ではなく「作った人がいなくなっても続けられるか」で決まります。内製が向く業務と外注が向く業務、ノーコードの限界が出る場所、切り替えを考える5つの目安を整理しました。","datePublished":"2026-09-07","dateModified":"2026-09-07","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-07-gyomu-app-naisei-gaichu-handan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務アプリ, 内製化, 外注, ノーコード, システム開発"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安","description":"業務アプリを内製するか外注するかは、「作れるか」ではなく「作った人がいなくなっても続けられるか」で決まります。内製が向く業務と外注が向く業務、ノーコードの限界が出る場所、切り替えを考える5つの目安を整理しました。","datePublished":"2026-09-07","dateModified":"2026-09-07","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-07-gyomu-app-naisei-gaichu-handan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務アプリ, 内製化, 外注, ノーコード, システム開発"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安","item":"https://teneramente.jp/2026-09-07-gyomu-app-naisei-gaichu-handan.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ノーコードで作ったものは、後で作り直しになりますか？","acceptedAnswer":{"@type":"Answer","text":"必ずしも作り直しにはなりません。項目の設計や業務の流れはそのまま引き継げるため、内製で運用した経験は要件として活きます。作り直しになるのは、権限やデータ量の限界に当たったときで、その場合も設計は再利用できます。"}},{"@type":"Question","name":"社内にITに詳しい人がいなくても内製できますか？","acceptedAnswer":{"@type":"Answer","text":"簡単な入力フォームや一覧表であれば、業務を分かっている人が作るほうが実用的なものになります。ただし「直せる人が1人だけ」の状態が続くなら、その業務は内製に向いていません。担当が代わっても回るかを基準にしてください。"}},{"@type":"Question","name":"まず内製で試して、後から相談してもよいですか？","acceptedAnswer":{"@type":"Answer","text":"その順番は無駄になりません。動いている画面があると、必要な項目・例外処理・使う人の動き方が具体的に分かるため、要件を決める時間が短くなります。内製で当たった不便な点をそのまま持ち込んでいただくのが、いちばん早い進め方です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 7, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-07-gyomu-app-naisei-gaichu-handan.webp" alt="業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>業務アプリの内製と外注は「作れるか」で判断しない</a><a href="#h2"><span class="n">02</span>内製が向く業務、外注が向く業務</a><a href="#h3"><span class="n">03</span>ノーコードの限界はどこに出るか</a><a href="#h4"><span class="n">04</span>判断に使う5つのチェック項目</a><a href="#h5"><span class="n">05</span>内製から外注へ切り替える目安</a><a href="#h6"><span class="n">06</span>費用と期間の考え方</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：判断は「規模」ではなく「続くかどうか」</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">業務アプリを内製するか外注するかの判断は、**「作れるか」ではなく「作った後を続けられるか」**で決まります。ノーコードで動くものが作れても、作った担当者が異動した日に止まるなら、それは仕組みになっていません。この記事では、内製と外注の分かれ目、ノーコードの限界が出る場所、切り替えを考える目安を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>内製か外注かは規模や予算より、<strong>「作った人がいなくなっても回るか」</strong>で分かれます。使う人が数人で仕様を自分たちで決められる業務は内製、止まると他部署や社外に影響が出る業務は外注が向きます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>業務アプリの内製と外注は「作れるか」で判断しない</h2>
+<p>内製の相談で最初に出るのは「うちでも作れますか」という問いですが、この問いはあまり結果を左右しません。ノーコードツールとAIの支援があれば、簡単な入力フォームや一覧表は、業務を分かっている人ほど短時間で形にできます。</p>
+<p>分かれ目は、その後にあります。<strong>仕様を変えたい人と、変えられる人が同じかどうか</strong>。作った本人が現場にいる間は快適に回り、その人が異動や退職でいなくなった瞬間に、誰も直せないファイルだけが残る。これが内製でいちばん多い詰まり方です。</p>
+<p>判断するときは「作れるか」ではなく、次の3つを自問してください。仕様を決める人が社内にいるか。壊れたとき、業務を止めずに直せるか。1年後にその人がいなくても運用が続くか。ここに「はい」と答えられない業務は、作れたとしても内製に向きません。</p>
+<h2 id="h2"><span class="h-num">02</span>内製が向く業務、外注が向く業務</h2>
+<p>同じ会社の中でも、業務によって答えは変わります。全部を内製、全部を外注と決める必要はありません。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-07-gyomu-app-naisei-gaichu-handan.png" alt="内製が向く業務と外注が向く業務の条件を並べた図" width="1600" height="610" loading="lazy" decoding="async"><figcaption>全部を内製、全部を外注と決める必要はありません。業務ごとに分けて考えます。</figcaption></figure>
+
+<p>内製が向くのは、<strong>使う人が限られていて、仕様を自分たちだけで決められる業務</strong>です。特定チームの進捗管理、社内の申請フォーム、定型作業の集計、試しに作って様子を見たい業務。要件が変わりやすい業務も、手元で直せる内製のほうが速く回ります。</p>
+<p>外注が向くのは、<strong>止まると業務が止まる業務</strong>、そして<strong>社外の相手が触る業務</strong>です。受発注や請求のように数字が会計につながるもの、顧客が入力する画面、権限の設計が必要なもの、個人情報を扱うもの。ここは作る難易度より、止まったときの影響と、責任の所在で決めます。</p>
+<p>Excelでの管理をどこまで続け、どこから仕組みに変えるかの線引きは<a href="2026-06-11-excel-kanri-genkai-systemka.html">Excel管理の限界はどこ？システム化すべき5つのサイン</a>にまとめています。</p>
+<h2 id="h3"><span class="h-num">03</span>ノーコードの限界はどこに出るか</h2>
+<p>ノーコードの限界は、機能の少なさとして現れるより、<strong>運用の途中で急に現れます</strong>。作っている最中は問題なく、使い始めて数か月してから出てくるのが特徴です。</p>
+<ul>
+<li><strong>権限</strong>：「この人にはこの列だけ見せたい」が細かくなると、多くのツールで設計が破綻します</li>
+<li><strong>データ量</strong>：件数が増えると表示や検索が遅くなり、動作条件の上限に当たります</li>
+<li><strong>他システムとの連携</strong>：会計や既存システムと自動でつなぐ段階で、追加の開発が必要になります</li>
+<li><strong>項目の後付け</strong>：運用しながら列を足し続けた結果、誰も全体像を説明できない表になります</li>
+<li><strong>料金体系</strong>：ユーザー数や実行回数の課金は、使う人が増えるほど効いてきます</li>
+</ul>
+<p>限界に当たったとき、多くの現場は「もう一つツールを足す」で対応します。ここが分岐点です。<strong>同じ情報を2か所に入力し始めたら、ノーコードの範囲を超えたサイン</strong>と考えてください。</p>
+<h2 id="h4"><span class="h-num">04</span>判断に使う5つのチェック項目</h2>
+<p>迷ったときは、次の5つで確かめます。「はい」が多いほど外注寄りです。</p>
+<ol>
+<li><strong>止まったときの影響</strong>：半日止まると、社外への影響が出るか</li>
+<li><strong>触る人の範囲</strong>：作った本人以外が日常的に入力するか</li>
+<li><strong>扱うデータ</strong>：個人情報・お金の数字を扱うか</li>
+<li><strong>接続先</strong>：会計・既存システムとつなぐ必要があるか</li>
+<li><strong>寿命</strong>：3年以上使い続ける見込みがあるか</li>
+</ol>
+<p>3つ以上が「はい」なら、内製で始めても早い段階で作り直しになりがちです。逆に全部が「いいえ」なら、まず自分たちで作って様子を見るほうが速く、費用もかかりません。</p>
+<h2 id="h5"><span class="h-num">05</span>内製から外注へ切り替える目安</h2>
+<p>内製で始めた仕組みは、うまくいくほど育ちます。育ったこと自体が、切り替えの合図になります。</p>
+<ul>
+<li>直せる人が1人しかいない状態が、3か月以上続いている</li>
+<li>同じ情報を複数のツールに手で入れ直している</li>
+<li>「この項目の意味」を説明できる人が減っている</li>
+<li>動かなくなった日に、代わりの手順（紙・Excel）へ戻して業務を回した経験がある</li>
+<li>本業の時間を削って、修正やメンテナンスをしている</li>
+</ul>
+<p>切り替えるときは、全部を作り直す必要はありません。<strong>内製で分かった項目と業務の流れは、そのまま要件になります</strong>。実際、動いている画面が1つあるだけで、要件定義は短く済みます。内製の期間は無駄ではなく、要件を実物で確かめた期間だと考えてください。</p>
+<p>業務のアプリ化そのものの進め方は<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発の完全ガイド</a>で、相談から運用までの流れを通して解説しています。</p>
+<h2 id="h6"><span class="h-num">06</span>費用と期間の考え方</h2>
+<p>内製は「無料」ではありません。ノーコードの月額に加え、作る人の時間が実際のコストです。週に半日の修正が続けば、年間では相応の人件費になります。<strong>内製の費用は、月額ではなく担当者の時間で見積もる</strong>のが正確です。</p>
+<p>外注は初期費用がまとまって必要になりますが、仕様書・引き継ぎ・保守の窓口が残ります。金額を比べるときは、初期費用の総額だけでなく、<strong>初期費用と月額のどちらに何が含まれているか</strong>で並べてください。サーバー・監視・修正対応がどちらに入っているかで、実質の負担は変わります。</p>
+<p>期間の目安として、試作（<em>PoC</em>）であれば短期間で触れる形にできます。判断に迷う段階なら、いきなり本開発ではなく、<strong>判断材料を作るための小さな試作</strong>から入るほうが、結果的に手戻りが減ります。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>ノーコードで作ったものは、後で作り直しになりますか？</summary><div class="faq-a">必ずしも作り直しにはなりません。項目の設計や業務の流れはそのまま引き継げるため、内製で運用した経験は要件として活きます。作り直しになるのは、権限やデータ量の限界に当たったときで、その場合も設計は再利用できます。</div></details>
+
+<details class="faq"><summary>社内にITに詳しい人がいなくても内製できますか？</summary><div class="faq-a">簡単な入力フォームや一覧表であれば、業務を分かっている人が作るほうが実用的なものになります。ただし「直せる人が1人だけ」の状態が続くなら、その業務は内製に向いていません。担当が代わっても回るかを基準にしてください。</div></details>
+
+<details class="faq"><summary>まず内製で試して、後から相談してもよいですか？</summary><div class="faq-a">その順番は無駄になりません。動いている画面があると、必要な項目・例外処理・使う人の動き方が具体的に分かるため、要件を決める時間が短くなります。内製で当たった不便な点をそのまま持ち込んでいただくのが、いちばん早い進め方です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：判断は「規模」ではなく「続くかどうか」</h2>
+<p>内製と外注の判断は、会社の規模でも予算でもなく、<strong>その仕組みが人に依存せず続くかどうか</strong>で決まります。使う人が数人で仕様を自分たちで決められるなら内製、止まると影響が広がる業務なら外注。この線引きさえ持っていれば、全部を一度に決める必要はありません。</p>
+<p>まずは1つの業務を内製で試し、限界に当たった場所を記録してください。その記録が、次に外注するときの要件そのものになります。</p>
+<p>TENERAMENTEは、内製で当たった不便な点を要件に翻訳するところから、<a href="lp-ai-app.html">業務改善AIアプリ開発</a>としてご一緒しています。初期費用30万円〜、判断に迷う段階であれば最短2週間の試作から始められます。内製を続けるべきか切り替えるべきか迷っている段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務アプリ</span><span>#内製化</span><span>#外注</span><span>#ノーコード</span><span>#システム開発</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +271,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +299,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-ai-app-kaihatsu-hiyo-kikan.html">
+        <span class="cat">Web App</span>
+        <h4>業務改善AIアプリ開発の費用と期間｜初期費用30万円〜の内訳と進め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-gyomu-kaizen-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>AI業務改善の進め方｜定型業務の棚卸しから自動化・アプリ化までの5段階</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-ai-kaihatsu-kigyo-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>AI開発企業の選び方｜名古屋の中小企業が失敗しない7つの比較ポイント</h4>
+      </a>
+    </div>
   </div>
 </section>
 

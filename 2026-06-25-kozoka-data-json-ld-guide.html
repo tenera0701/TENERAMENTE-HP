@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,157 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-25-kozoka-data-json-ld-guide";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方","description":"構造化データ(JSON-LD)は、検索エンジンとAIにサイトの内容を正確に伝える「機械向けの名刺」。中小企業サイトがまず入れるべき4種類と書き方、検証方法、よくある間違いまでを入門者向けに解説します。","datePublished":"2026-06-25","dateModified":"2026-06-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-25-kozoka-data-json-ld-guide.html","image":"https://teneramente.jp/assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"構造化データ, JSON-LD, schema.org, AIO, SEO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方","description":"構造化データ(JSON-LD)は、検索エンジンとAIにサイトの内容を正確に伝える「機械向けの名刺」。中小企業サイトがまず入れるべき4種類と書き方、検証方法、よくある間違いまでを入門者向けに解説します。","datePublished":"2026-06-25","dateModified":"2026-06-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-25-kozoka-data-json-ld-guide.html","image":"https://teneramente.jp/assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.png","articleSection":"AIO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"構造化データ, JSON-LD, schema.org, AIO, SEO"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方","item":"https://teneramente.jp/2026-06-25-kozoka-data-json-ld-guide.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"構造化データを入れると検索順位は上がりますか？","acceptedAnswer":{"@type":"Answer","text":"構造化データ自体は直接の順位要素ではない、というのがGoogleの公式見解です。ただし、リッチリザルトによる視認性の向上や、内容が正確に理解されることによる間接的な効果は期待できます。順位の裏技ではなく「正しく伝える施策」と捉えるのが適切です。"}},{"@type":"Question","name":"プログラミングの知識がなくても実装できますか？","acceptedAnswer":{"@type":"Answer","text":"JSON-LDはHTMLに1ブロック貼り付けるだけなので、サンプルの値を自社情報に差し替える形なら十分可能です。WordPressなどのCMSでは、プラグインで主要なタイプを自動出力する方法もあります。"}},{"@type":"Question","name":"どのページにどのタイプを入れればいいですか？","acceptedAnswer":{"@type":"Answer","text":"基本は、トップページにOrganization（店舗ならLocalBusiness）、ブログ記事にArticle、よくある質問のあるページにFAQPageです。1ページに複数のタイプを併記しても問題ありません。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AIO</span></div>
+  <span class="post-cat" data-post="category">AIO</span>
+  <h1 class="post-title" data-post="title">構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 25, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-25-kozoka-data-json-ld-guide.webp" alt="構造化データ(JSON-LD)入門｜AI検索とGoogleに正しく伝わるサイトの作り方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>構造化データとは？機械に渡す「名刺」</a><a href="#h2"><span class="n">02</span>なぜAIO時代に重要なのか</a><a href="#h3"><span class="n">03</span>JSON-LDが推奨される理由：記述方式の比較</a><a href="#h4"><span class="n">04</span>中小企業サイトがまず入れるべき4種類</a><a href="#h5"><span class="n">05</span>JSON-LDの書き方：LocalBusinessの例</a><a href="#h6"><span class="n">06</span>検証方法：リッチリザルトテストで確認する</a><a href="#h7"><span class="n">07</span>よくある間違い</a><a href="#h8"><span class="n">08</span>まとめ：小さく入れて、正しく検証する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Webサイトの内容を、GoogleやAIは人間と同じようには読めません。<strong>構造化データ</strong>は、機械に向けて「これは会社名です」「これは営業時間です」と明示的に伝えるための仕組み。AI検索の時代、その重要性は増す一方です。本記事では、<em>JSON-LD</em> での書き方を入門者向けに解説します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>構造化データは、Googleが推奨する<strong>JSON-LD形式で、まずOrganization・LocalBusiness・Article・FAQPageの4種類から</strong>始めるのが実用的です。検索のリッチリザルトだけでなく、AI検索に正確に引用されるための土台にもなります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>構造化データとは？機械に渡す「名刺」</h2>
+<p><strong>構造化データ</strong>（Structured Data）とは、ページの内容を検索エンジンやAIが理解できる形式で記述したデータのことです。共通の語彙として <em>schema.org</em>（スキーマ・ドット・オルグ）という規格が使われます。</p>
+<p>たとえるなら、構造化データは**機械に渡す「名刺」**です。人間は「株式会社○○　名古屋市△△区…」という文字の並びから会社名と住所を読み分けられますが、機械には「どれが社名で、どれが住所か」の確証がありません。名刺のように「社名：○○」「住所：△△」とラベルつきで渡してあげる──それが構造化データの役割です。</p>
+<h2 id="h2"><span class="h-num">02</span>なぜAIO時代に重要なのか</h2>
+<p>これまで構造化データは、検索結果に星評価やFAQを表示させる<strong>リッチリザルト</strong>のための施策として語られてきました。しかし今は、もう一つの意味が加わっています。ChatGPTやPerplexity、GoogleのAI Overviewsといった<strong>AI検索に、正確に理解・引用してもらうための土台</strong>という役割です。</p>
+<p><em>AIO</em>（AI Optimization、AI最適化）の観点では、AIが「この会社は何者で、どこにあり、何を提供しているか」を誤解なく把握できることが重要です。構造化データは、その情報を<strong>曖昧さのない機械可読な形</strong>で提供します。文章の解釈に頼らせず、事実をそのまま渡せる──これが、AIO時代に構造化データが「基本装備」と言われる理由です。</p>
+<h2 id="h3"><span class="h-num">03</span>JSON-LDが推奨される理由：記述方式の比較</h2>
+<p>構造化データの書き方には主に3つの方式がありますが、<strong>Googleが推奨しているのはJSON-LD</strong>です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>書き方</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JSON-LD（推奨）</td>
+<td><code>&lt;script&gt;</code>タグ内にJSONで記述</td>
+<td>HTML本文と分離でき、追加・修正が容易</td>
+</tr>
+<tr>
+<td>microdata</td>
+<td>HTMLタグに属性を付与</td>
+<td>本文と一体で、修正時にHTML全体を触る必要がある</td>
+</tr>
+<tr>
+<td>RDFa</td>
+<td>HTMLタグに属性を付与</td>
+<td>表現力は高いが記述が複雑で、採用例は少なめ</td>
+</tr>
+</tbody></table></div>
+<p><em>JSON-LD</em>（JavaScript Object Notation for Linked Data）の最大の利点は、<strong>既存のHTMLを書き換えずに、独立したブロックとして追加できる</strong>こと。導入も保守も圧倒的に楽なため、これから始めるならJSON-LD一択と考えて差し支えありません。</p>
+<h2 id="h4"><span class="h-num">04</span>中小企業サイトがまず入れるべき4種類</h2>
+<p>schema.orgには数百のタイプがありますが、全部を知る必要はありません。中小企業のサイトなら、まず次の4つで十分です。</p>
+<h3>Organization（組織）</h3>
+<p>会社名・ロゴ・URL・SNSアカウントなど、**「この会社は何者か」**を伝える基本情報。トップページに入れます。</p>
+<h3>LocalBusiness（店舗・地域ビジネス）</h3>
+<p>住所・電話番号・営業時間・地図座標など、<strong>実店舗の情報</strong>。店舗・クリニック・士業など来店型ビジネスでは、MEOとの相乗効果も期待できる最重要タイプです。</p>
+<h3>Article（記事）</h3>
+<p>ブログ記事のタイトル・公開日・更新日・著者を伝えます。<strong>情報の鮮度と出どころ</strong>を明示できるため、AIの引用判断にも役立ちます。</p>
+<h3>FAQPage（よくある質問）</h3>
+<p>質問と回答のペアを構造化します。ユーザーの「聞き方」とAIへの「答え」を直接対応づけられる、<strong>AIOと特に相性のよい</strong>タイプです。</p>
+<h2 id="h5"><span class="h-num">05</span>JSON-LDの書き方：LocalBusinessの例</h2>
+<p>実際のコードを見てみましょう。以下は、地域ビジネスの基本的なJSON-LDの例です。<code>&lt;head&gt;</code>内または<code>&lt;/body&gt;</code>直前に貼り付けます。</p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;株式会社サンプル&quot;,
+  &quot;url&quot;: &quot;https://example.com/&quot;,
+  &quot;telephone&quot;: &quot;+81-52-000-0000&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressRegion&quot;: &quot;愛知県&quot;,
+    &quot;addressLocality&quot;: &quot;名古屋市中区&quot;,
+    &quot;streetAddress&quot;: &quot;丸の内1-2-3&quot;,
+    &quot;postalCode&quot;: &quot;460-0002&quot;,
+    &quot;addressCountry&quot;: &quot;JP&quot;
+  },
+  &quot;openingHours&quot;: &quot;Mo-Fr 09:00-18:00&quot;
+}
+&lt;/script&gt;
+</code></pre>
+<p>ポイントは、<code>@type</code>でタイプを宣言し、schema.orgで定義されたプロパティ名（<code>name</code>、<code>address</code>など）に値を入れていくだけ、というシンプルさです。<strong>ページに実際に表示されている情報と一致させる</strong>ことを忘れないでください。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>当社では、コーポレートサイト制作の標準工程に構造化データの実装を組み込んでいます。後から追加するより、制作時に「どのページに何のタイプを入れるか」を設計してしまうほうが、抜け漏れなく低コストで済むためです。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>検証方法：リッチリザルトテストで確認する</h2>
+<p>書いたJSON-LDが正しく認識されるかは、必ずツールで検証します。</p>
+<ol>
+<li><strong>リッチリザルトテスト</strong>（Google公式）：URLまたはコードを貼り付けると、Googleがリッチリザルト対象として認識できるかを判定してくれます</li>
+<li><strong>スキーママークアップ検証ツール</strong>（schema.org公式）：リッチリザルト対象外のタイプも含め、構文の妥当性を広く確認できます</li>
+<li><strong>Google Search Console</strong>：公開後、サイト全体の構造化データのエラーや警告を継続的に監視できます</li>
+</ol>
+<p>「書いて終わり」ではなく、<strong>公開前にテスト、公開後にSearch Consoleで監視</strong>という流れを習慣にしましょう。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある間違い</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意：やってしまいがちなNG</h4>
+    <p>①ページに<strong>表示されていない情報</strong>を構造化データにだけ書く（ガイドライン違反です）、②JSONの<strong>カンマ抜け・引用符ミス</strong>などの構文エラーでまるごと無視される、③実態のない星評価（Rating）を入れて評価を偽る、④テンプレートの<strong>サンプル値を書き換え忘れて</strong>そのまま公開する。特に①と③は、手動対策（ペナルティ）の対象になり得ます。</p>
+  </div>
+</div>
+
+<p>構造化データは「盛る」ためのものではなく、<strong>事実を正確に伝える</strong>ためのものです。実際のページ内容と一致した、正直なマークアップだけが評価につながります。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：小さく入れて、正しく検証する</h2>
+<p>構造化データは、専門家だけのものではありません。<strong>JSON-LDで、まず4種類（Organization / LocalBusiness / Article / FAQPage）を入れ、リッチリザルトテストで検証する</strong>──この小さな一歩が、Google検索とAI検索の両方に「正しく伝わるサイト」への土台になります。コピーして値を差し替えるだけでも始められますので、ぜひ自社サイトで試してみてください。</p>
+<details class="faq">
+  <summary>構造化データを入れると検索順位は上がりますか？</summary>
+  <div class="faq-a">構造化データ自体は直接の順位要素ではない、というのがGoogleの公式見解です。ただし、リッチリザルトによる視認性の向上や、内容が正確に理解されることによる間接的な効果は期待できます。順位の裏技ではなく「正しく伝える施策」と捉えるのが適切です。</div>
+</details>
+<details class="faq">
+  <summary>プログラミングの知識がなくても実装できますか？</summary>
+  <div class="faq-a">JSON-LDはHTMLに1ブロック貼り付けるだけなので、サンプルの値を自社情報に差し替える形なら十分可能です。WordPressなどのCMSでは、プラグインで主要なタイプを自動出力する方法もあります。</div>
+</details>
+<details class="faq">
+  <summary>どのページにどのタイプを入れればいいですか？</summary>
+  <div class="faq-a">基本は、トップページにOrganization（店舗ならLocalBusiness）、ブログ記事にArticle、よくある質問のあるページにFAQPageです。1ページに複数のタイプを併記しても問題ありません。</div>
+</details>
+
+<p>TENERAMENTEでは、コーポレートサイト制作やAIO運用代行のなかで、構造化データの設計・実装・検証までを一貫してご支援しています。「自社サイトに構造化データが入っているか分からない」という段階の診断だけでも、お気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#構造化データ</span><span>#JSON-LD</span><span>#schema.org</span><span>#AIO</span><span>#SEO</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +321,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +349,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-23-ai-overviews-taisaku.html">
+        <span class="cat">AIO</span>
+        <h4>Google AI Overviews（AIによる概要）対策｜検索結果が変わる時代に自社サイトが取るべき7つの打ち手</h4>
+      </a>
+      <a class="related-card" href="2026-06-27-google-kuchikomi-fuyasu.html">
+        <span class="cat">MEO</span>
+        <h4>Googleの口コミを増やす方法7選｜依頼の仕方・返信のコツ・規約違反にならない注意点</h4>
+      </a>
+      <a class="related-card" href="2026-06-28-gbp-monthly-checklist.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィール 月次運用チェックリスト</h4>
+      </a>
+    </div>
   </div>
 </section>
 

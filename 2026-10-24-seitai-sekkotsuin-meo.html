@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,135 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-24-seitai-sekkotsuin-meo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用","description":"整体・接骨院のMEO対策を、広告の制限に配慮しながら進める手順をまとめました。店舗情報に事実として書ける項目、初回の不安を消す料金と所要時間の出し方、施術後の口コミ依頼と返信の線引き、施術中でも取りこぼさない予約の受け口まで整理しています。","datePublished":"2026-10-24","dateModified":"2026-10-24","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-24-seitai-sekkotsuin-meo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 整体, 接骨院, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用","description":"整体・接骨院のMEO対策を、広告の制限に配慮しながら進める手順をまとめました。店舗情報に事実として書ける項目、初回の不安を消す料金と所要時間の出し方、施術後の口コミ依頼と返信の線引き、施術中でも取りこぼさない予約の受け口まで整理しています。","datePublished":"2026-10-24","dateModified":"2026-10-24","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-24-seitai-sekkotsuin-meo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, 整体, 接骨院, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用","item":"https://teneramente.jp/2026-10-24-seitai-sekkotsuin-meo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"整体と接骨院で、やることは変わりますか？","acceptedAnswer":{"@type":"Answer","text":"事実を埋める部分は同じです。営業時間、最終受付、所在地、駐車場、予約方法、写真。この範囲はどちらも同じ順番で進めてください。変わるのは施術内容や保険の取扱いに関する表現で、こちらは届出の区分によって書ける範囲が違います。事実の整備と、施術内容の表現を分けて考えると、区分の違いで全体が止まることがありません。"}},{"@type":"Question","name":"施術前後の写真や、利用者の声を載せてもよいのでしょうか？","acceptedAnswer":{"@type":"Answer","text":"効果を示す目的での掲載には制限があるとされているため、載せる前に確認が必要な領域です。店舗情報の側では、施術の効果に関わる表現を扱わず、場所・時間・料金・予約方法といった事実に絞るほうが安全です。寄せられた口コミはそのまま表示されるものなので、店が自ら転載して効果の証明として使う形とは分けて考えてください。判断に迷う表現は、所管の窓口に照会してから出すことをおすすめします。"}},{"@type":"Question","name":"分院や、出張施術がある場合はどう登録しますか？","acceptedAnswer":{"@type":"Answer","text":"所在地と営業時間が異なる分院は、それぞれ別に登録してください。1つにまとめると、どちらの案内か分からなくなり、口コミも混ざります。一方で、固定の店舗を持たない出張のみの形態は、登録できる条件が通常の店舗とは異なります。サービス提供地域として登録する形になるため、住所の扱いを含めて最新の要件を確認してから進めてください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 24, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-24-seitai-sekkotsuin-meo.webp" alt="整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>整体・接骨院のMEO対策は、書ける範囲を分けてから始める</a><a href="#h2"><span class="n">02</span>最初に埋めるのは営業時間と、受付の締め時間</a><a href="#h3"><span class="n">03</span>カテゴリは、実際の施術と届出の区分に合わせる</a><a href="#h4"><span class="n">04</span>初回の不安は、料金・所要時間・服装で決まる</a><a href="#h5"><span class="n">05</span>写真は、外観と入口、そして施術スペース</a><a href="#h6"><span class="n">06</span>口コミは、施術後の一言と、返信の線引き</a><a href="#h7"><span class="n">07</span>予約の受け口を、電話以外にも1つ用意する</a><a href="#h8"><span class="n">08</span>まとめ：月1回の確認で、整えた状態を保つ</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">腰や肩の痛みが出た人が「近くの整体」「駅名＋接骨院」と調べ、地図の一覧から1店を選ぶ。初めて通う店を決める判断は、この短い時間で済んでいます。<strong>整体・接骨院のMEO対策で先に効くのは、施術の良さを伝える表現を探すことより、初回の不安を消す事実を埋めることです</strong>。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>探している人が一覧で確かめているのは「今日やっているか」「初回はいくらで何分かかるか」「どこに入るのか」の3つです。<strong>この3つは広告の制限に触れずに書ける情報なので、ここから先に埋めます</strong>。施術の効果に関わる表現は、書ける範囲を確認してから自店サイト側で扱ってください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>整体・接骨院のMEO対策は、書ける範囲を分けてから始める</h2>
+<p>整体・接骨院で情報の出し方が難しくなるのは、施術所の広告に法令上の制限がかかる点です。柔道整復師法では広告できる事項が定められているとされ、施術所の名称、施術日や施術時間、施術者の氏名といった範囲が挙げられています。効果や適応症を広く書くことは、想定されていません。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-24-seitai-sekkotsuin-meo.png" alt="店舗情報には施術所の名称・施術日と時間・所在地と駐車場・予約方法といった事実を書き、自店サイトには施術の流れや所要時間・自費の料金表・服装や持ち物を置き、効果をうたう表現や施術前後の写真・体験談の転載は載せないという、整体・接骨院の情報を書く場所で3つに分けた図" width="1600" height="610" loading="lazy" decoding="async"><figcaption>事実から先に埋め、確認が必要な表現は自店サイト側で扱います。</figcaption></figure>
+
+<p>そのため、集客に効きそうな言葉を探す作業から入ると手が止まります。先に、確認なしでそのまま書ける事実と、書き方の確認が必要な表現を分けてしまうほうが速く進みます。</p>
+<p>分けたうえで、前者から埋めます。営業時間、定休日、所在地と目印、駐車場、予約の方法。ここは迷う余地がなく、しかも探している人が最初に確かめる範囲とほぼ重なります。判断に迷う表現は、所管の都道府県の窓口に照会してください。この記事は一般的な整理であり、個別の表現の適否を保証するものではありません。</p>
+<h2 id="h2"><span class="h-num">02</span>最初に埋めるのは営業時間と、受付の締め時間</h2>
+<p>最初に直すのは営業時間です。来店の判断が「今日これから受けられるか」で始まるためです。</p>
+<p>この業種で特に合わせておきたいのが、営業終了時刻と受付終了時刻のずれです。施術に時間がかかるため、20時まで営業していても最終受付は19時、という形が普通にあります。営業時間だけを登録していると、閉店間際の来店や電話が発生します。<strong>最終受付の時刻は、営業時間とは別に説明文や属性の中で明示してください</strong>。</p>
+<p>あわせて設定したいのが<strong>特別営業時間</strong>です。祝日、年末年始、研修や学会による臨時休業を日付指定で入れておけば、その日だけ別の表示になります。設定の考え方は<a href="2026-10-19-tokubetsu-eigyojikan-settei.html">特別営業時間の設定方法</a>にまとめています。年のはじめに祝日の扱いをまとめて入れておく形が、抜けにくく続けやすいです。</p>
+<h2 id="h3"><span class="h-num">03</span>カテゴリは、実際の施術と届出の区分に合わせる</h2>
+<p>カテゴリは、どの検索に対して表示されるかに関わる項目です。メインカテゴリを1つ選び、実際に行っている施術の範囲を追加カテゴリで補います。</p>
+<p>迷いやすいのが、看板に掲げている名前と、探している人が使う言葉のずれです。「整体」「整骨院」「接骨院」「鍼灸」「マッサージ」は、利用者の側ではほぼ同じ括りで検索されますが、届出の区分としては別物です。追加カテゴリは実際に行っている施術であれば複数選べるので、区分に対応するものを漏らさず入れてください。</p>
+<p>一方で、行っていない施術を集客目的で入れるのは避けてください。来店後のずれが口コミとして残り、次に探している人の判断を誤らせます。カテゴリの選び方の基本は、業種を問わず<a href="2026-10-01-gbp-category-erabikata.html">カテゴリ選定の考え方</a>と同じです。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>名称と区分を誤認させる表記にしない</h4>
+    <p>店舗名の欄に、実際の区分と違う語を足すのは避けてください。検索語を店舗名に詰め込む形は、Googleのガイドライン上も認められていません。看板に出していない語は、カテゴリと説明文の側で扱います。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>初回の不安は、料金・所要時間・服装で決まる</h2>
+<p>来店をためらう理由は、施術の内容ではありません。いくらかかるのか、どれくらい時間が取られるのか、何を着ていけばよいのかが分からないことです。</p>
+<p>このうち店舗情報の中で短く書けるのは、初回の目安料金と所要時間です。回数券や複数のコースがある場合は、店舗情報に全部を並べず、初回に必要な分だけを書いてください。詳しい料金表や施術の流れは自店サイトの該当ページに置き、店舗情報からはそこへ導線を引く形が無難です。</p>
+<p>服装や持ち物のような細かい点は、商品・サービスの項目や投稿で補えます。保険の取扱いについて触れる場合は、認められた範囲の表記に留め、適応するかどうかの判断は来院時の説明に委ねる形にしてください。</p>
+<h2 id="h5"><span class="h-num">05</span>写真は、外観と入口、そして施術スペース</h2>
+<p>写真は、外観、入口、受付、施術スペース、駐車場の順に用意してください。初めて通う人が不安に感じるのは、建物の中のどこに入ればよいか分からないことです。</p>
+<p>とくに効くのが入口の写真です。ビルやマンションの一室で営業している場合、何階のどの扉かが分からず、入口の前で引き返されます。エレベーターの位置や階数表示が写っていれば、それだけで解決します。</p>
+<p>施術スペースの写真では、区切りの有無が伝わるように撮ってください。ベッドが並んでいるのか、個室なのかは、来店の判断に直接関わります。撮るときは写り込みの確認を必ず行い、他の利用者が写った写真は公開しないでください。どの写真をどの枠に使うかは<a href="2026-10-18-gbp-shashin-erabikata.html">プロフィールの写真の選び方</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>口コミは、施術後の一言と、返信の線引き</h2>
+<p>口コミは、利用者が投稿した第三者の発信であり、店が自ら出す広告とは扱いが異なるとされています。この業種で有利なのは、施術が終わった直後に直接話せる場面があることです。</p>
+<p>ただし、施術の場で投稿を求める形は、相手が断りにくい状況を作ります。会計時の案内や院内の掲示など、断れる形に留めてください。集め方そのものについては<a href="2026-06-27-google-kuchikomi-fuyasu.html">Google口コミを増やす方法</a>にまとめています。</p>
+<p>注意が必要なのは返信です。返信は店の発信なので、ここで施術の内容に踏み込むと、利用者の通院歴や症状に店が触れる形になります。<strong>「その症状であれば」「前回の施術では」といった書き方は避け、来院いただいたことへの言及と、運用として改めた点を短く書くまでに留めてください</strong>。厳しい内容への向き合い方は<a href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">低評価の口コミへの対応</a>が参考になります。</p>
+<h2 id="h7"><span class="h-num">07</span>予約の受け口を、電話以外にも1つ用意する</h2>
+<p>この業種で取りこぼしが起きやすいのは、施術中に電話が鳴る時間帯です。地図から電話をかけた人は、出なければそのまま次の店に移ります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>予約の受け口</th>
+<th>向いている場面</th>
+<th>決めておくこと</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>電話</td>
+<td>すぐ受けたい人、年齢層が高い場合</td>
+<td>施術中の取り方、留守番電話の案内文</td>
+</tr>
+<tr>
+<td>予約サイトのURL</td>
+<td>時間帯から選びたい人</td>
+<td>枠の更新担当、当日枠を出すかどうか</td>
+</tr>
+<tr>
+<td>メッセージ</td>
+<td>症状を先に相談したい人</td>
+<td>返信する時間帯、返信の担当</td>
+</tr>
+<tr>
+<td>Webフォーム</td>
+<td>営業時間外に申し込む人</td>
+<td>確認の頻度、折り返しまでの時間</td>
+</tr>
+</tbody></table></div>
+<p>全部を用意する必要はありません。電話に加えてもう1つ、確実に見られる受け口を決めるだけで、施術中の時間帯が空白になりません。属性の項目には駐車場やバリアフリー、支払い方法が登録できるので、ここも絞り込みで外れないように埋めておいてください。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>留守番電話の案内文を決めておく</h4>
+    <p>施術中に出られないことは避けられません。留守番電話の案内で「施術中のため、折り返しは◯時以降になります」と時間の見通しを伝えておくと、待ち続けさせずに済みます。文面を決めて貼っておく形が確実です。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>整体と接骨院で、やることは変わりますか？</summary><div class="faq-a">事実を埋める部分は同じです。営業時間、最終受付、所在地、駐車場、予約方法、写真。この範囲はどちらも同じ順番で進めてください。変わるのは施術内容や保険の取扱いに関する表現で、こちらは届出の区分によって書ける範囲が違います。事実の整備と、施術内容の表現を分けて考えると、区分の違いで全体が止まることがありません。</div></details>
+
+<details class="faq"><summary>施術前後の写真や、利用者の声を載せてもよいのでしょうか？</summary><div class="faq-a">効果を示す目的での掲載には制限があるとされているため、載せる前に確認が必要な領域です。店舗情報の側では、施術の効果に関わる表現を扱わず、場所・時間・料金・予約方法といった事実に絞るほうが安全です。寄せられた口コミはそのまま表示されるものなので、店が自ら転載して効果の証明として使う形とは分けて考えてください。判断に迷う表現は、所管の窓口に照会してから出すことをおすすめします。</div></details>
+
+<details class="faq"><summary>分院や、出張施術がある場合はどう登録しますか？</summary><div class="faq-a">所在地と営業時間が異なる分院は、それぞれ別に登録してください。1つにまとめると、どちらの案内か分からなくなり、口コミも混ざります。一方で、固定の店舗を持たない出張のみの形態は、登録できる条件が通常の店舗とは異なります。サービス提供地域として登録する形になるため、住所の扱いを含めて最新の要件を確認してから進めてください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：月1回の確認で、整えた状態を保つ</h2>
+<p>整体・接骨院の店舗情報は、受付時間の変更、施術者の入れ替わり、臨時休業の追加で崩れていきます。確認は月1回、同じ項目で回すのが続けやすい形です。</p>
+<p>見るのは、営業時間と最終受付、特別営業時間、カテゴリ、予約の受け口、新しい写真、未返信の口コミの6つです。担当を決めて、月初に見る運用にしてください。Googleビジネスプロフィールにはルート検索や通話の回数が見られる画面があるので、順位が見えなくてもここが動いているかで手応えは確認できます。</p>
+<p>進める順番は、営業時間と最終受付 → カテゴリ → 初回の料金と所要時間 → 写真 → 口コミ運用 → 予約の受け口です。施術の効果に関わる表現は、書ける範囲を確認してから自店サイト側で扱ってください。順番を逆にすると、表現の確認待ちで全体が止まります。</p>
+<p>TENERAMENTEなら、この順番に沿って事実の項目を埋めたうえで、最終受付をどこに書くか、口コミ返信で触れない範囲をどこに引くか、施術中の電話をどの受け口で受けるかまで決めた状態でお渡しします。表現の可否を毎回店内で判断し直す手間がなくなり、受付時間や施術者の体制が変わったときだけ手を入れる運用に落ち着きます。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#整体</span><span>#接骨院</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +299,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +327,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-25-gbp-shohin-service-kinou.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番</h4>
+      </a>
+      <a class="related-card" href="2026-10-26-meo-junni-keisoku-shihyo.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方</h4>
+      </a>
+      <a class="related-card" href="2026-10-21-meo-report-mikata.html">
+        <span class="cat">MEO</span>
+        <h4>MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める</h4>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,128 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-14-gyomu-koritsuka-tool-erabikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方","description":"業務効率化ツールを比較表から選び始めると、たいてい失敗します。機能の多さではなく、誰のどの作業をどこまで変えるのかを先に決めることが選定の中心です。導入前に決める3つのこと、比べるときに見る項目、よくある失敗の形を整理しました。","datePublished":"2026-09-14","dateModified":"2026-09-14","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-14-gyomu-koritsuka-tool-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務効率化, ツール選定, SaaS, DX, 業務アプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方","description":"業務効率化ツールを比較表から選び始めると、たいてい失敗します。機能の多さではなく、誰のどの作業をどこまで変えるのかを先に決めることが選定の中心です。導入前に決める3つのこと、比べるときに見る項目、よくある失敗の形を整理しました。","datePublished":"2026-09-14","dateModified":"2026-09-14","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-14-gyomu-koritsuka-tool-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務効率化, ツール選定, SaaS, DX, 業務アプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方","item":"https://teneramente.jp/2026-09-14-gyomu-koritsuka-tool-erabikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"無料のツールから試すのは良い方法ですか？","acceptedAnswer":{"@type":"Answer","text":"対象の業務がはっきりしているなら有効です。ただし無料版は人数や保存件数の上限があることが多く、そこに達した時点で移行が必要になります。無料で始める場合も、上限に達したらどうするかを先に決めておくと安心です。"}},{"@type":"Question","name":"ツールの数が増えすぎてしまいました。どう整理すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"まず、実際に先月使われたものだけを残す形で一覧を作ります。そのうえで同じ情報を二重に持っているものを探すと、統合できる組み合わせが見つかります。使われていないものの解約から始めるのが手を付けやすい順番です。"}},{"@type":"Question","name":"現場が新しいツールを嫌がります。どうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"多くの場合、変化そのものではなく「入力が増える」ことへの抵抗です。棚卸しの段階から現場の担当者に入ってもらい、今より手間が減る箇所を先に見せると進みやすくなります。最初の対象業務を、負担がいちばん大きい作業に絞るのも有効です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 14, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-14-gyomu-koritsuka-tool-erabikata.webp" alt="業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>業務効率化ツールの選び方でつまずくところ</a><a href="#h2"><span class="n">02</span>導入前に決める3つのこと</a><a href="#h3"><span class="n">03</span>今やっている作業を書き出す</a><a href="#h4"><span class="n">04</span>候補を比べるときに見る5つの項目</a><a href="#h5"><span class="n">05</span>失敗する買い方の典型</a><a href="#h6"><span class="n">06</span>試用期間で確かめること</a><a href="#h7"><span class="n">07</span>選び終わってからが本番</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">業務効率化ツールの選び方を相談されたとき、最初にお伝えしているのは「比較表を開くのはまだ早いです」ということです。<strong>ツール選びの成否は、候補を見比べる前の段階でほとんど決まります</strong>。何を解決したいのかが言葉になっていない状態で機能を並べても、選ぶ基準が育たないからです。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>業務効率化ツールは、機能の多さではなく<strong>「誰の」「どの作業を」「どこまで」変えるのか</strong>を先に決めてから選びます。この3つが決まっていれば候補は自然に絞られ、決まっていなければどれを選んでも定着しません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>業務効率化ツールの選び方でつまずくところ</h2>
+<p>多くの場合、検討は「良さそうなツールを探す」ところから始まります。検索して比較記事を読み、機能の一覧を見比べ、価格で絞る。一見まっとうな進め方ですが、この順番には落とし穴があります。<strong>比較表は、比べる軸をすでに持っている人のための道具</strong>だからです。</p>
+<p>軸がないまま比較表を読むと、判断できる情報が「機能の数」と「値段」しか残りません。結果として、多機能で安いものが良く見えます。ところが実際に使われるかどうかを決めるのは、機能の総数ではなく、自社が毎日触る数個の画面が業務に合っているかどうかです。</p>
+<p>もうひとつ起きやすいのが、<strong>課題の言い換えが雑なまま進むこと</strong>です。「情報共有ができていない」という困りごとは、そのままでは解けません。誰が、どの場面で、何を探せずに手が止まっているのか。そこまで降ろして初めて、必要な道具の形が見えてきます。</p>
+<h2 id="h2"><span class="h-num">02</span>導入前に決める3つのこと</h2>
+<p>候補を探す前に、次の3つを言葉にします。紙1枚で構いません。ここが選定の基準そのものになります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-14-gyomu-koritsuka-tool-erabikata.png" alt="誰が使うか・どの作業を変えるか・どこまで変えるかの3つを並べた図" width="1600" height="507" loading="lazy" decoding="async"><figcaption>この3つが選定の基準そのものになります。決まっていないと、どれを選んでも定着しません。</figcaption></figure>
+
+<p>**1つ目は「誰が使うか」**です。管理職だけが見るのか、現場の全員が毎日触るのか。人数と、パソコンに慣れている度合いによって、選ぶべきものは変わります。全員が使う前提なら、機能の豊富さより画面の分かりやすさが優先されます。</p>
+<p>**2つ目は「どの作業を変えるか」**です。一日の業務すべてではなく、ひとつの作業に絞ります。「月末の集計」「問い合わせの割り振り」のように、始まりと終わりがはっきりしている単位が扱いやすくなります。</p>
+<p>**3つ目は「どこまで変えるか」**です。手作業をゼロにするのか、半分の手間にできれば十分なのか。ここを決めておかないと、検討の途中で要望がふくらみ、どのツールも「足りない」ように見えてきます。</p>
+<h2 id="h3"><span class="h-num">03</span>今やっている作業を書き出す</h2>
+<p>3つを決めるには、現状を書き出す作業が要ります。対象の業務について、手順を1行ずつ、実際にやっている順番で並べてください。理想の流れではなく、例外処理や手戻りも含めた実際の流れです。</p>
+<p>書き出すと、たいてい2つのことが分かります。ひとつは、時間がかかっているのは作業そのものではなく<strong>探す・待つ・確認する時間</strong>だということ。もうひとつは、同じ情報を複数の場所に書き写している箇所があることです。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>書き出すときのコツ</h4>
+    <p>担当者本人に書いてもらうと、手順が理想化されがちです。実際の作業を横で見ながら、止まった場面をそのまま記録すると、改善できる箇所が見つかりやすくなります。</p>
+  </div>
+</div>
+
+<p>この棚卸しは、ツールを選ばずに終わることもあります。書き出した結果、入力の順番を入れ替えるだけで済む場合や、すでに使っているツールの機能で足りる場合があるからです。<strong>買わずに済むと分かることも、この工程の成果</strong>です。業務全体の整理のしかたは<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ完全ガイド</a>で詳しく扱っています。</p>
+<h2 id="h4"><span class="h-num">04</span>候補を比べるときに見る5つの項目</h2>
+<p>ここまで決まって、はじめて比較に入ります。見るべき項目は多くありません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見る項目</th>
+<th>確かめ方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>毎日触る画面</td>
+<td>いちばん使う画面を実際に操作させてもらう</td>
+</tr>
+<tr>
+<td>入れるときの手間</td>
+<td>既存データを移せるか、初期設定を誰がやるか</td>
+</tr>
+<tr>
+<td>やめるときの手間</td>
+<td>蓄積したデータを取り出せる形式があるか</td>
+</tr>
+<tr>
+<td>変えられる範囲</td>
+<td>項目名や区分を自社の言い方に直せるか</td>
+</tr>
+<tr>
+<td>費用の増え方</td>
+<td>人数が増えたとき、機能を足したときの金額</td>
+</tr>
+</tbody></table></div>
+<p>このうち見落とされやすいのが<strong>やめるときの手間</strong>です。使い続ける前提で検討するため、データの持ち出しは後回しになります。しかし数年分の記録が取り出せない形で溜まると、合わなくなっても動けなくなります。</p>
+<p>費用も、月額の数字だけでは比べられません。人数が増えたときの上がり方、導入支援が別料金かどうかまで含めて並べてください。</p>
+<h2 id="h5"><span class="h-num">05</span>失敗する買い方の典型</h2>
+<p>うまくいかなかった事例には、いくつか共通した形があります。</p>
+<ol>
+<li><strong>比較表から始める</strong>：軸がないまま機能数と価格で選び、使わない機能に払い続ける</li>
+<li><strong>決裁者だけで決める</strong>：毎日使う人が触らないまま決まり、現場で使われない</li>
+<li><strong>全部を一度に変えようとする</strong>：対象を広げすぎて、移行そのものが止まる</li>
+<li><strong>導入を目的にする</strong>：入れた時点で完了とみなされ、運用ルールが決まらない</li>
+<li><strong>既存のやり方に合わせすぎる</strong>：現行の手順をそのまま再現しようとして、費用も手間も膨らむ</li>
+<li><strong>担当者が1人だけ</strong>：その人が異動した途端、誰も設定を触れなくなる</li>
+</ol>
+<p>5番目は少し説明が要ります。今のやり方をそのまま移すと、非効率も一緒に移ります。かといって全部を捨てると現場が混乱します。<strong>残す手順と、この機会にやめる手順を、導入前に仕分けしておく</strong>のが現実的です。</p>
+<h2 id="h6"><span class="h-num">06</span>試用期間で確かめること</h2>
+<p>多くのツールには試用期間があります。この期間に「触ってみる」だけで終えると、判断材料は増えません。決めておくべきは、<strong>誰が、どの業務を、何日分入れてみるか</strong>です。</p>
+<p>おすすめは、先月の実際のデータを1週間分そのまま入れてみることです。架空のデータでは例外が出てこないため、本番で詰まる箇所が見つかりません。実データを入れると、入力しづらい項目や、自社の区分に合わない選択肢がすぐに表面化します。</p>
+<p>あわせて、<strong>入力にかかった時間を測っておきます</strong>。今のやり方と比べて増えているなら、定着しません。効率化のつもりが現場の負担増になるのは、この確認を飛ばしたときに起きます。</p>
+<h2 id="h7"><span class="h-num">07</span>選び終わってからが本番</h2>
+<p>ツールを決めたあとに必要なのは、運用の取り決めです。いつ入力するか、誰が設定を管理するか、うまくいかないときに誰へ相談するか。この3つが決まっていないと、数か月で入力が止まります。</p>
+<p>既製のツールを一通り見たうえで「どれも自社の業務に合わない」と分かることもあります。それ自体は失敗ではなく、判断材料が揃った状態です。合わせるために業務を変える負担と、自社に合う形を作る費用を、同じ机の上で比べられるようになります。判断の目安は<a href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">業務アプリは内製か外注か</a>で整理しています。</p>
+<p>TENERAMENTEでは、既製ツールで足りる部分と、作ったほうが早い部分を切り分けるところからご相談を承っています。業務の棚卸しをご一緒したうえで、必要な範囲だけを小さく作る進め方は<a href="lp-ai-app.html">業務改善AIアプリ開発</a>にまとめました。何から手をつけるか迷っている段階でも構いませんので、<a href="contact.html">ご相談</a>からお気軽にお声がけください。</p>
+<details class="faq"><summary>無料のツールから試すのは良い方法ですか？</summary><div class="faq-a">対象の業務がはっきりしているなら有効です。ただし無料版は人数や保存件数の上限があることが多く、そこに達した時点で移行が必要になります。無料で始める場合も、上限に達したらどうするかを先に決めておくと安心です。</div></details>
+
+<details class="faq"><summary>ツールの数が増えすぎてしまいました。どう整理すればよいですか？</summary><div class="faq-a">まず、実際に先月使われたものだけを残す形で一覧を作ります。そのうえで同じ情報を二重に持っているものを探すと、統合できる組み合わせが見つかります。使われていないものの解約から始めるのが手を付けやすい順番です。</div></details>
+
+<details class="faq"><summary>現場が新しいツールを嫌がります。どうすればよいですか？</summary><div class="faq-a">多くの場合、変化そのものではなく「入力が増える」ことへの抵抗です。棚卸しの段階から現場の担当者に入ってもらい、今より手間が減る箇所を先に見せると進みやすくなります。最初の対象業務を、負担がいちばん大きい作業に絞るのも有効です。</div></details>
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務効率化</span><span>#ツール選定</span><span>#SaaS</span><span>#DX</span><span>#業務アプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +292,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +320,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-11-yoyaku-kanri-system-jisha-senyo.html">
+        <span class="cat">Web App</span>
+        <h4>予約管理システムを自社専用で作る判断基準｜既製サービスとの違い</h4>
+      </a>
+      <a class="related-card" href="2026-09-17-dx-towa-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>DXとは何か｜中小企業が最初に手をつける範囲と進める順番</h4>
+      </a>
+      <a class="related-card" href="2026-09-20-gyomu-flow-zu-kakikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務フロー図の書き方｜システム化の前に業務を整理する手順</h4>
+      </a>
+    </div>
   </div>
 </section>
 

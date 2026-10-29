@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,139 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-25-local-seo-meo-chigai";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由","description":"ローカルSEOとMEOは何が違うのか、言葉の定義・表示される場所・評価される要素の3点から整理しました。地域ビジネスが両方に取り組むべき理由と、どちらから手をつけるかの判断基準までまとめています。","datePublished":"2026-09-25","dateModified":"2026-09-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-25-local-seo-meo-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-09-25-local-seo-meo-chigai.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, ローカルSEO, Googleビジネスプロフィール, 地域検索, SEO"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由","description":"ローカルSEOとMEOは何が違うのか、言葉の定義・表示される場所・評価される要素の3点から整理しました。地域ビジネスが両方に取り組むべき理由と、どちらから手をつけるかの判断基準までまとめています。","datePublished":"2026-09-25","dateModified":"2026-09-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-25-local-seo-meo-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-09-25-local-seo-meo-chigai.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, ローカルSEO, Googleビジネスプロフィール, 地域検索, SEO"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由","item":"https://teneramente.jp/2026-09-25-local-seo-meo-chigai.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ローカルSEOとMEOは、どちらの言葉を使えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"社内や業者とのやり取りでは、どちらを使っても差し支えありません。ただし打ち合わせの冒頭で「地図枠のことを指しているのか、検索結果全体を指しているのか」を確認しておくと、認識のずれを防げます。提案を受けるときは、対象範囲が地図枠だけなのかサイト側も含むのかを必ず聞いてください。"}},{"@type":"Question","name":"店舗を持たない事業でも、MEOは意味がありますか？","acceptedAnswer":{"@type":"Answer","text":"訪問型のサービスなど、来店を受け付けない事業でもビジネスプロフィールは作成でき、対応エリアを設定する形で運用します。ただし地図枠での見え方は来店型より限定的になるため、自社サイト側の地域ページを整えるローカルSEOの比重が相対的に高くなります。"}},{"@type":"Question","name":"順位が上がったかどうかは、どう確認すればいいですか？","acceptedAnswer":{"@type":"Answer","text":"地図枠は現在地によって結果が変わるため、順位だけを見ても判断できません。ビジネスプロフィールの管理画面で、表示された回数や、経路検索・電話の件数がどう動いたかを月単位で見てください。サイト側はSearch Consoleで、表示回数とクリック数を同じく月単位で確認します。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 25, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-25-local-seo-meo-chigai.webp" alt="ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>ローカルSEOとMEOは、指している範囲が違う</a><a href="#h2"><span class="n">02</span>表示される場所が違う</a><a href="#h3"><span class="n">03</span>評価される要素が違う</a><a href="#h4"><span class="n">04</span>地域ビジネスが両方やるべき理由</a><a href="#h5"><span class="n">05</span>どちらから手をつけるか</a><a href="#h6"><span class="n">06</span>つまずきやすいところ</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：範囲を分けて、両方を並行させる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「ローカルSEO」と「MEO」は、ほとんど同じ意味で使われることもあれば、まったく別のものとして説明されることもあります。<strong>ローカルSEOとMEOの違いは、対象にしている表示枠の広さにあります</strong>。ここを取り違えたまま施策を選ぶと、手を動かしているのに地域の検索から自社が出てこない、という状態が続きます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>MEOは<strong>Googleマップと地図枠での表示を対象にした施策</strong>、ローカルSEOは<strong>地図枠を含む「地域検索の結果全体」を対象にした考え方</strong>です。MEOはローカルSEOの一部と捉えるのが実務では扱いやすく、地域ビジネスは両方に取り組む必要があります。着手順はMEOが先です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>ローカルSEOとMEOは、指している範囲が違う</h2>
+<p>MEO（<em>Map Engine Optimization</em>）は、日本で生まれた言葉です。Googleマップや、検索結果の上部に出る地図枠に自社を表示させるための施策を指します。実務では、Googleビジネスプロフィール（GBP）の情報を整え、口コミを集め、投稿を続ける作業がその中心になります。</p>
+<p>一方のローカルSEO（<em>Local SEO</em>）は、英語圏で一般的に使われている言葉です。「地域名＋サービス名」で検索されたときに、<strong>検索結果のページ全体で自社を見つけてもらうための取り組み</strong>を広く指します。地図枠はその一部であり、地図の下に並ぶ通常の検索結果や、比較サイト・ポータルサイトでの見え方も含みます。</p>
+<p>つまり、MEOはローカルSEOに含まれる、という関係で理解するのが実務的です。対立する2つの手法ではありません。どちらを選ぶかという問いの立て方そのものが、成果から遠ざかる原因になります。</p>
+<h2 id="h2"><span class="h-num">02</span>表示される場所が違う</h2>
+<p>「名古屋 整体」のように、地域名とサービス名を組み合わせて検索すると、検索結果は大きく2つの区画に分かれます。</p>
+<p>上部に出るのが<strong>地図と3件程度の店舗一覧</strong>です。ここに載るかどうかを左右するのがMEOです。その下に、通常の青いリンクが並ぶ検索結果が続きます。自社サイトのページや、まとめ記事、ポータルサイトが表示される区画で、ここに効くのがローカルSEO側の施策です。</p>
+<p>地図枠は目立つ位置にありますが、掲載される件数は限られます。逆に通常の検索結果は件数に余裕があるぶん、上位に入るまでに時間がかかります。<strong>枠の性質が違うので、届けられる相手も、成果が出る早さも変わります</strong>。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>自社の検索結果を一度スクロールしてみる</h4>
+    <p>対策を考える前に、狙っている検索語で実際に検索し、上から下まで一度スクロールしてみてください。地図枠に自社が出ているか、その下の検索結果に自社サイトがあるか、代わりにどんなサイトが並んでいるか。ここで見えた「自社が出ていない場所」が、そのまま取り組む対象になります。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>評価される要素が違う</h2>
+<p>同じ地域検索でも、地図枠と通常の検索結果では見られている要素が異なります。整理すると次のようになります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>MEO（地図枠）</th>
+<th>ローカルSEO（検索結果全体）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主な管理場所</td>
+<td>Googleビジネスプロフィール</td>
+<td>自社サイト</td>
+</tr>
+<tr>
+<td>効きやすい要素</td>
+<td>事業情報の正確さ・カテゴリ・写真・口コミ</td>
+<td>ページの内容・タイトル・サイト構造・被リンク</td>
+</tr>
+<tr>
+<td>距離の影響</td>
+<td>大きい（検索した人の現在地に左右される）</td>
+<td>相対的に小さい</td>
+</tr>
+<tr>
+<td>変化が見え始める早さ</td>
+<td>比較的早い</td>
+<td>時間がかかる</td>
+</tr>
+<tr>
+<td>更新の手間</td>
+<td>投稿・口コミ返信など継続作業が中心</td>
+<td>ページ作成・改善が中心</td>
+</tr>
+</tbody></table></div>
+<p>MEOは、検索した人の現在地との距離が結果を大きく左右します。同じ店舗でも、駅の東側と西側で順位が変わることは珍しくありません。順位を1つの数字として見ると振り回されるため、<a href="2026-09-22-meo-kouka-kikan.html">MEO対策の効果が出るまでの期間</a>の考え方も合わせて押さえておくと判断を誤りません。</p>
+<p>通常の検索結果側は、ページの中身とサイト全体の作りが評価の対象です。こちらは距離の影響が小さく、地域の外からも読まれます。</p>
+<h2 id="h4"><span class="h-num">04</span>地域ビジネスが両方やるべき理由</h2>
+<p>理由は3つあります。</p>
+<p>ひとつ目は、<strong>読み手が2つの区画を行き来するから</strong>です。地図枠で店舗を見つけた人は、その後に店名で検索して自社サイトを確認します。逆にサイトを読んで興味を持った人は、地図で場所と口コミを確かめます。どちらか一方しか整っていないと、比較の途中で判断材料が足りなくなります。</p>
+<p>ふたつ目は、<strong>片方だけでは取りこぼす検索があるから</strong>です。「地域名＋サービス名」は地図枠が強く出ますが、「サービス名＋料金」「サービス名＋やり方」のような検索では地図枠が出ないことも多く、そこは自社サイトのページでしか受け止められません。</p>
+<p>みっつ目は、<strong>変化の速さが違うから</strong>です。MEOは比較的早く動きが見え、ローカルSEO側は時間がかかります。時間のかかる施策を並行して始めておかないと、半年後に使える資産が増えません。</p>
+<blockquote>
+<p>地図枠と検索結果は、別々の集客チャネルではなく、同じ読み手がたどる一続きの導線です。</p>
+</blockquote>
+<h2 id="h5"><span class="h-num">05</span>どちらから手をつけるか</h2>
+<p>同時に始められない場合は、<strong>MEOから着手するのが現実的</strong>です。費用をかけずに始められ、変化も比較的早く見えるためです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-25-local-seo-meo-chigai.png" alt="自社の検索結果を確認する・ビジネスプロフィールを整える・口コミと投稿を続ける・サイトに地域の情報ページを足すという4段階を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>MEOから着手するのが現実的です。時間のかかるサイト側は、並行して少しずつ進めます。</figcaption></figure>
+
+<p>Googleビジネスプロフィールの情報を埋め、カテゴリを正しく選び、写真を入れ、口コミへの返信を続ける。この段階までは自社で進められます。具体的な手順は<a href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">MEO対策を自分でやる方法</a>にまとめています。</p>
+<p>そのうえで、自社サイト側に<strong>地域名とサービス名で検索する人が求めている情報のページ</strong>を用意していきます。料金、対応エリア、よくある質問、事例。ここは一度作れば長く効きます。進め方の全体像は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>と<a href="2026-09-15-seo-taisaku-jibun-de-yarikata.html">SEO対策を自分でやるやり方</a>が参考になります。</p>
+<h2 id="h6"><span class="h-num">06</span>つまずきやすいところ</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>よくある3つの失敗</h4>
+    <p><strong>店舗情報がサイトと食い違っている</strong>のが最も多い失敗です。店名・住所・電話番号の表記が、ビジネスプロフィールと自社サイトで違っていないか確認してください。次に多いのが、口コミを集めることだけに力を入れて事業情報が空欄のまま残っているケース。そして、地図枠の順位だけを毎日確認して一喜一憂し、サイト側の改善が止まってしまうケースです。</p>
+  </div>
+</div>
+
+<p>もうひとつ見落とされやすいのが、<strong>複数拠点があるときの扱い</strong>です。拠点ごとにビジネスプロフィールを作る必要がありますが、自社サイト側に拠点ごとのページがないと、地図枠から来た人の受け皿がありません。拠点が増えるタイミングは、サイト構造を見直す機会でもあります。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>ローカルSEOとMEOは、どちらの言葉を使えばいいですか？</summary><div class="faq-a">社内や業者とのやり取りでは、どちらを使っても差し支えありません。ただし打ち合わせの冒頭で「地図枠のことを指しているのか、検索結果全体を指しているのか」を確認しておくと、認識のずれを防げます。提案を受けるときは、対象範囲が地図枠だけなのかサイト側も含むのかを必ず聞いてください。</div></details>
+
+<details class="faq"><summary>店舗を持たない事業でも、MEOは意味がありますか？</summary><div class="faq-a">訪問型のサービスなど、来店を受け付けない事業でもビジネスプロフィールは作成でき、対応エリアを設定する形で運用します。ただし地図枠での見え方は来店型より限定的になるため、自社サイト側の地域ページを整えるローカルSEOの比重が相対的に高くなります。</div></details>
+
+<details class="faq"><summary>順位が上がったかどうかは、どう確認すればいいですか？</summary><div class="faq-a">地図枠は現在地によって結果が変わるため、順位だけを見ても判断できません。ビジネスプロフィールの管理画面で、表示された回数や、経路検索・電話の件数がどう動いたかを月単位で見てください。サイト側はSearch Consoleで、表示回数とクリック数を同じく月単位で確認します。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：範囲を分けて、両方を並行させる</h2>
+<p>ローカルSEOとMEOの違いは、対象にしている表示枠の広さです。MEOは地図枠、ローカルSEOはそれを含む検索結果全体。別々の手法として選ぶものではなく、地域ビジネスは両方を並行させる必要があります。</p>
+<p>まずビジネスプロフィールを整えて地図枠での見え方を作り、同時に自社サイト側で地域の検索に応えるページを増やしていく。この2つが噛み合うと、検索結果のどこから入ってきた人も、同じ判断材料にたどり着けるようになります。</p>
+<p>TENERAMENTEでは、Googleビジネスプロフィールの運用と自社サイト側の改善を切り分けずに一本の導線として設計する<a href="lp-meo.html">MEO対策のサービス</a>をご用意しています。自社の検索結果を見て「どこから手をつけるべきか判断がつかない」という段階でしたら、現状を一緒に確認するところから始められますので、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#ローカルSEO</span><span>#Googleビジネスプロフィール</span><span>#地域検索</span><span>#SEO</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +303,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +331,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-22-meo-kouka-kikan.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の効果が出るまでの期間と、途中でやめないための見方</h4>
+      </a>
+      <a class="related-card" href="2026-09-28-nap-touitsu-meo.html">
+        <span class="cat">MEO</span>
+        <h4>NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO</h4>
+      </a>
+      <a class="related-card" href="2026-09-19-google-map-juni-sagatta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleマップの順位が急に下がった原因と確認手順</h4>
+      </a>
+    </div>
   </div>
 </section>
 

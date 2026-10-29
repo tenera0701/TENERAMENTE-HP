@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,155 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-06-blog-riraito-yarikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか","description":"ブログ記事リライトのやり方を、直す記事の選び方から見る数字、直す場所の優先順位、本文の直し方、公開後の確認までを手順で整理しました。新しく書く前に効果が出やすい記事を見つける考え方に重点を置いています。","datePublished":"2026-10-06","dateModified":"2026-10-06","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-06-blog-riraito-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-06-blog-riraito-yarikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"リライト, SEO, コンテンツ運用, ホームページ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか","description":"ブログ記事リライトのやり方を、直す記事の選び方から見る数字、直す場所の優先順位、本文の直し方、公開後の確認までを手順で整理しました。新しく書く前に効果が出やすい記事を見つける考え方に重点を置いています。","datePublished":"2026-10-06","dateModified":"2026-10-06","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-06-blog-riraito-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-06-blog-riraito-yarikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"リライト, SEO, コンテンツ運用, ホームページ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか","item":"https://teneramente.jp/2026-10-06-blog-riraito-yarikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"リライトはどのくらいの頻度で行えばよいですか？","acceptedAnswer":{"@type":"Answer","text":"頻度を先に決めるより、対象を先に決めるほうが続きます。四半期に一度、数字を見て対象を数本選び、順番に手を入れる形が現実的です。情報の鮮度が結果に直結するテーマ（制度、価格、仕様）は、変更があった時点で随時直します。すべての記事を定期的に見直す運用は、記事数が増えると回らなくなります。"}},{"@type":"Question","name":"記事を統合するか、別々に残すかはどう判断しますか？","acceptedAnswer":{"@type":"Answer","text":"検索した人が同じ答えを求めているかどうかで判断します。狙っているキーワードが違っても、答えとして書く内容がほぼ同じなら統合したほうが強くなります。逆に、同じ言葉を含んでいても読者の状況が違う（調べ始めの人と比較段階の人など）なら、別々に残して相互にリンクを貼る形が適しています。"}},{"@type":"Question","name":"リライトしても順位が変わりません。どこを見直せばよいですか？","acceptedAnswer":{"@type":"Answer","text":"まず、そのキーワードで上位に並んでいる記事の種類を確認してください。公式の情報や比較サイトが占めている検索結果では、記事の出来に関わらず入り込む余地が小さいことがあります。次に、直した箇所と見ている数字が対応しているかを確かめます。それでも動かない場合は、キーワードの選び方そのものを見直す段階です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 6, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">8 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-06-blog-riraito-yarikata.webp" alt="ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>リライトとは、今の検索意図に合わせ直すこと</a><a href="#h2"><span class="n">02</span>どの記事から直すかを決める</a><a href="#h3"><span class="n">03</span>直す前に見る数字と、その読み方</a><a href="#h4"><span class="n">04</span>どこを直すか：直す場所の優先順位</a><a href="#h5"><span class="n">05</span>本文の直し方：足す、削る、並べ替える</a><a href="#h6"><span class="n">06</span>やってはいけないリライト</a><a href="#h7"><span class="n">07</span>リライト後に確認すること</a><a href="#h8"><span class="n">08</span>まとめ：新しく書く前に、あと一歩の記事を探す</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">記事を増やしているのに問い合わせが増えない。そんなときに新しい記事を1本書くより先に手を入れるべきなのが、すでに公開した記事です。<strong>ブログ記事リライトのやり方で最初にやることは本文を書き直すことではなく、どの記事に手を入れるかを数字で決めること</strong>です。順番を間違えると、読まれていない記事をきれいにして終わります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>リライトは<strong>「あと一歩で上がる記事」から着手する</strong>と結果が出やすくなります。すでに検索結果に表示されていて、まだクリックされていない記事を探し、タイトルと冒頭、そして足りていない情報の順に直していきます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>リライトとは、今の検索意図に合わせ直すこと</h2>
+<p>リライト（<em>rewrite</em>）は、公開済みの記事を今の検索意図に合わせて作り直す作業です。文章を美しくすることが目的ではありません。検索した人が知りたいことと、記事に書いてあることのずれを埋める作業だと考えてください。</p>
+<p>記事が古くなる理由は3つあります。1つは情報そのものが変わること（仕様変更、価格改定、制度の変更）。2つめは検索する人の関心が変わること。3つめは、同じキーワードで後から公開された記事のほうが、より具体的に答えていることです。</p>
+<p>このうち<strong>最も多いのは3つめ</strong>です。公開時点では十分だった内容が、比較されると物足りなくなる。つまりリライトは記事の劣化を直す作業ではなく、<strong>今の検索結果の中での立ち位置を取り戻す作業</strong>になります。文章の質そのものが落ちたわけではないため、「書き直す」よりも「足す・差し替える」が中心になります。</p>
+<h2 id="h2"><span class="h-num">02</span>どの記事から直すかを決める</h2>
+<p>対象を選ぶ順番は次のとおりです。思いつきで選ばず、この並びで絞っていきます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-06-blog-riraito-yarikata.png" alt="検索結果に表示されているかを確かめる・表示されているのにクリックされていない記事・クリックはあるが順位が伸びない記事・狙ったキーワードとずれている記事・事業に近い記事を優先する、という5つの絞り方を縦に並べた図" width="1600" height="852" loading="lazy" decoding="async"><figcaption>思いつきで選ぶと、読まれていない記事をきれいにして終わります。</figcaption></figure>
+
+<ol>
+<li><strong>検索結果に表示されているか</strong>を確かめる。表示が極端に少ない記事はリライトより別の対応が必要です</li>
+<li><strong>表示されているのにクリックされていない記事</strong>を抜き出す。タイトルと説明文の問題である可能性が高い</li>
+<li><strong>クリックされているのに順位が伸びない記事</strong>を抜き出す。中身が足りていない可能性が高い</li>
+<li><strong>狙ったキーワードと、実際に表示されているキーワードがずれている記事</strong>を確認する</li>
+<li><strong>事業に近い記事を優先する</strong>。同じ労力なら、問い合わせにつながるテーマから手を入れます</li>
+</ol>
+<p>5番目を忘れないでください。数字だけで選ぶと、読まれているが仕事につながらない記事に時間を使うことになります。数字の確かめ方は<a href="2026-09-30-search-console-tsukaikata.html">Search Consoleの使い方</a>に整理しているので、画面の操作で迷う場合は先にそちらを読んでください。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>2ページ目の記事が最初の候補になりやすい</h4>
+    <p>掲載順位が2ページ目前後（おおよそ11〜20位）にある記事は、検索エンジンにテーマを認識されていながら上位の記事に及んでいない状態です。新しく書き起こすより、すでにある土台に足すほうが手数が少なくなります。逆に、ほとんど表示されていない記事はキーワードの選び方そのものを見直す段階で、リライトの対象ではありません。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>直す前に見る数字と、その読み方</h2>
+<p>見る数字は3つで足ります。表示回数、クリック率、掲載順位です。この3つの組み合わせで、直す場所が決まります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>数字の状態</th>
+<th>考えられる原因</th>
+<th>先に直す場所</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表示は多い／クリックが少ない</td>
+<td>タイトルと説明文が検索語と合っていない</td>
+<td>タイトル・メタディスクリプション</td>
+</tr>
+<tr>
+<td>クリックはある／順位が上がらない</td>
+<td>内容が検索意図を満たしきれていない</td>
+<td>本文の見出し構成と情報量</td>
+</tr>
+<tr>
+<td>表示も少ない</td>
+<td>キーワードの需要がない、または認識されていない</td>
+<td>キーワード選定、内部リンク</td>
+</tr>
+<tr>
+<td>以前より順位が下がった</td>
+<td>情報が古い、または競合記事が充実した</td>
+<td>事実の更新と不足分の追記</td>
+</tr>
+</tbody></table></div>
+<p>注意したいのは、<strong>1記事の数字だけを見て判断しないこと</strong>です。サイト全体で表示が落ちている時期なら、個別の記事の問題ではありません。比較するなら同じ期間の他の記事と並べて見ます。</p>
+<p>もう1つ、<strong>計測期間を短く取りすぎない</strong>ことも大切です。数日の変動で判断すると、たまたまの上下に振り回されます。月単位で前の期間と比べるくらいの粒度が扱いやすくなります。</p>
+<h2 id="h4"><span class="h-num">04</span>どこを直すか：直す場所の優先順位</h2>
+<p>手を入れる場所には効果の出やすい順番があります。上から順に見ていきます。</p>
+<ul>
+<li><strong>タイトル</strong>：検索語を前半に入れ、記事で答えている範囲が分かる形にする。最も反応が変わりやすい箇所です</li>
+<li><strong>メタディスクリプション</strong>：クリックするかどうかの判断材料。書き方は<a href="2026-09-27-meta-description-kakikata.html">メタディスクリプションの書き方</a>にまとめています</li>
+<li><strong>冒頭のリード文</strong>：検索した人が「ここに答えがある」と分かる1〜2文を先に置く</li>
+<li><strong>見出し構成</strong>：検索した人が順に知りたい並びになっているかを確認する</li>
+<li><strong>足りない情報</strong>：手順、判断基準、例外、よくある失敗。ここが差になります</li>
+<li><strong>内部リンク</strong>：関連する記事とつなぐ。<a href="2026-10-03-naibu-link-harikata.html">内部リンクの貼り方</a>の考え方に沿って整えます</li>
+</ul>
+<p>全部をいちどに直す必要はありません。<strong>タイトルと冒頭だけを直して様子を見る</strong>のも有効な進め方です。同時に大きく変えると、何が効いたのか分からなくなります。</p>
+<h2 id="h5"><span class="h-num">05</span>本文の直し方：足す、削る、並べ替える</h2>
+<p>本文の作業は3種類に分けられます。この区別がつくと、手が止まりません。</p>
+<p><strong>足す</strong>のは、検索した人が次に知りたくなることです。手順を書いたら「つまずきやすい箇所」、考え方を書いたら「判断の基準」。実際に検索結果の上位に並ぶ記事を読み、自分の記事に書かれていない項目を書き出すのが早い方法です。</p>
+<p><strong>削る</strong>のは、本題に関係のない前置きと、同じことを言い換えている段落です。長い記事が強いわけではありません。読んでいる人が答えに届くまでの距離を短くします。</p>
+<p><strong>並べ替える</strong>のは、結論と手順の位置です。知りたいことが後ろにある記事は、途中で離脱されます。結論を先に置き、理由と手順を後ろに回す構成に変えるだけで読まれ方が変わります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>URLと公開日の扱いに注意する</h4>
+    <p>リライトのときにURLを変えると、それまでの評価が引き継がれません。どうしても変える場合はリダイレクトの設定が必要です。公開日についても、中身をほとんど変えていないのに日付だけを新しくするのは避けてください。更新したことを示したいなら、実際に加筆した内容とあわせて更新日を記載する形にします。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>やってはいけないリライト</h2>
+<p>次の4つは、手間をかけたのに評価が下がる原因になります。</p>
+<ul>
+<li><strong>キーワードを本文に詰め込む</strong>：同じ語を不自然に繰り返しても順位は上がりません</li>
+<li><strong>他の記事と内容が重なる方向に広げる</strong>：自サイト内で同じキーワードを狙う記事が増えると、どちらも伸びにくくなります</li>
+<li><strong>数字や事例を足すために根拠のない内容を書く</strong>：具体性は必要ですが、確かめられない数字を入れてはいけません</li>
+<li><strong>全文を入れ替える</strong>：もとの記事で評価されていた箇所まで消えます。追記と差し替えが基本です</li>
+</ul>
+<p>2つめは見落としやすい失敗です。リライトのつもりで内容を広げた結果、既存の別記事と同じテーマになることがあります。<strong>広げる前に、同じキーワードを狙った記事がサイト内にないかを確認してください</strong>。重なっているなら、片方に統合して一方からリンクを向けるほうが整います。</p>
+<h2 id="h7"><span class="h-num">07</span>リライト後に確認すること</h2>
+<p>公開したら、やりっぱなしにしないための確認を2段階で行います。</p>
+<p>公開直後にやるのは技術的な確認です。表示が崩れていないか、内部リンクが切れていないか、Search Consoleでインデックスの登録をリクエストしたか。ここまでは当日に終わります。</p>
+<p>その後は、変えた箇所に対応する数字だけを見ます。タイトルを直したならクリック率、内容を足したなら掲載順位と滞在の様子。<strong>変えていない箇所の数字で判断しない</strong>のが要点です。そして、結果が出るまでには時間がかかるため、数週間から1か月程度の間隔で見ます。</p>
+<p>記録として残すのは、いつ・どの記事の・どこを・なぜ直したかの4点です。これがないと、次に同じ記事を見たときに前回の判断が分からず、同じ検討を繰り返します。サイト全体として作り直す段階に来ているかどうかの見極めは<a href="2026-09-09-homepage-renewal-timing.html">ホームページリニューアルの時期</a>の判断基準とあわせて考えると整理しやすくなります。</p>
+<details class="faq"><summary>リライトはどのくらいの頻度で行えばよいですか？</summary><div class="faq-a">頻度を先に決めるより、対象を先に決めるほうが続きます。四半期に一度、数字を見て対象を数本選び、順番に手を入れる形が現実的です。情報の鮮度が結果に直結するテーマ（制度、価格、仕様）は、変更があった時点で随時直します。すべての記事を定期的に見直す運用は、記事数が増えると回らなくなります。</div></details>
+
+<details class="faq"><summary>記事を統合するか、別々に残すかはどう判断しますか？</summary><div class="faq-a">検索した人が同じ答えを求めているかどうかで判断します。狙っているキーワードが違っても、答えとして書く内容がほぼ同じなら統合したほうが強くなります。逆に、同じ言葉を含んでいても読者の状況が違う（調べ始めの人と比較段階の人など）なら、別々に残して相互にリンクを貼る形が適しています。</div></details>
+
+<details class="faq"><summary>リライトしても順位が変わりません。どこを見直せばよいですか？</summary><div class="faq-a">まず、そのキーワードで上位に並んでいる記事の種類を確認してください。公式の情報や比較サイトが占めている検索結果では、記事の出来に関わらず入り込む余地が小さいことがあります。次に、直した箇所と見ている数字が対応しているかを確かめます。それでも動かない場合は、キーワードの選び方そのものを見直す段階です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：新しく書く前に、あと一歩の記事を探す</h2>
+<p>ブログ記事リライトのやり方は、対象を数字で選び、直す場所を優先順位どおりに手当てし、変えた箇所に対応する数字で確かめる流れになります。本文を書き直すことから始めない、というのがいちばんの要点です。</p>
+<p>そして、リライトは記事単位の作業に見えて、実はサイト全体の設計の問題でもあります。似たテーマの記事が重なっていないか、問い合わせにつながるページへ記事から導線があるか。ここが整っていないと、個別の記事をどれだけ直しても成果には届きません。</p>
+<p>TENERAMENTEでは、既存記事の棚卸しから、どの記事を直しどの記事を統合するかの判断までをご一緒しています。サイト全体の構成から見直す場合は<a href="lp-hplp.html">ホームページ・LP制作</a>のページをご覧いただき、どこから手を入れるべきか迷っている段階でも<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#リライト</span><span>#SEO</span><span>#コンテンツ運用</span><span>#ホームページ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +319,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +347,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-03-naibu-link-harikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>内部リンクの貼り方｜サイト内を回遊させる設計と、やりすぎの線引き</h4>
+      </a>
+      <a class="related-card" href="2026-10-09-kiji-midashi-kousei-tsukurikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEO記事の見出し構成の作り方｜書く前に決める設計手順と型</h4>
+      </a>
+      <a class="related-card" href="2026-09-30-search-console-tsukaikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>Search Consoleの使い方｜最初に見る4つの画面と改善点の見つけ方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

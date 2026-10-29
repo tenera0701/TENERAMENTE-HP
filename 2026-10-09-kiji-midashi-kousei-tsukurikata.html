@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,155 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-09-kiji-midashi-kousei-tsukurikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SEO記事の見出し構成の作り方｜書く前に決める設計手順と型","description":"SEO記事の見出し構成の作り方を、書く前に決めることから4つの手順、使える構成の型、見出しの文の書き方、公開前の確認までまとめました。本文を書き始める前に順路を決めるための設計手順です。","datePublished":"2026-10-09","dateModified":"2026-10-09","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-09-kiji-midashi-kousei-tsukurikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"記事構成, SEO, 見出し, コンテンツ運用, ホームページ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"SEO記事の見出し構成の作り方｜書く前に決める設計手順と型","description":"SEO記事の見出し構成の作り方を、書く前に決めることから4つの手順、使える構成の型、見出しの文の書き方、公開前の確認までまとめました。本文を書き始める前に順路を決めるための設計手順です。","datePublished":"2026-10-09","dateModified":"2026-10-09","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-09-kiji-midashi-kousei-tsukurikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"記事構成, SEO, 見出し, コンテンツ運用, ホームページ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"SEO記事の見出し構成の作り方｜書く前に決める設計手順と型","item":"https://teneramente.jp/2026-10-09-kiji-midashi-kousei-tsukurikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"見出しに入れるキーワードは、どのくらい意識すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"記事全体で1〜2本の見出しに自然に含まれていれば十分です。すべての見出しに同じ語を入れると、読む人にとって不自然な日本語になり、流し読みでの判断もしにくくなります。見出しの役割は、読者が中身を想像できることが第一です。キーワードはタイトルと冒頭のリード文で押さえておけば足ります。"}},{"@type":"Question","name":"構成は、書き始める前に完成させるべきですか？","acceptedAnswer":{"@type":"Answer","text":"完成させる必要はありませんが、H2の並びは決めてから書き始めるほうが速く終わります。書きながら順番を変えると、同じ話を2か所に書いてしまいがちです。ただし、書いている途中で必要な項目に気づくことはよくあります。その場合は本文を続けたまま見出しを足し、書き終わったあとに並びと重なりをもう一度点検してください。"}},{"@type":"Question","name":"H2の本数が多くなりすぎた場合は、どうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"まず、同じことを言っている見出しを統合します。それでも多い場合は、記事が2つのテーマを抱えている可能性が高いです。見出しを2グループに分けられるなら、キーワードを分けて別記事にし、相互にリンクを貼るほうがどちらも読まれます。1記事に詰め込むと、どの疑問にも浅く答える形になります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">SEO記事の見出し構成の作り方｜書く前に決める設計手順と型</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 9, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-09-kiji-midashi-kousei-tsukurikata.webp" alt="SEO記事の見出し構成の作り方｜書く前に決める設計手順と型" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>見出し構成とは、読者が答えに届く順路のこと</a><a href="#h2"><span class="n">02</span>構成を作る前に決める3つのこと</a><a href="#h3"><span class="n">03</span>見出し構成の作り方：4つの手順</a><a href="#h4"><span class="n">04</span>使える構成の型を4つ</a><a href="#h5"><span class="n">05</span>見出しの文の書き方</a><a href="#h6"><span class="n">06</span>やりがちな失敗</a><a href="#h7"><span class="n">07</span>公開前に、見出しだけで確認する5項目</a><a href="#h8"><span class="n">08</span>まとめ：構成が決まれば、本文は埋めるだけになる</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">記事を書き始めてから手が止まる原因は、たいてい文章力ではありません。<strong>SEO記事の見出し構成の作り方で肝心なのは、本文を書く前に読者が答えに届く順路を決めてしまうこと</strong>です。順路が決まっていれば、あとは各見出しの下を埋める作業になります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>見出し構成は、検索した人の疑問を書き出し、<strong>答える順に並べ替えてから見出しの文に変える</strong>と作れます。見出しを先に思いつこうとするとまとまりません。疑問の並びが先、見出しの言葉は後です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>見出し構成とは、読者が答えに届く順路のこと</h2>
+<p>見出し構成は、記事の目次にあたる部分です。ただの区切りではなく、3つの役割を同時に持っています。</p>
+<p>1つめは、<strong>読む前の判断材料</strong>になることです。検索して開いた人は、まず上から下へ流し読みをして「ここに答えがありそうか」を数秒で決めます。このとき読まれるのは本文ではなく見出しです。</p>
+<p>2つめは、<strong>読んでいる途中の現在地を示すこと</strong>。長い記事でも、いまどの話をしているのかが分かれば読み進められます。</p>
+<p>3つめは、<strong>検索エンジンにテーマの範囲を伝えること</strong>です。見出しは記事が何について書かれているかの手がかりになります。ただし、そのために見出しへキーワードを詰め込むのは逆効果です。読む人に分かる言葉であることが先に来ます。</p>
+<h2 id="h2"><span class="h-num">02</span>構成を作る前に決める3つのこと</h2>
+<p>構成を考え始める前に、紙かメモに3つだけ書き出してください。ここが曖昧なまま見出しを並べると、途中で話がぶれます。</p>
+<p><strong>誰の、どの段階の疑問に答えるか</strong>。同じキーワードでも、調べ始めの人と比較している人では知りたいことが違います。「やり方を知りたい人」なのか「どれを選ぶか決めたい人」なのかを1つに絞ります。</p>
+<p><strong>主キーワードと、答える範囲</strong>。1記事で扱う範囲を決めると、入れない話も決まります。範囲を広げすぎた記事は、どの疑問にも浅く答える形になりがちです。狙う言葉そのものの決め方は<a href="2026-09-21-seo-keyword-sentei-yarikata.html">SEOキーワード選定のやり方</a>に整理しています。</p>
+<p><strong>読んだ人に次に取ってほしい行動</strong>。資料を見てもらうのか、別の記事を読んでもらうのか、問い合わせてもらうのか。これが決まると最後の見出しの中身が決まります。</p>
+<h2 id="h3"><span class="h-num">03</span>見出し構成の作り方：4つの手順</h2>
+<p>手順は4つです。順番を入れ替えないでください。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-09-kiji-midashi-kousei-tsukurikata.png" alt="疑問を疑問文のまま書き出す・答える順に並べ替える・見出しの文に変える・過不足を確かめる、という見出し構成を作る4つの手順を横に並べた図" width="1600" height="543" loading="lazy" decoding="async"><figcaption>見出しの言葉から考え始めると、読者の疑問に順番に答えていない構成になります。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>見出しの言葉から考え始めない</h4>
+    <p>先に見出しの文を思いつこうとすると、語感のよい言葉は並ぶものの、読者の疑問に順番に答えていない構成になります。疑問の並びを確定させてから、それを見出しの文に翻訳する。この順序を守るだけで、構成の精度が上がります。</p>
+  </div>
+</div>
+
+<p><strong>手順1：疑問を疑問文のまま書き出す</strong>。「そもそも何か」「どうやるのか」「何から始めるのか」「いくらかかるのか」「失敗しやすいのはどこか」。検索結果の上位に並ぶ記事や、関連する検索語、実際に受けた質問から拾うと早く集まります。10〜20個出してかまいません。</p>
+<p><strong>手順2：答える順に並べ替える</strong>。基準は「読者が納得するために、どれを先に知る必要があるか」です。前提の説明なしに手順を読んでも手は動きません。逆に、前提の説明が長すぎると本題に届く前に離脱されます。</p>
+<p><strong>手順3：並びを見出しの文に変える</strong>。疑問文をそのまま見出しにせず、答えの方向が分かる言い方に変えます。「どのくらい費用がかかるか」ではなく「費用の目安と、何で金額が変わるか」のように、読む前に中身が想像できる形にします。</p>
+<p><strong>手順4：過不足を確かめる</strong>。見出しだけを並べて上から読み、答えが抜けているところと、2つの見出しが同じことを言っているところを探します。重なりは統合し、抜けは足します。</p>
+<h2 id="h4"><span class="h-num">04</span>使える構成の型を4つ</h2>
+<p>キーワードの種類ごとに、うまくいきやすい並びがあります。型に当てはめるというより、たたき台として使ってください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>型</th>
+<th>向くキーワード</th>
+<th>H2の並び</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>手順型</td>
+<td>「〜のやり方」「〜の作り方」</td>
+<td>何か → 始める前に決めること → 手順 → 失敗しやすい点 → 公開後の確認</td>
+</tr>
+<tr>
+<td>判断型</td>
+<td>「〜すべきか」「〜の時期」</td>
+<td>判断が必要になる場面 → 判断の基準 → 基準ごとの見方 → 迷ったときの決め方</td>
+</tr>
+<tr>
+<td>比較型</td>
+<td>「〜と〜の違い」「〜 比較」</td>
+<td>それぞれの定義 → 違いの一覧 → 向いている状況 → 選び方の手順</td>
+</tr>
+<tr>
+<td>原因型</td>
+<td>「〜できない」「〜が下がった」</td>
+<td>起きている状態の整理 → 原因の候補 → 切り分けの順番 → 対処 → 再発の防ぎ方</td>
+</tr>
+</tbody></table></div>
+<p>4つのうち<strong>最も扱いやすいのは原因型</strong>です。困って検索している人は切り分けの順番を求めているため、順番を示すだけで記事の価値が立ちます。</p>
+<p>迷ったら、自分が書くキーワードを検索して、上位の記事の見出しを書き写してみてください。並びの共通点が、その検索語で求められている順路です。そのまま真似るのではなく、共通点を押さえたうえで足りていない項目を足します。</p>
+<h2 id="h5"><span class="h-num">05</span>見出しの文の書き方</h2>
+<p>同じ構成でも、見出しの書き方で読まれ方が変わります。守る点は5つです。</p>
+<ul>
+<li><strong>名詞の羅列で終わらせない</strong>：「費用」より「費用の目安と、金額が変わる条件」。中身が想像できる長さにします</li>
+<li><strong>記事内で粒度を揃える</strong>：ある見出しが大きな話、隣が細かい話だと、流し読みで構造がつかめません</li>
+<li><strong>キーワードを入れるのは1〜2本まで</strong>：全部の見出しに同じ語を入れると不自然になり、読みにくくなります</li>
+<li><strong>数を示せるときは示す</strong>：「確認すること」より「公開前に確認する5つのこと」。読む前に分量が分かります</li>
+<li><strong>H3は、H2の中で話が2つ以上に割れるときだけ使う</strong>：見出しを増やすために使うものではありません</li>
+</ul>
+<p>H2の本数は5〜8本が扱いやすい範囲です。2〜3本だと各見出しの下が長くなりすぎ、10本を超えると1本あたりが薄くなります。本数が増えすぎたときは、キーワードを分けて別記事にするほうがどちらも読まれます。</p>
+<h2 id="h6"><span class="h-num">06</span>やりがちな失敗</h2>
+<p>次の4つは、構成の段階で起きていて、本文をどれだけ丁寧に書いても直りません。</p>
+<ul>
+<li><strong>「はじめに」「〜とは」「まとめ」だけで組む</strong>：どの記事にも当てはまる見出しは、読む前の判断材料になりません</li>
+<li><strong>見出しと中身がずれる</strong>：書いているうちに話が広がった結果です。書き終わったら見出しを直します</li>
+<li><strong>最初の見出しが長い定義や前置きになっている</strong>：答えを探している人は前置きで離れます。定義は短く、必要な分だけ</li>
+<li><strong>1つの見出しに2つの話が入っている</strong>：「〜と〜の違いと選び方」のような見出しは、分けたほうが読みやすくなります</li>
+</ul>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>既存記事と構成が重なっていないかを先に確かめる</h4>
+    <p>同じキーワードを狙った記事がサイト内に既にある場合、見出し構成まで似てくると、どちらも伸びにくくなります。新しく書く前に、サイト内で同じ疑問に答えている記事がないかを探してください。重なっているなら、新規で書くより既存記事に足したほうが早いことがあります。判断の仕方は<a href="2026-10-06-blog-riraito-yarikata.html">ブログ記事リライトのやり方</a>にまとめています。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>公開前に、見出しだけで確認する5項目</h2>
+<p>本文を書き終えたら、見出しだけを抜き出して並べ、次の5つを確かめます。</p>
+<ol>
+<li><strong>見出しだけを上から読んで、記事の答えが分かるか</strong>。分からなければ、答えを含む見出しが足りていません</li>
+<li><strong>読者の疑問の順番になっているか</strong>。書き手が説明したい順になっていないかを見ます</li>
+<li><strong>同じことを言っている見出しがないか</strong>。あれば統合します</li>
+<li><strong>主キーワードが入っている見出しが1〜2本あるか</strong>。0本でも全部でも不自然です</li>
+<li><strong>最後の見出しが、読者の次の行動につながっているか</strong>。まとめで終わらせず、次に何をすればよいかを示します</li>
+</ol>
+<p>この確認は、記事ページの目次を見ると早く済みます。目次は見出しから作られるため、<strong>目次がそのまま構成の点検表</strong>になります。公開後に数字を見るときも、見出し単位でどこが読まれているかを追えると直しやすくなります。</p>
+<details class="faq"><summary>見出しに入れるキーワードは、どのくらい意識すればよいですか？</summary><div class="faq-a">記事全体で1〜2本の見出しに自然に含まれていれば十分です。すべての見出しに同じ語を入れると、読む人にとって不自然な日本語になり、流し読みでの判断もしにくくなります。見出しの役割は、読者が中身を想像できることが第一です。キーワードはタイトルと冒頭のリード文で押さえておけば足ります。</div></details>
+
+<details class="faq"><summary>構成は、書き始める前に完成させるべきですか？</summary><div class="faq-a">完成させる必要はありませんが、H2の並びは決めてから書き始めるほうが速く終わります。書きながら順番を変えると、同じ話を2か所に書いてしまいがちです。ただし、書いている途中で必要な項目に気づくことはよくあります。その場合は本文を続けたまま見出しを足し、書き終わったあとに並びと重なりをもう一度点検してください。</div></details>
+
+<details class="faq"><summary>H2の本数が多くなりすぎた場合は、どうすればよいですか？</summary><div class="faq-a">まず、同じことを言っている見出しを統合します。それでも多い場合は、記事が2つのテーマを抱えている可能性が高いです。見出しを2グループに分けられるなら、キーワードを分けて別記事にし、相互にリンクを貼るほうがどちらも読まれます。1記事に詰め込むと、どの疑問にも浅く答える形になります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：構成が決まれば、本文は埋めるだけになる</h2>
+<p>SEO記事の見出し構成の作り方は、疑問を書き出し、答える順に並べ、見出しの文に変え、過不足を確かめる流れです。見出しの言葉から考え始めないこと、そして公開前に見出しだけを並べて点検すること。この2つが要点になります。</p>
+<p>構成の型は便利ですが、型に当てはめるだけでは他の記事と同じものになります。差が出るのは、<strong>自社が実際に受けている質問を疑問の一覧に混ぜられるかどうか</strong>です。検索結果からは拾えない疑問が、そこに残っています。</p>
+<p>TENERAMENTEでは、記事の構成設計から公開後の見直しまでをサイト全体の設計とあわせてご一緒しています。サイトの作りから整える段階であれば<a href="lp-hplp.html">ホームページ・LP制作</a>のページをご覧いただき、何から手を入れるか迷っている段階でも<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#記事構成</span><span>#SEO</span><span>#見出し</span><span>#コンテンツ運用</span><span>#ホームページ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +319,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +347,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-06-blog-riraito-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>ブログ記事リライトのやり方｜どの記事から直すか、どこを直すか</h4>
+      </a>
+      <a class="related-card" href="2026-10-12-blog-koushin-hindo-seo.html">
+        <span class="cat">HP / LP</span>
+        <h4>ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計</h4>
+      </a>
+      <a class="related-card" href="2026-10-14-hi-link-fuyashikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>被リンクの増やし方｜中小企業が健全に積める方法と、避けるべき手法</h4>
+      </a>
+    </div>
   </div>
 </section>
 

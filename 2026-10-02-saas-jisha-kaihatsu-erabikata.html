@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,159 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-02-saas-jisha-kaihatsu-erabikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務","description":"SaaSと自社開発の選び方を、機能の比較ではなく「業務の性質」から整理しました。既製サービスで足りる業務の見分け方、自社開発を検討する条件、6つのチェック項目、費用と期間の読み方までまとめています。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-02-saas-jisha-kaihatsu-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SaaS, 自社開発, 業務システム, システム選定, 業務Webアプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務","description":"SaaSと自社開発の選び方を、機能の比較ではなく「業務の性質」から整理しました。既製サービスで足りる業務の見分け方、自社開発を検討する条件、6つのチェック項目、費用と期間の読み方までまとめています。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-02-saas-jisha-kaihatsu-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SaaS, 自社開発, 業務システム, システム選定, 業務Webアプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務","item":"https://teneramente.jp/2026-10-02-saas-jisha-kaihatsu-erabikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"まずSaaSを試してから自社開発に移るのは遠回りではありませんか？","acceptedAnswer":{"@type":"Answer","text":"遠回りにはなりません。SaaSを使ってみると、自社のどこが標準と違うのかが具体的に分かります。その内容がそのまま開発の要件になるため、最初から作り始めるより要件の精度が上がります。"}},{"@type":"Question","name":"SaaSを自社向けにカスタマイズできる場合はどう考えますか？","acceptedAnswer":{"@type":"Answer","text":"設定の範囲で収まるなら有効な選択です。確かめるのは、そのカスタマイズがバージョンアップのときにどう扱われるかです。提供側の更新ごとに作り直しが必要な作りだと、保守の負担が自社開発に近づきます。"}},{"@type":"Question","name":"社員数が少ないうちは自社開発は向きませんか？","acceptedAnswer":{"@type":"Answer","text":"人数は判断の基準になりません。少人数でも、自社の判断が入る業務を1人が手作業で抱えているなら、そこは作る対象になります。逆に人数が多くても、標準的な業務だけならSaaSで足ります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 2, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-02-saas-jisha-kaihatsu-erabikata.webp" alt="SaaSと自社開発の選び方｜既製サービスで足りる業務、足りない業務" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>SaaSと自社開発は「機能の多さ」では選べない</a><a href="#h2"><span class="n">02</span>既製のSaaSで足りる業務の見分け方</a><a href="#h3"><span class="n">03</span>自社開発を検討する3つの条件</a><a href="#h4"><span class="n">04</span>判断に使う7つのチェック項目</a><a href="#h5"><span class="n">05</span>「どちらか」で選ばず、組み合わせを前提にする</a><a href="#h6"><span class="n">06</span>費用と期間の読み方</a><a href="#h7"><span class="n">07</span>選定でよくある失敗</a><a href="#h8"><span class="n">08</span>まとめ：選ぶ順番は「SaaSを先に当てる」</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">SaaSと自社開発の選び方で迷ったとき、機能一覧を並べて比べても答えは出ません。決め手になるのは、<strong>その業務が世の中で標準化されているかどうか</strong>です。多くの会社が同じやり方をしている業務は既製のSaaSで足り、自社の判断や例外が入り込む業務は既製の設定画面に収まりません。この記事では、その切り分け方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>選び方の基準は機能の数ではなく、<strong>業務が標準化されているかどうか</strong>です。会計・給与・勤怠のように手順が法令や商習慣で決まっている業務はSaaSで足ります。自社の判断基準が入る業務は、SaaSに合わせて運用を曲げるか、自社開発するかの選択になります。<strong>まずSaaSを当ててみて、残った業務だけを開発対象にする</strong>のが失敗の少ない順番です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>SaaSと自社開発は「機能の多さ」では選べない</h2>
+<p>比較検討の場でいちばん多いのが、機能一覧を横に並べて○×を付ける進め方です。これで判断すると、たいてい機能の多いSaaSが選ばれます。ところが導入後に出てくる不満は「機能が少ない」ではなく、「自社のやり方と順番が違う」という種類のものです。</p>
+<p>SaaSは、多くの会社に共通する業務の形を前提に作られています。その前提が自社と合っていれば、設定だけで使えます。合っていない場合、画面の項目を無理に読み替えたり、SaaSの外にExcelを置いて埋めたりすることになります。この「外で埋める作業」が発生し始めた時点が、選定を間違えたサインです。</p>
+<p>逆に、自社開発は自社の手順をそのまま形にできますが、標準的な業務まで自分で作ると、作る必要のないものを抱えることになります。<strong>判断すべきなのは機能の有無ではなく、業務の形を自社が持っているかどうか</strong>です。</p>
+<h2 id="h2"><span class="h-num">02</span>既製のSaaSで足りる業務の見分け方</h2>
+<p>次の条件に当てはまる業務は、既製のSaaSで足ります。無理に作る理由がありません。</p>
+<ul>
+<li><strong>手順が法令や商習慣で決まっている</strong>（会計、給与計算、年末調整、電子帳簿の保存）</li>
+<li><strong>やり方が自社の競争力と関係ない</strong>（名刺管理、スケジュール共有、ファイル保管）</li>
+<li><strong>外部とつながる前提がある</strong>（金融機関、電子契約、請求書の受け渡し）</li>
+<li><strong>自社の運用を標準側に合わせても困らない</strong></li>
+</ul>
+<p>特に1つ目が重要です。法令が変わればSaaS側が対応します。自社開発を選ぶと、制度改正ごとに修正費用が発生し続けます。制度に紐づく業務は、作らないほうが長い目で安く済みます。</p>
+<p>4つ目は、導入前に確かめておく項目です。SaaSに合わせて運用を変えることを、現場が受け入れられるか。ここを曖昧にしたまま導入すると、現場が従来のやり方を手元で続け、二重管理が残ります。</p>
+<h2 id="h3"><span class="h-num">03</span>自社開発を検討する3つの条件</h2>
+<p>一方で、次の3つのうち2つ以上に当てはまるなら、自社開発を検討する段階です。</p>
+<p>第一に、<strong>自社の判断基準が業務に埋め込まれている</strong>こと。受注の優先順位、見積の出し方、どの条件なら例外を認めるか。これらは会社ごとに違い、SaaSの設定項目として用意されていません。</p>
+<p>第二に、<strong>複数の業務をまたいでデータを見たい</strong>こと。SaaSを業務ごとに分けて入れると、全体を見るための集計が人の手に残ります。月末に各SaaSからCSVを落として突き合わせているなら、その作業自体が開発の対象です。</p>
+<p>第三に、<strong>その業務が売上に直接つながっている</strong>こと。受付、見積、現場の進行管理のように、やり方の違いがそのまま成果の違いになる業務です。ここを標準に合わせると、自社の強みを手放すことになります。</p>
+<p>既製サービスが合わなくなる具体的なサインは、<a href="2026-09-11-yoyaku-kanri-system-jisha-senyo.html">予約管理システムを自社専用で作る判断基準</a>でも扱っています。</p>
+<h2 id="h4"><span class="h-num">04</span>判断に使う7つのチェック項目</h2>
+<p>迷っている業務について、次の7つを確かめてください。SaaS側に寄るか、自社開発側に寄るかが見えてきます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>既製のSaaS</th>
+<th>自社開発</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向く業務</td>
+<td>標準化された業務</td>
+<td>自社の判断が入る業務</td>
+</tr>
+<tr>
+<td>使い始めるまで</td>
+<td>契約と設定で済む</td>
+<td>設計から作る期間が必要</td>
+</tr>
+<tr>
+<td>費用の形</td>
+<td>月額・利用人数で増える</td>
+<td>初期費用＋保守の月額</td>
+</tr>
+<tr>
+<td>合わないとき</td>
+<td>運用を合わせるか、外で埋める</td>
+<td>直せる</td>
+</tr>
+<tr>
+<td>制度改正への対応</td>
+<td>提供側が対応する</td>
+<td>都度の修正が必要</td>
+</tr>
+<tr>
+<td>画面の項目</td>
+<td>用意された範囲</td>
+<td>自社の呼び方で作れる</td>
+</tr>
+<tr>
+<td>やめるとき</td>
+<td>解約でデータの持ち出しが課題</td>
+<td>資産として残る</td>
+</tr>
+</tbody></table></div>
+<p>この表のうち、<strong>「合わないときにどうなるか」の行がいちばん効きます</strong>。SaaSが合わない場合の選択肢は、運用を変えるか、人の手で埋めるかの二択です。人の手で埋める前提で導入すると、その手作業は減りません。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>確かめ方</h4>
+    <p>候補のSaaSを、デモや試用の段階で「自社の実際の案件」を1件通してみてください。架空のサンプルではなく、例外が入っている案件を選ぶのがコツです。途中でExcelやメモに逃げる場所が出たら、そこが合っていない部分です。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>「どちらか」で選ばず、組み合わせを前提にする</h2>
+<p>実際の選定は、SaaSか自社開発かの二択にはなりません。多くの会社で現実的なのは、<strong>標準的な業務はSaaS、自社固有の業務だけ自社開発</strong>という組み合わせです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-02-saas-jisha-kaihatsu-erabikata.png" alt="業務を棚卸しする・まず既製のSaaSを当てる・収まらなかった業務を書き出す・そこだけを自社開発の対象にする、という4手順を並べた図" width="1600" height="625" loading="lazy" decoding="async"><figcaption>機能一覧の比較から始めません。棚卸しを先にすると、作る対象は自然に絞られます。</figcaption></figure>
+
+<p>分け方の目安は、会社の外とつながる業務はSaaS、社内の判断が入る業務は自社開発です。会計や給与は外部の制度に合わせる必要があるのでSaaSに任せ、受付や進行管理のように自社のやり方がある部分を作ります。</p>
+<p>組み合わせるときに決めておくことが1つあります。<strong>どちらを正しいデータとして扱うか</strong>です。同じ情報が両方にある状態で基準を決めていないと、数字が合わなくなったときに判断できません。顧客情報はSaaS側を正とする、売上の確定値は自社側を正とする、といった形で先に決めてください。</p>
+<p>作る側の体制をどう組むかは、<a href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">業務アプリは内製か外注か</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>費用と期間の読み方</h2>
+<p>費用の形が違うため、単純な金額の比較はできません。構造で読みます。</p>
+<p>SaaSは初期費用が小さく、月額が利用人数やデータ量に応じて増えていきます。使う人が増える前提の業務では、数年分を並べて見ておく必要があります。自社開発は初期費用がかかり、その後は保守の月額が続きます。人数が増えても費用の構造は変わりません。</p>
+<p>期間については、自社開発を検討するときほど<strong>小さく試す段階を挟む</strong>ことをおすすめします。一部の業務だけを対象に、短期間で動くものを作って現場に触ってもらう進め方です。要件を紙の上で固めきってから作り始めるより、見てから直すほうが手戻りが少なくて済みます。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>見積もりで確かめること</h4>
+    <p>金額の大小より、初期費用と月額のどちらに何が含まれているかを確かめてください。公開後の修正対応が月額に入っているか、入っていないか。ここが曖昧な見積もりは、運用が始まってから追加費用の話になります。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>選定でよくある失敗</h2>
+<p><strong>機能が多いほうを選んでしまう</strong>。使わない機能は費用と操作の複雑さにしかなりません。選定の基準は、自社の業務の流れをそのまま通せるかどうかです。</p>
+<p><strong>一度に全部を置き換えようとする</strong>。業務システムの入れ替えは、対象を広げるほど現場の負担が増えます。いちばん手作業が多い業務から1つずつ替えるほうが、途中で止まりません。</p>
+<p><strong>データの出口を確認していない</strong>。SaaSを解約するときにデータをどの形で取り出せるかは、契約前に確認する項目です。取り出せない前提だと、乗り換えの判断自体ができなくなります。</p>
+<p><strong>現場に試してもらわずに決める</strong>。決裁者だけで比較すると、入力の手間が見落とされます。毎日触る人が1件通してみる時間を、選定の工程に入れてください。</p>
+<details class="faq"><summary>まずSaaSを試してから自社開発に移るのは遠回りではありませんか？</summary><div class="faq-a">遠回りにはなりません。SaaSを使ってみると、自社のどこが標準と違うのかが具体的に分かります。その内容がそのまま開発の要件になるため、最初から作り始めるより要件の精度が上がります。</div></details>
+
+<details class="faq"><summary>SaaSを自社向けにカスタマイズできる場合はどう考えますか？</summary><div class="faq-a">設定の範囲で収まるなら有効な選択です。確かめるのは、そのカスタマイズがバージョンアップのときにどう扱われるかです。提供側の更新ごとに作り直しが必要な作りだと、保守の負担が自社開発に近づきます。</div></details>
+
+<details class="faq"><summary>社員数が少ないうちは自社開発は向きませんか？</summary><div class="faq-a">人数は判断の基準になりません。少人数でも、自社の判断が入る業務を1人が手作業で抱えているなら、そこは作る対象になります。逆に人数が多くても、標準的な業務だけならSaaSで足ります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：選ぶ順番は「SaaSを先に当てる」</h2>
+<p>SaaSと自社開発の選び方は、<strong>まず全部の業務にSaaSを当ててみて、収まらなかった業務だけを開発の対象にする</strong>という順番で考えると迷いません。標準化されている業務を自分で作る理由はなく、自社の判断が入る業務を標準に合わせる理由もない、というだけのことです。</p>
+<p>判断に必要なのは、機能一覧ではなく自社の業務の棚卸しです。どの業務に自社固有の判断が入っているのか。どこで人がデータを突き合わせているのか。これが書き出せていれば、選定はほとんど終わっています。</p>
+<p>TENERAMENTEでは、業務の棚卸しから既製サービスで足りる範囲の切り分け、必要な部分だけを対象にした業務Webアプリの開発までを一貫して支援しています。詳しくは<a href="lp-ai-app.html">業務改善AIアプリ開発のサービス紹介</a>をご覧ください。どこまでをSaaSに任せるべきか整理したい方は、<a href="contact.html">お問い合わせ</a>からご相談ください。初回相談60分は無料です。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#SaaS</span><span>#自社開発</span><span>#業務システム</span><span>#システム選定</span><span>#業務Webアプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +323,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +351,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-29-rpa-toha-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>RPAとは｜中小企業での使いどころと、AIとの使い分けを整理</h4>
+      </a>
+      <a class="related-card" href="2026-10-05-gyomu-hyojunka-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方</h4>
+      </a>
+      <a class="related-card" href="2026-09-26-nocode-gyomu-app.html">
+        <span class="cat">Web App</span>
+        <h4>ノーコードで業務アプリは作れるか｜向くケースと、限界が来る場面</h4>
+      </a>
+    </div>
   </div>
 </section>
 

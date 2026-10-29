@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,141 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-25-gbp-shohin-service-kinou";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番","description":"Googleビジネスプロフィールの「商品」「サービス」機能は、何を扱う店舗かを検索した人に伝える枠です。どちらが自分の店舗で使えるかの確認方法、サービス名の決め方、登録の順番、説明文に書くことと書かないこと、登録後に起きるずれの直し方までを整理しました。","datePublished":"2026-10-25","dateModified":"2026-10-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-25-gbp-shohin-service-kinou.html","image":"https://teneramente.jp/assets/img/covers/2026-10-25-gbp-shohin-service-kinou.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, 商品, サービス, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番","description":"Googleビジネスプロフィールの「商品」「サービス」機能は、何を扱う店舗かを検索した人に伝える枠です。どちらが自分の店舗で使えるかの確認方法、サービス名の決め方、登録の順番、説明文に書くことと書かないこと、登録後に起きるずれの直し方までを整理しました。","datePublished":"2026-10-25","dateModified":"2026-10-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-25-gbp-shohin-service-kinou.html","image":"https://teneramente.jp/assets/img/covers/2026-10-25-gbp-shohin-service-kinou.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, 商品, サービス, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番","item":"https://teneramente.jp/2026-10-25-gbp-shohin-service-kinou.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"商品やサービスを登録すると順位は上がりますか？","acceptedAnswer":{"@type":"Answer","text":"登録すれば順位が上がる、という形の機能ではありません。Googleは検索した語とプロフィールの情報がどれだけ合っているかを見るため、扱っている内容が書かれていること自体には意味があります。ただし効き方は、営業時間や所在地が正確であること、写真がそろっていることと同じ「情報の抜けを埋める」方向です。順位だけを目的に、提供していない内容を登録しないでください。"}},{"@type":"Question","name":"管理画面に「商品」や「サービス」の項目が出てきません","acceptedAnswer":{"@type":"Answer","text":"設定している主カテゴリで、その枠が用意されていない場合があります。カテゴリによって使える機能は変わるため、項目が出ないこと自体は異常ではありません。枠を出すためにカテゴリを変えるのではなく、実際の業態に合うカテゴリを選んだうえで、出ている枠を使ってください。"}},{"@type":"Question","name":"全部の商品を登録したほうがよいですか？","acceptedAnswer":{"@type":"Answer","text":"在庫の一覧を再現する必要はありません。看板になるものと、価格帯や取り扱いの幅が分かるものを数点ずつ載せれば、見る人の判断には足ります。点数が多いほど、変更があったときの更新も重くなります。更新を続けられる点数に絞るほうが、結果として情報は正確に保てます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 25, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-25-gbp-shohin-service-kinou.webp" alt="Googleビジネスプロフィールの商品・サービス機能の使い方｜登録の順番" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>商品とサービスは、同じ枠ではない</a><a href="#h2"><span class="n">02</span>自分の店舗でどちらが出るかを先に確認する</a><a href="#h3"><span class="n">03</span>サービスは「候補にある名前」から埋める</a><a href="#h4"><span class="n">04</span>商品を使うと効くのは、写真で選ばれる商材</a><a href="#h5"><span class="n">05</span>登録の順番は、よく聞かれる順</a><a href="#h6"><span class="n">06</span>説明文に書くこと、書かないこと</a><a href="#h7"><span class="n">07</span>登録したあとに起きる、3つのずれ</a><a href="#h8"><span class="n">08</span>まとめ：枠を埋めるのは、問い合わせを減らすため</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleビジネスプロフィールの商品・サービス機能は、<strong>「何を、いくらで扱っている店舗か」を検索した人に先に答えるための枠</strong>です。営業時間や写真を整えたあとに手が止まりやすい機能ですが、埋めておくと電話での確認が減り、比較の段階で外れにくくなります。使う順番と、埋める内容の決め方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>商品とサービスは別の枠で、<strong>どちらが使えるかはカテゴリで決まります</strong>。先にサービスで扱う内容の一覧を作り、写真で選ばれる商材だけを商品に登録します。順番は「よく聞かれる順」です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>商品とサービスは、同じ枠ではない</h2>
+<p>この2つは名前が似ているため混同されますが、プロフィール上での見え方が違います。</p>
+<p>サービスは、提供している内容を名前・価格・説明で並べる枠です。写真は付きません。カット、車検、ハウスクリーニング、相談対応といった「作業」を扱う店舗向けの形です。</p>
+<p>商品は、写真付きのカードとして並ぶ枠です。商品名・価格・説明に加えて、写真と、詳細ページへのリンクを付けられます。物販のように<strong>見た目が判断材料になるもの</strong>を扱う場合に向いています。飲食店の場合は、これらとは別に「メニュー」の枠が用意されています。</p>
+<p>つまり、同じ内容を両方に重複して登録する機能ではありません。扱っているものの性質で、どちらに書くかが決まります。</p>
+<h2 id="h2"><span class="h-num">02</span>自分の店舗でどちらが出るかを先に確認する</h2>
+<p>使える枠は、プロフィールに設定した主カテゴリによって変わります。管理画面に項目が出てこない場合は、そのカテゴリでは用意されていないということなので、無理に探す必要はありません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>店舗の性質</th>
+<th>主に使う枠</th>
+<th>写真</th>
+<th>書く内容の例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作業・施術・相談を提供する</td>
+<td>サービス</td>
+<td>付かない</td>
+<td>施術名、対応内容、相談の種類</td>
+</tr>
+<tr>
+<td>商品を売る（物販）</td>
+<td>商品</td>
+<td>付く</td>
+<td>商品名、取り扱いブランド</td>
+</tr>
+<tr>
+<td>飲食を提供する</td>
+<td>メニュー</td>
+<td>付く場合あり</td>
+<td>料理名、価格</td>
+</tr>
+</tbody></table></div>
+<p>どの枠が出るかは、カテゴリを変えると変わります。ただしカテゴリは枠を増やす目的で選ぶものではありません。選び方は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>に分けて書いているので、先にそちらで主カテゴリを確定させてから、この機能に進んでください。</p>
+<h2 id="h3"><span class="h-num">03</span>サービスは「候補にある名前」から埋める</h2>
+<p>サービスを追加しようとすると、主カテゴリに応じた候補の名前がいくつか提示されます。<strong>まずはこの候補のうち、実際に提供しているものを選ぶのが先</strong>です。</p>
+<p>候補の名前は、同じ業種の店舗で広く使われている言い方になっています。自店独自の呼び方よりも、検索する人が使う言葉に近い形です。「極上リラックスコース」のような独自名は、候補を埋めたあとにカスタムサービスとして足すほうが、意味が伝わります。</p>
+<p>価格は、固定の金額か、価格を表示しない形を選べます。金額が条件で変わるものは、無理に1つの数字を入れず、説明のほうで条件を書くほうが誤解が出ません。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に一覧を紙に書き出す</h4>
+    <p>管理画面で思いつく順に追加していくと、抜けと重複が出ます。提供している内容を先に紙やメモに全部書き出し、「よく聞かれる順」に並べ替えてから入力するほうが早く終わります。並べ替えの基準は、来店前に電話で聞かれる回数です。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>商品を使うと効くのは、写真で選ばれる商材</h2>
+<p>商品の枠は写真付きで並ぶため、見た目が判断材料になるものほど向いています。逆に、写真にしても違いが伝わらない内容を無理に商品として登録すると、カードが並ぶだけで情報が増えません。</p>
+<p>登録するなら、<strong>看板になるものから数点に絞る</strong>ほうが見やすくなります。全在庫を載せる機能ではありません。価格帯が分かる数点と、取り扱っている種類が分かる数点があれば、「ここで買えるのか」という疑問には答えられます。</p>
+<p>写真は、商品そのものが正面から分かるものを使います。撮り方の基本は<a href="2026-10-18-gbp-shashin-erabikata.html">プロフィールに載せる写真の選び方</a>と同じで、明るさと水平が守れていれば、スマホで撮ったもので足ります。</p>
+<h2 id="h5"><span class="h-num">05</span>登録の順番は、よく聞かれる順</h2>
+<p>一度にすべてを埋めようとすると途中で止まります。次の順番で進めてください。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-25-gbp-shohin-service-kinou.png" alt="提供している内容を書き出す、来店前に聞かれる回数で並べ替える、候補にある名前で上位から登録する、価格と説明を付ける、公開後に自分の目で表示を確認するという、Googleビジネスプロフィールの商品・サービスを登録する順番を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>一度にすべて埋めず、よく聞かれるものから順に登録します。</figcaption></figure>
+
+<ol>
+<li>提供している内容を書き出す（紙でもメモアプリでも可）</li>
+<li>来店前に聞かれる回数で並べ替える</li>
+<li>候補にある名前で上位のものから登録する</li>
+<li>価格と説明を付ける（条件で変わるものは説明に条件を書く）</li>
+<li>公開後に表示を自分で確認する</li>
+</ol>
+<p>5番目を飛ばさないでください。登録した内容は審査を経て反映されるため、すぐには出ないことがあります。数日おいてから、スマホで自店のプロフィールを開き、意図した枠に意図した順で並んでいるかを見てください。</p>
+<h2 id="h6"><span class="h-num">06</span>説明文に書くこと、書かないこと</h2>
+<p>説明に書くのは、その内容を選ぶときに必要な事実です。所要時間、含まれるもの、対象になる人、持ち物の有無。この4つが入っていれば、問い合わせの電話は減ります。</p>
+<p>反対に、効果や成果をうたう表現、他店との比較、連絡先や外部サイトのURLは入れないでください。ポリシーに触れると審査で外れますし、通ったとしても、説明の枠は宣伝文を読む場所として見られていません。</p>
+<p><strong>説明文は、読ませる文章ではなく答え合わせの材料です</strong>。1つのサービスにつき、迷いが消える事実を2〜3個入れる。これだけで役目は果たします。</p>
+<h2 id="h7"><span class="h-num">07</span>登録したあとに起きる、3つのずれ</h2>
+<p>埋めた直後は正しくても、時間が経つと実態とずれます。起きやすいのは次の3つです。</p>
+<p>1つ目は、<strong>価格の据え置き</strong>です。自店サイトやメニュー表は直したのに、プロフィール側が古い金額のまま残る。これは来店時のトラブルにつながります。</p>
+<p>2つ目は、提供をやめた内容が残ることです。扱いをやめたサービスが並んでいると、その目的で来た人の来店が無駄になります。</p>
+<p>3つ目は、自店サイトとの食い違いです。同じサービスの名前が違う、含まれるものの説明が違う。見比べた人の判断が止まります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>価格を変えたときの手順を決めておく</h4>
+    <p>料金改定のときに直す場所を、あらかじめ一覧にしておいてください。店内の表示、自店サイト、Googleビジネスプロフィール、予約ページ。直す場所が決まっていないと、どこかが必ず残ります。月1回の見直し項目は[Googleビジネスプロフィールの月次チェックリスト](2026-06-28-gbp-monthly-checklist.html)にまとめています。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>商品やサービスを登録すると順位は上がりますか？</summary><div class="faq-a">登録すれば順位が上がる、という形の機能ではありません。Googleは検索した語とプロフィールの情報がどれだけ合っているかを見るため、扱っている内容が書かれていること自体には意味があります。ただし効き方は、営業時間や所在地が正確であること、写真がそろっていることと同じ「情報の抜けを埋める」方向です。順位だけを目的に、提供していない内容を登録しないでください。</div></details>
+
+<details class="faq"><summary>管理画面に「商品」や「サービス」の項目が出てきません</summary><div class="faq-a">設定している主カテゴリで、その枠が用意されていない場合があります。カテゴリによって使える機能は変わるため、項目が出ないこと自体は異常ではありません。枠を出すためにカテゴリを変えるのではなく、実際の業態に合うカテゴリを選んだうえで、出ている枠を使ってください。</div></details>
+
+<details class="faq"><summary>全部の商品を登録したほうがよいですか？</summary><div class="faq-a">在庫の一覧を再現する必要はありません。看板になるものと、価格帯や取り扱いの幅が分かるものを数点ずつ載せれば、見る人の判断には足ります。点数が多いほど、変更があったときの更新も重くなります。更新を続けられる点数に絞るほうが、結果として情報は正確に保てます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：枠を埋めるのは、問い合わせを減らすため</h2>
+<p>Googleビジネスプロフィールの商品・サービス機能は、扱っている内容を検索した人に先に伝える枠です。サービスは名前・価格・説明、商品は写真付きのカード。どちらが使えるかはカテゴリで決まるので、まず管理画面で確認してください。</p>
+<p>進め方は、提供内容を書き出す、よく聞かれる順に並べ替える、候補にある名前から登録する、説明に事実を2〜3個入れる、公開後に自分の目で確認する。あとは料金改定と取り扱いの変更のときに直す。<strong>埋める目的は、来店前の確認を電話からプロフィールへ移すことです</strong>。</p>
+<p>TENERAMENTEなら、カテゴリの確定からサービス名の洗い出し、説明文の型づくり、料金改定時に直す場所の一覧づくりまで、店舗の運用に合わせて設計します。何を登録するかを担当者が毎回考えずに済み、更新が止まらない形になります。<a href="lp-meo.html">MEO対策</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleビジネスプロフィール</span><span>#商品</span><span>#サービス</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +305,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +333,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-24-seitai-sekkotsuin-meo.html">
+        <span class="cat">MEO</span>
+        <h4>整体・接骨院のMEO対策｜近隣で選ばれるための情報整備と口コミ運用</h4>
+      </a>
+      <a class="related-card" href="2026-10-26-meo-junni-keisoku-shihyo.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策の“見える化”とは｜順位計測ツールで確認すべき指標と使い方</h4>
+      </a>
+      <a class="related-card" href="2026-10-21-meo-report-mikata.html">
+        <span class="cat">MEO</span>
+        <h4>MEOレポートの見方｜検索数・表示回数・ルート検索から次の一手を決める</h4>
+      </a>
+    </div>
   </div>
 </section>
 

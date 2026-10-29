@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,148 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-27-chatgpt-claude-gemini-chigai";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"ChatGPT・Claude・Geminiの違いと業務での使い分け","description":"ChatGPT・Claude・Geminiの違いを、性能の優劣ではなく業務での使い分けの観点から整理しました。3つに共通していること、一般的な傾向としての違い、選ぶときに確認する項目、社内で使う前に決めること、2週間で試す手順までをまとめています。","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-27-chatgpt-claude-gemini-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI活用, 生成AI, ツール選定, 社内ルール, 中小企業"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"ChatGPT・Claude・Geminiの違いと業務での使い分け","description":"ChatGPT・Claude・Geminiの違いを、性能の優劣ではなく業務での使い分けの観点から整理しました。3つに共通していること、一般的な傾向としての違い、選ぶときに確認する項目、社内で使う前に決めること、2週間で試す手順までをまとめています。","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-27-chatgpt-claude-gemini-chigai.html","image":"https://teneramente.jp/assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI活用, 生成AI, ツール選定, 社内ルール, 中小企業"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"ChatGPT・Claude・Geminiの違いと業務での使い分け","item":"https://teneramente.jp/2026-10-27-chatgpt-claude-gemini-chigai.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"3つとも契約するのは無駄ですか？","acceptedAnswer":{"@type":"Answer","text":"無駄とは言えません。扱う資料の種類が部署で違う場合や、文章作成と資料読み込みで求めるものが違う場合、使い分けたほうが結果が良くなることがあります。ただし全員に3つ配るのは管理が重くなるため、部署ごとに主に使うものを1つ決め、比較用のアカウントを数人分だけ別に持つ形が現実的です。"}},{"@type":"Question","name":"無料プランのままで社内に広げてもよいですか？","acceptedAnswer":{"@type":"Answer","text":"人数が少なく、社外秘の情報を入れない範囲であれば、まず無料で始める判断はあります。ただし人が増えると、入力内容の扱いやアカウントの管理が個人任せになります。業務として使うことが決まった時点で、法人向けプランの条件を確認してください。確認する点は、入力内容を学習に使わない設定があるか、管理者がアカウントを把握できるかの2つです。"}},{"@type":"Question","name":"社内のファイルを読ませるには、どれが向いていますか？","acceptedAnswer":{"@type":"Answer","text":"自社の資料がどこに置かれているかで決まります。Google ドライブで運用しているなら Google のサービスと組み合わせたほうが手間が少なく、Microsoft 365 中心であれば別の選択になります。置き場所が社内のファイルサーバーの場合は、どのサービスでも都度アップロードが必要になるため、資料を検索して答えさせる仕組み（RAG）を別に用意する判断になることもあります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">ChatGPT・Claude・Geminiの違いと業務での使い分け</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 27, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">8 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-27-chatgpt-claude-gemini-chigai.webp" alt="ChatGPT・Claude・Geminiの違いと業務での使い分け" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>違いを「性能の優劣」で覚えると、選べなくなる</a><a href="#h2"><span class="n">02</span>まず、3つに共通していることを押さえる</a><a href="#h3"><span class="n">03</span>一般的な傾向としての違い</a><a href="#h4"><span class="n">04</span>選ぶ基準は、作業の内容と置き場所で決まる</a><a href="#h5"><span class="n">05</span>社内で使う前に決めておくこと</a><a href="#h6"><span class="n">06</span>決める前に、2週間だけ試す</a><a href="#h7"><span class="n">07</span>よくある失敗を、先に知っておく</a><a href="#h8"><span class="n">08</span>まとめ：比べるのはサービスではなく、自社の作業</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「ChatGPTとClaudeとGemini、どれを契約すればいいですか」という質問を、よくいただきます。結論から言うと、<strong>比べるべきなのはサービスの性能ではなく、社内のどの作業に使うか</strong>です。3つの違いと、業務での使い分けの考え方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>3つの生成AIサービスは、できることの大枠が重なっており、性能の差は短い期間で入れ替わります。<strong>選ぶ基準になるのは、扱うデータがどこにあるか、誰が使うか、何を添付するかという業務側の条件です</strong>。1つに絞る前に、実際の業務で2週間だけ試す手順を先に決めてください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>違いを「性能の優劣」で覚えると、選べなくなる</h2>
+<p>生成AIの比較記事を読むと、どれが賢いか、どれが速いかという話が中心になりがちです。しかしこの観点で選ぶと、半年後にもう一度選び直すことになります。各社が機能を更新する間隔は短く、<strong>ある時点での優劣は、そのまま来年の判断材料にはならない</strong>からです。</p>
+<p>実際に社内で使い始めてから困るのは、賢さの差ではありません。社内のファイルを読ませられない、使う人がログインの仕方を覚えられない、入力してよい情報の線引きが決まっていない、といった運用の側です。</p>
+<p>ですから比較の軸を変えます。「どれが優れているか」ではなく「自社のこの作業に、どれが合うか」です。この形にすると、比較する項目が具体的になり、判断もその場で付きます。生成AIを業務で使うこと自体の進め方は<a href="2026-06-20-chatgpt-gyomu-katsuyo.html">中小企業のChatGPT業務活用ガイド</a>に整理しています。</p>
+<h2 id="h2"><span class="h-num">02</span>まず、3つに共通していることを押さえる</h2>
+<p>違いの前に、共通部分を確認しておくと判断が早くなります。3つのサービスは、いずれも次のことができます。</p>
+<ul>
+<li>対話形式で文章を書く、要約する、言い換える</li>
+<li>資料やファイルを読み込ませて、内容について質問する</li>
+<li>画像を読み取って、書かれている内容を説明させる</li>
+<li>ウェブ上の情報を検索して、その内容を踏まえて答える</li>
+<li>無料で使える範囲と、有料の個人向けプラン、法人向けのプランがある</li>
+<li>外部のシステムから呼び出すための API が用意されている</li>
+</ul>
+<p>つまり、<strong>議事録の要約、メール文の下書き、資料の読み込みといった一般的な業務であれば、どれを選んでも成立します</strong>。ここで差が出ないということは、逆に言えば「とりあえず有名なほうを選ぶ」で済む業務も多いということです。</p>
+<p>差が出るのは、社内の既存の環境とつなぐ場面、扱う情報の種類が決まっている場面、使う人数が増える場面です。</p>
+<h2 id="h3"><span class="h-num">03</span>一般的な傾向としての違い</h2>
+<p>以下は固定の優劣ではなく、各サービスがどこに力を入れてきたかという傾向です。更新によって変わる前提で読んでください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>サービス</th>
+<th>社内で使うときの特徴</th>
+<th>向きやすい場面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ChatGPT</td>
+<td>利用者が多く、使い方の情報を社内で共有しやすい。周辺の機能や外部サービスとの連携が広い</td>
+<td>はじめて全社に広げるとき</td>
+</tr>
+<tr>
+<td>Claude</td>
+<td>長い文書の読み込みと、文章の推敲・作成で評価されている。開発者向けの使い方も用意されている</td>
+<td>契約書や仕様書など長い資料を扱うとき</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>Google のサービス群との組み合わせを前提に作られている</td>
+<td>社内が Google Workspace で動いているとき</td>
+</tr>
+</tbody></table></div>
+<p>この表の使い方には注意があります。<em>どれか1つに決めなければならない、という前提自体を一度外してください</em>。部署によって扱う資料が違う場合、使い分けたほうが結果的に安く済むことがあります。個人向けプランであれば、2つを並行して契約して比べることも現実的な範囲です。</p>
+<h2 id="h4"><span class="h-num">04</span>選ぶ基準は、作業の内容と置き場所で決まる</h2>
+<p>判断材料は、サービス側ではなく自社側にあります。確認する項目は多くありません。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-27-chatgpt-claude-gemini-chigai.png" alt="扱うデータがどこにあるか、誰が使うか、何を添付するか、人数が増える見込みがあるか、教えられる人が社内にいるかという、ChatGPT・Claude・Geminiのどれを業務で使うか決める前に自社側で確認する5つの項目と、それぞれで何が決まるかを並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>確認するのはサービスの性能ではなく、自社側の条件です。</figcaption></figure>
+
+<ol>
+<li><strong>扱うデータがどこにあるか</strong> … Google ドライブ、Microsoft 365、社内のファイルサーバーのどれが中心か</li>
+<li><strong>誰が使うか</strong> … 数人の担当者か、パートを含めた全員か</li>
+<li><strong>何を添付するか</strong> … 長い文書か、表か、画像・図面か</li>
+<li><strong>人数が増える見込みがあるか</strong> … 管理者がアカウントをまとめて扱う必要が出るか</li>
+<li><strong>教えられる人が社内にいるか</strong> … 使い方の情報を社内で共有できるか</li>
+</ol>
+<p>とくに効くのは1つ目です。社内の資料が Google ドライブにあるのか、Microsoft 365 にあるのか、ファイルサーバーにあるのかで、毎回の手間が変わります。ファイルを都度アップロードする運用は、最初は気になりませんが、毎日使う業務では続きません。</p>
+<p>2つ目の「誰が使うか」も大きいです。IT に慣れた数人で使うのか、パートを含めた全員で使うのかで、求められるものが変わります。全員で使うなら、画面の分かりやすさと、社内で教えられる人がいるかどうかが優先されます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に確認しておくこと</h4>
+    <p>法人向けのプランでは、入力した内容を学習に使わない設定や、管理者がアカウントをまとめて管理する機能が用意されています。個人向けプランのまま社内で使うと、この管理ができません。人数が増えることが見えている場合は、法人向けプランの条件を先に確認してから配り始めてください。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>社内で使う前に決めておくこと</h2>
+<p>サービスを決めるより先に決めておくと、後戻りが減るものがあります。入力してよい情報の範囲、出てきた内容を誰が確認するか、使った記録をどこまで残すかの3点です。</p>
+<p>このうち最初の「入力してよい情報の範囲」は、サービスの選択とは独立しています。顧客名を含む情報を入れてよいか、見積書をそのまま読み込ませてよいか、人事に関わる内容を扱ってよいか。ここが決まっていないと、現場は使わないか、黙って使うかのどちらかになります。</p>
+<p>2つ目は、出力の確認です。生成AIは、事実と異なる内容を自然な文章で返すことがあります。社外に出す文章と、数字を含む資料は、人が確認する手順を残してください。確認する人が決まっていれば、現場は安心して下書きに使えます。社内ルールの作り方は<a href="2026-09-06-seisei-ai-shanai-rule-template.html">生成AIの社内ルールをテンプレートで作る</a>にまとめています。</p>
+<blockquote>
+<p>選ぶのに時間をかけるより、決めた1つを3か月使ったほうが、自社に合うかどうかは早く分かります。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>決める前に、2週間だけ試す</h2>
+<p>比較記事をいくら読んでも、自社の資料を入れたときの手応えは分かりません。現実的なのは、候補を2つに絞って、同じ業務で2週間ずつ試す形です。</p>
+<p>手順は次のとおりです。まず、毎週必ず発生する作業を1つ選びます。議事録の要約、問い合わせメールの下書き、仕様のたたき台づくりなど、成果物の形が決まっているものが向いています。次に、その作業を担当している人に両方のアカウントを渡します。</p>
+<p>試す期間は、同じ指示文（プロンプト）を使ってください。指示の書き方で結果は大きく変わるため、違う指示で比べると、サービスの差なのか指示の差なのかが分からなくなります。最後に、担当者に「どちらを続けたいか」と「その理由」を一言で聞きます。<strong>ここで出てくる理由が、自社にとっての選定基準そのものです</strong>。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>試すときの注意</h4>
+    <p>無料の範囲だけで比べると、判断を誤ります。無料プランでは使える回数や機能が制限されており、実務で使うときの手応えとは違うためです。2週間であれば個人向けプランの費用は限られるため、有料の範囲で試してください。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>よくある失敗を、先に知っておく</h2>
+<p>選定でつまずく形は、だいたい次の3つです。</p>
+<p>1つ目は、<strong>全社に配る前に、使う作業を決めていないこと</strong>です。アカウントだけ配られた状態では、ほとんどの人が数回触って終わります。作業を1つ決めて、その作業の担当者から始めるほうが定着します。</p>
+<p>2つ目は、比較を長引かせることです。3か月かけて検討している間に、各社の機能は更新されます。検討が長いほど判断は難しくなるため、期限を先に切ってください。</p>
+<p>3つ目は、1つに決めたことを理由に、他を見なくなることです。契約は続けながら、半年に一度、候補を試す人を1人決めておくだけで十分です。乗り換えが必要になったときの判断が早くなります。導入でつまずく型全般は<a href="2026-06-14-ai-donyu-shippai-kaihi.html">AI導入が失敗する7つのパターン</a>にまとめています。</p>
+<details class="faq"><summary>3つとも契約するのは無駄ですか？</summary><div class="faq-a">無駄とは言えません。扱う資料の種類が部署で違う場合や、文章作成と資料読み込みで求めるものが違う場合、使い分けたほうが結果が良くなることがあります。ただし全員に3つ配るのは管理が重くなるため、部署ごとに主に使うものを1つ決め、比較用のアカウントを数人分だけ別に持つ形が現実的です。</div></details>
+
+<details class="faq"><summary>無料プランのままで社内に広げてもよいですか？</summary><div class="faq-a">人数が少なく、社外秘の情報を入れない範囲であれば、まず無料で始める判断はあります。ただし人が増えると、入力内容の扱いやアカウントの管理が個人任せになります。業務として使うことが決まった時点で、法人向けプランの条件を確認してください。確認する点は、入力内容を学習に使わない設定があるか、管理者がアカウントを把握できるかの2つです。</div></details>
+
+<details class="faq"><summary>社内のファイルを読ませるには、どれが向いていますか？</summary><div class="faq-a">自社の資料がどこに置かれているかで決まります。Google ドライブで運用しているなら Google のサービスと組み合わせたほうが手間が少なく、Microsoft 365 中心であれば別の選択になります。置き場所が社内のファイルサーバーの場合は、どのサービスでも都度アップロードが必要になるため、資料を検索して答えさせる仕組み（RAG）を別に用意する判断になることもあります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：比べるのはサービスではなく、自社の作業</h2>
+<p>ChatGPT・Claude・Gemini は、文章作成、要約、資料の読み込みといった一般的な業務であれば、どれを選んでも成立します。差が出るのは、社内の環境とのつながり方、使う人の幅、扱う情報の種類です。</p>
+<p>進め方は、共通してできることを押さえる、自社側の確認項目で候補を2つに絞る、入力してよい情報の範囲と出力を確認する人を先に決める、同じ業務・同じ指示文で2週間試す、担当者の理由を選定基準として残す。<strong>比較に時間をかけるより、決めた1つを業務で使い続けたほうが、自社に合うかどうかは早く分かります</strong>。</p>
+<p>TENERAMENTEなら、社内のどの作業から始めるかの切り出し、入力してよい情報の範囲と確認手順を含む社内ルールの整備、2週間の試用で何を見るかの設計まで、業務の中身を見たうえで組み立てます。サービスの比較表を集める段階で止まらず、担当者が明日から同じ手順で使える状態まで持っていけます。<a href="lp-ai.html">AI導入支援</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI活用</span><span>#生成AI</span><span>#ツール選定</span><span>#社内ルール</span><span>#中小企業</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +312,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +340,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-23-ai-gijiroku-jidoka.html">
+        <span class="cat">AI</span>
+        <h4>AIで議事録を自動化する方法｜録音から要約・共有までの流れ</h4>
+      </a>
+      <a class="related-card" href="2026-09-06-seisei-ai-shanai-rule-template.html">
+        <span class="cat">AI</span>
+        <h4>生成AIの社内ルールをテンプレートで作る｜最低限決める10項目</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-gyomu-kaizen-ai-tsukaikata.html">
+        <span class="cat">AI</span>
+        <h4>業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

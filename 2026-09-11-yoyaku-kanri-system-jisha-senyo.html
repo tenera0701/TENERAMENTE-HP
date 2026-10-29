@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,140 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-11-yoyaku-kanri-system-jisha-senyo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"予約管理システムを自社専用で作る判断基準｜既製サービスとの違い","description":"既製の予約サービスが自社の受付ルールに合わなくなったとき、自社専用の予約管理システムを作るべきかどうかの判断基準を整理します。既製との違い、最低限必要な機能、着手前に決めること、費用と期間の考え方まで。","datePublished":"2026-09-11","dateModified":"2026-09-11","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-11-yoyaku-kanri-system-jisha-senyo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"予約管理システム, 業務Webアプリ, 自社専用, システム開発, 業務改善"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"予約管理システムを自社専用で作る判断基準｜既製サービスとの違い","description":"既製の予約サービスが自社の受付ルールに合わなくなったとき、自社専用の予約管理システムを作るべきかどうかの判断基準を整理します。既製との違い、最低限必要な機能、着手前に決めること、費用と期間の考え方まで。","datePublished":"2026-09-11","dateModified":"2026-09-11","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-11-yoyaku-kanri-system-jisha-senyo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"予約管理システム, 業務Webアプリ, 自社専用, システム開発, 業務改善"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"予約管理システムを自社専用で作る判断基準｜既製サービスとの違い","item":"https://teneramente.jp/2026-09-11-yoyaku-kanri-system-jisha-senyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"予約件数が少ないうちは、既製サービスのままでよいですか？","acceptedAnswer":{"@type":"Answer","text":"件数の多さではなく、手作業が繰り返し発生しているかで判断してください。件数が少なくても、受付ルールが複雑で毎回人が割り当て直しているなら検討の対象になります。逆に件数が多くても、設定の範囲で回っているなら既製サービスのままで問題ありません。"}},{"@type":"Question","name":"今使っている予約サービスのデータは引き継げますか？","acceptedAnswer":{"@type":"Answer","text":"多くのサービスはCSVなどの形式で書き出せます。まず現在のサービスから何を取り出せるかを確認してください。取り出せる項目が、そのまま新しいシステムで持てる項目の出発点になります。取り出せない項目がある場合は、移行の方法を含めて設計段階で決めます。"}},{"@type":"Question","name":"作ったあとの変更は自分たちでできますか？","acceptedAnswer":{"@type":"Answer","text":"どこまで自社で変えられるようにするかは、設計時に決める項目です。営業時間や枠の設定など日常的に変えるものは管理画面から操作できるようにし、画面や項目そのものの変更は依頼して直す形が一般的です。何を自分たちで変えたいかを、依頼の段階で伝えておいてください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">予約管理システムを自社専用で作る判断基準｜既製サービスとの違い</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 11, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-11-yoyaku-kanri-system-jisha-senyo.webp" alt="予約管理システムを自社専用で作る判断基準｜既製サービスとの違い" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>既製の予約サービスが合わなくなる5つのサイン</a><a href="#h2"><span class="n">02</span>自社専用と既製サービスは何が違うのか</a><a href="#h3"><span class="n">03</span>予約管理システムに最低限必要な機能</a><a href="#h4"><span class="n">04</span>作る前に決めておく4つのこと</a><a href="#h5"><span class="n">05</span>費用と期間の考え方</a><a href="#h6"><span class="n">06</span>よくある失敗</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：合わない部分を人が埋め始めたら検討する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">予約管理システムを自社専用で作るべきかどうかは、機能の多さではなく、<strong>自社の受付ルールを既製サービスの設定画面で表現しきれるか</strong>で判断します。合わない部分を人の手で埋め始めた時点が、作ることを検討する入口です。この記事では、既製サービスとの違い、必要な機能、着手前に決めること、費用と期間の考え方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>自社専用にするかどうかは、予約の件数ではなく<strong>受付ルールの複雑さと、それを人が手で埋めている時間</strong>で決めます。既製サービスの設定で足りているうちは、乗り換える理由はありません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>既製の予約サービスが合わなくなる5つのサイン</h2>
+<p>既製の予約サービスは、一般的な受付の形に合わせて作られています。自社の受付ルールがそこから外れるほど、設定では吸収できない部分が増えていきます。次のような状態が続いているなら、合わなくなってきたサインです。</p>
+<ul>
+<li>予約が入ったあと、担当者が手で割り当て直している</li>
+<li>受け付けたい条件（同時に受けられる人数、設備の組み合わせ、担当者の資格）を設定で表現できない</li>
+<li>予約サービスとは別に、確認用のExcelを二重で持っている</li>
+<li>お客様に送る案内文を、毎回コピーして手で書き換えている</li>
+<li>予約データを会計や顧客管理に移すのに、毎月まとまった手作業が発生している</li>
+</ul>
+<p>1つ当てはまる程度なら運用で吸収できます。判断すべきは、<strong>この手作業が毎週・毎月繰り返し発生しているか</strong>です。繰り返す作業だけが、作ることで消えます。</p>
+<h2 id="h2"><span class="h-num">02</span>自社専用と既製サービスは何が違うのか</h2>
+<p>違いは機能の量ではなく、「合わせる方向」です。既製サービスは自社の運用をサービス側に合わせ、自社専用は仕組みを自社の運用に合わせます。どちらが優れているという話ではなく、どちらの合わせ方が自社にとって無理がないかという選択です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>比較する点</th>
+<th>既製の予約サービス</th>
+<th>自社専用のシステム</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>始めるまで</td>
+<td>申し込んだその日から使える</td>
+<td>設計と開発の期間が必要</td>
+</tr>
+<tr>
+<td>費用の形</td>
+<td>月額が中心。初期費用は小さい</td>
+<td>初期費用がかかり、その後は保守費用</td>
+</tr>
+<tr>
+<td>受付ルール</td>
+<td>用意された設定の範囲で表現する</td>
+<td>自社のルールをそのまま形にできる</td>
+</tr>
+<tr>
+<td>他システムとの連携</td>
+<td>対応している範囲に限られる</td>
+<td>必要な連携を作れる</td>
+</tr>
+<tr>
+<td>変更したいとき</td>
+<td>提供元の対応を待つ</td>
+<td>自社の判断で直せる</td>
+</tr>
+</tbody></table></div>
+<p><strong>既製サービスで足りているなら、乗り換える必要はありません</strong>。判断が必要になるのは、設定で表現できない部分を人が埋め始めたときだけです。内製と外注の切り分けについては<a href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">業務アプリは内製か外注か</a>も参考になります。</p>
+<h2 id="h3"><span class="h-num">03</span>予約管理システムに最低限必要な機能</h2>
+<p>自社専用にすると、つい機能を足したくなります。最初に作るのは、予約を受けてから当日を迎えるまでが止まらずに回る範囲に絞ってください。次の6つが揃っていれば、多くの現場は運用に乗ります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-11-yoyaku-kanri-system-jisha-senyo.png" alt="空き枠の管理からデータの書き出しまで、予約管理システムに最低限必要な6つの機能を並べた図" width="1600" height="814" loading="lazy" decoding="async"><figcaption>後回しにされやすいのは最後の書き出しです。ここが無いと手作業が戻ってきます。</figcaption></figure>
+
+<ul>
+<li><strong>空き枠の管理</strong>：受けられる時間と、同時に受けられる件数を決める土台</li>
+<li><strong>予約の受付画面</strong>：お客様が自分で入力できる、スマートフォンで完結する入口</li>
+<li><strong>自動の確認連絡</strong>：予約直後の確認と、当日前の連絡を自動で送る</li>
+<li><strong>変更・キャンセルの受付</strong>：お客様側で直せるようにして、電話対応を減らす</li>
+<li><strong>管理画面の一覧</strong>：日別・担当者別に予約を見て、その場で入れ替えられる</li>
+<li><strong>データの書き出し</strong>：会計や顧客管理に渡せる形で取り出せる</li>
+</ul>
+<p>このうち後回しにされがちなのが最後の書き出しです。ここが無いと、<strong>せっかく集めた予約データが手入力で外に運ばれる</strong>ことになり、削ったはずの手作業が戻ってきます。</p>
+<h2 id="h4"><span class="h-num">04</span>作る前に決めておく4つのこと</h2>
+<p>予約管理システムで失敗するほとんどの原因は、機能ではなく前提の決め漏れです。着手前に、次の4つを社内で決めておいてください。</p>
+<ol>
+<li><strong>どの予約を対象にするか</strong>：全チャネルを一度に載せず、電話・Webなど入口を1つ選んで始めます</li>
+<li><strong>誰が枠を管理するか</strong>：空き枠を作る人と、当日の変更を判断する人を決めます</li>
+<li><strong>キャンセルと変更のルール</strong>：いつまで、何回まで、誰が対応するか。ここが曖昧だと画面が決まりません</li>
+<li><strong>予約データをどこへ渡すか</strong>：会計・顧客管理・請求のどこに繋げるかを先に決めます</li>
+</ol>
+<p>3つ目と4つ目は、業務側で決めるべきことです。ここを開発側に丸投げすると、<strong>仕様が現場の運用と食い違ったまま完成</strong>します。決められない項目があるなら、その部分は最初のバージョンから外すのが安全です。</p>
+<h2 id="h5"><span class="h-num">05</span>費用と期間の考え方</h2>
+<p>費用は「初期費用」と「その後の月額」に分けて読みます。TENERAMENTEの業務Webアプリ開発は初期費用30万円〜で、そこにヒアリングと要件整理、画面と機能の設計、開発とテスト、公開作業までが含まれます。公開後はサーバー費用と保守の月額が続きます。見積もりを比べるときは、金額の大小より<strong>どちらに何が入っているか</strong>を見てください。</p>
+<p>期間を左右するのは開発作業そのものより、受付ルールを社内で決める時間です。当社では3回のミーティングで要件を固め、最短2週間で試作（PoC）を動かす進め方をとっています。まず動くものを触ってから細部を決めたほうが、仕様書だけで詰めるより手戻りが減ります。費用の内訳は<a href="2026-06-08-webapp-kaihatsu-hiyo-souba.html">業務Webアプリ開発の費用相場</a>で詳しく整理しています。</p>
+<blockquote>
+<p>予約の仕組みは、作った日ではなく、変えたくなった日から本当の価値が出ます。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>よくある失敗</h2>
+<p>いちばん多いのは、<strong>既製サービスでできていたことを作り直そうとする</strong>ケースです。自社専用にする価値は、既製では表現できなかった受付ルールの部分にあります。同じものを作り直しても、費用がかかるだけで業務は変わりません。</p>
+<p>次に多いのが、最初から全部の予約チャネルを載せようとして、公開が遠のくパターンです。電話予約も、店頭予約も、法人からの依頼も同時に扱おうとすると、決めるべきルールが一気に増えます。<strong>入口を1つに絞って公開し、動いてから広げる</strong>ほうが確実です。</p>
+<p>もう1つは、運用する人を決めないまま作ることです。空き枠を作る人が決まっていないシステムは、公開の翌週から枠が埋まらなくなります。作る前に、日々の運用を担当する人を名前で決めておいてください。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>予約件数が少ないうちは、既製サービスのままでよいですか？</summary><div class="faq-a">件数の多さではなく、手作業が繰り返し発生しているかで判断してください。件数が少なくても、受付ルールが複雑で毎回人が割り当て直しているなら検討の対象になります。逆に件数が多くても、設定の範囲で回っているなら既製サービスのままで問題ありません。</div></details>
+
+<details class="faq"><summary>今使っている予約サービスのデータは引き継げますか？</summary><div class="faq-a">多くのサービスはCSVなどの形式で書き出せます。まず現在のサービスから何を取り出せるかを確認してください。取り出せる項目が、そのまま新しいシステムで持てる項目の出発点になります。取り出せない項目がある場合は、移行の方法を含めて設計段階で決めます。</div></details>
+
+<details class="faq"><summary>作ったあとの変更は自分たちでできますか？</summary><div class="faq-a">どこまで自社で変えられるようにするかは、設計時に決める項目です。営業時間や枠の設定など日常的に変えるものは管理画面から操作できるようにし、画面や項目そのものの変更は依頼して直す形が一般的です。何を自分たちで変えたいかを、依頼の段階で伝えておいてください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：合わない部分を人が埋め始めたら検討する</h2>
+<p>予約管理システムを自社専用で作るかどうかは、予約の件数でも既製サービスの機能の多さでもなく、<strong>自社の受付ルールを設定画面で表現しきれているか</strong>で決まります。表現できない部分を人の手で埋め始め、その作業が毎週繰り返されているなら、検討する時期です。</p>
+<p>進めると決めたら、着手前に「対象にする予約」「枠を管理する人」「変更とキャンセルのルール」「データの渡し先」の4つを決めてください。そのうえで入口を1つに絞って公開し、動かしながら広げる。この順番なら、公開が遠のかず、現場の運用ともずれません。</p>
+<p>TENERAMENTEでは、<a href="lp-ai-app.html">業務改善AIアプリ開発</a>として、予約管理のような日々の受付業務を自社の運用に合わせた形で作っています。既製サービスの設定変更で足りるのか、作るべきなのかを見極めたい段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#予約管理システム</span><span>#業務Webアプリ</span><span>#自社専用</span><span>#システム開発</span><span>#業務改善</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +304,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +332,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-14-gyomu-koritsuka-tool-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方</h4>
+      </a>
+      <a class="related-card" href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">
+        <span class="cat">Web App</span>
+        <h4>業務アプリは内製か外注か｜小さな会社の判断基準と切り替えの目安</h4>
+      </a>
+      <a class="related-card" href="2026-09-17-dx-towa-chusho-kigyo.html">
+        <span class="cat">Web App</span>
+        <h4>DXとは何か｜中小企業が最初に手をつける範囲と進める順番</h4>
+      </a>
+    </div>
   </div>
 </section>
 

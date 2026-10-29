@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,200 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-10-biyoushitsu-meo-taisaku";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる","description":"美容室・サロンのMEO対策を、新規客がGoogleマップで店を選ぶときに見ている順番から整理しました。プロフィールで先に埋める項目、メニューと料金の見せ方、写真の優先順位、口コミの扱い、月1回の確認までをまとめています。","datePublished":"2026-10-10","dateModified":"2026-10-10","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-10-biyoushitsu-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 美容室, サロン集客, Googleビジネスプロフィール, 口コミ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる","description":"美容室・サロンのMEO対策を、新規客がGoogleマップで店を選ぶときに見ている順番から整理しました。プロフィールで先に埋める項目、メニューと料金の見せ方、写真の優先順位、口コミの扱い、月1回の確認までをまとめています。","datePublished":"2026-10-10","dateModified":"2026-10-10","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-10-biyoushitsu-meo-taisaku.html","image":"https://teneramente.jp/assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 美容室, サロン集客, Googleビジネスプロフィール, 口コミ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる","item":"https://teneramente.jp/2026-10-10-biyoushitsu-meo-taisaku.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"スタッフごとにプロフィールを作ることはできますか？","acceptedAnswer":{"@type":"Answer","text":"Googleビジネスプロフィールは店舗（事業所）に対して1つ作るものなので、スタッフ単位では作れません。指名したい人がいる場合は、店のプロフィールの写真やサービス欄、投稿でスタッフを紹介する形になります。スタッフ名で検索されている場合は、自店サイトにスタッフ紹介のページを用意するほうが実効性があります。"}},{"@type":"Question","name":"予約サイトに登録していれば、MEO対策は不要ですか？","acceptedAnswer":{"@type":"Answer","text":"役割が違います。予約サイトは比較して選ぶ場で、Googleマップは「近くで探す」「店名で確かめる」場です。店名で検索された人が最初に見るのはGoogleの枠なので、ここが空欄だと、予約サイトまでたどり着く前に候補から外れます。両方を同じ内容でそろえておくのが基本です。"}},{"@type":"Question","name":"口コミが少ないうちから上位に出ることはありますか？","acceptedAnswer":{"@type":"Answer","text":"あります。地図の表示は口コミ件数だけで決まるものではなく、検索した場所からの距離、カテゴリや情報の一致、店舗情報の充実度などが関係します。件数が少ない段階では、まずプロフィールを埋め切ることが先です。件数を急いで増やそうとすると、依頼のしかたが無理になり、かえってリスクになります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 10, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">9 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-10-biyoushitsu-meo-taisaku.webp" alt="美容室・サロンのMEO対策｜Googleマップで選ばれる基準に合わせる" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>美容室のMEO対策は、新規客が選ぶ基準に合わせる</a><a href="#h2"><span class="n">02</span>プロフィールで先に埋める項目</a><a href="#h3"><span class="n">03</span>メニューと料金を、来店前に分かる形にする</a><a href="#h4"><span class="n">04</span>写真は、スタイル写真より先に店内を</a><a href="#h5"><span class="n">05</span>口コミは、件数より新しさと返信</a><a href="#h6"><span class="n">06</span>投稿とQ&amp;Aで、来店前の不安を消す</a><a href="#h7"><span class="n">07</span>月1回の確認と、動かないときの見方</a><a href="#h8"><span class="n">08</span>まとめ：順位より、来店前の疑問を先に消す</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">美容室やサロンの新規客は、ほとんどがスマートフォンで「地名＋美容室」と検索し、地図に並んだ数軒を見比べてから予約します。<strong>美容室のMEO対策で効くのは順位を上げる工作ではなく、見比べられている項目を埋めて、迷いを残さないこと</strong>です。並んだ時点では、どの店も同じ大きさで表示されます。差がつくのは中身です。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>先にやるのは<strong>「来店前に確かめられたいこと」をプロフィール上で全部答えておくこと</strong>です。メニューと料金、店内の様子、駐車場、指名の有無、口コミの新しさ。この5つが埋まっていない店は、順位が高くても予約の前で止まります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>美容室のMEO対策は、新規客が選ぶ基準に合わせる</h2>
+<p>はじめて行く美容室を選ぶとき、人が確かめているのは店の実力ではありません。確かめようがないからです。代わりに見ているのは、<strong>行ってみて失敗しないかどうかの手がかり</strong>です。</p>
+<p>具体的には、料金がいくらかかるのか、自分の髪質や希望に対応しているのか、店の雰囲気が合いそうか、駐車場や駅からの距離に無理がないか、予約が取れそうか。このあたりが並んでいます。Googleマップの画面でこれが分からないと、分かる店に移ります。</p>
+<p>ここを押さえずに「上位表示」だけを追うと、表示回数は増えても予約が増えない状態になります。<strong>MEO対策の作業量の大半は、検索のための工作ではなく、プロフィールを店の案内として完成させる作業</strong>だと考えてください。美容室は近隣に競合が密集する業種なので、同じ条件で並んだときに情報の抜けがそのまま差になります。</p>
+<h2 id="h2"><span class="h-num">02</span>プロフィールで先に埋める項目</h2>
+<p>Googleビジネスプロフィールには入力欄がたくさんありますが、美容室で先に効くものは限られています。順に埋めてください。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-10-biyoushitsu-meo-taisaku.png" alt="メインカテゴリ・サブカテゴリ・営業時間と定休日・予約リンク・属性・説明文という、美容室のGoogleビジネスプロフィールで先に埋める6項目を並べた図" width="1600" height="814" loading="lazy" decoding="async"><figcaption>どれも新規客が来店前に確かめたい項目です。空欄のまま並ぶと、分かる店に移られます。</figcaption></figure>
+
+
+<ul>
+<li><strong>メインカテゴリ</strong>：「美容院」「美容室」「理容室」「ネイルサロン」など、実際の業態に合うものを1つ。迷ったら、客が自分の店を何と呼ぶかで決めます</li>
+<li><strong>サブカテゴリ</strong>：ヘアサロン以外に扱っているもの（ヘッドスパ、まつげエクステ、着付けなど）を実際にやっている範囲で足します</li>
+<li><strong>営業時間と定休日</strong>：祝日と年末年始の特別営業時間まで入れます。ここが空欄だと「開いているか分からない店」になります</li>
+<li><strong>予約リンク</strong>：自店の予約ページか、使っている予約サービスのURLを設定します</li>
+<li><strong>属性</strong>：駐車場、個室、キャッシュレス決済、バリアフリーなど、該当するものを選びます</li>
+<li><strong>ビジネス情報の説明文</strong>：店の特徴を数行。キーワードを詰め込まず、どういう人が来ている店かが分かる文章にします</li>
+</ul>
+<p>カテゴリの選び方で迷う場合は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>に判断の手順をまとめています。店名は、店頭の看板や自店サイトで使っている正式名称のまま入れます。<strong>「◯◯市 美容室 カット」のようにキーワードを足すのはガイドライン違反</strong>で、修正や掲載停止につながります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>店名・住所・電話番号は、他の掲載先とそろえる</h4>
+    <p>美容室は予約サイトやポータルにも登録していることが多く、そこでの表記とGoogleの表記がずれていることがあります。ビル名の省略、ハイフンの種類、「店」の付け方。細かい部分ですが、情報の確かさに関わります。考え方は<a href="2026-09-28-nap-touitsu-meo.html">NAP情報の統一</a>に整理しています。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>メニューと料金を、来店前に分かる形にする</h2>
+<p>美容室で予約の前に止まる最大の理由は、料金が分からないことです。Googleビジネスプロフィールにはサービス（メニュー）を登録できるので、ここを使います。</p>
+<p>入れるのは、新規客が最初に頼む可能性の高いメニューです。カット、カラー、パーマ、トリートメント、ヘッドスパ。全メニューを網羅する必要はありません。<strong>価格帯が分かる代表的なものが数点あれば、判断の材料になります</strong>。</p>
+<p>書き方で差が出るのは、料金の前提です。カットの金額が書いてあっても、シャンプー・ブローが含まれるのか、学生料金があるのか、指名料が別途かかるのかで実際の支払いは変わります。ここを一行で添えておくと、来店後のすれ違いも減ります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>書く項目</th>
+<th>書いておく理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>メニュー名と料金</td>
+<td>価格帯が分からないと比較の土台に乗らない</td>
+</tr>
+<tr>
+<td>料金に含まれるもの</td>
+<td>シャンプー・ブロー込みかどうかで印象が変わる</td>
+</tr>
+<tr>
+<td>所要時間の目安</td>
+<td>予定を組んでから予約する人が多い</td>
+</tr>
+<tr>
+<td>指名料・初回料金の有無</td>
+<td>来店後の金額のずれを防ぐ</td>
+</tr>
+<tr>
+<td>対応していない施術</td>
+<td>無理な予約と、低評価の原因を先に減らす</td>
+</tr>
+</tbody></table></div>
+<p>最後の項目は見落としやすい部分です。縮毛矯正やブリーチを扱っていない、着付けは受けていない、といった「やっていないこと」を書いておくと、合わない予約が減ります。<strong>断ることになった予約は、店にも客にも損失</strong>です。</p>
+<h2 id="h4"><span class="h-num">04</span>写真は、スタイル写真より先に店内を</h2>
+<p>美容室の写真は作品（スタイル写真）を並べたくなりますが、<strong>新規客が先に見たいのは店そのもの</strong>です。はじめて行く店で不安なのは、仕上がりよりも場所と雰囲気だからです。</p>
+<p>優先順位は次のとおりです。</p>
+<ol>
+<li><strong>外観</strong>：建物と入口。看板が写っていて、歩いていて見つけられる状態が分かること</li>
+<li><strong>入口から店内に入ったところ</strong>：扉を開けたらどうなっているか</li>
+<li><strong>セット面</strong>：席の間隔、個室か、ついたてがあるか</li>
+<li><strong>シャンプー台・待合</strong></li>
+<li><strong>駐車場・駐輪場</strong>：入れ方が分かる角度で</li>
+<li><strong>スタッフ</strong>：顔出しが可能な範囲で</li>
+<li><strong>スタイル写真</strong>：ここで作品を</li>
+</ol>
+<p>スタイル写真は数を増やしても情報量が増えません。<strong>同じ角度の仕上がり写真を並べるより、店内の様子が一通り分かるほうが予約につながります</strong>。写真は明るい時間に撮り、加工は色味をそろえる程度にとどめます。実際と違う印象になると、来店時の落差が低評価の原因になります。</p>
+<h2 id="h5"><span class="h-num">05</span>口コミは、件数より新しさと返信</h2>
+<p>美容室は口コミが集まりやすい業種なので、件数競争になりがちです。ただ、見る側は件数だけを見ていません。<strong>いつ書かれたか、どういう内容か、店が返信しているか</strong>を見ています。</p>
+<ul>
+<li><strong>新しさ</strong>：半年前の口コミで止まっている店は、いま続いているのか分かりません。直近に数件あることが大事です</li>
+<li><strong>内容の幅</strong>：「よかった」だけの短文が並ぶより、何がよかったかが書かれているほうが参考になります</li>
+<li><strong>返信</strong>：返信があると、店が見ていることが伝わります</li>
+</ul>
+<p>依頼のしかたには線引きがあります。来店後に「よかったら感想を書いてください」と伝えるのは問題ありませんが、<strong>割引や特典と引き換えに依頼するのはガイドライン違反</strong>です。集め方の実務は<a href="2026-06-27-google-kuchikomi-fuyasu.html">Google口コミを増やす</a>にまとめています。</p>
+<p>低評価が付いたときは、消すことを考える前に返信を考えます。美容室の低評価は仕上がりへの不満だけでなく、待ち時間や会話の量といった接客面のものが多く、ここは返信の内容で印象が変わります。対応の判断基準は<a href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">低評価の口コミへの対応手順</a>が目安になります。</p>
+<blockquote>
+<p>返信は、書いた人へ向けた文章でありながら、これから来る人が読む文章でもあります。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>投稿とQ&amp;Aで、来店前の不安を消す</h2>
+<p>投稿（Googleビジネスプロフィールの更新）とQ&amp;Aは、埋めている店が少ない部分です。ここは手を付けると差が出ます。</p>
+<p>投稿に出す内容は、宣伝よりも案内が向きます。季節のメニュー、空いている曜日や時間帯、臨時休業、新しく入ったスタッフ。<strong>「今週の木曜は夕方が空いています」のような情報は、いますぐ予約したい人に直接効きます</strong>。ネタが続かない場合の考え方は<a href="2026-09-10-gbp-toukou-neta.html">Googleビジネスプロフィールの投稿ネタ</a>にまとめています。</p>
+<p>Q&amp;Aは、店側から質問と回答を登録できます。実際に電話で聞かれていることをそのまま入れてください。</p>
+<ul>
+<li>予約なしでも入れますか</li>
+<li>子ども連れでも大丈夫ですか</li>
+<li>駐車場はどこに停めればいいですか</li>
+<li>支払いにクレジットカードは使えますか</li>
+<li>髪が傷んでいるのですが相談できますか</li>
+</ul>
+<p>電話で聞かれる質問は、わざわざ聞かずに候補から外した人も同じことを気にしていると考えてよい部分です。先に答えを置いておくと、その分だけ予約の手前の離脱が減ります。</p>
+<h2 id="h7"><span class="h-num">07</span>月1回の確認と、動かないときの見方</h2>
+<p>プロフィールを埋め終わったら、月1回だけ見る日を決めます。項目を固定するのが大事です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見る項目</th>
+<th>確かめ方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>営業時間</td>
+<td>翌月の祝日・特別営業時間が入っているか</td>
+</tr>
+<tr>
+<td>未返信の口コミ</td>
+<td>返信していないものが残っていないか</td>
+</tr>
+<tr>
+<td>写真</td>
+<td>改装・模様替えのあと、古い写真が残っていないか</td>
+</tr>
+<tr>
+<td>メニューと料金</td>
+<td>改定した内容が反映されているか</td>
+</tr>
+<tr>
+<td>投稿</td>
+<td>先月、決めた回数を出せているか</td>
+</tr>
+<tr>
+<td>オーナー確認の状態</td>
+<td>担当スタッフの退職で権限が外れていないか</td>
+</tr>
+</tbody></table></div>
+<p>数字は管理画面で、表示回数・ルート検索・電話・予約リンクへの遷移を見ます。見るときの注意は、<strong>他店と大小を比べないこと</strong>です。駅前と住宅街では周辺の検索数そのものが違います。比べるのは前月の自店と、表示回数に対する行動の比率です。</p>
+<p>表示はされているのに電話や予約が少ない場合、原因は順位ではなく中身にあります。料金が分からない、写真が古い、口コミが止まっている。この記事の前半の項目に、たいてい当てはまるものがあります。順位が動かないときに確認する順番は<a href="2026-09-19-google-map-juni-sagatta.html">Googleマップの順位が急に下がった原因と確認手順</a>が土台になります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>効果は数週間では判断しない</h4>
+    <p>プロフィールを整えてから数字が動くまでには時間がかかります。1〜2週間で判断して、カテゴリや店名をいじり始めると、何が効いたのか分からなくなります。変更は一度に1か所、記録を残して、月単位で見てください。期間の目安は<a href="2026-09-22-meo-kouka-kikan.html">MEO対策の効果が出るまでの期間</a>に整理しています。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>スタッフごとにプロフィールを作ることはできますか？</summary><div class="faq-a">Googleビジネスプロフィールは店舗（事業所）に対して1つ作るものなので、スタッフ単位では作れません。指名したい人がいる場合は、店のプロフィールの写真やサービス欄、投稿でスタッフを紹介する形になります。スタッフ名で検索されている場合は、自店サイトにスタッフ紹介のページを用意するほうが実効性があります。</div></details>
+
+<details class="faq"><summary>予約サイトに登録していれば、MEO対策は不要ですか？</summary><div class="faq-a">役割が違います。予約サイトは比較して選ぶ場で、Googleマップは「近くで探す」「店名で確かめる」場です。店名で検索された人が最初に見るのはGoogleの枠なので、ここが空欄だと、予約サイトまでたどり着く前に候補から外れます。両方を同じ内容でそろえておくのが基本です。</div></details>
+
+<details class="faq"><summary>口コミが少ないうちから上位に出ることはありますか？</summary><div class="faq-a">あります。地図の表示は口コミ件数だけで決まるものではなく、検索した場所からの距離、カテゴリや情報の一致、店舗情報の充実度などが関係します。件数が少ない段階では、まずプロフィールを埋め切ることが先です。件数を急いで増やそうとすると、依頼のしかたが無理になり、かえってリスクになります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：順位より、来店前の疑問を先に消す</h2>
+<p>美容室・サロンのMEO対策は、特別な技術ではありません。新規客が来店前に確かめたいこと――料金、店の中、駐車場、口コミの新しさ――をプロフィール上で先に答えておく作業です。写真はスタイル写真より店内を先に、口コミは件数より新しさと返信を優先する。この順番だけで、並んだときの見え方が変わります。</p>
+<p>そして月1回、同じ項目で確認する。数字は他店と比べず、前月の自店と、表示から行動への比率で読む。<strong>変更は一度に1か所にして、何が効いたか分かる形で進めてください</strong>。</p>
+<p>TENERAMENTEでは、プロフィールの初期整備から月次の確認までを店舗で続けられる形に落とすところからお手伝いしています。進め方は<a href="lp-meo.html">MEO対策</a>のページにまとめていますので、どこから手を付けるか迷っている場合は<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#美容室</span><span>#サロン集客</span><span>#Googleビジネスプロフィール</span><span>#口コミ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +364,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +392,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-07-fudosan-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方</h4>
+      </a>
+      <a class="related-card" href="2026-10-13-google-map-junni-kimarikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleマップの掲載順位はどう決まる？関連性・距離・知名度の3要素</h4>
+      </a>
+      <a class="related-card" href="2026-10-04-tatenpo-meo-unyo.html">
+        <span class="cat">MEO</span>
+        <h4>多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目</h4>
+      </a>
+    </div>
   </div>
 </section>
 

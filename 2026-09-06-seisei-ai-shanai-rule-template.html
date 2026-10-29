@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,123 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-06-seisei-ai-shanai-rule-template";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"生成AIの社内ルールをテンプレートで作る｜最低限決める10項目","description":"生成AIの社内ルールは、長い規程を作るより「入力してよい情報の線引き」「使ってよいツール」「出力物の確認責任」を1枚に収めたほうが守られます。テンプレートに載せる10項目と、それぞれの決め方を具体例つきで整理しました。","datePublished":"2026-09-06","dateModified":"2026-09-06","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-06-seisei-ai-shanai-rule-template.html","image":"https://teneramente.jp/assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"生成AI, 社内ルール, ガイドライン, AI導入, 中小企業"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"生成AIの社内ルールをテンプレートで作る｜最低限決める10項目","description":"生成AIの社内ルールは、長い規程を作るより「入力してよい情報の線引き」「使ってよいツール」「出力物の確認責任」を1枚に収めたほうが守られます。テンプレートに載せる10項目と、それぞれの決め方を具体例つきで整理しました。","datePublished":"2026-09-06","dateModified":"2026-09-06","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-06-seisei-ai-shanai-rule-template.html","image":"https://teneramente.jp/assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"生成AI, 社内ルール, ガイドライン, AI導入, 中小企業"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"生成AIの社内ルールをテンプレートで作る｜最低限決める10項目","item":"https://teneramente.jp/2026-09-06-seisei-ai-shanai-rule-template.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ルールは何ページくらいが適切ですか？","acceptedAnswer":{"@type":"Answer","text":"現場に配る運用ルールは1〜2ページを目安にしてください。詳しい解説が要るなら、別紙のQ&Aや研修資料に分けます。本体が長いほど読まれず、読まれないルールは守られません。"}},{"@type":"Question","name":"まず何から着手すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"「入力してよい情報の3段階」からです。ここが決まるとツール選定も確認責任も自然に決まります。逆にここが空白だと、他をいくら書いても現場は判断できません。"}},{"@type":"Question","name":"個人アカウントでの業務利用は禁止すべきですか？","acceptedAnswer":{"@type":"Answer","text":"一律の正解はありません。認める場合は、ログと権限を会社側で管理できない前提を理解したうえで、入力してよい情報の範囲を会社アカウントより狭く定めるのが現実的です。理由を一行添えておくと納得が得られます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">生成AIの社内ルールをテンプレートで作る｜最低限決める10項目</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 6, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-06-seisei-ai-shanai-rule-template.webp" alt="生成AIの社内ルールをテンプレートで作る｜最低限決める10項目" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>生成AIの社内ルールは「禁止」ではなく「線引き」から書く</a><a href="#h2"><span class="n">02</span>社内ルールに載せる10項目</a><a href="#h3"><span class="n">03</span>入力してよい情報の線引きをどう決めるか</a><a href="#h4"><span class="n">04</span>出力物の確認責任を明記する</a><a href="#h5"><span class="n">05</span>テンプレートの構成例：1枚に収める並び順</a><a href="#h6"><span class="n">06</span>配って終わりにしないための3つの仕掛け</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：ルールは「使ってよい範囲」を書いた分だけ機能する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">生成AIの社内ルールは、分厚い規程にするほど読まれなくなります。実際に守られるのは、<strong>入力してよい情報の線引き・使ってよいツール・出力物の確認責任</strong>の3点が1枚に収まっているルールです。この記事では、テンプレートに載せる10項目と、それぞれを自社でどう決めるかを整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>生成AIの社内ルールで先に決めるべきは禁止事項ではなく、<strong>「何を入力してよいか」の線引き</strong>です。ここが空白のままだと、現場は使ってよいのか分からず手が止まります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>生成AIの社内ルールは「禁止」ではなく「線引き」から書く</h2>
+<p>生成AIの社内ルールを作るとき、最初に書きたくなるのは禁止事項です。しかし禁止だけを並べたルールは、現場から見ると「結局どこまでなら使えるのか」が分からない文書になります。判断できない業務は、安全側に倒れて使われません。</p>
+<p>実務で起きるのは「使いすぎ」より**「怖くて使わない」**のほうです。顧客名の入ったメールを要約したい、見積の説明文を整えたい。そのたびに上司へ確認していては、AIを入れた意味がなくなります。</p>
+<p>ルールの役割は、危ない使い方を止めることと同時に、<strong>安全な使い方を許可すること</strong>にあります。「この範囲なら確認なしで使ってよい」と書いてあるルールだけが、現場の手を動かします。つまずきの典型は<a href="2026-06-14-ai-donyu-shippai-kaihi.html">中小企業のAI導入が失敗する7つのパターン</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>社内ルールに載せる10項目</h2>
+<p>1枚に収める前提で、最低限これだけは決めます。多くても2ページに収めてください。</p>
+<ol>
+<li><strong>目的と適用範囲</strong>：誰に適用されるか（正社員・パート・業務委託・派遣）</li>
+<li><strong>使ってよいツールと契約形態</strong>：無償版か法人プランか、個人アカウントの可否</li>
+<li><strong>入力してよい情報の線引き</strong>：そのまま可・加工すれば可・不可の3段階</li>
+<li><strong>入力してはいけない情報</strong>：個人情報、取引先の秘密情報、未公開の経営情報</li>
+<li><strong>出力物の確認責任</strong>：誰が確認し、誰の名前で外に出るか</li>
+<li><strong>外部に出すときの扱い</strong>：顧客提出物、公開文書、契約書の下書き</li>
+<li><strong>著作権・第三者の権利</strong>：画像生成、他社の文章の投入、社外資料の扱い</li>
+<li><strong>記録の残し方</strong>：どの業務でどう使ったかを残すか、残さないか</li>
+<li><strong>相談窓口</strong>：迷ったとき誰に聞くか、判断が付かないときの扱い</li>
+<li><strong>見直しの頻度</strong>：いつ誰が更新するか（ツールの仕様は変わります）</li>
+</ol>
+<p>このうち、<strong>多くの会社で抜けるのは5・8・9</strong>です。使ってよい範囲は書いてあるのに、出した結果の責任と、迷ったときの相談先がない。結果として、判断がその場の空気で決まってしまいます。</p>
+<h2 id="h3"><span class="h-num">03</span>入力してよい情報の線引きをどう決めるか</h2>
+<p>線引きを「機密／非機密」の2択にすると、ほとんどの業務が判断できません。実務では3段階に分けると当てはめやすくなります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-06-seisei-ai-shanai-rule-template.png" alt="そのまま入力してよい情報・加工すれば使える情報・入力しない情報を並べた図" width="1600" height="723" loading="lazy" decoding="async"><figcaption>2択にすると判断できない業務が残ります。真ん中の段階があると現場が動けます。</figcaption></figure>
+
+<p>判断の基準はシンプルです。<strong>その内容がそのまま社外の第三者に見られたときに困るかどうか</strong>。困るなら、伏せるか、入れないかのどちらかになります。氏名や連絡先を伏せれば済む情報は、多くが真ん中の段階に入ります。</p>
+<ul>
+<li><strong>そのまま入力してよい</strong>：公開済みの自社サイトやカタログの文章、一般的な調査や下調べ、社外に出しても困らない資料のたたき台、プログラムの一般的な書き方の相談</li>
+<li><strong>加工すれば使える</strong>：顧客とのやり取りの要約（氏名・連絡先・住所を伏せる）、社内資料の文章整え（数値と固有名詞を伏せる）、議事録の整形（参加者名を記号に置き換える）</li>
+<li><strong>入力しない</strong>：個人情報そのもの、取引先の秘密情報、未公開の経営情報、パスワードや認証情報、秘密保持契約の対象となる資料</li>
+</ul>
+<h3>ツールと契約形態もここで決める</h3>
+<p>契約形態によって扱いは変わります。法人向けプランやAPI利用では入力内容を学習に使わない設定が一般的ですが、条件は提供元と契約ごとに異なります。<strong>「自社が契約しているプランではどうか」を必ず確認</strong>し、その前提をルールに書いてください。無償版と法人プランを同じ文で扱うと、後で必ず食い違います。</p>
+<p>使ってよいツールは一覧で明示し、一覧にないものは窓口に相談する形にすれば、ルールを作り直さずに増やせます。見落としやすいのは、文章校正や要約など「生成AI」と名乗らないサービスです。見出しを**「外部サービスに社内の文章を入力するとき」**にしておくと、この漏れを防げます。</p>
+<h2 id="h4"><span class="h-num">04</span>出力物の確認責任を明記する</h2>
+<p>生成AIの出力は、事実と異なる内容がそれらしい形で出ることがあります。書くべきは「気をつける」ではなく、<strong>誰が確認して、誰の責任で外に出るか</strong>です。</p>
+<ul>
+<li><strong>確認者</strong>：作成した本人が確認する。上長の承認が要る文書は、AI利用の有無にかかわらず従来どおり</li>
+<li><strong>責任の所在</strong>：AIが書いたかどうかにかかわらず、社名で出す文書の責任は自社にある</li>
+<li><strong>数字と固有名詞</strong>：出力に含まれる数値・日付・社名・法令名は、必ず一次情報で確かめる</li>
+<li><strong>そのまま出さない範囲</strong>：契約書、見積、顧客への回答は下書きまでとし、必ず人が仕上げる</li>
+</ul>
+<p>一文で済ませたい場合は、「<strong>AIの出力は下書きであり、確認して出した人の成果物とする</strong>」と書けば足ります。短くても、責任の所在が動かないことが伝わります。</p>
+<h2 id="h5"><span class="h-num">05</span>テンプレートの構成例：1枚に収める並び順</h2>
+<p>現場が最も見たい項目が先に来る並びにします。</p>
+<ul>
+<li>冒頭3行：目的（使ってよい、ただし条件がある）／適用範囲／相談窓口</li>
+<li>表1：使ってよいツールと、認められるアカウント・プラン</li>
+<li>表2：入力してよい情報の3段階</li>
+<li>箇条書き：出力物の確認責任と、外部に出すときの扱い</li>
+<li>箇条書き：著作権と第三者の権利で気をつけること</li>
+<li>末尾2行：迷ったときの連絡先／更新日と次回見直し時期</li>
+</ul>
+<p><strong>規程の体裁を整えることより、1枚で判断できることを優先</strong>してください。就業規則との整合が必要な場合も、まず運用ルールを配り、条文への反映は後から行うほうが現場は動きます。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意：他社のひな形をそのまま配らない</h4>
+    <p>公開されているひな形は出発点としては有用ですが、扱う情報も契約プランも会社ごとに違います。最低でも「使ってよいツール」「入力の線引き」「相談窓口」の3か所は、自社の実態に書き換えてから配ってください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>配って終わりにしないための3つの仕掛け</h2>
+<p>ルールは配布した時点では運用されていません。定着には次の3つを同時に用意します。</p>
+<p><strong>具体例を10個添える</strong> — 「この文章はそのまま入れてよい」「これは伏せてから」を自社の実際の業務で示します。抽象的な基準より例のほうが速く伝わります。用途の例は<a href="2026-06-20-chatgpt-gyomu-katsuyo.html">中小企業のChatGPT業務活用ガイド</a>にあります。</p>
+<p><strong>研修とセットにする</strong> — ルールだけを配ると、読む人と読まない人に分かれます。実際に触りながら線引きを説明すると、質問がその場で出ます。設計は<a href="2026-09-04-hojin-ai-kenshu-erabikata.html">法人向けAI研修の選び方</a>を参考にしてください。</p>
+<p><strong>見直し日を先に決める</strong> — ツールの仕様も契約条件も変わります。「次回見直し：◯月」と末尾に書いておくだけで、形骸化を避けられます。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>ルールは何ページくらいが適切ですか？</summary><div class="faq-a">現場に配る運用ルールは1〜2ページを目安にしてください。詳しい解説が要るなら、別紙のQ&Aや研修資料に分けます。本体が長いほど読まれず、読まれないルールは守られません。</div></details>
+<details class="faq"><summary>まず何から着手すればよいですか？</summary><div class="faq-a">「入力してよい情報の3段階」からです。ここが決まるとツール選定も確認責任も自然に決まります。逆にここが空白だと、他をいくら書いても現場は判断できません。</div></details>
+<details class="faq"><summary>個人アカウントでの業務利用は禁止すべきですか？</summary><div class="faq-a">一律の正解はありません。認める場合は、ログと権限を会社側で管理できない前提を理解したうえで、入力してよい情報の範囲を会社アカウントより狭く定めるのが現実的です。理由を一行添えておくと納得が得られます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：ルールは「使ってよい範囲」を書いた分だけ機能する</h2>
+<p>生成AIの社内ルールは、禁止事項を増やすほど安全になるものではありません。入力してよい情報を3段階で線引きし、使ってよいツールを一覧にし、出力物の確認責任を一文で決める。この3つが1枚に収まっていれば、現場は迷わず判断できます。残りの項目は、運用しながら足していけば十分です。<strong>ルールは、使ってよい範囲を書いた分だけ機能します。</strong></p>
+<p>TENERAMENTEは名古屋のAI開発企業です。<a href="lp-ai.html">AI活用支援</a>では、用途の棚卸しとツール選定に加えて、入力してよい情報の線引きを含む利用ルールの文書化、そのルールを現場に渡す研修までを一続きで支援しています。初回相談は60分無料です。自社のひな形を持ち込んで一緒に手直しするところからでも構いませんので、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#生成AI</span><span>#社内ルール</span><span>#ガイドライン</span><span>#AI導入</span><span>#中小企業</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +287,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +315,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-gyomu-kaizen-ai-tsukaikata.html">
+        <span class="cat">AI</span>
+        <h4>業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方</h4>
+      </a>
+      <a class="related-card" href="2026-09-04-hojin-ai-kenshu-erabikata.html">
+        <span class="cat">AI</span>
+        <h4>法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計</h4>
+      </a>
+      <a class="related-card" href="2026-10-23-ai-gijiroku-jidoka.html">
+        <span class="cat">AI</span>
+        <h4>AIで議事録を自動化する方法｜録音から要約・共有までの流れ</h4>
+      </a>
+    </div>
   </div>
 </section>
 

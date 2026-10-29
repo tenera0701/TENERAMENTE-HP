@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,130 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-10-gbp-toukou-neta";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方","description":"Googleビジネスプロフィールの投稿ネタが思いつかないのは、ネタ切れではなく探し方が決まっていないからです。投稿の4つの種類、業種別のネタ元の決め方、続けられる頻度への落とし方を整理しました。","datePublished":"2026-09-10","dateModified":"2026-09-10","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-10-gbp-toukou-neta.html","image":"https://teneramente.jp/assets/img/covers/2026-09-10-gbp-toukou-neta.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleビジネスプロフィール, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方","description":"Googleビジネスプロフィールの投稿ネタが思いつかないのは、ネタ切れではなく探し方が決まっていないからです。投稿の4つの種類、業種別のネタ元の決め方、続けられる頻度への落とし方を整理しました。","datePublished":"2026-09-10","dateModified":"2026-09-10","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-10-gbp-toukou-neta.html","image":"https://teneramente.jp/assets/img/covers/2026-09-10-gbp-toukou-neta.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, GBP, Googleビジネスプロフィール, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方","item":"https://teneramente.jp/2026-09-10-gbp-toukou-neta.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"投稿は毎日したほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"毎日出せるなら止める理由はありませんが、無理のある頻度を設定して途中で止まるより、続けられる回数に落としたほうが結果的に投稿数は増えます。まず週1回で3か月続けてみて、余裕があれば増やす順番をおすすめします。"}},{"@type":"Question","name":"投稿の文章はどれくらいの長さが適切ですか？","acceptedAnswer":{"@type":"Answer","text":"スマートフォンで読まれることが多いため、冒頭の1〜2文で内容が分かる書き方にしてください。長い文章が悪いわけではありませんが、途中までしか表示されない場合があるので、大事なことを先に書きます。"}},{"@type":"Question","name":"投稿にリンクやボタンは付けたほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"次にとってほしい行動が決まっているなら付けてください。予約ページや商品ページなど、投稿の内容と行き先が一致していることが条件です。内容と関係のないトップページへ送るだけなら、無理に付ける必要はありません。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 10, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-10-gbp-toukou-neta.webp" alt="Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>投稿ネタが尽きるのは、ネタ切れではなく「探し方」の問題</a><a href="#h2"><span class="n">02</span>Googleビジネスプロフィールの投稿は4種類ある</a><a href="#h3"><span class="n">03</span>業種別に「ネタ元」を決める</a><a href="#h4"><span class="n">04</span>頻度は「週1回を続けられるか」で決める</a><a href="#h5"><span class="n">05</span>投稿は3つの部品で組み立てる</a><a href="#h6"><span class="n">06</span>投稿でよくある失敗</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：ネタは探さず、貯めておく</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Googleビジネスプロフィールの投稿ネタが思いつかない、という相談をよくいただきます。先に結論をお伝えすると、多くの場合はネタが無いのではなく、<strong>日々の業務の中にあるネタを投稿の形に置き換える手順が決まっていない</strong>だけです。この記事では、投稿の4つの種類、業種別のネタ元の決め方、続けられる頻度への落とし方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>投稿ネタは思いつくものではなく、<strong>日常業務から自動的に出てくる形にしておくもの</strong>です。投稿の種類を分け、業種ごとのネタ元を決め、無理のない頻度に落とす。この3つが決まると、毎回ゼロから考える必要がなくなります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>投稿ネタが尽きるのは、ネタ切れではなく「探し方」の問題</h2>
+<p>「投稿するネタが無い」と感じているとき、実際に起きているのは、投稿画面を開いた時点でゼロから考え始めているという状態です。何もない場所から「お客様に役立つ話」をひねり出そうとすれば、続かないのは当然です。</p>
+<p>一方で、その日その週にお店で起きたことは必ずあります。入荷した、施工が終わった、営業時間を変えた、よくある質問に答えた。<strong>投稿ネタは新しく作るものではなく、すでに起きたことを言い換えるもの</strong>だと考えると、負担がぐっと下がります。</p>
+<p>もう一つの原因は、投稿を「宣伝」だと捉えていることです。宣伝だと思うと、伝えるに値する大きな出来事を待つことになり、書く機会が月に一度も来ません。地図検索から来る人が知りたいのは、今日そこが開いているか、何を扱っているか、どんな雰囲気かという程度の情報です。等身大の内容で構いません。</p>
+<h2 id="h2"><span class="h-num">02</span>Googleビジネスプロフィールの投稿は4種類ある</h2>
+<p>投稿画面には種類が用意されており、それぞれ入力する項目が違います。ここを分けておくと、ネタを振り分けやすくなります。</p>
+<ul>
+<li><strong>最新情報</strong>：日常の出来事や案内。いちばん使う形です</li>
+<li><strong>イベント</strong>：開始日と終了日を設定する形。期間のある催しに向いています</li>
+<li><strong>特典</strong>：有効期限やクーポンコードを設定できる形。キャンペーンの告知に向いています</li>
+<li><strong>商品</strong>：取扱商品を1つずつ登録していく形。一覧として残ります</li>
+</ul>
+<p>最新情報とイベント・特典は流れていく性質のもの、商品は積み上がる性質のものです。<strong>流れる投稿と、残る情報を分けて考える</strong>と、何を書くべきか迷いにくくなります。基本情報や写真も含めた毎月の点検項目は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィール 月次運用チェックリスト</a>にまとめています。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>まず商品を埋める</h4>
+    <p>投稿が続かない状態でも、商品の登録は一度やれば残ります。取扱メニューやサービスを先に登録しておくと、投稿が止まった週があっても、プロフィールの情報量が薄くなりません。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>業種別に「ネタ元」を決める</h2>
+<p>ネタを毎回探さずに済ませる方法は、業種ごとに「ここを見れば投稿になる」という場所を決めてしまうことです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-10-gbp-toukou-neta.png" alt="飲食店から教室まで、業種別に投稿ネタの出どころとなる業務を並べた図" width="1600" height="814" loading="lazy" decoding="async"><figcaption>投稿のために何かを始めるのではなく、すでに続いている業務に紐づけます。</figcaption></figure>
+
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>捏造しない</h4>
+    <p>実績や数字を投稿に書くときは、実際に起きたことだけにしてください。誇張した表現は、来店した人との印象のずれを生みます。</p>
+  </div>
+</div>
+
+<p>大切なのは、ネタ元を<strong>業務の流れの中に置く</strong>ことです。「投稿のために何かする」ではなく、「いつもやっていることを、そのまま書く」形にします。施工写真を撮るのが習慣なら撮った日が投稿日、入荷の記録をつけているならその記録が下書きです。</p>
+<p>逆に、投稿のためだけに新しい取り組みを始めると、その取り組みごと止まったときに投稿も止まります。すでに続いている業務に紐づけてください。</p>
+<h2 id="h4"><span class="h-num">04</span>頻度は「週1回を続けられるか」で決める</h2>
+<p>投稿の頻度に正解はありませんが、決め方には基準があります。<strong>担当者が繁忙期でも続けられる回数</strong>に設定することです。</p>
+<p>週1回で決めたなら、書く曜日と時間も一緒に決めます。「水曜の朝、開店前の10分」まで決まっていると、投稿は業務になります。曜日を決めずに「週1回」とだけ決めた運用は、たいてい2か月ほどで止まります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>止まったときの戻し方</h4>
+    <p>数週間空いてしまっても、遡って埋める必要はありません。次の投稿日から再開すれば十分です。空白を埋めようとして一度に何本も投稿すると、その反動でまた止まります。</p>
+  </div>
+</div>
+
+<p>新しい投稿ほど目立つ場所に出て、時間が経った投稿は奥に送られていきます。つまり、まとめて10本書いた週より、毎週1本ずつ出ている状態のほうが、見てもらえる機会は長く続きます。<strong>量より、途切れないこと</strong>を優先してください。</p>
+<h2 id="h5"><span class="h-num">05</span>投稿は3つの部品で組み立てる</h2>
+<p>書く時間を短くするには、文章の型を決めておきます。次の3つだけで成立します。</p>
+<ol>
+<li><strong>何が起きたか（1〜2文）</strong>：入荷した、施工が終わった、時間を変えた、質問をもらった</li>
+<li><strong>読む人にとっての意味（1〜2文）</strong>：それで何が良いのか、誰に向いているのか</li>
+<li><strong>次にとってほしい行動（1文）</strong>：来店、電話、詳細を見る。ボタンを付ける場合はここに合わせる</li>
+</ol>
+<p>写真は、可能なら実際に撮ったものを1枚添えます。素材集の画像より、店内や現物の写真のほうが、地図検索から来た人の判断材料になります。</p>
+<p>3つの部品に分けておくと、書き出しで止まらなくなります。慣れてきたら1と3だけの短い投稿でも構いません。<strong>完成度を上げるより、頻度を保つほうが効きます</strong>。</p>
+<h2 id="h6"><span class="h-num">06</span>投稿でよくある失敗</h2>
+<p>相談を受ける中で繰り返し見かける形を挙げます。</p>
+<ul>
+<li><strong>キャンペーンの告知しか投稿していない</strong>：宣伝だけが並ぶと、読む理由がなくなります。日常の情報を混ぜてください</li>
+<li><strong>期限のある情報を放置している</strong>：終わったイベントや特典が残っていると、来店した人との認識がずれます</li>
+<li><strong>他店の投稿をそのまま真似ている</strong>：業種が同じでも、扱う商品と客層が違えば刺さる内容も変わります</li>
+<li><strong>担当者が1人で、引き継ぎがない</strong>：その人が休むと止まります。書く場所と手順を共有しておきます</li>
+<li><strong>投稿だけをやっている</strong>：投稿は運用の一部です。基本情報や口コミへの対応と合わせて初めて効いてきます</li>
+</ul>
+<p>自社で一通り回す場合の全体像は<a href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">MEO対策を自分でやる方法</a>に手順としてまとめてあります。</p>
+<blockquote>
+<p>投稿が続いている店は、ネタが豊富なのではなく、書く日が決まっているだけです。</p>
+</blockquote>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>投稿は毎日したほうがいいですか？</summary><div class="faq-a">毎日出せるなら止める理由はありませんが、無理のある頻度を設定して途中で止まるより、続けられる回数に落としたほうが結果的に投稿数は増えます。まず週1回で3か月続けてみて、余裕があれば増やす順番をおすすめします。</div></details>
+
+<details class="faq"><summary>投稿の文章はどれくらいの長さが適切ですか？</summary><div class="faq-a">スマートフォンで読まれることが多いため、冒頭の1〜2文で内容が分かる書き方にしてください。長い文章が悪いわけではありませんが、途中までしか表示されない場合があるので、大事なことを先に書きます。</div></details>
+
+<details class="faq"><summary>投稿にリンクやボタンは付けたほうがいいですか？</summary><div class="faq-a">次にとってほしい行動が決まっているなら付けてください。予約ページや商品ページなど、投稿の内容と行き先が一致していることが条件です。内容と関係のないトップページへ送るだけなら、無理に付ける必要はありません。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：ネタは探さず、貯めておく</h2>
+<p>Googleビジネスプロフィールの投稿ネタが尽きるのは、書く直前に考え始めているからです。投稿の種類を分け、業種ごとのネタ元を業務の流れの中に決め、続けられる頻度と曜日を固定する。この3つが決まれば、毎回考える工程そのものが無くなります。</p>
+<p>今日から着手できるのは、商品の登録と、ネタ元を1つ決めることです。どちらも費用はかかりません。そのうえで、来週の同じ曜日に1本目を投稿してみてください。</p>
+<p>TENERAMENTEでは、<a href="lp-meo.html">MEO対策</a>を、投稿や写真の運用を自社で続けられる形まで含めてご一緒しています。何を投稿すべきか、どこまで自社でやり、どこから任せるかを一緒に整理したい段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#GBP</span><span>#Googleビジネスプロフィール</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +294,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +322,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方</h4>
+      </a>
+      <a class="related-card" href="2026-09-12-kuchikomi-henshin-reibun.html">
+        <span class="cat">MEO</span>
+        <h4>Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方</h4>
+      </a>
+      <a class="related-card" href="2026-09-13-chatgpt-kensaku-jisha-hyoji.html">
+        <span class="cat">AIO</span>
+        <h4>ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順</h4>
+      </a>
+    </div>
   </div>
 </section>
 

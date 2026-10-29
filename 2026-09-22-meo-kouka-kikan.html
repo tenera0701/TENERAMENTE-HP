@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,151 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-22-meo-kouka-kikan";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"MEO対策の効果が出るまでの期間と、途中でやめないための見方","description":"MEO対策の効果が出るまでの期間は、店舗の状況と競合の数で変わります。何週間で順位が動くかではなく、先に動く数字から順に確認する見方と、続けるか見直すかの判断基準を整理しました。","datePublished":"2026-09-22","dateModified":"2026-09-22","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-22-meo-kouka-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-22-meo-kouka-kikan.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, ローカル検索, 効果測定, 店舗集客"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"MEO対策の効果が出るまでの期間と、途中でやめないための見方","description":"MEO対策の効果が出るまでの期間は、店舗の状況と競合の数で変わります。何週間で順位が動くかではなく、先に動く数字から順に確認する見方と、続けるか見直すかの判断基準を整理しました。","datePublished":"2026-09-22","dateModified":"2026-09-22","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-22-meo-kouka-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-09-22-meo-kouka-kikan.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, Googleビジネスプロフィール, ローカル検索, 効果測定, 店舗集客"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"MEO対策の効果が出るまでの期間と、途中でやめないための見方","item":"https://teneramente.jp/2026-09-22-meo-kouka-kikan.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MEO対策を始めて最初に確認すべき数字はどれですか？","acceptedAnswer":{"@type":"Answer","text":"Googleビジネスプロフィールのパフォーマンスにある「表示回数」と「検索に使われた語句」です。順位より先に動き、狙った語で表示され始めているかが分かります。着手した日の値を控えておき、月に一度同じ項目を比べてください。"}},{"@type":"Question","name":"順位が上がらないまま数か月続けても意味はありますか？","acceptedAnswer":{"@type":"Answer","text":"表示回数や検索語句に変化が出ているなら、続ける価値があります。それらも完全に止まっている場合は、期間の問題ではなく、プロフィールの内容か狙う検索語を見直す段階です。どちらかを確認してから判断してください。"}},{"@type":"Question","name":"自分で検索して順位を確認する方法ではだめですか？","acceptedAnswer":{"@type":"Answer","text":"目安にはなりますが、検索した場所やログイン状態で結果が変わるため、それだけで判断しないでください。店舗から離れた場所でも確認する、複数の端末で見る、といった工夫は有効ですが、最終的にはプロフィールに記録される数字と合わせて読むのが確実です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">MEO対策の効果が出るまでの期間と、途中でやめないための見方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 22, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">7 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-22-meo-kouka-kikan.webp" alt="MEO対策の効果が出るまでの期間と、途中でやめないための見方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>MEO対策の効果が出るまでの期間が、一律に答えられない理由</a><a href="#h2"><span class="n">02</span>順位より先に動く数字がある</a><a href="#h3"><span class="n">03</span>進み方は、おおまかに3つの段階に分かれる</a><a href="#h4"><span class="n">04</span>期間を左右する4つの条件</a><a href="#h5"><span class="n">05</span>途中でやめてしまう人が見ている数字</a><a href="#h6"><span class="n">06</span>「効果が無い」のか「見方が違う」のかを切り分ける</a><a href="#h7"><span class="n">07</span>見直しのタイミングと、手を止めないほうがいい作業</a><a href="#h8"><span class="n">08</span>まとめ：期間ではなく、動いている数字で判断する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">情報を整え、写真を足し、投稿も始めた。それでも順位が動かず、これを続けていいのか分からなくなる。MEO対策でいちばん多い相談がこれです。<strong>効果が出るまでの期間は一律には決まりませんが、何がどの順番で動くかは決まっています</strong>。その順番を知っていれば、途中でやめる判断を誤らずに済みます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>MEO対策の効果は、順位より先に「表示回数」「ルート検索」「通話」といった数字に現れます。見るべきは着手からの経過日数ではなく、<strong>先に動く数字が動いているかどうか</strong>です。ここが止まっているなら期間の問題ではありません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>MEO対策の効果が出るまでの期間が、一律に答えられない理由</h2>
+<p>「MEOはいつから効果が出ますか」という質問に、正直に答えるなら「店舗によって違います」になります。これは逃げの回答ではなく、順位を決める要素が店舗ごとに違うためです。</p>
+<p>Googleマップの表示順に影響するのは、検索した人との距離、検索語との関連性、そして店舗情報の充実度や知名度です。このうち距離は動かせません。同じ作業をしても、競合が3軒のエリアと数十軒あるエリアでは、動き方がまったく違います。</p>
+<p>さらに、情報を更新してもすぐには反映されません。<strong>営業時間やカテゴリの変更は審査を経てから公開される</strong>ため、編集した当日に結果を見ても何も分かりません。数日単位のずれがあることを前提に見てください。</p>
+<p>MEO対策そのものの全体像は<a href="2026-07-02-meo-taisaku-complete-guide.html">MEO対策の完全ガイド</a>にまとめています。この記事では、着手した後の「見方」に絞って書きます。</p>
+<h2 id="h2"><span class="h-num">02</span>順位より先に動く数字がある</h2>
+<p>効果を順位だけで測ろうとすると、動いていないように見えます。実際には、順位が変わる前に別の数字が先に動きます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-22-meo-kouka-kikan.png" alt="情報の反映・表示回数・プロフィールの閲覧・ルート検索や通話・来店や問い合わせへと順に動く流れの図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>後ろの数字ほど、動くまでに時間がかかります。前が止まっているなら期間ではなく中身の問題です。</figcaption></figure>
+
+<p>Googleビジネスプロフィールの「パフォーマンス」では、プロフィールが表示された回数、検索に使われた語句、ルート検索、通話、ウェブサイトのクリックを確認できます。順位は日によっても検索する場所によっても変わりますが、これらの数字は積み上がるので、傾向として読めます。</p>
+<p>見る順番は、表示回数 → プロフィールの閲覧 → ルート検索や通話 → 来店・問い合わせです。<strong>前の数字が動いていないのに、後ろの数字だけが動くことはありません</strong>。どこで止まっているかが分かれば、次に手を入れる場所も決まります。</p>
+<h2 id="h3"><span class="h-num">03</span>進み方は、おおまかに3つの段階に分かれる</h2>
+<p>期間を日数で区切るより、段階で捉えるほうが実態に合います。</p>
+<p><strong>第1段階は、土台を整える時期</strong>です。カテゴリ、営業時間、電話番号、サービス内容、写真を埋めていきます。ここでは順位はほとんど動きませんが、表示される検索語句が増え始めることがあります。埋めるべき欄が残っているうちは、次の段階に進んでも効果は見えません。</p>
+<p><strong>第2段階は、反応が出始める時期</strong>です。表示回数やルート検索が、以前より上振れする日が出てきます。まだ安定しませんが、特定の検索語句で表示されるようになったなら、方向は合っています。</p>
+<p><strong>第3段階は、順位として定着する時期</strong>です。狙っていた検索語で継続的に上位に並び、来店や電話の件数が変わってきます。ここまで来ると、日々の更新は維持のための作業に変わります。</p>
+<p>競合の多いエリアや、始めたばかりのプロフィールほど、第2段階に入るまでが長くなります。逆に、情報が空欄だらけだった店舗は、埋めるだけで第2段階に入ることがあります。</p>
+<h2 id="h4"><span class="h-num">04</span>期間を左右する4つの条件</h2>
+<p>同じ手間をかけても差が出るのは、次の条件が違うためです。自店がどちらに近いかを確認してください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>早く動きやすい店舗</th>
+<th>時間がかかる店舗</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>プロフィールの状態</td>
+<td>空欄が多く、埋める余地が大きい</td>
+<td>すでに一通り埋まっている</td>
+</tr>
+<tr>
+<td>競合の数</td>
+<td>同業が少ない、または情報が古い</td>
+<td>同業が多く、各店が更新している</td>
+</tr>
+<tr>
+<td>口コミの蓄積</td>
+<td>継続的に増えている</td>
+<td>ほとんど付いていない、または止まっている</td>
+</tr>
+<tr>
+<td>検索語の広さ</td>
+<td>地域名＋業種など具体的な語</td>
+<td>業種名だけの広い語</td>
+</tr>
+</tbody></table></div>
+<p>この表で右側が多いなら、期間は長くなります。それは失敗ではなく、条件の問題です。<strong>狙う検索語を具体的なものに変えるだけで、見える景色が変わる</strong>ことは珍しくありません。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>最初の記録を残しておく</h4>
+    <p>着手した日に、表示回数・ルート検索・通話・口コミ件数を書き留めてください。比較対象がないと、後から「増えた気がする」で終わってしまいます。月に一度、同じ項目を同じ場所に記録するだけで十分です。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>途中でやめてしまう人が見ている数字</h2>
+<p>続かなくなる理由は、だいたい見ている数字が順位だけ、というところにあります。</p>
+<p>自分のスマートフォンで店名や業種を検索し、何番目に出るかを確かめる。これはいちばん手軽な確認方法ですが、<strong>検索した場所、ログイン状態、検索履歴によって結果が変わります</strong>。店舗の前で検索すれば上に出ますし、自分の店を何度も見ていれば表示されやすくなることもあります。</p>
+<p>日によって順位が上下するのも通常の動きです。一度下がっただけで作業を止めてしまうと、せっかく積み上げた情報の更新が途切れ、かえって評価が落ち着かなくなります。</p>
+<blockquote>
+<p>順位は結果であって、作業の対象ではありません。手を入れられるのは、情報の正確さと、更新の頻度と、口コミへの向き合い方だけです。</p>
+</blockquote>
+<p>順位が実際に落ちたときの確認手順は<a href="2026-09-19-google-map-juni-sagatta.html">Googleマップの順位が下がったときの確認</a>で扱っています。</p>
+<h2 id="h6"><span class="h-num">06</span>「効果が無い」のか「見方が違う」のかを切り分ける</h2>
+<p>続けるか見直すかを決める前に、次の3点を確認してください。ここを飛ばして判断すると、うまくいっていた施策まで止めることになります。</p>
+<ol>
+<li><strong>表示された検索語句を見る</strong>。狙っていた語で表示されているか。想定と違う語ばかりなら、狙う語かプロフィールの書き方を変えます</li>
+<li><strong>表示回数と行動の比率を見る</strong>。表示は増えているのにルート検索や通話が増えないなら、順位ではなく写真・口コミ・営業時間など「見た後の判断材料」の問題です</li>
+<li><strong>競合のプロフィールを見る</strong>。上位の店舗が写真も口コミも更新し続けているなら、期間ではなく作業量の差です</li>
+</ol>
+<p>3つとも問題が無いのに数字が動かない場合は、検索する人の総数がそもそも少ない語を狙っている可能性があります。その場合は、対象の語を広げるか、別の集客経路と組み合わせる判断になります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>短期間での順位保証には注意</h4>
+    <p>「◯日で1位」といった保証は、順位が検索する場所や状況で変わる以上、成立しにくいものです。契約を検討する際は、何を作業として行うのかと、報告される数字が何かを先に確認してください。</p>
+  </div>
+</div>
+
+<h2 id="h7"><span class="h-num">07</span>見直しのタイミングと、手を止めないほうがいい作業</h2>
+<p>見直しは、感覚ではなく周期で行います。月に一度、記録した数字を並べて、前の月と比べる。これを繰り返し、数か月ぶんが並んだ時点で、狙う検索語や写真の方針を変えるかを判断します。週ごとに方針を変えると、何が効いたのか分からなくなります。</p>
+<p>一方で、見直しの結論が出るまで止めないほうがいい作業があります。</p>
+<ul>
+<li><strong>営業時間や臨時休業の反映</strong>：実際と違う情報は、来店した人の体験を直接損ないます</li>
+<li><strong>口コミへの返信</strong>：返信の有無は検索した人にも見えています</li>
+<li><strong>写真の追加</strong>：内観・外観・商品やサービスの現物。古い写真だけの状態は避けます</li>
+<li><strong>投稿の更新</strong>：頻度より、情報が古くないことのほうが大切です</li>
+</ul>
+<p>これらは順位のためというより、見つけてもらった後に選ばれるための作業です。<strong>順位が動くまでの期間こそ、ここを整える時間に充てる</strong>と、第3段階に入ったときの成果が変わります。</p>
+<details class="faq"><summary>MEO対策を始めて最初に確認すべき数字はどれですか？</summary><div class="faq-a">Googleビジネスプロフィールのパフォーマンスにある「表示回数」と「検索に使われた語句」です。順位より先に動き、狙った語で表示され始めているかが分かります。着手した日の値を控えておき、月に一度同じ項目を比べてください。</div></details>
+
+<details class="faq"><summary>順位が上がらないまま数か月続けても意味はありますか？</summary><div class="faq-a">表示回数や検索語句に変化が出ているなら、続ける価値があります。それらも完全に止まっている場合は、期間の問題ではなく、プロフィールの内容か狙う検索語を見直す段階です。どちらかを確認してから判断してください。</div></details>
+
+<details class="faq"><summary>自分で検索して順位を確認する方法ではだめですか？</summary><div class="faq-a">目安にはなりますが、検索した場所やログイン状態で結果が変わるため、それだけで判断しないでください。店舗から離れた場所でも確認する、複数の端末で見る、といった工夫は有効ですが、最終的にはプロフィールに記録される数字と合わせて読むのが確実です。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：期間ではなく、動いている数字で判断する</h2>
+<p>MEO対策の効果が出るまでの期間は、プロフィールの状態、競合の数、口コミの蓄積、狙う検索語の広さで変わります。だからこそ、経過日数で判断せず、<strong>表示回数から順に、先に動く数字が動いているかどうか</strong>を見てください。そこが動いていれば方向は合っています。止まっているなら、待つのではなく中身を変える段階です。</p>
+<p>記録を月に一度残し、営業時間・口コミ返信・写真の更新だけは止めない。これだけでも、判断の材料は十分にたまります。</p>
+<p>TENERAMENTEでは、何をどの順番で整えるかの設計から、数字の見方の共有までを含めて<a href="lp-meo.html">MEO対策</a>をお引き受けしています。すでに始めていて手応えが分からないという段階でも構いませんので、<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#Googleビジネスプロフィール</span><span>#ローカル検索</span><span>#効果測定</span><span>#店舗集客</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +315,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +343,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-19-google-map-juni-sagatta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleマップの順位が急に下がった原因と確認手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-25-local-seo-meo-chigai.html">
+        <span class="cat">MEO</span>
+        <h4>ローカルSEOとMEOの違い｜地域ビジネスが両方やるべき理由</h4>
+      </a>
+      <a class="related-card" href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">
+        <span class="cat">MEO</span>
+        <h4>低評価の口コミへの対応手順｜削除申請できる条件と返信の判断基準</h4>
+      </a>
+    </div>
   </div>
 </section>
 

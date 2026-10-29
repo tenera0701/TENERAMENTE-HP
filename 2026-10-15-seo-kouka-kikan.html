@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,147 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-15-seo-kouka-kikan";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SEOの効果が出るまでの期間｜途中で成否を判断するための見方","description":"SEOの効果が出るまでの期間は、サイトの状態と狙う検索語によって変わります。順位より手前で動く数字の順番と、途中で続けるか見直すかを決めるためのチェックポイントを整理しました。","datePublished":"2026-10-15","dateModified":"2026-10-15","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-15-seo-kouka-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-10-15-seo-kouka-kikan.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, 効果測定, Search Console, サイト運用, コンテンツ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"SEOの効果が出るまでの期間｜途中で成否を判断するための見方","description":"SEOの効果が出るまでの期間は、サイトの状態と狙う検索語によって変わります。順位より手前で動く数字の順番と、途中で続けるか見直すかを決めるためのチェックポイントを整理しました。","datePublished":"2026-10-15","dateModified":"2026-10-15","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-15-seo-kouka-kikan.html","image":"https://teneramente.jp/assets/img/covers/2026-10-15-seo-kouka-kikan.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, 効果測定, Search Console, サイト運用, コンテンツ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"SEOの効果が出るまでの期間｜途中で成否を判断するための見方","item":"https://teneramente.jp/2026-10-15-seo-kouka-kikan.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"記事を公開してから、どのくらいで検索結果に載りますか？","acceptedAnswer":{"@type":"Answer","text":"一律の日数は決まっていません。サイトがどのくらいの頻度で巡回されているかによって変わるためです。確実なのは、Search Console でそのページの状態を確認することです。載っていない原因が技術的な設定にある場合は、待っても解決しません。公開後しばらく経っても載らない記事がある場合は、まずそのページがクロールされているか、除外する設定が入っていないかを確認してください。"}},{"@type":"Question","name":"記事の本数を増やせば期間は短くなりますか？","acceptedAnswer":{"@type":"Answer","text":"関連する話題の記事が増えると、サイトとして何を扱っているかが明確になるため、立ち上がりに効くことはあります。ただし中身の薄い記事を数だけ増やしても、表示回数は増えません。増やすなら、すでに表示回数が出ている記事と関連する話題から足してください。既存の記事同士をつなぐ内部リンクも同時に見直すと、増やした分が機能しやすくなります。"}},{"@type":"Question","name":"どのくらいの周期で数字を確認すればよいですか？","acceptedAnswer":{"@type":"Answer","text":"週ごとの確認は状況を把握するためにとどめ、方針の判断は月ごとの比較で行うのが現実的です。確認する項目を固定し、同じ形で記録を残してください。記録が数か月ぶん並んだ時点で、狙う言葉や記事の作り方を変えるかどうかを判断します。項目が毎回変わると比較できないため、見る数字を先に決めておくことが大事です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">SEOの効果が出るまでの期間｜途中で成否を判断するための見方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 15, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-15-seo-kouka-kikan.webp" alt="SEOの効果が出るまでの期間｜途中で成否を判断するための見方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>SEOの効果が出るまでの期間を、一律に言えない理由</a><a href="#h2"><span class="n">02</span>効果は順位より手前の段階から順に現れる</a><a href="#h3"><span class="n">03</span>期間を左右する4つの条件</a><a href="#h4"><span class="n">04</span>途中で成否を判断するためのチェックポイント</a><a href="#h5"><span class="n">05</span>「効果が出ない」の中身を切り分ける</a><a href="#h6"><span class="n">06</span>待っている間にやってはいけない3つのこと</a><a href="#h7"><span class="n">07</span>まとめ：日数ではなく、段階で判断する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">記事を出し続けているのに順位が動かない。あと何か月待てばよいのか、それとも方針が間違っているのか。<strong>SEOの効果が出るまでの期間は一律には決まりませんが、何がどの順番で動くかは決まっています</strong>。この順番を知らないまま日数だけを数えると、効き始めているサイトを途中でやめてしまいます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>SEOの成否は経過日数では判断できません。見るのは<strong>順位より手前の段階が前に進んでいるかどうか</strong>です。インデックス、表示回数、拾われる検索語の幅。この3つが動いていれば期間の問題で、止まっていれば中身の問題です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>SEOの効果が出るまでの期間を、一律に言えない理由</h2>
+<p>「SEOはいつから効果が出ますか」という質問に正直に答えるなら、「サイトと狙う言葉によって違います」になります。これは答えを避けているのではなく、検索結果の並び方が相対的に決まるためです。</p>
+<p>同じ内容の記事でも、すでに詳しい解説が並んでいる言葉と、誰も書いていない言葉では、評価されるまでの道のりが変わります。さらに、公開から日が浅いサイトと、何年も運用してきたサイトでは、同じ1本の記事の立ち上がり方が違います。</p>
+<p>つまり<strong>期間は作業量ではなく、スタート地点と競争相手で決まる</strong>ということです。ここを押さえずに「3か月やってだめだった」と判断すると、何がだめだったのかが分からないまま次の施策に移ることになります。</p>
+<h2 id="h2"><span class="h-num">02</span>効果は順位より手前の段階から順に現れる</h2>
+<p>順位だけを見ていると、何も起きていないように見える時期があります。実際には、順位に至る前の段階が順番に進んでいます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-15-seo-kouka-kikan.png" alt="インデックス、表示回数、拾われる検索語の広がり、順位、クリック、問い合わせという、SEOの効果が現れる段階の順番を並べた図" width="1600" height="547" loading="lazy" decoding="async"><figcaption>順位は途中の指標です。手前が止まっていれば、待っても動きません。</figcaption></figure>
+
+
+<p>この順番で進むため、<strong>まだ順位が付いていない時期でも、表示回数と検索語句を見れば前進しているかどうかが分かります</strong>。順位は途中の指標であって、最初に動く指標ではありません。</p>
+<p>逆に、いちばん上の段階で止まっている場合、待っても何も起きません。公開したページが検索結果に載る状態になっているか、ここだけは最初に確認してください。確認の手順は<a href="2026-09-30-search-console-tsukaikata.html">Search Consoleの使い方</a>にまとめています。</p>
+<h2 id="h3"><span class="h-num">03</span>期間を左右する4つの条件</h2>
+<p>自社がどのくらいの時間軸で考えるべきかは、次の4つで見当がつきます。</p>
+<ul>
+<li><strong>サイトの運用歴</strong>：公開したばかりのサイトは、記事が評価されるまでに時間がかかります</li>
+<li><strong>狙う検索語の競争</strong>：検索したときに大手や専門メディアが並ぶ言葉ほど、時間も本数も必要になります</li>
+<li><strong>検索される回数の多さ</strong>：月に何件も検索されない言葉は、順位が上がっても数字の変化が小さく、判断材料になりにくい</li>
+<li><strong>公開できる本数と頻度</strong>：関連する記事が増えるほど、サイト全体として扱われる話題が明確になります</li>
+</ul>
+<p>このうち自分で選べるのは、後ろの2つです。最初から競争の激しい言葉だけを狙うと、判断できる材料が出るまでに時間がかかります。<strong>先に検索回数の少ない具体的な言葉で結果を出し、判断の材料を早く手に入れる</strong>ほうが、運用としては続きます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>地図検索とは時間軸が違う</h4>
+    <p>同じ「検索対策」でも、Googleマップ側の施策はプロフィールの情報を直せばその日に変わる部分があり、サイト側のSEOとは動き方が違います。両方を並行して行う場合、見る数字も判断の周期も分けてください。地図側の見方は[MEO対策の効果が出るまでの期間](2026-09-22-meo-kouka-kikan.html)に分けて整理しています。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>途中で成否を判断するためのチェックポイント</h2>
+<p>続けるか見直すかは、感覚ではなく段階で判断します。次の表を上から順に当てはめてください。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見えている状態</th>
+<th>判断</th>
+<th>次にやること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>検索結果に載っていない</td>
+<td>期間の問題ではない</td>
+<td>インデックスの状態と、ページが見られる状態かを確認</td>
+</tr>
+<tr>
+<td>載っているが表示回数がほぼ無い</td>
+<td>言葉の選び方の問題</td>
+<td>検索されている言葉に合わせて見出しと内容を見直す</td>
+</tr>
+<tr>
+<td>表示回数はあるが順位が低い</td>
+<td>期間の問題</td>
+<td>そのまま継続。関連する記事を足す</td>
+</tr>
+<tr>
+<td>拾われる検索語が増えている</td>
+<td>前進している</td>
+<td>継続。増えた言葉に合わせて内容を追記する</td>
+</tr>
+<tr>
+<td>順位はあるがクリックされない</td>
+<td>見せ方の問題</td>
+<td>タイトルと説明文を書き直す</td>
+</tr>
+<tr>
+<td>クリックはあるが問い合わせが無い</td>
+<td>ページの中身の問題</td>
+<td>内容と導線を見直す。SEOの問題ではない</td>
+</tr>
+</tbody></table></div>
+<p><strong>同じ「効果が出ない」でも、原因と打ち手は段階ごとに違います</strong>。表示回数が無い状態で記事を増やしても、同じ結果が増えるだけです。クリックの段階でつまずいている場合の直し方は<a href="2026-09-24-title-tag-kakikata.html">タイトルタグの書き方</a>で扱っています。</p>
+<h2 id="h5"><span class="h-num">05</span>「効果が出ない」の中身を切り分ける</h2>
+<p>判断を誤りやすいのは、数字を1つしか見ていないときです。順位だけ、あるいはアクセス数だけを追うと、動いている部分が見えません。</p>
+<p>見るべきは、表示回数・拾われている検索語句・クリック数・問い合わせ数の4つです。このうち<strong>どこまでは動いていて、どこから止まっているか</strong>を毎回同じ形で確認してください。止まっている場所が、手を入れる場所です。</p>
+<p>また、サイト全体の数字で見ると変化が埋もれます。記事ごとに見れば、立ち上がっている記事と動いていない記事が分かれます。動いている記事の書き方を、動いていない記事に広げるのが現実的な進め方です。</p>
+<h2 id="h6"><span class="h-num">06</span>待っている間にやってはいけない3つのこと</h2>
+<p>期間の見方を誤ると、動かす必要のないものまで触ってしまいます。</p>
+<p><strong>1つめは、週ごとに方針を変えることです。</strong> 順位は検索する場所や状況によって変わるため、短い間隔で上下します。その都度方針を変えると、何が効いたのか分からなくなります。確認は周期を決めて、記録した数字を前の期間と比べてください。</p>
+<p><strong>2つめは、公開した記事をすぐ消すことです。</strong> 表示回数が出始めている記事を消すと、積み上がった分がゼロに戻ります。内容が弱いと感じるなら、消すより追記と書き直しを先に試してください。</p>
+<p><strong>3つめは、短期間で順位を動かす手法に手を出すことです。</strong> 購入したリンクや、他サイトの文章を流用したページは、検索エンジンのポリシーに反します。一時的に数字が動いても、評価を落とせばサイト全体の立ち上がりがさらに遠くなります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>「◯か月で1位」という提案は前提を確認する</h4>
+    <p>順位は相対的に決まるため、期間と順位を同時に保証することは仕組みの上で困難です。外部に依頼する場合は、保証される順位ではなく、何を作業として行い、どの数字を報告するのかを先に確認してください。費用の見方の整理は[MEO対策の費用相場と内訳](2026-09-05-meo-hiyo-souba-uchiwake.html)でも触れています。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>記事を公開してから、どのくらいで検索結果に載りますか？</summary><div class="faq-a">一律の日数は決まっていません。サイトがどのくらいの頻度で巡回されているかによって変わるためです。確実なのは、Search Console でそのページの状態を確認することです。載っていない原因が技術的な設定にある場合は、待っても解決しません。公開後しばらく経っても載らない記事がある場合は、まずそのページがクロールされているか、除外する設定が入っていないかを確認してください。</div></details>
+
+<details class="faq"><summary>記事の本数を増やせば期間は短くなりますか？</summary><div class="faq-a">関連する話題の記事が増えると、サイトとして何を扱っているかが明確になるため、立ち上がりに効くことはあります。ただし中身の薄い記事を数だけ増やしても、表示回数は増えません。増やすなら、すでに表示回数が出ている記事と関連する話題から足してください。既存の記事同士をつなぐ内部リンクも同時に見直すと、増やした分が機能しやすくなります。</div></details>
+
+<details class="faq"><summary>どのくらいの周期で数字を確認すればよいですか？</summary><div class="faq-a">週ごとの確認は状況を把握するためにとどめ、方針の判断は月ごとの比較で行うのが現実的です。確認する項目を固定し、同じ形で記録を残してください。記録が数か月ぶん並んだ時点で、狙う言葉や記事の作り方を変えるかどうかを判断します。項目が毎回変わると比較できないため、見る数字を先に決めておくことが大事です。</div></details>
+
+<h2 id="h7"><span class="h-num">07</span>まとめ：日数ではなく、段階で判断する</h2>
+<p>SEOの効果が出るまでの期間は、サイトの運用歴と狙う言葉の競争で変わります。待つべきかどうかは、経過日数ではなく、インデックス・表示回数・検索語句の幅・クリック・問い合わせのどこまで進んでいるかで判断してください。<strong>手前の段階が動いているなら期間の問題で、止まっているなら中身の問題です</strong>。</p>
+<p>この見方を持っておくと、途中でやめる判断も、続ける判断も説明できるようになります。社内で予算の話をするときにも、順位の報告より段階の報告のほうが通りやすいはずです。</p>
+<p>TENERAMENTEなら、サイトを作る段階から、どの言葉を先に狙い、どの数字を毎月見るのかまでを決めた状態でお渡しできます。公開後に「効果が出ているのか分からない」と迷う時間がなくなり、次に何を足すかを数字から決められるようになります。<a href="lp-hplp.html">HP/LP作成</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#SEO</span><span>#効果測定</span><span>#Search Console</span><span>#サイト運用</span><span>#コンテンツ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +311,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +339,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-14-hi-link-fuyashikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>被リンクの増やし方｜中小企業が健全に積める方法と、避けるべき手法</h4>
+      </a>
+      <a class="related-card" href="2026-10-12-blog-koushin-hindo-seo.html">
+        <span class="cat">HP / LP</span>
+        <h4>ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計</h4>
+      </a>
+      <a class="related-card" href="2026-10-09-kiji-midashi-kousei-tsukurikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEO記事の見出し構成の作り方｜書く前に決める設計手順と型</h4>
+      </a>
+    </div>
   </div>
 </section>
 

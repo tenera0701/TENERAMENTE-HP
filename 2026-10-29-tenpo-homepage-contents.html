@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,136 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-29-tenpo-homepage-contents";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"店舗ホームページに必ず載せるべき8つのコンテンツ｜集客につながる構成","description":"店舗ホームページに載せるべきコンテンツを8つに絞って整理しました。営業情報とアクセスの書き方、料金の見せ方、来店の流れ、予約導線の置き方、更新を続ける置き場所まで、公開前のチェック項目つきでまとめています。","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-29-tenpo-homepage-contents.html","image":"https://teneramente.jp/assets/img/covers/2026-10-29-tenpo-homepage-contents.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, 店舗HP, Web制作, 集客, コンテンツ設計"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"店舗ホームページに必ず載せるべき8つのコンテンツ｜集客につながる構成","description":"店舗ホームページに載せるべきコンテンツを8つに絞って整理しました。営業情報とアクセスの書き方、料金の見せ方、来店の流れ、予約導線の置き方、更新を続ける置き場所まで、公開前のチェック項目つきでまとめています。","datePublished":"2026-10-29","dateModified":"2026-10-29","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-29-tenpo-homepage-contents.html","image":"https://teneramente.jp/assets/img/covers/2026-10-29-tenpo-homepage-contents.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"ホームページ制作, 店舗HP, Web制作, 集客, コンテンツ設計"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"店舗ホームページに必ず載せるべき8つのコンテンツ｜集客につながる構成","item":"https://teneramente.jp/2026-10-29-tenpo-homepage-contents.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SNSがあれば、ホームページは要らないのではないですか？","acceptedAnswer":{"@type":"Answer","text":"役割が違います。SNSは今の様子を伝えるのに向いていますが、料金やアクセスのように後から探される情報は流れていってしまいます。「店名＋地名」で検索した方が最初に見る場所として、情報が整理されたページは必要です。両方を持ち、SNSからホームページへ、ホームページからSNSへ行き来できるようにしておくのが現実的です。"}},{"@type":"Question","name":"ページ数は何ページくらい必要ですか？","acceptedAnswer":{"@type":"Answer","text":"8つのコンテンツが収まっていれば、トップ・メニュー／料金・アクセス・スタッフ・お知らせの5ページ程度でも成り立ちます。ページ数を増やすこと自体に効果はありません。むしろ1ページあたりの情報が薄くなり、探しにくくなります。まず5ページで公開し、問い合わせで繰り返し聞かれることが出てきたら、その内容をページとして足す進め方をおすすめします。"}},{"@type":"Question","name":"写真は自分で撮ったものでよいですか？","acceptedAnswer":{"@type":"Answer","text":"構いません。スマートフォンでも、昼間に窓際で撮れば十分使えます。気をつけるのは明るさと、写ってはいけないものです。他のお客様や、権利のある作品・キャラクターが写り込んでいないかを確認してください。インターネット上で見つけた写真やイラストを使うのは避けてください。外観・入口・店内・施術や作業の様子の4枚がそろえば、最初の公開には足ります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">店舗ホームページに必ず載せるべき8つのコンテンツ｜集客につながる構成</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 29, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-29-tenpo-homepage-contents.webp" alt="店舗ホームページに必ず載せるべき8つのコンテンツ｜集客につながる構成" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>載せるコンテンツは、来店前の疑問から決まる</a><a href="#h2"><span class="n">02</span>店舗ホームページに必ず載せるべき8つのコンテンツ</a><a href="#h3"><span class="n">03</span>営業情報とアクセスは、探さずに見つかる位置に置く</a><a href="#h4"><span class="n">04</span>メニューと料金は、幅ではなく1件の例で見せる</a><a href="#h5"><span class="n">05</span>人と流れを出すと、来店のためらいが減る</a><a href="#h6"><span class="n">06</span>予約・問い合わせは、どのページからでも届くようにする</a><a href="#h7"><span class="n">07</span>更新が続く置き場所は、1つだけ作る</a><a href="#h8"><span class="n">08</span>まとめ：足りないものから1つずつ埋める</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">店舗のホームページを作るとき、何から載せればよいか迷う方は多くいます。デザインの好みを先に考えてしまいがちですが、<strong>店舗ホームページに必要なコンテンツは、お客様が来店前に調べることで決まります</strong>。この記事では、業種を問わず必ず入れたい8つのコンテンツと、その書き方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>店舗ホームページは「場所・やっていること・値段・人・入りやすさ」の5つの疑問に答えられていれば形になります。<strong>載せる量を増やすより、来店前に必ず調べられる情報を探さずに見つかる位置に置くほうが効きます</strong>。更新が続く置き場所は1つだけ作ってください。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>載せるコンテンツは、来店前の疑問から決まる</h2>
+<p>はじめての店を選ぶとき、人が調べるのは店の理念ではありません。今日や今週、そこへ行けるかどうかの判断材料です。具体的には、場所と行き方、何をしてくれるのか、いくらかかるのか、誰がやっているのか、そして入りやすそうかどうか。</p>
+<p>このうちどれか1つが分からないと、その時点で別の店が候補になります。逆に言えば、5つがそろっていれば、写真の枚数やデザインの新しさは決定的な要素になりません。</p>
+<p>ホームページを作るときに起きやすいのは、伝えたいこと（こだわり・歴史・想い）から構成を決めてしまうことです。伝えたいことは載せて構いませんが、<strong>順番は調べられることが先</strong>です。費用の考え方は<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作の費用相場と失敗しない依頼方法</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>店舗ホームページに必ず載せるべき8つのコンテンツ</h2>
+<p>業種が変わっても、必要なコンテンツはほぼ共通です。次の8つを基本形として考えてください。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-29-tenpo-homepage-contents.png" alt="営業時間・定休日、アクセス、メニューと料金、店内と外観の写真、スタッフ紹介、来店の流れ、予約・問い合わせの導線、お知らせまたはブログという、店舗ホームページに必ず載せる8つのコンテンツと、それぞれが答える疑問を並べた図" width="1600" height="1008" loading="lazy" decoding="async"><figcaption>前半の4つは事実の掲示、後半の4つは来店のためらいを外すためのものです。</figcaption></figure>
+
+<ol>
+<li>営業時間・定休日</li>
+<li>アクセス（地図・最寄り駅・駐車場）</li>
+<li>メニュー／サービスと料金</li>
+<li>店内と外観の写真</li>
+<li>スタッフ紹介</li>
+<li>来店の流れ（はじめての方へ）</li>
+<li>予約・問い合わせの導線</li>
+<li>お知らせまたはブログ</li>
+</ol>
+<p>8つのうち前半の4つは事実の掲示、後半の4つは来店のためらいを外すためのものです。どちらかに偏ると、情報は十分なのに問い合わせが来ない、あるいは雰囲気は良いのに場所が分からないという状態になります。</p>
+<h2 id="h3"><span class="h-num">03</span>営業情報とアクセスは、探さずに見つかる位置に置く</h2>
+<p>営業時間と定休日は、トップページとフッターの両方に書いてください。1か所にしかないと、別のページから入ってきた方が探すことになります。</p>
+<p>アクセスは、地図を埋め込むだけでは足りません。最寄り駅から徒歩で何分か、目印になる建物、駐車場があるかどうか、台数、近隣のコインパーキングを使う場合の案内までを文字で書きます。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>画像の中に文字で書かない</h4>
+    <p>営業時間や料金を画像の中だけに書くと、検索エンジンにも読み上げソフトにも内容が伝わりません。スマートフォンで拡大しないと読めないという問題も起きます。画像と同じ内容を、必ず文字でも書いてください。</p>
+  </div>
+</div>
+
+<p>臨時休業の告知場所も先に決めておきます。置き場所が決まっていないと、トップに手書きの画像を貼るような対応になり、更新が止まる原因になります。</p>
+<h2 id="h4"><span class="h-num">04</span>メニューと料金は、幅ではなく1件の例で見せる</h2>
+<p>料金を「3,000円〜」とだけ書くと、上限が分からないため問い合わせの前にためらいが生まれます。代表的な1件について、内訳と所要時間まで出すほうが伝わります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>伝わりにくい書き方</th>
+<th>伝わる書き方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>料金 3,000円〜</td>
+<td>標準コース 3,000円（60分・税込）／追加の施術は1か所ごとに加算</td>
+</tr>
+<tr>
+<td>各種メニューご用意</td>
+<td>メニューは3種類。所要時間30分・60分・90分から選べます</td>
+</tr>
+<tr>
+<td>お気軽にご相談ください</td>
+<td>ご相談は無料。お電話またはフォームで、当日のご希望時間をお知らせください</td>
+</tr>
+<tr>
+<td>詳しくは店頭で</td>
+<td>オプションの一覧と料金は、このページの下に全て掲載しています</td>
+</tr>
+</tbody></table></div>
+<p>右の列に特別な情報はありません。<strong>店頭で口頭で説明している内容を、そのまま文字にしているだけ</strong>です。追加費用が発生する条件と、税込か税別かも必ず明記してください。</p>
+<h2 id="h5"><span class="h-num">05</span>人と流れを出すと、来店のためらいが減る</h2>
+<p>はじめての店に入りにくい理由は、値段よりも「どう振る舞えばよいか分からない」ことにあります。ここに効くのが、スタッフ紹介と来店の流れです。</p>
+<p>スタッフ紹介は、名前（下の名前やニックネームでも構いません）、担当、一言があれば十分です。顔写真を出しにくい場合は、手元や作業中の後ろ姿でも印象は変わります。</p>
+<p>来店の流れは、予約から当日の終了までを順番に書きます。予約の方法、到着したらどこに声をかけるか、所要時間、持ち物、支払い方法。あわせて店内の写真を、入口・受付・座る場所の順で載せると、来る前に様子が分かります。</p>
+<h2 id="h6"><span class="h-num">06</span>予約・問い合わせは、どのページからでも届くようにする</h2>
+<p>導線はトップページだけに置いても意味がありません。メニューを見終わった方、スタッフ紹介を読んだ方が、その場で連絡できる位置に置きます。</p>
+<ul>
+<li>スマートフォンでは、画面下に電話と予約のボタンを固定する</li>
+<li>電話番号はタップで発信できるようにする</li>
+<li>フォームの入力項目は、名前・連絡先・希望日時の3つを基本にする</li>
+<li>予約手段が複数あるときは、どれがいちばん早いかを書く</li>
+<li>営業時間外に届いた場合、いつ返信するかを書いておく</li>
+</ul>
+<p>項目を増やすほどフォームは離脱します。来店前に必要な情報だけを聞き、残りは当日でよいものと割り切ってください。</p>
+<h2 id="h7"><span class="h-num">07</span>更新が続く置き場所は、1つだけ作る</h2>
+<p>お知らせとブログの両方を作って、どちらも止まっているサイトは珍しくありません。最終更新が古いままだと、営業しているかどうかの判断にも影響します。</p>
+<p>続けられる形は、置き場所を1つに絞ることです。臨時休業の案内、新しいメニュー、よく聞かれる質問への回答——書く内容を3種類くらいに決めておくと、ネタ探しから始めなくて済みます。</p>
+<p>更新の頻度は多くなくて構いません。月に1〜2本でも、日付が新しければ役割を果たします。作り直しの判断基準は<a href="2026-09-09-homepage-renewal-timing.html">ホームページのリニューアルのタイミング</a>で解説しています。</p>
+<details class="faq"><summary>SNSがあれば、ホームページは要らないのではないですか？</summary><div class="faq-a">役割が違います。SNSは今の様子を伝えるのに向いていますが、料金やアクセスのように後から探される情報は流れていってしまいます。「店名＋地名」で検索した方が最初に見る場所として、情報が整理されたページは必要です。両方を持ち、SNSからホームページへ、ホームページからSNSへ行き来できるようにしておくのが現実的です。</div></details>
+
+<details class="faq"><summary>ページ数は何ページくらい必要ですか？</summary><div class="faq-a">8つのコンテンツが収まっていれば、トップ・メニュー／料金・アクセス・スタッフ・お知らせの5ページ程度でも成り立ちます。ページ数を増やすこと自体に効果はありません。むしろ1ページあたりの情報が薄くなり、探しにくくなります。まず5ページで公開し、問い合わせで繰り返し聞かれることが出てきたら、その内容をページとして足す進め方をおすすめします。</div></details>
+
+<details class="faq"><summary>写真は自分で撮ったものでよいですか？</summary><div class="faq-a">構いません。スマートフォンでも、昼間に窓際で撮れば十分使えます。気をつけるのは明るさと、写ってはいけないものです。他のお客様や、権利のある作品・キャラクターが写り込んでいないかを確認してください。インターネット上で見つけた写真やイラストを使うのは避けてください。外観・入口・店内・施術や作業の様子の4枚がそろえば、最初の公開には足ります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：足りないものから1つずつ埋める</h2>
+<p>店舗ホームページに必要なのは、8つのコンテンツです。営業時間・アクセス・料金・写真で事実を示し、スタッフ紹介・来店の流れ・予約導線・お知らせでためらいを外す。この順に確認して、足りないものから埋めていくのがいちばん早い進め方です。</p>
+<p>全部をいちどに仕上げる必要はありません。まず5ページで公開し、問い合わせで繰り返し聞かれたことを足していく形で十分に育ちます。</p>
+<p>TENERAMENTEなら、この8つのコンテンツを前提に構成を組み、公開後はご自身で営業時間の変更や臨時休業のお知らせを画面から更新できる状態でお渡しします。更新のたびに制作会社へ依頼して待つ必要がなくなり、休業の告知が当日のうちに出せるようになります。<a href="lp-hplp.html">HP/LP作成</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#ホームページ制作</span><span>#店舗HP</span><span>#Web制作</span><span>#集客</span><span>#コンテンツ設計</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +300,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +328,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-15-seo-kouka-kikan.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOの効果が出るまでの期間｜途中で成否を判断するための見方</h4>
+      </a>
+      <a class="related-card" href="2026-10-14-hi-link-fuyashikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>被リンクの増やし方｜中小企業が健全に積める方法と、避けるべき手法</h4>
+      </a>
+      <a class="related-card" href="2026-10-12-blog-koushin-hindo-seo.html">
+        <span class="cat">HP / LP</span>
+        <h4>ブログの更新頻度はどれくらい必要か｜続けるための現実的な設計</h4>
+      </a>
+    </div>
   </div>
 </section>
 

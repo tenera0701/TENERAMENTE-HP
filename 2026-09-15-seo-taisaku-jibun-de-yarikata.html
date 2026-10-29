@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,151 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-15-seo-taisaku-jibun-de-yarikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SEO対策を自分でやるやり方｜外注せずに始める手順と続け方","description":"SEO対策は、外注しなくても自分で始められます。何から手を付けるかの順番、キーワードの決め方、タイトルと見出しの直し方、技術面で最低限そろえることを、今日から回せる手順として整理しました。","datePublished":"2026-09-15","dateModified":"2026-09-15","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-15-seo-taisaku-jibun-de-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, ホームページ, 自社運用, コンテンツ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"SEO対策を自分でやるやり方｜外注せずに始める手順と続け方","description":"SEO対策は、外注しなくても自分で始められます。何から手を付けるかの順番、キーワードの決め方、タイトルと見出しの直し方、技術面で最低限そろえることを、今日から回せる手順として整理しました。","datePublished":"2026-09-15","dateModified":"2026-09-15","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-15-seo-taisaku-jibun-de-yarikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"SEO, ホームページ, 自社運用, コンテンツ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"SEO対策を自分でやるやり方｜外注せずに始める手順と続け方","item":"https://teneramente.jp/2026-09-15-seo-taisaku-jibun-de-yarikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SEO対策を自分でやるのに、有料ツールは必要ですか？","acceptedAnswer":{"@type":"Answer","text":"始める段階では不要です。Google Search Console とアクセス解析、それに検索窓のサジェストで、キーワードの選定と効果の確認はできます。有料ツールが効くのは、扱うページ数が増えて手作業では追えなくなってからです。"}},{"@type":"Question","name":"記事は何文字くらい書けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"文字数の基準はありません。検索した人の疑問に答えきるのに必要な長さがあればよく、水増しした文章は逆効果です。ただ、1つの疑問に真面目に答えると、結果的に数千文字になることは多いです。"}},{"@type":"Question","name":"どこまで自分でやって、どこから外に出すべきですか？","acceptedAnswer":{"@type":"Answer","text":"キーワードの選定と文章は自社でやったほうが質が上がります。外に出す判断がしやすいのは、サイト構造の設計、表示速度の改善、そして「書く時間がどうしても取れない」ときの記事制作です。まず自分で回してみると、どこが足りないかが具体的に分かります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">SEO対策を自分でやるやり方｜外注せずに始める手順と続け方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 15, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-15-seo-taisaku-jibun-de-yarikata.webp" alt="SEO対策を自分でやるやり方｜外注せずに始める手順と続け方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>SEO対策は自分でできる。分かれ目は手順を知っているか</a><a href="#h2"><span class="n">02</span>自分でやるSEO対策の手順</a><a href="#h3"><span class="n">03</span>キーワードは検索されている言葉から選ぶ</a><a href="#h4"><span class="n">04</span>ページの直し方：タイトル・見出し・本文</a><a href="#h5"><span class="n">05</span>技術面で最低限そろえること</a><a href="#h6"><span class="n">06</span>よくある失敗と、続けるための頻度</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：まず3か月、同じ手順を回す</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">SEO対策を自分でやるやり方を探している方に、先に結論をお伝えします。<strong>SEO対策の中心にある作業は、外注しなくても自分でできます</strong>。難しいのは技術ではなく、手を付ける順番を間違えないことと、止めずに続けることです。この記事では、費用をかけずに始められる手順と、つまずきやすい場所を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>SEO対策で差がつくのは特別な裏技ではなく、<strong>検索される言葉に合わせてページを直し、記事を足し続けること</strong>です。まずは自分で3か月同じ手順を回し、手が回らない部分だけを外に出す順番が、いちばん無理がありません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>SEO対策は自分でできる。分かれ目は手順を知っているか</h2>
+<p>SEO対策（<em>Search Engine Optimization</em>）は、検索結果で自社のページが見つかりやすい状態を整える取り組みです。専用の有料ツールがなくても、Google Search Console と Google アナリティクスはどちらも無料で使えますし、ページの文章を直す作業は社内の人のほうが速く正確にできます。自社の商品やサービスをいちばん知っているのは書き手自身です。</p>
+<p>それでも自分でやって成果が出ない例が多いのは、作業の順番が逆になっているからです。よくあるのは、ページの中身を直す前に被リンクを増やそうとしたり、検索されていない言葉に向けて記事を書き続けたりする形です。<strong>順番を間違えると、作業量に関係なく結果が動きません</strong>。</p>
+<p>ですから最初に決めるのは施策の中身ではなく、担当と頻度です。誰が、週に何分使うのか。SEO対策は数か月単位で積み上がる取り組みなので、続かない計画を立てた時点で結果は決まってしまいます。</p>
+<h2 id="h2"><span class="h-num">02</span>自分でやるSEO対策の手順</h2>
+<p>全体像は次の5つです。上から順に進めてください。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-15-seo-taisaku-jibun-de-yarikata.png" alt="現状の確認からキーワード選定・ページ修正・技術面・記事追加まで、SEO対策の5つの手順を並べた図" width="1600" height="744" loading="lazy" decoding="async"><figcaption>1と2を飛ばして3から始めると、書いた記事が誰の検索にも当たりません。</figcaption></figure>
+
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に用意するもの</h4>
+    <p>Google Search Console の登録（サイトの所有権確認）と、アクセス解析の設置。この2つがないと、直した結果が分かりません。どちらも無料で、作業は初回だけです。</p>
+  </div>
+</div>
+
+<p>この5つのうち、時間がかかるのは2と3です。1は初回だけの作業で、4と5は月単位の習慣になります。地図検索側の進め方は<a href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">MEO対策を自分でやる方法</a>に別途まとめていますが、土台から順に片付けるという考え方は共通です。</p>
+<h2 id="h3"><span class="h-num">03</span>キーワードは検索されている言葉から選ぶ</h2>
+<p>自分でやるSEO対策でいちばん効くのが、この工程です。社内で使っている呼び方と、お客様が検索で打ち込む言葉は、しばしば違います。「業務システム」と社内で呼んでいるものを、探している人は「予約管理 ソフト」と打っているかもしれません。</p>
+<p>選び方の基準は3つです。</p>
+<ul>
+<li><strong>実際に検索されている言葉か</strong>：Google の検索窓に打ったときに出る候補（サジェスト）、検索結果の下に出る「他のキーワード」、Search Console の検索クエリで確かめます</li>
+<li><strong>その言葉で来た人に、渡せるものがあるか</strong>：検索数が多くても、自社が答えられない内容なら後回しにします</li>
+<li><strong>1ページに1つだけ割り当てているか</strong>：同じ言葉で複数のページを作ると、自社のページ同士で競合します</li>
+</ul>
+<p>最初は、検索数の多い言葉より<strong>具体的で言葉数の多い検索</strong>から取るのが現実的です。「ホームページ制作」より「ホームページ制作 費用 名古屋」のほうが、書ける内容も明確になります。</p>
+<h2 id="h4"><span class="h-num">04</span>ページの直し方：タイトル・見出し・本文</h2>
+<p>キーワードが決まったら、既にあるページを直します。新しい記事を書くより先に、ここを片付けたほうが早く動きます。</p>
+<p><strong>タイトルタグ</strong>は、そのページで最も重要な1行です。決めたキーワードを前半に自然に入れ、全角30文字前後にまとめます。同じタイトルが複数ページにあると、どのページを見せるべきかが判断されません。<strong>ディスクリプション</strong>は検索結果に出る説明文で、順位そのものより「開くかどうか」に効きます。</p>
+<p><strong>見出し</strong>は、h1 はページに1つ、その下を h2・h3 と段階的に使います。デザインの都合で大きく見せたい文字に見出しタグを使うのは避けてください。<strong>本文</strong>は、冒頭の段落で結論を先に書きます。検索した人は答えを探して来ているので、前置きが長いページは読まれる前に閉じられます。</p>
+<blockquote>
+<p>キーワードを本文に何度も詰め込む書き方は、もう効きません。1回で伝わる文章のほうが、結果として評価されます。</p>
+</blockquote>
+<h2 id="h5"><span class="h-num">05</span>技術面で最低限そろえること</h2>
+<p>技術面は、専門の会社に頼まないと動かせない部分もありますが、自分で確かめて直せる範囲もあります。優先順位は次のとおりです。</p>
+<ol>
+<li><strong>スマートフォンでの表示</strong>：文字が小さすぎないか、横スクロールが出ないか、ボタンが押せるか。実機で自分のサイトを一通り触ります</li>
+<li><strong>表示速度</strong>：PageSpeed Insights で測ります。多くの場合、画像の容量が原因です。撮ったままの写真をそのまま載せているページは、まずそこを圧縮します</li>
+<li><strong>内部リンク</strong>：関連する記事同士をつなぎます。これは文章を書ける人が自分でできる、いちばん効果の高い技術的作業です</li>
+<li><strong>クロールとインデックス</strong>：Search Console の「ページ」の項目で、登録されていないページとその理由を確認します</li>
+</ol>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>触らないほうがよい範囲</h4>
+    <p>サイト構造の大きな変更、URLの一括変更、リダイレクトの設定は、間違えると今ある評価を失います。ここは自分で試さず、制作した会社か専門の担当者に相談してください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>よくある失敗と、続けるための頻度</h2>
+<p>自分でやるときにつまずく場所は、だいたい決まっています。</p>
+<p><strong>成果を1か月で判断してしまう</strong>。SEO対策は、直した内容が検索結果に反映されるまで時間がかかります。最低3か月は同じ手順を続けてから評価してください。</p>
+<p><strong>記事を増やすことが目的になる</strong>。検索されていない言葉の記事が100本あっても、流入は増えません。1本を書く前に、その言葉が検索されているかを必ず確かめます。</p>
+<p><strong>順位だけを見て一喜一憂する</strong>。見るべきは、Search Console の表示回数・クリック数・クリック率と、問い合わせの数です。順位は手段で、目的ではありません。</p>
+<p><strong>古いページを放置する</strong>。情報が古いページは、新しく書くより先に直したほうが効率がよい場合が多いです。料金や実績、サービス内容が変わっていないか、半年に1回は見直します。</p>
+<p>続ける頻度は「毎日」でなくて構いません。<strong>続く頻度に落とす</strong>ほうが積み上がります。目安は次のように決めておくと、迷わずに回せます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>作業</th>
+<th>頻度の目安</th>
+<th>確認に使うもの</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>検索クエリの確認</td>
+<td>月1回</td>
+<td>Search Console（検索パフォーマンス）</td>
+</tr>
+<tr>
+<td>既存ページの見直し</td>
+<td>月1回、1〜2ページ</td>
+<td>タイトル・冒頭の段落・内部リンク</td>
+</tr>
+<tr>
+<td>新しい記事の追加</td>
+<td>月1〜2本</td>
+<td>事前にキーワードを1つ確定させる</td>
+</tr>
+<tr>
+<td>表示速度・スマホ表示</td>
+<td>半年に1回</td>
+<td>PageSpeed Insights、実機での操作</td>
+</tr>
+<tr>
+<td>料金や実績の記載</td>
+<td>半年に1回</td>
+<td>社内の最新情報との突き合わせ</td>
+</tr>
+</tbody></table></div>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>SEO対策を自分でやるのに、有料ツールは必要ですか？</summary><div class="faq-a">始める段階では不要です。Google Search Console とアクセス解析、それに検索窓のサジェストで、キーワードの選定と効果の確認はできます。有料ツールが効くのは、扱うページ数が増えて手作業では追えなくなってからです。</div></details>
+
+<details class="faq"><summary>記事は何文字くらい書けばよいですか？</summary><div class="faq-a">文字数の基準はありません。検索した人の疑問に答えきるのに必要な長さがあればよく、水増しした文章は逆効果です。ただ、1つの疑問に真面目に答えると、結果的に数千文字になることは多いです。</div></details>
+
+<details class="faq"><summary>どこまで自分でやって、どこから外に出すべきですか？</summary><div class="faq-a">キーワードの選定と文章は自社でやったほうが質が上がります。外に出す判断がしやすいのは、サイト構造の設計、表示速度の改善、そして「書く時間がどうしても取れない」ときの記事制作です。まず自分で回してみると、どこが足りないかが具体的に分かります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：まず3か月、同じ手順を回す</h2>
+<p>SEO対策を自分でやるやり方は、特別な知識より順番の問題です。現状を測り、検索されている言葉を選び、既にあるページを直し、技術面の土台を整え、それから記事を足す。この順番で3か月回せば、何が効いて何が効いていないかが自分の手元のデータで見えるようになります。</p>
+<p>今日からできるのは3つです。Search Console を登録すること、いちばん見てほしいページのタイトルタグを見直すこと、そのページに関連記事への内部リンクを1本足すこと。費用の全体像を先に把握しておきたい場合は<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作費用の相場</a>も参考にしてください。</p>
+<p>TENERAMENTEでは、<a href="lp-hplp.html">ホームページ・LP制作</a>を公開後の運用まで含めて設計し、自社で更新できる形で引き渡しています。自分で回してみたうえで足りない部分だけを補いたい、という段階からでも構いません。現状の確認からご一緒したい方は<a href="contact.html">お問い合わせ</a>からご連絡ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#SEO</span><span>#ホームページ</span><span>#自社運用</span><span>#コンテンツ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +315,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +343,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-18-kensaku-juni-agaranai-genin.html">
+        <span class="cat">HP / LP</span>
+        <h4>検索順位が上がらない原因｜確認する順番と直す優先度の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-09-homepage-renewal-timing.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページのリニューアルのタイミング｜作り直す7つのサインと判断基準</h4>
+      </a>
+      <a class="related-card" href="2026-09-21-seo-keyword-sentei-yarikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>SEOのキーワード選定のやり方｜中小企業が狙うべき検索語の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

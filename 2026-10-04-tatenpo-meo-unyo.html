@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,186 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-04-tatenpo-meo-unyo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目","description":"多店舗のMEO運用で店舗ごとに質がばらつく原因と、本部でそろえる項目・店舗に任せる項目の分け方を整理しました。月1回のチェック項目と、店舗別に数字を比べるときの見方までまとめています。","datePublished":"2026-10-04","dateModified":"2026-10-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-04-tatenpo-meo-unyo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-04-tatenpo-meo-unyo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 多店舗運営, Googleビジネスプロフィール, 店舗運営"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目","description":"多店舗のMEO運用で店舗ごとに質がばらつく原因と、本部でそろえる項目・店舗に任せる項目の分け方を整理しました。月1回のチェック項目と、店舗別に数字を比べるときの見方までまとめています。","datePublished":"2026-10-04","dateModified":"2026-10-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-04-tatenpo-meo-unyo.html","image":"https://teneramente.jp/assets/img/covers/2026-10-04-tatenpo-meo-unyo.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 多店舗運営, Googleビジネスプロフィール, 店舗運営"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目","item":"https://teneramente.jp/2026-10-04-tatenpo-meo-unyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"店舗数が多い場合、プロフィールの管理はどうまとめればよいですか？","acceptedAnswer":{"@type":"Answer","text":"Googleビジネスプロフィールにはグループ（ビジネスグループ）に店舗を入れて権限をまとめて管理する機能があります。本部が所有者となり、各店舗の担当者に管理者権限を渡す形が運用しやすくなります。担当者が変わったときに本部側で付け外しができるため、権限が迷子になりません。"}},{"@type":"Question","name":"店舗名にエリア名やサービス名を足すと表示されやすくなりますか？","acceptedAnswer":{"@type":"Answer","text":"店舗名は実際に店頭やサイトで使っている正式名称を入れる決まりです。エリア名やサービス名を足すのはガイドラインに反し、修正や掲載の停止につながる可能性があります。多店舗の場合、1店舗がこれをやると他店にも横並びで広がるため、本部のルールとして明確に禁止しておくほうが安全です。"}},{"@type":"Question","name":"店舗ごとに運用の温度差があります。どこから手を付けるべきですか？","acceptedAnswer":{"@type":"Answer","text":"やる気の底上げではなく、作業の数を減らすところから始めてください。店舗に任せる項目を3つ程度に絞り、残りは本部でそろえる。そのうえで月1回、同じ項目で全店を見ます。温度差は多くの場合、何をどこまでやればよいか決まっていないことから生まれます。範囲が決まれば、続ける負担はかなり下がります。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 4, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">8 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-04-tatenpo-meo-unyo.webp" alt="多店舗のMEO運用を回す仕組み｜店舗ごとの差をなくすチェック項目" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>多店舗のMEO運用でつまずくのは、店舗ごとの差</a><a href="#h2"><span class="n">02</span>本部でそろえる項目と、店舗に任せる項目を分ける</a><a href="#h3"><span class="n">03</span>店舗情報は、表記ゆれを先に潰す</a><a href="#h4"><span class="n">04</span>口コミは「型は本部、言葉は店舗」</a><a href="#h5"><span class="n">05</span>投稿と写真は、使い回せる素材を本部が用意する</a><a href="#h6"><span class="n">06</span>店舗ごとの差をなくす月1回のチェック項目</a><a href="#h7"><span class="n">07</span>店舗別に数字を並べ、差の理由を探す</a><a href="#h8"><span class="n">08</span>まとめ：そろえる・任せる・確かめるの3つに分ける</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">複数の店舗でGoogleビジネスプロフィールを運用していると、同じ会社なのに店舗によって見え方がまるで違う状態になります。<strong>多店舗のMEO運用でつまずくのは担当者の熱意の差ではなく、本部でそろえる項目と店舗に任せる項目を分けていないこと</strong>が原因です。分け方が決まっていないと、どの店舗も「全部自分で判断する」ことになります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>先にやるのは<strong>「そろえる」「任せる」「確かめる」の3つに作業を仕分けること</strong>です。店舗情報の表記と口コミ返信の型は本部でそろえ、言葉選びと写真は店舗に任せ、月1回だけ同じ項目で全店を見比べる。この形にすると、店舗数が増えても運用の質が落ちにくくなります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>多店舗のMEO運用でつまずくのは、店舗ごとの差</h2>
+<p>1店舗の運用なら、担当者が覚えた手順をそのまま続けられます。これが3店舗、10店舗になると、同じ作業が別々の判断で行われるようになります。</p>
+<p>差が出やすいのは、店舗名の末尾に地名を足している店と足していない店、祝日の営業時間を入れている店と入れていない店、口コミに返信している店と放置している店といった部分です。1店舗だけ見れば小さな違いですが、検索結果には店舗が横に並びます。<strong>並んだときに、差はそのまま比較されます</strong>。</p>
+<p>もうひとつの問題は、差の原因が見えないことです。ある店舗の表示順が落ちたとき、担当者には「何かが変わった」ことしか分かりません。他店と何が違うのかを比べる手段がないため、改善の手がかりが本人の経験だけになります。ここを仕組みで埋めるのが多店舗運用の中心で、やる気の底上げよりも、判断する項目を減らすほうが先に効きます。</p>
+<h2 id="h2"><span class="h-num">02</span>本部でそろえる項目と、店舗に任せる項目を分ける</h2>
+<p>最初の作業は、運用のタスクを3つに仕分けることです。紙1枚で済みます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-04-tatenpo-meo-unyo.png" alt="多店舗のMEO運用を、本部でそろえる項目・店舗に任せる項目・本部で確かめる項目の3つに仕分けた図" width="1600" height="610" loading="lazy" decoding="async"><figcaption>仕分けの基準は「店舗ごとに違っていい理由があるか」の一点です。</figcaption></figure>
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>区分</th>
+<th>具体例</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本部でそろえる</td>
+<td>店舗名の表記、カテゴリ、営業時間の設定ルール、口コミ返信の型、NGワード</td>
+<td>店舗ごとに判断がぶれると、会社としての情報が揃わない</td>
+</tr>
+<tr>
+<td>店舗に任せる</td>
+<td>写真の撮影、投稿の文面、口コミ返信の言葉選び、Q&amp;Aの追記</td>
+<td>現場しか知らない情報が価値になる部分</td>
+</tr>
+<tr>
+<td>本部で確かめる</td>
+<td>月1回の全店チェック、店舗別の数字の比較</td>
+<td>店舗単独では他店と比べられない</td>
+</tr>
+</tbody></table></div>
+<p>仕分けの基準は単純です。**「店舗ごとに違っていい理由があるか」**を問うだけです。写真は店によって建物も商品も違うので、違っていい。店舗名の表記は違っていい理由がないので、そろえる。この表があると、店舗に渡す指示が「全部やってください」から「この3つだけお願いします」に変わります。現場が止まる原因は作業量よりも、どこまでが自分の裁量か分からないことにあります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>仕分け表は、店舗の担当者と一緒に作る</h4>
+    <p>本部だけで作ると、現場の実情に合わない項目が混ざります。1店舗の担当者に、いま実際にやっている作業を書き出してもらってから仕分けると、抜けの少ない表になります。作った表は店舗が見られる場所に置き、迷ったときに戻れるようにしておきます。</p>
+  </div>
+</div>
+
+<h2 id="h3"><span class="h-num">03</span>店舗情報は、表記ゆれを先に潰す</h2>
+<p>そろえる作業のうち、最初に手を付けるのは店舗情報の表記です。ここは時間がかかりませんし、効果が分かりやすい部分です。</p>
+<p>見る項目は4つあります。</p>
+<ul>
+<li><strong>店舗名</strong>：正式名称に統一し、「◯◯店」の付け方・全角と半角・スペースの有無をそろえます。地名やキーワードは足しません</li>
+<li><strong>住所・電話番号</strong>：建物名の省略、ハイフンの種類、市外局番の表記を、自社サイトの店舗一覧ページと一字一句そろえます</li>
+<li><strong>カテゴリ</strong>：メインは業態が同じなら全店で同じものに。サブは店舗の設備や扱う商品に合わせて増減して構いません</li>
+<li><strong>営業時間</strong>：祝日・年末年始の特別営業時間を、本部でまとめて入れる日を決めます</li>
+</ul>
+<p>このうち店舗名・住所・電話番号の3つは、サイトや他のサービスの掲載内容とそろえる必要があります。考え方は<a href="2026-09-28-nap-touitsu-meo.html">NAP情報の統一とは</a>に整理しています。カテゴリの選び方で迷う場合は<a href="2026-10-01-gbp-category-erabikata.html">Googleビジネスプロフィールのカテゴリの選び方</a>が判断の材料になります。</p>
+<p>多店舗の場合、<strong>ずれは新しく開いた店舗から生まれます</strong>。開店の作業手順に、表記のルールを確認する項目を1つ足しておくと、後からまとめて直す手間が減ります。</p>
+<h2 id="h4"><span class="h-num">04</span>口コミは「型は本部、言葉は店舗」</h2>
+<p>口コミ対応は、多店舗でもっとも差が出る部分です。返信している店とそうでない店が混在しやすく、しかも外からよく見えます。本部で用意するのは、返信の型とルールです。</p>
+<ol>
+<li><strong>返信する範囲</strong>：すべてか、低評価だけか。全店で同じにします</li>
+<li><strong>返信までの目安</strong>：何営業日以内に返すか</li>
+<li><strong>書かないこと</strong>：個人が特定できる情報、他店や他社への言及、定型文の丸写し</li>
+<li><strong>迷う内容が来たときの連絡先</strong>：本部の誰に相談するか</li>
+</ol>
+<p>一方で、<strong>返信の文章そのものは店舗に書かせます</strong>。本部が作った定型文を全店で使うと、同じ文章が並んでいることが読む人に伝わります。来店した状況を知っているのは店舗の担当者なので、言葉は現場のものが適切です。</p>
+<blockquote>
+<p>型をそろえるのは返信の質を均すためで、文章を同じにするためではありません。</p>
+</blockquote>
+<p>低評価が付いたときの考え方は<a href="2026-09-16-hyoka-hikui-kuchikomi-taio.html">評価の低い口コミへの対応</a>にまとめています。多店舗で起きやすいのは、1店舗の低評価に本部が反応して全店へ一律の指示を出してしまうことです。原因が店舗固有であれば、その店舗の中で直すほうが早く済みます。</p>
+<h2 id="h5"><span class="h-num">05</span>投稿と写真は、使い回せる素材を本部が用意する</h2>
+<p>投稿（Googleビジネスプロフィールの更新）と写真は、店舗に任せる部分です。ただしゼロから考えさせると止まるため、本部が素材と枠を用意します。</p>
+<ul>
+<li><strong>季節やキャンペーンの共通素材</strong>：全店で使える画像と、本文の下書き</li>
+<li><strong>投稿の頻度の目安</strong>：月に何回出すかだけ決め、内容は店舗が選ぶ</li>
+<li><strong>撮る写真のリスト</strong>：外観、入口、内観、駐車場、スタッフ。どの角度で撮るかの見本を1枚ずつ</li>
+</ul>
+<p>共通素材をそのまま使うのではなく、<strong>店舗が1行足してから出す</strong>形にします。「◯◯店では今週◯◯を置いています」のような1行で、同じ素材でも店ごとに違う投稿になります。投稿のネタ切れへの対処は<a href="2026-09-10-gbp-toukou-neta.html">Googleビジネスプロフィールの投稿ネタ</a>にまとめています。</p>
+<p>写真については、<strong>枚数を競わせないこと</strong>が大事です。同じ角度の写真が並んでも、見る人の情報量は増えません。リストの種類を一通りそろえ、変わったときに差し替える形で足ります。</p>
+<h2 id="h6"><span class="h-num">06</span>店舗ごとの差をなくす月1回のチェック項目</h2>
+<p>確かめる作業は、月1回まとめて行います。全店を同じ項目で見るのがポイントです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見る項目</th>
+<th>確かめ方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>店舗名・住所・電話番号</td>
+<td>ルール通りの表記になっているか。サイトの店舗一覧とそろっているか</td>
+</tr>
+<tr>
+<td>営業時間</td>
+<td>翌月の祝日・特別営業時間が入っているか</td>
+</tr>
+<tr>
+<td>未返信の口コミ</td>
+<td>期限を超えて返信していないものがあるか</td>
+</tr>
+<tr>
+<td>投稿</td>
+<td>先月、決めた回数を出せているか</td>
+</tr>
+<tr>
+<td>写真</td>
+<td>リストにある種類がそろっているか。古いものが残っていないか</td>
+</tr>
+<tr>
+<td>オーナー確認の状態</td>
+<td>権限が切れていないか。担当者の異動で外れていないか</td>
+</tr>
+</tbody></table></div>
+<p>最後の項目は見落としやすい部分です。担当者の異動や退職で、店舗のプロフィールを誰も編集できない状態になることがあります。<strong>人事の異動があった月は、権限の一覧を必ず見てください</strong>。</p>
+<p>店舗数が多い場合は、週ごとに担当エリアを分けて回す形でも構いません。重要なのは同じ項目で見ることです。項目が店舗ごとに違うと、差が見つかりません。単店舗の運用で見る項目は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィールの月1チェックリスト</a>を土台にしてください。</p>
+<h2 id="h7"><span class="h-num">07</span>店舗別に数字を並べ、差の理由を探す</h2>
+<p>チェック項目の確認が終わったら、数字を店舗別に並べます。管理画面から、表示回数・ルート検索・電話・ウェブサイトへの遷移を店舗ごとに取り出せます。</p>
+<p>注意点は、<strong>店舗間で数字の大小を直接比べないこと</strong>です。駅前の店と郊外の店では、周辺の検索数そのものが違います。比べるのは次の2つです。</p>
+<ul>
+<li><strong>同じ店舗の前月との変化</strong>：落ちている店舗がないか</li>
+<li><strong>店舗内での比率</strong>：表示回数に対してルート検索や電話が極端に少ない店舗はないか</li>
+</ul>
+<p>比率が低い店舗は、見られてはいるものの行動につながっていない状態です。写真が少ない、営業時間が空欄、口コミが放置されているなど、チェック項目で引っかかる要素とたいてい重なります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>店舗別の数字を評価に直結させない</h4>
+    <p>数字を店舗の成績として扱うと、口コミの依頼が強引になったり、実態と違う情報を載せたりといった動きが出ます。数字は差の原因を探すための材料として使い、改善したかどうかはチェック項目の充足で見るほうが健全に回ります。</p>
+  </div>
+</div>
+
+<details class="faq"><summary>店舗数が多い場合、プロフィールの管理はどうまとめればよいですか？</summary><div class="faq-a">Googleビジネスプロフィールにはグループ（ビジネスグループ）に店舗を入れて権限をまとめて管理する機能があります。本部が所有者となり、各店舗の担当者に管理者権限を渡す形が運用しやすくなります。担当者が変わったときに本部側で付け外しができるため、権限が迷子になりません。</div></details>
+
+<details class="faq"><summary>店舗名にエリア名やサービス名を足すと表示されやすくなりますか？</summary><div class="faq-a">店舗名は実際に店頭やサイトで使っている正式名称を入れる決まりです。エリア名やサービス名を足すのはガイドラインに反し、修正や掲載の停止につながる可能性があります。多店舗の場合、1店舗がこれをやると他店にも横並びで広がるため、本部のルールとして明確に禁止しておくほうが安全です。</div></details>
+
+<details class="faq"><summary>店舗ごとに運用の温度差があります。どこから手を付けるべきですか？</summary><div class="faq-a">やる気の底上げではなく、作業の数を減らすところから始めてください。店舗に任せる項目を3つ程度に絞り、残りは本部でそろえる。そのうえで月1回、同じ項目で全店を見ます。温度差は多くの場合、何をどこまでやればよいか決まっていないことから生まれます。範囲が決まれば、続ける負担はかなり下がります。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：そろえる・任せる・確かめるの3つに分ける</h2>
+<p>多店舗のMEO運用は、全店に同じ努力を求めると続きません。店舗名や営業時間の表記、口コミ返信の型といった「違っていい理由がないもの」は本部でそろえ、写真や投稿の文面、返信の言葉は店舗に任せる。この線引きが運用の土台になります。</p>
+<p>そして月1回、同じ項目で全店を見比べる。数字は店舗間の大小ではなく、前月との変化と店舗内の比率で読む。この形なら、新しい店舗が増えても手順をそのまま渡せます。<strong>仕組みの目的は、判断する項目を減らすこと</strong>だと考えてください。</p>
+<p>TENERAMENTEでは、複数店舗のGoogleビジネスプロフィールについて、表記ルールの整備から月次の確認までを運用の形に落とすところからお手伝いしています。進め方は<a href="lp-meo.html">MEO対策</a>のページにまとめていますので、店舗ごとの差をどう埋めるか迷っている場合は<a href="contact.html">お問い合わせ</a>よりお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#多店舗運営</span><span>#Googleビジネスプロフィール</span><span>#店舗運営</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +350,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +378,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-01-gbp-category-erabikata.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールのカテゴリの選び方｜メインと追加の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-10-07-fudosan-meo-taisaku.html">
+        <span class="cat">MEO</span>
+        <h4>不動産会社のMEO対策｜賃貸仲介店舗がGoogleマップで選ばれる進め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-28-nap-touitsu-meo.html">
+        <span class="cat">MEO</span>
+        <h4>NAP情報の統一とは｜店舗名・住所・電話番号の表記ゆれとMEO</h4>
+      </a>
+    </div>
   </div>
 </section>
 

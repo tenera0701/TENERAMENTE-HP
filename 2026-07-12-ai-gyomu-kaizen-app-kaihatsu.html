@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,165 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-07-12-ai-gyomu-kaizen-app-kaihatsu";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方","description":"「業務改善のためにAIでアプリを作りたい」「AIツール開発を頼める会社を探している」——そんな方へ。AI業務改善アプリ開発の進め方、費用相場の考え方、Claude Codeで変わった開発スピード、失敗しないAI開発企業の選び方までをまとめた実践ガイドです。","datePublished":"2026-07-12","dateModified":"2026-07-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html","image":"https://teneramente.jp/assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIアプリ開発, Claude Code, AI業務改善, AI開発企業, AIツール開発"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方","description":"「業務改善のためにAIでアプリを作りたい」「AIツール開発を頼める会社を探している」——そんな方へ。AI業務改善アプリ開発の進め方、費用相場の考え方、Claude Codeで変わった開発スピード、失敗しないAI開発企業の選び方までをまとめた実践ガイドです。","datePublished":"2026-07-12","dateModified":"2026-07-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html","image":"https://teneramente.jp/assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AIアプリ開発, Claude Code, AI業務改善, AI開発企業, AIツール開発"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方","item":"https://teneramente.jp/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AIでアプリを作ると、本当に安く早くなりますか？","acceptedAnswer":{"@type":"Answer","text":"要件によりますが、AI支援開発は試作から改修までのサイクルを短くできるため、従来より短い工期で「触れる形」に到達しやすくなっています。まずは小さなPoC（試作）で効果を確かめる進め方をおすすめします。"}},{"@type":"Question","name":"ITに詳しくなくても、AI開発企業に相談できますか？","acceptedAnswer":{"@type":"Answer","text":"問題ありません。「何ができる？」の段階からご相談いただけます。専門用語はかみ砕いてご説明し、現場が使いこなせる形に落とし込みます。"}},{"@type":"Question","name":"Claude Codeで作ったアプリは、自社で運用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。運用しやすい設計を心がけており、監視・改修・改善提案を月額でお引き受けすることも可能です。\"つくって終わり\"にしない体制をご用意しています。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jul 12, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">5 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-07-12-ai-gyomu-kaizen-app-kaihatsu.webp" alt="AI業務改善アプリ開発 完全ガイド｜Claude Code時代の進め方・費用・AI開発企業の選び方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>なぜ今、「AIで業務改善」なのか</a><a href="#h2"><span class="n">02</span>AIツール開発・AIアプリ開発の3つのタイプ</a><a href="#h3"><span class="n">03</span>Claude Codeが変えた「アプリ開発」の常識</a><a href="#h4"><span class="n">04</span>AIアプリ開発の費用｜初期費用と月額の考え方</a><a href="#h5"><span class="n">05</span>失敗しないAI開発企業の選び方</a><a href="#h6"><span class="n">06</span>導入の進め方：相談から運用まで</a><a href="#h7"><span class="n">07</span>よくある失敗と、その回避法</a><a href="#h8"><span class="n">08</span>まとめ：小さく始めて、AIで業務を変える</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「この作業、AIでなんとかできないかな」「うちの業務に合わせたツールを、AIで安く早く作れないか」。──いま、こうした相談が急速に増えています。本記事では、<strong>業務改善のためのAIアプリ開発</strong>を検討している方に向けて、AIツール開発の種類から費用の考え方、<em>Claude Code</em>（AnthropicのAI開発支援ツール）がもたらした変化、そして信頼できるAI開発企業の選び方までを、当社（TENERAMENTE）の実務目線で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AI業務改善は「全部を一気に自動化」ではありません。<strong>毎日さわる・転記が多い・属人化している</strong>業務を、御社専用の小さなアプリに置き換えることから始めるのが最短ルートです。Claude CodeをはじめとするAI支援開発により、以前より短い工期・抑えた費用で「ちょうどいいツール」を作れる時代になりました。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>なぜ今、「AIで業務改善」なのか</h2>
+<p>多くの会社の業務は、Excel・メール・チャット・紙が少しずつ絡み合って&quot;なんとなく&quot;回っています。動いてはいる。でも、同じ数字を何度も転記し、担当者しか分からない手順が増え、月末になると集計に半日が消える。──この&quot;見えないコスト&quot;こそ、<strong>AI業務改善</strong>が最も効く領域です。</p>
+<p>ここで言うAI業務改善とは、流行りのチャットボットを置くことではありません。<strong>現場の面倒を一つずつ、しくみに任せていく</strong>こと。入力をらくにし、状況を見えるようにし、繰り返し作業を自動化する。その積み重ねが、人が判断と対応に使う時間を取り戻します。そして今、その「しくみ」を作るコスト自体が、AI支援開発によって大きく下がっています。</p>
+<h2 id="h2"><span class="h-num">02</span>AIツール開発・AIアプリ開発の3つのタイプ</h2>
+<p>ひとくちに<strong>AIツール開発</strong>と言っても、選択肢は大きく3つに分かれます。まずは全体像を押さえましょう。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>タイプ</th>
+<th>向いているケース</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>既製のAI SaaS</td>
+<td>一般的な業務をそのまま当てはめられる</td>
+<td>自社の業務フローに合わせにくい・不要機能の費用</td>
+</tr>
+<tr>
+<td>ノーコード＋AI</td>
+<td>小規模・一時的な自動化を自分たちで試したい</td>
+<td>複雑な連携や独自ロジックに弱い・作り込むほど破綻しやすい</td>
+</tr>
+<tr>
+<td>受託でのAIアプリ開発</td>
+<td>自社固有の業務・複数業務の連携・長く使う基幹ツール</td>
+<td>開発会社の設計力で価値が大きく変わる</td>
+</tr>
+</tbody></table></div>
+<p>既製SaaSが「8割は合うが2割が惜しい」とき、その残り2割こそ現場の本質だったりします。当社は、<strong>その2割をちょうどよく埋める</strong>受託でのAIアプリ開発を軸にしています。</p>
+<h2 id="h3"><span class="h-num">03</span>Claude Codeが変えた「アプリ開発」の常識</h2>
+<p>近年、開発現場のスピードを一段引き上げたのが、<em>Claude Code</em>に代表されるAIコーディング支援ツールです。設計・実装・テストの各工程にAIが同席することで、品質を保ったまま「触れる形」に到達するまでの時間が大きく縮みました。</p>
+<p><strong>Claude Codeでのアプリ開発</strong>が効くのは、単にコードを速く書けるからではありません。要件を対話しながら形にし、試作をすぐ画面で確認でき、修正のサイクルを何度も回せる。この「小さく作って、見て、直す」を高速に繰り返せることが、業務アプリの完成度を押し上げます。</p>
+<blockquote>
+<p>大切なのは、AIを&quot;魔法&quot;にしないこと。判断と責任は人が持ち、AIは同僚として面倒な部分を引き受ける。この距離感が、使い続けられるツールを生みます。</p>
+</blockquote>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>反響の受付から契約までを別々のファイルとチャットで管理していた現場では、一覧で進捗が見えるようにしただけで「対応漏れの不安」が大きく減りました。派手な機能より、まず"見える"ことが効くケースは少なくありません。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>AIアプリ開発の費用｜初期費用と月額の考え方</h2>
+<p>費用は「初期費用」と「月額」に分けて考えると、判断がぶれません。当社の業務改善ツール開発は、<strong>初期費用15万円から</strong>、要件に応じてフェーズを区切る形を基本にしています。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>費目</th>
+<th>内容</th>
+<th>考え方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初期費用</td>
+<td>ヒアリング・設計・開発・公開作業</td>
+<td>必要なものは初期に含め、「後から取られる」をなくす</td>
+</tr>
+<tr>
+<td>月額費用</td>
+<td>サーバー・監視・改修・改善提案</td>
+<td>&quot;つくって終わり&quot;にしないための運用枠</td>
+</tr>
+</tbody></table></div>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>見落としがちなコスト</h4>
+    <p>サーバー・ドメイン費用、システム監視、公開後の修正対応。これらを最初に月額へ織り込んでおくと、運用フェーズで慌てません。安いだけの見積もりは、後で高く付くことがあります。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>失敗しないAI開発企業の選び方</h2>
+<p><strong>AI開発企業</strong>を選ぶとき、機能や価格の前に見てほしいのは「作った後まで一緒に走れるか」です。次の観点でチェックしてみてください。</p>
+<ul>
+<li><strong>業務を理解しようとするか。</strong> 技術の話より先に、現場の困りごとを聞いてくれるか。</li>
+<li><strong>小さく試せる進め方か。</strong> いきなり全部作らず、PoC（試作）から始められるか。</li>
+<li><strong>相談から運用まで一貫しているか。</strong> 分業による&quot;伝言ゲーム&quot;がないか。</li>
+<li><strong>非エンジニアにも言葉が通じるか。</strong> 専門用語をかみ砕いて説明してくれるか。</li>
+<li><strong>公開後の改善に付き合うか。</strong> 監視・改修・改善提案の体制があるか。</li>
+</ul>
+<p>価格の安さや実績の派手さより、この5点がそろっている会社のほうが、結果的に「使い続けられるツール」に近づきます。</p>
+<h2 id="h6"><span class="h-num">06</span>導入の進め方：相談から運用まで</h2>
+<p>当社では、相談から運用までを同じチームで担います。意思決定が速く、認識のズレも起きにくくなります。</p>
+<ol>
+<li><strong>無料相談・ヒアリング</strong> — いまの業務と困りごとをお聞きします。「何ができる？」の段階から大歓迎です。</li>
+<li><strong>要件定義・お見積もり</strong> — 本当に必要な範囲を一緒に見極め、フェーズと費用を明確にします。</li>
+<li><strong>設計・プロトタイプ</strong> — 画面で触れる状態をつくり、認識を合わせながら進めます。</li>
+<li><strong>開発・リリース</strong> — テストして、安心して使える形でお渡しします。</li>
+<li><strong>運用・改善</strong> — 監視・改修・改善提案を月額で。使いながら、もっと良くしていきます。</li>
+</ol>
+<h2 id="h7"><span class="h-num">07</span>よくある失敗と、その回避法</h2>
+<h3>最初から作り込みすぎる</h3>
+<p>完璧な仕様を一度に目指すと、リリースが遠のき、現場の熱も冷めます。<strong>小さく出して、使いながら直す</strong>。これが遠回りに見えて、いちばんの近道です。</p>
+<h3>「AIに丸投げ」してしまう</h3>
+<p>AIは強力ですが、業務の判断まで任せることはできません。何を解きたいのかを人が言語化してこそ、AIツール開発は成果につながります。</p>
+<h3>「やめる」判断を持たない</h3>
+<p>機能は足すより減らすほうが難しいもの。使われない機能を見極めて手放す勇気が、アプリを長く軽く保ちます。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：小さく始めて、AIで業務を変える</h2>
+<p>AI業務改善は、大きな号令ではなく、ひとつの&quot;面倒&quot;を片づけることから始まります。Claude CodeをはじめとするAI支援開発によって、御社専用のツールを、以前より現実的なコストと期間で作れるようになりました。「これ、なんとかならない？」という一言を、そのままお聞かせください。</p>
+<details class="faq">
+  <summary>AIでアプリを作ると、本当に安く早くなりますか？</summary>
+  <div class="faq-a">要件によりますが、AI支援開発は試作から改修までのサイクルを短くできるため、従来より短い工期で「触れる形」に到達しやすくなっています。まずは小さなPoC（試作）で効果を確かめる進め方をおすすめします。</div>
+</details>
+<details class="faq">
+  <summary>ITに詳しくなくても、AI開発企業に相談できますか？</summary>
+  <div class="faq-a">問題ありません。「何ができる？」の段階からご相談いただけます。専門用語はかみ砕いてご説明し、現場が使いこなせる形に落とし込みます。</div>
+</details>
+<details class="faq">
+  <summary>Claude Codeで作ったアプリは、自社で運用できますか？</summary>
+  <div class="faq-a">はい。運用しやすい設計を心がけており、監視・改修・改善提案を月額でお引き受けすることも可能です。"つくって終わり"にしない体制をご用意しています。</div>
+</details>
+
+<p>業務をAIで改善する第一歩は、いつでも当社の無料相談から。御社の「ちょうどいい一手」を、一緒に見つけましょう。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AIアプリ開発</span><span>#Claude Code</span><span>#AI業務改善</span><span>#AI開発企業</span><span>#AIツール開発</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +329,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +357,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-30-gyomu-app-kanzen-guide.html">
+        <span class="cat">Web App</span>
+        <h4>Excel管理の限界を超える。AI業務改善ツール導入 完全ガイド</h4>
+      </a>
+      <a class="related-card" href="2026-06-11-excel-kanri-genkai-systemka.html">
+        <span class="cat">Web App</span>
+        <h4>Excel管理の限界はどこ？システム化すべき5つのサインと移行の進め方</h4>
+      </a>
+      <a class="related-card" href="2026-06-08-webapp-kaihatsu-hiyo-souba.html">
+        <span class="cat">Web App</span>
+        <h4>業務Webアプリ開発の費用相場｜見積もりの内訳と安く抑える5つのコツ</h4>
+      </a>
+    </div>
   </div>
 </section>
 

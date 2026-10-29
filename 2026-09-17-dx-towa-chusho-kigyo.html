@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,131 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-17-dx-towa-chusho-kigyo";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"DXとは何か｜中小企業が最初に手をつける範囲と進める順番","description":"DXとは何かを、中小企業の現場の言葉で整理しました。デジタル化との違い、最初に手をつける範囲の決め方、進める順番、対象業務を選ぶ判断基準、止まってしまうときの共通点まで、明日から動ける形でまとめています。","datePublished":"2026-09-17","dateModified":"2026-09-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-17-dx-towa-chusho-kigyo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"DX, 中小企業, 業務改善, デジタル化, 業務アプリ"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"DXとは何か｜中小企業が最初に手をつける範囲と進める順番","description":"DXとは何かを、中小企業の現場の言葉で整理しました。デジタル化との違い、最初に手をつける範囲の決め方、進める順番、対象業務を選ぶ判断基準、止まってしまうときの共通点まで、明日から動ける形でまとめています。","datePublished":"2026-09-17","dateModified":"2026-09-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-17-dx-towa-chusho-kigyo.html","image":"https://teneramente.jp/assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"DX, 中小企業, 業務改善, デジタル化, 業務アプリ"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"DXとは何か｜中小企業が最初に手をつける範囲と進める順番","item":"https://teneramente.jp/2026-09-17-dx-towa-chusho-kigyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"DXと業務効率化は同じものですか？","acceptedAnswer":{"@type":"Answer","text":"重なりますが、同じではありません。業務効率化は今のやり方を速くすることに重心があり、DXは流れそのものを作り直すところまで含みます。中小企業の場合は効率化から入って、結果的に流れが変わっていくという順路が現実的です。"}},{"@type":"Question","name":"社内にIT担当がいなくても始められますか？","acceptedAnswer":{"@type":"Answer","text":"始められます。最初の工程である手順の書き出しと整理は、業務を知っている人にしかできない仕事で、IT知識は必要ありません。道具選びと設定の段階から外部の力を借りる形が取りやすい進め方です。"}},{"@type":"Question","name":"どのくらいの期間で成果が出ますか？","acceptedAnswer":{"@type":"Answer","text":"対象の広さによって変わります。ひとつの業務に絞れば、手順の整理から運用開始までを短い期間で回せますが、全社を対象にすると調整に時間がかかります。期間を短くしたい場合は、範囲を狭くするのがもっとも確実な方法です。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">DXとは何か｜中小企業が最初に手をつける範囲と進める順番</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 17, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-17-dx-towa-chusho-kigyo.webp" alt="DXとは何か｜中小企業が最初に手をつける範囲と進める順番" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>DXとは何か｜中小企業にとっての意味</a><a href="#h2"><span class="n">02</span>デジタル化とDXはどこが違うのか</a><a href="#h3"><span class="n">03</span>中小企業が最初に手をつける範囲</a><a href="#h4"><span class="n">04</span>DXを進める順番</a><a href="#h5"><span class="n">05</span>最初の対象業務を選ぶときの判断基準</a><a href="#h6"><span class="n">06</span>中小企業のDXが止まるときの共通点</a><a href="#h7"><span class="n">07</span>進み具合の確かめ方</a><a href="#h8"><span class="n">08</span>まとめ：DXは言葉ではなく、順番の問題</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">DXとは何かと聞かれたとき、中小企業の現場で通じる言い方に直すと「<strong>仕事の流れそのものを、デジタルを前提に作り直すこと</strong>」です。紙をPDFにする、ハンコを電子印にする、といった置き換えはその入口にすぎません。言葉の定義よりも、自社のどこから手をつけ、どの順番で進めるかのほうが、実務では重要になります。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>中小企業のDXは、全社を一度に変えるものではありません。<strong>毎日繰り返している業務をひとつ選び、手順を整えてから道具を替える</strong>。この順番を守れるかどうかで、進むか止まるかが決まります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>DXとは何か｜中小企業にとっての意味</h2>
+<p>DX（<em>Digital Transformation</em>／デジタルトランスフォーメーション）は、デジタル技術を使って製品・サービスや業務の進め方、さらには組織のあり方を変えていく取り組みを指します。言葉の中心にあるのは「デジタル」ではなく「<em>Transformation</em>（変わること）」のほうです。</p>
+<p>大企業の文脈では事業モデルの転換まで含めて語られますが、中小企業がこの定義をそのまま持ち込むと、話が大きくなりすぎて何も始まりません。従業員数が限られた組織にとって現実的なDXは、<strong>いま人の手で埋めている隙間を、仕組みで埋め直すこと</strong>です。</p>
+<p>具体的には、同じ情報を何度も書き写している、誰かに聞かないと分からない、探すのに時間がかかる。こうした日常の詰まりを解消していく先に、結果として仕事の形が変わっている。中小企業のDXは、その積み上げとして考えるほうが前に進みます。</p>
+<h2 id="h2"><span class="h-num">02</span>デジタル化とDXはどこが違うのか</h2>
+<p>混同されやすいのが、デジタル化とDXの関係です。順番としては、デジタル化はDXの手前にある工程で、対立するものではありません。ただし、<strong>どこで止まっているかを自覚しないと、DXをやったつもりで終わります</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>紙をなくす段階</th>
+<th>仕組みを作り直す段階</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>やること</td>
+<td>帳票をデータに、やり取りを電子に置き換える</td>
+<td>誰が何を入力し、どこに溜まり、どう使うかを設計し直す</td>
+</tr>
+<tr>
+<td>変わるもの</td>
+<td>保管と受け渡しの手間</td>
+<td>業務の流れと、判断に使える情報</td>
+</tr>
+<tr>
+<td>終わりの合図</td>
+<td>紙が減った</td>
+<td>転記と確認の作業が消えた</td>
+</tr>
+<tr>
+<td>つまずき方</td>
+<td>PDFが増えて探しづらくなる</td>
+<td>対象を広げすぎて、移行が止まる</td>
+</tr>
+</tbody></table></div>
+<p>エクセルをクラウドに置いただけでは、転記も確認も残ります。<strong>置き場所を変えることと、流れを変えることは別の仕事</strong>です。この線引きを社内で共有しておくと、「うちはもうDXしている」という思い込みを避けられます。エクセル運用の限界の見分け方は<a href="2026-06-11-excel-kanri-genkai-systemka.html">エクセル管理の限界とシステム化の判断</a>で整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>中小企業が最初に手をつける範囲</h2>
+<p>範囲を決めるときの原則は「狭く、毎日、一人で決められる」の3つです。全社横断のプロジェクトにすると、調整だけで数か月が過ぎます。</p>
+<p>狭くというのは、業務をひとつに絞るという意味です。受注処理全体ではなく「受注メールから注文一覧への転記」まで落とします。始まりと終わりがはっきりしている単位なら、変わったかどうかを自分たちで判定できます。</p>
+<p>毎日というのは、頻度の条件です。年に数回の作業を改善しても、効果を実感する前に手順を忘れます。<strong>毎日触る業務ほど、小さな改善が大きく返ってくる</strong>のは、回数がそのまま効いてくるからです。</p>
+<p>一人で決められる、は意思決定の条件です。複数部署の合意が要る範囲を最初に選ぶと、承認待ちの間に熱量が下がります。最初の一件は、決裁の線が1本で済む場所から選んでください。</p>
+<h2 id="h4"><span class="h-num">04</span>DXを進める順番</h2>
+<p>順番を飛ばしたときに起きることは、だいたい決まっています。ツールを先に入れると、業務の手順が曖昧なまま設定だけが増え、使われない機能が残ります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-17-dx-towa-chusho-kigyo.png" alt="対象業務を選ぶ・手順を書き出す・重複と待ち時間を取り除く・道具を選ぶの4段階を並べた図" width="1600" height="588" loading="lazy" decoding="async"><figcaption>最初の3つに、デジタルの話は一度も出てきません。道具選びは設計の結果であって、出発点ではありません。</figcaption></figure>
+
+<p>進め方としては、まず対象業務の手順を実際にやっている順番で書き出します。理想の流れではなく、例外処理や手戻りも含めた実際の流れです。次に、その手順から重複と待ち時間を取り除きます。ここまではデジタルの話が一度も出てきません。</p>
+<p>手順が整ってから、ようやく道具を選びます。既製のツールで足りるのか、作ったほうが早いのか。この判断は、手順が言葉になっていないとできません。<strong>道具選びは、設計の結果であって出発点ではない</strong>という感覚を持てると、検討が速くなります。AI活用まで含めた進め方は<a href="2026-09-04-ai-gyomu-kaizen-susumekata.html">AI業務改善の進め方</a>にまとめました。</p>
+<h2 id="h5"><span class="h-num">05</span>最初の対象業務を選ぶときの判断基準</h2>
+<p>候補が複数あって迷う場合は、次の観点で並べ替えると順位がつきます。</p>
+<ol>
+<li><strong>頻度</strong>：毎日か、週に数回か。回数が多いほど優先</li>
+<li><strong>所要時間</strong>：一度の作業にかかる時間。長いほど効果が見えやすい</li>
+<li><strong>転記の有無</strong>：同じ情報を二度以上書いている作業は、真っ先に候補になる</li>
+<li><strong>属人性</strong>：担当者が休むと止まる業務は、仕組み化の価値が高い</li>
+<li><strong>例外の少なさ</strong>：例外パターンが多い業務は、最初の一件には向かない</li>
+<li><strong>失敗したときの影響</strong>：止まっても業務全体が止まらない範囲から始める</li>
+</ol>
+<p>5番目と6番目は、優先度を下げる方向の基準です。効果が大きくても、例外だらけの業務や、失敗が取引先に直接届く業務を最初に選ぶと、慎重になりすぎて進まなくなります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>候補を出すときのコツ</h4>
+    <p>担当者に「面倒な作業は何ですか」と聞くより、実際の作業を横で見せてもらうほうが早く見つかります。本人が慣れてしまっている手間ほど、申告には出てきません。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>中小企業のDXが止まるときの共通点</h2>
+<p>止まった取り組みには、共通する形があります。</p>
+<p>ひとつは、<strong>目的が「DXをやること」になっている</strong>場合です。補助金や周囲の動きがきっかけだと、手段が先に決まり、解決したい困りごとが後から探されます。この順番だと、導入した時点で目的が達成されてしまい、運用が続きません。</p>
+<p>もうひとつは、現場が入らないまま決まる場合です。毎日その画面を触る人が検討に加わっていないと、入力の手間が増える設計になりがちです。効率化のはずが現場の負担増になる典型は、ここから生まれます。</p>
+<p>三つめは、担当者が一人だけの場合です。異動や退職で、設定を触れる人がいなくなります。最初から二人で進める、あるいは設定の内容を書き残しておくだけでも、続きやすさが変わります。</p>
+<h2 id="h7"><span class="h-num">07</span>進み具合の確かめ方</h2>
+<p>DXは成果が見えにくいと言われますが、対象を絞っていれば確かめ方は単純です。着手前に、その業務にかかっている時間と、一か月あたりの発生件数を記録しておきます。比べる相手は他社ではなく、着手前の自社です。</p>
+<p>数字に出ない変化も記録に値します。担当者が休んでも回ったか、新しく入った人が一人でできるようになったか、探す時間が減ったか。<strong>属人性が減ったかどうかは、時間短縮より長く効く成果</strong>です。一件が回ったら、同じ手順で次の業務に移ります。範囲を広げるのはこの段階からで構いません。</p>
+<h2 id="h8"><span class="h-num">08</span>まとめ：DXは言葉ではなく、順番の問題</h2>
+<p>DXとは何かという問いに、中小企業が完璧な定義で答える必要はありません。必要なのは、毎日繰り返している業務をひとつ選び、手順を整え、そのうえで道具を替えるという順番を守ることです。範囲を狭く取るほど、終わりが見え、次に進めます。何から手をつけるか自体を決めかねている段階なら、<a href="2026-06-26-ai-first-step.html">社内へのAI導入、最初の一歩の決め方</a>も判断の材料になります。</p>
+<p>TENERAMENTEは、業務の棚卸しから設計・開発・公開後の運用までを一貫してお手伝いしています。既製のツールで足りる部分と、作ったほうが早い部分を切り分けるところから始められるよう、対応できる範囲を<a href="services.html">サービス一覧</a>にまとめました。どこから着手すべきか迷っている段階でも構いませんので、<a href="contact.html">ご相談</a>からお気軽にお声がけください。</p>
+<details class="faq"><summary>DXと業務効率化は同じものですか？</summary><div class="faq-a">重なりますが、同じではありません。業務効率化は今のやり方を速くすることに重心があり、DXは流れそのものを作り直すところまで含みます。中小企業の場合は効率化から入って、結果的に流れが変わっていくという順路が現実的です。</div></details>
+
+<details class="faq"><summary>社内にIT担当がいなくても始められますか？</summary><div class="faq-a">始められます。最初の工程である手順の書き出しと整理は、業務を知っている人にしかできない仕事で、IT知識は必要ありません。道具選びと設定の段階から外部の力を借りる形が取りやすい進め方です。</div></details>
+
+<details class="faq"><summary>どのくらいの期間で成果が出ますか？</summary><div class="faq-a">対象の広さによって変わります。ひとつの業務に絞れば、手順の整理から運用開始までを短い期間で回せますが、全社を対象にすると調整に時間がかかります。期間を短くしたい場合は、範囲を狭くするのがもっとも確実な方法です。</div></details>
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#DX</span><span>#中小企業</span><span>#業務改善</span><span>#デジタル化</span><span>#業務アプリ</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +295,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +323,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-14-gyomu-koritsuka-tool-erabikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務効率化ツールの選び方｜導入前に決める3つのことと失敗する買い方</h4>
+      </a>
+      <a class="related-card" href="2026-09-20-gyomu-flow-zu-kakikata.html">
+        <span class="cat">Web App</span>
+        <h4>業務フロー図の書き方｜システム化の前に業務を整理する手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-11-yoyaku-kanri-system-jisha-senyo.html">
+        <span class="cat">Web App</span>
+        <h4>予約管理システムを自社専用で作る判断基準｜既製サービスとの違い</h4>
+      </a>
+    </div>
   </div>
 </section>
 

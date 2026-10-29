@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,157 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-10-28-yoken-teigi-uchiawase";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"小さな会社の要件定義｜3回の打ち合わせで決めることリスト","description":"中小企業が業務システムを頼むときの要件定義を、3回の打ち合わせに分けて整理しました。1回目で今の作業を並べ、2回目で画面と項目を決め、3回目で優先順位と完成の形を決める——各回で決めることと、持っていくもの、よくある失敗までまとめています。","datePublished":"2026-10-28","dateModified":"2026-10-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-28-yoken-teigi-uchiawase.html","image":"https://teneramente.jp/assets/img/covers/2026-10-28-yoken-teigi-uchiawase.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"要件定義, 業務システム, システム開発, 中小企業, 発注準備"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"小さな会社の要件定義｜3回の打ち合わせで決めることリスト","description":"中小企業が業務システムを頼むときの要件定義を、3回の打ち合わせに分けて整理しました。1回目で今の作業を並べ、2回目で画面と項目を決め、3回目で優先順位と完成の形を決める——各回で決めることと、持っていくもの、よくある失敗までまとめています。","datePublished":"2026-10-28","dateModified":"2026-10-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-10-28-yoken-teigi-uchiawase.html","image":"https://teneramente.jp/assets/img/covers/2026-10-28-yoken-teigi-uchiawase.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"要件定義, 業務システム, システム開発, 中小企業, 発注準備"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"小さな会社の要件定義｜3回の打ち合わせで決めることリスト","item":"https://teneramente.jp/2026-10-28-yoken-teigi-uchiawase.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"要件定義だけを先に頼むことはできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。要件定義を切り離して進める形は珍しくありません。ただし、要件定義だけを別会社に頼んだ場合、作る会社が変わると前提の確認からやり直しになることがあります。同じ相手に続けて頼むか、別にするかを先に決めておくと、成果物の形（どこまで文字にして残すか）も合わせやすくなります。"}},{"@type":"Question","name":"社内にシステムに詳しい人がいなくても進められますか？","acceptedAnswer":{"@type":"Answer","text":"進められます。要件定義で発注側に求められるのは、技術の知識ではなく、今の業務を正確に説明できることです。使っている帳票を見せて、作業の順番と例外を話せれば十分です。逆に、詳しくない方が「技術的にはこうすべきでは」と踏み込むと、かえって話がずれます。分からない部分は分からないと伝えて、判断材料を出してもらうほうが早く進みます。"}},{"@type":"Question","name":"打ち合わせは3回で本当に終わりますか？","acceptedAnswer":{"@type":"Answer","text":"対象の業務を1つに絞っていれば、3回で形になることは多いです。終わらない場合、原因はたいてい対象が広すぎることにあります。受注・請求・在庫・勤怠をまとめて相談すると、どの回も途中で終わります。最初は1つの業務に絞り、動かし始めてから次の業務に広げる進め方のほうが、結果として早く使い始められます。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">小さな会社の要件定義｜3回の打ち合わせで決めることリスト</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Oct 28, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-10-28-yoken-teigi-uchiawase.webp" alt="小さな会社の要件定義｜3回の打ち合わせで決めることリスト" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>要件定義が長引くのは、決める順番が決まっていないから</a><a href="#h2"><span class="n">02</span>打ち合わせを3回に分けると、決める順番が見える</a><a href="#h3"><span class="n">03</span>1回目：今やっている作業を、そのまま並べる</a><a href="#h4"><span class="n">04</span>2回目：画面と項目を決める</a><a href="#h5"><span class="n">05</span>3回目：優先順位と「完成」の形を決める</a><a href="#h6"><span class="n">06</span>伝え方を変えるだけで、見積もりの精度は上がる</a><a href="#h7"><span class="n">07</span>要件定義でよくある失敗</a><a href="#h8"><span class="n">08</span>まとめ：まずは帳票を1枚持って相談する</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">業務システムを作りたいと相談したものの、打ち合わせが何度も続いて話が前に進まない。小さな会社の要件定義でよく起きる状態です。<strong>原因は決める内容が多いことではなく、決める順番が決まっていないことにあります</strong>。3回の打ち合わせに分けて、各回で何を決めるかを先に置いておくと、話は前に進みます。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>要件定義は「今の作業を並べる → 画面と項目を決める → 優先順位と完成の形を決める」の順に進みます。<strong>最初から完成形を描こうとせず、1回目は今やっていることをそのまま出すことに徹するのが近道です</strong>。発注側がそろえておくのは、使っている帳票と、作業の実物です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>要件定義が長引くのは、決める順番が決まっていないから</h2>
+<p>打ち合わせが空回りするときは、だいたい同じことが起きています。「こんな機能があると便利」「あの画面も必要かもしれない」という話と、「今この作業をどうやっているか」という話が、同じ場で混ざっている状態です。</p>
+<p>前者は希望、後者は事実です。事実が出そろう前に希望を並べると、何を作ればよいかが決まりません。逆に事実から始めると、必要な機能は自然に絞られていきます。</p>
+<p>もうひとつの要因は、決定できる人がその場にいないことです。現場の担当者だけで集まっても、費用と優先順位の判断ができません。<strong>3回のうち少なくとも1回は、お金と期限を決められる人が入る</strong>ようにしてください。頼む前に社内で決めておく項目は<a href="2026-09-04-ai-tool-kaihatsu-irai-junbi.html">AIツール開発を依頼する前に決めておく7つのこと</a>に整理しています。</p>
+<h2 id="h2"><span class="h-num">02</span>打ち合わせを3回に分けると、決める順番が見える</h2>
+<p>要件定義を1回の長い会議で終わらせようとすると、たいてい決めきれずに持ち帰りが増えます。3回に分けて、各回のゴールを決めるほうが結果的に早く終わります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-10-28-yoken-teigi-uchiawase.png" alt="1回目は対象の業務と今の作業の流れ、2回目は画面の数と入力する項目、3回目は優先順位と公開の範囲と完成の定義という、業務システムの要件定義を3回の打ち合わせに分けたときに各回で決めることを並べた図" width="1600" height="507" loading="lazy" decoding="async"><figcaption>後ろの回で決めることを、前の回で決めようとしないのが早く終わるこつです。</figcaption></figure>
+
+<p>3回それぞれで扱う内容は、次のように分かれます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>回</th>
+<th>決めること</th>
+<th>発注側が持っていくもの</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1回目</td>
+<td>対象の業務と、今の作業の流れ</td>
+<td>使っている帳票・Excel・紙の実物</td>
+</tr>
+<tr>
+<td>2回目</td>
+<td>画面の数と、入力する項目</td>
+<td>1回目の内容の確認結果、項目の抜け</td>
+</tr>
+<tr>
+<td>3回目</td>
+<td>優先順位・公開の範囲・完成の定義</td>
+<td>予算の上限と、使い始めたい時期</td>
+</tr>
+</tbody></table></div>
+<p>大事なのは、<strong>後ろの回で決めることを前の回で決めようとしない</strong>ことです。1回目で「この画面にはこのボタンが欲しい」と話し始めると、肝心の作業の流れが出てこないまま時間が終わります。</p>
+<h2 id="h3"><span class="h-num">03</span>1回目：今やっている作業を、そのまま並べる</h2>
+<p>1回目は、理想の姿を描く場ではありません。今やっている作業を、順番どおりに並べることだけに使います。</p>
+<p>出してほしいのは次の3つです。</p>
+<ol>
+<li>作業の順番（誰が、何を受け取って、何を渡すか）</li>
+<li>使っている書類の実物（Excel、紙の台帳、FAXの用紙まで含めて）</li>
+<li>例外のパターン（「この取引先のときだけ別の処理をする」というもの）</li>
+</ol>
+<p>とくに3つめが抜けると、後から作り直しになります。日常の9割を占める流れよりも、月に数回しか起きない例外のほうが、システムの形を左右することがあるためです。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>きれいにまとめ直さないでください</h4>
+    <p>打ち合わせのために業務フロー図を清書する必要はありません。むしろ、ふだん使っている書類をそのまま見せていただくほうが正確です。清書の過程で、例外や手書きの追記といった「実際に効いている情報」が落ちてしまいます。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>2回目：画面と項目を決める</h2>
+<p>1回目で並べた作業をもとに、2回目では画面の数と、各画面で入力する項目を決めます。ここが要件定義の中心です。</p>
+<p>項目を決めるときの判断は、ひとつだけです。<strong>その項目は、後で検索・集計に使うのか、それとも見られればよいのか</strong>。検索や集計に使うなら独立した項目にし、見るだけでよいものは備考欄にまとめます。この区別をせずに全部を独立した項目にすると、入力の手間だけが増えます。</p>
+<p>画面の数は、作業の区切りに合わせます。1つの作業を1画面で終わらせる形が基本で、1画面に複数の作業を詰め込むと、どこまで終わったかが分からなくなります。</p>
+<p>この回で、「今は紙でやっているが、システムに載せるかどうか」も決めます。すべてを載せる必要はありません。月に1度の作業は紙のままにして、毎日発生する作業だけをシステム化する判断もよくあります。</p>
+<h2 id="h5"><span class="h-num">05</span>3回目：優先順位と「完成」の形を決める</h2>
+<p>3回目は、費用と期限に直結する回です。2回目までに出た項目を、次の3つに分けます。</p>
+<ul>
+<li><strong>無いと業務が回らないもの</strong>（最初に作る）</li>
+<li><strong>あると楽になるもの</strong>（動かし始めてから判断する）</li>
+<li><strong>今回は作らないもの</strong>（決めて記録に残す）</li>
+</ul>
+<p>3つめをはっきり決めておくことが、あとで効きます。「作らない」と決めた記録が無いと、後から「言ったはずだ」という話になり、どちらにとっても損です。</p>
+<p>あわせて、<strong>何をもって完成とするか</strong>を言葉にします。「今の帳票と同じ内容が、同じ件数で出せること」のように、確かめられる形にしてください。「使いやすくなっていること」は完成の定義になりません。費用の内訳がどう決まるかは<a href="2026-06-08-webapp-kaihatsu-hiyo-souba.html">業務Webアプリ開発の費用相場</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>伝え方を変えるだけで、見積もりの精度は上がる</h2>
+<p>同じ業務でも、伝え方によって返ってくる見積もりは変わります。曖昧なまま出すと、作る側は幅を見て高めに出すしかありません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>曖昧な伝え方</th>
+<th>決まった伝え方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>顧客管理をしたい</td>
+<td>問い合わせを受けた日・担当・状況を記録し、未対応だけを一覧で出したい</td>
+</tr>
+<tr>
+<td>スマホでも使いたい</td>
+<td>外出先で記録の閲覧と、状況の更新だけできればよい</td>
+</tr>
+<tr>
+<td>既存のExcelから移行したい</td>
+<td>3年分・約2万行のExcelを初期データとして取り込みたい</td>
+</tr>
+<tr>
+<td>なるべく早く</td>
+<td>来期が始まる前に、受注の登録だけは使い始めたい</td>
+</tr>
+</tbody></table></div>
+<p>右の列は、特別な知識が要る内容ではありません。<strong>1回目と2回目で出した事実を、そのまま文にしているだけ</strong>です。打ち合わせを分ける意味は、ここに出てきます。</p>
+<h2 id="h7"><span class="h-num">07</span>要件定義でよくある失敗</h2>
+<p>最後に、つまずきやすい点を挙げておきます。</p>
+<p>ひとつは、現場の担当者が同席しないまま進めることです。管理者だけで決めた項目は、実際の作業の順番と合わないことが多く、動かし始めてから入力されなくなります。</p>
+<p>もうひとつは、他社の事例をそのまま持ち込むことです。「同業のA社が入れている仕組み」は、A社の業務の形に合わせて作られたものです。自社の作業の流れを並べる前に事例から入ると、合わない部分を無理に合わせることになります。</p>
+<p>そして、決めたことを記録に残さないことです。打ち合わせの終わりに、決まったこと・決まらなかったこと・次回までに確認することの3つを、その場で文字にして双方で持ってください。AI活用を含めた開発全体の進め方は<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善アプリ開発 完全ガイド</a>で解説しています。</p>
+<details class="faq"><summary>要件定義だけを先に頼むことはできますか？</summary><div class="faq-a">できます。要件定義を切り離して進める形は珍しくありません。ただし、要件定義だけを別会社に頼んだ場合、作る会社が変わると前提の確認からやり直しになることがあります。同じ相手に続けて頼むか、別にするかを先に決めておくと、成果物の形（どこまで文字にして残すか）も合わせやすくなります。</div></details>
+
+<details class="faq"><summary>社内にシステムに詳しい人がいなくても進められますか？</summary><div class="faq-a">進められます。要件定義で発注側に求められるのは、技術の知識ではなく、今の業務を正確に説明できることです。使っている帳票を見せて、作業の順番と例外を話せれば十分です。逆に、詳しくない方が「技術的にはこうすべきでは」と踏み込むと、かえって話がずれます。分からない部分は分からないと伝えて、判断材料を出してもらうほうが早く進みます。</div></details>
+
+<details class="faq"><summary>打ち合わせは3回で本当に終わりますか？</summary><div class="faq-a">対象の業務を1つに絞っていれば、3回で形になることは多いです。終わらない場合、原因はたいてい対象が広すぎることにあります。受注・請求・在庫・勤怠をまとめて相談すると、どの回も途中で終わります。最初は1つの業務に絞り、動かし始めてから次の業務に広げる進め方のほうが、結果として早く使い始められます。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：まずは帳票を1枚持って相談する</h2>
+<p>要件定義は、1回目で今の作業を並べ、2回目で画面と項目を決め、3回目で優先順位と完成の形を決める——この順番で進みます。発注側が用意するのは、きれいな資料ではなく、今使っている帳票と作業の実物です。</p>
+<p>対象の業務を1つに絞り、決定できる人が1回は同席する。この2点を守るだけで、打ち合わせの回数は減ります。</p>
+<p>TENERAMENTEなら、この3回の打ち合わせの進行そのものをお引き受けし、お持ちいただいた帳票から作業の順番と例外を整理して、画面と項目・優先順位・完成の定義までを文字にしてお渡しします。社内で要件をまとめ直す作業が不要になり、見積もりの幅も最初から絞った状態でご判断いただけます。<a href="lp-ai-app.html">AI業務アプリ開発</a>の進め方をご覧いただいたうえで、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#要件定義</span><span>#業務システム</span><span>#システム開発</span><span>#中小企業</span><span>#発注準備</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +321,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +349,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-10-11-excel-kyoyu-doji-henshu-genkai.html">
+        <span class="cat">Web App</span>
+        <h4>Excelの共有・同時編集の限界｜壊れる前に移行を判断する基準</h4>
+      </a>
+      <a class="related-card" href="2026-10-08-api-renkei-toha.html">
+        <span class="cat">Web App</span>
+        <h4>API連携とは｜業務システムをつなぐ仕組みと、依頼前に確認すること</h4>
+      </a>
+      <a class="related-card" href="2026-10-05-gyomu-hyojunka-susumekata.html">
+        <span class="cat">Web App</span>
+        <h4>業務標準化の進め方｜誰がやっても同じ結果になる状態の作り方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

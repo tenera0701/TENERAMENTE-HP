@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,145 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-04-hojin-ai-kenshu-erabikata";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計","description":"法人向けAI研修は“受けて終わり”になりがちです。研修が定着しない典型パターン、カリキュラムに必ず入れるべき4つの要素、研修会社の比較ポイント、翌日から使い続けるための定着設計を、中小企業の経営者向けに整理します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-hojin-ai-kenshu-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI研修, 法人向けAI研修, 生成AI, 社内AI導入, AI活用支援"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計","description":"法人向けAI研修は“受けて終わり”になりがちです。研修が定着しない典型パターン、カリキュラムに必ず入れるべき4つの要素、研修会社の比較ポイント、翌日から使い続けるための定着設計を、中小企業の経営者向けに整理します。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-04-hojin-ai-kenshu-erabikata.html","image":"https://teneramente.jp/assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI研修, 法人向けAI研修, 生成AI, 社内AI導入, AI活用支援"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計","item":"https://teneramente.jp/2026-09-04-hojin-ai-kenshu-erabikata.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"研修は全社一斉と部門ごと、どちらがよいですか？","acceptedAnswer":{"@type":"Answer","text":"目的で分けます。全員の認識をそろえる段階なら一斉講義型、実務で使い始める段階なら部門ごとのワークショップ型です。実データを持ち込むワークショップは少人数編成が前提なので、対象部門と業務を1〜2つに絞って始めてください。"}},{"@type":"Question","name":"経営者や管理職も受講する必要がありますか？","acceptedAnswer":{"@type":"Answer","text":"あります。経営者や管理職が受講しないと「使っていい空気」が生まれず、定着しにくくなります。研修前に利用ルールの叩き台を経営側で用意し、当日は必ず同席してください。"}},{"@type":"Question","name":"研修だけを単発で依頼することはできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。ただし、定着にはプロンプトの共有、週に一度の振り返り、月に一度のルール見直しといった研修後の運用が欠かせません。社内で回せるなら研修だけで構いませんし、難しければ伴走型を検討してください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 4, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-04-hojin-ai-kenshu-erabikata.webp" alt="法人向けAI研修の選び方｜中小企業が“受けて終わり”にしない研修設計" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>AI研修が“受けて終わり”になる典型パターン</a><a href="#h2"><span class="n">02</span>カリキュラムに必ず入れるべき4つの要素</a><a href="#h3"><span class="n">03</span>法人向けAI研修の3つの型と向き不向き</a><a href="#h4"><span class="n">04</span>研修会社を比較する6つのポイント</a><a href="#h5"><span class="n">05</span>研修前に社内で決めておくこと</a><a href="#h6"><span class="n">06</span>研修後の定着設計：翌日から使い続ける仕組み</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：研修は「設計」で選ぶ</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">法人向けAI研修で成果が出るかどうかは、講師の知名度や受講時間ではなく、<strong>自社の実データで手を動かし、翌日から使う仕組みまで設計されているか</strong>で決まります。ChatGPT・Claude・Gemini などの生成AIは、一般論のデモを眺めただけでは業務に入ってきません。この記事では、中小企業がAI研修を「受けて終わり」にしないための研修の選び方と、研修後の定着設計を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>法人向けAI研修は、講師や時間数ではなく、<strong>自社の実データで手を動かし、利用ルールと翌日から使う仕組みまで設計されているか</strong>で選びます。前後の設計が抜けた研修は、当日限りのイベントで終わりがちです。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>AI研修が“受けて終わり”になる典型パターン</h2>
+<p>多くの会社で起きているのは「研修当日は盛り上がったのに、翌週には誰も開いていない」という状態です。原因はほぼ決まっていて、研修の中身より<strong>研修の前後の設計が抜けていること</strong>にあります。</p>
+<ul>
+<li>一般的なデモを眺めるだけで、自社の業務や資料に一度も触れない</li>
+<li>「どこまで入力してよいか」の利用ルールがなく、現場が怖くて使えない</li>
+<li>全部門を一括で集めた結果、誰の業務にも刺さらない内容になる</li>
+<li>研修後に質問できる相手も、振り返る場も用意されていない</li>
+<li>経営者や管理職が受講せず、「使っていい空気」が生まれない</li>
+</ul>
+<p>逆に言えば、この5点を潰しておけば、研修は定着しやすくなります。研修会社を比較する前に、まずこの構造を押さえておくと選定の軸がぶれません。AI導入全般のつまずきについては<a href="2026-06-14-ai-donyu-shippai-kaihi.html">中小企業のAI導入が失敗する7つのパターンと回避策</a>も参考になります。</p>
+<h2 id="h2"><span class="h-num">02</span>カリキュラムに必ず入れるべき4つの要素</h2>
+<p>以下の4つが入っているかを確認してください。1つでも欠けると、研修は当日限りのイベントになりがちです。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-04-hojin-ai-kenshu-erabikata.png" alt="自社の実データ・利用ルール・部門別ユースケース・翌日から使う仕組みの4要素" width="1600" height="588" loading="lazy" decoding="async"><figcaption>どれか1つでも欠けると、研修は当日限りのイベントで終わります。</figcaption></figure>
+
+<h3>自社の実データで手を動かす</h3>
+<p>議事録や見積書、問い合わせメールなど、<em>普段の業務で実際に扱っている資料</em>を持ち込み、その場でAIに読ませて要約や下書きを作らせます。汎用のサンプルでは「うちの場合はどうなる？」が解消されず、翌日に持ち帰れません。</p>
+<h3>利用ルール（入力してよい情報の線引き）</h3>
+<p>顧客の個人情報、未公開の財務情報、取引先の機密。<strong>何を入力してよく、何を入力してはいけないか</strong>を研修の中で明文化します。ルールは禁止事項の羅列ではなく「これは入れていい」という許可の形で示すと、現場が安心して使い始めます。</p>
+<h3>部門別のユースケース</h3>
+<p>営業なら提案書の骨子、事務なら定型メールの整形、経理なら仕訳のチェック観点の洗い出しなど、部門ごとに「明日やる作業」に落とします。</p>
+<h3>翌日から使う仕組み</h3>
+<p>うまくいったプロンプト（AIへの指示文）を型として保存する場所、困ったときに聞ける窓口、翌月の振り返り日。この3つを研修の最後に決めます。</p>
+<h2 id="h3"><span class="h-num">03</span>法人向けAI研修の3つの型と向き不向き</h2>
+<p>法人向けAI研修は、大きく3つの型に分かれます。自社の目的に合う型を先に決めると、研修会社の比較が楽になります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>研修の型</th>
+<th>向いている会社</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一斉講義型</td>
+<td>まず全員の認識をそろえたい</td>
+<td>業務への接続が弱く、単独では定着しにくい</td>
+</tr>
+<tr>
+<td>ワークショップ型</td>
+<td>部門ごとに実務で使い始めたい</td>
+<td>実データの準備と少人数編成が前提</td>
+</tr>
+<tr>
+<td>伴走型（研修＋月次支援）</td>
+<td>使い続ける状態まで持っていきたい</td>
+<td>費用は内容次第。社内の推進役が必要</td>
+</tr>
+</tbody></table></div>
+<p>一斉講義型で認識をそろえ、ワークショップ型で部門ごとに手を動かし、伴走型で定着まで持っていく、という組み合わせが基本形です。<strong>最初から全社一斉のワークショップを狙わない</strong>ことが、中小企業では特に大切です。</p>
+<h2 id="h4"><span class="h-num">04</span>研修会社を比較する6つのポイント</h2>
+<p>候補を比較するときは、料金表より先に次の点を確認してください。</p>
+<ol>
+<li>事前ヒアリングがあるか。業務資料を見せたうえでカリキュラムを組む会社は、実データ型の研修ができます</li>
+<li>教材が汎用テンプレートか、自社向けに作り直されるか</li>
+<li>ChatGPT・Claude・Gemini など複数のツールを扱えるか。1つに固定されると、契約変更のたびに学び直しになります</li>
+<li>利用ルールの策定まで含むか、それとも「使い方」だけか</li>
+<li>研修の先にある <em>RAG</em>（Retrieval-Augmented Generation：社内データ検索）や自動化の実装まで、同じ相手に相談できるか</li>
+<li>研修後の定着支援（月次の伴走など）があるか</li>
+</ol>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>確かめ方</h4>
+    <p>問い合わせの段階で「うちの議事録を使って研修できますか」と聞いてみてください。具体的な進め方がすぐ返ってくる会社は、実データ型の研修に慣れています。</p>
+  </div>
+</div>
+
+<h2 id="h5"><span class="h-num">05</span>研修前に社内で決めておくこと</h2>
+<p>研修の効果は、申し込む前の準備でほぼ決まります。</p>
+<ul>
+<li>対象部門と、その部門の代表的な業務を1〜2つ選ぶ（「全部」は選ばない）</li>
+<li>持ち込む実データを決め、氏名や金額など不要な情報は事前に伏せておく</li>
+<li>利用ルールの叩き台を経営側で用意する（研修中に完成させればよい）</li>
+<li>「研修の翌月末までに何をしているか」を受講者と合意しておく</li>
+<li>経営者か管理職が必ず同席する</li>
+</ul>
+<p>この準備があるだけで、研修当日の質問が「AIとは何か」から「この資料でどうやるか」に変わります。準備に自信がなければ、この段階から研修会社に相談して構いません。用途の棚卸しから始める考え方は<a href="2026-06-26-ai-first-step.html">社内へのAI導入、最初の一歩の決め方</a>にまとめています。</p>
+<h2 id="h6"><span class="h-num">06</span>研修後の定着設計：翌日から使い続ける仕組み</h2>
+<p>定着とは「思い出したときに使う」ではなく、<strong>業務手順の中にAIを使う工程が組み込まれている</strong>状態です。研修後は次の運用を回してください。</p>
+<ul>
+<li>うまくいったプロンプトを共有フォルダやチャットに集め、部門ごとの「型」に育てる</li>
+<li>週に一度、短い共有の場で「使った場面・使えなかった場面」を出し合う</li>
+<li>効果は売上ではなく、作業にかかった時間の増減で測る</li>
+<li>月に一度、ルールとユースケースを見直し、使われていない用途は外す</li>
+<li>「同じ質問が何度も出る」「同じ作業の下書きを毎日頼んでいる」が見えたら、次の段階へ</li>
+</ul>
+<p>最後の項目が、研修から先に進む合図です。同じ質問が繰り返されるならRAG、同じ作業の繰り返しなら自動化やアプリ化が候補になります。どちらに進むにしても、研修で決めた利用ルールと、部門ごとに育てたプロンプトの型がそのまま土台になります。研修の成果物は個人の手元ではなく、社内で誰でも開ける場所に残しておいてください。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>研修は全社一斉と部門ごと、どちらがよいですか？</summary><div class="faq-a">目的で分けます。全員の認識をそろえる段階なら一斉講義型、実務で使い始める段階なら部門ごとのワークショップ型です。実データを持ち込むワークショップは少人数編成が前提なので、対象部門と業務を1〜2つに絞って始めてください。</div></details>
+<details class="faq"><summary>経営者や管理職も受講する必要がありますか？</summary><div class="faq-a">あります。経営者や管理職が受講しないと「使っていい空気」が生まれず、定着しにくくなります。研修前に利用ルールの叩き台を経営側で用意し、当日は必ず同席してください。</div></details>
+<details class="faq"><summary>研修だけを単発で依頼することはできますか？</summary><div class="faq-a">できます。ただし、定着にはプロンプトの共有、週に一度の振り返り、月に一度のルール見直しといった研修後の運用が欠かせません。社内で回せるなら研修だけで構いませんし、難しければ伴走型を検討してください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：研修は「設計」で選ぶ</h2>
+<p>法人向けAI研修を選ぶ軸は、3つに集約できます。実データで手を動かせるか、利用ルールと部門別ユースケースが含まれるか、翌日から使う仕組みと定着支援まで設計されているか。この3つを満たす研修なら、会社の規模にかかわらず「受けて終わり」になりにくくなります。</p>
+<p>TENERAMENTEは名古屋のAI開発企業として、<a href="lp-ai.html">AI活用支援</a>で導入設計・研修・RAG構築・業務自動化・月次の定着支援を、必要な部分だけ組み合わせてご依頼いただける形にしています。研修はChatGPT・Claude・Gemini を御社の実際の業務資料で扱うワークショップ形式で、研修だけの部分的なご依頼も可能です。初回相談は60分無料ですので、現状の用途の棚卸しからで構いません。<a href="contact.html">お問い合わせ</a>からご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI研修</span><span>#法人向けAI研修</span><span>#生成AI</span><span>#社内AI導入</span><span>#AI活用支援</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +309,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +337,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-04-gyomu-kaizen-ai-tsukaikata.html">
+        <span class="cat">AI</span>
+        <h4>業務改善にAIをどう使う？中小企業がまず手をつける業務の見つけ方</h4>
+      </a>
+      <a class="related-card" href="2026-09-06-seisei-ai-shanai-rule-template.html">
+        <span class="cat">AI</span>
+        <h4>生成AIの社内ルールをテンプレートで作る｜最低限決める10項目</h4>
+      </a>
+      <a class="related-card" href="2026-10-23-ai-gijiroku-jidoka.html">
+        <span class="cat">AI</span>
+        <h4>AIで議事録を自動化する方法｜録音から要約・共有までの流れ</h4>
+      </a>
+    </div>
   </div>
 </section>
 

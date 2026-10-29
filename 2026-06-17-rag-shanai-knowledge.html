@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,175 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-06-17-rag-shanai-knowledge";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説","description":"社内マニュアルや過去の資料をAIに読み込ませて、質問に答えさせる技術「RAG」。仕組みを「オープンブック試験」の比喩でやさしく解説し、解決できる社内課題、導入手順、費用感の考え方までまとめました。","datePublished":"2026-06-17","dateModified":"2026-06-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-17-rag-shanai-knowledge.html","image":"https://teneramente.jp/assets/img/covers/2026-06-17-rag-shanai-knowledge.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"RAG, 社内AI, ナレッジ管理, AI導入, チャットボット"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説","description":"社内マニュアルや過去の資料をAIに読み込ませて、質問に答えさせる技術「RAG」。仕組みを「オープンブック試験」の比喩でやさしく解説し、解決できる社内課題、導入手順、費用感の考え方までまとめました。","datePublished":"2026-06-17","dateModified":"2026-06-17","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-06-17-rag-shanai-knowledge.html","image":"https://teneramente.jp/assets/img/covers/2026-06-17-rag-shanai-knowledge.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"RAG, 社内AI, ナレッジ管理, AI導入, チャットボット"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説","item":"https://teneramente.jp/2026-06-17-rag-shanai-knowledge.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"RAGとファインチューニングは何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"ファインチューニングはAIモデル自体を追加学習させる手法で、RAGは資料を検索して参照させる手法です。社内文書のように更新が多く、根拠の提示が求められる用途では、資料の差し替えだけで反映できるRAGのほうが扱いやすいケースが多くあります。"}},{"@type":"Question","name":"社内の機密情報を扱っても大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"設計次第です。入力データを学習に使わないAPIやプランの利用、アクセス権限の制御、保存場所の選定など、機密性に応じた構成を最初に決めることが重要です。この点は導入前に必ず要件として整理しましょう。"}},{"@type":"Question","name":"小さな会社でも導入する意味はありますか？","acceptedAnswer":{"@type":"Answer","text":"あります。むしろ少人数で属人化が起きやすい組織ほど、「あの人しか知らない」を減らす効果は大きくなります。既存サービスの活用も含めて、規模に見合ったスモールスタートの形を選ぶことがポイントです。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Jun 17, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-06-17-rag-shanai-knowledge.webp" alt="RAGとは？社内ナレッジをAIに答えさせる仕組みと導入手順をやさしく解説" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>RAGとは──「オープンブック試験」の比喩で理解する</a><a href="#h2"><span class="n">02</span>普通のChatGPTとの違い</a><a href="#h3"><span class="n">03</span>RAGで解決できる社内課題</a><a href="#h4"><span class="n">04</span>仕組みの流れ──検索から根拠付き回答までの4ステップ</a><a href="#h5"><span class="n">05</span>導入手順──スモールスタートの進め方</a><a href="#h6"><span class="n">06</span>精度を左右するのは、AIよりもデータ整備</a><a href="#h7"><span class="n">07</span>よくある誤解と限界</a><a href="#h8"><span class="n">08</span>費用感の考え方</a><a href="#h9"><span class="n">09</span>まとめ：ナレッジ整備から始める社内AI</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">「社内のマニュアルや過去の資料をAIに読み込ませて、質問したら答えてくれるようにしたい」──この要望を実現する技術が <em>RAG</em>（Retrieval-Augmented Generation：検索拡張生成）です。本記事では、<strong>RAGの仕組みと導入手順</strong>を、専門用語をできるだけかみ砕きながら、社内AI導入を検討する方向けに解説します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>RAGとは、AIが回答する前に社内の資料を「検索」し、見つけた根拠をもとに答える仕組みです。成否を分けるのはAIの性能よりも<strong>読み込ませる社内データの整備</strong>。まずは対象業務を1つに絞ったスモールスタートが定石です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>RAGとは──「オープンブック試験」の比喩で理解する</h2>
+<p><em>RAG</em>（Retrieval-Augmented Generation、検索拡張生成）とは、AIが回答を作る前に、<strong>あらかじめ用意した資料の中から関連する情報を検索し、それを根拠として答えを生成する仕組み</strong>です。</p>
+<p>たとえるなら、試験の受け方の違いです。普通のChatGPTは「暗記した知識だけで答える試験」を受けている状態。一方RAGは、**「教科書やノートを持ち込んでよいオープンブック試験」**です。質問されたら、まず手元の資料から該当ページを探し、そこに書いてあることをもとに答える。だから、自社にしかない情報──就業規則、業務マニュアル、過去の見積もりの考え方──についても答えられるようになります。</p>
+<p>「AIに社内のことを覚えさせる」というより、**「AIに社内資料の探し方と読み方を与える」**というイメージが実態に近い技術です。</p>
+<h2 id="h2"><span class="h-num">02</span>普通のChatGPTとの違い</h2>
+<p>RAGを使った社内AIと、そのままのChatGPTとの違いを整理します。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>観点</th>
+<th>普通のChatGPT</th>
+<th>RAG（社内ナレッジAI）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>知識の源</td>
+<td>学習済みの一般知識</td>
+<td>学習済み知識＋自社の資料</td>
+</tr>
+<tr>
+<td>社内固有の質問</td>
+<td>答えられない（推測で誤答することも）</td>
+<td>資料にあれば答えられる</td>
+</tr>
+<tr>
+<td>回答の根拠</td>
+<td>示されないことが多い</td>
+<td>「どの資料のどこか」を提示できる</td>
+</tr>
+<tr>
+<td>情報の更新</td>
+<td>モデル任せ</td>
+<td>資料を差し替えれば反映できる</td>
+</tr>
+<tr>
+<td>導入の手間</td>
+<td>アカウント作成のみ</td>
+<td>データ整備と構築が必要</td>
+</tr>
+</tbody></table></div>
+<p>ポイントは、RAGは<strong>回答の根拠となった資料を示せる</strong>ことです。「その答えはどこに書いてある？」に応えられるため、業務利用での信頼性が大きく変わります。</p>
+<h2 id="h3"><span class="h-num">03</span>RAGで解決できる社内課題</h2>
+<p>RAGが特に力を発揮するのは、「情報はどこかにあるのに、探せない・聞ける人が限られる」タイプの課題です。</p>
+<ul>
+<li><strong>社内問い合わせ対応</strong>：「経費精算のルールは？」「この手続きの申請先は？」といった総務・情シスへの定型質問に、AIが一次回答する</li>
+<li><strong>マニュアル・規程の検索</strong>：分厚いマニュアルやフォルダの奥の資料から、該当箇所を探して要約付きで提示する</li>
+<li><strong>引き継ぎ・属人化の解消</strong>：ベテランしか知らない業務知識を文書化して読み込ませ、「あの人に聞かないと分からない」状態を減らす</li>
+<li><strong>顧客対応の品質平準化</strong>：過去の対応履歴やFAQをもとに、新人でも一定品質の回答案を作れるようにする</li>
+</ul>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>業界全般の傾向として、最初の適用先には「社内規程・手続きに関する問い合わせ対応」が選ばれることが多くあります。質問のパターンが限られ、答えの根拠となる文書が明確なため、RAGの得意分野と噛み合いやすいからです。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>仕組みの流れ──検索から根拠付き回答までの4ステップ</h2>
+<p>RAGの内部では、質問を受けてからおおむね次の4ステップが動いています。</p>
+<ol>
+<li><strong>資料の下ごしらえ</strong>（事前準備）：マニュアルや規程などの文書を細かい断片に分割し、意味で検索できる形（ベクトルデータベース）に登録しておく</li>
+<li><strong>検索</strong>：ユーザーの質問を受け取ると、登録済みの資料から関連度の高い断片を探し出す</li>
+<li><strong>生成</strong>：見つかった断片を「参考資料」としてAIに渡し、それに基づいた回答を作らせる</li>
+<li><strong>根拠の提示</strong>：回答と一緒に、参照した資料名や該当箇所を示す</li>
+</ol>
+<p>この流れからわかるとおり、<strong>ステップ2の検索で適切な資料が見つからなければ、どんなに優秀なAIでも良い回答は作れません</strong>。RAGの品質は「検索の質」に大きく依存します。</p>
+<h2 id="h5"><span class="h-num">05</span>導入手順──スモールスタートの進め方</h2>
+<p>いきなり全社ナレッジを対象にするのは失敗のもとです。当社がおすすめする進め方は次のとおりです。</p>
+<h3>Step 1. 対象業務を1つに絞る</h3>
+<p>「総務への問い合わせ」「特定製品のマニュアル」など、質問の範囲と正解の所在が明確な業務を1つ選びます。</p>
+<h3>Step 2. 対象文書を集めて整える</h3>
+<p>選んだ業務に関する文書を集め、古い版の削除・重複の整理・最新化を行います。ここが後述するとおり最重要工程です。</p>
+<h3>Step 3. 小さく構築して社内で試す</h3>
+<p>まず少人数で使い、「答えられた質問」「答えられなかった質問」を記録します。既存のRAGサービスを使う方法と、自社業務に合わせて開発する方法があり、この段階で見極めます。</p>
+<h3>Step 4. 評価して広げる</h3>
+<p>回答の正答ぶりと利用者の声を確認し、文書の追加・改善を回してから、対象業務や利用者を広げます。</p>
+<blockquote>
+<p>RAG導入は「システム構築プロジェクト」ではなく、「社内ナレッジ整備プロジェクト」。そう捉えたほうが成功に近づきます。</p>
+</blockquote>
+<h2 id="h6"><span class="h-num">06</span>精度を左右するのは、AIよりもデータ整備</h2>
+<p>導入を検討する方に最もお伝えしたいのがこの点です。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>実例</h4>
+    <p>当社の開発・支援の経験では、RAGの回答品質に関する問題の多くは、AIモデルではなく元データ側に原因があります。古い規程と新しい規程が混在している、同じ質問への答えが文書によって食い違う、そもそも文書化されていない──こうした状態のまま構築しても、AIは矛盾した資料から矛盾した回答を作るだけです。</p>
+  </div>
+</div>
+
+<p>逆にいえば、<strong>文書の棚卸しと整理そのものが、RAG導入の価値の半分</strong>です。AIに読ませる準備を通じて、社内ナレッジが「人にとっても探しやすい状態」に整うからです。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある誤解と限界</h2>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>注意</h4>
+    <p>RAGは万能ではありません。よくある誤解は次の3つです。（1）「導入すれば何でも答えてくれる」──資料にないことは答えられません。（2）「一度作れば終わり」──文書の更新を止めれば、回答も古くなります。（3）「誤答がゼロになる」──根拠を示せる分だけ検証しやすくなりますが、検索のずれや解釈の誤りによる間違いは起こり得ます。重要な判断には人の確認を残す前提で設計しましょう。</p>
+  </div>
+</div>
+
+<p>また、アクセス権限の設計も見落とされがちです。役員向け資料と一般社員向け資料を同じ仕組みに入れるなら、<strong>誰がどの情報にアクセスできるか</strong>の制御を最初から考えておく必要があります。</p>
+<h2 id="h8"><span class="h-num">08</span>費用感の考え方</h2>
+<p>RAG導入の費用は「何を・どこまで作るか」で大きく変わるため、一律の相場を示すのは適切ではありません。代わりに、費用を左右する要素を押さえておくと見積もりの妥当性を判断しやすくなります。</p>
+<ul>
+<li><strong>構築方法</strong>：既存のRAG対応サービスを設定して使うか、自社業務に合わせて開発するか。前者は初期費用を抑えやすく、後者は業務への適合度と拡張性で勝ります</li>
+<li><strong>対象文書の量と状態</strong>：文書が整理されているほど、構築の工数は小さくなります</li>
+<li><strong>継続費用</strong>：AIの利用料（API利用料）とサーバー費用、文書更新・精度改善の運用費が継続的に発生します</li>
+<li><strong>段階投資</strong>：最初から完成形に投資せず、スモールスタートの検証結果を見てから本格投資を判断するのが堅実です</li>
+</ul>
+<p>「初期にいくら」だけでなく、<strong>運用まで含めた費用と、削減される問い合わせ対応の手間を並べて比較する</strong>ことが、判断の軸になります。</p>
+<h2 id="h9"><span class="h-num">09</span>まとめ：ナレッジ整備から始める社内AI</h2>
+<p>RAGは、社内に眠る文書を「質問すれば答えが返ってくる資産」に変える技術です。ただしその成否は、AIの性能ではなく、対象業務の絞り込みとデータ整備、そして導入後の運用にかかっています。まずは課題が明確な業務を1つ選び、小さく検証することから始めてみてください。</p>
+<details class="faq">
+  <summary>RAGとファインチューニングは何が違いますか？</summary>
+  <div class="faq-a">ファインチューニングはAIモデル自体を追加学習させる手法で、RAGは資料を検索して参照させる手法です。社内文書のように更新が多く、根拠の提示が求められる用途では、資料の差し替えだけで反映できるRAGのほうが扱いやすいケースが多くあります。</div>
+</details>
+<details class="faq">
+  <summary>社内の機密情報を扱っても大丈夫ですか？</summary>
+  <div class="faq-a">設計次第です。入力データを学習に使わないAPIやプランの利用、アクセス権限の制御、保存場所の選定など、機密性に応じた構成を最初に決めることが重要です。この点は導入前に必ず要件として整理しましょう。</div>
+</details>
+<details class="faq">
+  <summary>小さな会社でも導入する意味はありますか？</summary>
+  <div class="faq-a">あります。むしろ少人数で属人化が起きやすい組織ほど、「あの人しか知らない」を減らす効果は大きくなります。既存サービスの活用も含めて、規模に見合ったスモールスタートの形を選ぶことがポイントです。</div>
+</details>
+
+<p>当社TENERAMENTEでは、AI活用支援およびAI×WEBアプリ開発の一環として、RAGを使った社内ナレッジAIの企画・構築・運用改善までをご支援しています。「うちの業務ならどこから始められるか」を整理する段階からで構いません。まずはお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#RAG</span><span>#社内AI</span><span>#ナレッジ管理</span><span>#AI導入</span><span>#チャットボット</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +339,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +367,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-06-14-ai-donyu-shippai-kaihi.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入が失敗する7つのパターンと回避策｜「入れて終わり」にしないために</h4>
+      </a>
+      <a class="related-card" href="2026-06-20-chatgpt-gyomu-katsuyo.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のChatGPT業務活用ガイド｜今日から使える活用例と社内ルールの作り方</h4>
+      </a>
+      <a class="related-card" href="2026-06-26-ai-first-step.html">
+        <span class="cat">AI</span>
+        <h4>社内へのAI導入、最初の一歩の決め方</h4>
+      </a>
+    </div>
   </div>
 </section>
 

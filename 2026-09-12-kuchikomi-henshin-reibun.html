@@ -110,6 +110,17 @@
 .author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
 .author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
 
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
 .related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
 .related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
 .related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
@@ -123,7 +134,8 @@
 @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
 
 @media (max-width: 900px) {
-  .post-wrap { grid-template-columns: 1fr; margin: 36px auto; }
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
   .post-aside { position: static; }
   .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
   .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
@@ -147,37 +159,140 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script>window.__POST_SLUG__="2026-09-12-kuchikomi-henshin-reibun";</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方","description":"口コミの返信は、投稿した本人だけでなく、これから来店を検討している人が読んでいます。どの返信にも共通する4つの要素、高評価・低評価・コメントなしの3パターン別の例文、そして続けるための運用の決め方を整理しました。","datePublished":"2026-09-12","dateModified":"2026-09-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-12-kuchikomi-henshin-reibun.html","image":"https://teneramente.jp/assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ返信, Googleビジネスプロフィール, GBP, ローカル検索"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方","description":"口コミの返信は、投稿した本人だけでなく、これから来店を検討している人が読んでいます。どの返信にも共通する4つの要素、高評価・低評価・コメントなしの3パターン別の例文、そして続けるための運用の決め方を整理しました。","datePublished":"2026-09-12","dateModified":"2026-09-12","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-09-12-kuchikomi-henshin-reibun.html","image":"https://teneramente.jp/assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.png","articleSection":"MEO","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"MEO, 口コミ返信, Googleビジネスプロフィール, GBP, ローカル検索"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方","item":"https://teneramente.jp/2026-09-12-kuchikomi-henshin-reibun.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"すべての口コミに返信したほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"できる範囲で全件に返すのが望ましいですが、件数が多くて続かないなら、低評価と、内容の具体的な高評価を優先してください。返信が一部にしか無い状態でも、放置され続けているよりは読む人に伝わります。"}},{"@type":"Question","name":"返信までどれくらいの早さが必要ですか？","acceptedAnswer":{"@type":"Answer","text":"即日でなくて構いません。ただし低評価は早いほうが良く、週1回の運用にしているなら、低評価だけは気づいた時点で対応する形にしておくと安心です。返信は後から編集もできます。"}},{"@type":"Question","name":"返信にAIを使っても問題ありませんか？","acceptedAnswer":{"@type":"Answer","text":"下書きの作成には有効です。ただし、そのまま公開すると全件が似た文章になり、事実と違う内容が混ざる危険もあります。口コミの中の言葉を拾う部分と、店舗として約束する部分は、必ず人が書き換えてください。"}}]}]}</script>
 </head>
 <body data-active="blog">
 
 <div data-chrome="header"></div>
 
 <section class="post-hero">
-  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">Post</span></div>
-  <span class="post-cat" data-post="category">—</span>
-  <h1 class="post-title" data-post="title">—</h1>
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">MEO</span></div>
+  <span class="post-cat" data-post="category">MEO</span>
+  <h1 class="post-title" data-post="title">Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方</h1>
   <div class="post-meta">
     <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
     <span class="dot"></span>
-    <span data-post="date">—</span>
+    <span data-post="date">Sep 12, 2026</span>
     <span class="dot"></span>
-    <span data-post="read">— min read</span>
+    <span data-post="read">6 min read</span>
   </div>
 </section>
 
 <div class="post-cover">
-  <div class="post-cover-inner"><div class="big-glyph" data-post="glyph">A</div></div>
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-09-12-kuchikomi-henshin-reibun.webp" alt="Google口コミ返信の例文集｜高評価・低評価・コメントなし別の書き方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
 </div>
 
 <div class="post-wrap">
   <aside class="post-aside">
     <div class="toc-title">On this page</div>
-    <nav class="toc" data-toc></nav>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>口コミの返信は、投稿者だけに向けて書くものではない</a><a href="#h2"><span class="n">02</span>どの返信にも共通する4つの要素</a><a href="#h3"><span class="n">03</span>高評価の口コミへの返信例文</a><a href="#h4"><span class="n">04</span>低評価の口コミへの返信例文</a><a href="#h5"><span class="n">05</span>コメントなし・星だけの口コミへの返信例文</a><a href="#h6"><span class="n">06</span>返信を続けるための運用を決める</a><a href="#h7"><span class="n">07</span>よくある質問</a><a href="#h8"><span class="n">08</span>まとめ：例文は型として使い、自店の言葉に置き換える</a></nav>
   </aside>
-  <article class="post-body" data-post="body">
-    <p style="color:var(--fg-2);">記事を読み込んでいます…</p>
-  </article>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">Google口コミの返信の例文を探しているとき、本当に必要なのは文面そのものではなく、<strong>何を書けばよいかの判断基準</strong>です。返信は投稿した本人への返事に見えて、実際にいちばん読んでいるのは、これから来店するかどうかを迷っている人だからです。この記事では、どの返信にも共通する要素と、高評価・低評価・コメントなしの3パターン別の例文を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>口コミの返信は、<strong>投稿者へのお礼ではなく、次に読む人への説明</strong>として書きます。お礼・具体への言及・補足・締めの4つを型にしておけば、どの口コミにも同じ手順で返信できます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>口コミの返信は、投稿者だけに向けて書くものではない</h2>
+<p>返信を書くとき、多くの方が投稿した本人の顔を思い浮かべます。もちろん相手はその人なのですが、その文章が表示され続ける場所は、店舗の口コミ一覧です。つまり、<strong>まだ来店していない人が、店選びの途中で読む文章</strong>でもあります。</p>
+<p>この視点があるかどうかで、書く内容が変わります。「ありがとうございました」だけの返信が並んでいる状態は、丁寧ではありますが、読む人に新しい情報を渡していません。一方で、どの席が静かなのか、混みやすい時間はいつか、どんな相談に対応できるのかが返信の中に書かれていれば、それ自体が店舗の説明になります。</p>
+<p>低評価への返信も同じです。相手を納得させることより、<strong>第三者が読んだときに「この店は指摘に向き合う店だ」と伝わること</strong>を目的に置くと、書き方が定まります。そもそも口コミが少なくて返信の機会が無い場合は、<a href="2026-06-27-google-kuchikomi-fuyasu.html">Google口コミを増やす方法</a>を先にご覧ください。</p>
+<h2 id="h2"><span class="h-num">02</span>どの返信にも共通する4つの要素</h2>
+<p>パターン別の例文に入る前に、共通の型を決めておきます。この4つを順に書くだけで、文面に迷う時間はほとんど無くなります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-09-12-kuchikomi-henshin-reibun.png" alt="お礼・具体への言及・補足・締めの一言という返信の4要素を順に並べた図" width="1600" height="543" loading="lazy" decoding="async"><figcaption>抜けやすいのは2番目です。ここが無いと、どの口コミにも貼れる定型文に見えます。</figcaption></figure>
+
+<ol>
+<li><strong>お礼</strong>：投稿してくれたこと自体への一言。長くしない</li>
+<li><strong>具体への言及</strong>：口コミに書かれた内容のうち1点に触れる。ここが無いとテンプレートに見えます</li>
+<li><strong>補足・説明</strong>：読む人の役に立つ情報を足す。改善するならその内容を書く</li>
+<li><strong>締めの一言</strong>：次の来店や相談につながる短い文。売り込みにしない</li>
+</ol>
+<p>いちばん抜けやすいのが2番目です。「ご来店ありがとうございました。またのお越しをお待ちしております」で終わる返信は、どの口コミにも貼れてしまう文章で、読む人には定型文だと分かります。<strong>口コミの中の言葉を1つ拾って返す</strong>だけで、印象は大きく変わります。</p>
+<h2 id="h3"><span class="h-num">03</span>高評価の口コミへの返信例文</h2>
+<p>星が高く、内容も好意的な口コミへの返信です。ここは書きやすい反面、全部同じ文面になりやすい場所でもあります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>例文：具体的に褒めてもらえた場合</h4>
+    <p>この度はご投稿ありがとうございます。担当した者にもお言葉を伝えました。ご相談の内容によってはお時間をいただく場合がございますので、事前にご連絡いただけますとご案内がスムーズです。またお近くにお越しの際はお立ち寄りください。</p>
+  </div>
+</div>
+
+<p>ポイントは、お礼のあとに<strong>読む人に向けた案内を1つ入れている</strong>ことです。事前連絡の話は投稿者にとっては不要かもしれませんが、これから来る人には役に立ちます。</p>
+<p>短い口コミや、星だけに近い高評価の場合は、無理に長くする必要はありません。「ご投稿ありがとうございます。お気づきの点がありましたら、次回ご来店の際にお気軽にお知らせください」程度で十分です。<strong>返信の長さは、口コミの長さに合わせる</strong>と自然に見えます。</p>
+<h2 id="h4"><span class="h-num">04</span>低評価の口コミへの返信例文</h2>
+<p>いちばん悩むのがここです。先に押さえておきたいのは、低評価そのものより、<strong>放置されている低評価のほうが読む人に影響する</strong>ということです。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>例文：待ち時間・対応への指摘</h4>
+    <p>ご不便をおかけし申し訳ございませんでした。ご指摘いただいた点は店舗内で共有し、混み合う時間帯の人員配置を見直しております。お手数でなければ、詳しい状況をお聞かせいただけますと今後の改善に生かせます。貴重なご意見をありがとうございました。</p>
+  </div>
+</div>
+
+<p>書くときの順番は、謝罪 → 事実の確認 → 対応 → お礼です。言い訳から始めないこと、そして<strong>改善内容は実際に取り組むことだけを書く</strong>ことが条件になります。書いた対応をやらないと、次の口コミで指摘されます。</p>
+<h3>事実と違う内容が書かれている場合</h3>
+<p>感情的に反論せず、事実だけを淡々と示します。「そのような対応をした記録が確認できておりませんが、行き違いがあったようでしたら申し訳ございません。差し支えなければ、ご来店日をお知らせいただけますでしょうか」といった形です。読む人が判断できる材料を置き、<strong>やりとりを公開の場で続けない</strong>ことが大切です。</p>
+<p>なお、口コミへの返信で個人を特定できる情報（予約内容や病状、契約内容など）に触れるのは避けてください。相手が書いていても、店舗側から具体的に書き返すのは別の問題になります。</p>
+<h2 id="h5"><span class="h-num">05</span>コメントなし・星だけの口コミへの返信例文</h2>
+<p>文章が無い口コミは、返信しづらく感じますが、触れる内容が無いだけで対応は難しくありません。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>口コミの種類</th>
+<th>返信の目的</th>
+<th>避けたいこと</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高評価・コメントあり</td>
+<td>読む人への案内を1つ足す</td>
+<td>全件同じ定型文</td>
+</tr>
+<tr>
+<td>低評価・コメントあり</td>
+<td>向き合う姿勢を第三者に示す</td>
+<td>言い訳・反論から始める</td>
+</tr>
+<tr>
+<td>コメントなし（星だけ）</td>
+<td>存在を認識していると示す</td>
+<td>理由を問い詰める</td>
+</tr>
+</tbody></table></div>
+<p>高評価で星だけなら「ご評価いただきありがとうございます。またのご利用をお待ちしております」で構いません。低評価で星だけの場合は、「ご期待に沿えず申し訳ございませんでした。お気づきの点がございましたら、お聞かせいただけますと幸いです」と、<strong>問い詰めずに窓口だけ開けておく</strong>形にします。</p>
+<h2 id="h6"><span class="h-num">06</span>返信を続けるための運用を決める</h2>
+<p>例文があっても、書く人と書く日が決まっていなければ続きません。最低限、次の3つを決めてください。</p>
+<ul>
+<li><strong>担当</strong>：書く人と、公開前に確認する人。1人運用にすると休んだ週に止まります</li>
+<li><strong>頻度</strong>：毎日見る必要はありません。曜日を決めて週1回まとめて返す形で十分です</li>
+<li><strong>判断基準</strong>：低評価のうち、どこからを店長や本部に上げるかの線引き</li>
+</ul>
+<p>低評価への一次対応の文面は、あらかじめ用意して共有しておくと、その場で悩む時間が消えます。口コミ以外も含めた月次の点検項目は<a href="2026-06-28-gbp-monthly-checklist.html">Googleビジネスプロフィール 月次運用チェックリスト</a>に、自社で一通り運用する場合の全体像は<a href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">MEO対策を自分でやる方法</a>にまとめています。</p>
+<blockquote>
+<p>読む人が見ているのは、口コミの星ではなく、その下に何が書かれているかです。</p>
+</blockquote>
+<h2 id="h7"><span class="h-num">07</span>よくある質問</h2>
+<details class="faq"><summary>すべての口コミに返信したほうがいいですか？</summary><div class="faq-a">できる範囲で全件に返すのが望ましいですが、件数が多くて続かないなら、低評価と、内容の具体的な高評価を優先してください。返信が一部にしか無い状態でも、放置され続けているよりは読む人に伝わります。</div></details>
+
+<details class="faq"><summary>返信までどれくらいの早さが必要ですか？</summary><div class="faq-a">即日でなくて構いません。ただし低評価は早いほうが良く、週1回の運用にしているなら、低評価だけは気づいた時点で対応する形にしておくと安心です。返信は後から編集もできます。</div></details>
+
+<details class="faq"><summary>返信にAIを使っても問題ありませんか？</summary><div class="faq-a">下書きの作成には有効です。ただし、そのまま公開すると全件が似た文章になり、事実と違う内容が混ざる危険もあります。口コミの中の言葉を拾う部分と、店舗として約束する部分は、必ず人が書き換えてください。</div></details>
+
+<h2 id="h8"><span class="h-num">08</span>まとめ：例文は型として使い、自店の言葉に置き換える</h2>
+<p>口コミの返信で迷うのは、文面を毎回ゼロから考えているからです。お礼・具体への言及・補足・締めの4要素を型にし、高評価・低評価・コメントなしの3パターンで基本の文面を用意しておけば、判断に使う時間はほとんど無くなります。そのうえで、口コミの中の言葉を1つ拾って書き換える。ここだけを人がやれば、定型文には見えません。</p>
+<p>今日できるのは、返信していない口コミを一覧で確認し、担当と曜日を決めることです。文面の用意はそのあとで構いません。</p>
+<p>TENERAMENTEでは、<a href="lp-meo.html">MEO対策</a>を、口コミの集め方と返信の運用まで含めて店舗側で続けられる形にすることを重視しています。どこまで自社でやり、どこから任せるかを整理したい段階でも構いませんので、<a href="contact.html">ご相談</a>ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#MEO</span><span>#口コミ返信</span><span>#Googleビジネスプロフィール</span><span>#GBP</span><span>#ローカル検索</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
 </div>
 
 <template id="tpl-post-foot">
@@ -189,6 +304,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </div>
   </div>
 </template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — MEO / AIO 運用代行</span>
+    <p class="svc-card-title">Googleマップ・AI検索の運用を、まるごと任せる</p>
+    <p class="svc-card-text">Googleマップ・AI検索の順位を独自ツールで見える化し、運用まで代行します。順位のジオグリッド計測・口コミのAI返信・レポートの自動配信で、毎月「何を直すか」を迷わない状態にします。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=meo" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-meo.html" class="btn btn--ghost btn--lg">MEO/AIO運用代行を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
 
 <section class="author-card">
   <div class="author-card-inner">
@@ -204,7 +332,20 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="related">
   <div class="in">
     <h3>関連記事</h3>
-    <div class="related-grid" data-related></div>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-09-13-chatgpt-kensaku-jisha-hyoji.html">
+        <span class="cat">AIO</span>
+        <h4>ChatGPT検索で自社を表示させるには｜AI検索の露出を増やす手順</h4>
+      </a>
+      <a class="related-card" href="2026-09-10-gbp-toukou-neta.html">
+        <span class="cat">MEO</span>
+        <h4>Googleビジネスプロフィールの投稿ネタ｜業種別のネタ元と頻度の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-09-08-meo-taisaku-jibun-de-yarikata.html">
+        <span class="cat">MEO</span>
+        <h4>MEO対策を自分でやる方法｜費用をかけずに始める7つの手順と続け方</h4>
+      </a>
+    </div>
   </div>
 </section>
 
