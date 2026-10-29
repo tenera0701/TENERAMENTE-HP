@@ -177,17 +177,42 @@ function articleHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
   const url = `${SITE_URL}/mieroom/articles/${p.slug}.html`;
   const tags = (p.tags || []).map(t => `<span class="pt">#${esc(t)}</span>`).join('');
+  // 本文の FAQ（<details class="faq">）を構造化データにも載せる（2026-10-28〜）
+  const plain = s => String(s).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').trim();
+  const faqs = [];
+  String(p.bodyHtml).replace(/<details class="faq">\s*<summary>([\s\S]*?)<\/summary>\s*<div class="faq-a">([\s\S]*?)<\/div>\s*<\/details>/g,
+    (m, q, a) => { faqs.push({ q: plain(q), a: plain(a) }); return m; });
   const ld = {
-    '@context': 'https://schema.org', '@type': 'BlogPosting',
-    headline: p.title, description: p.excerpt,
-    datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
-    mainEntityOfPage: url,
-    author: { '@type': 'Organization', name: 'ミエルーム編集部' },
-    publisher: {
-      '@type': 'Organization', name: '株式会社TENERAMENTE',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/favicon-512.png` },
-    },
-    keywords: (p.tags || []).join(', '),
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        headline: p.title, description: p.excerpt,
+        datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
+        mainEntityOfPage: url,
+        ...(p.cover ? { image: `${SITE_URL}/mieroom/${p.cover}` } : {}),
+        articleSection: p.category,
+        author: { '@type': 'Organization', name: 'ミエルーム編集部' },
+        publisher: {
+          '@type': 'Organization', name: '株式会社TENERAMENTE',
+          logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/favicon-512.png` },
+        },
+        keywords: (p.tags || []).join(', '),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'ミエルーム', item: `${SITE_URL}/mieroom/` },
+          { '@type': 'ListItem', position: 2, name: 'ブログ', item: `${SITE_URL}/mieroom/blog.html` },
+          { '@type': 'ListItem', position: 3, name: p.title, item: url },
+        ],
+      },
+      ...(faqs.length ? [{
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      }] : []),
+    ],
   };
   // <script> の中に JSON を書くので "<" を逃がす（"</script>" で閉じられるのを防ぐ）
   const ldJson = JSON.stringify(ld).replace(/</g, '\\u003c');
@@ -420,11 +445,12 @@ function main() {
   const cards = posts.length ? '\n' + posts.map(cardHtml).join('\n\n') + '\n' : '\n';
   const block = MARK_START + cards + MARK_END;
   if (blog.includes(MARK_START) && blog.includes(MARK_END)) {
-    blog = blog.replace(new RegExp(MARK_START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?' + MARK_END), block);
+    // 置き換え先は関数で渡す（題名に $' や $& が入っても特殊な意味に解釈させない）
+    blog = blog.replace(new RegExp(MARK_START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?' + MARK_END), () => block);
   } else {
     const anchor = '<div class="blog-grid stagger" id="grid">';
     if (!blog.includes(anchor)) throw new Error('mieroom/blog.html に記事一覧の入れ物が見つかりません');
-    blog = blog.replace(anchor, anchor + '\n' + block);
+    blog = blog.replace(anchor, () => anchor + '\n' + block);
   }
   fs.writeFileSync(BLOG_HTML, blog, 'utf8');
 

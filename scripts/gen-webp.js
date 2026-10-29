@@ -39,7 +39,7 @@ function needsBuild(png, webp) {
 const PY_SCRIPT = `
 import sys, json
 from PIL import Image
-for job in json.loads(sys.argv[1]):
+for job in json.loads(sys.stdin.read()):
     im = Image.open(job["png"]).convert("RGB")
     w = job.get("width") or 0
     if w and im.width > w:
@@ -49,7 +49,7 @@ for job in json.loads(sys.argv[1]):
 
 const NODE_SHARP_SCRIPT = `
 const sharp = require('sharp');
-const jobs = JSON.parse(process.argv[1]);
+const jobs = JSON.parse(require('fs').readFileSync(0, 'utf8'));
 (async () => {
   for (const j of jobs) {
     let img = sharp(j.png);
@@ -81,10 +81,12 @@ function generate(dir) {
   if (jobs.length) {
     const python = findPython();
     try {
+      // 作業の一覧は標準入力で渡す（引数で渡すと、記事が増えたときに Windows のコマンド長の上限をこえて黙って失敗する）
+      const io = { input: JSON.stringify(jobs), stdio: ['pipe', 'inherit', 'inherit'] };
       if (python) {
-        execFileSync(python, ['-c', PY_SCRIPT, JSON.stringify(jobs)], { stdio: 'inherit' });
+        execFileSync(python, ['-c', PY_SCRIPT], io);
       } else if (hasSharp()) {
-        execFileSync(process.execPath, ['-e', NODE_SHARP_SCRIPT, JSON.stringify(jobs)], { stdio: 'inherit' });
+        execFileSync(process.execPath, ['-e', NODE_SHARP_SCRIPT], io);
       } else {
         console.warn('△ WebP 変換をスキップ（Python(Pillow) も sharp も無い環境）。既にある WebP はそのまま使います。');
       }

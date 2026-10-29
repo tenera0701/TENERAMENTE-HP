@@ -9,71 +9,32 @@
   const countEl = document.querySelector('[data-count-display]');
   if (!featHost || !grid) return;
 
-  function esc(s) {
-    return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
-  }
-
-  function featuredHTML(p) {
-    return `
-      <article class="featured-card reveal" data-cat="${esc(p.categoryGroup)}">
-        <div>
-          <span class="featured-tag">Featured / ${esc(p.date.slice(0, 7).replace('-', '.'))}</span>
-          <h2><a href="${encodeURIComponent(p.slug)}.html">${esc(p.title)}</a></h2>
-          <p class="lead">${esc(p.excerpt)}</p>
-          <div class="meta">
-            <span>${esc(p.categoryLabel)}</span><span class="dot"></span>
-            <span>${p.readMin} min read</span><span class="dot"></span>
-            <span>${esc(p.dateLabel)}</span>
-          </div>
-        </div>
-        <div class="featured-visual">
-          ${p.image
-            ? `<img src="${esc(p.imageHero || p.image)}" alt="" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
-            : `<div class="glyph">${esc(p.glyph || 'A')}</div>`}
-        </div>
-      </article>`;
-  }
-
-  function cardHTML(p) {
-    const visualClass = p.visual && p.visual !== 'default' ? ` ${p.visual}` : '';
-    return `
-      <a class="article-card reveal" href="${encodeURIComponent(p.slug)}.html" data-cat="${esc(p.categoryGroup)}">
-        <div class="visual${visualClass}">${p.image
-          ? `<img src="${esc(p.imageCard || p.image)}" alt="" width="640" height="336" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
-          : `<div class="gl"><div class="gl-text">${esc(p.number)}</div></div>`}</div>
-        <div class="meta-row">
-          <span class="cat">${esc(p.categoryLabel)}</span>
-          <span class="dot"></span>
-          <span>${esc(p.dateLabel)}</span>
-        </div>
-        <h3>${esc(p.title)}</h3>
-        <p>${esc(p.excerpt)}</p>
-        <span class="read">${p.readMin} min read</span>
-      </a>`;
-  }
-
+  // カードはビルドが blog.html に HTML で書き込んである。最新の posts.json とカードの部品（blog-cards.js）が
+  // そろったときだけ描き直し、どちらかが取れないとき（公開直後のキャッシュの混ざり・通信の失敗）は書き込み済みのカードをそのまま使う
+  const hasStatic = !!grid.querySelector('.article-card');
   let posts = [];
   try {
     const res = await fetch('data/posts.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     posts = await res.json();
   } catch (e) {
-    grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 60px 0; text-align: center; color: var(--fg-muted); font-size: 14px;">記事一覧の読み込みに失敗しました。<br/>後ほど再読み込みしてください。</div>`;
     console.error('[blog-index] failed to load posts.json:', e);
-    return;
+    if (!hasStatic) {
+      grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 60px 0; text-align: center; color: var(--fg-muted); font-size: 14px;">記事一覧の読み込みに失敗しました。<br/>後ほど再読み込みしてください。</div>`;
+      return;
+    }
   }
 
-  if (!posts.length) {
+  if (posts.length && window.BlogCards) {
+    // Featured = featured:true な記事1本。なければ最新1本。残りを一覧へ。
+    const featured = posts.find(p => p.featured) || posts[0];
+    const others = posts.filter(p => p.slug !== featured.slug);
+    featHost.innerHTML = window.BlogCards.featuredHTML(featured);
+    grid.innerHTML = others.map(p => window.BlogCards.cardHTML(p)).join('');
+  } else if (!hasStatic) {
     grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 60px 0; text-align: center; color: var(--fg-muted);">記事はまだありません。</div>`;
     return;
   }
-
-  // Featured = featured:true な記事1本。なければ最新1本。残りを一覧へ。
-  const featured = posts.find(p => p.featured) || posts[0];
-  const others = posts.filter(p => p.slug !== featured.slug);
-
-  featHost.innerHTML = featuredHTML(featured);
-  grid.innerHTML = others.map(cardHTML).join('');
 
   // 一覧は 12件ずつのページ送り。カードは DOM に残したまま CSS で出し入れする
   const PER_PAGE = 12;

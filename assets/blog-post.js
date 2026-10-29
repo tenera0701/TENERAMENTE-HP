@@ -28,6 +28,14 @@
       <p><a href="blog.html" style="color: var(--primary);">← 記事一覧に戻る</a></p>`;
   }
 
+  // 静的ページ（<slug>.html）は、題名・本文・目次・関連記事がビルドで HTML に入っている。
+  // 描き直さず、目次の追従とシェアボタンだけ付ける
+  if (bodyHost && bodyHost.dataset.prerendered === '1') {
+    followToc(bodyHost.querySelectorAll('h2'));
+    bindShare(bodyHost, document.querySelector('[data-post="title"]').textContent);
+    return;
+  }
+
   if (!slug) {
     showError('記事が指定されていません。');
     return;
@@ -165,19 +173,7 @@
     `).join('');
   }
 
-  // TOC アクティブ追従
-  const tocLinks = document.querySelectorAll('[data-toc] a');
-  const tocMap = {};
-  tocLinks.forEach(a => { tocMap[a.getAttribute('href').slice(1)] = a; });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && tocMap[e.target.id]) {
-        tocLinks.forEach(l => l.classList.remove('active'));
-        tocMap[e.target.id].classList.add('active');
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  h2s.forEach(h => io.observe(h));
+  followToc(h2s);
 
   // post-foot (タグ + シェア) を末尾に追加
   const footTpl = document.getElementById('tpl-post-foot');
@@ -185,15 +181,8 @@
     const foot = footTpl.content.cloneNode(true);
     const tagsHost = foot.querySelector('[data-post="tags"]');
     tagsHost.innerHTML = post.tags.map(t => `<span>#${escapeHtml(t)}</span>`).join('');
-    foot.querySelector('[data-share="x"]').addEventListener('click', () => {
-      const url = location.href;
-      const text = post.title;
-      window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-    });
-    foot.querySelector('[data-share="copy"]').addEventListener('click', () => {
-      navigator.clipboard.writeText(location.href);
-    });
     bodyHost.appendChild(foot);
+    bindShare(bodyHost, post.title);
   }
 
   // 関連記事3本: 同カテゴリグループ優先、なければ最新
@@ -212,5 +201,32 @@
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+  }
+
+  // 読んでいる見出しに合わせて目次の色を移す
+  function followToc(h2s) {
+    const tocLinks = document.querySelectorAll('[data-toc] a');
+    const tocMap = {};
+    tocLinks.forEach(a => { tocMap[a.getAttribute('href').slice(1)] = a; });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && tocMap[e.target.id]) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          tocMap[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    h2s.forEach(h => io.observe(h));
+  }
+
+  function bindShare(host, title) {
+    const x = host.querySelector('[data-share="x"]');
+    const copy = host.querySelector('[data-share="copy"]');
+    if (x) x.addEventListener('click', () => {
+      window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(location.href)}`, '_blank');
+    });
+    if (copy) copy.addEventListener('click', () => {
+      navigator.clipboard.writeText(location.href);
+    });
   }
 })();
