@@ -28,7 +28,7 @@
 
   /* 日本語のぶら下がり防止: 段落の末尾4文字（＋句読点）をひと固まりにして、
      「す。」だけが次の行に落ちるのを防ぐ。幅に依存せず全ページで効く。 */
-  var OG_SEL = '.lead, .cell p, .row .d, .prod .desc, .checks li, .faq-list p, .faq-list .faq-a, .post-row p, .article-card p, .cta-band p, .dcard li, .biz-block .desc, .site-footer .desc, .mani-body p, .meaning, .sq-note, .sq-lead-head p, .sq-done-body, .step-sub, .cinfo .note, .post-body p, .post-body li, .seo-note p, .callout p, .conclusion p, .price-note, .cap, .flow p, .fcard p, .spec .v, .hero-foot .v, .o-d, .promo p';
+  var OG_SEL = '.lead, .cell p, .row .d, .prod .desc, .checks li, .faq-list p, .faq-list .faq-a, .post-row p, .article-card p, .cta-band p, .dcard li, .biz-block .desc, .site-footer .desc, .mani-body p, .meaning, .sq-note, .sq-lead-head p, .sq-done-body, .step-sub, .cinfo .note, .post-body p, .post-body li, .seo-note p, .callout p, .conclusion p, .price-note, .cap, .flow p, .fcard p, .spec .v, .hero-foot .v, .o-d, .promo p, .hx-p';
   function orphanGuard(el) {
     if (el.dataset.og) return;
     el.dataset.og = '1';

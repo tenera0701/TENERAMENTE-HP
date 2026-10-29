@@ -290,6 +290,7 @@ python3 -m http.server 8000
 - **ページの雛形**: `<html lang="ja" class="js">` → head に Google Fonts の `<link>`（Zen Kaku Gothic New / Shippori Mincho / Instrument Sans / Instrument Serif / IBM Plex Mono）と `assets/site.css` → `<body data-active="services">`（ナビの現在地）。黒いヒーローで始まるページは `<body data-hero="dark">` を付ける（ヘッダー文字が白になる）
 - **部品**: 見出しは `.sec-head`（左に `.index` の番号ラベル、右に `.h2` と `.lead`）、リストは `.rows > .row`、罫線グリッドは `.cells.cells--3 > .cell`、実画面は `.frame`、黒セクションは `.sec--dark`、締めは `.cta-band`
 - **禁止**: グラデーション文字・紫〜青グラデ・パステル・浮遊図形や粒子・絵文字アイコン・アイコンバッジ・同型カードの均等並び・ピル型ボタンの多色使い。装飾ではなく余白・罫線・番号・実画面で見せる
+  - **例外: トップの3D「会社のシステムができるまで」**（`assets/hero-system.js` / `hero-system.css`。2026-10-30 に社長の依頼「igloo.inc を参考に、システムを作る工程をアニメーションで」で作成）。宙を漂う書類・光の粒・データの粒・後ろの青い光は、この3Dの演出として意図して入れているので「禁止事項だから」と消さない。例外はこの3Dの中だけで、ほかのセクションやページには広げない。2026-10-30 時点では試作ページ `preview/index.html`（noindex）にだけ入っていて、本番トップ（index.html）への差し替えは社長の確認待ち
 - **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの
 - **ブログのカバー画像**: `scripts/gen-covers.js` が紙白ベースで自動生成。フォントは `C:/Users/<user>/.teneramente/cover-tools/fonts/`（Zen Kaku Gothic New / IBM Plex Mono / Shippori Mincho の TTF）を参照。作り直すときは `assets/img/covers/*.png` を消して `node scripts/build-index.js`
 - **スマホの折り返し**: `assets/site.js` の orphanGuard が段落末尾の4文字（＋句読点）を `<span class="og">` で包み、「す。」だけが次行に落ちる“ぶら下がり”を全ページで自動防止する。見出しは `.lines`（1行=1ブロック）と `text-wrap: balance`、〜400px では見出しを一段小さくする（site.css 末尾）。新しい段落クラスを作ったら OG_SEL に追加する

@@ -1,0 +1,192 @@
+/* ============================================================
+   トップの3D「会社のシステムができるまで」（hero-system.js と対）
+   スクロールで 00 散らばった業務 → 01 洗い出し → 02 設計図 → 03 組み上げ → 04 稼働。
+   黒 × 紙白 × コバルト1色。文字は計器のような等幅（IBM Plex Mono）を添える。
+   3D が使えないとき・動きを減らす設定のときは .hx--static（静止画と文章だけ）になる。
+   配置は3つ: 横長（文章が左・3Dが右）／横長で背の低い画面（文章を詰める）／縦長・スマホ（3Dが上・文章が下）。
+   縦長の判定は hero-system.js の isPortraitLayout() と同じ条件にしてある。
+   ============================================================ */
+
+.hx { position: relative; height: 520vh; background: #07080B; color: var(--paper); --hx-bot: 0px; }
+.hx-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate; }
+.hx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.hx-poster { display: none; }
+
+/* 文字の下だけ暗くして読みやすくする */
+.hx-veil {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(7,8,11,.92) 0%, rgba(7,8,11,.72) 34%, rgba(7,8,11,.3) 50%, rgba(7,8,11,0) 62%),
+    linear-gradient(0deg, rgba(7,8,11,.75) 0%, rgba(7,8,11,0) 20%),
+    linear-gradient(180deg, rgba(7,8,11,.6) 0%, rgba(7,8,11,0) 16%);
+}
+
+/* ---------- 文章（場面ごとにJSが濃さと位置を動かす） ---------- */
+.hx-panel {
+  position: absolute; z-index: 3; left: 0; right: 0;
+  top: calc(50% + (var(--header-h) - var(--hx-bot)) / 2);   /* ヘッダーと下の固定ボタンを除いた高さの真ん中 */
+  max-width: var(--maxw-wide); margin-inline: auto; padding-inline: var(--gutter);
+  transform: translateY(calc(-50% + var(--hy, 0px)));
+  opacity: 0; pointer-events: none;
+}
+.hx-panel.is-on { pointer-events: auto; }
+.hx-panel--intro { opacity: 1; }
+.hx-copy { max-width: 600px; }
+.hx-panel--intro .hx-copy { max-width: 640px; }
+.hx-panel--intro .index { margin-bottom: 26px; }
+.hx-panel--intro .h-display { font-size: clamp(30px, 3.9vw, 58px); line-height: 1.3; }
+.hx-panel--intro .lead { margin-top: 26px; max-width: 31em; color: rgba(244,242,237,.74); }
+.hx-panel .ctas { margin-top: 32px; }
+.hx-foot { display: flex; gap: clamp(20px, 3vw, 48px); margin-top: 40px; padding-top: 18px; border-top: 1px solid rgba(244,242,237,.14); max-width: 560px; }
+.hx-foot .f { display: flex; flex-direction: column; gap: 4px; }
+.hx-foot .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(244,242,237,.5); white-space: nowrap; }
+.hx-foot .v { font-weight: 700; font-size: 14.5px; white-space: nowrap; }
+.hx-foot .v b { font-family: var(--font-en); font-weight: 500; font-size: 22px; letter-spacing: -.03em; margin-right: 2px; line-height: 1; }
+
+.hx-no {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent-soft);
+}
+.hx-no::before { content: ''; width: 28px; height: 1px; background: currentColor; }
+.hx-no .jp { font-family: var(--font-jp); letter-spacing: .08em; color: rgba(244,242,237,.62); }
+.hx-h {
+  margin-top: 22px; font-family: var(--font-min); font-weight: 600;
+  font-size: clamp(30px, 3.7vw, 56px); line-height: 1.28; letter-spacing: .02em;
+}
+.hx-p { margin-top: 22px; font-size: clamp(15px, 1.15vw, 17px); line-height: 2; color: rgba(244,242,237,.72); max-width: 30em; }
+.hx-flow { display: contents; }
+
+/* ---------- 計器の表示（四隅・下の目次） ---------- */
+.hx-hud {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  line-height: 1.75; color: rgba(237,238,240,.5);
+}
+.hx-hud > div { position: absolute; }
+.hx-hud .tl { top: calc(var(--header-h) + 22px); left: var(--gutter); }
+.hx-hud .tr { top: calc(var(--header-h) + 22px); right: var(--gutter); text-align: right; }
+.hx-hud .bl { bottom: calc(26px + var(--hx-bot)); left: var(--gutter); }
+.hx-hud .br { bottom: calc(26px + var(--hx-bot)); right: var(--gutter); text-align: right; }
+.hx-hud .hx-hl { color: var(--accent-soft); }
+.hx-bar { width: 160px; height: 1px; margin-top: 8px; margin-left: auto; background: rgba(237,238,240,.16); overflow: hidden; }
+.hx-bar i { display: block; height: 100%; width: 100%; background: var(--accent-soft); transform-origin: left; transform: scaleX(var(--p, 0)); }
+.hx-nav { left: 50%; bottom: calc(26px + var(--hx-bot)); transform: translateX(-50%); display: flex; gap: clamp(18px, 2.4vw, 40px); white-space: nowrap; }
+.hx-nav span { display: flex; align-items: center; gap: 9px; transition: color .4s; pointer-events: auto; cursor: pointer; }
+.hx-nav span:hover { color: var(--paper); }
+.hx-nav span::before { content: ''; width: 6px; height: 6px; border: 1px solid currentColor; transition: background .4s, border-color .4s; }
+.hx-nav span.on { color: var(--paper); }
+.hx-nav span.on::before { background: var(--accent-soft); border-color: var(--accent-soft); }
+
+/* 3D の中の部品に付く札（洗い出しの4列・設計図の部位） */
+.hx-tag {
+  position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none; opacity: 0;
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .14em; white-space: nowrap;
+  color: var(--accent-soft); transform: translate3d(-9999px, 0, 0);
+}
+.hx-tag .jp { font-family: var(--font-jp); letter-spacing: .06em; color: var(--paper); margin-left: 8px; font-size: 12px; }
+
+/* スクロールの案内 */
+.hx-scroll {
+  position: absolute; z-index: 3; left: 50%; bottom: calc(64px + var(--hx-bot)); transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px; pointer-events: none;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .3em; color: rgba(237,238,240,.6);
+}
+.hx-scroll i { display: block; width: 1px; height: 44px; background: rgba(237,238,240,.18); position: relative; overflow: hidden; }
+.hx-scroll i::after { content: ''; position: absolute; left: 0; top: -40%; width: 100%; height: 40%; background: var(--accent-soft); animation: hxDrop 1.8s var(--ease) infinite; }
+@keyframes hxDrop { to { top: 100%; } }
+
+/* 3D の上ではヘッダーを黒いままにする（スクロールで紙白の帯に変わらないように） */
+.site-header.hx-over { background: rgba(7,8,11,.42); color: var(--paper); border-bottom-color: rgba(244,242,237,.08); }
+.site-header.hx-over .logo-dark { display: none; }
+.site-header.hx-over .logo-light { display: block; }
+.site-header.hx-over .btn--primary { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+/* ---------- 横長の画面の調整 ---------- */
+/* 下に固定の3ボタン（site.css の .float-cta、幅920px以下）が出る幅: その分だけ上に詰め、文中のボタンは出さない */
+@media (max-width: 960px) { .hx-hud .bl { display: none; } }
+@media (max-width: 920px) {
+  .hx { --hx-bot: 66px; }
+  .hx-panel .ctas { display: none; }
+}
+/* 横幅に余裕のない横長の画面: 文章の幅を画面の左半分に収める（右のアプリと重ならないように） */
+@media (max-width: 1380px) { .hx-copy, .hx-panel--intro .hx-copy { max-width: min(600px, 44vw); } }
+/* 背の低い画面（ノートPCの表示倍率125%など）: 左上の計器と下段の数字を外して、見出しと重ならないようにする */
+@media (max-height: 820px) { .hx-foot { display: none; } }
+@media (max-height: 800px) { .hx-hud .tl, .hx-scroll { display: none; } }
+/* もっと低い画面（スマホの横向き・小さなウィンドウ）: 文字を詰め、計器は右下の進み具合だけにする */
+@media (max-height: 600px) {
+  .hx-panel--intro .index { margin-bottom: 10px; }
+  .hx-panel--intro .h-display { font-size: clamp(18px, min(7.2vh, 3.7vw), 38px); }   /* 見出しを2行のまま収める */
+  .hx-panel--intro .lead { margin-top: 10px; font-size: 13px; line-height: 1.8; }
+  .hx-copy, .hx-panel--intro .hx-copy { max-width: min(600px, 41vw); }
+  .hx-panel .ctas { margin-top: 16px; }
+  .hx-panel .ctas .btn--lg { padding: 13px 18px; font-size: 13.5px; }
+  .hx-no { font-size: 10px; letter-spacing: .12em; }
+  .hx-no::before { width: 16px; }
+  .hx-h { margin-top: 10px; font-size: clamp(20px, 6.4vh, 34px); }
+  .hx-p { margin-top: 10px; font-size: 13px; line-height: 1.8; }
+  .hx-nav, .hx-scroll, .hx-hud .tr, .hx-hud .bl, .hx-hud .tl { display: none; }
+  .hx-hud .br { bottom: auto; top: calc(var(--header-h) + 14px); }
+}
+
+/* ごく低い画面（小さなスマホの横向き 568x320 など）: 説明文は省いて見出しだけにする */
+@media (max-height: 340px) { .hx-panel--intro .lead, .hx-p { display: none; } }
+
+/* ---------- 縦長・スマホ: 3D を上、文章を下に（hero-system.js の isPortraitLayout と同じ条件） ---------- */
+@media (max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10) {
+  .hx { height: 460vh; }
+  .hx-veil {
+    background:
+      linear-gradient(0deg, rgba(7,8,11,.96) 0%, rgba(7,8,11,.86) 40%, rgba(7,8,11,0) 64%),
+      linear-gradient(180deg, rgba(7,8,11,.55) 0%, rgba(7,8,11,0) 14%);
+  }
+  .hx-panel { top: auto; bottom: calc(26px + var(--hx-bot)); transform: translateY(var(--hy, 0px)); }
+  .hx-copy, .hx-panel--intro .hx-copy { max-width: 600px; }
+  .hx-panel--intro .index { margin-bottom: 16px; }
+  .hx-panel--intro .h-display { font-size: clamp(24px, 7.4vw, 38px); }
+  .hx-panel--intro .lead { margin-top: 16px; font-size: 14.5px; line-height: 1.9; }
+  .hx-foot { display: none; }
+  .hx-h { margin-top: 14px; font-size: clamp(26px, 7.2vw, 36px); }
+  .hx-p { margin-top: 12px; font-size: 14.5px; line-height: 1.9; }
+  .hx-nav, .hx-hud .tr, .hx-hud .bl, .hx-hud .t1, .hx-tag[data-mod], .hx-scroll { display: none; }
+  .hx-hud .tl { display: block; }
+  .hx-tag { font-size: 9px; letter-spacing: .04em; }
+  .hx-tag .n { display: none; }
+  .hx-tag .jp { margin-left: 0; font-size: 10px; }
+  .hx-hud .br { bottom: auto; top: calc(var(--header-h) + 22px); }
+}
+@media (max-width: 340px) { .hx-hud .br { display: none; } }
+
+/* ---------- 3D が使えないとき（静止画と文章だけ） ---------- */
+.hx--static, html:not(.js) .hx { height: auto; }
+.hx--static .hx-stage, html:not(.js) .hx-stage {
+  position: relative; height: auto; overflow: visible;
+  display: flex; flex-direction: column; gap: 48px;
+  padding: calc(var(--header-h) + clamp(40px, 6vw, 88px)) 0 clamp(56px, 7vw, 96px);
+}
+.hx--static .hx-canvas, .hx--static .hx-veil, .hx--static .hx-hud, .hx--static .hx-tag, .hx--static .hx-scroll,
+html:not(.js) .hx-canvas, html:not(.js) .hx-veil, html:not(.js) .hx-hud, html:not(.js) .hx-tag, html:not(.js) .hx-scroll { display: none; }
+.hx--static .hx-panel, html:not(.js) .hx-panel {
+  position: relative; top: auto; bottom: auto; transform: none; opacity: 1 !important; pointer-events: auto; width: 100%;
+}
+.hx--static .hx-panel--intro, html:not(.js) .hx-panel--intro { order: 1; }
+.hx--static .hx-poster, html:not(.js) .hx-poster {
+  order: 2; display: block; width: 100%; max-width: var(--maxw-wide); margin-inline: auto; padding-inline: var(--gutter);
+}
+.hx--static .hx-poster img, html:not(.js) .hx-poster img { width: 100%; height: auto; border-radius: 6px; }
+.hx--static .hx-flow, html:not(.js) .hx-flow {
+  order: 3; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: var(--maxw-wide); margin-inline: auto; padding-inline: var(--gutter); width: 100%;
+}
+.hx--static .hx-flow .hx-panel, html:not(.js) .hx-flow .hx-panel { padding: 28px 24px 0 0; border-top: 1px solid rgba(244,242,237,.16); max-width: none; margin: 0; }
+.hx--static .hx-flow .hx-h, html:not(.js) .hx-flow .hx-h { font-size: clamp(21px, 1.9vw, 27px); }
+.hx--static .hx-flow .hx-p, html:not(.js) .hx-flow .hx-p { font-size: 14.5px; }
+.hx--static .hx-flow .ctas, html:not(.js) .hx-flow .ctas { display: none; }
+.hx--static .hx-copy, html:not(.js) .hx-copy { max-width: 640px; }
+@media (max-width: 760px) {
+  .hx--static .hx-flow, html:not(.js) .hx-flow { grid-template-columns: 1fr; gap: 8px; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hx--static .hx-flow, html:not(.js) .hx-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
+}
