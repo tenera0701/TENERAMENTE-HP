@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="assets/site.css" />
-<link rel="preload" as="image" href="assets/img/atlas-dash-1600.webp" imagesrcset="assets/img/atlas-dash-960.webp 960w, assets/img/atlas-dash-1600.webp 1600w, assets/img/atlas-dash-2400.webp 2400w" imagesizes="(max-width: 960px) calc(100vw - 32px), 46vw" fetchpriority="high" />
+<link rel="stylesheet" href="assets/hero-system.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
@@ -54,42 +54,108 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
 <div data-chrome="header"></div>
 
-<!-- ===== Hero ===== -->
-<section class="hero theme-dark" id="top" data-screen-label="トップ:ヒーロー">
-  <div class="wrap-wide">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="index reveal">AI時代の業務改善パートナー — Nagoya, Japan</span>
+<!-- ===== Hero: 3D「会社のシステムができるまで」（assets/hero-system.js） ===== -->
+<section class="hx theme-dark" id="top" data-screen-label="トップ:ヒーロー">
+  <div class="hx-stage">
+    <canvas class="hx-canvas" aria-hidden="true"></canvas>
+    <div class="hx-veil" aria-hidden="true"></div>
+
+    <div class="hx-hud" aria-hidden="true">
+      <div class="tl"><span class="t1">TENERAMENTE — System build sequence<br></span><span class="hx-hl" data-hud="phase">PHASE 00 — INTRO</span></div>
+      <div class="tr">35.17°N / 136.88°E<br>Nagoya, Japan</div>
+      <div class="bl"><span data-hud="xy">X +0.00  Y +0.00  Z +0.00</span></div>
+      <div class="br">Sequence <span data-hud="pct">000</span> / 100<div class="hx-bar"><i></i></div></div>
+      <div class="hx-nav">
+        <span data-hx-dot="1">01 Hearing</span>
+        <span data-hx-dot="2">02 Design</span>
+        <span data-hx-dot="3">03 Build</span>
+        <span data-hx-dot="4">04 Run</span>
+      </div>
+    </div>
+
+    <span class="hx-tag" data-col="0" aria-hidden="true"><span class="n">01</span><span class="jp">顧客・案件</span></span>
+    <span class="hx-tag" data-col="1" aria-hidden="true"><span class="n">02</span><span class="jp">見積・請求</span></span>
+    <span class="hx-tag" data-col="2" aria-hidden="true"><span class="n">03</span><span class="jp">日報・勤怠</span></span>
+    <span class="hx-tag" data-col="3" aria-hidden="true"><span class="n">04</span><span class="jp">在庫・発注</span></span>
+    <span class="hx-tag" data-mod="nav" aria-hidden="true">NAV<span class="jp">メニュー</span></span>
+    <span class="hx-tag" data-mod="kpi" aria-hidden="true">KPI<span class="jp">数字</span></span>
+    <span class="hx-tag" data-mod="chart" aria-hidden="true">CHART<span class="jp">グラフ</span></span>
+    <span class="hx-tag" data-mod="list" aria-hidden="true">LIST<span class="jp">一覧</span></span>
+    <span class="hx-tag" data-mod="table" aria-hidden="true">TABLE<span class="jp">台帳</span></span>
+
+    <div class="hx-panel hx-panel--intro" data-hx-step="0">
+      <div class="hx-copy">
+        <span class="index">AI × 業務アプリ開発 — Nagoya, Japan</span>
         <h1 class="h-display lines">
-          <span class="line"><span><em class="en">AI</em>で、</span></span>
-          <span class="line"><span>会社の業務を</span></span>
-          <span class="line"><span>“アプリ”にする。</span></span>
+          <span class="line"><span><em class="en">AI</em>に奪われる会社から、</span></span>
+          <span class="line"><span><em class="en">AI</em>を使いこなす会社へ。</span></span>
         </h1>
-        <p class="lead reveal d2">御社専用アプリをひとつ開けば、日々の業務がアプリ内で完結する。そんな“使えるアプリ”を、御社オリジナルで作成します。業務改善ツールの開発を軸に、HP/LP制作・MEO/AIO運用など。社内の「これ、なんとかならない？」を、ちょうどよく形にします。</p>
-        <div class="ctas reveal d3">
-          <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
-          <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
-          <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+        <p class="lead">御社専用の業務アプリを、AIを使って速く、ちょうどよく。HP/LP制作・MEO/AIO運用まで、AI時代の業務改善をまるごと支えます。</p>
+        <div class="ctas">
+            <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+            <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+            <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+          </div>
+        <div class="hx-foot">
+          <div class="f"><span class="k">Initial cost</span><span class="v"><b>30</b>万円〜</span></div>
+          <div class="f"><span class="k">Meetings</span><span class="v"><b>3</b>回で完成まで</span></div>
+          <div class="f"><span class="k">Maintenance</span><span class="v">月額定額で保守・運用</span></div>
         </div>
-      </div>
-
-      <div class="hero-visual reveal d2">
-        <div class="frame frame--glow" data-parallax="22" role="img" aria-label="自社開発の業務管理ポータル ATLAS のダッシュボード実画面">
-          <div class="bar"><i></i><i></i><i></i><span>atlas — 業務管理ポータル / dashboard</span></div>
-          <div class="shot"><img src="assets/img/atlas-dash-1600.webp" srcset="assets/img/atlas-dash-960.webp 960w, assets/img/atlas-dash-1600.webp 1600w, assets/img/atlas-dash-2400.webp 2400w" sizes="(max-width: 960px) calc(100vw - 32px), 46vw" alt="" width="1600" height="1000" fetchpriority="high" decoding="async" /></div>
-        </div>
-        <p class="cap">自社開発・運用中の業務管理ポータル「ATLAS」の実画面</p>
       </div>
     </div>
 
-    <div class="hero-foot reveal d3">
-      <div class="f"><span class="k">Initial cost</span><span class="v"><b>30</b>万円〜</span></div>
-      <div class="f"><span class="k">Meetings</span><span class="v"><b>3</b>回で完成まで</span></div>
-      <div class="f"><span class="k">Maintenance</span><span class="v">月額定額で保守・運用</span></div>
-      <div class="meta">Est. 2022 — 4 products live</div>
+    <div class="hx-flow">
+      <div class="hx-panel" data-hx-step="1">
+        <div class="hx-copy">
+          <span class="hx-no">Phase 01 — Hearing<span class="jp">ヒアリング</span></span>
+          <h2 class="hx-h">散らばった業務を、<br>ぜんぶ並べる。</h2>
+          <p class="hx-p">Excel、紙、LINE、人の記憶。いま業務がどこにあるのかを、1回目の打ち合わせで洗い出します。</p>
+        </div>
+      </div>
+      <div class="hx-panel" data-hx-step="2">
+        <div class="hx-copy">
+          <span class="hx-no">Phase 02 — Design<span class="jp">設計</span></span>
+          <h2 class="hx-h">業務の流れを、<br>1枚の設計図に。</h2>
+          <p class="hx-p">誰が・いつ・何を入力して、何を見たいのか。流れを図にして、作る画面と機能を決めます。</p>
+        </div>
+      </div>
+      <div class="hx-panel" data-hx-step="3">
+        <div class="hx-copy">
+          <span class="hx-no">Phase 03 — Build<span class="jp">開発</span></span>
+          <h2 class="hx-h">AIと組み上げる。<br>だから、速い。</h2>
+          <p class="hx-p">Claude Code などのAI支援開発で、設計図をそのままアプリに。小さな試作なら、最短2週間で触れる形にします。</p>
+        </div>
+      </div>
+      <div class="hx-panel" data-hx-step="4">
+        <div class="hx-copy">
+          <span class="hx-no">Phase 04 — Run<span class="jp">運用</span></span>
+          <h2 class="hx-h">動き出してからが、<br>本番。</h2>
+          <p class="hx-p">公開後も月額定額で保守・運用。現場で使いながら、毎月かしこく育てていきます。</p>
+          <div class="ctas">
+            <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+            <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+            <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="hx-poster"><img src="assets/img/hero-system-poster.webp" alt="AIと一緒に組み上げた業務アプリの画面（イメージ）" width="1600" height="1000" loading="lazy" decoding="async" /></div>
+    <div class="hx-scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
   </div>
 </section>
+<script>
+/* three.js がまだ届いていないのに読み進められたら、静止画と文章の形にする（黒い区間だけが続かないように）。
+   開いてから6秒たっても届かないときも同じ。一番上にいるうちに届いたら、hero-system.js が3Dに戻す */
+(function () {
+  var s = document.querySelector('.hx');
+  if (!s) return;
+  function late() { if (!s.classList.contains('hx--live')) { s.classList.add('hx--static'); s.dataset.hxLate = '1'; } }
+  setTimeout(late, Math.max(0, 6000 - performance.now()));
+  function onScroll() { if (window.scrollY > window.innerHeight * 0.25) { late(); window.removeEventListener('scroll', onScroll); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
 
 <!-- ===== たとえば、こんなツール（マーキー） ===== -->
 <div class="marquee-head"><div class="wrap-wide"><span class="index">たとえば、こんなツールが作れます</span></div></div>
@@ -285,6 +351,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <script src="assets/chrome.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/shindan.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="assets/hero-system.js" defer></script>
 <script>
 /* 最新3記事をトップに差し込む（失敗時は静的フォールバックのまま） */
 (function () {
