@@ -1223,7 +1223,9 @@
         "gyoshakan-site-bukken-kensaku",
         "bukken-data-torikomi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "bukkaku-denwa-herasu",
+      "doneAt": "2026-10-30"
     },
     {
       "id": "m106",
