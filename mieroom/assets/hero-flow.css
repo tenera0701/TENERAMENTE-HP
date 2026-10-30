@@ -1,0 +1,174 @@
+/* ============================================================
+   ミエルーム トップの3D「反響から入金まで」（hero-flow.js と対）
+   今のミエルームの配色（白〜ミント × 緑 #14a085 × テラコッタ #e07a5f）と書体のまま、
+   最初の画面の右側を「動く3D」にしたもの。左の見出し・説明・ボタンは今までと同じ文言。
+   3D が使えないとき・動きを減らす設定のときは .mf--static（今までのトップの見た目）になる。
+   縦長の判定は hero-flow.js の PORTRAIT_MQ と同じ条件にしてある。
+   ============================================================ */
+
+.mf { position: relative; height: 430vh; padding: 0 !important; background: transparent; --mf-head: 77px; --mf-bot: 0px;
+  margin-top: calc(-1 * var(--mf-head)); }   /* ヘッダー（sticky・半透明）の下まで舞台を潜り込ませる。section 共通の上下余白は外す */
+.mf-stage {
+  position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate;
+  background: linear-gradient(180deg, #f2faf7 0%, #ffffff 70%);
+}
+.mf-stage .blob { z-index: 0; }
+.mf-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 1; }
+.mf-veil {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(90deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.82) 32%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 62%);
+}
+.mf-poster { display: none; }
+
+/* ---------- 文章（場面ごとにJSが濃さと位置を動かす） ---------- */
+.mf-panel {
+  position: absolute; z-index: 4; left: 0; right: 0;
+  top: calc(50% + (var(--mf-head) - var(--mf-bot)) / 2);
+  max-width: 1280px; margin-inline: auto; padding-inline: 24px;
+  transform: translateY(calc(-50% + var(--hy, 0px)));
+  opacity: 0; pointer-events: none;
+}
+.mf-panel.is-on { pointer-events: auto; }
+.mf-panel--intro { opacity: 1; }
+.mf-copy { max-width: min(560px, 42vw); }
+.mf-panel--intro .mf-copy, .mf-panel[data-mf-step="4"] .mf-copy { max-width: min(620px, 46vw); }
+.mf h1 { font-size: clamp(26px, 2.5vw, 36px); font-weight: 900; line-height: 1.45; margin: 20px 0 0; letter-spacing: .005em; }
+.mf .lead { font-size: 15.5px; color: var(--ink-2); margin-top: 20px; font-weight: 500; letter-spacing: -.01em; }
+.mf .cta-row { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+.mf .micro { display: flex; gap: 18px; margin-top: 16px; flex-wrap: wrap; color: var(--ink-3); font-size: 13px; font-weight: 500; }
+.mf .micro span { display: inline-flex; align-items: center; gap: 6px; }
+.mf-no {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .14em;
+  color: var(--blue); background: var(--sky); padding: 7px 16px; border-radius: 999px;
+}
+.mf-no b { color: var(--peach-d); letter-spacing: .06em; }
+.mf-h { margin-top: 18px; font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(24px, 2.45vw, 36px); line-height: 1.4; }
+/* index.html 末尾の編集ツールの残骸（:is(h1,h2) の最初の span を蛍光の黄緑にする指定）を打ち消す */
+.mf-h, .mf-h span { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
+.mf-h .u-peach { color: var(--peach-d) !important; -webkit-text-fill-color: var(--peach-d) !important; }
+/* 文節ごとに区切って、行末に1〜2文字だけ残らないようにする（LP の .ph と同じ） */
+.mf .ph { display: inline-block; }
+.mf-p, .mf .lead { text-wrap: pretty; }
+.mf-p { margin-top: 16px; font-size: 15.5px; line-height: 1.95; color: var(--ink-2); font-weight: 500; max-width: 30em; }
+.mf-flow { display: contents; }
+
+/* ---------- 3D の中の札（反響一覧・3列・駅） ---------- */
+.mf-tag {
+  position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; opacity: 0; transform: translate3d(-9999px, 0, 0);
+  font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .06em; white-space: nowrap;
+  color: #fff; background: var(--blue); padding: 5px 12px; border-radius: 999px; box-shadow: 0 8px 18px -6px rgba(14,80,68,.45);
+}
+.mf-tag.peach { background: var(--peach-d); box-shadow: 0 8px 18px -6px rgba(224,122,95,.5); }
+
+/* ---------- 下の目次 ---------- */
+.mf-nav {
+  position: absolute; z-index: 4; left: 50%; bottom: calc(22px + var(--mf-bot)); transform: translateX(-50%);
+  display: flex; gap: 8px; white-space: nowrap;
+}
+.mf-nav span {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 700; font-size: 12.5px; color: var(--ink-3);
+  background: rgba(255,255,255,.85); border: 1px solid var(--line); padding: 6px 13px; border-radius: 999px;
+  transition: color .3s, background .3s, border-color .3s;
+}
+.mf-nav span i { font-style: normal; font-weight: 900; color: var(--blue); }
+.mf-nav span:hover { color: var(--ink); border-color: var(--sky-2); }
+.mf-nav span.on { color: #fff; background: var(--blue); border-color: var(--blue); }
+.mf-nav span.on i { color: #d8f8ee; }
+
+/* ---------- マスコット（カーソルの方を向く・場面ごとにひとこと） ---------- */
+.mf-buddy { position: absolute; z-index: 4; right: max(24px, calc((100vw - 1280px) / 2 + 24px)); bottom: calc(76px + var(--mf-bot)); width: 128px; pointer-events: none; }
+.mf-mascot {
+  width: 100%;
+  transform: perspective(420px) translate(var(--mx, 0px), var(--bob, 0px)) rotateY(var(--ry, 0deg)) rotateX(var(--rx, 0deg));
+  filter: drop-shadow(0 14px 18px rgba(14,80,68,.22));
+}
+.mf-mascot img { display: block; width: 100%; height: auto; }
+.mf-say {
+  position: absolute; right: 86%; top: -6px; white-space: nowrap;
+  font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 14px; color: var(--ink);
+  background: #fff; border: 2px solid var(--sky-2); padding: 7px 14px; border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 10px 22px -10px rgba(14,80,68,.35);
+}
+.mf-say.pop { animation: mfPop .5s var(--ease-bounce); }
+@keyframes mfPop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* ---------- 横長の画面の調整 ---------- */
+@media (max-width: 920px) {
+  .mf { --mf-head: 61px; --mf-bot: 74px; }
+  .mf-panel .cta-row { display: none; }   /* 画面下に固定のボタンがあるので重ねない */
+}
+@media (max-height: 760px) { .mf .micro { display: none; } .mf .lead br { display: none; } }
+@media (max-height: 600px) {
+  .mf h1 { font-size: clamp(18px, min(6.4vh, 3.3vw), 30px); margin-top: 10px; }
+  .mf .lead { font-size: 12.5px; line-height: 1.75; margin-top: 10px; }
+  .mf .cta-row { margin-top: 14px; }
+  .mf .cta-row .btn-lg { padding: 12px 18px; font-size: 14px; }
+  .mf-no { font-size: 11px; padding: 5px 12px; }
+  .mf-h { margin-top: 10px; font-size: clamp(18px, 6vh, 30px); }
+  .mf-p { margin-top: 8px; font-size: 12.5px; line-height: 1.75; }
+  .mf-nav, .mf-say { display: none; }
+  .mf-buddy { width: 72px; bottom: calc(12px + var(--mf-bot)); }
+}
+@media (max-height: 340px) { .mf .lead, .mf-p { display: none; } }
+@media (max-height: 450px) { .mf-tag { display: none; } }   /* スマホ横向き: 札が文章に重なるので出さない */
+
+/* ---------- 縦長・スマホ: 3D を上、文章を下に（hero-flow.js の PORTRAIT_MQ と同じ条件） ---------- */
+@media (max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10) {
+  .mf { height: 380vh; }
+  .mf-veil { background: linear-gradient(0deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 42%, rgba(255,255,255,0) 62%); }
+  .mf-panel { top: auto; bottom: calc(18px + var(--mf-bot)); transform: translateY(var(--hy, 0px)); padding-inline: 20px; }
+  .mf-copy, .mf-panel--intro .mf-copy, .mf-panel[data-mf-step="4"] .mf-copy { max-width: 600px; }
+  .mf h1 { font-size: clamp(21px, 6.1vw, 30px); margin-top: 12px; }
+  .mf h1 br { display: none; }
+  .mf .lead { font-size: 13.5px; line-height: 1.85; margin-top: 12px; }
+  .mf .lead br { display: none; }
+  .mf .micro, .mf-nav { display: none; }
+  .mf-no { font-size: 11.5px; padding: 6px 13px; }
+  .mf-h { margin-top: 12px; font-size: clamp(22px, 6.4vw, 30px); }
+  .mf-p { margin-top: 10px; font-size: 14px; line-height: 1.85; }
+  .mf-tag { font-size: 11px; padding: 4px 10px; }
+  .mf-buddy { width: 74px; right: 14px; bottom: auto; top: calc(var(--mf-head) + 12px); }
+  .mf-say { font-size: 12px; padding: 5px 11px; top: auto; bottom: -6px; right: 92%; }
+}
+@media (max-width: 340px) { .mf-say { display: none; } }
+/* ごく小さい縦長（320x568 など）: 3D と文章の両方は入りきらないので、最初の場面の説明文は省く */
+@media (max-aspect-ratio: 21/20) and (max-height: 600px), (max-width: 760px) and (max-aspect-ratio: 13/10) and (max-height: 600px) { .mf-panel--intro .lead { display: none; } }
+
+/* ---------- 3D が使えないとき: 今までのトップ（.hero）と同じ見た目（文章＋iMacの実画面） ----------
+   値は mieroom/index.html の .hero の指定（PC・920px以下・560px以下・480px以下）と同じにしてある */
+.mf.mf--static, html:not(.js) .mf { height: auto; margin-top: 0; overflow: hidden; }
+.mf.mf--static .mf-stage, html:not(.js) .mf .mf-stage {
+  position: static; height: auto; overflow: visible; background: transparent;
+  display: grid; grid-template-columns: 1.16fr .74fr; gap: 44px; align-items: center;
+  max-width: 1280px; margin-inline: auto; padding: 60px 24px 88px;
+}
+.mf.mf--static .mf-canvas, .mf.mf--static .mf-veil, .mf.mf--static .mf-tag, .mf.mf--static .mf-nav, .mf.mf--static .mf-buddy, .mf.mf--static .mf-flow,
+html:not(.js) .mf .mf-canvas, html:not(.js) .mf .mf-veil, html:not(.js) .mf .mf-tag, html:not(.js) .mf .mf-nav, html:not(.js) .mf .mf-buddy, html:not(.js) .mf .mf-flow { display: none; }
+.mf.mf--static .mf-panel, html:not(.js) .mf .mf-panel { position: relative; top: auto; bottom: auto; transform: none; opacity: 1 !important; pointer-events: auto; padding: 0; margin: 0; max-width: none; z-index: 1; }
+.mf.mf--static .mf-copy, html:not(.js) .mf .mf-copy { max-width: none; }
+.mf.mf--static h1, html:not(.js) .mf h1 { font-size: 34px; margin-top: 20px; }
+.mf.mf--static h1 br, html:not(.js) .mf h1 br { display: inline; }
+.mf.mf--static .lead, html:not(.js) .mf .lead { font-size: 15.5px; line-height: inherit; margin-top: 22px; max-width: 640px; }
+.mf.mf--static .lead br, html:not(.js) .mf .lead br { display: inline; }
+.mf.mf--static .cta-row, html:not(.js) .mf .cta-row { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.mf.mf--static .micro, html:not(.js) .mf .micro { display: flex; gap: 18px; margin-top: 18px; }
+.mf.mf--static .mf-poster, html:not(.js) .mf .mf-poster { display: block; position: relative; z-index: 1; }
+.mf.mf--static .cta-row .btn-lg, html:not(.js) .mf .cta-row .btn-lg { padding: 21px 40px; font-size: 18px; }
+.mf.mf--static .mf-panel--intro .lead, html:not(.js) .mf .mf-panel--intro .lead { display: block; }
+@media (max-width: 920px) {
+  .mf.mf--static .mf-stage, html:not(.js) .mf .mf-stage { grid-template-columns: 1fr; gap: 38px; }
+}
+@media (max-width: 560px) {
+  .mf.mf--static .mf-stage, html:not(.js) .mf .mf-stage { padding-inline: 18px; }
+  .mf.mf--static .cta-row, html:not(.js) .mf .cta-row { flex-direction: column; gap: 12px; }
+  .mf.mf--static .cta-row .btn, html:not(.js) .mf .cta-row .btn { width: 100%; }
+  .mf.mf--static .lead br, html:not(.js) .mf .lead br { display: none; }
+  .mf.mf--static .micro, html:not(.js) .mf .micro { gap: 10px 16px; }
+  .mf.mf--static h1, html:not(.js) .mf h1 { font-size: 30px; }
+}
+@media (max-width: 480px) {
+  .mf.mf--static .mf-stage, html:not(.js) .mf .mf-stage { padding-top: 34px; padding-bottom: 56px; }
+  .mf.mf--static h1, html:not(.js) .mf h1 { font-size: 26px; }
+}
