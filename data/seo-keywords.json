@@ -1209,7 +1209,9 @@
         "2026-06-05-homepage-seisaku-hiyo-guide",
         "2026-09-25-local-seo-meo-chigai"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-01-tenpo-homepage-hitsuyo-ka",
+      "doneAt": "2026-10-31"
     },
     {
       "id": "k103",

@@ -1244,7 +1244,9 @@
         "lead-response-speed",
         "raiten-cancel-herasu"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "hankyo-raiten-ritsu-ageru",
+      "doneAt": "2026-10-31"
     },
     {
       "id": "m115",
