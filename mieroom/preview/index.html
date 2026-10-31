@@ -25,7 +25,7 @@
 </script>
 <link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
 <link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">
-<script>document.documentElement.classList.add('js');</script>
+<script>document.documentElement.classList.add('js');(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]mfStatic/.test(location.search))return;var i=new Image();i.fetchPriority='high';i.src='../assets/app-bunseki.webp';window.__mfPre=i;}catch(e){}})();</script>
 <link rel="stylesheet" href="../assets/hero-flow.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -849,8 +849,8 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   </div>
 </header>
 
-<!-- ===== HERO: 3D「反響から入金まで」（assets/hero-flow.js）。3Dが使えないときは今までどおり文章＋iMacの実画面 ===== -->
-<section class="mf" id="top" data-mf-shot="../assets/app-uriage-hd.webp">
+<!-- ===== HERO: 3D「反響から入金まで」（assets/hero-flow.js）。ミエルームの実画面を3Dの額で見せる。3Dが使えないときは今までどおり文章＋iMacの実画面 ===== -->
+<section class="mf" id="top" data-mf-assets="../assets/">
   <div class="mf-stage">
     <span class="blob" style="width:330px;height:330px;top:-70px;right:-60px;background:radial-gradient(circle,#74d3bd,#bdeede);animation:sway 9s ease-in-out infinite"></span>
   <span class="blob" style="width:240px;height:240px;bottom:-30px;left:-90px;background:radial-gradient(circle,#f6b69c,#fcdcce);animation:sway2 11s ease-in-out infinite"></span>
@@ -860,11 +860,10 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
     <canvas class="mf-canvas" aria-hidden="true"></canvas>
     <div class="mf-veil" aria-hidden="true"></div>
 
-    <span class="mf-tag" data-at="1:0" aria-hidden="true">反響一覧</span>
-    <span class="mf-tag peach" data-at="1:1" aria-hidden="true">自動返信ずみ</span>
-    <span class="mf-tag" data-at="2:0" aria-hidden="true">反響</span>
-    <span class="mf-tag" data-at="2:1" aria-hidden="true">接客</span>
-    <span class="mf-tag peach" data-at="2:2" aria-hidden="true">申込</span>
+    <span class="mf-tag" data-at="1:0" aria-hidden="true">媒体別の反響</span>
+    <span class="mf-tag peach" data-at="1:1" aria-hidden="true">自動で取り込み</span>
+    <span class="mf-tag" data-at="2:0" aria-hidden="true">接客管理表</span>
+    <span class="mf-tag peach" data-at="2:1" aria-hidden="true">自動返信・自動追客</span>
     <span class="mf-tag" data-at="3:0" aria-hidden="true">申込</span>
     <span class="mf-tag" data-at="3:1" aria-hidden="true">審査</span>
     <span class="mf-tag" data-at="3:2" aria-hidden="true">契約</span>

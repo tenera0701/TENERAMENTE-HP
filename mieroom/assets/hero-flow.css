@@ -1,7 +1,7 @@
 /* ============================================================
    ミエルーム トップの3D「反響から入金まで」（hero-flow.js と対）
    今のミエルームの配色（白〜ミント × 緑 #14a085 × テラコッタ #e07a5f）と書体のまま、
-   最初の画面の右側を「動く3D」にしたもの。左の見出し・説明・ボタンは今までと同じ文言。
+   最初の画面の右側を「ミエルームの実画面が3Dで切り替わる」ものにした。左の見出し・説明・ボタンは今までと同じ文言。
    3D が使えないとき・動きを減らす設定のときは .mf--static（今までのトップの見た目）になる。
    縦長の判定は hero-flow.js の PORTRAIT_MQ と同じ条件にしてある。
    ============================================================ */
@@ -53,7 +53,7 @@
 .mf-p { margin-top: 16px; font-size: 15.5px; line-height: 1.95; color: var(--ink-2); font-weight: 500; max-width: 30em; }
 .mf-flow { display: contents; }
 
-/* ---------- 3D の中の札（反響一覧・3列・駅） ---------- */
+/* ---------- 3D の中の札（画面の名前・スマホの上・駅の名前。位置は hero-flow.js が毎フレーム決める） ---------- */
 .mf-tag {
   position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; opacity: 0; transform: translate3d(-9999px, 0, 0);
   font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .06em; white-space: nowrap;
@@ -99,6 +99,11 @@
   .mf { --mf-head: 61px; --mf-bot: 74px; }
   .mf-panel .cta-row { display: none; }   /* 画面下に固定のボタンがあるので重ねない */
 }
+/* 背の低い画面（表示倍率125%のノートPCなど）: マスコットを小さく下げて、3D の場所を空ける */
+@media (max-height: 820px) {
+  .mf-buddy { width: 100px; bottom: calc(50px + var(--mf-bot)); }
+  .mf-say { font-size: 13px; padding: 6px 12px; }
+}
 @media (max-height: 760px) { .mf .micro { display: none; } .mf .lead br { display: none; } }
 @media (max-height: 600px) {
   .mf h1 { font-size: clamp(18px, min(6.4vh, 3.3vw), 30px); margin-top: 10px; }
@@ -112,12 +117,13 @@
   .mf-buddy { width: 72px; bottom: calc(12px + var(--mf-bot)); }
 }
 @media (max-height: 340px) { .mf .lead, .mf-p { display: none; } }
-@media (max-height: 450px) { .mf-tag { display: none; } }   /* スマホ横向き: 札が文章に重なるので出さない */
+@media (max-height: 450px) { .mf-tag, .mf-buddy { display: none; } }   /* スマホ横向き: 札とマスコットは3Dや文章に重なるので出さない */
 
 /* ---------- 縦長・スマホ: 3D を上、文章を下に（hero-flow.js の PORTRAIT_MQ と同じ条件） ---------- */
 @media (max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10) {
   .mf { height: 380vh; }
-  .mf-veil { background: linear-gradient(0deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 42%, rgba(255,255,255,0) 62%); }
+  /* 白い膜は文章の上端から下だけ（--veil-h は hero-flow.js が今の場面の文章に合わせて入れる） */
+  .mf-veil { background: linear-gradient(0deg, rgba(255,255,255,.97) 0, rgba(255,255,255,.9) calc(var(--veil-h, 58%) - 44px), rgba(255,255,255,0) var(--veil-h, 58%)); }
   .mf-panel { top: auto; bottom: calc(18px + var(--mf-bot)); transform: translateY(var(--hy, 0px)); padding-inline: 20px; }
   .mf-copy, .mf-panel--intro .mf-copy, .mf-panel[data-mf-step="4"] .mf-copy { max-width: 600px; }
   .mf h1 { font-size: clamp(21px, 6.1vw, 30px); margin-top: 12px; }
@@ -133,6 +139,11 @@
   .mf-say { font-size: 12px; padding: 5px 11px; top: auto; bottom: -6px; right: 92%; }
 }
 @media (max-width: 340px) { .mf-say { display: none; } }
+/* 背の低いスマホ（iPhone SE・8 など）: マスコットを小さくして、3D の場所を空ける */
+@media (max-aspect-ratio: 21/20) and (max-height: 700px), (max-width: 760px) and (max-aspect-ratio: 13/10) and (max-height: 700px) {
+  .mf-buddy { width: 56px; top: calc(var(--mf-head) + 8px); }
+  .mf-say { font-size: 11px; padding: 4px 9px; }
+}
 /* ごく小さい縦長（320x568 など）: 3D と文章の両方は入りきらないので、最初の場面の説明文は省く */
 @media (max-aspect-ratio: 21/20) and (max-height: 600px), (max-width: 760px) and (max-aspect-ratio: 13/10) and (max-height: 600px) { .mf-panel--intro .lead { display: none; } }
 
