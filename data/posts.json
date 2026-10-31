@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-10-31-app-kaihatsu-mitsumori-mikata.png"
+    "image": "assets/img/covers/2026-10-31-app-kaihatsu-mitsumori-mikata.png",
+    "imageHero": "assets/img/covers/2026-10-31-app-kaihatsu-mitsumori-mikata.webp",
+    "imageCard": "assets/img/covers/2026-10-31-app-kaihatsu-mitsumori-mikata-card.webp"
   },
   {
     "slug": "2026-10-30-meo-unyo-daiko-erabikata",
@@ -147,7 +149,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-10-30-meo-unyo-daiko-erabikata.png"
+    "image": "assets/img/covers/2026-10-30-meo-unyo-daiko-erabikata.png",
+    "imageHero": "assets/img/covers/2026-10-30-meo-unyo-daiko-erabikata.webp",
+    "imageCard": "assets/img/covers/2026-10-30-meo-unyo-daiko-erabikata-card.webp"
   },
   {
     "slug": "2026-10-29-tenpo-homepage-contents",
