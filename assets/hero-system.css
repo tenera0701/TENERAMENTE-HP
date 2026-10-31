@@ -55,6 +55,7 @@
   font-size: clamp(30px, 3.7vw, 56px); line-height: 1.28; letter-spacing: .02em;
 }
 .hx-p { margin-top: 22px; font-size: clamp(15px, 1.15vw, 17px); line-height: 2; color: rgba(244,242,237,.72); max-width: 30em; }
+.hx .ph { display: inline-block; }   /* 文節ごとに区切り、「公/開後」のような途中の改行を出さない */
 .hx-flow { display: contents; }
 
 /* ---------- 計器の表示（四隅・下の目次） ---------- */
