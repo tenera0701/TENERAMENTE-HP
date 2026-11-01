@@ -1229,7 +1229,9 @@
         "2026-09-25-local-seo-meo-chigai",
         "2026-09-05-meo-hiyo-souba-uchiwake"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-02-nagoya-meo-taisaku",
+      "doneAt": "2026-11-01"
     },
     {
       "id": "k105",

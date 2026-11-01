@@ -1264,7 +1264,9 @@
         "moushikomi-kanrihyo-tsukurikata",
         "go-ad-nyukin-kanrihyo"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "moushikomi-system-ikou-timing",
+      "doneAt": "2026-11-01"
     },
     {
       "id": "m103",

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら｜ミエルーム ブログ</title>
+<meta name="description" content="Excelの申込管理表で漏れや二重入力が出てきた店舗に向けて、システムへ移すかどうかの判断基準と、移す前にやる棚卸しの手順を整理しました。繁忙期を避けた段取り、乗り換えでよくある失敗の避け方までまとめています。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/moushikomi-system-ikou-timing.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら">
+<meta property="og:description" content="Excelの申込管理表で漏れや二重入力が出てきた店舗に向けて、システムへ移すかどうかの判断基準と、移す前にやる棚卸しの手順を整理しました。繁忙期を避けた段取り、乗り換えでよくある失敗の避け方までまとめています。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/moushikomi-system-ikou-timing.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/covers/moushikomi-system-ikou-timing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら","description":"Excelの申込管理表で漏れや二重入力が出てきた店舗に向けて、システムへ移すかどうかの判断基準と、移す前にやる棚卸しの手順を整理しました。繁忙期を避けた段取り、乗り換えでよくある失敗の避け方までまとめています。","datePublished":"2026-11-02","dateModified":"2026-11-02","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/moushikomi-system-ikou-timing.html","image":"https://teneramente.jp/mieroom/assets/covers/moushikomi-system-ikou-timing.png","articleSection":"売上管理","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"申込管理, 業務管理システム, Excel, 乗り換え, 賃貸仲介"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/mieroom/blog.html"},{"@type":"ListItem","position":3,"name":"申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら","item":"https://teneramente.jp/mieroom/articles/moushikomi-system-ikou-timing.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"案件が何件くらいになったら、システムに移すべきですか？","acceptedAnswer":{"@type":"Answer","text":"件数で線を引くのは難しいところです。同じ件数でも、更新する人が1人なら表で回りますし、3人いれば開けない時間が生まれます。判断は人数と更新の回数、それに締めの作業にかかっている時間で行ってください。月末の突き合わせが終わらない状態が続いているなら、件数に関係なく移す段階です。"}},{"@type":"Question","name":"過去のExcelデータは引き継げますか？","acceptedAnswer":{"@type":"Answer","text":"引き継げます。ミエルームはExcelデータのインポートと初期設定の代行に対応しています。ただし全部を移す必要はありません。どこまで遡って必要かを先に決め、参照するだけの古いデータは表のまま保管しておくほうが、切り替えがすっきり進みます。"}},{"@type":"Question","name":"切り替えの期間はどのくらい見ておけばよいですか？","acceptedAnswer":{"@type":"Answer","text":"初期設定とデータの取り込み自体は短く済みますが、表と並走する期間を1か月ほど取ってください。並走の目的は、売上の数字が両方で一致することを確認して、安心して表を閉じられる状態を作ることです。繁忙期を外した時期に始めれば、この並走にも無理なく時間を使えます。"}},{"@type":"Question","name":"一部入金や分割の入金も記録できますか？","acceptedAnswer":{"@type":"Answer","text":"記録できます。ミエルームの申込・入金管理では、一部入金・分割入金を案件ごとに残せて、後ADの入金も同じ案件の記録として追えます。確定した売上と見込みが分かれて表示されるため、入金済みの分だけを見たい月末の確認にも使えます。"}},{"@type":"Question","name":"まずどこから見始めればよいですか？","acceptedAnswer":{"@type":"Answer","text":"いま使っている表をすべて書き出すところからです。申込・売上・反響・接客・経理と分かれているうち、同じ情報を二度入力している箇所に印を付けてください。その印の数が、移したときに消える手間のおおよその量になります。"}}]}]}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>売上管理</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">売上管理</span>
+      <h1>申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.11.02</span>
+        <span class="sep"></span>
+        <span>8分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band band--img"><img src="../assets/covers/moushikomi-system-ikou-timing.png" alt="申込管理をシステムに移すタイミング｜Excelの管理表で漏れが出始めたら" width="1200" height="675" decoding="async"></div>
+</div>
+<div class="post-body">
+<p>申込管理表はきちんと作ってあるのに、気づくと入金の確認漏れが出る。同じ案件を二人が別の行に入れている。そんな状態になったら、表の作り方を直す段階ではなくなっているかもしれません。<strong>申込管理をシステムに移す判断は、案件の件数ではなく、同じ情報を触る人数と更新の回数で決まります</strong>。この記事では、移すタイミングの見極め方と、移す前にやっておく準備を整理します。</p>
+<div class="conclusion">
+<h4>この記事の結論</h4>
+<p>Excelの管理表が限界に近づくサインは、件数の増加ではなく、同じ案件を複数の人が別々に更新し始めたときに出ます。<strong>移す前にいまの管理表を棚卸しして、残す項目と捨てる項目を決めておくことが、乗り換えの成否を分けます</strong>。切り替えは繁忙期を外し、しばらく両方を並走させる段取りで進めてください。</p>
+</div>
+<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+      <a href="#h1"><span class="n">01</span><span>Excelの申込管理表が限界に近づくときのサイン</span></a>
+      <a href="#h2"><span class="n">02</span><span>漏れと二重入力はどこで起きているか</span></a>
+      <a href="#h3"><span class="n">03</span><span>移す前に、いまの管理表を棚卸しする</span></a>
+      <a href="#h4"><span class="n">04</span><span>移すタイミングの判断基準</span></a>
+      <a href="#h5"><span class="n">05</span><span>乗り換えの進め方と、繁忙期を避ける段取り</span></a>
+      <a href="#h6"><span class="n">06</span><span>よくある失敗と、その避け方</span></a>
+      <a href="#h7"><span class="n">07</span><span>自分たちで進める場合と、ツールに任せる場合の分かれ目</span></a>
+      <a href="#h8"><span class="n">08</span><span>よくある質問</span></a>
+      <a href="#h9"><span class="n">09</span><span>まとめ：表を直すか移すかは、人数と締めの時間で決まる</span></a>
+    </div>
+  </nav>
+<h2 id="h1">Excelの申込管理表が限界に近づくときのサイン</h2>
+<p>Excelの申込管理表は、よく作られていれば長く使えます。限界が来るのは表の出来が悪いからではなく、使う人数と更新の回数が増えたときです。</p>
+<p>次のような状態が出てきたら、表の工夫では戻しにくいところに入っています。ファイルを開こうとしたら誰かが開いていて編集できない。最新がどのファイルか分からず、日付入りのコピーが増えている。入金の確認を月末にまとめてやるため、その日まで未入金に気づかない。担当者が自分の案件だけを別のシートで管理している。月をまたいだ案件が、申込の月のシートと契約の月のシートに分かれている。</p>
+<p>共通しているのは、情報が一か所にない状態です。表そのものは正しくても、正しい表が複数あると、どれを見て判断すればよいかが決まりません。項目の設計で直せる範囲は<a href="./moushikomi-kanrihyo-tsukurikata.html">賃貸仲介の申込管理表の作り方</a>に整理していますので、まずそちらで直せるかを確かめてから、この記事の判断に進んでください。</p>
+<h2 id="h2">漏れと二重入力はどこで起きているか</h2>
+<p>漏れが出る場所は、だいたい決まっています。申込から契約までの間ではなく、その前後です。</p>
+<p>一つは入金の確認です。契約までは担当者が追いますが、入金は経理や店長が見る情報になるため、担当が変わるところで引き継ぎが落ちます。一部入金や分割の入金が入ると、表の1つのセルでは表せなくなり、備考欄に書かれて見落とされます。</p>
+<p>もう一つは後ADです。入金の予定が契約から数か月先になるため、管理表の視界から外れます。月末に突き合わせる作業で見つかればよいのですが、件数が増えると突き合わせ自体が終わらなくなります。後ADの追い方は<a href="./go-ad-nyukin-kanrihyo.html">後ADの未入金を防ぐ管理表の作り方</a>にまとめています。</p>
+<p>二重入力は、同じ情報を二か所に書く構造があるところで起きます。反響の記録と申込の記録が別の表になっていると、物件名と顧客名を二度入力します。売上の集計表が別にあれば、三度目の入力が発生します。入力の回数が増えるほど、どこかで食い違い、どちらが正しいかを調べる時間が生まれます。</p>
+<h2 id="h3">移す前に、いまの管理表を棚卸しする</h2>
+<p>いきなりシステムを探し始めると、機能の一覧を見比べる話になり、自店に必要なものが分からなくなります。先に手元の表を棚卸ししてください。</p>
+<p>そのまま使えるチェックリストにしました。</p>
+<ul>
+<li>いま使っている表やシートを、すべて書き出す（申込・売上・反響・接客・経理など）</li>
+<li>それぞれの表を、誰が・いつ・何のために開いているかを書く</li>
+<li>同じ情報を二か所以上に入力している箇所に印を付ける</li>
+<li>月末や締めの日にだけ発生している作業を書き出す</li>
+<li>集計のために作っている中間の表を特定する</li>
+<li>実際には誰も見ていない項目を見つける</li>
+<li>案件が月をまたぐときに、どこに分かれて記録されているかを確認する</li>
+<li>過去のデータをどこまで引き継ぎたいかを決める</li>
+</ul>
+<div class="callout"><div class="ct"><span class="ci">✓</span>使っていない項目は移さない</div><p>長く使った表には、いつか必要になるかもしれないと思って残した列が増えています。移すときに全部を持っていくと、新しい仕組みでも同じ入力の手間が続きます。棚卸しで誰も見ていない項目が見つかったら、移す前に落としてください。</p></div>
+<p>棚卸しが終わると、必要な機能が自然に言葉になります。「反響から申込までを同じ画面でつなぎたい」「入金を案件ごとに分けて残したい」「確定した売上と見込みを分けて見たい」という形で書けるようになれば、比べる準備ができています。</p>
+<h2 id="h4">移すタイミングの判断基準</h2>
+<p>判断の材料は、件数ではなく使い方の側にあります。下の表で、自店がどちらに近いかを見てください。</p>
+<div class="tw"><table>
+<thead><tr><th>見る場所</th><th>表のままで回る</th><th>仕組みに移す段階</th></tr></thead>
+<tbody><tr><td>表を更新する人数</td><td>1〜2人で、席も近い</td><td>3人以上、または店舗が分かれている</td></tr>
+<tr><td>更新の頻度</td><td>1日の終わりにまとめて入れる</td><td>日中に何度も、別の人が入れる</td></tr>
+<tr><td>入金の確認</td><td>件数が少なく、月末に追える</td><td>一部入金や後ADが重なり、月末が終わらない</td></tr>
+<tr><td>集計の手間</td><td>表の関数で足りている</td><td>集計のために別の表を作っている</td></tr>
+<tr><td>月をまたぐ案件</td><td>数が少なく、手で追える</td><td>申込と契約と入金が別の場所に散る</td></tr>
+<tr><td>担当の引き継ぎ</td><td>口頭で足りている</td><td>引き継ぎのたびに経緯を探している</td></tr></tbody>
+</table></div>
+<p>右側に3つ以上当てはまるなら、表の改善を続けるより、仕組みを変えたほうが戻りが大きい段階です。左側が多い場合は、まず項目の設計を直すほうが先です。道具を入れても、何を記録するかが決まっていなければ同じ場所でつまずきます。</p>
+<h2 id="h5">乗り換えの進め方と、繁忙期を避ける段取り</h2>
+<p>切り替えの失敗は、機能が足りないからではなく、時期と並走の設計を決めていないことで起きます。</p>
+<figure class="fig"><img src="../assets/figures/moushikomi-system-ikou-timing.png" alt="棚卸しをもとに必要な機能を言葉にする、候補に自店の案件の流れを入れてみる、入れる項目と移す過去データの範囲を決める、繁忙期を外した時期に初期設定とデータ取り込みを行う、1か月ほど表と並走して突き合わせる、数字が合うことを確認してから表の更新をやめるという、申込管理をシステムへ移すときの進め方を並べた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>並走の目的は確認ではなく、安心して表を閉じられる状態を作ることです。</figcaption></figure>
+<ol>
+<li>棚卸しの結果をもとに、必要な機能を言葉にする</li>
+<li>候補をいくつか見て、自店の案件の流れを入れてみる</li>
+<li>入れる項目と、移す過去データの範囲を決める</li>
+<li>繁忙期を外した時期に、初期設定とデータの取り込みを行う</li>
+<li>1か月ほど、表と新しい仕組みの両方に記録して突き合わせる</li>
+<li>数字が合うことを確認してから、表の更新をやめる</li>
+</ol>
+<p>賃貸仲介の繁忙期に切り替えを始めるのは避けてください。入力の手が止められない時期に新しい画面を覚えるのは無理があり、結果として表に戻ってしまいます。閑散期に設定を済ませ、繁忙期には慣れた状態で入るのが安全です。</p>
+<p>5番の並走を飛ばさないでください。並走の目的は確認ではなく、安心して表を捨てられる状態を作ることです。売上の数字が両方で一致した月を一度でも見ておけば、表を閉じる判断ができます。</p>
+<h2 id="h6">よくある失敗と、その避け方</h2>
+<p>乗り換えでつまずく場所は限られています。先に知っておくと避けられます。</p>
+<ul>
+<li><strong>繁忙期に切り替えを始める</strong>：閑散期に初期設定とデータ取り込みを終え、繁忙期は慣れた状態で迎えます</li>
+<li><strong>過去データを全部移そうとする</strong>：どこまで必要かを先に決めます。参照するだけのものは表のまま残しておけば足ります</li>
+<li><strong>表をすぐに閉じる</strong>：1か月ほど並走し、売上の数字が一致した月を確認してから閉じます</li>
+<li><strong>担当者ごとに入力の仕方が違う</strong>：どの項目を誰が入れるかを紙1枚にして、切り替えの前に共有します</li>
+<li><strong>使っていない項目を持ち込む</strong>：棚卸しで落とします。移したあとに増やすほうが簡単です</li>
+<li><strong>店長だけが新しい画面を覚える</strong>：日々入力する人が触れないと戻ります。最初の設定から担当者を入れてください</li>
+<li><strong>入金の記録を後回しにする</strong>：一部入金・分割入金・後ADをどう残すかは、切り替えの前に決めておきます</li>
+</ul>
+<p>&gt; 乗り換えが止まる原因は、たいてい機能ではなく、いつ・誰が・何を入れるかを決めていないことです。</p>
+<h2 id="h7">自分たちで進める場合と、ツールに任せる場合の分かれ目</h2>
+<p>分かれ目になるのは、表を更新する人数と、締めの作業にかかっている時間です。</p>
+<p>自分たちの表で進めやすいのは、更新する人が1〜2人で、席が近く、口頭で確認が取れる場合です。この規模なら、項目の設計を直し、月末の確認手順を決めるだけで回ります。まず項目を整えて数か月続けてみると、どの作業が本当に重いのかが分かり、次の判断がしやすくなります。</p>
+<p>仕組みに移したほうが早いのは、更新する人が3人以上に増えた場合、店舗が分かれて同じファイルを開けない場合、集計のために別の表を作っている場合です。入金の確認が月末に集中して終わらない状態や、月をまたぐ案件が複数の場所に分かれている状態も、表の工夫では戻しにくいところです。</p>
+<p>判断の順番としては、まず棚卸しをして、項目の設計で直せる分を直す。それでも残る手間が、人数と場所に由来するものであれば移す。この順で進めると、移したあとに同じ問題が再発しません。道具を先に決めると、何を記録するかの議論が後回しになりがちです。</p>
+<h2 id="h8">よくある質問</h2>
+<details class="faq"><summary>案件が何件くらいになったら、システムに移すべきですか？</summary><div class="faq-a">件数で線を引くのは難しいところです。同じ件数でも、更新する人が1人なら表で回りますし、3人いれば開けない時間が生まれます。判断は人数と更新の回数、それに締めの作業にかかっている時間で行ってください。月末の突き合わせが終わらない状態が続いているなら、件数に関係なく移す段階です。</div></details>
+<details class="faq"><summary>過去のExcelデータは引き継げますか？</summary><div class="faq-a">引き継げます。ミエルームはExcelデータのインポートと初期設定の代行に対応しています。ただし全部を移す必要はありません。どこまで遡って必要かを先に決め、参照するだけの古いデータは表のまま保管しておくほうが、切り替えがすっきり進みます。</div></details>
+<details class="faq"><summary>切り替えの期間はどのくらい見ておけばよいですか？</summary><div class="faq-a">初期設定とデータの取り込み自体は短く済みますが、表と並走する期間を1か月ほど取ってください。並走の目的は、売上の数字が両方で一致することを確認して、安心して表を閉じられる状態を作ることです。繁忙期を外した時期に始めれば、この並走にも無理なく時間を使えます。</div></details>
+<details class="faq"><summary>一部入金や分割の入金も記録できますか？</summary><div class="faq-a">記録できます。ミエルームの申込・入金管理では、一部入金・分割入金を案件ごとに残せて、後ADの入金も同じ案件の記録として追えます。確定した売上と見込みが分かれて表示されるため、入金済みの分だけを見たい月末の確認にも使えます。</div></details>
+<details class="faq"><summary>まずどこから見始めればよいですか？</summary><div class="faq-a">いま使っている表をすべて書き出すところからです。申込・売上・反響・接客・経理と分かれているうち、同じ情報を二度入力している箇所に印を付けてください。その印の数が、移したときに消える手間のおおよその量になります。</div></details>
+<h2 id="h9">まとめ：表を直すか移すかは、人数と締めの時間で決まる</h2>
+<p>申込管理をシステムに移すタイミングは、案件が増えたからではありません。同じ案件を複数の人が別々に更新し始め、月末の突き合わせが終わらなくなったときです。この二つが出ていなければ、項目の設計を直すほうが先です。</p>
+<p>移すと決めたら、棚卸しで残す項目と捨てる項目を決め、繁忙期を外して初期設定を済ませ、1か月並走してから表を閉じる。この段取りを守るだけで、切り替えの途中で戻ってしまう事態をほとんど防げます。</p>
+<p>ミエルームなら、申込から入金・後ADまでを案件ごとに1行で記録でき、一部入金や分割入金もそのまま残せます。反響管理・接客管理・売上管理が同じ場所にあるので、同じ物件名と顧客名を二度入力する手間がなくなり、確定売上と見込みが分かれて表示されるため月末に管理表を突き合わせる作業もなくなります。Excelデータのインポートと初期設定の代行に対応しているので、いまの管理表からの切り替えもそのまま進められます。他のシステムとの違いは<a href="../compare.html">業務管理システムの比較</a>に整理しています。デモアカウントの発行やご相談は、この下のボタンからお気軽にどうぞ。</p>
+
+  <div class="post-tags"><span class="pt">#申込管理</span><span class="pt">#業務管理システム</span><span class="pt">#Excel</span><span class="pt">#乗り換え</span><span class="pt">#賃貸仲介</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener" style="flex:none"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>機能・事例</h4>
+          <a href="../features.html">機能一覧</a>
+          <a href="../guide/moushikomi-nyukin.html">申込・入金管理</a>
+          <a href="../guide/hankyo-bunseki.html">反響分析</a>
+          <a href="../guide/seiseki-kashika.html">成績可視化</a></div>
+        <div><h4>サービス</h4>
+          <a href="../index.html">ホーム</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a></div>
+        <div><h4>会社情報</h4>
+          <a href="../../company.html">運営会社</a>
+          <a href="https://app.mieroom.cloud/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>
