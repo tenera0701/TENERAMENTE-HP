@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-02-nagoya-meo-taisaku.png"
+    "image": "assets/img/covers/2026-11-02-nagoya-meo-taisaku.png",
+    "imageHero": "assets/img/covers/2026-11-02-nagoya-meo-taisaku.webp",
+    "imageCard": "assets/img/covers/2026-11-02-nagoya-meo-taisaku-card.webp"
   },
   {
     "slug": "2026-11-01-tenpo-homepage-hitsuyo-ka",
