@@ -1,15 +1,17 @@
-/* ミエルーム — トップの3D「反響から入金まで」（hero-flow.css と対。TENERAMENTE の assets/hero-system.js と同じ作り）
+/* ミエルーム — トップの3D「独自機能」（hero-flow.css と対。TENERAMENTE の assets/hero-system.js と同じ作り）
    ミエルームの実画面を、傾いた3Dの額に入れて見せる。スクロールすると、ドラムが回るように下から次の画面が回ってくる:
-     0 反響分析     （媒体ごとの反響カードが画面から浮き出し、順に跳ねる）
-     1 反響の一覧   （右から反響メールが飛び込み、届いた媒体の行が浮く）
-     2 追客・接客   （接客管理表の数字が浮き、申込率の棒が3Dで立ち上がる。手前のスマホには自動返信・自動追客のメール）
-     3 申込から入金 （未入金一覧の一部入金の行が浮き、申込 → 審査 → 契約 → 入金 の駅を玉が流れる）
-     4 売上         （売上分析の実画面の前で、棒グラフが伸び縮みする）
+     0 反響分析           （媒体ごとの反響カードが画面から浮き出し、順に跳ねる）
+     1 申込〜入金         （未入金一覧の一部入金の行が浮き、申込 → 審査 → 契約 → 入金 の駅を玉が流れる）
+     2 書類の自動作成     （契約フォーマット設定の画面から、契約書・重説・取引台帳の書類が飛び出す）
+     3 LINEマイページ     （お客様マイページの管理画面と、お客様のスマホのマイページ）
+     4 拡張機能           （物確の一括確認の行が浮き、初期費用のお見積りが手前に出る）
+     5 MEO・AIO対策       （口コミ管理の画面と、Googleマップの順位を3Dの地図グラフで）
    カーソルの近くの部品は持ち上がり、画面全体はカーソルの方へ傾く。マスコットはカーソルの方を向く。three.js r128（CDN）。
    画像は data-mf-assets（assets/ の場所）から読む。1枚目は index.html の head の小さなスクリプトで先に取りに行っておく。画像が届くまで額は出さない。
    実画面の切り抜き位置は元画像のピクセルで決め打ち（画像を差し替えたら測り直す）。スマホ縦では、文字が読めるように画面の要所だけを切り抜いて大きく見せる。
+   書類（契約書・重説・取引台帳）は実物の写しではなく、題名と罫線だけを描いた絵（実在の書類を載せないため）。
    WebGL が使えない・動きを減らす設定・three.js の読み込み失敗・一番上にいるうちに1枚目の画像が来ないときは .mf--static（今までのトップの見た目）にする。
-   確認用: ?mfP=0〜4 でその場面に固定、?mfStatic で静止版、?mfDebug で window.__mf に中身を出す。 */
+   確認用: ?mfP=0〜5 でその場面に固定、?mfStatic で静止版、?mfDebug で window.__mf に中身を出す。 */
 (function () {
   'use strict';
   var sec = document.querySelector('.mf');
@@ -22,7 +24,8 @@
   var canvas = sec.querySelector('.mf-canvas');
   var QS = new URLSearchParams(location.search);
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var FORCE_P = QS.has('mfP') ? Math.max(0, Math.min(4, parseFloat(QS.get('mfP')) || 0)) : null;
+  var LAST = 5;   // 最後の場面の番号（0 が最初の画面、1〜5 が独自機能）
+  var FORCE_P = QS.has('mfP') ? Math.max(0, Math.min(LAST, parseFloat(QS.get('mfP')) || 0)) : null;
 
   function webglOK() {
     try {
@@ -115,25 +118,70 @@
   function fail(src) { texEntry(src).failed = true; if (src === DEF[0].img && nearTop()) giveUp(); }
 
   /* ---------- 場面ごとの実画面と部品（位置は「アプリの枠」の中の単位。枠はおよそ幅8.4・高さ5） ----------
-     crop はスマホ縦のときに見せる範囲、wP はスマホ縦のときの幅 */
+     crop はスマホ縦のときに見せる範囲、wP はスマホ縦のときの幅。
+     float は手前に浮かぶ別の画面（style: phone＝黒いスマホ、card＝白い紙）、docs は飛び出す書類の絵、grid は Googleマップの順位の3Dグラフ */
   var MEDIA_X = [353.5, 543.5, 733.5, 924.5, 1112.5, 1301, 1489.5];
-  var HROW = [121, 175, 229, 282, 337, 390, 444, 497, 551];
-  var ROW_C = [0xd83a15, 0x99a0ac, 0x895ee7, 0xcd2943, 0xf2a530, 0x99a0ac, 0xd50c2b, 0xc13584];   // SUUMO・HOME'S・紹介・SNS・カナリー・自社HP・アットホーム・Instagram
   var DEF = [
     { img: 'app-bunseki.webp', size: [1600, 1029], w: 6.7, at: [0.3, 0.05, 0], crop: [240, 0, 1600, 760],
       pops: MEDIA_X.map(function (x) { return { rect: [x - 91, 225, x + 91, 422], r: 0.07 }; }) },
-    { img: 'hero/s1-hankyo-table.webp', size: [1400, 609], w: 7.2, at: [0.1, 0.45, 0], crop: [28, 0, 1000, 609],
-      pops: HROW.slice(0, 8).map(function (y, i) { return { rect: [28, y, 1400, HROW[i + 1]], r: 0.03, row: true }; }), stream: true },
-    { img: 'hero/s2-sekkyaku.webp', size: [1400, 875], w: 6.8, at: [-0.35, 0.35, 0], crop: [0, 0, 1180, 740],
-      pops: [[28, 152], [456, 580], [595, 719], [734, 858]].map(function (x) { return { rect: [x[0], 213, x[1], 298], r: 0.06 }; }),
-      rods: [[389, 1201], [443, 699], [496, 699], [550, 447], [603, 447], [657, 447], [710, 447]].map(function (b) { return { y: b[0], x0: 197, x1: b[1] }; }),
-      phone: { img: 'hero/s2-phone-mail.webp', size: [780, 1688], h: 3.3, at: [3.0, -0.95, 1.1], ry: -0.3 } },
     { img: 'hero/s3-unpaid.webp', size: [1400, 875], w: 6.8, at: [-0.25, 0.45, 0], crop: [40, 0, 1010, 722], wP: 5.9,
       pops: [132, 366.4, 600.8, 659.4].map(function (y) { return { rect: [48, y, 1352, y + 58.6], r: 0.03, row: true }; }), stations: true },
-    { img: 'app-uriage-hd.webp', size: [1600, 764], w: 7.0, at: [0.3, 0.35, 0], crop: [250, 0, 1600, 764], bars: 8 }
+    { img: 'hero/f2-keiyaku-format.webp', size: [1400, 875], w: 6.6, at: [-0.3, 0.4, 0], crop: [40, 60, 1060, 760], wP: 6.2,
+      pops: [{ rect: [108, 161, 1292, 326], r: 0.06 }],
+      docs: ['取引台帳', '重要事項説明書', '賃貸借契約書'] },
+    { img: 'hero/f3-mypage-admin.webp', size: [1600, 1035], w: 6.6, at: [-0.3, 0.35, 0], crop: [215, 40, 1600, 800],
+      pops: [{ rect: [395, 314, 892, 348], r: 0.04 }, { rect: [238, 925, 1572, 984], r: 0.03, row: true }],
+      float: { img: 'hero/f3-mypage-phone.webp', size: [750, 1500], h: 3.3, at: [2.95, -0.85, 1.1], ry: -0.3, style: 'phone' } },
+    { img: 'hero/f4-bukkaku.webp', size: [1367, 855], w: 6.6, at: [-0.3, 0.4, 0], crop: [20, 60, 1020, 760], wP: 6.2,
+      pops: [[520, 628], [628, 730], [730, 832]].map(function (y) { return { rect: [28, y[0], 1340, y[1]], r: 0.03, row: true }; }),
+      float: { img: 'hero/f4-shoki.webp', size: [660, 793], h: 2.7, at: [2.7, -0.85, 1.1], ry: -0.3, style: 'card' } },
+    { img: 'hero/f5-reviews.webp', size: [1600, 1000], w: 6.5, at: [0.25, 0.45, 0], crop: [460, 60, 1600, 820], wP: 6.2,
+      pops: [[462, 638], [651, 827], [841, 1017], [1030, 1206], [1220, 1396], [1410, 1587]].map(function (x) { return { rect: [x[0], 380, x[1], 464], r: 0.06 }; }),
+      grid: true }
   ];
   var BUMP0 = [0, 4, 2, 6, 1, 5, 3];   // 場面0で跳ねる媒体カードの順
-  var TGT1 = [0, 3, 6, 1, 4, 7, 2, 5, 0];   // 場面1で反響メールが飛び込む行
+
+  // 書類の絵（題名と罫線だけ。実在の書類の写しは使わない）
+  function docCanvas(title) {
+    var c = document.createElement('canvas'); c.width = 512; c.height = 724;
+    function draw() {
+      var g = c.getContext('2d'), F = '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif';
+      g.fillStyle = '#ffffff'; g.fillRect(0, 0, 512, 724);
+      g.fillStyle = '#1f2a28'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.font = '900 ' + (title.length > 6 ? 40 : 46) + 'px ' + F; g.fillText(title, 256, 92);
+      g.fillStyle = '#14a085'; g.fillRect(156, 130, 200, 5);
+      g.fillStyle = '#e3ebe8';
+      for (var i = 0; i < 3; i++) g.fillRect(56, 170 + i * 22, i === 2 ? 260 : 400, 9);
+      // 表（項目の欄は薄い緑）
+      g.strokeStyle = '#c9d6d2'; g.lineWidth = 2;
+      for (var r = 0; r < 7; r++) {
+        var y = 250 + r * 44; g.fillStyle = r % 2 ? '#ffffff' : '#f4faf8'; g.fillRect(56, y, 400, 44);
+        g.fillStyle = '#e6f4f0'; g.fillRect(56, y, 120, 44);
+        g.fillStyle = '#cfdcd8'; g.fillRect(70, y + 18, 80, 8); g.fillRect(192, y + 18, 120 + (r * 37) % 120, 8);
+        g.strokeRect(56, y, 400, 44);
+      }
+      g.fillStyle = '#e3ebe8';
+      for (i = 0; i < 4; i++) g.fillRect(56, 580 + i * 22, i === 3 ? 220 : 400, 9);
+      g.strokeStyle = '#e07a5f'; g.lineWidth = 3; g.beginPath(); g.arc(420, 668, 22, 0, Math.PI * 2); g.stroke();
+      g.fillStyle = '#e07a5f'; g.font = '700 22px ' + F; g.fillText('印', 420, 669);
+    }
+    draw();
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = MAXANI;
+    if (document.fonts && document.fonts.load) document.fonts.load('900 40px "Zen Kaku Gothic New"').then(function () { draw(); t.needsUpdate = true; }).catch(function () {});
+    return t;
+  }
+  var DOC_TEX = {};
+  function docTex(title) { return DOC_TEX[title] || (DOC_TEX[title] = docCanvas(title)); }
+
+  // Googleマップの順位（7×7 の地点。中心ほど上位）。色は順位：3位まで緑・10位まで黄・それより下は橙（実画面のヒートマップと同じ分け方）
+  var GRID_R = (function () {
+    var r = [], rnd = rng(11);
+    for (var gy = 0; gy < 7; gy++) for (var gx = 0; gx < 7; gx++) {
+      var d = Math.sqrt((gx - 3.4) * (gx - 3.4) + (gy - 3) * (gy - 3));
+      r.push(Math.max(1, Math.min(20, Math.round(1 + d * 1.9 + d * d * 0.25 + rnd() * 0.6))));
+    }
+    return r;
+  })();
 
   var root = new THREE.Group(); scene.add(root);
   var panels = [], builtFor = null;
@@ -184,42 +232,48 @@
         p.g.add(t.g); p.pops.push(t); p.bump.push(0); p.bumpS.push(0);
       });
 
-      // 場面1: 右から飛び込む反響メール（白いカード＋媒体の色の丸）
-      if (def.stream && p.pops.length) {
-        var NS = TGT1.length, r1 = rng(7);
-        p.stream = { n: NS, cards: new THREE.InstancedMesh(slab(1, 1, 0.22, 0.6), std(p, 0xffffff, 0.6), NS),
-                     dots: new THREE.InstancedMesh(new THREE.SphereGeometry(0.5, 16, 10), std(p, 0xffffff, 0.45), NS), sx: [], sy: [], sz: [], ph: [] };
-        [p.stream.cards, p.stream.dots].forEach(function (m) { m.instanceMatrix.setUsage(THREE.DynamicDrawUsage); m.frustumCulled = false; m.renderOrder = 8; p.g.add(m); });
-        for (var i = 0; i < NS; i++) {
-          var tg = p.pops[TGT1[i] % p.pops.length];
-          p.stream.ph.push(i / NS + r1() * 0.03); p.stream.sx.push(p.w / 2 + 1.6 + r1() * 1.4); p.stream.sy.push(tg.cy + 0.3 + r1() * 0.5); p.stream.sz.push(1.3 + r1() * 0.6);
-          p.stream.cards.setColorAt(i, new THREE.Color(1, 1, 1));
-          p.stream.dots.setColorAt(i, lin(ROW_C[TGT1[i] % ROW_C.length]));
-        }
-      }
-
-      // 接客管理表の申込率の棒（3Dで立ち上がる）
-      if (def.rods) {
-        p.rods = [];
-        def.rods.forEach(function (b, i) {
-          var x1 = Math.min(b.x1, C[2] - 12), len = (x1 - b.x0) / (C[2] - C[0]) * p.w;
-          if (b.y > C[3] || len <= 0.1) return;
-          var r = { g: mesh(slab(len, 0.13, 0.065, 0.12), std(p, i === 0 ? 0x14a085 : 0x2bb79b, 0.42), 4, p.g), cx: px(p, b.x0) + len / 2, cy: py(p, b.y), len: len };
-          r.g.position.set(r.cx, r.cy, 0.15);
-          p.rods.push(r);
-        });
-      }
-
-      // 手前のスマホ（自動返信・自動追客のメール）
-      if (def.phone) {
-        var ph = def.phone, hh = ph.h, ww = hh * ph.size[0] / ph.size[1], g = new THREE.Group();
-        mesh(slab(ww + 0.18, hh + 0.18, 0.28, 0.14), addMat(p, new THREE.MeshStandardMaterial({ color: lin(0x1d2826), roughness: 0.35, metalness: 0.25, transparent: true, fog: false }), 1), 6, g);
-        var fm = basic(p, 1); useTex(fm, ph.img);
-        mesh(face(ww, hh, 0.2, ph.size, [0, 0, ph.size[0], ph.size[1]]), fm, 7, g).position.z = 0.135;
+      // 手前に浮かぶ別の画面（お客様のスマホのマイページ・初期費用のお見積り）
+      if (def.float) {
+        var fl = def.float, hh = fl.h, ww = hh * fl.size[0] / fl.size[1], g = new THREE.Group(), isPhone = fl.style === 'phone';
+        mesh(slab(ww + (isPhone ? 0.18 : 0.08), hh + (isPhone ? 0.18 : 0.08), isPhone ? 0.28 : 0.08, isPhone ? 0.14 : 0.05),
+             isPhone ? addMat(p, new THREE.MeshStandardMaterial({ color: lin(0x1d2826), roughness: 0.35, metalness: 0.25, transparent: true, fog: false }), 1) : std(p, 0xffffff, 0.5), 6, g);
+        var fm = basic(p, 1); useTex(fm, fl.img);
+        mesh(face(ww, hh, isPhone ? 0.2 : 0.05, fl.size, [0, 0, fl.size[0], fl.size[1]]), fm, 7, g).position.z = isPhone ? 0.135 : 0.06;
         p.g.add(g);
         var psh = mesh(UNIT, shadowMat(p, 0.3), 3, p.g); psh.scale.set(ww * 1.7, hh * 1.45, 1);
-        p.phone = { g: g, sh: psh, at: new THREE.Vector3(ph.at[0], ph.at[1], ph.at[2]), ry: ph.ry, w: ww, h: hh };
-        p.srcs.push(ph.img);
+        p.float = { g: g, sh: psh, at: new THREE.Vector3(fl.at[0], fl.at[1], fl.at[2]), ry: fl.ry, w: ww, h: hh };
+        p.srcs.push(fl.img);
+      }
+
+      // 飛び出す書類の絵（奥から 取引台帳・重要事項説明書・賃貸借契約書。右下へ階段状にずらして、どの題名も見えるように）
+      if (def.docs) {
+        p.docs = [];
+        var dW = 1.62, dH = dW * 724 / 512, dgeo = slab(dW + 0.04, dH + 0.04, 0.05, 0.03), dshM = shadowMat(p, 0.22);
+        def.docs.forEach(function (title, i) {
+          var dg = new THREE.Group(), dm = basic(p, 1); dm.map = docTex(title);
+          mesh(dgeo, std(p, 0xffffff, 0.6), 6 + i * 2, dg);
+          mesh(face(dW, dH, 0.04, [512, 724], [0, 0, 512, 724]), dm, 7 + i * 2, dg).position.z = 0.03;
+          var dsh = mesh(UNIT, dshM, 3, dg); dsh.scale.set(dW * 1.5, dH * 1.35, 1); dsh.position.set(0.18, -0.22, -0.12);
+          p.g.add(dg);
+          p.docs.push({ g: dg, at: new THREE.Vector3(1.75 + i * 0.75, 0.2 - i * 0.6, 1.0 + i * 0.3), ry: -0.22 + i * 0.03, rz: 0.04 - i * 0.04, w: dW, h: dH });
+        });
+        p.docH = dH;
+      }
+
+      // Googleマップの順位の3Dグラフ（7×7。高いほど上位）
+      if (def.grid) {
+        var gg = new THREE.Group(), cell = 0.245, pitch = 0.29, bg = new THREE.BoxGeometry(1, 1, 1);
+        var mG = std(p, 0x34a853, 0.55), mY = std(p, 0xf4c542, 0.55), mO = std(p, 0xee8a3a, 0.55);
+        mesh(slab(7 * pitch + 0.24, 7 * pitch + 0.24, 0.12, 0.05), std(p, 0xffffff, 0.6), 5, gg).rotation.x = -Math.PI / 2;
+        p.cols = [];
+        for (var gi = 0; gi < 49; gi++) {
+          var rk = GRID_R[gi], cx = (gi % 7 - 3) * pitch, cz = (Math.floor(gi / 7) - 3) * pitch;
+          var cm = mesh(bg, rk <= 3 ? mG : rk <= 10 ? mY : mO, 6, gg);
+          cm.position.set(cx, 0, cz);
+          p.cols.push({ m: cm, x: cx, z: cz, h: 0.06 + (21 - rk) / 20 * 0.62, d: Math.sqrt(cx * cx + cz * cz), cell: cell });
+        }
+        gg.position.set(2.3, -1.45, 1.0); gg.rotation.set(0.95, -0.25, 0);
+        p.g.add(gg); p.grid = gg;
       }
 
       // 申込 → 審査 → 契約 → 入金 の駅（丸）とレーン（画面の下の手前）。駅の名前は HTML の札
@@ -239,20 +293,15 @@
         for (j = 0; j < 7; j++) p.flow.push(mesh(bead, beadM, 7, p.g));
       }
 
-      // 売上分析の前の棒グラフ
-      if (def.bars) {
-        var mT = std(p, 0x14a085, 0.75), mR = std(p, 0xe07a5f, 0.75), bgeo = new THREE.BoxGeometry(1, 1, 1);
-        p.bars = [];
-        for (j = 0; j < def.bars; j++) p.bars.push(mesh(bgeo, j % 3 === 2 ? mR : mT, 6, p.g));
-      }
       // 縦長の配置に使う、この画面の上端・下端・左右の広がり（アプリの枠の単位。札は付け位置まで）
-      var tagged = tags.some(function (tg) { return tg.sc === k && !(tg.n === 1 && def.phone) && !def.stations; });
+      var tagged = tags.some(function (tg) { return tg.sc === k && tg.n === 0 && !def.stations; });
       p.top = p.at.y + p.h / 2 + 0.18 + (tagged ? 0.42 : 0);
       p.bot = p.at.y - p.h / 2 - 0.18;
       p.hw = Math.max(Math.abs(p.at.x - p.w / 2 - 0.18), Math.abs(p.at.x + p.w / 2 + 0.18));
-      if (p.phone) { p.bot = Math.min(p.bot, p.at.y + p.phone.at.y - p.phone.h / 2 - 0.12); p.hw = Math.max(p.hw, Math.abs(p.at.x + p.phone.at.x + p.phone.w / 2 + 0.12)); }
+      if (p.float) { p.bot = Math.min(p.bot, p.at.y + p.float.at.y - p.float.h / 2 - 0.12); p.hw = Math.max(p.hw, Math.abs(p.at.x + p.float.at.x + p.float.w / 2 + 0.12)); }
       if (p.stations) { p.bot = Math.min(p.bot, p.at.y - p.h / 2 - 0.36 - 0.2); p.hw = Math.max(p.hw, Math.abs(p.at.x - 3.3), Math.abs(p.at.x + 3.2)); }
-      if (p.bars) { p.bot = Math.min(p.bot, p.at.y - p.h / 2 - 1.15); p.hw = Math.max(p.hw, Math.abs(p.at.x - 3.4), Math.abs(p.at.x + 3.2)); }
+      if (p.docs) { var d2 = p.docs[2]; p.bot = Math.min(p.bot, p.at.y + d2.at.y - p.docH / 2 - 0.1); p.hw = Math.max(p.hw, Math.abs(p.at.x + d2.at.x + d2.w / 2 + 0.35)); }
+      if (p.grid) { p.bot = Math.min(p.bot, p.at.y - 1.45 - 1.05); p.top = Math.max(p.top, p.at.y - 1.45 + 1.5); p.hw = Math.max(p.hw, Math.abs(p.at.x + 2.3 + 1.35)); }
       root.add(p.g); panels.push(p);
     });
     anchorTags();
@@ -260,7 +309,7 @@
 
   // 1枚目が届いたら、残りを場面の順に1枚ずつ取りに行く（届かなくても少し待ったら始める）。見に行った場面の画像は割り込みで先に取る
   var ORDER = [];
-  DEF.forEach(function (d) { ORDER.push(d.img); if (d.phone) ORDER.push(d.phone.img); });
+  DEF.forEach(function (d) { ORDER.push(d.img); if (d.float) ORDER.push(d.float.img); });
   function requestRest() { for (var i = 0; i < ORDER.length; i++) if (!texEntry(ORDER[i]).req) { request(ORDER[i], requestRest); return; } }
   request(DEF[0].img, requestRest);
   if (FORCE_P != null) ORDER.forEach(function (s) { request(s); }); else setTimeout(requestRest, 2500);
@@ -311,7 +360,7 @@
       var pk = [], m = 0;
       panelsEl.forEach(function (el) {
         var c = el.querySelector('.mf-copy'); if (!c) return;
-        Bk[+el.dataset.mfStep] = Math.min(B, top(c) - (parseFloat(el.style.getPropertyValue('--hy')) || 0) - 14);
+        Bk[+el.dataset.mfStep] = Math.min(B, top(c) - (parseFloat(el.style.getPropertyValue('--hy')) || 0) - 20);
       });
       ppu = 0;
       for (var k = 0; k < DEF.length; k++) {
@@ -325,7 +374,7 @@
       ay = ((h / 2 - (T + Bk[m]) / 2) / ppu - (panels[m].top + panels[m].bot) / 2) / 0.45;   // カメラは ay の 0.55 倍の高さから見る
       fit = pk.map(function (q, k2) { var sc = q / ppu, pp = panels[k2]; return { s: sc, off: (h / 2 - (T + Bk[k2]) / 2) / ppu - 0.45 * ay - (pp.top + pp.bot) / 2 * sc }; });
     }
-    V = { w: w, h: h, asp: asp, mobile: mobile, D: D, VW: VW, VH: VH, ax: ax, ay: ay, T: T, B: B, fit: fit, textTop: mobile ? Bk.map(function (b) { return b + 14; }) : null };
+    V = { w: w, h: h, asp: asp, mobile: mobile, D: D, VW: VW, VH: VH, ax: ax, ay: ay, T: T, B: B, fit: fit, textTop: mobile ? Bk.map(function (b) { return b + 20; }) : null };
     if (!mobile && veil) veil.style.removeProperty('--veil-h');
     renderer.setPixelRatio(lowRes ? lowResRatio() : Math.min(window.devicePixelRatio || 1, 1.75));
     renderer.setSize(w, h, false);
@@ -353,13 +402,13 @@
   }
 
   /* ---------- スクロール量 → 場面 ---------- */
-  var SPAN = 4.6;
+  var SPAN = LAST + 0.6;
   function scrollSpan() { return sec.offsetHeight - stage.offsetHeight; }
   function readProgress() {
     var r = sec.getBoundingClientRect(), span = scrollSpan();
     var x = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
     var q = x * SPAN, s = Math.floor(q), f = q - s;
-    return s >= 4 ? 4 : s + smooth(0.16, 0.84, f);
+    return s >= LAST ? LAST : s + smooth(0.16, 0.84, f);
   }
 
   /* ---------- 文章・目次・マスコット・札 ---------- */
@@ -372,20 +421,22 @@
   navDots.forEach(function (d) {
     d.setAttribute('role', 'button');
     d.addEventListener('click', function () {
-      var ph = +d.dataset.mfDot, y = sec.getBoundingClientRect().top + window.scrollY + scrollSpan() * (ph >= 4 ? 4.25 : ph) / SPAN;
+      var ph = +d.dataset.mfDot, y = sec.getBoundingClientRect().top + window.scrollY + scrollSpan() * (ph >= LAST ? LAST + 0.25 : ph) / SPAN;
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
 
-  // 札: data-at="場面:番号"。付ける相手（画面の左上・右上・スマホの上・駅の上）は作り直すたびに付け直す
+  // 札: data-at="場面:番号"。付ける相手（0＝画面の左上、1＝手前のスマホ・紙・書類・3Dグラフの上、駅の場面は駅の上）は作り直すたびに付け直す
   var tags = Array.prototype.slice.call(sec.querySelectorAll('.mf-tag')).map(function (el) {
     var t = el.dataset.at.split(':'); return { el: el, sc: +t[0], n: +t[1], off: new THREE.Vector3() };
   });
   function anchorTags() {
     tags.forEach(function (tg) {
       var p = panels[tg.sc]; tg.obj = p.g; tg.wd = 0;
-      if (tg.sc === 3 && p.stations) { tg.obj = p.stations[tg.n].m; tg.off.set(0, 0.5, 0.1); }
-      else if (tg.n === 1 && p.phone) { tg.obj = p.phone.g; tg.off.set(0, p.phone.h / 2 + 0.38, 0.1); }
+      if (p.stations) { tg.obj = p.stations[tg.n].m; tg.off.set(0, 0.5, 0.1); }
+      else if (tg.n === 1 && p.float) { tg.obj = p.float.g; tg.off.set(0, p.float.h / 2 + 0.38, 0.1); }
+      else if (tg.n === 1 && p.docs) { tg.obj = p.docs[2].g; tg.off.set(0.5, p.docH / 2 + 0.36, 0.1); }
+      else if (tg.n === 1 && p.grid) { tg.obj = p.grid; tg.off.set(0, 0.35, -1.25); }
       else if (tg.n === 1) tg.off.set(p.w / 2 - 0.95, p.h / 2 + 0.42, 0.2);
       else tg.off.set(-p.w / 2 + 0.75, p.h / 2 + 0.42, 0.2);
     });
@@ -409,7 +460,7 @@
     if (navEl) { var no = clamp((sec.getBoundingClientRect().bottom - innerHeight) / 140, 0, 1); navEl.style.opacity = no.toFixed(2); navEl.style.pointerEvents = no < 0.5 ? 'none' : ''; }
     // 縦長: 白い膜は今の場面の文章の上端から下だけ（3Dの下の方を白く消さない）
     if (veil && V.textTop) {
-      var a0 = Math.floor(P), a1 = Math.min(4, a0 + 1), tt = V.textTop[a0] + (V.textTop[a1] - V.textTop[a0]) * (P - a0);
+      var a0 = Math.floor(P), a1 = Math.min(LAST, a0 + 1), tt = V.textTop[a0] + (V.textTop[a1] - V.textTop[a0]) * (P - a0);
       var vh = Math.round(V.h - tt + 10);
       if (vh !== V.vh) { V.vh = vh; veil.style.setProperty('--veil-h', vh + 'px'); }
     }
@@ -429,17 +480,19 @@
       _v.copy(tg.off); tg.obj.localToWorld(_v); _v.project(cam);
       tg.x = (_v.x + 1) / 2 * V.w; tg.y = (1 - _v.y) / 2 * V.h - 12;
       // 駅の札が横にくっつくほど3Dが小さいときは、駅の札を出さない
-      if (tg.sc === 3) {
+      if (p.stations) {
         if (!tg.wd) tg.wd = tg.el.offsetWidth;
         if (prev && tg.x - prev.x < (tg.wd + prev.wd) / 2 + 8) crowd = true;
         prev = tg;
       }
     });
     tags.forEach(function (tg) {
-      var o = tg.sc === 3 && crowd ? 0 : tg.o;
+      var o = panels[tg.sc].stations && crowd ? 0 : tg.o;
       if (o <= 0.01) { if (tg.el.style.opacity !== '0') tg.el.style.opacity = '0'; return; }
       tg.el.style.opacity = o.toFixed(3);
-      tg.el.style.transform = 'translate3d(' + tg.x.toFixed(1) + 'px,' + tg.y.toFixed(1) + 'px,0) translateX(-50%)';
+      if (!tg.wd) tg.wd = tg.el.offsetWidth;
+      var x = clamp(tg.x, tg.wd / 2 + 8, V.w - tg.wd / 2 - 8);   // 画面の端からはみ出さないように
+      tg.el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + tg.y.toFixed(1) + 'px,0) translateX(-50%)';
     });
   }
 
@@ -462,50 +515,42 @@
     var k = p.k, j, a, nr;
     for (j = 0; j < p.bump.length; j++) { p.bump[j] *= Math.max(0, 1 - dt * 2.2); p.bumpS[j] += (p.bump[j] - p.bumpS[j]) * Math.min(1, dt * 9); }
     if (k === 0 && t > p.nextB) { p.bump[BUMP0[p.bi % BUMP0.length] % p.bump.length] = 1; p.bi++; p.nextB = t + 0.8; }
-    // 場面1: 反響メールが右から飛んできて、媒体の行に吸い込まれる（届いた行が浮く）
-    if (p.stream) {
-      var S = p.stream;
-      for (var i = 0; i < S.n; i++) {
-        var ti = TGT1[i] % p.pops.length, tl = p.pops[ti], u = frac(t * 0.1 + S.ph[i]), e = u * u * (3 - 2 * u);
-        var gx = tl.cx + tl.tw * 0.22, x = S.sx[i] + (gx - S.sx[i]) * e, y = S.sy[i] + (tl.cy - S.sy[i]) * e * e, z = S.sz[i] + (0.62 - S.sz[i]) * e * e + Math.sin(u * Math.PI) * 0.25;
-        var s = (1 - smooth(0.72, 0.93, u)) * smooth(0, 0.1, u) * act;
-        _q.setFromEuler(_e.set((1 - e) * 0.25 * Math.sin(i * 2.1), (1 - e) * -0.45, (1 - e) * 0.15 * Math.cos(i * 1.7)));
-        _v.set(x, y, z);
-        _m.compose(_v, _q, _s.set(Math.max(0.001, 0.66 * s), Math.max(0.001, 0.25 * s), Math.max(0.001, 0.07 * s)));
-        S.cards.setMatrixAt(i, _m);
-        _v2.set(-0.66 * s / 2 + 0.13 * s, 0, 0.045 * s).applyQuaternion(_q).add(_v);
-        _m.compose(_v2, _q, _s.set(Math.max(0.001, 0.11 * s), Math.max(0.001, 0.11 * s), Math.max(0.001, 0.06 * s)));
-        S.dots.setMatrixAt(i, _m);
-        var hit = Math.sin(Math.PI * clamp((u - 0.86) / 0.14, 0, 1));
-        if (hit > p.bump[ti]) p.bump[ti] = hit;
-      }
-      S.cards.instanceMatrix.needsUpdate = true; S.dots.instanceMatrix.needsUpdate = true;
-    }
     p.pops.forEach(function (tl2, j2) {
       a = ease(clamp((act - j2 * (tl2.row ? 0.04 : 0.05)) / 0.7, 0, 1));
       nr = near(p, tl2.cx, tl2.cy, tl2.row ? 1.1 : 1.5);
       var base;
       if (k === 0) base = 0.42 + 0.07 * Math.sin(t * 1.5 + j2 * 0.8) + 0.3 * p.bumpS[j2];
-      else if (k === 1) base = 0.08 + 0.42 * p.bumpS[j2];
       else base = 0.3 + 0.06 * Math.sin(t * 1.5 + j2 * 0.9);
       setPop(p, tl2, a * base + nr * (tl2.row ? 0.42 : 0.5) * act, a, nr);
     });
-    if (p.rods) {
-      p.rods.forEach(function (r, j4) {
-        a = ease(clamp((act - 0.15 - j4 * 0.06) / 0.6, 0, 1));
-        nr = near(p, r.cx, r.cy, 1.3);
-        r.g.visible = a > 0.01;
-        r.g.position.z = 0.15 + a * (0.2 + 0.05 * Math.sin(t * 1.7 + j4)) + nr * 0.35 * act;
-        r.g.scale.set(Math.max(0.001, 0.2 + 0.8 * a), 1, 1);
-        r.g.position.x = r.cx - r.len / 2 * (1 - (0.2 + 0.8 * a));
+    if (p.float) {
+      var fl = p.float, aP = ease(clamp((act - 0.2) / 0.8, 0, 1));
+      fl.g.visible = fl.sh.visible = aP > 0.01;
+      fl.g.position.set(fl.at.x + (1 - aP) * 2.6, fl.at.y + Math.sin(t * 1.1) * 0.07 - (1 - aP) * 0.4, fl.at.z + (1 - aP) * 0.6);
+      fl.g.rotation.set(-ndcS.y * 0.08, fl.ry + ndcS.x * 0.14 - (1 - aP) * 0.5, 0.03);
+      fl.sh.position.set(fl.g.position.x + 0.35, fl.g.position.y - 0.35, 0.16);
+    }
+    if (p.docs) {
+      // 画面の中から1枚ずつ飛び出して、手前で扇に広がる
+      p.docs.forEach(function (dc, i) {
+        a = ease(clamp((act - 0.15 - i * 0.12) / 0.6, 0, 1));
+        dc.g.visible = a > 0.01;
+        var bob = Math.sin(t * 1.2 + i * 1.3) * 0.06;
+        dc.g.position.set(0.5 + (dc.at.x - 0.5) * a, 0.3 + (dc.at.y - 0.3) * a + bob, 0.15 + (dc.at.z - 0.15) * a);
+        var sc = 0.45 + 0.55 * a; dc.g.scale.set(sc, sc, sc);
+        dc.g.rotation.set(-ndcS.y * 0.08, dc.ry * a + ndcS.x * 0.12, dc.rz * a);
       });
     }
-    if (p.phone) {
-      var ph = p.phone, aP = ease(clamp((act - 0.2) / 0.8, 0, 1));
-      ph.g.visible = ph.sh.visible = aP > 0.01;
-      ph.g.position.set(ph.at.x + (1 - aP) * 2.6, ph.at.y + Math.sin(t * 1.1) * 0.07 - (1 - aP) * 0.4, ph.at.z + (1 - aP) * 0.6);
-      ph.g.rotation.set(-ndcS.y * 0.08, ph.ry + ndcS.x * 0.14 - (1 - aP) * 0.5, 0.03);
-      ph.sh.position.set(ph.g.position.x + 0.35, ph.g.position.y - 0.35, 0.16);
+    if (p.grid) {
+      // 中心から外へ順に立ち上がる
+      var ga = smooth(0.1, 0.9, act);
+      p.grid.visible = ga > 0.01;
+      p.cols.forEach(function (cl) {
+        var aa = ease(clamp(ga * 1.6 - cl.d * 0.45, 0, 1));
+        var hh = Math.max(0.001, cl.h * aa * (1 + Math.sin(t * 1.6 - cl.d * 2.2) * 0.06));
+        cl.m.scale.set(cl.cell, hh, cl.cell); cl.m.position.y = 0.03 + hh / 2;
+      });
+      p.grid.rotation.y = -0.25 + ndcS.x * 0.18;
     }
     if (p.stations) {
       p.stations.forEach(function (st, j5) {
@@ -520,18 +565,6 @@
         p.curve.getPointAt(uu, _v); f.position.set(_v.x, _v.y, _v.z + 0.02);
         var sc = fa * Math.min(1, Math.sin(uu * Math.PI) * 3);
         f.scale.set(Math.max(0.001, sc), Math.max(0.001, sc), Math.max(0.001, sc)); f.visible = sc > 0.01;
-      });
-    }
-    if (p.bars) {
-      var base0 = -p.h / 2 - 1.15;
-      p.bars.forEach(function (bm, i5) {
-        a = ease(clamp((act - 0.1 - i5 * 0.05) / 0.6, 0, 1));
-        var bx = -3.1 + i5 * 0.86;
-        nr = near(p, bx, base0 + 1.2, 1.3);
-        var hh = (0.35 + 0.95 * (0.5 + 0.5 * Math.sin(t * 1.3 + i5 * 0.9)) * (0.55 + i5 * 0.07) + nr * 0.6) * a;
-        bm.visible = a > 0.01;
-        bm.scale.set(0.44, Math.max(0.001, hh), 0.44);
-        bm.position.set(bx, base0 + hh / 2, 0.95);
       });
     }
   }
@@ -625,7 +658,7 @@
       if (p.rank === i) return;
       p.rank = i;
       var ro = i * 20;
-      p.g.renderOrder = ro; p.pops.forEach(function (t) { t.g.renderOrder = ro; }); if (p.phone) p.phone.g.renderOrder = ro;   // 入れ子の Group ごとに描く順の組が決まる
+      p.g.traverse(function (o) { if (o.isGroup) o.renderOrder = ro; });   // 入れ子の Group ごとに描く順の組が決まるので、全部に同じ値を入れる
       p.mats.forEach(function (m) { m.m.depthWrite = m.dw && i === 0; });
     });
     panels.forEach(function (p) { if (!p.g.visible) p.rank = -1; });

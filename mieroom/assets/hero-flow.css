@@ -1,12 +1,12 @@
 /* ============================================================
-   ミエルーム トップの3D「反響から入金まで」（hero-flow.js と対）
+   ミエルーム トップの3D「独自機能」（hero-flow.js と対）
    今のミエルームの配色（白〜ミント × 緑 #14a085 × テラコッタ #e07a5f）と書体のまま、
    最初の画面の右側を「ミエルームの実画面が3Dで切り替わる」ものにした。左の見出し・説明・ボタンは今までと同じ文言。
    3D が使えないとき・動きを減らす設定のときは .mf--static（今までのトップの見た目）になる。
    縦長の判定は hero-flow.js の PORTRAIT_MQ と同じ条件にしてある。
    ============================================================ */
 
-.mf { position: relative; height: 430vh; padding: 0 !important; background: transparent; --mf-head: 77px; --mf-bot: 0px;
+.mf { position: relative; height: 520vh; padding: 0 !important; background: transparent; --mf-head: 77px; --mf-bot: 0px;
   margin-top: calc(-1 * var(--mf-head)); }   /* ヘッダー（sticky・半透明）の下まで舞台を潜り込ませる。section 共通の上下余白は外す */
 .mf-stage {
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate;
@@ -31,7 +31,7 @@
 .mf-panel.is-on { pointer-events: auto; }
 .mf-panel--intro { opacity: 1; }
 .mf-copy { max-width: min(560px, 42vw); }
-.mf-panel--intro .mf-copy, .mf-panel[data-mf-step="4"] .mf-copy { max-width: min(620px, 46vw); }
+.mf-panel--intro .mf-copy, .mf-panel[data-mf-step="5"] .mf-copy { max-width: min(620px, 46vw); }
 .mf h1 { font-size: clamp(26px, 2.5vw, 36px); font-weight: 900; line-height: 1.45; margin: 20px 0 0; letter-spacing: .005em; }
 .mf .lead { font-size: 15.5px; color: var(--ink-2); margin-top: 20px; font-weight: 500; letter-spacing: -.01em; }
 .mf .cta-row { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
@@ -43,6 +43,8 @@
   color: var(--blue); background: var(--sky); padding: 7px 16px; border-radius: 999px;
 }
 .mf-no b { color: var(--peach-d); letter-spacing: .06em; }
+/* 有料オプションの機能には、番号の横に小さく「オプション」と出す（使い方ページの表記に合わせる） */
+.mf-no em { font-style: normal; font-size: .78em; letter-spacing: .04em; color: var(--ink-3); background: #fff; border: 1px solid var(--line); padding: 2px 9px; border-radius: 999px; margin-left: -2px; }
 .mf-h { margin-top: 18px; font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(24px, 2.45vw, 36px); line-height: 1.4; }
 /* index.html 末尾の編集ツールの残骸（:is(h1,h2) の最初の span を蛍光の黄緑にする指定）を打ち消す */
 .mf-h, .mf-h span { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
@@ -121,11 +123,11 @@
 
 /* ---------- 縦長・スマホ: 3D を上、文章を下に（hero-flow.js の PORTRAIT_MQ と同じ条件） ---------- */
 @media (max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10) {
-  .mf { height: 380vh; }
+  .mf { height: 460vh; }
   /* 白い膜は文章の上端から下だけ（--veil-h は hero-flow.js が今の場面の文章に合わせて入れる） */
   .mf-veil { background: linear-gradient(0deg, rgba(255,255,255,.97) 0, rgba(255,255,255,.9) calc(var(--veil-h, 58%) - 44px), rgba(255,255,255,0) var(--veil-h, 58%)); }
   .mf-panel { top: auto; bottom: calc(18px + var(--mf-bot)); transform: translateY(var(--hy, 0px)); padding-inline: 20px; }
-  .mf-copy, .mf-panel--intro .mf-copy, .mf-panel[data-mf-step="4"] .mf-copy { max-width: 600px; }
+  .mf-copy, .mf-panel--intro .mf-copy, .mf-panel[data-mf-step="5"] .mf-copy { max-width: 600px; }
   .mf h1 { font-size: clamp(21px, 6.1vw, 30px); margin-top: 12px; }
   .mf h1 br { display: none; }
   .mf .lead { font-size: 13.5px; line-height: 1.85; margin-top: 12px; }
@@ -138,7 +140,7 @@
   .mf-buddy { width: 74px; right: 14px; bottom: auto; top: calc(var(--mf-head) + 12px); }
   .mf-say { font-size: 12px; padding: 5px 11px; top: auto; bottom: -6px; right: 92%; }
 }
-@media (max-width: 340px) { .mf-say { display: none; } }
+@media (max-width: 340px) { .mf-say { display: none; } .mf-tag:not([data-at^="1:"]) { display: none; } }   /* ごく小さい画面: 札が実画面を覆うので出さない（駅の名前は詰まると自動で消える） */
 /* 背の低いスマホ（iPhone SE・8 など）: マスコットを小さくして、3D の場所を空ける */
 @media (max-aspect-ratio: 21/20) and (max-height: 700px), (max-width: 760px) and (max-aspect-ratio: 13/10) and (max-height: 700px) {
   .mf-buddy { width: 56px; top: calc(var(--mf-head) + 8px); }
