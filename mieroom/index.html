@@ -25,10 +25,12 @@
 </script>
 <link rel="icon" type="image/png" href="assets/logo-mark-sm.png">
 <link rel="apple-touch-icon" href="assets/logo-mark-sm.png">
-<link rel="preload" as="image" href="assets/app-imac.webp" fetchpriority="high">
+<script>document.documentElement.classList.add('js');(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]mfStatic/.test(location.search))return;var i=new Image();i.fetchPriority='high';i.src='assets/app-bunseki.webp';window.__mfPre=i;}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/hero-flow.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap"></noscript>
 <style>
 :root{
   --blue:#14a085;
@@ -607,6 +609,24 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 /* 説明文は文節の切れ目でだけ改行する（「連／携。」のような単語の途中の改行を防ぐ） */
 .fcard p .ph,.fcard h3 .ph{display:inline-block}
 @media(max-width:340px){.fc-body{padding:9px 8px 12px}.fcard h3{font-size:13px}.fcard p{font-size:10.5px}}
+/* 最新機能（NEW）: 実画面のカード＋そのほかの新機能の一覧 */
+.newf{background:#f3faf7}
+.ngrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ncard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.nc-art{position:relative;aspect-ratio:8/5;background:#eef8f4;border-bottom:1px solid var(--line)}
+.nc-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nc-new{position:absolute;z-index:1;left:12px;top:12px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:11px;letter-spacing:.14em;color:#fff;background:var(--peach-d);padding:4px 10px;border-radius:999px}
+.nc-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
+.ncard h3{font-size:17px;font-weight:800;line-height:1.45;color:var(--ink)}
+.ncard p{font-size:13px;line-height:1.75;color:var(--ink-2);font-weight:500}
+.ncard .ph{display:inline-block}
+.nc-more{background:var(--sky);border-color:transparent}
+.nc-more ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.nc-more li{display:flex;gap:8px;font-size:13px;line-height:1.6;font-weight:600;color:var(--ink)}
+.nc-more .ck{color:var(--green);font-weight:900}
+@media(max-width:920px){.ngrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:560px){.ngrid{grid-template-columns:minmax(0,1fr)}.ncard h3{font-size:16px}}
+
 
 /* ===== NEW: cases section ===== */
 .cases{background:var(--bg-soft);position:relative;overflow:hidden}
@@ -790,9 +810,11 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
+n.queue=[];function go(){t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+s.parentNode.insertBefore(t,s)}
+/* 本体はページの読み込みが終わってから取りに行く（表示を速くするため。計測の呼び出しは上の queue に貯まる） */
+if(b.readyState==='complete')setTimeout(go,0);else f.addEventListener('load',function(){setTimeout(go,0)})}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28086413637650888');
 fbq('track', 'PageView');
@@ -865,15 +887,32 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero" style="padding:0">
-  <span class="blob" style="width:330px;height:330px;top:-70px;right:-60px;background:radial-gradient(circle,#74d3bd,#bdeede);animation:sway 9s ease-in-out infinite"></span>
+<!-- ===== HERO: 3D「独自機能」（assets/hero-flow.js）。ミエルームの実画面を3Dの額で見せる。3Dが使えないときは今までどおり文章＋iMacの実画面 ===== -->
+<section class="mf" id="top" data-mf-assets="assets/">
+  <div class="mf-stage">
+    <span class="blob" style="width:330px;height:330px;top:-70px;right:-60px;background:radial-gradient(circle,#74d3bd,#bdeede);animation:sway 9s ease-in-out infinite"></span>
   <span class="blob" style="width:240px;height:240px;bottom:-30px;left:-90px;background:radial-gradient(circle,#f6b69c,#fcdcce);animation:sway2 11s ease-in-out infinite"></span>
   <span class="deco ring" style="width:130px;height:130px;top:60px;left:46%;border-width:9px;border-color:rgba(20,160,133,.16);animation:swayRing 12s ease-in-out infinite"></span>
   <span class="deco" style="width:22px;height:22px;bottom:90px;right:14%;background:var(--peach);opacity:.5;animation:sway 7s ease-in-out infinite"></span>
   <span class="deco" style="width:14px;height:14px;top:120px;right:30%;background:var(--blue);opacity:.35;animation:sway2 8s ease-in-out infinite"></span>
-  <div class="wrap">
-    <div>
+    <canvas class="mf-canvas" aria-hidden="true"></canvas>
+    <div class="mf-veil" aria-hidden="true"></div>
+
+    <span class="mf-tag" data-at="1:0" aria-hidden="true">申込</span>
+    <span class="mf-tag" data-at="1:1" aria-hidden="true">審査</span>
+    <span class="mf-tag" data-at="1:2" aria-hidden="true">契約</span>
+    <span class="mf-tag peach" data-at="1:3" aria-hidden="true">入金</span>
+    <span class="mf-tag" data-at="2:0" aria-hidden="true">契約フォーマット</span>
+    <span class="mf-tag peach" data-at="2:1" aria-hidden="true">契約書・重説・取引台帳</span>
+    <span class="mf-tag" data-at="3:0" aria-hidden="true">お客様マイページ</span>
+    <span class="mf-tag peach" data-at="3:1" aria-hidden="true">お客様のLINE</span>
+    <span class="mf-tag" data-at="4:0" aria-hidden="true">物確（一括確認）</span>
+    <span class="mf-tag peach" data-at="4:1" aria-hidden="true">初期費用を自動計算</span>
+    <span class="mf-tag" data-at="5:0" aria-hidden="true">口コミ管理</span>
+    <span class="mf-tag peach" data-at="5:1" aria-hidden="true">Googleマップの順位</span>
+
+    <div class="mf-panel mf-panel--intro" data-mf-step="0">
+      <div class="mf-copy">
       <span class="eyebrow">賃貸仲介会社専用の業務管理ツール</span>
       <h1>賃貸仲介会社が自社のために<br>開発した賃貸仲介<span style="color:#4AB5B3;-webkit-text-fill-color:#4AB5B3">特化ツール</span>!!</h1>
       <p class="lead">
@@ -896,12 +935,59 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <span><i class="tick">✓</i> 縛り期間なし</span>
         <span><i class="tick">✓</i> スマホ・PC対応</span>
       </div>
+      </div>
     </div>
 
-    <div class="hero-visual">
+    <div class="mf-flow">
+      <div class="mf-panel" data-mf-step="1">
+        <div class="mf-copy">
+          <span class="mf-no">独自機能 01<b>申込〜入金</b></span>
+          <h2 class="mf-h"><span class="ph">申込から</span><span class="ph">入金まで、</span><span class="ph"><span class="u-peach">1本の流れ</span>で。</span></h2>
+          <p class="mf-p"><span class="ph">後ADも</span><span class="ph">一部入金も、</span><span class="ph">1件ずつ記録。</span><span class="ph">未入金だけを</span><span class="ph">自動で抽出するので、</span><span class="ph">入金の取りこぼしを</span><span class="ph">防げます。</span></p>
+        </div>
+      </div>
+      <div class="mf-panel" data-mf-step="2">
+        <div class="mf-copy">
+          <span class="mf-no">独自機能 02<b>書類の自動作成</b></span>
+          <h2 class="mf-h"><span class="ph">契約書も重説も、</span><span class="ph"><span class="u-peach">自動で作成</span>。</span></h2>
+          <p class="mf-p"><span class="ph">契約書・重説・</span><span class="ph">取引台帳などの</span><span class="ph">自社のExcelの書式に、</span><span class="ph">お客様・物件・会社の情報を</span><span class="ph">自動で差し込みます。</span></p>
+        </div>
+      </div>
+      <div class="mf-panel" data-mf-step="3">
+        <div class="mf-copy">
+          <span class="mf-no">独自機能 03<b>LINEマイページ</b></span>
+          <h2 class="mf-h"><span class="ph">お客様のLINEが、</span><span class="ph"><span class="u-peach">マイページ</span>に。</span></h2>
+          <p class="mf-p"><span class="ph">申込物件の確認から</span><span class="ph">契約書類の確認まで、</span><span class="ph">お客様がLINEから</span><span class="ph">いつでも見られます。</span><span class="ph">進み具合も</span><span class="ph">ひと目で分かります。</span></p>
+        </div>
+      </div>
+      <div class="mf-panel" data-mf-step="4">
+        <div class="mf-copy">
+          <span class="mf-no">独自機能 04<b>拡張機能</b></span>
+          <h2 class="mf-h"><span class="ph">入力も物確も、</span><span class="ph"><span class="u-peach">ボタンひとつ</span>。</span></h2>
+          <p class="mf-p"><span class="ph">Chromeの拡張機能で、</span><span class="ph">物件の自動入力・</span><span class="ph">物確・</span><span class="ph">初期費用の自動計算・</span><span class="ph">物件資料の作成まで。</span><span class="ph">毎日の手作業を</span><span class="ph">減らします。</span></p>
+        </div>
+      </div>
+      <div class="mf-panel" data-mf-step="5">
+        <div class="mf-copy">
+          <span class="mf-no">独自機能 05<b>MEO・AIO対策</b></span>
+          <h2 class="mf-h"><span class="ph">店舗の集客も、</span><span class="ph"><span class="u-peach">Googleマップ</span>から。</span></h2>
+          <p class="mf-p"><span class="ph">Googleマップの順位計測・</span><span class="ph">口コミの管理と返信から、</span><span class="ph">ChatGPTなどの</span><span class="ph">AI検索での見え方の対策まで。</span><span class="ph">店舗集客にも</span><span class="ph">対応します。</span></p><div class="cta-row">
+        <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
+          <span class="hero-badge">公式LINEで問い合わせ<span class="sub">かんたん30秒・無料相談</span></span>
+        </a>
+        <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
+          <span class="hero-badge">無料デモアカウント発行<span class="sub">クレカ登録なし</span></span>
+        </a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mf-poster">
       <div class="imac">
         <div class="imac-frame">
-          <img class="imac-shot" src="assets/app-imac.webp" alt="ミエルーム 売上分析の実画面（iMac表示）" loading="eager" fetchpriority="high" decoding="async" width="1360" height="1360">
+          <img class="imac-shot" src="assets/app-imac.webp" alt="ミエルーム 売上分析の実画面（iMac表示）" loading="lazy" decoding="async" width="1360" height="1360">
         </div>
         <span class="mpop mp1" style="--i:0"><i></i><b>営業成績</b></span>
         <span class="mpop mp2" style="--i:1"><i></i><b>データ分析</b></span>
@@ -911,8 +997,44 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <span class="mpop mp6" style="--i:5"><i></i><b>領収証読取り</b></span>
       </div>
     </div>
+
+    <div class="mf-nav" aria-hidden="true">
+      <span data-mf-dot="1"><i>01</i>申込〜入金</span>
+      <span data-mf-dot="2"><i>02</i>書類作成</span>
+      <span data-mf-dot="3"><i>03</i>LINEマイページ</span>
+      <span data-mf-dot="4"><i>04</i>拡張機能</span>
+      <span data-mf-dot="5"><i>05</i>MEO・AIO</span>
+    </div>
+    <div class="mf-buddy" aria-hidden="true">
+      <span class="mf-say" data-says="反響、きたよ！|入金まで見てるよ|書類はまかせて！|LINEで見られるよ|物確もラクラク！|お店の集客もね！">反響、きたよ！</span>
+      <div class="mf-mascot"><img src="assets/logo-mark-cut.webp" alt="" width="240" height="240" decoding="async"></div>
+    </div>
   </div>
 </section>
+<script>
+/* three.js がまだ届いていないのに読み進められたら、今までの見た目（静止版）にする。10秒たっても届かないときも同じ。
+   一番上にいるうちに届いたら、hero-flow.js が3Dに戻す */
+(function () {
+  var s = document.querySelector('.mf');
+  if (!s) return;
+  /* スマホ縦: 最初の画面の文章の高さを、見出し1行ぶんの余裕をつけて固定する。
+     文字を先に出してフォントはあとで差し替えるため、差し替えで行数が変わっても文章の位置がずれないように（表示の前に1回、画面の大きさが変わったらもう1回） */
+  var MQ = '(max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10)';
+  function lock() {
+    var c = s.querySelector('.mf-panel--intro .mf-copy'); if (!c) return;
+    c.style.minHeight = '';
+    if (!window.matchMedia(MQ).matches) return;
+    var h1 = c.querySelector('h1'), lh = h1 ? parseFloat(getComputedStyle(h1).lineHeight) || 32 : 32;
+    c.style.minHeight = Math.ceil(c.offsetHeight + lh) + 'px';
+  }
+  lock();
+  var rt = 0; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(lock, 150); });
+  function late() { if (!s.classList.contains('mf--live')) { s.classList.add('mf--static'); s.dataset.mfLate = '1'; } }
+  setTimeout(late, Math.max(0, 10000 - performance.now()));
+  function onScroll() { if (window.scrollY > window.innerHeight * 0.25) { late(); window.removeEventListener('scroll', onScroll); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
 
 <!-- ===== STAT BAR ===== -->
 <div class="statbar">
@@ -941,9 +1063,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <span class="mq-dot"></span>
       <span class="mq-chip">反響→成約を取りこぼさない</span>
       <span class="mq-dot"></span>
-      <span class="mq-chip">AIが次の一手を提案</span>
+      <span class="mq-chip">お客様のLINEにマイページ</span>
       <span class="mq-dot"></span>
-      <span class="mq-chip">13媒体へ一斉出力</span>
+      <span class="mq-chip">16媒体へ一斉出力</span>
       <span class="mq-dot"></span>
       <span class="mq-chip">業者間サイトと連携</span>
       <span class="mq-dot"></span>
@@ -961,9 +1083,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <span class="mq-dot"></span>
       <span class="mq-chip" aria-hidden="true">反響→成約を取りこぼさない</span>
       <span class="mq-dot"></span>
-      <span class="mq-chip" aria-hidden="true">AIが次の一手を提案</span>
+      <span class="mq-chip" aria-hidden="true">お客様のLINEにマイページ</span>
       <span class="mq-dot"></span>
-      <span class="mq-chip" aria-hidden="true">13媒体へ一斉出力</span>
+      <span class="mq-chip" aria-hidden="true">16媒体へ一斉出力</span>
       <span class="mq-dot"></span>
       <span class="mq-chip" aria-hidden="true">業者間サイトと連携</span>
       <span class="mq-dot"></span>
@@ -1107,7 +1229,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </a>
       <a class="fcard" href="guide/bukken-converter.html">
         <div class="fc-art" data-no="10"><img src="assets/icons/f10-converter.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
-        <div class="fc-body"><span class="fc-no">10</span><h3><span class="ph">物件</span><span class="ph">コンバータ</span></h3><p><span class="ph">1回の入力で</span><span class="ph">13媒体へ一斉出力。</span></p></div>
+        <div class="fc-body"><span class="fc-no">10</span><h3><span class="ph">物件</span><span class="ph">コンバータ</span></h3><p><span class="ph">1回の入力で</span><span class="ph">16媒体へ一斉出力。</span></p></div>
       </a>
       <a class="fcard" href="guide/bukkaku.html">
         <div class="fc-art" data-no="11"><img src="assets/icons/f11-bukkaku.webp" alt="" width="480" height="320" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('noimg');this.remove()"></div>
@@ -1138,6 +1260,50 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="sec-wave bot"><svg viewBox="0 0 1440 52" preserveAspectRatio="none"><path d="M0,52 H1440 V27 C1200,52 960,8 720,28 C480,48 240,8 0,30 Z" fill="#f3faf7"/></svg></div>
 </section>
 
+<!-- ===== NEW: 最新機能（アプリの使い方ガイドで確かめた機能だけ。画像は mieroom/assets/new/） ===== -->
+<section class="newf" id="new-features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">NEW</span>
+      <h2>最新機能</h2>
+      <p>現場の声をもとに、<br class="sp-br">機能を増やし続けています。</p>
+    </div>
+    <div class="ngrid reveal">
+      <div class="ncard">
+        <div class="nc-art"><span class="nc-new">NEW</span><img src="assets/new/n1-line-mypage.webp" alt="ミエルーム お客様のLINEに、マイページの画面" width="960" height="600" loading="lazy" decoding="async"></div>
+        <div class="nc-body"><h3><span class="ph">お客様の</span><span class="ph">LINEに、</span><span class="ph">マイページ</span></h3><p><span class="ph">申込の進み具合・</span><span class="ph">次のご予定・</span><span class="ph">お見積りを、</span><span class="ph">お客様が</span><span class="ph">LINEから</span><span class="ph">確かめられます。</span></p></div>
+      </div>
+      <div class="ncard">
+        <div class="nc-art"><span class="nc-new">NEW</span><img src="assets/new/n2-meo.webp" alt="ミエルーム MEO・AIO対策の画面" width="960" height="600" loading="lazy" decoding="async"></div>
+        <div class="nc-body"><h3><span class="ph">MEO・</span><span class="ph">AIO対策</span></h3><p><span class="ph">Googleマップの</span><span class="ph">順位と口コミ、</span><span class="ph">ChatGPTなど</span><span class="ph">AI検索での</span><span class="ph">見え方を</span><span class="ph">まとめて管理。</span></p></div>
+      </div>
+      <div class="ncard">
+        <div class="nc-art"><span class="nc-new">NEW</span><img src="assets/new/n3-decor.webp" alt="ミエルーム AI家具配置の画面" width="960" height="600" loading="lazy" decoding="async"></div>
+        <div class="nc-body"><h3><span class="ph">AI</span><span class="ph">家具配置</span></h3><p><span class="ph">空室の写真に</span><span class="ph">家具を置いて、</span><span class="ph">テイスト違いの</span><span class="ph">案を比べられます。</span><span class="ph">居住中の写真の</span><span class="ph">家具消しも。</span></p></div>
+      </div>
+      <div class="ncard">
+        <div class="nc-art"><span class="nc-new">NEW</span><img src="assets/new/n4-customer-card.webp" alt="ミエルーム お客様カードの画面" width="960" height="600" loading="lazy" decoding="async"></div>
+        <div class="nc-body"><h3><span class="ph">お客様</span><span class="ph">カード</span></h3><p><span class="ph">反響・接客・</span><span class="ph">申込・予約・</span><span class="ph">LINEまで、</span><span class="ph">お客様1人の</span><span class="ph">情報を1枚に。</span><span class="ph">担当の引き継ぎも</span><span class="ph">ここから。</span></p></div>
+      </div>
+      <div class="ncard">
+        <div class="nc-art"><span class="nc-new">NEW</span><img src="assets/new/n5-checklist.webp" alt="ミエルーム 鍵渡しまでのチェックリストの画面" width="960" height="600" loading="lazy" decoding="async"></div>
+        <div class="nc-body"><h3><span class="ph">鍵渡しまでの</span><span class="ph">チェックリスト</span></h3><p><span class="ph">入居日から</span><span class="ph">逆算した期限つきで、</span><span class="ph">申込から鍵渡しまでの</span><span class="ph">手続きの</span><span class="ph">抜け漏れを防ぎます。</span></p></div>
+      </div>
+      <div class="ncard nc-more">
+        <div class="nc-body"><h3>そのほかの新機能</h3>
+        <ul>
+          <li><span class="ck">✓</span><span><span class="ph">審査OK・</span><span class="ph">契約日・</span><span class="ph">鍵渡しの日を、</span><span class="ph">お客様のLINEへ</span><span class="ph">お知らせ</span></span></li>
+          <li><span class="ck">✓</span><span><span class="ph">反響が来たら、</span><span class="ph">その部屋を</span><span class="ph">すぐ空き確認</span></span></li>
+          <li><span class="ck">✓</span><span><span class="ph">物件紹介URLに、</span><span class="ph">学区・</span><span class="ph">浸水・</span><span class="ph">土砂災害の情報</span></span></li>
+          <li><span class="ck">✓</span><span><span class="ph">リッチメニュー・</span><span class="ph">一斉配信を</span><span class="ph">ミエルームの中で</span></span></li>
+          <li><span class="ck">✓</span><span><span class="ph">Googleカレンダー・</span><span class="ph">Googleミートと</span><span class="ph">連携</span></span></li>
+          <li><span class="ck">✓</span><span><span class="ph">洪水・</span><span class="ph">内水・</span><span class="ph">高潮の</span><span class="ph">ハザードマップを</span><span class="ph">発行</span></span></li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CORE: 申込管理表 ===== -->
 <section class="coreband" id="core">
   <div class="wrap">
@@ -1151,7 +1317,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <div class="shotframe">
         <div class="topbar">
           <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <div class="urlbar">app.mieroom.jp ／ 顧客管理表（申込・入金状況の管理）</div>
+          <div class="urlbar">app.mieroom.cloud ／ 申込管理表（申込・入金状況の管理）</div>
         </div>
         <img src="assets/app-shinkomi.webp" alt="ミエルーム 申込管理表 実画面" class="shot-img" loading="lazy" decoding="async">
       </div>
@@ -1219,7 +1385,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <ul>
           <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>媒体別 反響 → 成約 → 利益</b>を自動集計。</span><span style="white-space:nowrap">CPAも一目。</span></span></li>
           <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>「効いてない媒体」を即発見</b>。</span><span style="white-space:nowrap">ムダな出稿を止められる。</span></span></li>
-          <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>AIが最適な予算配分を提案</b>。</span><span style="white-space:nowrap">費用対効果の高い媒体へ。</span></span></li>
+          <li><span class="ck">✓</span><span><span style="white-space:nowrap"><b>CPA・CPO・ROASを自動計算</b>。</span><span style="white-space:nowrap">費用対効果の高い媒体へ。</span></span></li>
         </ul>
       </div>
       <div class="fvisual r-right">
@@ -1239,10 +1405,10 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <div class="ftext r-right">
         <div class="fnum">FEATURE 04</div>
         <h2 style="font-size:clamp(19px,2.6vw,32px)"><span style="display:block;white-space:nowrap;color:var(--ink) !important">物確、物件自動入力、初期費用も。</span><span style="display:block;white-space:nowrap">業者間サイトと自動で“つながる”。</span></h2>
-        <p>Chrome拡張「ミエルーム連携ツール」を入れると、いつもの業者間サイトの上でミエルームが動きます。電話とメモで回していた確認作業・相場調べ・見積作成が、ワンクリックで終わります。</p>
+        <p>Chrome拡張「ミエルーム連携ツール」を入れると、いつもの業者間サイトの上でミエルームが動きます。電話とメモで回していた確認作業・物件の入力・見積作成が、ワンクリックで終わります。</p>
         <ul>
           <li><span class="ck">✓</span><span><b>物確・物件ウォッチ</b>。募集状況の一括確認と、<br class="sp-br">新着・掲載終了の自動キャッチ。</span></li>
-          <li><span class="ck">✓</span><span><b>掲載分析・44サイト一括検索</b>。<br class="sp-br">エリアの掲載件数・賃料相場を自動集計。</span></li>
+          <li><span class="ck">✓</span><span><b>46サイトを一括検索</b>。<br class="sp-br">業者間サイトとポータルの物件をまとめて探せる。</span></li>
           <li><span class="ck">✓</span><span><b>初期費用の見積をその場で作成</b>。<br class="sp-br">物件写真つきのURLでお客様へ。</span></li>
         </ul>
       </div>
@@ -1373,8 +1539,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <li><span class="m">✓</span>申込一覧・入金・未入金を自動集計</li>
           <li><span class="m">✓</span>チャット形式＋未返信アラートで防止</li>
           <li><span class="m">✓</span>御社フォーマットへ自動取込・出力</li>
-          <li><span class="m">✓</span>1回の入力で13媒体へ一斉出力</li>
-          <li><span class="m">✓</span>拡張機能でワンクリック物確・相場集計</li>
+          <li><span class="m">✓</span>1回の入力で16媒体へ一斉出力</li>
+          <li><span class="m">✓</span>拡張機能でワンクリック物確・初期費用の自動計算</li>
         </ul>
       </div>
     </div>
@@ -1431,7 +1597,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>複数店舗のスタッフ全員が使えますか？</span><span class="tgl">＋</span></summary>
-        <div class="faq-a">はい。複数ユーザーに対応しています。権限（本部・店舗管理者・スタッフ）を設定でき、1店舗から複数店舗まで規模を問わずご利用いただけます。</div>
+        <div class="faq-a">はい。複数ユーザーに対応しています。権限（オーナー・マネージャー・店長・スタッフ）を設定でき、1店舗から複数店舗まで規模を問わずご利用いただけます。</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>契約書類は自社フォーマットを使えますか？</span><span class="tgl">＋</span></summary>
@@ -1439,7 +1605,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>業者間サイトとの連携には何が必要ですか？</span><span class="tgl">＋</span></summary>
-        <div class="faq-a">Chromeの拡張機能「ミエルーム連携ツール」を追加するだけで使えます。リアプロ・ITANDI BB・いえらぶBB・ATBBなど、普段お使いの業者間サイトに対応。物確・掲載分析・初期費用の自動入力・44サイト一括検索が使えるようになります（オプション）。</div>
+        <div class="faq-a">Chromeの拡張機能「ミエルーム連携ツール」を追加するだけで使えます。リアプロ・ITANDI BB・いえらぶBB・ATBBなど、普段お使いの業者間サイトに対応。物確・物件の自動入力・初期費用の自動計算・46サイトの一括検索が使えるようになります（オプション）。</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>LINE連携やSMS送信も使えますか？</span><span class="tgl">＋</span></summary>
@@ -1542,6 +1708,8 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer fetchpriority="high"></script>
+<script src="assets/hero-flow.js" defer></script>
 <script src="../assets/milpage.js" async></script>
 <script src="/assets/analytics.js" defer data-analytics></script>
 </body>

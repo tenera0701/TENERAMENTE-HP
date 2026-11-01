@@ -190,6 +190,8 @@ git push
 ### トップページに出す「おすすめ記事」
 - TENERAMENTE のトップ（index.html）のブログ3件は、`scripts/build-index.js` の `HOME_PICKUP` に並べた slug の順で表示される。ここを空にすると従来どおり最新3件になる。
 - ミエルームのトップ（mieroom/index.html）のブログ3件は、HTML に直接書いてある（`a.btcard` が3つ）。画像は `assets/cover-bg/<name>.webp` を使う。
+- **表示の速さ**（2026-11-01、社長の指示「開いて重くて遅いと離脱に繋がる」）: トップ（index.html）とミエルームのトップは、Google Fonts の CSS を `rel="preload" as="style" onload=…`＋`<noscript>` で読み込み（文字を先に出し、フォントは届いたら差し替え）、Meta ピクセルの本体（fbevents.js）はページの読み込みが終わってから取りに行く（計測の呼び出しは貯めておくので PageView は今まで通り送られる）。3D は文字が出たあとに組み立て始め、区間の位置は毎フレーム測らない。新しいページや部品を足すときも、描画を止める読み込み（同期の `<script>`・フォントの `<link rel=stylesheet>`）を head に足さない。測るときは Lighthouse（スマホ）と、GPU ありの実ブラウザで「固まる時間」を見る（Lighthouse は WebGL をソフトで描くので、3D のページは実機より重く出る）
+- **ミエルームのトップの3D「独自機能」**（`mieroom/assets/hero-flow.js` / `hero-flow.css`。2026-11-01 本番反映）: 最初の画面（反響分析）＋独自機能 01 申込〜入金・02 書類の自動作成・03 LINEマイページ・04 拡張機能・05 MEO・AIO対策 を、実画面の3Dで見せる。「オプション」の表記は出さない（社長の指示）。実画面は `mieroom/assets/hero/`、場面固定は `?mfP=0〜5`。3D が使えないときは `.mf--static`（文章＋iMac の実画面）。`mieroom/preview/` はトップへ転送するだけのページ。その下の「最新機能（NEW）」の段の画像は `mieroom/assets/new/`（アプリ本番 main の使い方ガイドで確かめた機能だけ載せる）
 - **アクセス解析**（2026-09-23 時点）: GA4（G-7GB2364PBY）と Clarity（xyhqpguofs）は**ミルページ**が読み込む（ID はミルページの管理画面で設定。Cookie バナーで「同意する」を押した訪問者だけ計測）。Search Console は sc-domain:teneramente.jp で設定済み。**assets/analytics.js で計測タグを読み込まないこと**（同意前にも計測してしまい、同意した人は二重に数えられる）。「よく読まれている記事」はまだ編集部の選定。GA4 にデータが溜まったら実績ベースに置き換える。
 
 ### カバー画像（記事のトップ画像）
@@ -291,7 +293,7 @@ python3 -m http.server 8000
 - **部品**: 見出しは `.sec-head`（左に `.index` の番号ラベル、右に `.h2` と `.lead`）、リストは `.rows > .row`、罫線グリッドは `.cells.cells--3 > .cell`、実画面は `.frame`、黒セクションは `.sec--dark`、締めは `.cta-band`
 - **禁止**: グラデーション文字・紫〜青グラデ・パステル・浮遊図形や粒子・絵文字アイコン・アイコンバッジ・同型カードの均等並び・ピル型ボタンの多色使い。装飾ではなく余白・罫線・番号・実画面で見せる
   - **例外: トップの3D「会社のシステムができるまで」**（`assets/hero-system.js` / `hero-system.css`。2026-10-30 に社長の依頼「igloo.inc を参考に、システムを作る工程をアニメーションで」で作成）。宙を漂う書類・光の粒・データの粒・後ろの青い光は、この3Dの演出として意図して入れているので「禁止事項だから」と消さない。例外はこの3Dの中だけで、ほかのセクションやページには広げない。2026-10-30 に社長の確認を経て本番トップ（index.html）に反映。試作に使った `preview/index.html` はトップへ転送するだけのページにしてある。画面サイズを変えたら `?hxP=0〜4`（場面固定）で、文字と計器・ヘッダー・スマホ下の固定ボタンが重ならないかを確かめる
-- **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの
+- **ロゴ**: `assets/img/brand/mark-*.png` `word-*.png`（`-dark` は紙白の上用、`-light` は黒の上用）。元画像 `logo-teneramente.png` から切り出したもの。ヘッダー・フッター（chrome.js）は表示の大きさに合わせて縮めた `*.webp` を使う（2026-11-01、表示を速くするため）。ロゴを差し替えたら webp も作り直す
 - **ブログのカバー画像**: `scripts/gen-covers.js` が紙白ベースで自動生成。フォントは `C:/Users/<user>/.teneramente/cover-tools/fonts/`（Zen Kaku Gothic New / IBM Plex Mono / Shippori Mincho の TTF）を参照。作り直すときは `assets/img/covers/*.png` を消して `node scripts/build-index.js`
 - **スマホの折り返し**: `assets/site.js` の orphanGuard が段落末尾の4文字（＋句読点）を `<span class="og">` で包み、「す。」だけが次行に落ちる“ぶら下がり”を全ページで自動防止する。見出しは `.lines`（1行=1ブロック）と `text-wrap: balance`、〜400px では見出しを一段小さくする（site.css 末尾）。新しい段落クラスを作ったら OG_SEL に追加する
 

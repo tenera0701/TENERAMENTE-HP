@@ -43,8 +43,6 @@
   color: var(--blue); background: var(--sky); padding: 7px 16px; border-radius: 999px;
 }
 .mf-no b { color: var(--peach-d); letter-spacing: .06em; }
-/* 有料オプションの機能には、番号の横に小さく「オプション」と出す（使い方ページの表記に合わせる） */
-.mf-no em { font-style: normal; font-size: .78em; letter-spacing: .04em; color: var(--ink-3); background: #fff; border: 1px solid var(--line); padding: 2px 9px; border-radius: 999px; margin-left: -2px; }
 .mf-h { margin-top: 18px; font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(24px, 2.45vw, 36px); line-height: 1.4; }
 /* index.html 末尾の編集ツールの残骸（:is(h1,h2) の最初の span を蛍光の黄緑にする指定）を打ち消す */
 .mf-h, .mf-h span { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
@@ -149,6 +147,7 @@
 /* ごく小さい縦長（320x568 など）: 3D と文章の両方は入りきらないので、最初の場面の説明文は省く */
 @media (max-aspect-ratio: 21/20) and (max-height: 600px), (max-width: 760px) and (max-aspect-ratio: 13/10) and (max-height: 600px) { .mf-panel--intro .lead { display: none; } }
 
+.mf.mf--static .mf-copy { min-height: 0 !important; }   /* スマホ縦で文章の高さを固めたのを、静止版では外す */
 /* ---------- 3D が使えないとき: 今までのトップ（.hero）と同じ見た目（文章＋iMacの実画面） ----------
    値は mieroom/index.html の .hero の指定（PC・920px以下・560px以下・480px以下）と同じにしてある */
 .mf.mf--static, html:not(.js) .mf { height: auto; margin-top: 0; overflow: hidden; }

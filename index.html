@@ -20,7 +20,8 @@
 <meta name="twitter:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="assets/site.css" />
 <link rel="stylesheet" href="assets/hero-system.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
@@ -38,9 +39,11 @@
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
+n.queue=[];function go(){t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+s.parentNode.insertBefore(t,s)}
+/* 本体はページの読み込みが終わってから取りに行く（表示を速くするため。計測の呼び出しは上の queue に貯まる） */
+if(b.readyState==='complete')setTimeout(go,0);else f.addEventListener('load',function(){setTimeout(go,0)})}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28086413637650888');
 fbq('track', 'PageView');
@@ -146,12 +149,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 </section>
 <script>
 /* three.js がまだ届いていないのに読み進められたら、静止画と文章の形にする（黒い区間だけが続かないように）。
-   開いてから6秒たっても届かないときも同じ。一番上にいるうちに届いたら、hero-system.js が3Dに戻す */
+   開いてから10秒たっても届かないときも同じ。一番上にいるうちに届いたら、hero-system.js が3Dに戻す */
 (function () {
   var s = document.querySelector('.hx');
   if (!s) return;
   function late() { if (!s.classList.contains('hx--live')) { s.classList.add('hx--static'); s.dataset.hxLate = '1'; } }
-  setTimeout(late, Math.max(0, 6000 - performance.now()));
+  setTimeout(late, Math.max(0, 10000 - performance.now()));
   function onScroll() { if (window.scrollY > window.innerHeight * 0.25) { late(); window.removeEventListener('scroll', onScroll); } }
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
@@ -351,7 +354,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <script src="assets/chrome.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/shindan.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer fetchpriority="high"></script>
 <script src="assets/hero-system.js" defer></script>
 <script>
 /* 最新3記事をトップに差し込む（失敗時は静的フォールバックのまま） */
@@ -376,17 +379,17 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   }).catch(function () {});
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
 <script>
-/* 慣性スクロール（reduced-motion時・CDN失敗時は素のスクロールのまま） */
-(function () {
+/* 慣性スクロール（reduced-motion時・CDN失敗時は素のスクロールのまま）。lenis は defer なので、読み終わってから始める */
+document.addEventListener('DOMContentLoaded', function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (typeof Lenis !== 'function') return;
   var lenis = new Lenis({ lerp: 0.1 });
   window.__lenis = lenis;
   function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
-})();
+});
 </script>
 </body>
 </html>

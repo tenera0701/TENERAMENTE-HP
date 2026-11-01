@@ -31,10 +31,10 @@
   <header class="site-header" id="siteHeader">
     <div class="bar">
       <a href="index.html" class="brand" aria-label="株式会社TENERAMENTE トップページ">
-        <img class="mark logo-dark"  src="assets/img/brand/mark-dark.png"  alt="" width="427" height="271" decoding="async" />
-        <img class="mark logo-light" src="assets/img/brand/mark-light.png" alt="" width="427" height="271" decoding="async" />
-        <img class="word logo-dark"  src="assets/img/brand/word-dark.png"  alt="TENERAMENTE" width="823" height="66" decoding="async" />
-        <img class="word logo-light" src="assets/img/brand/word-light.png" alt="TENERAMENTE" width="823" height="66" decoding="async" />
+        <img class="mark logo-dark"  src="assets/img/brand/mark-dark.webp"  alt="" width="427" height="271" decoding="async" />
+        <img class="mark logo-light" src="assets/img/brand/mark-light.webp" alt="" width="427" height="271" decoding="async" />
+        <img class="word logo-dark"  src="assets/img/brand/word-dark.webp"  alt="TENERAMENTE" width="823" height="66" decoding="async" />
+        <img class="word logo-light" src="assets/img/brand/word-light.webp" alt="TENERAMENTE" width="823" height="66" decoding="async" />
       </a>
       <nav class="nav" aria-label="メインメニュー">${navLinks}</nav>
       <div class="hdr-cta">
@@ -62,8 +62,8 @@
       <div class="top">
         <div class="fbrand">
           <a href="index.html" class="flogo" aria-label="株式会社TENERAMENTE">
-            <img class="mark" src="assets/img/brand/mark-light.png" alt="" width="427" height="271" loading="lazy" decoding="async" />
-            <img class="word" src="assets/img/brand/word-light.png" alt="TENERAMENTE" width="823" height="66" loading="lazy" decoding="async" />
+            <img class="mark" src="assets/img/brand/mark-light.webp" alt="" width="427" height="271" loading="lazy" decoding="async" />
+            <img class="word" src="assets/img/brand/word-light.webp" alt="TENERAMENTE" width="823" height="66" loading="lazy" decoding="async" />
           </a>
           <p class="tag">AI時代を、優しく加速する。</p>
           <p class="desc">業務改善ツール開発・HP/LP制作・MEO/AIO運用・AI活用支援。名古屋発、AI時代の業務改善パートナー。</p>

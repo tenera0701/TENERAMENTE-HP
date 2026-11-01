@@ -23,17 +23,20 @@
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var FORCE_P = QS.has('hxP') ? Math.max(0, Math.min(4, parseFloat(QS.get('hxP')) || 0)) : null;
 
-  function webglOK() {
-    try {
-      var c = document.createElement('canvas');
-      return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
-    } catch (e) { return false; }
-  }
+  // ここでは WebGL があるかだけを見る（試しに WebGL を作ると重い）。実際に作れなかったときは、下の init の中で静止版にする
+  function webglOK() { return !!window.WebGLRenderingContext; }
   if (REDUCED || typeof THREE === 'undefined' || !webglOK() || QS.has('hxStatic')) {
     sec.classList.add('hx--static');
     return;
   }
   sec.classList.add('hx--live');
+
+  // 重い組み立て（WebGL の準備・部品づくり）は、文字とボタンを先に表示してから始める（開いた直後の表示を速くするため）
+  function afterPaint(fn) {
+    var ric = window.requestIdleCallback || function (f) { return setTimeout(f, 1); };
+    requestAnimationFrame(function () { requestAnimationFrame(function () { ric(fn, { timeout: 700 }); }); });
+  }
+  afterPaint(function init() {
 
   /* ---------- 小道具 ---------- */
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -93,7 +96,9 @@
   var NMAX = 84;
 
   /* ---------- three.js の準備 ---------- */
-  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' });
+  var renderer = null;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' }); } catch (e) { renderer = null; }
+  if (!renderer) { sec.classList.remove('hx--live'); sec.classList.add('hx--static'); return; }
   renderer.setClearColor(0x07080b, 1);
   var scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x07080b, 0.04);
@@ -159,6 +164,7 @@
   function toFloor(x, y, layer, out) { return out.set(V.ax + x, V.floor + 0.02 + layer * 0.035, -y * 0.95 + 0.2); }
 
   function layout() {
+    measure();
     var w = stage.clientWidth || innerWidth, h = stage.clientHeight || innerHeight, asp = w / h;
     var mobile = isPortraitLayout();
     var D, VW, VH, ax, ay;
@@ -347,17 +353,28 @@
   var ray = new THREE.Raycaster(), planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0), planeF = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   var cur = new THREE.Vector3(), curS = new THREE.Vector3(), OFF = new Float32Array(NMAX * 3);
   window.addEventListener('pointermove', function (e) {
-    var r = stage.getBoundingClientRect();
-    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    if (!geo.w) return;
+    ndc.set((e.clientX / geo.w) * 2 - 1, -((e.clientY - stageTop()) / geo.sh) * 2 + 1);
     lastMove = clock.getElapsedTime(); pointer = true;
   }, { passive: true });
 
   /* ---------- スクロール量 → 場面 ---------- */
   var SPAN = 4.6;   // 4つの切り替え＋最後の見せ場（0.6）
-  function scrollSpan() { return sec.offsetHeight - stage.offsetHeight; }
+
+  /* 区間の位置と大きさは、毎フレーム測るとページ全体の配置計算が走って重くなるので、変わったとき（作り直し・読み込み完了・フォント到着・画面の大きさの変更）だけ測って覚えておく */
+  var geo = { top: 0, h: 0, sh: 0, span: 0, w: 0 };
+  function measure() {
+    var r = sec.getBoundingClientRect();
+    geo.top = r.top + window.scrollY; geo.h = sec.offsetHeight; geo.sh = stage.offsetHeight; geo.span = geo.h - geo.sh; geo.w = stage.clientWidth;
+  }
+  function secTop() { return geo.top - window.scrollY; }   // 区間の上端（画面の座標）
+  function stageTop() { return geo.top + clamp(window.scrollY - geo.top, 0, Math.max(0, geo.span)) - window.scrollY; }   // 貼り付いている舞台の上端
+  window.addEventListener('load', measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  function scrollSpan() { return geo.span; }
   function readProgress() {
-    var r = sec.getBoundingClientRect(), span = scrollSpan();
-    var x = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
+    var span = scrollSpan();
+    var x = span > 0 ? clamp(-secTop() / span, 0, 1) : 0;
     var q = x * SPAN, s = Math.floor(q), f = q - s;
     return s >= 4 ? 4 : s + smooth(0.16, 0.84, f);
   }
@@ -374,7 +391,7 @@
   navDots.forEach(function (d) {
     d.setAttribute('role', 'button'); d.tabIndex = -1;
     d.addEventListener('click', function () {
-      var ph = +d.dataset.hxDot, y = sec.getBoundingClientRect().top + window.scrollY + scrollSpan() * (ph >= 4 ? 4.25 : ph) / SPAN;
+      var ph = +d.dataset.hxDot, y = geo.top + scrollSpan() * (ph >= 4 ? 4.25 : ph) / SPAN;
       if (window.__lenis && window.__lenis.scrollTo) window.__lenis.scrollTo(y, { duration: 1.6 });
       else window.scrollTo({ top: y, behavior: 'smooth' });
     });
@@ -400,7 +417,7 @@
     if (hudXY) hudXY.textContent = 'X ' + fmt(curS.x - V.ax) + '  Y ' + fmt(curS.y - V.ay) + '  Z ' + fmt(curS.z);
     if (scrollHint) scrollHint.style.opacity = clamp(1 - P * 5, 0, 1).toFixed(2);
     if (!header) header = document.getElementById('siteHeader');
-    if (header) header.classList.toggle('hx-over', sec.getBoundingClientRect().bottom > 80);
+    if (header) header.classList.toggle('hx-over', secTop() + geo.h > 80);
   }
   function setTabbable(el, on) {
     el.querySelectorAll('a, button').forEach(function (a) { if (on) a.removeAttribute('tabindex'); else a.tabIndex = -1; });
@@ -600,7 +617,7 @@
   }, { rootMargin: '80px 0px' }).observe(sec);
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) stop();
-    else { var r = sec.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) start(); }
+    else { measure(); if (secTop() + geo.h > 0 && secTop() < innerHeight) start(); }
   });
 
   /* 画面の大きさが変わったら作り直す（3Dの舞台は 100svh なので、スマホのアドレスバーの出入りでは変わらない） */
@@ -622,4 +639,5 @@
   introT = FORCE_P != null ? -10 : clock.getElapsedTime();
   curS.set(V.ax, V.ay, 0);
   start();
+  });
 })();

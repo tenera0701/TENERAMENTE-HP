@@ -27,14 +27,17 @@
   var LAST = 5;   // 最後の場面の番号（0 が最初の画面、1〜5 が独自機能）
   var FORCE_P = QS.has('mfP') ? Math.max(0, Math.min(LAST, parseFloat(QS.get('mfP')) || 0)) : null;
 
-  function webglOK() {
-    try {
-      var c = document.createElement('canvas');
-      return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
-    } catch (e) { return false; }
-  }
+  // ここでは WebGL があるかだけを見る（試しに WebGL を作ると重い）。実際に作れなかったときは、下の init の中で静止版にする
+  function webglOK() { return !!window.WebGLRenderingContext; }
   if (REDUCED || typeof THREE === 'undefined' || !webglOK() || QS.has('mfStatic')) { sec.classList.add('mf--static'); return; }
   sec.classList.add('mf--live');
+
+  // 重い組み立て（WebGL の準備・部品づくり）は、文字とボタンを先に表示してから始める（開いた直後の表示を速くするため）
+  function afterPaint(fn) {
+    var ric = window.requestIdleCallback || function (f) { return setTimeout(f, 1); };
+    requestAnimationFrame(function () { requestAnimationFrame(function () { ric(fn, { timeout: 700 }); }); });
+  }
+  afterPaint(function init() {
 
   /* ---------- 小道具 ---------- */
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -53,7 +56,9 @@
   var PORTRAIT_MQ = window.matchMedia('(max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10)');
 
   /* ---------- three.js の準備 ---------- */
-  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  var renderer = null;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { renderer = null; }
+  if (!renderer) { sec.classList.remove('mf--live'); sec.classList.add('mf--static'); return; }
   renderer.setClearColor(0x000000, 0);
   renderer.outputEncoding = THREE.sRGBEncoding;   // 指定した色がそのまま（蛍光色に寄らずに）出るように
   function lin(hex) { return new THREE.Color(hex).convertSRGBToLinear(); }
@@ -114,7 +119,7 @@
     }, undefined, function () { fail(src); if (done) done(); });
   }
   // 1枚目が読めず、まだ一番上にいるときだけ静止版に戻す（途中で戻すと区間の高さが縮んでページが飛ぶ）。それ以外は、その画面を出さないだけ
-  function nearTop() { return window.scrollY < sec.getBoundingClientRect().top + window.scrollY + innerHeight * 0.25; }
+  function nearTop() { return window.scrollY < sec.getBoundingClientRect().top + window.scrollY + innerHeight * 0.25; }   // 読み込みの失敗のときだけ使う（毎フレームではない）
   function fail(src) { texEntry(src).failed = true; if (src === DEF[0].img && nearTop()) giveUp(); }
 
   /* ---------- 場面ごとの実画面と部品（位置は「アプリの枠」の中の単位。枠はおよそ幅8.4・高さ5） ----------
@@ -327,6 +332,7 @@
 
   function shown(el) { return !!el && el.getClientRects().length > 0; }
   function layout() {
+    measure();
     var w = stage.clientWidth || innerWidth, h = stage.clientHeight || innerHeight, asp = w / h;
     var mobile = PORTRAIT_MQ.matches, D, VW, VH, ax, ay, ppu, fit = null, Bk = [];
     var cs = getComputedStyle(sec), head = parseFloat(cs.getPropertyValue('--mf-head')) || 0, bot = parseFloat(cs.getPropertyValue('--mf-bot')) || 0;
@@ -391,8 +397,8 @@
   var ray = new THREE.Raycaster(), planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
   var cur = new THREE.Vector3(), curS = new THREE.Vector3();
   window.addEventListener('pointermove', function (e) {
-    var r = stage.getBoundingClientRect();
-    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    if (!geo.w) return;
+    ndc.set((e.clientX / geo.w) * 2 - 1, -((e.clientY - stageTop()) / geo.sh) * 2 + 1);
     lastMove = clock.getElapsedTime(); pointer = true;
   }, { passive: true });
   // その画面の上でのカーソルの位置（画面の単位）。近い部品ほど 1 に近い
@@ -403,10 +409,21 @@
 
   /* ---------- スクロール量 → 場面 ---------- */
   var SPAN = LAST + 0.6;
-  function scrollSpan() { return sec.offsetHeight - stage.offsetHeight; }
+
+  /* 区間の位置と大きさは、毎フレーム測るとページ全体の配置計算が走って重くなるので、変わったとき（作り直し・読み込み完了・フォント到着・画面の大きさの変更）だけ測って覚えておく */
+  var geo = { top: 0, h: 0, sh: 0, span: 0, w: 0 };
+  function measure() {
+    var r = sec.getBoundingClientRect();
+    geo.top = r.top + window.scrollY; geo.h = sec.offsetHeight; geo.sh = stage.offsetHeight; geo.span = geo.h - geo.sh; geo.w = stage.clientWidth;
+  }
+  function secTop() { return geo.top - window.scrollY; }   // 区間の上端（画面の座標）
+  function stageTop() { return geo.top + clamp(window.scrollY - geo.top, 0, Math.max(0, geo.span)) - window.scrollY; }   // 貼り付いている舞台の上端
+  window.addEventListener('load', measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  function scrollSpan() { return geo.span; }
   function readProgress() {
-    var r = sec.getBoundingClientRect(), span = scrollSpan();
-    var x = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
+    var span = scrollSpan();
+    var x = span > 0 ? clamp(-secTop() / span, 0, 1) : 0;
     var q = x * SPAN, s = Math.floor(q), f = q - s;
     return s >= LAST ? LAST : s + smooth(0.16, 0.84, f);
   }
@@ -421,7 +438,7 @@
   navDots.forEach(function (d) {
     d.setAttribute('role', 'button');
     d.addEventListener('click', function () {
-      var ph = +d.dataset.mfDot, y = sec.getBoundingClientRect().top + window.scrollY + scrollSpan() * (ph >= LAST ? LAST + 0.25 : ph) / SPAN;
+      var ph = +d.dataset.mfDot, y = geo.top + scrollSpan() * (ph >= LAST ? LAST + 0.25 : ph) / SPAN;
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
@@ -457,7 +474,7 @@
       navDots.forEach(function (d) { d.classList.toggle('on', +d.dataset.mfDot === ph); });
       if (say && SAYS[ph]) { say.textContent = SAYS[ph]; say.classList.remove('pop'); void say.offsetWidth; say.classList.add('pop'); }
     }
-    if (navEl) { var no = clamp((sec.getBoundingClientRect().bottom - innerHeight) / 140, 0, 1); navEl.style.opacity = no.toFixed(2); navEl.style.pointerEvents = no < 0.5 ? 'none' : ''; }
+    if (navEl) { var no = clamp((secTop() + geo.h - innerHeight) / 140, 0, 1); navEl.style.opacity = no.toFixed(2); navEl.style.pointerEvents = no < 0.5 ? 'none' : ''; }
     // 縦長: 白い膜は今の場面の文章の上端から下だけ（3Dの下の方を白く消さない）
     if (veil && V.textTop) {
       var a0 = Math.floor(P), a1 = Math.min(LAST, a0 + 1), tt = V.textTop[a0] + (V.textTop[a1] - V.textTop[a0]) * (P - a0);
@@ -571,7 +588,7 @@
 
   /* ---------- 毎フレーム ---------- */
   var P = FORCE_P != null ? FORCE_P : 0, introT = -1, last = 0, running = false, raf = 0, dead = false;
-  var perfN = 0, perfT0 = 0, perfDone = false, lowRes = false;
+  var perfN = 0, perfT0 = 0, perfDone = false, lowRes = false, eco = false, lastDraw = -10;
   function lowResRatio() { return (window.devicePixelRatio || 1) > 1 ? 1 : 0.8; }
   function frame() {
     if (!running) { raf = 0; return; }
@@ -585,13 +602,15 @@
     if (introT < 0 && panels[0] && texReady(DEF[0].img)) introT = t;
     var intro = FORCE_P != null ? 1 : introT < 0 ? 0 : ease(clamp((t - introT) / 2.0, 0, 1));
     if (introT < 0 && FORCE_P == null && (texEntry(DEF[0].img).failed || t > 9) && nearTop()) { giveUp(); return; }
-    // 描画が重い端末（毎秒35コマ未満）は、登場から約1秒で解像度を下げる
+    // 描画が重い端末は、1秒ずつ見て2段階で軽くする:
+    //   毎秒35コマ未満 → 解像度を下げる／下げても毎秒20コマ未満 → 省エネ（スクロール・カーソル・切り替えのときだけ描き直す。止まっている間は描かない）
     if (!perfDone && introT >= 0) {
       perfN++;
       if (perfN === 8) perfT0 = t;
       else if (perfN > 8 && t - perfT0 > 1.0) {
-        perfDone = true;
-        if ((perfN - 8) / (t - perfT0) < 35) { lowRes = true; renderer.setPixelRatio(lowResRatio()); renderer.setSize(V.w, V.h, false); }
+        var fps = (perfN - 8) / (t - perfT0);
+        if (!lowRes && fps < 35) { lowRes = true; renderer.setPixelRatio(lowResRatio()); renderer.setSize(V.w, V.h, false); perfN = 0; }
+        else { perfDone = true; if (fps < 20) eco = true; }
       }
     }
 
@@ -645,7 +664,9 @@
     });
 
     order();
-    renderer.render(scene, cam);
+    // 省エネのときは、動きがあるとき（スクロール・カーソル・登場・画像が出てくる途中）と1.5秒ごとだけ描く
+    var moving = Math.abs(target - P) > 0.0005 || t - lastMove < 1.2 || intro < 1 || panels.some(function (p) { return p.g.visible && p.rv < 1; });
+    if (!eco || moving || t - lastDraw > 1.5) { renderer.render(scene, cam); lastDraw = t; }
     updateDom(P, t);
     updateTags(P);
   }
@@ -677,7 +698,7 @@
     es.forEach(function (en) { if (en.isIntersecting && !document.hidden) start(); else stop(); });
   }, { rootMargin: '80px 0px' }).observe(sec);
   document.addEventListener('visibilitychange', function () {
-    if (document.hidden) stop(); else { var r = sec.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) start(); }
+    if (document.hidden) stop(); else { measure(); if (secTop() + geo.h > 0 && secTop() < innerHeight) start(); }
   });
   var rsT = 0, lastW = 0, lastH = 0;
   window.addEventListener('resize', function () {
@@ -716,4 +737,5 @@
   panelsEl.forEach(function (el) { var on = +el.dataset.mfStep === 0; el.classList.toggle('is-on', on); setTabbable(el, on); });
   curS.set(V.ax, V.ay, 0);
   start();
+  });
 })();
