@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>売上管理表</title>
+<style>
+:root{--ink:#16161a;--dim:#6b6b75;--line:#e3e3e8;--bg:#f6f6f8;--ac:#15A34A;--ac2:#4ACB7A;--ac3:#A6E8BE;--acl:#eaf8ef;--ng:#e5322d;--sat:#2f6bd8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-size:15px}
+header{background:#111114;color:#fff;padding:16px 18px}
+header h1{margin:0;font-size:20px;letter-spacing:.02em}
+header p{margin:4px 0 0;color:#a9a9b3;font-size:12px}
+main{padding:14px;max-width:760px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h2{margin:0 0 10px;font-size:15px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+label{font-size:13px;color:var(--dim)}
+input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.grid3 label{display:block}
+.grid3 input,.money{width:100%;text-align:right}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:12px 16px;cursor:pointer}
+.btn.main{background:var(--ac);color:#fff;width:100%;font-size:16px;margin-top:12px}
+.btn.sub{background:#fff;border:1px solid var(--line)}
+.btn.sm{padding:8px 12px;font-size:13px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kpi .k{font-size:12px;color:var(--dim)}
+.kpi .v{font-size:24px;font-weight:900;letter-spacing:-.01em;margin-top:2px;white-space:nowrap}
+.kpi .s{font-size:12px;color:var(--dim);margin-top:2px}
+.kpi.big{grid-column:1/-1;background:#111114;color:#fff;border:none}
+.kpi.big .k,.kpi.big .s{color:#a9a9b3}
+.kpi.big .v{font-size:34px}
+.up{color:var(--ac)!important} .down{color:var(--ng)!important}
+.bar{height:8px;border-radius:99px;background:#2a2a30;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ac2);border-radius:99px}
+.mix{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--dim);margin-top:8px}
+.mix b{color:var(--ink)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+svg{display:block;width:100%;height:auto}
+.note{font-size:13px;margin-top:8px;line-height:1.7}
+.note b{color:var(--ac)}
+.note b.ng{color:var(--ng)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:7px 4px;text-align:right;white-space:nowrap}
+th{font-size:12px;color:var(--dim);font-weight:700}
+td:first-child,th:first-child{text-align:left}
+tr.day{cursor:pointer}
+tr.day:hover{background:var(--acl)}
+tr.empty td{color:#c4c4cc}
+tr.best td{background:var(--acl)}
+td.sat{color:var(--sat)} td.sun{color:var(--ng)}
+td.tot{font-weight:800}
+tfoot td{font-weight:900;border-top:2px solid var(--ink);border-bottom:none}
+.hint{font-size:12px;color:var(--dim);margin:0 0 8px}
+.ok{color:var(--ac);font-weight:700;font-size:13px;min-height:1em;margin-top:8px}
+@media print{header,.noprint{display:none!important}body{background:#fff}}
+</style></head>
+<body>
+<header><h1>売上管理表</h1><p>毎日の売上を入れるだけで、月の合計・平均・グラフ・前の月との比べが出ます。ネット不要・入れた内容はこのパソコンの中だけ</p></header>
+<main>
+  <div class="card noprint" id="entry">
+    <h2>1. 売上を入れる</h2>
+    <div class="row">
+      <label>日にち <input type="date" id="date"></label>
+      <label>客数 <input type="number" id="n" min="0" inputmode="numeric" style="width:76px;text-align:right"> 人</label>
+    </div>
+    <div class="grid3">
+      <label>現金<input type="number" id="cash" min="0" inputmode="numeric" placeholder="0"></label>
+      <label>カード<input type="number" id="card" min="0" inputmode="numeric" placeholder="0"></label>
+      <label>QR・電子マネー<input type="number" id="qr" min="0" inputmode="numeric" placeholder="0"></label>
+    </div>
+    <button class="btn main" id="put">この日の売上を入れる</button>
+    <div class="row" style="justify-content:space-between">
+      <div class="ok" id="msg"></div>
+      <button class="btn sub sm" id="clear" style="display:none;margin-top:8px">この日を消す</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <h2 style="margin:0">2. 月のまとめ</h2>
+      <div class="row">
+        <input type="month" id="month">
+        <label class="noprint">目標 <input type="number" id="goal" min="0" inputmode="numeric" class="money" style="width:120px" placeholder="なし"> 円</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card" style="margin-top:12px">
+    <h2>3. 毎日の売上のグラフ</h2>
+    <div id="chart"></div>
+    <div class="mix"><span><i class="dot" style="background:var(--ac)"></i>現金</span><span><i class="dot" style="background:var(--ac2)"></i>カード</span><span><i class="dot" style="background:var(--ac3)"></i>QR・電子マネー</span><span>--- 1日の平均</span></div>
+    <div class="note" id="peaks"></div>
+    <h2 style="margin-top:16px">曜日ごとの平均</h2>
+    <div id="week"></div>
+  </div>
+
+  <div class="card">
+    <h2>4. 毎日の一覧</h2>
+    <p class="hint noprint">行を押すと、その日の売上を直せます</p>
+    <table id="table"></table>
+    <div class="row noprint" style="margin-top:12px">
+      <button class="btn sub" id="csv">CSVで保存</button>
+      <button class="btn sub" id="print">印刷する</button>
+    </div>
+  </div>
+</main>
+<script>
+const KEY = "salesBook.v1";
+const WD = ["日","月","火","水","木","金","土"];
+const $ = id => document.getElementById(id);
+let st = load();
+
+function load(){
+  try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && s.days) return s; }catch(e){}
+  return {days: {}, goals: {}};
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const yen = v => "¥" + Math.round(v).toLocaleString("ja-JP");
+const man = v => v >= 10000 ? (Math.round(v / 1000) / 10).toLocaleString("ja-JP") + "万" : Math.round(v).toLocaleString("ja-JP");
+const num = id => Math.max(0, Math.round(+$(id).value || 0));
+const total = d => d ? (d.cash || 0) + (d.card || 0) + (d.qr || 0) : 0;
+const md = s => `${+s.slice(5, 7)}/${+s.slice(8)}`;
+
+function daysOf(ym){
+  const [y, m] = ym.split("-").map(Number), n = new Date(y, m, 0).getDate(), out = [];
+  for(let i = 1; i <= n; i++){ const k = `${ym}-${String(i).padStart(2, "0")}`; out.push({k, i, wd: new Date(y, m - 1, i).getDay(), d: st.days[k]}); }
+  return out;
+}
+function prevYm(ym){ const [y, m] = ym.split("-").map(Number); const d = new Date(y, m - 2, 1); return ymd(d).slice(0, 7); }
+
+// ── 入れる ──
+function fill(k){
+  const d = st.days[k];
+  $("date").value = k;
+  $("cash").value = d ? d.cash || "" : ""; $("card").value = d ? d.card || "" : ""; $("qr").value = d ? d.qr || "" : ""; $("n").value = d && d.n ? d.n : "";
+  $("clear").style.display = d ? "inline-block" : "none";
+}
+$("date").onchange = () => fill($("date").value);
+$("put").onclick = () => {
+  const k = $("date").value; if(!k){ $("msg").textContent = "日にちを選んでください"; return; }
+  const rec = {cash: num("cash"), card: num("card"), qr: num("qr"), n: num("n")};
+  if(!total(rec)){ $("msg").textContent = "売上の金額を入れてください"; return; }
+  st.days[k] = rec; save();
+  $("msg").textContent = `${md(k)} の売上 ${yen(total(rec))} を入れました`;
+  $("clear").style.display = "inline-block";
+  if(k.slice(0, 7) != $("month").value){ $("month").value = k.slice(0, 7); }
+  draw();
+};
+$("clear").onclick = () => {
+  const k = $("date").value; delete st.days[k]; save(); fill(k);
+  $("msg").textContent = `${md(k)} を消しました`; draw();
+};
+
+// ── まとめ ──
+function sumOf(list){
+  const s = {cash: 0, card: 0, qr: 0, n: 0, open: 0};
+  list.forEach(x => { if(x.d){ s.cash += x.d.cash || 0; s.card += x.d.card || 0; s.qr += x.d.qr || 0; s.n += x.d.n || 0; s.open++; } });
+  s.total = s.cash + s.card + s.qr; return s;
+}
+function draw(){
+  const ym = $("month").value, days = daysOf(ym), s = sumOf(days);
+  $("goal").value = st.goals[ym] || "";
+  // 前の月と比べる（今月が途中なら、前の月も同じ日まで）
+  const filled = days.filter(x => x.d), lastDay = filled.length ? filled[filled.length - 1].i : 0;
+  const pdays = daysOf(prevYm(ym)), pAll = sumOf(pdays), pSame = sumOf(pdays.filter(x => x.i <= lastDay));
+  const fullMonth = lastDay >= days.length - 1;
+  const base = fullMonth ? pAll.total : pSame.total;
+  const diff = base ? (s.total - base) / base * 100 : null;
+  const goal = st.goals[ym] || 0;
+  const avg = s.open ? s.total / s.open : 0;
+  let h = `<div class="kpi big"><div class="k">${+ym.slice(5)}月の合計</div><div class="v">${yen(s.total)}</div>`
+    + `<div class="s">営業 ${s.open}日・客数 ${s.n.toLocaleString("ja-JP")}人${s.n ? "・客単価 " + yen(s.total / s.n) : ""}</div>`
+    + (goal ? `<div class="bar"><i style="width:${Math.min(100, s.total / goal * 100)}%"></i></div><div class="s">目標 ${yen(goal)} の ${Math.round(s.total / goal * 100)}%${s.total < goal ? "・あと " + yen(goal - s.total) : "・達成！"}</div>` : "")
+    + `</div>`;
+  h += `<div class="kpi"><div class="k">1日の平均</div><div class="v">${yen(avg)}</div><div class="s">営業した日で割った平均</div></div>`;
+  h += `<div class="kpi"><div class="k">前の月と比べて</div><div class="v ${diff == null ? "" : diff >= 0 ? "up" : "down"}">${diff == null ? "—" : (diff >= 0 ? "▲" : "▼") + Math.abs(diff).toFixed(1) + "%"}</div>`
+    + `<div class="s">${base ? (fullMonth ? "前の月 " : `前の月の${lastDay}日まで `) + yen(base) : "前の月の売上がありません"}</div></div>`;
+  h += `<div class="kpi" style="grid-column:1/-1"><div class="k">払い方の内わけ</div><div class="mix" style="margin-top:4px;font-size:13px">`
+    + [["現金", s.cash, "var(--ac)"], ["カード", s.card, "var(--ac2)"], ["QR・電子マネー", s.qr, "var(--ac3)"]]
+      .map(([t, v, c]) => `<span><i class="dot" style="background:${c}"></i>${t} <b>${yen(v)}</b>（${s.total ? Math.round(v / s.total * 100) : 0}%）</span>`).join("")
+    + `</div></div>`;
+  $("kpis").innerHTML = h;
+  drawChart(days, avg); drawWeek(days); drawTable(days, s);
+}
+function drawChart(days, avg){
+  const W = 700, H = 260, L = 8, R = 8, T = 30, B = 28, n = days.length;
+  const max = Math.max(1, ...days.map(x => total(x.d))) * 1.08;
+  const bw = (W - L - R) / n, y = v => T + (H - T - B) * (1 - v / max);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="毎日の売上のグラフ">`;
+  const fill = days.filter(x => x.d);
+  const best = fill.length ? fill.reduce((a, b) => total(b.d) > total(a.d) ? b : a) : null;
+  const worst = fill.length > 1 ? fill.reduce((a, b) => total(b.d) < total(a.d) ? b : a) : null;
+  days.forEach((x, i) => {
+    const cx = L + i * bw + bw * .14, w = bw * .72;
+    if(x.d){
+      let top = H - B;
+      [["cash", "var(--ac)"], ["card", "var(--ac2)"], ["qr", "var(--ac3)"]].forEach(([k, c]) => {
+        const v = x.d[k] || 0; if(!v) return; const hgt = (H - T - B) * v / max; top -= hgt;
+        svg += `<rect x="${cx.toFixed(1)}" y="${top.toFixed(1)}" width="${w.toFixed(1)}" height="${hgt.toFixed(1)}" fill="${c}"/>`;
+      });
+    }
+    if(x.i == 1 || x.i % 5 == 0) svg += `<text x="${(cx + w / 2).toFixed(1)}" y="${H - 8}" font-size="15" text-anchor="middle" fill="#6b6b75">${x.i}</text>`;
+  });
+  if(avg) svg += `<line x1="${L}" x2="${W - R}" y1="${y(avg).toFixed(1)}" y2="${y(avg).toFixed(1)}" stroke="#16161a" stroke-width="1.5" stroke-dasharray="6 5"/>`;
+  [[best, "var(--ac)", "いちばん"], [worst, "var(--ng)", "いちばん少ない"]].forEach(([x, c]) => {
+    if(!x) return; const i = x.i - 1, cx = L + i * bw + bw / 2, v = total(x.d);
+    const tx = Math.min(W - 60, Math.max(60, cx));
+    svg += `<text x="${tx.toFixed(1)}" y="${(y(v) - 8).toFixed(1)}" font-size="17" font-weight="800" text-anchor="middle" fill="${c}">${man(v)}</text>`;
+  });
+  svg += `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" stroke="#d6d6dc"/></svg>`;
+  $("chart").innerHTML = svg;
+  $("peaks").innerHTML = best
+    ? `いちばん売れた日 <b>${md(best.k)}（${WD[best.wd]}）${yen(total(best.d))}</b>` + (worst ? `<br>いちばん少なかった日 <b class="ng">${md(worst.k)}（${WD[worst.wd]}）${yen(total(worst.d))}</b>` : "")
+    : "まだ売上が入っていません";
+}
+function drawWeek(days){
+  const sum = Array(7).fill(0), cnt = Array(7).fill(0);
+  days.forEach(x => { if(x.d){ sum[x.wd] += total(x.d); cnt[x.wd]++; } });
+  const av = sum.map((v, i) => cnt[i] ? v / cnt[i] : 0), max = Math.max(1, ...av), order = [1, 2, 3, 4, 5, 6, 0];
+  const top = av.indexOf(Math.max(...av));
+  const W = 700, H = 150, bw = W / 7;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="曜日ごとの平均">`;
+  order.forEach((wd, j) => {
+    const hgt = (H - 54) * av[wd] / max, x = j * bw + bw * .2, w = bw * .6, yy = H - 26 - hgt;
+    svg += `<rect x="${x}" y="${yy}" width="${w}" height="${hgt}" rx="5" fill="${wd == top && av[wd] ? "var(--ac)" : "var(--ac3)"}"/>`;
+    if(av[wd]) svg += `<text x="${x + w / 2}" y="${yy - 7}" font-size="16" font-weight="700" text-anchor="middle" fill="#16161a">${man(av[wd])}</text>`;
+    svg += `<text x="${x + w / 2}" y="${H - 6}" font-size="16" text-anchor="middle" fill="${wd == 0 ? "#e5322d" : wd == 6 ? "#2f6bd8" : "#6b6b75"}">${WD[wd]}</text>`;
+  });
+  $("week").innerHTML = svg + `</svg>`;
+}
+function drawTable(days, s){
+  const fill = days.filter(x => x.d);
+  const best = fill.length ? fill.reduce((a, b) => total(b.d) > total(a.d) ? b : a).k : "";
+  let h = `<thead><tr><th>日</th><th>現金</th><th>カード</th><th>QR等</th><th>合計</th></tr></thead><tbody>`;
+  days.forEach(x => {
+    const c = x.wd == 0 ? "sun" : x.wd == 6 ? "sat" : "";
+    const v = k => x.d && x.d[k] ? x.d[k].toLocaleString("ja-JP") : "—";
+    h += `<tr class="day ${x.d ? "" : "empty"} ${x.k == best ? "best" : ""}" data-k="${x.k}"><td class="${c}">${x.i}（${WD[x.wd]}）</td><td>${v("cash")}</td><td>${v("card")}</td><td>${v("qr")}</td><td class="tot">${x.d ? total(x.d).toLocaleString("ja-JP") : "休み"}</td></tr>`;
+  });
+  h += `</tbody><tfoot><tr><td>合計</td><td>${s.cash.toLocaleString("ja-JP")}</td><td>${s.card.toLocaleString("ja-JP")}</td><td>${s.qr.toLocaleString("ja-JP")}</td><td>${s.total.toLocaleString("ja-JP")}</td></tr></tfoot>`;
+  $("table").innerHTML = h;
+}
+$("table").onclick = e => {
+  const tr = e.target.closest("tr.day"); if(!tr) return;
+  fill(tr.dataset.k); $("msg").textContent = `${md(tr.dataset.k)} を直せます`;
+  $("entry").scrollIntoView({behavior: "smooth", block: "start"});
+};
+$("month").onchange = draw;
+$("goal").oninput = () => { const v = Math.max(0, Math.round(+$("goal").value || 0)); if(v) st.goals[$("month").value] = v; else delete st.goals[$("month").value]; save(); draw(); };
+
+// ── CSV・印刷 ──
+$("csv").onclick = () => {
+  const ym = $("month").value, days = daysOf(ym), s = sumOf(days);
+  const rows = [["日付", "曜日", "現金", "カード", "QR・電子マネー", "合計", "客数", "客単価"]];
+  days.forEach(x => {
+    const d = x.d, t = total(d);
+    rows.push([x.k, WD[x.wd], d ? d.cash || 0 : "", d ? d.card || 0 : "", d ? d.qr || 0 : "", d ? t : "", d && d.n ? d.n : "", d && d.n ? Math.round(t / d.n) : ""]);
+  });
+  rows.push(["合計", "", s.cash, s.card, s.qr, s.total, s.n || "", s.n ? Math.round(s.total / s.n) : ""]);
+  const csv = "﻿" + rows.map(r => r.join(",")).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], {type: "text/csv"})); a.download = `売上_${ym}.csv`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+$("print").onclick = () => window.print();
+
+const today = new Date();
+$("month").value = ymd(today).slice(0, 7);
+fill(ymd(today));
+draw();
+</script>
+</body></html>
