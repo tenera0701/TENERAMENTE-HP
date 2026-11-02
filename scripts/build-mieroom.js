@@ -370,12 +370,17 @@ function assignCovers(posts) {
 }
 function coverName(p) { return (coverBook && coverBook.owned(p.slug)) || ''; }
 
-/** blog.html に差し込む記事カード */
+/**
+ * blog.html に差し込む記事カード。
+ * META の "pinned": true の記事は一覧の先頭に横長の大きいカード（.bpost.feat）で出す（2026-11-03 社長の指示）
+ */
 function cardHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
   const searchText = [p.title, ...(p.tags || [])].join(' ');
-  return `      <a class="bpost" data-cat="${esc(p.category)}" data-text="${esc(searchText)}" href="articles/${encodeURIComponent(p.slug)}.html">
-        ${p.cover ? `<div class="bcover bcover--img"><img src="${p.coverCard || p.cover}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="640" height="360"></div>`
+  return `      <a class="bpost${p.pinned ? ' feat' : ''}" data-cat="${esc(p.category)}" data-text="${esc(searchText)}" href="articles/${encodeURIComponent(p.slug)}.html">
+        ${p.cover ? (p.pinned
+          ? `<div class="bcover bcover--img"><img src="${p.coverHero || p.cover}" alt="${esc(p.title)}" decoding="async" width="1200" height="675"></div>`
+          : `<div class="bcover bcover--img"><img src="${p.coverCard || p.cover}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="640" height="360"></div>`)
         : coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
         : `<div class="bcover" style="background:linear-gradient(${st.grad})">
           <span class="ring" style="width:150px;height:150px;top:-30px;right:-30px"></span>
@@ -383,7 +388,7 @@ function cardHtml(p) {
           <svg viewBox="0 0 24 24">${st.icon}</svg>
         </div>`}
         <div class="bbody">
-          <div class="bmeta"><span class="bcat">${esc(p.category)}</span><span class="bdate">${dotDate(p.date)}</span></div>
+          ${p.pinned ? '<div class="fbadge">📌 まず読んでほしい記事</div>\n          ' : ''}<div class="bmeta"><span class="bcat">${esc(p.category)}</span><span class="bdate">${dotDate(p.date)}</span></div>
           <h3>${esc(p.title)}</h3>
           <p>${esc(p.excerpt)}</p>
           <span class="bread">${p.readMin}分で読める <span class="arr">→</span></span>
@@ -413,11 +418,12 @@ function main() {
       title: meta.title, date: meta.date, category: meta.category,
       excerpt: meta.excerpt, tags: meta.tags || [],
       hook: meta.hook || '',
+      pinned: meta.pinned === true,
       readMin: meta.readMin || readMinutes(body),
       toc,
       bodyHtml: insertToc(html, toc),
     };
-  }).sort((a, b) => b.date.localeCompare(a.date) || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));   // 同じ日付は slug 順（ファイルの読み出し順はパソコンごとに違うため）
+  }).sort((a, b) => (b.pinned - a.pinned) || b.date.localeCompare(a.date) || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));   // ピン留めが先頭。同じ日付は slug 順（ファイルの読み出し順はパソコンごとに違うため）
 
   // カバー画像（記事タイトル入り）。作れた記事は生成PNG、作れなければ従来の背景画像を使う
   assignCovers(posts);

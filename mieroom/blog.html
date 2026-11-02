@@ -60,7 +60,9 @@
 .bpost.feat .fbadge{display:inline-flex;align-items:center;gap:6px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:11px;letter-spacing:.08em;color:var(--peach-d);margin-bottom:10px}
 .bpost.feat h3{font-size:25px;line-height:1.45}
 .bpost.feat p{-webkit-line-clamp:2;font-size:14px}
-@media(max-width:820px){.blog-grid{grid-template-columns:1fr 1fr}.bpost.feat{flex-direction:column}.bpost.feat .bcover{width:100%;min-height:160px;height:160px}.bpost.feat h3{font-size:20px}}
+/* 画像カバーの大きいカードは、題名入りの画像が切れないよう 16:9 のまま見せる */
+.bpost.feat .bcover--img{aspect-ratio:16/9;min-height:0;height:auto;align-self:center}
+@media(max-width:820px){.blog-grid{grid-template-columns:1fr 1fr}.bpost.feat{flex-direction:column}.bpost.feat .bcover{width:100%;min-height:160px;height:160px}.bpost.feat .bcover--img{height:auto;min-height:0}.bpost.feat h3{font-size:20px}}
 @media(max-width:560px){.blog-grid{grid-template-columns:1fr}}
 
 .noresult{display:none;text-align:center;padding:50px 0;color:var(--ink-3);font-weight:600}
@@ -165,8 +167,19 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap" style="position:relative;z-index:1">
     <div class="blog-grid stagger" id="grid">
 <!-- MILPAGE:START ミルページで書いた記事。ここは自動生成なので直接編集しないでください -->
+      <a class="bpost feat" data-cat="業務効率化" data-text="物件コンバーターおすすめ9選を比較｜料金・連動ポータル数と、反響管理まで1つで済ませる選び方 物件コンバーター ポータル連動 比較 業務効率化 賃貸仲介" href="articles/bukken-converter-hikaku.html">
+        <div class="bcover bcover--img"><img src="assets/covers/bukken-converter-hikaku.webp" alt="物件コンバーターおすすめ9選を比較｜料金・連動ポータル数と、反響管理まで1つで済ませる選び方" decoding="async" width="1200" height="675"></div>
+        <div class="bbody">
+          <div class="fbadge">📌 まず読んでほしい記事</div>
+          <div class="bmeta"><span class="bcat">業務効率化</span><span class="bdate">2026.11.03</span></div>
+          <h3>物件コンバーターおすすめ9選を比較｜料金・連動ポータル数と、反響管理まで1つで済ませる選び方</h3>
+          <p>賃貸仲介の店舗向けに、主要な物件コンバーターの料金と連動ポータル数を、各社の公式サイトの記載で比べました。選ぶときの確認点と、入稿のあとに続く反響・申込・入金の管理まで1つのシステムで済ませる考え方も解説します。</p>
+          <span class="bread">13分で読める <span class="arr">→</span></span>
+        </div>
+      </a>
+
       <a class="bpost" data-cat="業務効率化" data-text="業者間流通サイトの使い分け｜賃貸仲介の店舗が物件探しを速くする組み合わせ方 業者間流通サイト 物件探し 業務効率化 賃貸仲介 店舗運営" href="articles/gyoshakan-site-tsukaiwake.html">
-        <div class="bcover bcover--img"><img src="assets/covers/gyoshakan-site-tsukaiwake.png" alt="業者間流通サイトの使い分け｜賃貸仲介の店舗が物件探しを速くする組み合わせ方" loading="lazy" decoding="async" width="640" height="360"></div>
+        <div class="bcover bcover--img"><img src="assets/covers/gyoshakan-site-tsukaiwake-card.webp" alt="業者間流通サイトの使い分け｜賃貸仲介の店舗が物件探しを速くする組み合わせ方" loading="lazy" decoding="async" width="640" height="360"></div>
         <div class="bbody">
           <div class="bmeta"><span class="bcat">業務効率化</span><span class="bdate">2026.11.03</span></div>
           <h3>業者間流通サイトの使い分け｜賃貸仲介の店舗が物件探しを速くする組み合わせ方</h3>

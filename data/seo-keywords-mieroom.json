@@ -1461,19 +1461,22 @@
     {
       "id": "m121",
       "category": "業務効率化",
-      "keyword": "物件コンバーター",
+      "keyword": "物件コンバーター おすすめ",
       "sub": [
-        "ポータル 一括入稿",
-        "物件データ 変換 連動"
+        "物件コンバーター 比較",
+        "物件コンバーター",
+        "ポータル 一括入稿"
       ],
-      "title": "物件コンバーターとは｜ポータルへの入稿を一度で済ませる仕組みと選び方",
+      "title": "物件コンバーターおすすめ9選を比較｜料金・連動ポータル数と、反響管理まで1つで済ませる選び方",
       "intent": "ポータルごとに同じ物件を入力し直している",
       "pillar": "../features.html",
       "related": [
         "bukken-nyuko-tejun",
         "bukken-data-torikomi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "bukken-converter-hikaku",
+      "doneAt": "2026-11-03"
     },
     {
       "id": "m111",

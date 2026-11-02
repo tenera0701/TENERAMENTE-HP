@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-03-ai-donyu-sodansaki.png"
+    "image": "assets/img/covers/2026-11-03-ai-donyu-sodansaki.png",
+    "imageHero": "assets/img/covers/2026-11-03-ai-donyu-sodansaki.webp",
+    "imageCard": "assets/img/covers/2026-11-03-ai-donyu-sodansaki-card.webp"
   },
   {
     "slug": "2026-11-02-nagoya-meo-taisaku",
