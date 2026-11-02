@@ -1284,7 +1284,9 @@
         "gyoshakan-site-bukken-kensaku",
         "bukken-data-torikomi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "gyoshakan-site-tsukaiwake",
+      "doneAt": "2026-11-02"
     },
     {
       "id": "m104",
