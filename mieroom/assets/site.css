@@ -503,3 +503,31 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .nav-cta{gap:6px}
   .nav-cta .btn{padding:9px 11px;font-size:13px}
 }
+
+/* 比較記事の会社カード（2026-11-03 物件コンバーター比較15選。社長の指示「1社ずつ情報の表と公式サイトへのリンクを」）
+   見出し＝番号つきの帯、情報＝2列の表、良いところ＝枠つきの箇条書き、最後に公式サイトへのリンク */
+.post-body h3.cvh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:46px 0 14px;padding:14px 18px;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;font-size:19px;line-height:1.5;scroll-margin-top:96px}
+.post-body h3.cvh .no{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--blue);color:#fff;font-size:14px}
+.post-body h3.cvh .co{font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.post-body .pick{border:2px solid var(--blue);border-radius:20px;padding:4px 22px 20px;margin:42px 0;background:#fff;position:relative}
+.post-body .pick .pk{position:absolute;top:-14px;left:20px;background:var(--peach-d);color:#fff;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:12.5px;padding:4px 14px;border-radius:999px}
+.post-body .pick h3.cvh{margin-top:24px;background:linear-gradient(135deg,#10463d,#0b2c27);color:#fff;border-color:transparent}
+.post-body .pick h3.cvh .co{color:#bcd5cd}
+.post-body .pick h3.cvh .no{background:var(--peach-d)}
+.post-body .spec{margin:14px 0 18px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.post-body .spec table{min-width:0;font-size:14px}
+.post-body .spec th{width:30%;background:var(--sky);color:var(--ink);font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13.5px;border-bottom:1px solid #fff}
+.post-body .spec tbody tr:nth-child(even) td{background:#fff}
+.post-body .good{border:1px solid var(--sky-2);background:var(--bg-soft);border-radius:14px;padding:16px 20px 4px;margin:16px 0}
+.post-body .good .gt{font-family:"Zen Kaku Gothic New";font-weight:900;color:var(--blue-d);font-size:14px;margin-bottom:10px}
+.post-body .good ul{margin:0 0 12px}
+.post-body p.offi{margin:14px 0 8px}
+.post-body p.offi a{display:inline-flex;align-items:baseline;gap:10px;font-weight:700;color:var(--blue-d);text-decoration:underline;text-underline-offset:3px;line-height:1.6}
+.post-body p.offi a .tg{flex:none;background:var(--peach-d);color:#fff;font-size:11.5px;font-weight:900;padding:2px 10px;border-radius:4px;text-decoration:none;letter-spacing:.04em}
+.post-body .tw a{color:var(--blue-d);font-weight:700}
+@media(max-width:600px){
+  .post-body h3.cvh{font-size:17px;padding:12px 14px}
+  .post-body .pick{padding:4px 14px 16px}
+  .post-body .spec th{width:36%;padding:11px 12px}
+  .post-body .spec td{padding:11px 12px}
+}
