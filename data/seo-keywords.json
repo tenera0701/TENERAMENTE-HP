@@ -1269,7 +1269,9 @@
         "2026-09-05-meo-hiyo-souba-uchiwake",
         "2026-09-22-meo-kouka-kikan"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-04-meo-seika-hoshu-tsukigaku",
+      "doneAt": "2026-11-03"
     },
     {
       "id": "k107",

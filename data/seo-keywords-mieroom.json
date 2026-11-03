@@ -1304,7 +1304,9 @@
         "chintai-tsuikyaku-line-jidoka",
         "lead-response-speed"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "tsuikyaku-mail-reibun",
+      "doneAt": "2026-11-03"
     },
     {
       "id": "m116",
