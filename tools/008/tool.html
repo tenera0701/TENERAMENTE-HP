@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>名刺管理表</title>
+<style>
+:root{--ink:#16161a;--dim:#6b6b75;--line:#e3e3e8;--bg:#f6f6f8;--ac:#2340F5;--acl:#eef1ff;--warn:#F07A12;--warnl:#fff2e6;--ng:#e5322d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Yu Gothic",sans-serif;font-size:15px}
+header{background:#111114;color:#fff;padding:16px 18px}
+header h1{margin:0;font-size:20px;letter-spacing:.02em}
+header p{margin:4px 0 0;color:#a9a9b3;font-size:12px}
+main{padding:14px;max-width:760px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h2{margin:0 0 10px;font-size:15px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid2 .wide{grid-column:1/-1}
+label{font-size:13px;color:var(--dim);display:block}
+input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;width:100%;color:var(--ink)}
+textarea{min-height:64px;resize:vertical;line-height:1.5}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:12px 16px;cursor:pointer}
+.btn.main{background:var(--ac);color:#fff;width:100%;font-size:16px;margin-top:12px}
+.btn.sub{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn.sm{padding:7px 11px;font-size:13px}
+.ok{color:var(--ac);font-weight:700;font-size:13px;min-height:1em;margin-top:8px}
+.search{position:relative}
+.search input{padding-left:34px;font-size:16px}
+.search:before{content:"";position:absolute;left:12px;top:50%;width:11px;height:11px;border:2px solid var(--dim);border-radius:50%;transform:translateY(-62%)}
+.search:after{content:"";position:absolute;left:23px;top:58%;width:6px;height:2px;background:var(--dim);transform:rotate(45deg)}
+.sum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kpi .k{font-size:12px;color:var(--dim)}
+.kpi .v{font-size:24px;font-weight:900;margin-top:2px}
+.kpi.warn{background:var(--warnl);border-color:#ffd2a8}
+.kpi.warn .v{color:var(--warn)}
+.list{display:flex;flex-direction:column;gap:8px}
+.mc{border:1px solid var(--line);border-left:6px solid var(--ac);border-radius:12px;padding:11px 12px;background:#fff}
+.mc.old{border-left-color:var(--warn);background:var(--warnl);border-color:#ffd2a8}
+.mc .co{font-size:12px;color:var(--dim)}
+.mc .nm{font-size:18px;font-weight:900;margin-top:1px}
+.mc .nm small{font-size:12px;font-weight:700;color:var(--dim);margin-left:6px}
+.mc .ti{font-size:13px;margin-top:1px}
+.mc .ct{font-size:13px;margin-top:6px;display:flex;gap:12px;flex-wrap:wrap}
+.mc .ct a{color:var(--ac);text-decoration:none}
+.mc .memo{font-size:13px;margin-top:6px;padding:7px 9px;border-radius:8px;background:var(--bg);line-height:1.55;white-space:pre-wrap}
+.mc.old .memo{background:#fff}
+.mc .dt{font-size:12px;color:var(--dim);margin-top:6px}
+.tag{display:inline-block;font-size:12px;font-weight:800;padding:3px 8px;border-radius:99px;background:var(--acl);color:var(--ac)}
+.mc.old .tag{background:var(--warn);color:#fff}
+.mc .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.mc .acts{display:flex;gap:6px;margin-top:8px}
+mark{background:#ffe86b;color:inherit;border-radius:3px;padding:0 1px}
+.hint{font-size:12px;color:var(--dim);margin:0 0 8px}
+.none{color:var(--dim);font-size:13px;text-align:center;padding:16px}
+@media print{header,.noprint{display:none!important}body{background:#fff}.mc{break-inside:avoid}}
+</style></head>
+<body>
+<header><h1>名刺管理表</h1><p>もらった名刺を入れるだけで、すぐ探せて、ご無沙汰の人に色が付きます。ネット不要・入れた内容はこのパソコンの中だけ</p></header>
+<main>
+  <div class="card noprint" id="entry">
+    <h2 id="entryTitle">1. 名刺を入れる</h2>
+    <div class="grid2" id="cardFields">
+      <label class="wide">会社名<input id="co" placeholder="例）みどり工務店"></label>
+      <label>名前<input id="nm" placeholder="例）山田 けん"></label>
+      <label>ふりがな<input id="kana" placeholder="やまだ けん"></label>
+      <label class="wide">部署・役職<input id="ti" placeholder="例）営業部 部長"></label>
+      <label>電話<input id="tel" inputmode="tel" placeholder="090-0000-0000"></label>
+      <label>メール<input id="mail" inputmode="email" placeholder="name@example.com"></label>
+    </div>
+    <div class="grid2" id="memoFields" style="margin-top:8px">
+      <label>会った日<input type="date" id="met"></label>
+      <label>最後に連絡した日<input type="date" id="last"></label>
+      <label class="wide">メモ（どこで会った・どんな話をした）<textarea id="memo" placeholder="例）展示会で名刺交換。来年の春に事務所の改装を考えている"></textarea></label>
+    </div>
+    <button class="btn main" id="put">この名刺を入れる</button>
+    <div class="row" style="justify-content:space-between">
+      <div class="ok" id="msg"></div>
+      <div class="row">
+        <button class="btn sub sm" id="cancel" style="display:none;margin-top:8px">やめる</button>
+        <button class="btn sub sm" id="del" style="display:none;margin-top:8px;color:var(--ng)">この名刺を消す</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="listCard">
+    <h2>2. 名刺の一覧</h2>
+    <div class="search noprint"><input id="q" type="search" placeholder="名前・会社名・メモで探す"></div>
+    <div class="sum" id="sum"></div>
+    <div class="row noprint" style="margin-bottom:10px">
+      <label style="flex:1">並べ方<select id="sort">
+        <option value="last">連絡していない順</option>
+        <option value="met">会った日が新しい順</option>
+        <option value="kana">名前（あいうえお）順</option>
+        <option value="co">会社名順</option>
+      </select></label>
+      <label style="flex:1">ご無沙汰の目安<select id="days">
+        <option value="30">30日 連絡なし</option>
+        <option value="60">60日 連絡なし</option>
+        <option value="90" selected>90日 連絡なし</option>
+        <option value="180">180日 連絡なし</option>
+      </select></label>
+    </div>
+    <p class="hint noprint">「連絡した」を押すと、最後に連絡した日が今日になります。「直す」で上の欄に戻ります</p>
+    <div class="list" id="list"></div>
+    <div class="row noprint" style="margin-top:12px">
+      <button class="btn sub" id="csv">CSVで保存</button>
+      <button class="btn sub" id="print">印刷する</button>
+    </div>
+  </div>
+</main>
+<script>
+const KEY = "meishiBook.v1";
+const $ = id => document.getElementById(id);
+const F = ["co", "nm", "kana", "ti", "tel", "mail", "met", "last", "memo"];
+let st = load(), editing = null;
+
+function load(){
+  try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && Array.isArray(s.cards)) return s; }catch(e){}
+  return {cards: [], days: 90};
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+const pad = n => String(n).padStart(2, "0");
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const today = () => ymd(new Date());
+const daysSince = s => { if(!s) return null; const [y, m, d] = s.split("-").map(Number); const t = new Date(); t.setHours(0, 0, 0, 0); return Math.round((t - new Date(y, m - 1, d)) / 864e5); };
+const jp = s => { if(!s) return "—"; const [y, m, d] = s.split("-").map(Number); return `${y}/${m}/${d}`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const norm = s => String(s ?? "").toLowerCase().replace(/\s+/g, "").replace(/[ァ-ン]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+function hi(text, q){
+  const src = String(text ?? ""); if(!q) return esc(src);
+  const i = src.toLowerCase().indexOf(q.toLowerCase());
+  if(i < 0) return esc(src);
+  return esc(src.slice(0, i)) + "<mark>" + esc(src.slice(i, i + q.length)) + "</mark>" + esc(src.slice(i + q.length));
+}
+
+function clearForm(){
+  F.forEach(k => $(k).value = "");
+  $("met").value = today(); $("last").value = "";
+  editing = null;
+  $("entryTitle").textContent = "1. 名刺を入れる";
+  $("put").textContent = "この名刺を入れる";
+  $("del").style.display = $("cancel").style.display = "none";
+}
+
+$("put").onclick = () => {
+  const c = {}; F.forEach(k => c[k] = $(k).value.trim());
+  if(!c.nm && !c.co){ $("msg").textContent = "会社名か名前を入れてください"; $("msg").style.color = "var(--ng)"; return; }
+  if(!c.met) c.met = today();
+  if(!c.last || c.last < c.met) c.last = c.met;
+  $("msg").style.color = "";
+  if(editing){
+    const i = st.cards.findIndex(x => x.id === editing);
+    st.cards[i] = {...st.cards[i], ...c};
+    $("msg").textContent = `${c.nm || c.co} さんの名刺を直しました`;
+  }else{
+    st.cards.push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ...c});
+    $("msg").textContent = `${c.nm || c.co} さんの名刺を入れました（全部で ${st.cards.length} 枚）`;
+  }
+  save(); clearForm(); draw();
+};
+$("cancel").onclick = () => { clearForm(); $("msg").textContent = ""; };
+$("del").onclick = () => {
+  const c = st.cards.find(x => x.id === editing); if(!c) return;
+  if(!confirm(`${c.nm || c.co} さんの名刺を消しますか？`)) return;
+  st.cards = st.cards.filter(x => x.id !== editing);
+  save(); clearForm(); draw(); $("msg").textContent = `${c.nm || c.co} さんの名刺を消しました`;
+};
+function edit(id){
+  const c = st.cards.find(x => x.id === id); if(!c) return;
+  F.forEach(k => $(k).value = c[k] || "");
+  editing = id;
+  $("entryTitle").textContent = "1. 名刺を直す";
+  $("put").textContent = "この内容で直す";
+  $("del").style.display = $("cancel").style.display = "";
+  $("msg").textContent = "";
+  $("entry").scrollIntoView({behavior: "smooth"});
+}
+function contacted(id){
+  const c = st.cards.find(x => x.id === id); if(!c) return;
+  c.last = today(); save(); draw();
+  $("msg").textContent = `${c.nm || c.co} さんに今日連絡した、にしました`;
+}
+
+function shown(){
+  const q = $("q").value.trim();
+  let a = st.cards.filter(c => !q || ["co", "nm", "kana", "ti", "memo", "mail", "tel"].some(k => norm(c[k]).includes(norm(q))));
+  const s = $("sort").value;
+  const by = {
+    last: (x, y) => (x.last || "").localeCompare(y.last || ""),
+    met: (x, y) => (y.met || "").localeCompare(x.met || ""),
+    kana: (x, y) => (x.kana || x.nm || "").localeCompare(y.kana || y.nm || "", "ja"),
+    co: (x, y) => (x.co || "").localeCompare(y.co || "", "ja")
+  }[s];
+  return a.sort(by);
+}
+
+function draw(){
+  st.days = +$("days").value; save();
+  const lim = st.days, q = $("q").value.trim(), a = shown();
+  const old = st.cards.filter(c => daysSince(c.last) >= lim).length;
+  $("sum").innerHTML =
+    `<div class="kpi"><div class="k">${q ? "見つかった名刺" : "名刺の数"}</div><div class="v">${q ? a.length : st.cards.length}<small style="font-size:13px"> 枚</small></div></div>` +
+    `<div class="kpi warn"><div class="k">ご無沙汰の人（${lim}日以上）</div><div class="v">${old}<small style="font-size:13px"> 人</small></div></div>`;
+  if(!a.length){ $("list").innerHTML = `<div class="none">${q ? `「${esc(q)}」の名刺は見つかりません` : "まだ名刺がありません。上の欄から入れてください"}</div>`; return; }
+  $("list").innerHTML = a.map(c => {
+    const d = daysSince(c.last), isOld = d >= lim;
+    const tag = d === null ? "" : isOld ? `${d}日 連絡なし` : d === 0 ? "今日 連絡した" : `${d}日前に連絡`;
+    return `<div class="mc${isOld ? " old" : ""}" data-id="${c.id}">
+      <div class="top"><div><div class="co">${hi(c.co, q)}</div>
+        <div class="nm">${hi(c.nm, q)}<small>${esc(c.kana)}</small></div>
+        <div class="ti">${hi(c.ti, q)}</div></div>
+        <span class="tag">${tag}</span></div>
+      <div class="ct">${c.tel ? `<a href="tel:${esc(c.tel)}">☎ ${esc(c.tel)}</a>` : ""}${c.mail ? `<a href="mailto:${esc(c.mail)}">✉ ${esc(c.mail)}</a>` : ""}</div>
+      ${c.memo ? `<div class="memo">${hi(c.memo, q)}</div>` : ""}
+      <div class="dt">会った日 ${jp(c.met)} ・ 最後に連絡 ${jp(c.last)}</div>
+      <div class="acts noprint"><button class="btn sub sm" data-a="ok">連絡した</button><button class="btn sub sm" data-a="edit">直す</button></div>
+    </div>`;
+  }).join("");
+}
+$("list").onclick = e => {
+  const b = e.target.closest("button"); if(!b) return;
+  const id = b.closest(".mc").dataset.id;
+  b.dataset.a === "ok" ? contacted(id) : edit(id);
+};
+$("q").oninput = draw; $("sort").onchange = draw; $("days").onchange = draw;
+
+$("csv").onclick = () => {
+  const head = ["会社名", "部署・役職", "名前", "ふりがな", "電話", "メール", "会った日", "最後に連絡した日", "連絡なしの日数", "メモ"];
+  const rows = shown().map(c => [c.co, c.ti, c.nm, c.kana, c.tel, c.mail, c.met, c.last, daysSince(c.last) ?? "", c.memo]);
+  const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const text = "﻿" + [head, ...rows].map(r => r.map(q).join(",")).join("\r\n") + "\r\n";
+  const url = URL.createObjectURL(new Blob([text], {type: "text/csv"}));
+  const el = document.createElement("a"); el.href = url; el.download = `名刺_${today()}.csv`;
+  document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  $("msg").textContent = `CSVで保存しました（${rows.length} 枚）`;
+};
+$("print").onclick = () => window.print();
+
+$("days").value = String(st.days || 90);
+clearForm(); draw();
+</script>
+</body></html>
