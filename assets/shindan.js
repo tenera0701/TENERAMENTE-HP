@@ -75,7 +75,7 @@
         <p class="sq-err hidden">未入力の必須項目（<i>*</i>）があります。</p>
         <p class="sq-senderr hidden">送信に失敗しました。時間をおいて再度お試しください。</p>
         <button type="button" class="btn btn-primary btn-lg sq-submit">無料診断の結果を受け取る <span class="arr">→</span></button>
-        <p class="sq-privacy">送信情報は診断結果のご案内・サービスのご提案のみに利用します。しつこい営業は行いません。</p>
+        <p class="sq-privacy">送信情報は診断結果のご案内・サービスのご提案のみに利用します。しつこい営業は行いません。<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
       </div>
     </div>
     <div class="sq-done hidden">

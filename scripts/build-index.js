@@ -405,6 +405,7 @@ function main() {
     'lp-ai-app.html', 'lp-ai.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'mieroom/',
     'mieroom/features.html', 'mieroom/compare.html', 'mieroom/blog.html',
+    'mieroom/request.html', 'privacy.html',
   ];
   // ミエルームのブログ記事（mieroom/articles/*.html）も列挙する
   const mieroomArticles = fs.readdirSync(path.join(ROOT, 'mieroom', 'articles'))

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# 資料請求のあとに配る PDF（mieroom/request.html から入ってもらう）
+Disallow: /mieroom/assets/docs/mieroom-overview.pdf
 
 Sitemap: https://teneramente.jp/sitemap.xml

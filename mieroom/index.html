@@ -155,6 +155,14 @@ a{color:inherit;text-decoration:none}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(20,160,133,.7)}
 .btn-ghost{background:#fff;color:var(--blue);border:1.5px solid var(--sky-2)}
 .btn-ghost:hover{background:var(--sky)}
+/* 資料請求のボタン（2026-11-05〜 いちばん目立たせる導線）。テラコッタの塗り */
+.btn-doc{background:linear-gradient(180deg,#e8866b,#cf6446);color:#fff;box-shadow:0 14px 30px -10px rgba(207,100,70,.6)}
+.btn-doc:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px rgba(207,100,70,.7)}
+.btn-doc .ico{fill:none;stroke:currentColor}
+/* 資料請求の横に並ぶ LINE は控えめに（白地に緑の枠） */
+.btn-line-sub{background:#fff;color:#06a54a;border:1.5px solid #06c755;box-shadow:none}
+.btn-line-sub:hover{background:#f1fbf5;transform:translateY(-2px)}
+.mobile-cta .btn.btn-doc{flex:1.7}
 .btn-lg{padding:21px 40px;font-size:18px;border-radius:16px}
 .btn .ico{width:20px;height:20px;flex:none}
 .btn.pulse{animation:pulseRing 2.4s ease-out infinite}
@@ -878,8 +886,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login">ログイン</a>
-      <a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">アカウント発行</a>
-      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+      <a class="btn btn-doc" href="request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求</a>
+      <a class="btn btn-line btn-line-sub" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
         LINEで相談
       </a>
@@ -921,11 +929,15 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         賃貸仲介の会社なら必ず必要とする、<b>必須ツールを開発しました!!</b>
       </p>
       <div class="cta-row">
-        <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+        <a class="btn btn-doc btn-lg" href="request.html">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="hero-badge">資料請求（無料）<span class="sub">概要資料をすぐにダウンロード</span></span>
+        </a>
+
+        <a class="btn btn-line-sub btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
           <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
           <span class="hero-badge">公式LINEで問い合わせ<span class="sub">かんたん30秒・無料相談</span></span>
         </a>
-        <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
+        <a class="btn btn-ghost btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
           <span class="hero-badge">無料デモアカウント発行<span class="sub">クレカ登録なし</span></span>
         </a>
       </div>
@@ -972,11 +984,15 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <span class="mf-no">独自機能 05<b>MEO・AIO対策</b></span>
           <h2 class="mf-h"><span class="ph">店舗の集客も、</span><span class="ph"><span class="u-peach">Googleマップ</span>から。</span></h2>
           <p class="mf-p"><span class="ph">Googleマップの順位計測・</span><span class="ph">口コミの管理と返信から、</span><span class="ph">ChatGPTなどの</span><span class="ph">AI検索での見え方の対策まで。</span><span class="ph">店舗集客にも</span><span class="ph">対応します。</span></p><div class="cta-row">
-        <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+        <a class="btn btn-doc btn-lg" href="request.html">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="hero-badge">資料請求（無料）<span class="sub">概要資料をすぐにダウンロード</span></span>
+        </a>
+
+        <a class="btn btn-line-sub btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
           <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
           <span class="hero-badge">公式LINEで問い合わせ<span class="sub">かんたん30秒・無料相談</span></span>
         </a>
-        <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
+        <a class="btn btn-ghost btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
           <span class="hero-badge">無料デモアカウント発行<span class="sub">クレカ登録なし</span></span>
         </a>
       </div>
@@ -1544,8 +1560,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </ul>
       </div>
     </div>
-    <div class="reveal" style="text-align:center;margin-top:36px">
-      <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
+    <div class="reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px">
+      <a class="btn btn-doc btn-lg" href="request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="hero-badge">資料請求（無料）<span class="sub">概要資料をすぐにダウンロード</span></span></a>
+      <a class="btn btn-ghost btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">
         <span class="hero-badge">無料デモアカウント発行<span class="sub">クレカ登録なし・最短即日スタート</span></span>
       </a>
     </div>
@@ -1601,7 +1618,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>契約書類は自社フォーマットを使えますか？</span><span class="tgl">＋</span></summary>
-        <div class="faq-a">はい。御社のExcel契約書フォーマットをアップロードすると、顧客情報を差し込んで自動で書類を作成できます。書式を変える必要はありません。</div>
+        <div class="faq-a">はい（契約管理のオプション）。御社のExcel契約書フォーマットをアップロードすると、顧客情報を差し込んで自動で書類を作成できます。書式を変える必要はありません。</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span class="qq">Q</span><span>業者間サイトとの連携には何が必要ですか？</span><span class="tgl">＋</span></summary>
@@ -1626,11 +1643,15 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <h2>「どんぶり勘定」から、<br>“見える経営”へ。</h2>
     <p>反響を、ちゃんと利益に変える。賃貸仲介の現場が作った業務管理ツール、ミエルーム。</p>
     <div class="cta-row">
-      <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+        <a class="btn btn-doc btn-lg" href="request.html">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span class="hero-badge">資料請求（無料）<span class="sub">概要資料をすぐにダウンロード</span></span>
+        </a>
+
+      <a class="btn btn-line-sub btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
         LINEで相談する
       </a>
-      <a class="btn btn-primary btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">無料デモアカウント発行</a>
+      <a class="btn btn-ghost btn-lg" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">無料デモアカウント発行</a>
     </div>
   </div>
 </section>
@@ -1653,6 +1674,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <a href="features.html">活用事例</a>
           <a href="blog.html">ブログ</a>
           <a href="#faq">よくある質問</a>
+          <a href="request.html">資料請求</a>
         </div>
         <div>
           <h4>機能・事例</h4>
@@ -1665,7 +1687,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           <h4>会社・規約</h4>
           <a href="../company.html">運営会社（会社概要）</a>
           <a href="../index.html">TENERAMENTE公式サイト</a>
-          <a href="https://app.mieroom.cloud/privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+          <a href="../privacy.html">プライバシーポリシー</a>
           <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a>
           <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
         </div>
@@ -1678,7 +1700,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <!-- mobile sticky cta -->
 <div class="mobile-cta">
   <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">LINEで相談</a>
-  <a class="btn btn-primary" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener"><span>無料デモ<span class="lbl-full">アカウント発行</span></span></a>
+  <a class="btn btn-doc" href="request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求</a>
 </div>
 
 <script>

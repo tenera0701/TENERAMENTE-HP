@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資料請求（ミエルームでできること 概要資料）｜ミエルーム｜賃貸仲介のためのAI業務管理ツール</title>
+<meta name="description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料（PDF・14ページ）を、フォームの送信後すぐにダウンロードいただけます。申込・入金管理、反響分析、契約書類の自動作成など、主な機能を実際の画面でご紹介します。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/request.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ミエルームでできること 概要資料｜資料請求">
+<meta property="og:description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料。送信後すぐにダウンロードできます。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/request.html">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/docs/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* 資料請求ページ（2026-11-05） 左に資料の紹介、右に入力フォーム */
+.rq-hero{background:linear-gradient(180deg,#f1faf6 0%,#e6f6f0 100%);padding:46px 0 40px;border-bottom:1px solid var(--line)}
+.rq-hero .tag{display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13px;color:#fff;background:var(--blue);padding:6px 16px;border-radius:999px;letter-spacing:.04em}
+.rq-hero h1{font-size:clamp(26px,4.2vw,44px);font-weight:900;line-height:1.32;margin-top:14px;color:var(--ink)}
+.rq-hero h1 em{font-style:normal;color:var(--peach-d)}
+.rq-hero .meta{margin-top:10px;font-size:14px;color:var(--ink-3);font-weight:700}
+.rq-hero .meta span{display:inline-block}
+.rq-hero,.rq{word-break:auto-phrase}
+.rq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:48px;align-items:start;padding-top:44px;padding-bottom:80px}
+.rq-left{text-align:center}
+.rq-catch{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:19px;line-height:1.6;color:var(--ink)}
+.rq-book{margin:22px auto 0;max-width:430px;perspective:1400px}
+.rq-book .bk{position:relative;transform:rotateY(-16deg) rotateX(4deg);transform-origin:left center;border-radius:4px 10px 10px 4px;box-shadow:24px 26px 44px -18px rgba(13,43,38,.55),2px 2px 0 #dfe9e5,4px 4px 0 #cfdcd7;overflow:hidden}
+.rq-book .bk::after{content:"";position:absolute;inset:0 auto 0 0;width:12px;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0))}
+.rq-book img{display:block;width:100%;height:auto}
+.rq-left h2{font-size:21px;font-weight:900;color:var(--blue-d);margin-top:30px}
+.rq-left .desc{font-size:14.5px;line-height:1.95;color:var(--ink-2);margin-top:10px}
+.rq-pts{margin:22px 0 0;padding:20px 22px;background:var(--sky);border-radius:14px;text-align:left;list-style:none;display:grid;gap:9px}
+.rq-pts li{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:14.5px;font-weight:700;line-height:1.6;color:var(--ink)}
+.rq-pts li::before{content:"✓";color:var(--blue);font-weight:900}
+.rq-thumbs{margin-top:24px}
+.rq-thumbs p{font-size:12.5px;color:var(--ink-3);font-weight:700;text-align:left}
+.rq-thumbs .row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.rq-thumbs img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line);box-shadow:0 6px 16px -10px rgba(13,43,38,.4)}
+
+.rq-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 30px 28px;box-shadow:0 22px 50px -30px rgba(13,43,38,.35)}
+.rq-form .ttl{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:18px;color:var(--ink)}
+.rq-form .ttl small{display:block;font-size:12.5px;color:var(--ink-3);font-weight:700;margin-top:4px}
+.fld{margin-top:18px;border:0;padding:0}
+.fld > label,.fld > legend{display:block;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:7px;padding:0}
+.fld .req{color:#d14b2b;margin-left:3px}
+.fld .opt{font-size:11.5px;color:var(--ink-3);font-weight:700;margin-left:6px}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#f7fbfa;color:var(--ink);transition:border-color .2s,background .2s}
+.fld textarea{resize:vertical;min-height:84px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--blue);background:#fff}
+.fld.bad input,.fld.bad select{border-color:#d14b2b;background:#fff7f5}
+.fld .msg{display:none;font-size:12.5px;color:#d14b2b;margin-top:5px;font-weight:700}
+.fld.bad .msg{display:block}
+.chks{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.chks label{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer;line-height:1.45;padding:3px 0}
+.chks input{width:18px;height:18px;accent-color:var(--blue);flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.rq-privacy{margin-top:22px;font-size:13px;line-height:1.85;color:var(--ink-2);background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.rq-privacy a{color:var(--blue-d);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.rq-submit{width:100%;justify-content:center;margin-top:18px}
+.rq-submit[disabled]{opacity:.6;cursor:wait;transform:none}
+.rq-error{margin-top:12px;font-size:13.5px;color:#d14b2b;font-weight:700;line-height:1.7}
+@media(max-width:900px){
+  .rq{grid-template-columns:minmax(0,1fr);gap:34px;padding-top:30px;padding-bottom:60px}
+  .rq-book{max-width:340px}
+}
+@media(max-width:560px){
+  .rq-hero{padding:32px 0 28px}
+  .rq-form{padding:24px 18px 22px;border-radius:16px}
+  .chks{grid-template-columns:1fr}
+  .rq-thumbs .row{grid-template-columns:repeat(2,1fr)}
+  .rq-left .desc br{display:none}
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style id="mp-nav-fit">
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="logo" src="assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">ホーム</a>
+      <a href="features.html">機能・事例</a>
+      <a href="compare.html">比較</a>
+      <a href="blog.html">ブログ</a>
+      <a href="index.html#faq">よくある質問</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-line" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
+        LINEで相談
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="rq-hero">
+  <div class="wrap">
+    <span class="tag">お役立ち資料ダウンロード</span>
+    <h1>ミエルームで<em>できること</em><br>概要資料</h1>
+    <p class="meta"><span>PDF・14ページ ／</span> <span>送信後すぐにダウンロードできます</span></p>
+  </div>
+</section>
+
+<main class="wrap rq">
+  <div class="rq-left">
+    <p class="rq-catch">賃貸仲介会社のための<br>業務管理ツール「ミエルーム」</p>
+    <div class="rq-book"><div class="bk"><img src="assets/docs/cover.webp" alt="ミエルームでできること 概要資料の表紙" width="960" height="679"></div></div>
+    <h2>ミエルームの概要資料はこちら</h2>
+    <p class="desc">反響の受付から、接客・申込・契約・入金、売上の集計まで。<br>賃貸仲介の毎日の仕事をひとつの画面にまとめる<br>ミエルームの全体像を、実際の画面でご紹介します。</p>
+    <ul class="rq-pts">
+      <li>現場のお悩みと、ミエルームでできること</li>
+      <li>申込・入金管理、反響分析、契約書類の自動作成など、主な機能を実際の画面で</li>
+      <li>導入の流れと、よくあるご質問</li>
+    </ul>
+    <div class="rq-thumbs">
+      <p>資料の中身（一部）</p>
+      <div class="row">
+        <img src="assets/docs/page-02.webp" alt="資料の2ページ目：お悩み" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-04.webp" alt="資料の4ページ目：機能の全体像" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-05.webp" alt="資料の5ページ目：申込・入金管理" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-09.webp" alt="資料の9ページ目：業者間サイト連携" loading="lazy" width="560" height="396">
+      </div>
+    </div>
+  </div>
+
+  <form class="rq-form" id="rqForm" novalidate>
+    <p class="ttl">必要事項をご入力ください<small><span class="req">*</span> は必須項目です</small></p>
+
+    <div class="fld" data-req><label for="f-company">会社名<span class="req">*</span></label><input type="text" id="f-company" name="company" autocomplete="organization"><p class="msg">この必須項目を入力してください。</p></div>
+    <div class="fld" data-req><label for="f-name">お名前<span class="req">*</span></label><input type="text" id="f-name" name="name" autocomplete="name"><p class="msg">この必須項目を入力してください。</p></div>
+    <div class="fld" data-req><label for="f-phone">電話番号<span class="req">*</span></label><input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel"><p class="msg">この必須項目を入力してください。</p></div>
+    <div class="fld" data-req="email"><label for="f-email">メールアドレス<span class="req">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" inputmode="email"><p class="msg">メールアドレスを正しく入力してください。</p></div>
+    <div class="fld" data-req><label for="f-pref">都道府県<span class="req">*</span></label>
+      <select id="f-pref" name="pref"><option value="">選択してください</option><option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option><option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option><option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option></select>
+      <p class="msg">この必須項目を選択してください。</p></div>
+    <div class="fld"><label for="f-stores">店舗数<span class="opt">任意</span></label>
+      <select id="f-stores" name="stores"><option value="">選択してください</option><option>1店舗</option><option>2〜3店舗</option><option>4〜9店舗</option><option>10店舗以上</option><option>これから開業</option></select></div>
+    <fieldset class="fld"><legend>業種<span class="opt">いくつでも</span></legend>
+      <div class="chks">
+        <label><input type="checkbox" name="kind" value="賃貸仲介">賃貸仲介</label>
+        <label><input type="checkbox" name="kind" value="売買仲介">売買仲介</label>
+        <label><input type="checkbox" name="kind" value="賃貸管理">賃貸管理</label>
+        <label><input type="checkbox" name="kind" value="これから開業">これから開業</label>
+        <label><input type="checkbox" name="kind" value="その他">その他</label>
+      </div></fieldset>
+    <fieldset class="fld"><legend>興味のある機能<span class="opt">いくつでも</span></legend>
+      <div class="chks">
+        <label><input type="checkbox" name="feat" value="申込・入金管理">申込・入金管理</label>
+        <label><input type="checkbox" name="feat" value="反響管理・反響分析">反響管理・反響分析</label>
+        <label><input type="checkbox" name="feat" value="接客管理・成績の可視化">接客管理・成績</label>
+        <label><input type="checkbox" name="feat" value="契約書類の自動作成">契約書類の自動作成</label>
+        <label><input type="checkbox" name="feat" value="物確・初期費用（業者間サイト連携）">物確・初期費用</label>
+        <label><input type="checkbox" name="feat" value="LINE・SMSの追客">LINE・SMSの追客</label>
+        <label><input type="checkbox" name="feat" value="勤怠・給与・経理">勤怠・給与・経理</label>
+        <label><input type="checkbox" name="feat" value="MEO・AIO対策">MEO・AIO対策</label>
+      </div></fieldset>
+    <div class="fld"><label for="f-when">導入予定時期<span class="opt">任意</span></label>
+      <select id="f-when" name="when"><option value="">選択してください</option><option>すぐにでも</option><option>1か月以内</option><option>3か月以内</option><option>半年以内</option><option>未定・情報収集中</option></select></div>
+    <div class="fld"><label for="f-msg">ご質問・ご要望<span class="opt">任意</span></label><textarea id="f-msg" name="message" rows="3" placeholder="例）今使っているExcelから移行できるか知りたい"></textarea></div>
+    <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+
+    <p class="rq-privacy">ご入力いただいた個人情報は、<a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に沿って取り扱います。内容をご確認・ご同意のうえ、送信してください。</p>
+    <button class="btn btn-doc btn-lg rq-submit" type="submit" id="rqSubmit">同意して資料を受け取る</button>
+    <p class="rq-error" id="rqError" hidden>送信できませんでした。通信の状態をご確認のうえ、もう一度お試しください。うまくいかないときは、公式LINEからご連絡ください。</p>
+  </form>
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>機能・事例</h4>
+          <a href="features.html">機能一覧</a>
+          <a href="guide/moushikomi-nyukin.html">申込・入金管理</a>
+          <a href="guide/hankyo-bunseki.html">反響分析</a>
+          <a href="guide/seiseki-kashika.html">成績可視化</a>
+        </div>
+        <div>
+          <h4>サービス</h4>
+          <a href="index.html">ホーム</a>
+          <a href="blog.html">ブログ</a>
+          <a href="index.html#faq">よくある質問</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+        <div>
+          <h4>会社情報</h4>
+          <a href="../company.html">運営会社</a>
+          <a href="../privacy.html">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+/* 送信先: ATLAS（問い合わせの集約先）の公開受信API。読み取りもできるAPIキーはここに書かない（登録だけの窓口） */
+(function () {
+  var ATLAS_ENDPOINT = 'https://web-production-2f388.up.railway.app/api/public-inquiries';
+  var form = document.getElementById('rqForm');
+  var btn = document.getElementById('rqSubmit');
+  var errEl = document.getElementById('rqError');
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function val(n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; }
+  function checked(n) { return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function (i) { return i.value; }); }
+
+  // 入力し直したら赤い表示を消す
+  form.addEventListener('input', function (e) { var f = e.target.closest('.fld'); if (f) f.classList.remove('bad'); });
+  form.addEventListener('change', function (e) { var f = e.target.closest('.fld'); if (f) f.classList.remove('bad'); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errEl.hidden = true;
+    var first = null;
+    form.querySelectorAll('.fld[data-req]').forEach(function (f) {
+      var el = f.querySelector('input,select');
+      var v = String(el.value || '').trim();
+      var ok = f.getAttribute('data-req') === 'email' ? EMAIL_RE.test(v) : !!v;
+      f.classList.toggle('bad', !ok);
+      if (!ok && !first) first = el;
+    });
+    if (first) { first.focus(); first.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+
+    var kinds = checked('kind'), feats = checked('feat');
+    var detail = [
+      '資料請求：ミエルームでできること 概要資料',
+      '都道府県: ' + val('pref'),
+      val('stores') ? '店舗数: ' + val('stores') : '',
+      kinds.length ? '業種: ' + kinds.join('／') : '',
+      feats.length ? '興味のある機能: ' + feats.join('／') : '',
+      val('when') ? '導入予定時期: ' + val('when') : '',
+      val('message') ? 'ご質問・ご要望: ' + val('message') : ''
+    ].filter(Boolean).join('\n');
+
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+
+    // ミルページ（自社CMS）の問い合わせ管理にも記録する。ATLAS への送信とは独立（失敗しても続ける）
+    var mp = window.MILPAGE || {};
+    var mpDone = Promise.resolve();
+    if (mp.origin && mp.storeId) {
+      mpDone = fetch(mp.origin + '/api/public/inquiry?store=' + encodeURIComponent(mp.storeId) + '&source=mieroom-doc', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+        body: JSON.stringify({ name: val('name'), email: val('email'), phone: val('phone'),
+          type: '資料請求（ミエルーム）', message: detail, website: val('_hp') })
+      }).catch(function () {});
+    }
+
+    var atlasBody = ['資料請求：ミエルームでできること 概要資料', val('message') ? 'ご質問・ご要望: ' + val('message') : ''].filter(Boolean).join('\n');
+    fetch(ATLAS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'ミエルーム 資料請求',
+        business: 'ミエルーム',
+        name: val('name'),
+        email: val('email'),
+        phone: val('phone'),
+        company: val('company'),
+        subject: '資料請求：ミエルーム概要資料',
+        body: atlasBody,
+        // 以下は ATLAS 側で「項目名: 値」の形でメモに集約される
+        '都道府県': val('pref'),
+        store_count: val('stores'),
+        '業種': kinds.join('／'),
+        '興味のある機能': feats.join('／'),
+        '導入予定時期': val('when'),
+        _hp: val('_hp')
+      })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      try { sessionStorage.setItem('mr_doc_sent', '1'); } catch (x) {}   // お礼ページで成果（Lead）を計測する印
+      var go = function () { location.href = 'thanks.html'; };
+      Promise.race([mpDone, new Promise(function (r) { setTimeout(r, 1500); })]).then(go, go);
+    }).catch(function (err) {
+      console.error('[資料請求] 送信に失敗:', err);
+      errEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = '同意して資料を受け取る';
+    });
+  });
+})();
+</script>
+<script src="../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

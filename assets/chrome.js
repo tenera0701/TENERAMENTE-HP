@@ -86,6 +86,7 @@
           <a href="blog.html">ブログ</a>
           <a href="shindan.html">AI無料診断</a>
           <a href="contact.html">お問い合わせ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
         </div>
       </div>
       <div class="bottom"><span>© 2026 TENERAMENTE Inc.</span><span>Tenderly · Surely · Swiftly — Nagoya, Japan</span></div>
