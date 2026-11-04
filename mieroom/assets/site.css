@@ -531,3 +531,22 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
   .post-body .spec th{width:36%;padding:11px 12px}
   .post-body .spec td{padding:11px 12px}
 }
+
+/* PCで横に広く使う記事（META "wide": true。2026-11-04 社長の指示「PCはPCサイズに」）
+   1024px以上: 題名の右にカバー、本文は左に目次を固定した2列。狭い画面は今までどおり1列 */
+.post-hero-cover img{display:block;width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
+.post-hero-grid > div:first-child{min-width:0}
+@media(max-width:1023px){
+  .post-hero-cover{margin:24px 0 8px}
+}
+@media(min-width:1024px){
+  .post-wide .post-narrow{max-width:1160px}
+  .post-wide .post-hero{padding:44px 0 40px}
+  .post-wide .post-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:44px;align-items:center}
+  .post-wide .post-hero h1{font-size:31px}
+  .post-wide .post-body{max-width:1160px;display:grid;grid-template-columns:250px minmax(0,1fr);column-gap:52px;padding-top:44px}
+  .post-wide .post-body > *{grid-column:2}
+  .post-wide .post-body > .post-toc{grid-column:1;grid-row:1 / span 400;align-self:start;position:sticky;top:96px;margin:0;max-height:calc(100vh - 120px);overflow:auto;padding:18px 18px}
+  .post-wide .post-toc a{font-size:13px;padding:8px 0;gap:8px}
+  .post-wide .inline-cta{max-width:1160px}
+}

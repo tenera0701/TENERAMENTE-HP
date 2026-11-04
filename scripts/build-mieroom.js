@@ -247,7 +247,7 @@ ${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
 }
 </style>
 </head>
-<body>
+<body${p.wide ? ' class="post-wide"' : ''}>
 
 <header class="site">
   <div class="wrap nav">
@@ -280,7 +280,7 @@ ${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
         <span>${esc(p.category)}</span>
       </div>
       <span class="post-cat" style="background:linear-gradient(${st.grad})">${esc(p.category)}</span>
-      <h1>${esc(p.title)}</h1>
+      ${p.wide ? '<div class="post-hero-grid"><div>' : ''}<h1>${esc(p.title)}</h1>
       <div class="post-meta">
         <span class="av">ミ</span>
         <span>ミエルーム編集部</span>
@@ -288,11 +288,12 @@ ${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
         <span>${dotDate(p.date)}</span>
         <span class="sep"></span>
         <span>${p.readMin}分で読める</span>
-      </div>
+      </div>${p.wide && p.cover ? `</div>
+      <div class="post-hero-cover"><img src="../${p.coverHero || p.cover}" alt="${esc(p.title)}" width="1200" height="675" decoding="async"></div></div>` : p.wide ? '</div></div>' : ''}
     </div>
   </div>
 </section>
-<div class="post-cover">
+${p.wide && p.cover ? '' : `<div class="post-cover">
   ${p.cover ? `<div class="band band--img"><img src="../${p.coverHero || p.cover}" alt="${esc(p.title)}" width="1200" height="675" decoding="async"></div>`
   : coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
   : `<div class="band" style="background:linear-gradient(${st.grad})">
@@ -300,7 +301,7 @@ ${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
     <span class="ring" style="width:130px;height:130px;bottom:-30px;left:80px"></span>
     <svg viewBox="0 0 24 24">${st.icon}</svg>
   </div>`}
-</div>
+</div>`}
 <div class="post-body">
 ${p.bodyHtml}
 ${tags ? `\n  <div class="post-tags">${tags}</div>` : ''}
@@ -419,6 +420,8 @@ function main() {
       excerpt: meta.excerpt, tags: meta.tags || [],
       hook: meta.hook || '',
       pinned: meta.pinned === true,
+      // "wide": true の記事はPCで横に広く使う（目次を左に固定・題名の横にカバー）。比較表の多い記事向け（2026-11-04 社長の指示「PCはPCサイズに」）
+      wide: meta.wide === true,
       readMin: meta.readMin || readMinutes(body),
       toc,
       bodyHtml: insertToc(html, toc),
