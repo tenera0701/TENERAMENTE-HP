@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-04-meo-seika-hoshu-tsukigaku.png"
+    "image": "assets/img/covers/2026-11-04-meo-seika-hoshu-tsukigaku.png",
+    "imageHero": "assets/img/covers/2026-11-04-meo-seika-hoshu-tsukigaku.webp",
+    "imageCard": "assets/img/covers/2026-11-04-meo-seika-hoshu-tsukigaku-card.webp"
   },
   {
     "slug": "2026-11-03-ai-donyu-sodansaki",
