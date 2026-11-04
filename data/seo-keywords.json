@@ -1289,7 +1289,9 @@
         "2026-09-04-ai-kaihatsu-kigyo-erabikata",
         "2026-09-07-gyomu-app-naisei-gaichu-handan"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-05-nagoya-gyomu-system-kaihatsu",
+      "doneAt": "2026-11-04"
     },
     {
       "id": "k108",
