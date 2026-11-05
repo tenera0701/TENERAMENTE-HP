@@ -21,6 +21,7 @@
 .rq-hero .tag{display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:13px;color:#fff;background:var(--blue);padding:6px 16px;border-radius:999px;letter-spacing:.04em}
 .rq-hero h1{font-size:clamp(26px,4.2vw,44px);font-weight:900;line-height:1.32;margin-top:14px;color:var(--ink)}
 .rq-hero h1 em{font-style:normal;color:var(--peach-d)}
+.rq-hero h1 .ph{display:inline-block}
 .rq-hero .meta{margin-top:10px;font-size:14px;color:var(--ink-3);font-weight:700}
 .rq-hero .meta span{display:inline-block}
 .rq-hero,.rq{word-break:auto-phrase}
@@ -59,6 +60,10 @@
 .chks input{width:18px;height:18px;accent-color:var(--blue);flex:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .rq-privacy{margin-top:22px;font-size:13px;line-height:1.85;color:var(--ink-2);background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.rq-privacy p{margin:0}
+.fld > label.rq-consent,.rq-consent{display:flex;margin-bottom:0;align-items:center;gap:10px;margin-top:10px;font-size:14.5px;font-weight:700;color:var(--ink);cursor:pointer}
+.rq-consent input{width:20px;height:20px;accent-color:var(--blue);flex:none}
+.fld.rq-privacy.bad{border-color:#d14b2b;background:#fff7f5}
 .rq-privacy a{color:var(--blue-d);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .rq-submit{width:100%;justify-content:center;margin-top:18px}
 .rq-submit[disabled]{opacity:.6;cursor:wait;transform:none}
@@ -128,7 +133,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="rq-hero">
   <div class="wrap">
     <span class="tag">お役立ち資料ダウンロード</span>
-    <h1>ミエルームで<em>できること</em><br>概要資料</h1>
+    <h1><span class="ph">ミエルームで<em>できること</em></span> <span class="ph">概要資料</span></h1>
     <p class="meta"><span>PDF・14ページ ／</span> <span>送信後すぐにダウンロードできます</span></p>
   </div>
 </section>
@@ -160,7 +165,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
     <div class="fld" data-req><label for="f-company">会社名<span class="req">*</span></label><input type="text" id="f-company" name="company" autocomplete="organization"><p class="msg">この必須項目を入力してください。</p></div>
     <div class="fld" data-req><label for="f-name">お名前<span class="req">*</span></label><input type="text" id="f-name" name="name" autocomplete="name"><p class="msg">この必須項目を入力してください。</p></div>
-    <div class="fld" data-req><label for="f-phone">電話番号<span class="req">*</span></label><input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel"><p class="msg">この必須項目を入力してください。</p></div>
+    <div class="fld" data-req="tel"><label for="f-phone">電話番号<span class="req">*</span></label><input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="例）090-1234-5678" maxlength="16"><p class="msg">電話番号を数字で入力してください（例：090-1234-5678）。</p></div>
     <div class="fld" data-req="email"><label for="f-email">メールアドレス<span class="req">*</span></label><input type="email" id="f-email" name="email" autocomplete="email" inputmode="email"><p class="msg">メールアドレスを正しく入力してください。</p></div>
     <div class="fld" data-req><label for="f-pref">都道府県<span class="req">*</span></label>
       <select id="f-pref" name="pref"><option value="">選択してください</option><option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option><option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option><option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option></select>
@@ -191,7 +196,11 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="fld"><label for="f-msg">ご質問・ご要望<span class="opt">任意</span></label><textarea id="f-msg" name="message" rows="3" placeholder="例）今使っているExcelから移行できるか知りたい"></textarea></div>
     <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
 
-    <p class="rq-privacy">ご入力いただいた個人情報は、<a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に沿って取り扱います。内容をご確認・ご同意のうえ、送信してください。</p>
+    <div class="fld rq-privacy" data-req="consent">
+      <p>ご入力いただいた個人情報は、<a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に沿って取り扱います。</p>
+      <label class="rq-consent"><input type="checkbox" id="f-consent" name="consent"><span>プライバシーポリシーに同意する<span class="req">*</span></span></label>
+      <p class="msg">プライバシーポリシーへの同意にチェックを入れてください。</p>
+    </div>
     <button class="btn btn-doc btn-lg rq-submit" type="submit" id="rqSubmit">同意して資料を受け取る</button>
     <p class="rq-error" id="rqError" hidden>送信できませんでした。通信の状態をご確認のうえ、もう一度お試しください。うまくいかないときは、公式LINEからご連絡ください。</p>
   </form>
@@ -241,6 +250,14 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   var btn = document.getElementById('rqSubmit');
   var errEl = document.getElementById('rqError');
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // 電話番号: 全角の数字・ハイフンは半角にそろえ、数字とハイフン以外は入らないようにする。0から始まる10〜11桁だけ受け付ける
+  var phone = document.getElementById('f-phone');
+  function toHalf(v) { return String(v || '').replace(/[０-９]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); }).replace(/[－ー―‐−]/g, '-'); }
+  phone.addEventListener('input', function () {
+    var v = toHalf(phone.value).replace(/[^0-9-]/g, '');
+    if (v !== phone.value) phone.value = v;
+  });
+  function telOk(v) { return /^0\d{9,10}$/.test(toHalf(v).replace(/-/g, '')); }
 
   function val(n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; }
   function checked(n) { return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function (i) { return i.value; }); }
@@ -256,7 +273,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     form.querySelectorAll('.fld[data-req]').forEach(function (f) {
       var el = f.querySelector('input,select');
       var v = String(el.value || '').trim();
-      var ok = f.getAttribute('data-req') === 'email' ? EMAIL_RE.test(v) : !!v;
+      var kind = f.getAttribute('data-req');
+      var ok = kind === 'email' ? EMAIL_RE.test(v) : kind === 'tel' ? telOk(v) : kind === 'consent' ? el.checked : !!v;
       f.classList.toggle('bad', !ok);
       if (!ok && !first) first = el;
     });
