@@ -76,7 +76,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="ty-mail">
       <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></span>
       <div>
-        <b id="tyMailTo">概要資料（PDF）を、ご入力のメールアドレスにお送りしました。</b>
+        <b id="tyMailTo">概要資料（PDF）を、ご入力のメールアドレスにお送りします。</b>
         <small>数分たっても届かないときは、迷惑メールのフォルダもご確認ください。</small>
       </div>
     </div>
@@ -134,7 +134,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     var to = document.getElementById('tyMailTo');
     to.textContent = '概要資料（PDF）を、';
     var em = document.createElement('span'); em.textContent = pf.email; to.appendChild(em);
-    to.appendChild(document.createTextNode(' にお送りしました。'));
+    to.appendChild(document.createTextNode(' にお送りします。'));
   }
   MieroomReserve.mount(document.getElementById('mrReserve'), {
     api: 'https://web-production-2f388.up.railway.app/api/reserve-menu/nuhrqqXkzZ6zkLoE',
