@@ -302,6 +302,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       const t = i.closest('label').querySelector('.o-t');
       return t ? t.textContent.trim() : i.value;
     });
+    // ATLAS の事業（サービス）名。相談種別を1つだけ選んだときだけ付ける（ATLAS の自動返信をサービスごとに分けるため）
+    const BIZ = { app: 'WEBアプリ開発', hp: 'HP・LP制作', meo: 'MEO運用代行', ai: 'AI活用支援' };
+    const bizName = () => {
+      const v = Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i => i.value);
+      return v.length === 1 ? (BIZ[v[0]] || '') : '';
+    };
 
     const btn = document.getElementById('submitBtn');
     const errEl = document.getElementById('sendError');
@@ -339,6 +345,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           source: 'TENERAMENTE HP',
+          business: bizName(),
           name: form.name.value.trim(),
           email: form.email.value.trim(),
           phone: form.phone.value.trim(),

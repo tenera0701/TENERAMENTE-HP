@@ -1,0 +1,89 @@
+/* ===== オンライン説明の予約カレンダー（reserve.js が描く）=====
+   資料請求のお礼ページ（thanks.html）と予約ページ（reserve.html）で使う。空き日時は ATLAS のカレンダーから取る */
+.mrv{max-width:880px;margin:30px auto 0;background:#fff;border:1px solid var(--line);border-radius:22px;
+  box-shadow:0 26px 60px -36px rgba(13,43,38,.45);text-align:left;overflow:hidden;word-break:auto-phrase}
+.mrv-load,.mrv-fail{padding:44px 24px;text-align:center;font-size:14.5px;color:var(--ink-2);line-height:1.9}
+.mrv-fail b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
+.mrv-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+.mrv-col{padding:26px 28px}
+.mrv-col + .mrv-col{border-left:1px solid var(--line);background:var(--bg-soft)}
+.mrv-step{display:flex;align-items:center;gap:9px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:15px;color:var(--ink)}
+.mrv-step i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
+  background:var(--blue);color:#fff;font-size:12.5px}
+.mrv-hd{display:flex;align-items:center;justify-content:space-between;margin:16px 0 10px}
+.mrv-hd b{font-size:16px;font-weight:900}
+.mrv-nav{width:36px;height:34px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:18px;
+  color:var(--ink);cursor:pointer;line-height:1}
+.mrv-nav:disabled{opacity:.3;cursor:default}
+.mrv-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.mrv-dw{font-size:11.5px;font-weight:700;color:var(--ink-3);text-align:center;padding:3px 0 5px}
+.mrv-dw.sun{color:#d14b2b}.mrv-dw.sat{color:#2f6fd6}
+.mrv-d{height:46px;border-radius:11px;border:1.5px solid transparent;background:none;font-family:inherit;font-size:14.5px;
+  color:#c3ccc8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0}
+.mrv-d.ok{color:var(--ink);font-weight:800;background:var(--sky);border-color:var(--sky-2);cursor:pointer;
+  transition:border-color .15s,transform .15s}
+.mrv-d.ok::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue);margin-top:3px}
+.mrv-d.ok:hover{border-color:var(--blue)}
+.mrv-d.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.mrv-d.sel::after{background:#fff}
+.mrv-legend{display:flex;gap:14px;margin-top:12px;font-size:12px;color:var(--ink-3)}
+.mrv-legend span{display:inline-flex;align-items:center;gap:6px}
+.mrv-legend span::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--sky);border:1.5px solid var(--sky-2)}
+.mrv-legend span + span::before{background:#fff;border-color:var(--line)}
+.mrv-date{font-size:15px;font-weight:900;margin:16px 0 10px;color:var(--ink)}
+.mrv-times{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mrv-t{height:44px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-family:inherit;font-size:15px;
+  font-weight:800;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.mrv-t:hover{border-color:var(--blue)}
+.mrv-t.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.mrv-empty{font-size:13.5px;color:var(--ink-3);line-height:1.9;padding:22px 4px;text-align:center}
+.mrv-form{border-top:1px solid var(--line);padding:26px 28px 30px;background:#fff}
+.mrv-when{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--peach-soft);border:1px solid #f6d3c6;
+  border-radius:14px;padding:13px 16px;margin:14px 0 18px}
+.mrv-when b{font-size:17px;font-weight:900;color:var(--ink)}
+.mrv-when span{font-size:12.5px;font-weight:700;color:var(--peach-d);background:#fff;border-radius:999px;padding:3px 11px}
+.mrv-who{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:14px;padding:13px 16px;font-size:14px;line-height:1.85;color:var(--ink-2)}
+.mrv-who > div{min-width:0;overflow-wrap:anywhere}
+.mrv-who b{color:var(--ink)}
+.mrv-who button{flex:none;border:none;background:none;color:var(--blue-d);font-weight:800;font-size:13px;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;font-family:inherit;padding:2px 0}
+.mrv-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.mrv-fields[hidden]{display:none}
+.mrv-f label{display:block;font-size:13px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.mrv-f label em{font-style:normal;color:#d14b2b;margin-left:4px}
+.mrv-f input,.mrv-f textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:15px;
+  font-family:inherit;color:var(--ink);background:#fff}
+.mrv-f input:focus,.mrv-f textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(20,160,133,.14)}
+.mrv-f textarea{min-height:76px;resize:vertical}
+.mrv-f.full{grid-column:1/-1}
+.mrv-f.bad input{border-color:#d14b2b;background:#fff7f5}
+.mrv-memo{margin-top:14px}
+.mrv-agree{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;font-weight:700;cursor:pointer}
+.mrv-agree input{width:19px;height:19px;accent-color:var(--blue);flex:none}
+.mrv-agree a{color:var(--blue-d);text-decoration:underline;text-underline-offset:3px}
+.mrv-agree.bad{color:#d14b2b}
+.mrv-note{font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.8}
+.mrv-note a{color:var(--ink-3);text-decoration:underline;text-underline-offset:3px}
+.mrv-err{background:#fff2ee;border:1px solid #f3c2b5;color:#b23a1d;border-radius:11px;padding:10px 14px;font-size:13.5px;
+  font-weight:700;margin-top:14px;line-height:1.7}
+.mrv-err[hidden]{display:none}
+.mrv-go{margin-top:18px;display:flex;justify-content:center}
+.mrv-go .btn{min-width:300px;justify-content:center}
+.mrv-go .btn:disabled{opacity:.6;cursor:default}
+.mrv-done{padding:44px 26px 46px;text-align:center}
+.mrv-done .ok{width:58px;height:58px;border-radius:50%;background:var(--blue);color:#fff;display:inline-grid;place-items:center}
+.mrv-done h3{font-family:"Zen Kaku Gothic New";font-size:clamp(20px,3vw,25px);font-weight:900;margin-top:16px}
+.mrv-done .w{display:inline-block;font-size:17px;font-weight:900;background:var(--sky);border-radius:12px;padding:9px 18px;margin-top:14px}
+.mrv-done p{font-size:14.5px;line-height:1.95;color:var(--ink-2);margin-top:14px}
+.mrv-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media(max-width:760px){
+  .mrv{border-radius:18px;margin-top:24px}
+  .mrv-grid{grid-template-columns:1fr}
+  .mrv-col{padding:20px 16px}
+  .mrv-col + .mrv-col{border-left:none;border-top:1px solid var(--line)}
+  .mrv-d{height:42px;font-size:14px}
+  .mrv-form{padding:22px 16px 26px}
+  .mrv-fields{grid-template-columns:1fr}
+  .mrv-go .btn{min-width:0;width:100%}
+}

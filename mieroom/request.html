@@ -328,7 +328,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       })
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      try { sessionStorage.setItem('mr_doc_sent', '1'); } catch (x) {}   // お礼ページで成果（Lead）を計測する印
+      try {
+        sessionStorage.setItem('mr_doc_sent', '1');   // お礼ページで成果（Lead）を計測する印
+        // お礼ページの予約カレンダーで入力し直さなくて済むように、このタブの中だけで引き継ぐ（予約が済んだら消す）
+        sessionStorage.setItem('mr_prefill', JSON.stringify({ company: val('company'), name: val('name'),
+          email: val('email'), phone: val('phone') }));
+      } catch (x) {}
       var go = function () { location.href = 'thanks.html'; };
       Promise.race([mpDone, new Promise(function (r) { setTimeout(r, 1500); })]).then(go, go);
     }).catch(function (err) {

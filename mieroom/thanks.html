@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/reserve.css">
 <style>
 /* 資料請求の送信後のページ（2026-11-05）: お礼 → 資料をその場でダウンロード → オンライン説明の予約 */
 .ty-top,.ty-book,.ty-more{word-break:auto-phrase}
@@ -32,10 +33,9 @@
 .ty-book h2{font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.45;margin-top:12px}
 .ty-book h2 em{font-style:normal;color:var(--peach-d)}
 .ty-book p{font-size:14.5px;line-height:1.95;color:var(--ink-2);margin-top:12px}
-.ty-book .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.ty-line{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:var(--ink-2)}
 .ty-points{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 .ty-points span{font-size:13px;font-weight:700;color:var(--blue-d);background:#fff;border:1px solid var(--sky-2);border-radius:999px;padding:6px 14px}
-.btn[hidden]{display:none}
 .ty-foot{margin-top:34px;font-size:12.5px}
 .ty-foot a{color:var(--ink-3);text-decoration:underline;text-underline-offset:3px}
 .ty-more{text-align:center;padding:40px 0 70px}
@@ -47,7 +47,7 @@
   .ty-dl img{max-width:260px;margin:0 auto}
   .ty-dl .btn{width:100%;justify-content:center}
   .ty-book{margin-top:40px;padding:40px 0 44px}
-  .ty-book .cta-row .btn{width:100%;justify-content:center}
+  .ty-line .btn{width:100%;justify-content:center}
 }
 </style>
 <!-- Meta Pixel Code -->
@@ -74,7 +74,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <a class="logo" href="index.html"><img src="assets/logo-mark-sm.webp" alt=""><span><b>ミエ</b><i>ルーム</i></span></a>
     <h1><span class="ph">資料請求</span><span class="ph">ありがとうございます。</span></h1>
-    <p>ミエルームの概要資料は、下のボタンからダウンロードできます。<br>後ほど、担当者よりご連絡いたします。</p>
+    <p>ミエルームの概要資料は、下のボタンからダウンロードできます。<br>画面を見ながらのご説明をご希望の方は、その下のカレンダーから日程をお選びください。</p>
   </div>
 </section>
 
@@ -93,17 +93,18 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   </div>
 </div>
 
-<section class="ty-book">
+<section class="ty-book" id="book">
   <div class="wrap">
-    <span class="hd" id="bookHd">ご都合のよい日時をお知らせください</span>
-    <h2>実際の画面を見ながら、<br><em>オンライン</em>でご説明します。</h2>
-    <p>今の業務の進め方をうかがいながら、ミエルームでどこまで楽になるかを一緒に確かめます。<br><span id="bookLead">ご希望の方は、公式LINEで日程をご相談ください。</span></p>
+    <span class="hd">続けて、日程をお選びください</span>
+    <h2>実際の画面を見ながら、<br><em>オンライン</em>で1時間ご説明します。</h2>
+    <p>今の業務の進め方やお困りのことをうかがいながら、ミエルームでどこまで楽になるかを一緒に確かめます。<br>ご予約は、明日以降の空いている日時から選べます。</p>
     <div class="ty-points"><span>オンラインで完結</span><span>画面を見ながらご説明</span><span>オプションと費用もご案内</span></div>
-    <div class="cta-row" id="bookRow">
-      <a class="btn btn-doc btn-lg" id="bookBtn" target="_blank" rel="noopener" hidden>日程を選んで予約する</a>
-      <a class="btn btn-line btn-lg" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+    <div id="mrReserve"></div>
+    <div class="ty-line">
+      <span>ご都合のよい日時が無いときは</span>
+      <a class="btn btn-line-sub" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
-        <span id="lineLabel">公式LINEで日程を相談する</span>
+        LINEで日程を相談する
       </a>
     </div>
   </div>
@@ -120,12 +121,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   </div>
 </section>
 
+<script src="assets/reserve.js"></script>
 <script>
-/* 面談の予約ページ（ATLAS の Web 予約）。
-   ATLAS の「カレンダー → Web予約の設定」に出る予約URL（https://web-production-2f388.up.railway.app/r/〇〇〇〇〇〇）を
-   ここに貼ると「日程を選んで予約する」ボタンが出る。空のあいだは公式LINEで日程を相談してもらう。
-   ATLAS はほかのサイトの中に埋め込めない設定（X-Frame-Options）なので、予約ページは新しいタブで開く。 */
-var RESERVE_URL = '';
 (function () {
   try {
     if (sessionStorage.getItem('mr_doc_sent') === '1') {
@@ -136,15 +133,24 @@ var RESERVE_URL = '';
     }
   } catch (x) {}
 })();
+/* オンライン説明の予約カレンダー。空き日時は ATLAS のカレンダーから取る（ATLAS の予約メニュー
+   「ミエルーム オンライン説明（1時間）」。公開キーは ATLAS の database.py の MIEROOM_MENU_KEY と同じ値）。
+   資料請求フォームで入れた会社名・お名前・連絡先は、このタブの中だけ（sessionStorage）で引き継ぐ */
 (function () {
-  var b = document.getElementById('bookBtn');
-  if (RESERVE_URL) {
-    b.href = RESERVE_URL;
-    b.hidden = false;
-    document.getElementById('lineLabel').textContent = '公式LINEで相談する';
-    document.getElementById('bookHd').textContent = 'お好きな日時でご予約ください';
-    document.getElementById('bookLead').textContent = 'ご希望の方は、下のボタンから日時をお選びください。';
-  }
+  var pf = null;
+  try { pf = JSON.parse(sessionStorage.getItem('mr_prefill') || 'null'); } catch (x) {}
+  MieroomReserve.mount(document.getElementById('mrReserve'), {
+    api: 'https://web-production-2f388.up.railway.app/api/reserve-menu/nuhrqqXkzZ6zkLoE',
+    via: '資料請求のお礼ページ',
+    prefill: pf,
+    consented: !!pf,          // 資料請求のフォームでプライバシーポリシーに同意済み
+    privacyUrl: '../privacy.html',
+    onDone: function () {
+      try { sessionStorage.removeItem('mr_prefill'); } catch (x) {}
+      if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'ミエルーム オンライン説明' });
+      if (typeof gtag === 'function') gtag('event', 'schedule_meeting', { form: 'mieroom_online' });
+    }
+  });
 })();
 </script>
 <script src="../assets/milpage.js" async></script>

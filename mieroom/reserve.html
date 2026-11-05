@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>オンライン説明のご予約｜ミエルーム</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/reserve.css">
+<style>
+/* オンライン説明の予約ページ（2026-11-05）。資料請求の自動返信メールの「日時を選ぶ」リンクから開く */
+.rv-top,.rv-book,.rv-more{word-break:auto-phrase}
+.rv-top{text-align:center;padding:50px 0 4px}
+.rv-top .logo{display:inline-flex;align-items:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:24px}
+.rv-top .logo img{width:40px;height:40px}
+.rv-top .logo b{color:var(--blue)} .rv-top .logo i{font-style:normal;color:var(--peach-d)}
+.rv-top h1{font-size:clamp(25px,3.8vw,36px);font-weight:900;margin-top:20px;line-height:1.4}
+.rv-top h1 .ph{display:inline-block}
+.rv-top h1 em{font-style:normal;color:var(--peach-d)}
+.rv-top p{font-size:15px;line-height:1.95;color:var(--ink-2);margin-top:12px}
+.rv-points{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.rv-points span{font-size:13px;font-weight:700;color:var(--blue-d);background:var(--sky);border:1px solid var(--sky-2);border-radius:999px;padding:6px 14px}
+.rv-book{padding:4px 0 10px}
+.rv-line{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:var(--ink-2)}
+.rv-more{text-align:center;padding:34px 0 70px}
+.rv-more p{font-size:14px;color:var(--ink-2)}
+.rv-more .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.rv-foot{margin-top:30px;font-size:12.5px}
+.rv-foot a{color:var(--ink-3);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){
+  .rv-top{padding:36px 0 0}
+  .rv-line .btn{width:100%;justify-content:center}
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<section class="rv-top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="assets/logo-mark-sm.webp" alt=""><span><b>ミエ</b><i>ルーム</i></span></a>
+    <h1><span class="ph"><em>オンライン</em>説明の</span><span class="ph">ご予約</span></h1>
+    <p>実際の画面を見ながら、1時間ほどご説明します。<br>ご都合のよい日時をお選びください。</p>
+    <div class="rv-points"><span>オンラインで完結</span><span>画面を見ながらご説明</span><span>オプションと費用もご案内</span></div>
+  </div>
+</section>
+
+<section class="rv-book">
+  <div class="wrap">
+    <div id="mrReserve"></div>
+    <div class="rv-line">
+      <span>ご都合のよい日時が無いときは</span>
+      <a class="btn btn-line-sub" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>
+        LINEで日程を相談する
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="rv-more">
+  <div class="wrap">
+    <p>先に資料をご覧になりたい方は、こちらからお受け取りいただけます。</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" href="request.html">概要資料を受け取る</a>
+      <a class="btn btn-ghost" href="index.html">サイトTOPに戻る</a>
+    </div>
+    <p class="rv-foot"><a href="../privacy.html">プライバシーポリシー</a>　<a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a></p>
+  </div>
+</section>
+
+<script src="assets/reserve.js"></script>
+<script>
+/* 空き日時は ATLAS のカレンダーから取る（ATLAS の予約メニュー「ミエルーム オンライン説明（1時間）」）。
+   同じタブで資料請求したばかりなら、入力した会社名・お名前・連絡先を引き継ぐ */
+(function () {
+  var pf = null;
+  try { pf = JSON.parse(sessionStorage.getItem('mr_prefill') || 'null'); } catch (x) {}
+  MieroomReserve.mount(document.getElementById('mrReserve'), {
+    api: 'https://web-production-2f388.up.railway.app/api/reserve-menu/nuhrqqXkzZ6zkLoE',
+    via: '予約ページ（メールのリンク）',
+    prefill: pf,
+    consented: false,
+    privacyUrl: '../privacy.html',
+    onDone: function () {
+      try { sessionStorage.removeItem('mr_prefill'); } catch (x) {}
+      if (typeof fbq === 'function') fbq('track', 'Schedule', { content_name: 'ミエルーム オンライン説明' });
+      if (typeof gtag === 'function') gtag('event', 'schedule_meeting', { form: 'mieroom_online' });
+    }
+  });
+})();
+</script>
+<script src="../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>
