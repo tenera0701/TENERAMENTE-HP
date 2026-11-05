@@ -1344,7 +1344,9 @@
         "madorizu-tsukurikata",
         "bukken-shokaibun-kakikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "boshu-zumen-obigae",
+      "doneAt": "2026-11-05"
     },
     {
       "id": "m105",
