@@ -184,3 +184,15 @@ html:not(.js) .mf .mf-canvas, html:not(.js) .mf .mf-veil, html:not(.js) .mf .mf-
   .mf.mf--static .mf-stage, html:not(.js) .mf .mf-stage { padding-top: 34px; padding-bottom: 56px; }
   .mf.mf--static h1, html:not(.js) .mf h1 { font-size: 26px; }
 }
+
+/* ---------- 最初の画面のボタンを横一列に（2026-11-05 社長の指示）。資料請求・LINE・デモ発行を小さめにして1行に収める ---------- */
+@media (min-width: 921px) {
+  .mf .cta-row { flex-wrap: nowrap; gap: 10px; }
+  .mf .cta-row .btn-lg { padding: 13px 18px; font-size: 15px; border-radius: 14px; white-space: nowrap; flex: none; }
+  .mf .cta-row .btn-lg .ico { width: 18px; height: 18px; }
+  .mf .cta-row .hero-badge .sub { font-size: 10.5px; }
+}
+@media (min-width: 921px) and (max-width: 1280px) {
+  .mf .cta-row .btn-lg { padding: 12px 14px; font-size: 14px; }
+  .mf .cta-row .hero-badge .sub { display: none; }
+}
