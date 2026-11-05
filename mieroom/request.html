@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>資料請求（ミエルームでできること 概要資料）｜ミエルーム｜賃貸仲介のためのAI業務管理ツール</title>
-<meta name="description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料（PDF・14ページ）を、フォームの送信後すぐにダウンロードいただけます。申込・入金管理、反響分析、契約書類の自動作成など、主な機能を実際の画面でご紹介します。">
+<meta name="description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料（PDF・15ページ）を、フォームの送信後すぐにメールでお送りします。申込・入金管理、反響分析、契約書類の自動作成など、主な機能を実際の画面でご紹介します。">
 <link rel="canonical" href="https://teneramente.jp/mieroom/request.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ミエルームでできること 概要資料｜資料請求">
-<meta property="og:description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料。送信後すぐにダウンロードできます。">
+<meta property="og:description" content="賃貸仲介会社のための業務管理ツール「ミエルーム」の概要資料。送信後すぐにメールでお届けします。">
 <meta property="og:url" content="https://teneramente.jp/mieroom/request.html">
 <meta property="og:image" content="https://teneramente.jp/mieroom/assets/docs/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,9 +132,9 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 
 <section class="rq-hero">
   <div class="wrap">
-    <span class="tag">お役立ち資料ダウンロード</span>
+    <span class="tag">お役立ち資料</span>
     <h1><span class="ph">ミエルームで<em>できること</em></span> <span class="ph">概要資料</span></h1>
-    <p class="meta"><span>PDF・14ページ ／</span> <span>送信後すぐにダウンロードできます</span></p>
+    <p class="meta"><span>PDF・15ページ ／</span> <span>送信後すぐにメールでお届けします</span></p>
   </div>
 </section>
 
@@ -145,6 +145,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <h2>ミエルームの概要資料はこちら</h2>
     <p class="desc">反響の受付から、接客・申込・契約・入金、売上の集計まで。<br>賃貸仲介の毎日の仕事をひとつの画面にまとめる<br>ミエルームの全体像を、実際の画面でご紹介します。</p>
     <ul class="rq-pts">
+      <li>他社にない、ミエルームの独自機能</li>
       <li>現場のお悩みと、ミエルームでできること</li>
       <li>申込・入金管理、反響分析、契約書類の自動作成など、主な機能を実際の画面で</li>
       <li>導入の流れと、よくあるご質問</li>
@@ -152,10 +153,10 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     <div class="rq-thumbs">
       <p>資料の中身（一部）</p>
       <div class="row">
-        <img src="assets/docs/page-02.webp" alt="資料の2ページ目：お悩み" loading="lazy" width="560" height="396">
-        <img src="assets/docs/page-04.webp" alt="資料の4ページ目：機能の全体像" loading="lazy" width="560" height="396">
-        <img src="assets/docs/page-05.webp" alt="資料の5ページ目：申込・入金管理" loading="lazy" width="560" height="396">
-        <img src="assets/docs/page-09.webp" alt="資料の9ページ目：業者間サイト連携" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-02.webp" alt="資料の2ページ目：他社にない独自機能" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-05.webp" alt="資料の5ページ目：機能の全体像" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-06.webp" alt="資料の6ページ目：申込・入金管理" loading="lazy" width="560" height="396">
+        <img src="assets/docs/page-10.webp" alt="資料の10ページ目：業者間サイト連携" loading="lazy" width="560" height="396">
       </div>
     </div>
   </div>
@@ -281,30 +282,12 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     if (first) { first.focus(); first.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
 
     var kinds = checked('kind'), feats = checked('feat');
-    var detail = [
-      '資料請求：ミエルームでできること 概要資料',
-      '都道府県: ' + val('pref'),
-      val('stores') ? '店舗数: ' + val('stores') : '',
-      kinds.length ? '業種: ' + kinds.join('／') : '',
-      feats.length ? '興味のある機能: ' + feats.join('／') : '',
-      val('when') ? '導入予定時期: ' + val('when') : '',
-      val('message') ? 'ご質問・ご要望: ' + val('message') : ''
-    ].filter(Boolean).join('\n');
 
     btn.disabled = true;
     btn.textContent = '送信中…';
 
-    // ミルページ（自社CMS）の問い合わせ管理にも記録する。ATLAS への送信とは独立（失敗しても続ける）
-    var mp = window.MILPAGE || {};
-    var mpDone = Promise.resolve();
-    if (mp.origin && mp.storeId) {
-      mpDone = fetch(mp.origin + '/api/public/inquiry?store=' + encodeURIComponent(mp.storeId) + '&source=mieroom-doc', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
-        body: JSON.stringify({ name: val('name'), email: val('email'), phone: val('phone'),
-          type: '資料請求（ミエルーム）', message: detail, website: val('_hp') })
-      }).catch(function () {});
-    }
-
+    // 資料請求は ATLAS だけに送る（2026-11-06）。以前はミルページにも記録していたが、ミルページの通知が
+    // 「【ミルページ】新しい問い合わせ」で届き、ミエルームの資料請求と分からなかったため。資料は ATLAS がメールで送る
     var atlasBody = ['資料請求：ミエルームでできること 概要資料', val('message') ? 'ご質問・ご要望: ' + val('message') : ''].filter(Boolean).join('\n');
     fetch(ATLAS_ENDPOINT, {
       method: 'POST',
@@ -334,8 +317,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         sessionStorage.setItem('mr_prefill', JSON.stringify({ company: val('company'), name: val('name'),
           email: val('email'), phone: val('phone') }));
       } catch (x) {}
-      var go = function () { location.href = 'thanks.html'; };
-      Promise.race([mpDone, new Promise(function (r) { setTimeout(r, 1500); })]).then(go, go);
+      location.href = 'thanks.html';
     }).catch(function (err) {
       console.error('[資料請求] 送信に失敗:', err);
       errEl.hidden = false;

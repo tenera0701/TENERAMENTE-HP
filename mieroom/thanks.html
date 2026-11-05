@@ -11,22 +11,22 @@
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/reserve.css">
 <style>
-/* 資料請求の送信後のページ（2026-11-05）: お礼 → 資料をその場でダウンロード → オンライン説明の予約 */
+/* 資料請求の送信後のページ: お礼 → 「資料はメールでお送りしました」→ すぐ下にオンライン説明の予約カレンダー
+   （2026-11-06 社長の指示で、その場のダウンロードをやめてメールで送る形に。資料は ATLAS の自動返信が添付して送る） */
 .ty-top,.ty-book,.ty-more{word-break:auto-phrase}
 .ty-top h1 .ph{display:inline-block}
-.ty-top{text-align:center;padding:54px 0 36px}
+.ty-top{text-align:center;padding:50px 0 8px}
 .ty-top .logo{display:inline-flex;align-items:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:24px}
 .ty-top .logo img{width:40px;height:40px}
 .ty-top .logo b{color:var(--blue)} .ty-top .logo i{font-style:normal;color:var(--peach-d)}
 .ty-top h1{font-size:clamp(24px,3.6vw,34px);font-weight:900;margin-top:20px;line-height:1.4}
 .ty-top p{font-size:15px;line-height:1.95;color:var(--ink-2);margin-top:12px}
-.ty-dl{max-width:760px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 28px;box-shadow:0 22px 50px -32px rgba(13,43,38,.4)}
-.ty-dl img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:12px 14px 26px -14px rgba(13,43,38,.5)}
-.ty-dl .k{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:12.5px;letter-spacing:.12em;color:var(--blue)}
-.ty-dl h2{font-size:20px;font-weight:900;margin-top:6px;line-height:1.5}
-.ty-dl .s{font-size:13.5px;color:var(--ink-3);margin-top:4px;font-weight:700}
-.ty-dl .btn{margin-top:16px}
-.ty-book{background:linear-gradient(180deg,#eaf6f2,#e2f3ee);margin-top:56px;padding:52px 0 58px;text-align:center}
+.ty-mail{display:flex;align-items:center;gap:14px;max-width:620px;margin:22px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 20px;text-align:left}
+.ty-mail .ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--sky);color:var(--blue-d);display:grid;place-items:center}
+.ty-mail b{display:block;font-size:15.5px;font-weight:900;color:var(--ink);line-height:1.6}
+.ty-mail b span{overflow-wrap:anywhere}
+.ty-mail small{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px;line-height:1.7}
+.ty-book{background:linear-gradient(180deg,#eaf6f2,#e2f3ee);margin-top:36px;padding:46px 0 58px;text-align:center}
 .ty-book .hd{display:inline-flex;align-items:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:900;font-size:15px;color:var(--blue-d)}
 .ty-book .hd::before,.ty-book .hd::after{content:"";width:16px;height:2px;background:var(--blue-d);transform:rotate(60deg)}
 .ty-book .hd::after{transform:rotate(-60deg)}
@@ -42,11 +42,10 @@
 .ty-more p{font-size:14px;color:var(--ink-2)}
 .ty-more .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 @media(max-width:640px){
-  .ty-top{padding:38px 0 26px}
-  .ty-dl{grid-template-columns:1fr;padding:22px 20px;text-align:center}
-  .ty-dl img{max-width:260px;margin:0 auto}
-  .ty-dl .btn{width:100%;justify-content:center}
-  .ty-book{margin-top:40px;padding:40px 0 44px}
+  .ty-top{padding:36px 0 4px}
+  .ty-mail{padding:13px 15px;gap:12px}
+  .ty-mail .ic{width:40px;height:40px}
+  .ty-book{margin-top:28px;padding:36px 0 44px}
   .ty-line .btn{width:100%;justify-content:center}
 }
 </style>
@@ -74,24 +73,15 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   <div class="wrap">
     <a class="logo" href="index.html"><img src="assets/logo-mark-sm.webp" alt=""><span><b>ミエ</b><i>ルーム</i></span></a>
     <h1><span class="ph">資料請求</span><span class="ph">ありがとうございます。</span></h1>
-    <p>ミエルームの概要資料は、下のボタンからダウンロードできます。<br>画面を見ながらのご説明をご希望の方は、その下のカレンダーから日程をお選びください。</p>
-  </div>
-</section>
-
-<div class="wrap">
-  <div class="ty-dl">
-    <img src="assets/docs/cover.webp" alt="ミエルームでできること 概要資料の表紙" width="960" height="679">
-    <div>
-      <span class="k">DOWNLOAD</span>
-      <h2>ミエルームでできること<br>概要資料</h2>
-      <p class="s">PDF・14ページ</p>
-      <a class="btn btn-doc btn-lg" href="assets/docs/mieroom-overview.pdf" download="ミエルーム_概要資料.pdf" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-        資料をダウンロード
-      </a>
+    <div class="ty-mail">
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></span>
+      <div>
+        <b id="tyMailTo">概要資料（PDF）を、ご入力のメールアドレスにお送りしました。</b>
+        <small>数分たっても届かないときは、迷惑メールのフォルダもご確認ください。</small>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="ty-book" id="book">
   <div class="wrap">
@@ -139,6 +129,13 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 (function () {
   var pf = null;
   try { pf = JSON.parse(sessionStorage.getItem('mr_prefill') || 'null'); } catch (x) {}
+  // 送り先のメールアドレスを見せる(入力の誤りに気づけるように)。textContent で入れる
+  if (pf && pf.email) {
+    var to = document.getElementById('tyMailTo');
+    to.textContent = '概要資料（PDF）を、';
+    var em = document.createElement('span'); em.textContent = pf.email; to.appendChild(em);
+    to.appendChild(document.createTextNode(' にお送りしました。'));
+  }
   MieroomReserve.mount(document.getElementById('mrReserve'), {
     api: 'https://web-production-2f388.up.railway.app/api/reserve-menu/nuhrqqXkzZ6zkLoE',
     via: '資料請求のお礼ページ',
