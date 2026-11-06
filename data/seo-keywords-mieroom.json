@@ -1363,7 +1363,9 @@
         "staff-seiseki-kanri",
         "media-roi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-chukai-kpi",
+      "doneAt": "2026-11-06"
     },
     {
       "id": "m109",
