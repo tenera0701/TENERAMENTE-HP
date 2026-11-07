@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング｜ミエルーム ブログ</title>
+<meta name="description" content="賃貸仲介の店舗でExcelの顧客管理表を作るときの項目設計を、使い道と入力タイミングから整理しました。最低限そろえる項目、追客のために足す項目、入力ルールの決め方、Excelで限界が出るサイン、チェックリストとよくある失敗までまとめています。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/chintai-kokyaku-kanrihyo-koumoku.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング">
+<meta property="og:description" content="賃貸仲介の店舗でExcelの顧客管理表を作るときの項目設計を、使い道と入力タイミングから整理しました。最低限そろえる項目、追客のために足す項目、入力ルールの決め方、Excelで限界が出るサイン、チェックリストとよくある失敗までまとめています。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/chintai-kokyaku-kanrihyo-koumoku.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/covers/chintai-kokyaku-kanrihyo-koumoku.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング","description":"賃貸仲介の店舗でExcelの顧客管理表を作るときの項目設計を、使い道と入力タイミングから整理しました。最低限そろえる項目、追客のために足す項目、入力ルールの決め方、Excelで限界が出るサイン、チェックリストとよくある失敗までまとめています。","datePublished":"2026-11-08","dateModified":"2026-11-08","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/chintai-kokyaku-kanrihyo-koumoku.html","image":"https://teneramente.jp/mieroom/assets/covers/chintai-kokyaku-kanrihyo-koumoku.png","articleSection":"業務効率化","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"顧客管理, Excel, 業務効率化, 追客, 賃貸仲介"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/mieroom/blog.html"},{"@type":"ListItem","position":3,"name":"賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング","item":"https://teneramente.jp/mieroom/articles/chintai-kokyaku-kanrihyo-koumoku.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"顧客管理表の項目は、何列くらいが適切ですか。","acceptedAnswer":{"@type":"Answer","text":"始めるときは8列程度で足ります。受付日、氏名・連絡先、反響の経路、希望条件、入居希望時期、状況、担当者、次にやること・次回連絡日です。これが毎日埋まるようになってから、紹介した物件や断られた理由を足してください。最初から20列を作ると、埋まるのは名前と電話番号だけになります。"}},{"@type":"Question","name":"テンプレートを探していますが、そのまま使えますか。","acceptedAnswer":{"@type":"Answer","text":"項目の見本としては役に立ちますが、そのままでは使いにくいことが多いです。状況の段の名前や、断られた理由の区分は、店舗の運用に合わせて書き換える必要があります。列の参考にとどめ、入力のタイミングと言葉は自店舗で決めてください。"}},{"@type":"Question","name":"顧客管理表と申込管理表は、分けるべきですか。","acceptedAnswer":{"@type":"Answer","text":"初めは分かれていても構いませんが、同じ案件を両方に書いている状態が続くなら、まとめる検討をしてください。分かれていること自体ではなく、同じ内容を二度入力している点が負担になります。申込管理表の作り方は賃貸仲介の申込管理表の作り方に整理しています。"}},{"@type":"Question","name":"過去の顧客データは、どこまで残すべきですか。","acceptedAnswer":{"@type":"Answer","text":"終了した案件も残してください。時期がまだという理由で見送った方は、半年後や一年後の掘り起こしの対象になります。削除するのではなく、状況を終了にして、通常の一覧から外して表示する形が実務的です。個人情報の扱いは、保管期間と閲覧できる人を店舗で決めておいてください。"}},{"@type":"Question","name":"表計算ソフトからシステムに移すとき、入力済みのデータは引き継げますか。","acceptedAnswer":{"@type":"Answer","text":"引き継げます。ミエルームはExcelデータのインポートと初期設定の代行に対応しており、最短即日からのスタートが可能です。移す前に、項目名と状況の言葉を整えておくと、移行後の手直しが少なくなります。デモアカウントを発行していますので、いまの表の項目がどう収まるかを先に確かめていただけます。"}}]}]}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-doc" href="../request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求</a>
+      <a class="btn btn-line btn-line-sub" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>業務効率化</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#37c0a6,#0e8a72)">業務効率化</span>
+      <h1>賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.11.08</span>
+        <span class="sep"></span>
+        <span>8分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band band--img"><img src="../assets/covers/chintai-kokyaku-kanrihyo-koumoku.png" alt="賃貸仲介の顧客管理表（Excel）の項目設計と、システムに移すタイミング" width="1200" height="675" decoding="async"></div>
+</div>
+<div class="post-body">
+<p>顧客管理表を作ろうとして、まず列を並べたところで止まっていませんか。思いつく項目を足していくと、入力する人が追いつかず、半分が空欄の表だけが残ります。<strong>賃貸仲介の顧客管理表は、項目の多さではなく、何に使う項目なのかを決めてから作るのが正しい順番です</strong>。この記事では、最低限そろえる項目、追客のために足す項目、入力のルール、そして表を卒業する時期の見分け方を順に整理します。</p>
+<div class="conclusion">
+<h4>この記事の結論</h4>
+<p>顧客管理表の項目は、使い道で決まります。<strong>「誰がいつ入力するか」が言えない項目は、作っても埋まりません</strong>。まずは本人を特定する項目・希望条件・接客の進み具合・次にやることの4種類だけで始め、追客に使う項目を後から足してください。突き合わせに時間がかかり始めたら、表の限界が来ています。</p>
+</div>
+<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+      <a href="#h1"><span class="n">01</span><span>顧客管理表は、項目を増やすほど使われなくなる</span></a>
+      <a href="#h2"><span class="n">02</span><span>最低限そろえる項目と、その使い道</span></a>
+      <a href="#h3"><span class="n">03</span><span>追客のために足す項目</span></a>
+      <a href="#h4"><span class="n">04</span><span>入力のルールを決める</span></a>
+      <a href="#h5"><span class="n">05</span><span>Excelで限界が出るサイン</span></a>
+      <a href="#h6"><span class="n">06</span><span>よくある失敗とその避け方</span></a>
+      <a href="#h7"><span class="n">07</span><span>自分で進める場合と、ツールに任せる場合の分かれ目</span></a>
+      <a href="#h8"><span class="n">08</span><span>よくある質問</span></a>
+      <a href="#h9"><span class="n">09</span><span>まとめ：項目は使い道から決めると埋まる</span></a>
+    </div>
+  </nav>
+<h2 id="h1">顧客管理表は、項目を増やすほど使われなくなる</h2>
+<p>顧客管理表がうまくいかない理由は、ほとんどが同じです。項目が多すぎて、入力が業務の邪魔になっているからです。</p>
+<p>よくあるのは、ポータルサイトから届く反響メールに書いてある情報を、全部そのまま列にしてしまう形です。項目としては意味がありますが、接客の直後に20列は埋まりません。結果として、埋まるのは名前と電話番号だけになり、表を見ても次に何をすべきか分かりません。</p>
+<p>項目を決めるときの基準は一つです。<strong>その項目を見て、誰かが何かを決めるかどうか</strong>です。見るだけで終わる項目は、記録としては正しくても管理表には不要です。逆に、次の連絡日のように見た人の行動が変わる項目は、少し面倒でも必ず入れてください。</p>
+<h2 id="h2">最低限そろえる項目と、その使い道</h2>
+<p>まず、この範囲だけで店舗は回ります。項目ごとに、何に使うか、いつ入力するかまで決めておきます。</p>
+<div class="tw"><table>
+<thead><tr><th>項目</th><th>何に使うか</th><th>入力するタイミング</th></tr></thead>
+<tbody><tr><td>受付日</td><td>反響からの経過日数を見る</td><td>反響を受けた直後</td></tr>
+<tr><td>氏名・連絡先</td><td>連絡を取る</td><td>反響を受けた直後</td></tr>
+<tr><td>反響の経路</td><td>どの媒体から来たかを把握する</td><td>反響を受けた直後</td></tr>
+<tr><td>希望条件（エリア・家賃・間取り）</td><td>物件を探す、紹介の判断</td><td>一次対応のとき</td></tr>
+<tr><td>入居希望時期</td><td>追客の優先順位を決める</td><td>一次対応のとき</td></tr>
+<tr><td>状況</td><td>いまどの段階かを全員が分かる</td><td>進んだ直後</td></tr>
+<tr><td>担当者</td><td>誰が持っている案件かを決める</td><td>割り振ったとき</td></tr>
+<tr><td>次にやること・次回連絡日</td><td>翌日以降の動きを決める</td><td>連絡するたび</td></tr></tbody>
+</table></div>
+<p>8項目です。このうち迷いやすいのは「状況」です。段の名前を店舗で決めておかないと、人によって書き方が変わります。反響受付・連絡済み・来店予約・来店済み・申込・成約・終了のように、言葉と順番を1枚に書いて共有してください。</p>
+<p>「次にやること」と「次回連絡日」を分けているのは理由があります。日付だけだと、その日に何をするのかが思い出せません。逆に内容だけだと、いつやるかが決まりません。両方そろって初めて、翌朝の動きが決まります。</p>
+<h2 id="h3">追客のために足す項目</h2>
+<p>最低限の項目が埋まるようになってから、追客に使う項目を足します。先に足すと、どちらも埋まらなくなります。</p>
+<p>足す価値があるのは次の3つです。一つ目は、紹介した物件の記録です。何を見せて、どれが響かなかったかが残っていないと、次の提案が前回と似たものになります。物件名を並べるだけで足ります。</p>
+<p>二つ目は、断られた理由です。家賃が高い、エリアが合わない、時期がまだ、他社で決めた——この区分が残っていれば、時期がまだの人だけを後から掘り起こせます。追客の対象を選ぶ作業が、表の並べ替えだけで終わるようになります。</p>
+<p>三つ目は、連絡の手段と反応です。電話が繋がらない人にかけ続けるより、メールやメッセージに切り替えたほうが早い場合があります。どの手段で反応があったかを1列残しておくと、二度目以降の連絡が無駄になりません。</p>
+<div class="callout"><div class="ct"><span class="ci">✓</span>自由記入欄は1つだけにする</div><p>備考のような自由記入の列を複数作ると、同じ内容が別の列に書かれて探せなくなります。自由に書く欄は1つに限り、そこに書いた内容のうち繰り返し出てくるものだけを、後から正式な項目に昇格させてください。</p></div>
+<h2 id="h4">入力のルールを決める</h2>
+<p>項目が決まっても、入力のルールがないと表は崩れます。決めることは3つです。</p>
+<p>誰が入力するか。原則は、お客様と話した本人です。他の人がまとめて入力する形にすると、内容が薄くなり、入力待ちの時間も生まれます。</p>
+<p>いつ入力するか。業務の直後に決めてください。「その日の終わりにまとめて」は、繁忙期に真っ先に崩れます。接客が終わって席に戻ったら状況と次回連絡日だけ更新する、という単位まで小さくするのが続け方です。</p>
+<p>どこまで書くか。文章の長さを決めておきます。次にやることは一行、断られた理由は決めた区分から選ぶ。書き方が自由だと、人によって量が変わり、読むのに時間がかかります。</p>
+<p>そのまま使えるチェックリストとして、表を作ったあとに次の項目を確認してください。</p>
+<ul>
+<li>項目ごとに「誰が・いつ入力するか」が言えるか</li>
+<li>状況の段の名前と順番が1枚にまとまっていて、全員が同じ言葉を使っているか</li>
+<li>次にやることと次回連絡日が、別の列として分かれているか</li>
+<li>自由記入の欄が1つだけになっているか</li>
+<li>断られた理由が、選ぶ形（区分）になっているか</li>
+<li>1人の顧客が1行に収まっているか（同じ人が複数行に分かれていないか）</li>
+<li>空欄が続いている列がないか。あれば、その項目は使われていない</li>
+<li>誰が開いても、翌日やることが分かる状態になっているか</li>
+</ul>
+<h2 id="h5">Excelで限界が出るサイン</h2>
+<p>表計算ソフトで作った顧客管理表は、案件数が少なく、入力する人が限られていれば十分に機能します。限界が出るのは、次のような場面です。</p>
+<figure class="fig"><img src="../assets/figures/chintai-kokyaku-kanrihyo-koumoku.png" alt="入力する人が1人か2人で同時に触らない、顧客の記録だけで完結している、反響の件数を手入力でさばけている、追客の対象を並べ替えだけで絞れるという表計算ソフトで回るうちの状態と、2人以上が同じファイルを開いて最新がどれか分からない、顧客と申込と売上が別ファイルで月末に突き合わせている、ポータルサイトのメールを見て氏名と希望条件を打ち直している、追客の対象を毎回ゼロから作り直しているという限界が出ているときの状態を並べた、賃貸仲介の顧客管理表の見直し時期の図" width="1600" height="778" loading="lazy" decoding="async"><figcaption>右側がひとつでも当てはまったら、見直しの時期です。項目設計は先に固めておいてください。</figcaption></figure>
+<p>同時に編集するようになったとき。2人以上が同じファイルを開くと、上書きや保存の待ちが発生します。最新がどれか分からなくなった時点で、記録としての信頼が落ちます。</p>
+<p>反響と接客と申込を別のファイルで管理し始めたとき。顧客管理表、申込管理表、売上の集計表が別々にあると、月末に突き合わせる作業が発生します。この突き合わせに時間がかかり始めたら、見直しの時期です。</p>
+<p>反響の取り込みが手入力のままのとき。ポータルサイトから届くメールを見て、氏名と希望条件を打ち直す作業は、件数が増えるほど効く負担になります。一次対応が遅れる原因にもなります。</p>
+<p>追客の対象を絞る作業が、毎回ゼロからになるとき。断られた理由や次回連絡日が入っていても、絞り込みを手で作り直しているなら、仕組みにしたほうが早い段階です。</p>
+<p>移すときに何が変わるかは<a href="./excel-to-saas.html">Excel管理からの卒業</a>に、選ぶときの条件は<a href="./chintai-crm-erabikata.html">賃貸仲介の顧客管理（CRM）の選び方</a>に整理しています。</p>
+<h2 id="h6">よくある失敗とその避け方</h2>
+<p><strong>項目を先に全部作る</strong>。入力されない列が増え、表を見ても判断できなくなります。8項目で始めて、足りないものだけを足してください。</p>
+<p><strong>状況の言葉を決めていない</strong>。「追客中」と「連絡済み」が同じ意味で使われ、並べ替えても実態が分かりません。段の名前と順番を先に固定します。</p>
+<p><strong>1人の顧客が複数行に分かれる</strong>。問い合わせごとに行を作ると、同じ人が何行にもなり、履歴が追えません。顧客で1行、やり取りは列か別シートに持たせます。</p>
+<p><strong>次回連絡日を入れていない</strong>。入れていない案件は、必ず放置されます。連絡したら次を入れる、を入力の単位に組み込んでください。</p>
+<p><strong>担当者が空欄のまま</strong>。誰のものでもない案件になり、全員が触らなくなります。反響を受けた時点で割り振ります。</p>
+<p><strong>過去の行を削除する</strong>。終了した案件を消すと、掘り起こしの材料がなくなります。終了として残し、表示だけ分ければ足ります。</p>
+<h2 id="h7">自分で進める場合と、ツールに任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つです。</p>
+<p>一つ目は、入力する人の数です。1人か2人で、同じ時間に触らない運用なら、表計算ソフトで十分に回ります。3人以上が同じ時間に触るようになったら、ファイルの持ち方そのものが問題になります。</p>
+<p>二つ目は、別の表との突き合わせが発生しているかどうかです。顧客の記録だけで完結しているなら、表のままで構いません。申込や入金、売上の集計と行き来して数字を合わせているなら、記録を1か所にまとめたほうが早くなります。</p>
+<p>三つ目は、手入力の量です。反響メールの内容を打ち直す、同じ内容を複数の表に書く、追客の対象を毎回作り直す。この手作業が業務時間の中で目立ってきたら、仕組みに寄せる時期です。</p>
+<p>迷うときは、項目設計だけ先に固めてしまうのが損の少ない進め方です。項目と入力のルールが決まっていれば、表のまま続けることもできますし、後からツールに移すときも、そのまま持っていけます。逆に、項目が曖昧なままツールを変えても、同じ状態が場所を変えて再現されるだけです。</p>
+<h2 id="h8">よくある質問</h2>
+<details class="faq"><summary>顧客管理表の項目は、何列くらいが適切ですか。</summary><div class="faq-a">始めるときは8列程度で足ります。受付日、氏名・連絡先、反響の経路、希望条件、入居希望時期、状況、担当者、次にやること・次回連絡日です。これが毎日埋まるようになってから、紹介した物件や断られた理由を足してください。最初から20列を作ると、埋まるのは名前と電話番号だけになります。</div></details>
+<details class="faq"><summary>テンプレートを探していますが、そのまま使えますか。</summary><div class="faq-a">項目の見本としては役に立ちますが、そのままでは使いにくいことが多いです。状況の段の名前や、断られた理由の区分は、店舗の運用に合わせて書き換える必要があります。列の参考にとどめ、入力のタイミングと言葉は自店舗で決めてください。</div></details>
+<details class="faq"><summary>顧客管理表と申込管理表は、分けるべきですか。</summary><div class="faq-a">初めは分かれていても構いませんが、同じ案件を両方に書いている状態が続くなら、まとめる検討をしてください。分かれていること自体ではなく、同じ内容を二度入力している点が負担になります。申込管理表の作り方は<a href="./moushikomi-kanrihyo-tsukurikata.html">賃貸仲介の申込管理表の作り方</a>に整理しています。</div></details>
+<details class="faq"><summary>過去の顧客データは、どこまで残すべきですか。</summary><div class="faq-a">終了した案件も残してください。時期がまだという理由で見送った方は、半年後や一年後の掘り起こしの対象になります。削除するのではなく、状況を終了にして、通常の一覧から外して表示する形が実務的です。個人情報の扱いは、保管期間と閲覧できる人を店舗で決めておいてください。</div></details>
+<details class="faq"><summary>表計算ソフトからシステムに移すとき、入力済みのデータは引き継げますか。</summary><div class="faq-a">引き継げます。ミエルームはExcelデータのインポートと初期設定の代行に対応しており、最短即日からのスタートが可能です。移す前に、項目名と状況の言葉を整えておくと、移行後の手直しが少なくなります。デモアカウントを発行していますので、いまの表の項目がどう収まるかを先に確かめていただけます。</div></details>
+<h2 id="h9">まとめ：項目は使い道から決めると埋まる</h2>
+<p>顧客管理表で大事なのは、列の数ではありません。本人を特定する項目・希望条件・接客の進み具合・次にやることの4種類から始め、それぞれに「誰がいつ入力するか」を決める。状況の言葉を1枚に固定する。自由記入は1つに限る。この形であれば、繁忙期でも空欄になりません。</p>
+<p>逆に、思いつく項目を先に並べる形にすると、二か月目には名前と電話番号だけの表に戻ります。見ない項目を減らすことが、顧客管理表を続けるいちばんの近道です。</p>
+<p>ミエルームなら、反響の受付から接客・申込・入金までを同じ案件の1行として記録できるので、顧客管理表と申込管理表を別に持って突き合わせる作業がなくなります。フォーム自動取込とメール自動取込で反響の内容がそのまま入るため、氏名や希望条件を打ち直す手間も消え、LINE・SMS自動追客で次回連絡の取りこぼしも減ります。入力は業務の直後に1回で済むので、翌朝の動きを表の並べ替えから作り直す時間がなくなります。他のシステムとの違いは<a href="../compare.html">比較ページ</a>にまとめています。資料のご請求やデモアカウントの発行は、この下のボタンからお気軽にどうぞ。</p>
+
+  <div class="post-tags"><span class="pt">#顧客管理</span><span class="pt">#Excel</span><span class="pt">#業務効率化</span><span class="pt">#追客</span><span class="pt">#賃貸仲介</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <div class="cta-pair"><a class="btn btn-doc" href="../request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求（無料）</a><a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">無料デモアカウント発行</a></div>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>機能・事例</h4>
+          <a href="../features.html">機能一覧</a>
+          <a href="../guide/moushikomi-nyukin.html">申込・入金管理</a>
+          <a href="../guide/hankyo-bunseki.html">反響分析</a>
+          <a href="../guide/seiseki-kashika.html">成績可視化</a></div>
+        <div><h4>サービス</h4>
+          <a href="../index.html">ホーム</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+          <a href="../request.html">資料請求</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a></div>
+        <div><h4>会社情報</h4>
+          <a href="../../company.html">運営会社</a>
+          <a href="../../privacy.html">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>

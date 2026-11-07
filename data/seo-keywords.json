@@ -1346,7 +1346,9 @@
         "2026-10-01-gbp-category-erabikata",
         "2026-10-18-gbp-shashin-erabikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-08-koumuten-meo-taisaku",
+      "doneAt": "2026-11-07"
     },
     {
       "id": "k111",

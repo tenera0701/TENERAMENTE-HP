@@ -1382,7 +1382,9 @@
         "chintai-crm-erabikata",
         "excel-to-saas"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-kokyaku-kanrihyo-koumoku",
+      "doneAt": "2026-11-07"
     },
     {
       "id": "m113",
