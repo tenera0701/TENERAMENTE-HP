@@ -634,6 +634,25 @@ footer{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 .nc-more .ck{color:var(--green);font-weight:900}
 @media(max-width:920px){.ngrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 @media(max-width:560px){.ngrid{grid-template-columns:minmax(0,1fr)}.ncard h3{font-size:16px}}
+/* スマホ: 主要機能・最新機能は横スライド（カードが多く縦に長くなるため）。次のカードが少し見える幅で、画面の端まで流す */
+.slide-bar{display:none}
+@media(max-width:640px){
+  .fgrid,.ngrid{--sg:24px;display:flex;gap:10px;margin:0 calc(var(--sg)*-1);padding:0 0 0 var(--sg);scroll-padding-left:var(--sg);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .fgrid::-webkit-scrollbar,.ngrid::-webkit-scrollbar{display:none}
+  .fgrid::after,.ngrid::after{content:"";flex:0 0 calc(var(--sg) - 10px)} /* 右端の余白（padding-right が効かないブラウザがある） */
+  .fgrid>.fcard{flex:0 0 42vw;min-width:0;scroll-snap-align:start}
+  .ngrid>.ncard{flex:0 0 78vw;min-width:0;scroll-snap-align:start}
+  .fcard:hover{transform:none;box-shadow:none} /* 上に浮くとスライドの枠で切れる */
+  .nc-more ul{gap:7px}
+  .nc-more li{font-size:12.5px;line-height:1.55} /* 一番長いこのカードに全カードの高さが揃うので、下の空きが出ないよう詰める */
+  .slide-bar{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:12px;font-weight:700;color:var(--ink-2)}
+  .sb-track{flex:1;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+  .sb-track i{display:block;height:100%;border-radius:2px;background:var(--blue)}
+  .sol .slide-bar{color:rgba(255,255,255,.78)}
+  .sol .sb-track{background:rgba(255,255,255,.22)}
+  .sol .sb-track i{background:#fff}
+}
+@media(max-width:560px){.fgrid,.ngrid{--sg:18px}}
 
 
 /* ===== NEW: cases section ===== */
@@ -1272,6 +1291,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         <div class="fc-body"><span class="fc-no">16</span><h3><span class="ph">経理・</span><span class="ph">勤怠・給与</span></h3><p><span class="ph">月次PLから</span><span class="ph">給与計算まで。</span></p></div>
       </a>
     </div>
+    <div class="slide-bar reveal" aria-hidden="true"><span>横にスライドできます</span><span class="sb-track"><i></i></span></div>
   </div>
   <div class="sec-wave bot"><svg viewBox="0 0 1440 52" preserveAspectRatio="none"><path d="M0,52 H1440 V27 C1200,52 960,8 720,28 C480,48 240,8 0,30 Z" fill="#f3faf7"/></svg></div>
 </section>
@@ -1317,6 +1337,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         </ul></div>
       </div>
     </div>
+    <div class="slide-bar reveal" aria-hidden="true"><span>横にスライドできます</span><span class="sb-track"><i></i></span></div>
   </div>
 </section>
 
@@ -1715,6 +1736,21 @@ const io=new IntersectionObserver((es)=>{es.forEach(e=>{
   }
 })},{threshold:[0,.02,.05,.1,.14]});
 document.querySelectorAll('.reveal,.r-left,.r-right,.r-pop,.stagger,.bars,.roi-list').forEach(el=>io.observe(el));
+
+// スマホの横スライド（主要機能・最新機能）: 下のバーに今の位置を出す
+document.querySelectorAll('.fgrid,.ngrid').forEach(el=>{
+  const bar=el.nextElementSibling.querySelector('i');
+  const draw=()=>{
+    const all=el.scrollWidth, view=el.clientWidth, max=all-view;
+    if(!view) return;
+    const w=view/all;
+    bar.style.width=(w*100)+'%';
+    bar.style.transform='translateX('+(max>0?el.scrollLeft/max*(1/w-1)*100:0)+'%)';
+  };
+  el.addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});
+  window.addEventListener('resize',draw);
+  draw();
+});
 
 // hero float-card subtle parallax on scroll
 const tl=document.querySelector('.float-tl'), br=document.querySelector('.float-br');
