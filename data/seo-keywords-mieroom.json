@@ -1401,7 +1401,9 @@
         "hankyo-mail-jido-torikomi",
         "lead-response-speed"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "hankyo-jido-henshin-tsukurikata",
+      "doneAt": "2026-11-08"
     },
     {
       "id": "m108",
