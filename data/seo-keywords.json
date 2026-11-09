@@ -1384,7 +1384,9 @@
         "2026-09-04-ai-gyomu-kaizen-susumekata",
         "2026-07-12-ai-gyomu-kaizen-app-kaihatsu"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-10-ai-gyomu-jidoka-irai-hiyo",
+      "doneAt": "2026-11-09"
     },
     {
       "id": "k112",

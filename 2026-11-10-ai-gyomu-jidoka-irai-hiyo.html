@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="AIで業務を自動化したいが何をどこまで頼めばよいか分からない方へ、依頼の形を4つの型に分けて整理しました。最初に小さく試す範囲の選び方、費用が何に対して発生するのか、見積もり依頼の前に揃える材料のチェックリスト、よくある失敗の避け方までまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲" />
+<meta property="og:description" data-meta="og:description" content="AIで業務を自動化したいが何をどこまで頼めばよいか分からない方へ、依頼の形を4つの型に分けて整理しました。最初に小さく試す範囲の選び方、費用が何に対して発生するのか、見積もり依頼の前に揃える材料のチェックリスト、よくある失敗の避け方までまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-10-ai-gyomu-jidoka-irai-hiyo.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-10-ai-gyomu-jidoka-irai-hiyo.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-10-ai-gyomu-jidoka-irai-hiyo.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲" />
+<meta name="twitter:description" data-meta="twitter:description" content="AIで業務を自動化したいが何をどこまで頼めばよいか分からない方へ、依頼の形を4つの型に分けて整理しました。最初に小さく試す範囲の選び方、費用が何に対して発生するのか、見積もり依頼の前に揃える材料のチェックリスト、よくある失敗の避け方までまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-10-ai-gyomu-jidoka-irai-hiyo.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-10-ai-gyomu-jidoka-irai-hiyo";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲","description":"AIで業務を自動化したいが何をどこまで頼めばよいか分からない方へ、依頼の形を4つの型に分けて整理しました。最初に小さく試す範囲の選び方、費用が何に対して発生するのか、見積もり依頼の前に揃える材料のチェックリスト、よくある失敗の避け方までまとめています。","datePublished":"2026-11-10","dateModified":"2026-11-10","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-10-ai-gyomu-jidoka-irai-hiyo.html","image":"https://teneramente.jp/assets/img/covers/2026-11-10-ai-gyomu-jidoka-irai-hiyo.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI活用, 業務自動化, 費用, 依頼, PoC"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲","item":"https://teneramente.jp/2026-11-10-ai-gyomu-jidoka-irai-hiyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"何から自動化すればよいか決まっていない段階でも相談できますか？","acceptedAnswer":{"@type":"Answer","text":"できます。対象を決めてから相談するより、困っている業務をいくつか持ち込んで一緒に順番を決めるほうが早く進みます。どの作業がどれくらいの頻度で発生しているかを言える状態にしておくと、その場で順番を付けられます。"}},{"@type":"Question","name":"既製のAIサービスを契約するのと、作ってもらうのはどちらがよいですか？","acceptedAnswer":{"@type":"Answer","text":"自社の業務を既製のサービスに合わせられるなら、既製のほうが早く始められます。合わせられないのは、自社の帳票や項目が決まっている場合、複数のシステムをまたいで情報を動かす必要がある場合です。判断は、今の手順をどこまで変えられるかで決めてください。"}},{"@type":"Question","name":"社内の情報をAIに入れるのが不安です。","acceptedAnswer":{"@type":"Answer","text":"入れてよい情報の線引きを先に文書にしてください。顧客の氏名、金額、契約内容のどこまでを入れてよいか、誰が判断するかを決めます。法人向けのプランや、入力内容を学習に使わない設定の使い分けも選択肢になります。線引きが決まっていれば、その範囲で実現できる方法を出してもらえます。"}},{"@type":"Question","name":"どれくらいの期間で形になりますか？","acceptedAnswer":{"@type":"Answer","text":"範囲によります。1つの作業に絞り、人が最後に見る型であれば、触って確かめられる形までは短く済みます。逆に、複数の業務をまたぐ範囲や、判断まで任せる型は、確認の設計に時間がかかります。期間を短くしたいなら、最初の範囲を狭めるのが確実です。"}},{"@type":"Question","name":"試してみて合わなかった場合、途中でやめられますか？","acceptedAnswer":{"@type":"Answer","text":"やめる条件を最初に決めておけば、やめられます。試す期間と、続ける判断の基準を依頼の時点で文章にしておいてください。あわせて、入れたデータを取り出せる形かどうかも確認しておくと、別の方法に切り替えるときに困りません。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 10, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">9 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-10-ai-gyomu-jidoka-irai-hiyo.png" alt="AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>AIで業務を自動化する依頼は、範囲が決まらないと見積もりが出ない</a><a href="#h2"><span class="n">02</span>自動化の依頼は、4つの型に分けると決まる</a><a href="#h3"><span class="n">03</span>最初に小さく試す範囲は、こう選ぶ</a><a href="#h4"><span class="n">04</span>費用は「作る」「使い続ける」「直す」の3つに分かれる</a><a href="#h5"><span class="n">05</span>見積もりを依頼するときに揃えておく材料</a><a href="#h6"><span class="n">06</span>小さく試したあと、広げるかどうかの判断</a><a href="#h7"><span class="n">07</span>よくある失敗と、その避け方</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：範囲が1文で言えれば、費用も進め方も決まる</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">AIで業務を自動化したいと思っても、何をどこまで頼めばよいのかは見えにくいものです。結論から申し上げると、<strong>依頼の前に決めるのは使うツールではなく、どの作業のどこからどこまでを機械に渡すかという範囲です</strong>。範囲が1文で言えれば、費用の見積もりも、小さく試す形も、そこから決められます。この記事では自動化の依頼を4つの型に分け、最初に試す範囲の選び方と費用の考え方を順に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>AI業務自動化の費用は、作る費用だけでは決まりません。<strong>作る費用・使い続ける費用・直す費用の3つに分けて見ると比較できる形になります</strong>。そしてこの3つを出してもらうには、対象の作業を1つに絞り、入口と出口を言葉にしておく必要があります。範囲が決まっていない依頼には、どの相談先も概算しか出せません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>AIで業務を自動化する依頼は、範囲が決まらないと見積もりが出ない</h2>
+<p>「AIで業務を自動化したい」という相談は増えていますが、この一文のままでは見積もりが出ません。自動化という言葉が指す範囲が、話す人によってまったく違うからです。</p>
+<p>たとえば同じ「問い合わせ対応を自動化したい」でも、中身は分かれます。届いたメールから顧客名と要件を取り出して台帳に入れるところまでなのか、返信の下書きまで作るのか、簡単な質問には人を介さず返してしまうのか。この3つは作るものも、費用も、気をつける点も違います。</p>
+<p>作る側も推測で金額を出せば、後で食い違います。だから最初にやるのは、ツールを選ぶことではありません。<strong>対象の作業を1つに絞り、その入口と出口を言葉にすることが出発点です</strong>。進め方の全体像は<a href="2026-09-04-ai-gyomu-kaizen-susumekata.html">AI業務改善の進め方</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>自動化の依頼は、4つの型に分けると決まる</h2>
+<p>実際の相談を分解すると、頼みたいことはだいたい次の4つの型のどれかに収まります。型が決まると、頼み方も費用の目安も自然に絞られます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-10-ai-gyomu-jidoka-irai-hiyo.png" alt="文章や報告書の素案をAIに作らせて人が直す「下書き」、メールやPDFや画像から必要な項目だけを抜き出して表やシステムに入れる「取り出し」、決めた条件に当てはまるものを拾って人に知らせる「見張り」、判断まで機械に任せて人は例外だけを見る「置き換え」という、AIで業務を自動化するときの依頼を4つの型に分けて並べた図" width="1600" height="507" loading="lazy" decoding="async"><figcaption>人が最後に見る型から順に並んでいます。最初に試すなら左側から選んでください。</figcaption></figure>
+
+<p>一つ目は<strong>下書き</strong>の型です。文章やメール、報告書の素案をAIに作らせ、人が直して出します。議事録や日報、定型の返信文がここに当たります。人が必ず最後に見るので、間違いが外に出にくく、最初に試す範囲としては扱いやすい型です。</p>
+<p>二つ目は<strong>取り出し</strong>の型です。メール・PDF・画像の中から、必要な項目だけを抜き出して表やシステムに入れます。注文書、申込書、名刺、請求書の処理がここです。転記という作業そのものが消えるので、効果が数えやすくなります。</p>
+<p>三つ目は<strong>見張り</strong>の型です。決めた条件に当てはまるものを拾い、人に知らせます。期限が近い案件、返信が止まっている問い合わせ、在庫が減った商品などです。人が毎日目で探している作業を置き換えます。</p>
+<p>四つ目は<strong>置き換え</strong>の型です。判断まで含めて機械に任せ、人は例外だけを見ます。効果は大きい反面、間違ったときの影響も大きいので、前の3つを通ったあとに検討する型です。</p>
+<h2 id="h3"><span class="h-num">03</span>最初に小さく試す範囲は、こう選ぶ</h2>
+<p>最初から全体に手を入れると、効果が出ているのかどうかが分かりません。小さく始めるときの順番は決まっています。</p>
+<p>まず、対象の作業を1つ選びます。選ぶ基準は「毎日発生する」「人が手で写している」「やり方が人によって変わらない」の3つです。この3つがそろう作業は、置き換えたときの変化が現場にすぐ伝わります。逆に、月に1回しか起きない作業や、担当者ごとにやり方が違う作業は後回しにしてください。</p>
+<p>次に、入口と出口を決めます。入口はどこから情報が入るか、出口はどこに結果が残るかです。「受信箱に届いたメールが入口、表計算ソフトの1行が出口」まで決まれば、作る側は設計に入れます。</p>
+<p>三つ目に、試す期間と続ける条件を先に決めます。期間を決めずに試すと、なんとなく使われないまま終わります。「2週間使って、転記の手間が減ったと担当者が言えば続ける」のように、やめる判断もできる形にしてください。小さく試す段階の費用感は<a href="2026-07-12-ai-gyomu-kaizen-app-kaihatsu.html">AI業務改善とアプリ開発の関係</a>も参考になります。</p>
+<h2 id="h4"><span class="h-num">04</span>費用は「作る」「使い続ける」「直す」の3つに分かれる</h2>
+<p>費用の比較でつまずく原因は、総額だけを見ることです。中身は3つに分かれます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>費用の種類</th>
+<th>何に対してかかるか</th>
+<th>見積もりで確かめること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作る費用</td>
+<td>業務の聞き取り、設計、実装、公開までの作業</td>
+<td>どこまでが含まれるか。聞き取りや公開作業は別見積もりか</td>
+</tr>
+<tr>
+<td>使い続ける費用</td>
+<td>サーバー、AIの利用料、保守、見守り</td>
+<td>AIの利用料は誰が払う形か。件数が増えたらどう変わるか</td>
+</tr>
+<tr>
+<td>直す費用</td>
+<td>公開後の修正、項目の追加、業務変更への対応</td>
+<td>月額に含まれる修正の範囲。それを超えた場合の出し方</td>
+</tr>
+</tbody></table></div>
+<p>とくに見落としやすいのは、使い続ける費用のうちAIの利用料です。AIは処理した量に応じて料金が発生する仕組みが一般的なので、扱う件数が増えると費用も増えます。誰の契約で、どちらが負担するのかを最初に確かめてください。</p>
+<p>直す費用も重要です。業務は変わります。項目を1つ足すたびに依頼と見積もりが必要な形だと、小さな変化で止まります。月額にどこまでの修正が含まれるのか、含まれない作業はどう見積もるのかを、依頼の前に聞いて構いません。</p>
+<h2 id="h5"><span class="h-num">05</span>見積もりを依頼するときに揃えておく材料</h2>
+<p>材料がそろっていれば、同じ前提で複数の相談先を比べられます。次の項目を用意してください。</p>
+<ul>
+<li>対象の作業を1つ挙げ、その作業が1日または1か月に何件発生するか言える</li>
+<li>その作業を実際にやっている人の名前が挙がっている</li>
+<li>入口と出口を、1文で書いてある（どこから入り、どこに残るか）</li>
+<li>今の手順を、紙・メール・表計算ソフトの単位で説明できる</li>
+<li>例外の扱いを3つ以上挙げられる（急ぎのとき、書式が違う相手、やり直しが出たとき）</li>
+<li>機械に任せる範囲と、人が必ず見る範囲を分けてある</li>
+<li>入力してよい情報と、入れてはいけない情報の線引きを社内で決めてある</li>
+<li>最初に試したい期間と、続ける条件を決めてある</li>
+</ul>
+<p>すべてそろわなくても相談はできます。埋まっていない項目があるなら、それを打ち合わせの議題として先に出してください。相談先の選び方は<a href="2026-11-03-ai-donyu-sodansaki.html">AI導入の相談先</a>に整理しています。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に決めておくと早いこと</h4>
+    <p>社内の情報をAIに入れてよいかどうかの線引きは、技術ではなく社内の取り決めです。顧客の氏名、取引金額、契約書の中身。どこまで入れてよいかが決まっていないと、設計の途中で止まります。入れてよい範囲が狭いなら、その前提で選べる方法を相談先に聞いてください。詳しくは<a href="2026-06-14-ai-donyu-shippai-kaihi.html">AI導入でつまずく原因</a>にも書いています。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>小さく試したあと、広げるかどうかの判断</h2>
+<p>試したあとに広げるかどうかは、感触ではなく決めた条件で判断します。見るのは3つです。</p>
+<p>一つ目は、手間が本当に減ったかどうかです。前と同じ作業が残ったうえにAIの確認作業が増えていれば、合計の手間は増えています。「今まで打ち直していた項目を打たなくなった」のように、消えた作業を名前で言えるかどうかで判断してください。</p>
+<p>二つ目は、入力する人が使い続けているかどうかです。使われていない理由は、ほぼ手間の増加です。確認の画面が多い、元の画面と行き来する、結果が信用できず結局やり直している。どれなのかを担当者に聞くと、直す場所が分かります。</p>
+<p>三つ目は、間違いが起きたときに気づける形になっているかどうかです。AIは間違います。誰がどこで気づくのかが決まっていない範囲は、まだ広げる段階ではありません。</p>
+<p>この3つが通っていれば、次は同じ型の別の作業へ広げるのが順当です。型が同じなら、作り方の多くを使い回せます。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある失敗と、その避け方</h2>
+<p><strong>ツールの名前から相談を始める</strong>。どのAIを使うかは、業務が決まってから選ぶものです。先に業務の範囲を決めてください。ツールの違い自体は<a href="2026-10-27-chatgpt-claude-gemini-chigai.html">主要AIの違い</a>に整理しています。</p>
+<p><strong>全社で一斉に始める</strong>。一斉に始めると、効かなかった原因が分からなくなります。1部署・1業務から始めて、効果が見えた形を横に広げてください。</p>
+<p><strong>AIの出力をそのまま外に出す</strong>。間違いが顧客に届くと、取り戻す手間が自動化の効果を上回ります。最初は人が必ず最後に見る型を選んでください。</p>
+<p><strong>人が確認する作業を数えていない</strong>。確認に時間がかかるなら、合計の手間は減りません。確認の手順も含めて、前と後を比べてください。</p>
+<p><strong>例外を後回しにする</strong>。例外は必ず出ます。最初に挙げておけば、機械に任せるか人が残すかを選べますが、後から出ると作り直しになります。</p>
+<p><strong>総額だけで見積もりを比べる</strong>。含まれる範囲が違えば総額は比べられません。作る費用・使い続ける費用・直す費用の3つに分けて出してもらってください。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つです。</p>
+<p>一つ目は、業務を言葉にする作業を社内でやれるかどうかです。毎日の手順と例外を知っているのは現場の人だけなので、ここは完全に外へ出せません。聞き取りを手伝ってもらうことはできますが、中身を代わりに作ることはできません。この整理に手が回らない状態なら、整理の段階から一緒に進める相手を探すほうが結果が早く出ます。</p>
+<p>二つ目は、業務の中心に入るかどうかです。社内の下書き作りのように、間違っても人が直せば済む範囲なら、既製のAIサービスを契約して自分たちで試すところから始められます。一方で、顧客に届く内容や、金額に関わる処理が含まれるなら、間違いが出たときの備えまで設計する必要があります。ここは経験のある相手と進めるのが自然です。</p>
+<p>三つ目は、続けて直せるかどうかです。作るところまでは外に出してよいのですが、公開後に項目や条件を変えられない形だと、業務が変わるたびに止まります。社内で触れる範囲をどこまでにするかを、依頼の段階で決めてください。自分たちで触りたいなら、その前提で相談する必要があります。</p>
+<p>迷うときは、対象の作業を1つに絞って相談するところから始めてください。範囲が小さいほど、自社でやれることとやれないことが具体的な作業として見えてきます。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>何から自動化すればよいか決まっていない段階でも相談できますか？</summary><div class="faq-a">できます。対象を決めてから相談するより、困っている業務をいくつか持ち込んで一緒に順番を決めるほうが早く進みます。どの作業がどれくらいの頻度で発生しているかを言える状態にしておくと、その場で順番を付けられます。</div></details>
+
+<details class="faq"><summary>既製のAIサービスを契約するのと、作ってもらうのはどちらがよいですか？</summary><div class="faq-a">自社の業務を既製のサービスに合わせられるなら、既製のほうが早く始められます。合わせられないのは、自社の帳票や項目が決まっている場合、複数のシステムをまたいで情報を動かす必要がある場合です。判断は、今の手順をどこまで変えられるかで決めてください。</div></details>
+
+<details class="faq"><summary>社内の情報をAIに入れるのが不安です。</summary><div class="faq-a">入れてよい情報の線引きを先に文書にしてください。顧客の氏名、金額、契約内容のどこまでを入れてよいか、誰が判断するかを決めます。法人向けのプランや、入力内容を学習に使わない設定の使い分けも選択肢になります。線引きが決まっていれば、その範囲で実現できる方法を出してもらえます。</div></details>
+
+<details class="faq"><summary>どれくらいの期間で形になりますか？</summary><div class="faq-a">範囲によります。1つの作業に絞り、人が最後に見る型であれば、触って確かめられる形までは短く済みます。逆に、複数の業務をまたぐ範囲や、判断まで任せる型は、確認の設計に時間がかかります。期間を短くしたいなら、最初の範囲を狭めるのが確実です。</div></details>
+
+<details class="faq"><summary>試してみて合わなかった場合、途中でやめられますか？</summary><div class="faq-a">やめる条件を最初に決めておけば、やめられます。試す期間と、続ける判断の基準を依頼の時点で文章にしておいてください。あわせて、入れたデータを取り出せる形かどうかも確認しておくと、別の方法に切り替えるときに困りません。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：範囲が1文で言えれば、費用も進め方も決まる</h2>
+<p>AIで業務を自動化するときの頼み方は、順番で決まります。対象の作業を1つに絞り、下書き・取り出し・見張り・置き換えのどの型かを決め、入口と出口を1文にする。そのうえで、作る費用・使い続ける費用・直す費用の3つに分けて見積もりを出してもらい、試す期間と続ける条件を先に決めておく。ここまでそろえば、どの相談先と進めても大きく外れません。</p>
+<p>逆に、ツールの名前から相談を始め、全社で一斉に動き、人の確認作業を数えないまま進めると、費用はかかったのに手間が減らない結果になります。自動化は範囲の設計が本体です。</p>
+<p>TENERAMENTEなら、この記事で挙げた「対象の作業を1つに絞る」段階から打ち合わせに入り、入口と出口の言葉にする作業、入力してよい情報の線引き、人が必ず見る範囲の設計までを一緒に形にしてから、小さく触れる形で試す進め方をとります。公開後に条件や項目を自社で変えられる形で引き渡すので、業務が変わるたびに依頼と見積もりを待たずに済みます。社内AI導入の設計・研修・業務自動化の進め方は<a href="lp-ai.html">AI活用支援</a>にまとめており、初回のご相談60分は無料です。何から始めるか決まっていない段階でも、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI活用</span><span>#業務自動化</span><span>#費用</span><span>#依頼</span><span>#PoC</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-03-ai-donyu-sodansaki.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入はどこに相談する？相談先の種類と、選ぶときの確認点</h4>
+      </a>
+      <a class="related-card" href="2026-10-27-chatgpt-claude-gemini-chigai.html">
+        <span class="cat">AI</span>
+        <h4>ChatGPT・Claude・Geminiの違いと業務での使い分け</h4>
+      </a>
+      <a class="related-card" href="2026-10-23-ai-gijiroku-jidoka.html">
+        <span class="cat">AI</span>
+        <h4>AIで議事録を自動化する方法｜録音から要約・共有までの流れ</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

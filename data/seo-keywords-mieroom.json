@@ -1420,7 +1420,9 @@
         "hitori-fudosan-kaigyo-tool",
         "fudosan-kaigyo-junbi-checklist"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-dokuritsu-fc-tandoku",
+      "doneAt": "2026-11-09"
     },
     {
       "id": "m110",
