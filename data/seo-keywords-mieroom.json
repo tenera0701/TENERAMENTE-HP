@@ -1439,7 +1439,9 @@
         "bukken-shashin-torikata",
         "media-roi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "portal-hankyo-fuyasu",
+      "doneAt": "2026-11-10"
     },
     {
       "id": "m118",
