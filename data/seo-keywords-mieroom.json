@@ -1458,7 +1458,9 @@
         "fudosan-chukai-gyomu-kaizen-tool-donyu",
         "tenpo-muke-tool-hitsuyo-kino"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-gyomu-system-hiyo-kangaekata",
+      "doneAt": "2026-11-11"
     },
     {
       "id": "m107",

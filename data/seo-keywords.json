@@ -1422,7 +1422,9 @@
         "2026-06-05-homepage-seisaku-hiyo-guide",
         "2026-09-09-homepage-renewal-timing"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-12-nagoya-homepage-seisaku-erabikata",
+      "doneAt": "2026-11-11"
     },
     {
       "id": "k115",
