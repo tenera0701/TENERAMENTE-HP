@@ -1477,7 +1477,9 @@
         "tencho-shigoto-dandori",
         "getsumatsu-uriage-shukei-jidoka"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "tencho-maiasa-suji",
+      "doneAt": "2026-11-12"
     },
     {
       "id": "m121",
