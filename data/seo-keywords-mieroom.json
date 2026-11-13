@@ -1517,7 +1517,9 @@
         "tencho-shigoto-dandori",
         "chintai-gyomu-kaizen-tool"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-gyomu-jikan-sakugen",
+      "doneAt": "2026-11-13"
     },
     {
       "id": "m117",

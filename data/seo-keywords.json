@@ -1460,7 +1460,9 @@
         "2026-06-11-excel-kanri-genkai-systemka",
         "2026-10-08-api-renkei-toha"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-14-keiyakusho-jidosakusei-system",
+      "doneAt": "2026-11-13"
     },
     {
       "id": "k117",
