@@ -1536,7 +1536,9 @@
         "kami-excel-konzai-ikou",
         "fudosan-gyomu-tool-minaoshi"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "system-norikae-data-ikou",
+      "doneAt": "2026-11-14"
     },
     {
       "id": "m112",

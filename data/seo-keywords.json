@@ -1479,7 +1479,9 @@
         "2026-06-27-google-kuchikomi-fuyasu",
         "2026-10-01-gbp-category-erabikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-15-juku-meo-taisaku",
+      "doneAt": "2026-11-14"
     },
     {
       "id": "k114",
