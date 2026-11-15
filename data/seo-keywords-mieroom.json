@@ -1555,7 +1555,9 @@
         "bukken-shokaibun-kakikata",
         "fudosan-ai-katsuyo-bamen"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "ai-bukken-teianbun",
+      "doneAt": "2026-11-15"
     },
     {
       "id": "m119",

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点｜ミエルーム ブログ</title>
+<meta name="description" content="AIで物件の提案文を作るときの手順を、渡す材料・指示文の型・人が確かめる項目に分けて整理しました。お客様の種類ごとの書き分け、任せてはいけない部分、よくある失敗の避け方までまとめています。">
+<link rel="canonical" href="https://teneramente.jp/mieroom/articles/ai-bukken-teianbun.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点">
+<meta property="og:description" content="AIで物件の提案文を作るときの手順を、渡す材料・指示文の型・人が確かめる項目に分けて整理しました。お客様の種類ごとの書き分け、任せてはいけない部分、よくある失敗の避け方までまとめています。">
+<meta property="og:url" content="https://teneramente.jp/mieroom/articles/ai-bukken-teianbun.html">
+<meta property="og:site_name" content="ミエルーム">
+<meta property="og:image" content="https://teneramente.jp/mieroom/assets/covers/ai-bukken-teianbun.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点","description":"AIで物件の提案文を作るときの手順を、渡す材料・指示文の型・人が確かめる項目に分けて整理しました。お客様の種類ごとの書き分け、任せてはいけない部分、よくある失敗の避け方までまとめています。","datePublished":"2026-11-16","dateModified":"2026-11-16","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/mieroom/articles/ai-bukken-teianbun.html","image":"https://teneramente.jp/mieroom/assets/covers/ai-bukken-teianbun.png","articleSection":"DX","author":{"@type":"Organization","name":"ミエルーム編集部"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI活用, 物件提案, 接客, 追客, 賃貸仲介DX"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ミエルーム","item":"https://teneramente.jp/mieroom/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/mieroom/blog.html"},{"@type":"ListItem","position":3,"name":"AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点","item":"https://teneramente.jp/mieroom/articles/ai-bukken-teianbun.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AIが作った提案文を、そのままお客様に送ってよいですか？","acceptedAnswer":{"@type":"Answer","text":"送る前に人が確認してください。賃料や初期費用の数字、空室の状況、設備の有無はAIが知らない情報なので、資料と見比べる作業が必要です。確認したうえで、最後の一文だけは担当者の言葉に書き直すと、定型文の印象になりません。"}},{"@type":"Question","name":"どのAIを使えばよいですか？","acceptedAnswer":{"@type":"Answer","text":"文章の下書きを作る用途であれば、広く使われている生成AIのいずれでも実務に足ります。選ぶ基準は性能よりも、店舗のスタッフ全員が同じものを使えるか、入力した内容の扱いについて利用規約を確認できるか、の2点です。まず1つに決めて、型を共有することを優先してください。"}},{"@type":"Question","name":"お客様の情報を入力しても問題ありませんか？","acceptedAnswer":{"@type":"Answer","text":"お名前・連絡先・勤務先といった個人が特定できる情報は入力しないでください。提案文を作るのに必要なのは、希望条件・予算・入居時期・譲れない条件といった条件の情報だけです。店舗として入力してよい範囲を文字で決め、全員で共有しておくことをおすすめします。"}},{"@type":"Question","name":"文章が毎回似てしまいます。どうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"勧める理由が渡されていない場合に起こります。物件の事実だけを渡すと、言い換えの文章しか出せません。「このお客様にこの物件を勧める理由」を1〜2行書いて渡してください。理由が違えば、同じ物件でも文章の組み立てが変わります。"}},{"@type":"Question","name":"スタッフに使わせるとき、最初に何を決めればよいですか？","acceptedAnswer":{"@type":"Answer","text":"指示文の型、入力してよい情報の範囲、送信前に確認する項目の3つです。この3つを1枚にまとめて配れば、使い方の説明はほぼ終わります。細かい使いこなしは、使い始めてから持ち寄って型を直していくほうが早く定着します。"}}]}]}</script>
+<style id="mp-nav-fit">
+/* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */
+@media (max-width: 640px) {
+  .nav-cta { gap: 6px; }
+  .nav-cta .btn { padding: 9px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img class="logo" src="../assets/logo-mark-sm.webp" alt="ミエルーム">
+      <span class="name"><b>ミエ</b><i>ルーム</i></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">ホーム</a>
+      <a href="../features.html">機能・事例</a>
+      <a href="../compare.html">比較</a>
+      <a href="../blog.html" class="on">ブログ</a>
+      <a href="../index.html#faq">料金</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://app.mieroom.cloud/app-login" style="border-color:transparent;opacity:.8">ログイン</a>
+      <a class="btn btn-doc" href="../request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求</a>
+      <a class="btn btn-line btn-line-sub" href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.5 8.1.3.1.8.2.9.5.1.3.1.7 0 1l-.1.8c-.1.4-.4 1.5 1.3.8s8.9-5.2 12.1-9c2.2-2.4-1.2-10.3-12.7-10.3Z"/></svg>LINEで相談</a>
+    </div>
+  </div>
+</header>
+<article>
+<section class="post-hero">
+  <span class="blob" style="width:240px;height:240px;top:-70px;right:-40px;background:radial-gradient(circle,#74d3bd,#bdeede);opacity:.5;animation:sway 9s ease-in-out infinite"></span>
+  <div class="wrap">
+    <div class="post-narrow">
+      <div class="crumb" style="margin-bottom:16px;font-size:12.5px;color:var(--ink-3);font-weight:600;display:flex;gap:6px;flex-wrap:wrap">
+        <a href="../index.html" style="color:inherit">ホーム</a><span style="opacity:.5">/</span>
+        <a href="../blog.html" style="color:inherit">ブログ</a><span style="opacity:.5">/</span>
+        <span>DX</span>
+      </div>
+      <span class="post-cat" style="background:linear-gradient(135deg,#2bbfa3,#0c7b66)">DX</span>
+      <h1>AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点</h1>
+      <div class="post-meta">
+        <span class="av">ミ</span>
+        <span>ミエルーム編集部</span>
+        <span class="sep"></span>
+        <span>2026.11.16</span>
+        <span class="sep"></span>
+        <span>8分で読める</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="post-cover">
+  <div class="band band--img"><img src="../assets/covers/ai-bukken-teianbun.png" alt="AIで物件の提案文を作る方法｜お客様ごとの提案を速く出す手順と注意点" width="1200" height="675" decoding="async"></div>
+</div>
+<div class="post-body">
+<p>AIで物件の提案文を作るときに結果を分けるのは、AIの性能ではなく<strong>渡す材料の作り方</strong>です。お客様の条件と物件の事実を決まった形で渡せば、担当者が書くより速く、しかも読み手に合った下書きが出ます。この記事では、賃貸仲介の店舗で明日から使える手順と、人が必ず確かめる項目を順に整理します。</p>
+<div class="conclusion"><h4>この記事の結論</h4><p>AIに頼む前に、お客様の条件・物件の事実・断りたくない理由・文章の形式の4つを手元にそろえてください。<strong>材料がそろっていれば指示文は短くて済み</strong>、空室や賃料の確認だけを人が行う形にできます。</p></div>
+<nav class="post-toc" aria-label="目次">
+    <div class="post-toc-t">目次</div>
+    <div class="post-toc-list">
+      <a href="#h1"><span class="n">01</span><span>AIで物件の提案文を作るなら、渡す材料で速さが決まる</span></a>
+      <a href="#h2"><span class="n">02</span><span>提案文に渡す材料は4つに分かれる</span></a>
+      <a href="#h3"><span class="n">03</span><span>指示文の型を1つ決めて、店舗で使い回す</span></a>
+      <a href="#h4"><span class="n">04</span><span>出てきた文章は、この5点を人が確かめる</span></a>
+      <a href="#h5"><span class="n">05</span><span>お客様の種類ごとに、書き分けを決めておく</span></a>
+      <a href="#h6"><span class="n">06</span><span>よくある失敗と、その避け方</span></a>
+      <a href="#h7"><span class="n">07</span><span>自分で進める場合と、ツールに任せる場合の分かれ目</span></a>
+      <a href="#h8"><span class="n">08</span><span>よくある質問</span></a>
+      <a href="#h9"><span class="n">09</span><span>まとめ：提案文は、材料を置く場所を決めると速くなる</span></a>
+    </div>
+  </nav>
+<h2 id="h1">AIで物件の提案文を作るなら、渡す材料で速さが決まる</h2>
+<p>提案文を作る作業を分けると、考える部分と、書く部分に分かれます。AIが代わりにできるのは書く部分だけです。ですから、考える部分――どのお客様に、どの物件を、どういう理由で勧めるのか――は先に人が決めておく必要があります。</p>
+<figure class="fig"><img src="../assets/figures/ai-bukken-teianbun.png" alt="お客様の条件と物件の事実と勧める理由と文章の形式をそろえる材料集め、店舗で決めた指示文の型に貼って下書きを作る段、賃料と空室の状況を資料と見比べる事実の確認、読み手の種類に合わせて整え最後の一文を担当者が書く調整、送った内容を接客記録に残す段という、AIで物件の提案文を作る5つの段を順番に並べた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>AIが担うのは2段目だけです。残りは今までと同じ仕事として残ります。</figcaption></figure>
+<p>ここを決めずに「この物件の提案文を作って」と頼むと、物件情報を言い換えただけの文章が出てきます。読んだお客様から見れば、ポータルサイトの説明文と変わりません。逆に、ヒアリングで聞いた条件と、勧める理由を2行書いて渡すだけで、文章の中身が変わります。</p>
+<p>実務の流れとしては、材料を集める、指示文で下書きを作る、事実を確認する、お客様に合わせて整える、送って記録に残す、の5段です。このうちAIが担うのは2段目だけで、残りは今までと同じ仕事です。<strong>速くなるのは2段目だけだと分かっていると、期待の置き方を間違えません</strong>。</p>
+<h2 id="h2">提案文に渡す材料は4つに分かれる</h2>
+<p>材料は4種類あります。これを接客記録から引けるようにしておくと、提案文の作成は数分の作業になります。</p>
+<p>一つ目はお客様の条件です。希望のエリアと駅距離、予算の上限、入居時期、間取り、同居する人数、譲れない条件（ペット、駐車場、在宅勤務の部屋）。ヒアリングで聞いた言葉のまま渡すのが要点です。</p>
+<p>二つ目は物件の事実です。賃料と共益費、敷金・礼金、間取りと広さ、築年、駅からの分数、設備、入居可能日。ここは物件資料から写すだけなので、作り込む必要はありません。</p>
+<p>三つ目は勧める理由です。なぜこのお客様にこの物件なのか。「予算内で浴室乾燥機が付く数少ない物件」「勤務先まで乗り換えなし」など、担当者の判断を1〜2行で言葉にします。これが提案文の芯になります。</p>
+<p>四つ目は文章の形式です。メールかLINEか、何文字くらいか、物件は何件並べるか、最後に何を促すか（来店の予約、内見の候補日）。形式を決めておかないと、長さも結びも毎回変わります。物件そのものの紹介文の書き方は<a href="./bukken-shokaibun-kakikata.html">物件紹介文の書き方</a>で詳しく扱っています。</p>
+<h2 id="h3">指示文の型を1つ決めて、店舗で使い回す</h2>
+<p>指示文（プロンプト）は毎回考える必要はありません。店舗で1つ型を決めて、材料の部分だけ差し替えて使います。</p>
+<p>型に入れておく要素は5つです。役割（賃貸仲介の担当者として）、読み手（上のお客様の条件を貼る）、材料（物件の事実を箇条書きで貼る）、守る条件（事実にないことを書かない、断定を避ける、賃料は記載のまま使う）、出力の形（文字数、件数、結びの一文）。</p>
+<p>守る条件は、必ず文字で入れてください。これを省くと、設備や周辺環境について資料に無いことが書かれる場合があります。「資料に書かれていないことは書かないでください」「分からない点は（要確認）と残してください」の2文を型に入れておくと、確認すべき箇所が自分で分かる形で返ってきます。</p>
+<p>型は紙でもメモアプリでも構いませんが、<strong>全員が同じ型を使うこと</strong>が品質の下限を決めます。担当者ごとに指示文が違うと、文章の硬さや長さがばらつき、店舗としての印象も揃いません。AIを使える場面の全体像は<a href="./fudosan-ai-katsuyo-bamen.html">不動産会社のAI活用</a>にまとめています。</p>
+<h2 id="h4">出てきた文章は、この5点を人が確かめる</h2>
+<p>下書きが出たら、送る前に次の5点を確かめます。慣れれば1分で終わります。</p>
+<ul>
+<li>賃料・共益費・敷金・礼金が、物件資料と一字一句合っているか</li>
+<li>空室かどうか、入居可能日が最新の情報か</li>
+<li>設備や条件に、資料に無いものが足されていないか</li>
+<li>「必ず」「間違いなく」のような断定的な言い回しが入っていないか</li>
+<li>お客様が挙げた譲れない条件に、文章が答えているか</li>
+</ul>
+<p>このうち<strong>最初の2つは、省くと信用を失う項目</strong>です。数字と空室の状況は、AIが知らない情報なので、下書きの中では常に確認対象として扱ってください。</p>
+<div class="callout warn"><div class="ct"><span class="ci">!</span>気をつけたい場面</div><p>過去にやりとりした別のお客様の情報を、そのまま指示文に貼らないでください。お名前や勤務先、連絡先は指示文に入れる必要がありません。条件だけを渡せば提案文は作れます。</p></div>
+<h2 id="h5">お客様の種類ごとに、書き分けを決めておく</h2>
+<p>同じ物件でも、読み手によって触れるべき点が変わります。種類ごとに書き分けの方針を決めておくと、指示文に1行足すだけで文章の向きが変わります。</p>
+<div class="tw"><table>
+<thead><tr><th>お客様の種類</th><th>先に触れる点</th><th>添える情報</th></tr></thead>
+<tbody><tr><td>初めての一人暮らし</td><td>初期費用の全体像、入居までの流れ</td><td>必要な書類、設備の使い方の説明</td></tr>
+<tr><td>社会人の単身</td><td>通勤の経路と所要時間、入居可能日</td><td>内見の候補日、オンラインでの手続き</td></tr>
+<tr><td>ファミリー</td><td>間取りの使い方、周辺の生活環境</td><td>駐車場の有無、更新や退去の条件</td></tr>
+<tr><td>法人・社宅</td><td>契約の形態、入居時期の確実性</td><td>必要書類、請求の宛先の扱い</td></tr>
+<tr><td>転勤・遠方から</td><td>内見できない場合の進め方</td><td>写真や動画の用意、手続きの順番</td></tr></tbody>
+</table></div>
+<p>書き分けの方針は、店舗で1枚にまとめておいてください。新しく入ったスタッフでも、表を見れば同じ水準の提案文を出せます。周辺環境や相場の話を書くときは、資料や公的な情報で確かめられる範囲に留めるのが原則です。</p>
+<h2 id="h6">よくある失敗と、その避け方</h2>
+<p><strong>材料を渡さずに頼む</strong>。物件名だけ渡すと、一般的な言い換えが返ってきます。条件・事実・勧める理由を貼ってから頼んでください。</p>
+<p><strong>数字を確認せずに送る</strong>。賃料や初期費用の記載が資料とずれると、後から訂正の連絡が必要になります。送信前に資料と並べて見比べてください。</p>
+<p><strong>物件を並べすぎる</strong>。1通に何件も入れると、どれを勧めているのか伝わりません。件数を型で決めておいてください。</p>
+<p><strong>全員が違う指示文を使う</strong>。文章の長さと硬さがばらつきます。型を1つに決めて共有してください。</p>
+<p><strong>お客様の個人情報をそのまま貼る</strong>。お名前や勤務先は提案文の作成に不要です。条件だけを渡す運用にしてください。</p>
+<p><strong>出てきた文章をそのまま送る</strong>。担当者の言葉が一行も入っていない提案文は、読み手に伝わりません。最後の一文は自分で書き直してください。</p>
+<p><strong>記録に残さない</strong>。どの物件をどの理由で勧めたかが残っていないと、次の提案が前回と重なります。送った内容は接客記録に残してください。</p>
+<h2 id="h7">自分で進める場合と、ツールに任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つあります。</p>
+<p>一つ目は、提案を出す件数です。1日に数件であれば、指示文の型とヒアリング表を紙で持つだけで足ります。反響の数が増えて、誰にどの提案を出したかを思い出せなくなってきた段階から、記録を仕組みに置く意味が出てきます。</p>
+<p>二つ目は、材料をどこから引いてくるかです。条件も物件情報も手元のメモに散っていると、材料を集める時間が文章を書く時間を上回ります。接客記録と物件情報が同じ場所にあるなら、提案文の作成は材料を貼るだけの作業になります。</p>
+<p>三つ目は、人数です。担当者が1人なら、頭の中で品質が揃います。複数人で、しかも入れ替わりがあるなら、型と記録を仕組みに置かないと水準が保てません。</p>
+<p>迷うときは、提案文を1通作るのに材料を探す時間が何分かかっているかを測ってください。文章を書く時間より探す時間が長いなら、手を入れる先は文章の作り方ではなく、情報の置き場所です。</p>
+<h2 id="h8">よくある質問</h2>
+<details class="faq"><summary>AIが作った提案文を、そのままお客様に送ってよいですか？</summary><div class="faq-a">送る前に人が確認してください。賃料や初期費用の数字、空室の状況、設備の有無はAIが知らない情報なので、資料と見比べる作業が必要です。確認したうえで、最後の一文だけは担当者の言葉に書き直すと、定型文の印象になりません。</div></details>
+<details class="faq"><summary>どのAIを使えばよいですか？</summary><div class="faq-a">文章の下書きを作る用途であれば、広く使われている生成AIのいずれでも実務に足ります。選ぶ基準は性能よりも、店舗のスタッフ全員が同じものを使えるか、入力した内容の扱いについて利用規約を確認できるか、の2点です。まず1つに決めて、型を共有することを優先してください。</div></details>
+<details class="faq"><summary>お客様の情報を入力しても問題ありませんか？</summary><div class="faq-a">お名前・連絡先・勤務先といった個人が特定できる情報は入力しないでください。提案文を作るのに必要なのは、希望条件・予算・入居時期・譲れない条件といった条件の情報だけです。店舗として入力してよい範囲を文字で決め、全員で共有しておくことをおすすめします。</div></details>
+<details class="faq"><summary>文章が毎回似てしまいます。どうすればよいですか？</summary><div class="faq-a">勧める理由が渡されていない場合に起こります。物件の事実だけを渡すと、言い換えの文章しか出せません。「このお客様にこの物件を勧める理由」を1〜2行書いて渡してください。理由が違えば、同じ物件でも文章の組み立てが変わります。</div></details>
+<details class="faq"><summary>スタッフに使わせるとき、最初に何を決めればよいですか？</summary><div class="faq-a">指示文の型、入力してよい情報の範囲、送信前に確認する項目の3つです。この3つを1枚にまとめて配れば、使い方の説明はほぼ終わります。細かい使いこなしは、使い始めてから持ち寄って型を直していくほうが早く定着します。</div></details>
+<h2 id="h9">まとめ：提案文は、材料を置く場所を決めると速くなる</h2>
+<p>AIで物件の提案文を作る手順は決まっています。お客様の条件・物件の事実・勧める理由・文章の形式の4つをそろえる。店舗で決めた指示文の型に貼る。出てきた下書きの数字と空室を人が確かめる。読み手の種類に合わせて整え、最後の一文を自分で書く。送った内容を接客記録に残す。この形なら、文章を書く時間は短くなり、確認の質は落ちません。</p>
+<p>逆に、材料を集める段階で毎回メモを探していると、文章が速く出ても全体の時間は変わりません。提案の速さを決めているのは、AIではなく情報の置き場所です。</p>
+<p>ミエルームなら、反響の受付からヒアリングの内容、提案した物件、追客の履歴までが案件ごとに1件のまま残るので、提案文に渡す材料をその場で引き出せます。フォームやメールからの反響は自動で取り込まれ、業者間サイトとの連携や物件コンバータで物件情報も同じ画面にそろうため、材料を探す時間がなくなります。LINE・SMSの自動追客まで同じ案件につながるので、送った提案が次の連絡に生きます。機能の詳細は<a href="../features.html">機能・事例</a>をご覧ください。資料のご請求やデモアカウントの発行は、この下のボタンからお気軽にどうぞ。</p>
+
+  <div class="post-tags"><span class="pt">#AI活用</span><span class="pt">#物件提案</span><span class="pt">#接客</span><span class="pt">#追客</span><span class="pt">#賃貸仲介DX</span></div>
+</div>
+<div class="inline-cta">
+  <div class="box">
+    <div>
+      <h3>記事のノウハウ、ミエルームで実践できます。</h3>
+      <p>後AD・申込管理から媒体別ROIまで。賃貸仲介の数字を、ひとつの画面に。お申し込みから最短即日でスタートできます。</p>
+    </div>
+    <div class="cta-pair"><a class="btn btn-doc" href="../request.html"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>資料請求（無料）</a><a class="btn btn-ghost" href="https://app.mieroom.cloud/apply" target="_blank" rel="noopener">無料デモアカウント発行</a></div>
+  </div>
+</div>
+</article>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">ミ<b>エ</b>ルーム</div>
+        <p>賃貸仲介店舗のためのAI業務管理ツール。売上・反響・顧客・広告を、ひとつに。現場が、現場のために。</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>機能・事例</h4>
+          <a href="../features.html">機能一覧</a>
+          <a href="../guide/moushikomi-nyukin.html">申込・入金管理</a>
+          <a href="../guide/hankyo-bunseki.html">反響分析</a>
+          <a href="../guide/seiseki-kashika.html">成績可視化</a></div>
+        <div><h4>サービス</h4>
+          <a href="../index.html">ホーム</a>
+          <a href="../blog.html">ブログ</a>
+          <a href="../index.html#faq">よくある質問</a>
+          <a href="../request.html">資料請求</a>
+          <a href="https://line-harness.teneramente0701.workers.dev/r/lp" target="_blank" rel="noopener">お問い合わせ</a></div>
+        <div><h4>会社情報</h4>
+          <a href="../../company.html">運営会社</a>
+          <a href="../../privacy.html">プライバシーポリシー</a>
+          <a href="https://app.mieroom.cloud/terms" target="_blank" rel="noopener">利用規約</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 ミエルーム. All rights reserved.</div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../../assets/milpage.js" async></script>
+<script src="/assets/analytics.js" defer data-analytics></script>
+</body>
+</html>
