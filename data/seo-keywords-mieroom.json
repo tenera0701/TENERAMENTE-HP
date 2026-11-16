@@ -1574,7 +1574,9 @@
         "raiten-hearing-koumoku",
         "naiken-junbi-annai"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "chintai-sekkyaku-nagare-seiyakuritsu",
+      "doneAt": "2026-11-16"
     },
     {
       "id": "m120",

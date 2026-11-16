@@ -1517,7 +1517,9 @@
         "2026-10-25-gbp-shohin-service-kinou",
         "2026-10-18-gbp-shashin-erabikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-17-jidosha-hanbai-seibi-meo",
+      "doneAt": "2026-11-16"
     },
     {
       "id": "k120",
