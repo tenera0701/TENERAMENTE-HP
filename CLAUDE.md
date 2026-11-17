@@ -328,6 +328,7 @@ python3 -m http.server 8000
   - 検索向けURL（canonical・og・JSON-LD）は https://mieroom.cloud/… で書く。`mieroom/` の外へは `../privacy.html` のような相対パスで書けば一式を作るときに teneramente.jp の絶対URLに変わる。先頭が `/` のパス（`/assets/…`）は2つのドメインで指す先が変わるので使わない（例外は `/assets/analytics.js`）
   - `mieroom/` フォルダは消さない（ATLAS の自動返信メールの資料PDF・予約ページのリンクが旧URLを指している）
   - Search Console は mieroom.cloud のドメインで別に見る（DNS の TXT で所有確認済み）
+- **ミエルームのブログのカバーはコードで描かない**（2026-11-17 社長の指示「今の画像（図形のカバー）のデザインは一切使わない。画像は毎回 ChatGPT で」）。`gen-covers-mieroom.js` は ChatGPT の画像（待ち行列の coverImage / coverTitle）がある記事だけを返し、無い記事は一覧で文字だけの表紙・記事ページは表紙なしで公開する。画像は定期タスク blog-cover-chatgpt が公開日に関係なく作って差し替える（ミエルームは1回5件まで）
 
 - **置き場所**: `mieroom/posts/<slug>.md`（slug は日付なしの半角英数字＋ハイフン。既存の `mieroom/articles/*.html` と重複させない）
 - **下書き置き場**: `mieroom/drafts/<slug>.md`。**ビルド対象外**（公開されない）。公開するときは `mieroom/posts/` へ移してビルドする。自動投稿ではここを読まない・書かない

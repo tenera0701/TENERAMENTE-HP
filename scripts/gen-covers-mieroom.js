@@ -139,38 +139,12 @@ function coverSVG(p) {
  * 生成できた（または既にある）slug の Set を返す。呼び出し側はこれで出し分ける。
  */
 function generate(posts, rootDir) {
-  motifMap = assignMotifs(posts, 'mieroom');
+  // 2026-11-17 社長の指示「今の画像（図形のカバー）のデザインは一切使わない。画像は ChatGPT で毎回作る」。
+  // コードでは描かない。ChatGPT の画像を置いた記事（待ち行列の coverImage / coverTitle）だけを返し、
+  // それ以外は build-mieroom.js が文字だけの表紙にする。画像は定期タスク blog-cover-chatgpt が後から作って差し替える
   const outDir = path.join(rootDir, 'mieroom', 'assets', 'covers');
-  const existing = () => new Set(fs.existsSync(outDir)
-    ? fs.readdirSync(outDir).filter(f => f.endsWith('.png')).map(f => f.replace(/\.png$/, ''))
-    : []);
-
-  // COVER_REGEN=1 でコード生成の絵（art）のカバーを作り直す（TENERAMENTE 側と同じ）
-  const force = process.env.COVER_REGEN === '1';
-  const stock = force ? stockSlugs() : new Set();
-  const Resvg = loadResvg();
-  if (!Resvg) {
-    console.warn('△ @resvg/resvg-js が見つからないためミエルームのカバー画像はスキップしました');
-    return existing();
-  }
-  fs.mkdirSync(outDir, { recursive: true });
-  const fonts = fontFiles();
-  const done = new Set();
-  let created = 0;
-  for (const p of posts) {
-    const out = path.join(outDir, `${p.slug}.png`);
-    const redraw = force && !stock.has(p.slug) && !bgDataUri(p) && !VARIANT_BY_SLUG[p.slug];
-    if (!fs.existsSync(out) || redraw) {
-      const png = new Resvg(coverSVG(p), {
-        font: { loadSystemFonts: true, fontFiles: fonts, defaultFontFamily: 'Zen Kaku Gothic New' },
-      }).render().asPng();
-      fs.writeFileSync(out, png);
-      created++;
-    }
-    done.add(p.slug);
-  }
-  if (created) console.log(`✓ ミエルーム: カバー画像を${created}枚生成しました (mieroom/assets/covers/)`);
-  return done;
+  const stock = stockSlugs();
+  return new Set(posts.map(p => p.slug).filter(slug => stock.has(slug) && fs.existsSync(path.join(outDir, `${slug}.png`))));
 }
 
 module.exports = { generate, coverSVG, PALETTE };

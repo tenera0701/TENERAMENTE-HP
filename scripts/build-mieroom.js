@@ -297,7 +297,7 @@ ${p.cover ? `<meta property="og:image" content="${MIEROOM_URL}/${p.cover}">
     </div>
   </div>
 </section>
-${p.wide && p.cover ? '' : `<div class="post-cover">
+${p.wide || !p.cover ? '' : `<div class="post-cover">
   ${p.cover ? `<div class="band band--img"><img src="../${p.coverHero || p.cover}" alt="${esc(p.title)}" width="1200" height="675" decoding="async"></div>`
   : coverName(p) ? `<div class="band band--img"><img src="../assets/cover-bg/${coverName(p)}.webp" alt="" width="1200" height="675"></div>`
   : `<div class="band" style="background:linear-gradient(${st.grad})">
@@ -387,12 +387,7 @@ function cardHtml(p) {
         ${p.cover ? (p.pinned
           ? `<div class="bcover bcover--img"><img src="${p.coverHero || p.cover}" alt="${esc(p.title)}" decoding="async" width="1200" height="675"></div>`
           : `<div class="bcover bcover--img"><img src="${p.coverCard || p.cover}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="640" height="360"></div>`)
-        : coverName(p) ? `<div class="bcover bcover--img"><img src="assets/cover-bg/${coverName(p)}.webp" alt="" loading="lazy" width="1200" height="675"></div>`
-        : `<div class="bcover" style="background:linear-gradient(${st.grad})">
-          <span class="ring" style="width:150px;height:150px;top:-30px;right:-30px"></span>
-          <span class="ring" style="width:90px;height:90px;bottom:-20px;left:30px"></span>
-          <svg viewBox="0 0 24 24">${st.icon}</svg>
-        </div>`}
+        : `<div class="bcover bcover--text"><span class="bct-cat">${esc(p.category)}</span><b>${esc(p.title)}</b></div>`}
         <div class="bbody">
           ${p.pinned ? '<div class="fbadge">📌 まず読んでほしい記事</div>\n          ' : ''}<div class="bmeta"><span class="bcat">${esc(p.category)}</span><span class="bdate">${dotDate(p.date)}</span></div>
           <h3>${esc(p.title)}</h3>
