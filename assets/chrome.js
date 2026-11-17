@@ -76,7 +76,7 @@
           <a href="lp-ai.html">AI活用支援</a>
         </div>
         <div class="fcol"><h4>Products</h4>
-          <a href="mieroom/">ミエルーム</a>
+          <a href="https://mieroom.cloud/">ミエルーム</a>
           <a href="lp-milpage.html">ミルページ</a>
           <a href="lp-ldash.html">LDash</a>
           <a href="lp-meo.html">MEOツール</a>

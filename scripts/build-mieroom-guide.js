@@ -16,6 +16,8 @@ const { execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
 const SITE_URL = 'https://teneramente.jp';
+// ミエルームのサイトは mieroom.cloud で公開している（scripts/build-mieroom-site.js）。検索向けURLはこちら
+const MIEROOM_URL = 'https://mieroom.cloud';
 const OUT_DIR = path.join(ROOT, 'mieroom', 'guide');
 const SHOT_DIR = path.join(ROOT, 'mieroom', 'assets', 'guide');
 const OG_DIR = path.join(SHOT_DIR, 'og');
@@ -112,16 +114,16 @@ function makeOgAll(features) {
 }
 
 function pageHtml(p) {
-  const url = `${SITE_URL}/mieroom/guide/${p.slug}.html`;
-  const ogUrl = `${SITE_URL}/mieroom/assets/guide/og/${p.slug}.jpg`;
+  const url = `${MIEROOM_URL}/guide/${p.slug}.html`;
+  const ogUrl = `${MIEROOM_URL}/assets/guide/og/${p.slug}.jpg`;
   const bySlug = Object.fromEntries(FEATURES.map(f => [f.slug, f]));
   const related = p.related.map(s => bySlug[s]).filter(Boolean);
   const ld = [
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'ミエルーム', item: `${SITE_URL}/mieroom/` },
-        { '@type': 'ListItem', position: 2, name: '主要機能', item: `${SITE_URL}/mieroom/#features` },
+        { '@type': 'ListItem', position: 1, name: 'ミエルーム', item: `${MIEROOM_URL}/` },
+        { '@type': 'ListItem', position: 2, name: '主要機能', item: `${MIEROOM_URL}/#features` },
         { '@type': 'ListItem', position: 3, name: `${p.name}の使い方`, item: url },
       ],
     },
@@ -151,6 +153,8 @@ function pageHtml(p) {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script data-moved>if(location.hostname==='teneramente.jp'){var p=location.pathname;if(p.indexOf('/mieroom')===0)p=p.slice(8)||'/';location.replace('https://mieroom.cloud'+p+location.search+location.hash)}</script>
+<meta http-equiv="refresh" content="0;url=${url}" data-moved>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(p.title)}｜ミエルーム</title>
 <meta name="description" content="${esc(p.description)}">

@@ -108,7 +108,7 @@ node scripts/build-index.js
 
 これで以下が更新される：
 - `data/posts.json`（一覧用、新しい順にソート、ビジュアルバリアントと番号を自動採番）
-- `sitemap.xml`（全 URL を再列挙）
+- `sitemap.xml`（TENERAMENTE の全 URL を再列挙。ミエルームのページは `mieroom/sitemap.xml` に mieroom.cloud のURLで別に出す）
 - `<slug>.html`（記事ごとの静的ページ。OGP/canonical 用に自動生成される。手で編集しない）
 - `assets/img/covers/<slug>.png`（カバー画像。タイトル・カテゴリ入りで自動生成。一覧カード・記事カバー・OGP画像に使われる。作り直したい時はPNGを削除して再ビルド）
 
@@ -310,7 +310,7 @@ python3 -m http.server 8000
 - **操作スクリプト**: `node scripts/seo-queue.js next`（次の1件）／`done <id> <slug>`（消し込み）／`list`／`remaining`
 - **記事の書き方**はこのファイルの 2〜5 章のとおり。加えて、主キーワードを title の前半・リード文・H2 のどれか1つに自然に入れ、
   `pillar` へ本文中で1回、`related` へ1〜2回、相対リンクで内部リンクする。数値・事例の捏造は絶対に禁止。
-- ルーティンは記事を書いたあと `node scripts/build-mieroom.js` → `node scripts/build-index.js` の順に実行し、posts/・mieroom/posts/・mieroom/articles/・mieroom/blog.html・data/・sitemap.xml・blog.html・生成記事ページ（`20*.html`。新しい記事と、関連記事が書き換わった既存記事）・カバー画像をコミットして push する。
+- ルーティンは記事を書いたあと `node scripts/build-mieroom.js` → `node scripts/build-index.js` の順に実行し、posts/・mieroom/posts/・mieroom/articles/・mieroom/blog.html・mieroom/sitemap.xml・data/・sitemap.xml・blog.html・生成記事ページ（`20*.html`。新しい記事と、関連記事が書き換わった既存記事）・カバー画像をコミットして push する。
 - **狙いキーワードは問い合わせに近い言葉を優先する**（2026-10-28〜）。費用・選び方・依頼・比較・業種別・名古屋など、依頼を考えている人が調べる言葉。
   待ち行列の `intent` の（）内の注意（「数字は書かない」「他社を批判しない」など）は必ず守る
   カバー画像の生成には `@resvg/resvg-js` と `~/.teneramente/cover-tools/fonts/` のフォントが必要で、無い環境ではカバー無しで続行する（後で再生成できる）。
@@ -321,6 +321,13 @@ python3 -m http.server 8000
 ## 10. ミエルーム ブログの記事ルール（mieroom/posts/）
 
 ミエルーム（賃貸仲介向け 業務管理SaaS）のブログは、TENERAMENTE ブログとは別の仕組み・別の読者。
+
+- **公開先は https://mieroom.cloud/**（2026-11-17〜。社長の指示「ミエルームのHPは mieroom.cloud で。teneramente.jp/mieroom/ は作らなくていい」）。
+  直す場所は今までどおりこのリポジトリの `mieroom/`。main に push すると `.github/workflows/publish-mieroom-site.yml` が `scripts/build-mieroom-site.js` で一式を作り、公開用リポジトリ tenera0701/mieroom-site（GitHub Pages・独自ドメイン mieroom.cloud）へ送る。mieroom-site は自動で上書きされるので直接直さない
+  - 旧URL（teneramente.jp/mieroom/…）は入口だけ。各ページの head の先頭の `<script data-moved>` と `<meta http-equiv="refresh" … data-moved>` が新URLへ移す（一式を作るときに外れる）。手書きで新しいページを足すときもこの2行を入れる（生成ページは build-mieroom.js / build-mieroom-guide.js が入れる）
+  - 検索向けURL（canonical・og・JSON-LD）は https://mieroom.cloud/… で書く。`mieroom/` の外へは `../privacy.html` のような相対パスで書けば一式を作るときに teneramente.jp の絶対URLに変わる。先頭が `/` のパス（`/assets/…`）は2つのドメインで指す先が変わるので使わない（例外は `/assets/analytics.js`）
+  - `mieroom/` フォルダは消さない（ATLAS の自動返信メールの資料PDF・予約ページのリンクが旧URLを指している）
+  - Search Console は mieroom.cloud のドメインで別に見る（DNS の TXT で所有確認済み）
 
 - **置き場所**: `mieroom/posts/<slug>.md`（slug は日付なしの半角英数字＋ハイフン。既存の `mieroom/articles/*.html` と重複させない）
 - **下書き置き場**: `mieroom/drafts/<slug>.md`。**ビルド対象外**（公開されない）。公開するときは `mieroom/posts/` へ移してビルドする。自動投稿ではここを読まない・書かない

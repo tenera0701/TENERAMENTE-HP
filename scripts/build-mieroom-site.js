@@ -37,7 +37,8 @@ function fixLinks(html, dir) {
 
 function convert(html, dir) {
   return fixLinks(html, dir)
-    .replace(/<script data-moved>[\s\S]*?<\/script>\n?/g, '')
+    .replace(/<script data-moved>[\s\S]*?<\/script>\r?\n?/g, '')
+    .replace(/<meta http-equiv="refresh"[^>]*data-moved>\r?\n?/g, '')
     .replace(/https:\/\/teneramente\.jp\/mieroom(?=[/"'\s<])\/?/g, `${NEW}/`);
 }
 

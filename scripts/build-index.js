@@ -435,13 +435,14 @@ function main() {
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${all.map(u => {
+${all.filter(u => !u.startsWith('mieroom/')).map(u => {
   const loc = `${SITE_URL}/${encodeURI(u).replace(/&/g, '&amp;')}`;
   const d = lastmod[u];
   return `  <url><loc>${loc}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`;
 }).join('\n')}
 </urlset>
 `;
+  // ミエルームのページは mieroom.cloud へ移したので、上の sitemap.xml には載せない（ここで mieroom/sitemap.xml に載せる）
   fs.writeFileSync(OUT_SITEMAP, sitemap, 'utf8');
 
   // mieroom.cloud 用のサイトマップ（scripts/build-mieroom-site.js がサイトの一番上に置く）

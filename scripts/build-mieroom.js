@@ -19,6 +19,8 @@ const POSTS_DIR = path.join(ROOT, 'mieroom', 'posts');
 const ARTICLES_DIR = path.join(ROOT, 'mieroom', 'articles');
 const BLOG_HTML = path.join(ROOT, 'mieroom', 'blog.html');
 const SITE_URL = (process.env.SITE_URL || 'https://teneramente.jp').replace(/\/$/, '');
+// ミエルームのサイトは mieroom.cloud で公開している（scripts/build-mieroom-site.js）。検索向けURLはこちら
+const MIEROOM_URL = 'https://mieroom.cloud';
 
 const META_RE = /<!--META\s+([\s\S]*?)\s+META-->/;
 const MARK_START = '<!-- MILPAGE:START ミルページで書いた記事。ここは自動生成なので直接編集しないでください -->';
@@ -175,7 +177,7 @@ function insertToc(bodyHtml, toc) {
 /** 記事ページのHTML（既存記事と同じ構造・同じCSSを使う） */
 function articleHtml(p) {
   const st = STYLES[p.category] || DEFAULT_STYLE;
-  const url = `${SITE_URL}/mieroom/articles/${p.slug}.html`;
+  const url = `${MIEROOM_URL}/articles/${p.slug}.html`;
   const tags = (p.tags || []).map(t => `<span class="pt">#${esc(t)}</span>`).join('');
   // 本文の FAQ（<details class="faq">）を構造化データにも載せる（2026-10-28〜）
   const plain = s => String(s).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
@@ -191,7 +193,7 @@ function articleHtml(p) {
         headline: p.title, description: p.excerpt,
         datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
         mainEntityOfPage: url,
-        ...(p.cover ? { image: `${SITE_URL}/mieroom/${p.cover}` } : {}),
+        ...(p.cover ? { image: `${MIEROOM_URL}/${p.cover}` } : {}),
         articleSection: p.category,
         author: { '@type': 'Organization', name: 'ミエルーム編集部' },
         publisher: {
@@ -203,8 +205,8 @@ function articleHtml(p) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'ミエルーム', item: `${SITE_URL}/mieroom/` },
-          { '@type': 'ListItem', position: 2, name: 'ブログ', item: `${SITE_URL}/mieroom/blog.html` },
+          { '@type': 'ListItem', position: 1, name: 'ミエルーム', item: `${MIEROOM_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'ブログ', item: `${MIEROOM_URL}/blog.html` },
           { '@type': 'ListItem', position: 3, name: p.title, item: url },
         ],
       },
@@ -221,6 +223,8 @@ function articleHtml(p) {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<script data-moved>if(location.hostname==='teneramente.jp'){var p=location.pathname;if(p.indexOf('/mieroom')===0)p=p.slice(8)||'/';location.replace('https://mieroom.cloud'+p+location.search+location.hash)}</script>
+<meta http-equiv="refresh" content="0;url=${url}" data-moved>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(p.title)}｜ミエルーム ブログ</title>
 <meta name="description" content="${esc(p.excerpt)}">
@@ -230,7 +234,7 @@ function articleHtml(p) {
 <meta property="og:description" content="${esc(p.excerpt)}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="ミエルーム">
-${p.cover ? `<meta property="og:image" content="${SITE_URL}/mieroom/${p.cover}">
+${p.cover ? `<meta property="og:image" content="${MIEROOM_URL}/${p.cover}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="675">
 ` : ''}<meta name="twitter:card" content="summary_large_image">

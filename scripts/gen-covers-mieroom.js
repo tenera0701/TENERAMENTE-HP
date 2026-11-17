@@ -118,7 +118,7 @@ function coverSVG(p) {
     title: p.title,
     date: date.replace(/-/g, '.'),
     brand: 'MIEROOM — BLOG',
-    domain: 'teneramente.jp/mieroom',
+    domain: 'mieroom.cloud',
     label,
     glyphWord: label,
     query: QUERIES[p.category] || '賃貸仲介 管理',
