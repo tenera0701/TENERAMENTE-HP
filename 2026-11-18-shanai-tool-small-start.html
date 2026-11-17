@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="いきなり大きなシステムを作るのが不安なとき、最初の1画面から小さく作って試す進め方をまとめました。小さくする単位の決め方、最初に作る画面を選ぶ基準、依頼時に渡すもの、試した後に広げる・やめる・置き換えるの判断、よくある失敗までを順番に整理しています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方" />
+<meta property="og:description" data-meta="og:description" content="いきなり大きなシステムを作るのが不安なとき、最初の1画面から小さく作って試す進め方をまとめました。小さくする単位の決め方、最初に作る画面を選ぶ基準、依頼時に渡すもの、試した後に広げる・やめる・置き換えるの判断、よくある失敗までを順番に整理しています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-18-shanai-tool-small-start.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-18-shanai-tool-small-start.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-18-shanai-tool-small-start.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方" />
+<meta name="twitter:description" data-meta="twitter:description" content="いきなり大きなシステムを作るのが不安なとき、最初の1画面から小さく作って試す進め方をまとめました。小さくする単位の決め方、最初に作る画面を選ぶ基準、依頼時に渡すもの、試した後に広げる・やめる・置き換えるの判断、よくある失敗までを順番に整理しています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-18-shanai-tool-small-start.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-18-shanai-tool-small-start";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方","description":"いきなり大きなシステムを作るのが不安なとき、最初の1画面から小さく作って試す進め方をまとめました。小さくする単位の決め方、最初に作る画面を選ぶ基準、依頼時に渡すもの、試した後に広げる・やめる・置き換えるの判断、よくある失敗までを順番に整理しています。","datePublished":"2026-11-18","dateModified":"2026-11-18","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-18-shanai-tool-small-start.html","image":"https://teneramente.jp/assets/img/covers/2026-11-18-shanai-tool-small-start.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"業務アプリ, スモールスタート, 社内ツール, システム開発依頼, 要件定義"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方","item":"https://teneramente.jp/2026-11-18-shanai-tool-small-start.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"小さく作ると、後で作り直しになりませんか？","acceptedAnswer":{"@type":"Answer","text":"データの持ち方を最初に決めておけば、作り直しは画面の部分だけに収まります。逆に、一度にまとめて作った場合でも、想像で決めた仕様が外れていれば同じく作り直しになります。小さく作ると、外れが分かるのが早いという違いがあります。"}},{"@type":"Question","name":"最初の1画面は、どれくらいの期間で作れますか？","acceptedAnswer":{"@type":"Answer","text":"入力と一覧の2画面で、今の手順が説明できる状態であれば、相談と設計を含めて数週間の範囲が目安になります。期間を延ばす要因は機能の数ではなく、今の手順が決まっていないこと、関わる人が多いこと、既存の仕組みとつなぐ必要があることの3つです。"}},{"@type":"Question","name":"試す期間は、どれくらい取ればよいですか？","acceptedAnswer":{"@type":"Answer","text":"毎日発生する作業なら2〜3週間が目安です。その作業を10回以上繰り返せる長さがあれば、効果の有無は判断できます。週に1回の作業であれば、もう少し長く取る必要があります。期間を決めずに始めると、判断の機会が来ないまま続いてしまいます。"}},{"@type":"Question","name":"現場から要望がたくさん出たときは、どうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"出た要望をすべて記録したうえで、複数の人から繰り返し出たものだけを次に入れてください。1人から1回だけ出た要望は、個人の慣れの問題である場合が多く、入れると使い方が複雑になります。記録は残しておき、2回目に出たら検討する形が扱いやすいです。"}},{"@type":"Question","name":"小さく始めるのに向かない業務はありますか？","acceptedAnswer":{"@type":"Answer","text":"発生の頻度が低い業務、複数部署の承認が絡む業務、今の手順が担当者ごとに違う業務は向きません。頻度が低いと結果が集まらず、人が多いと使い方を揃える作業が先に来ます。手順が揃っていない業務は、ツールより先に手順を決める段階にあります。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 18, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">9 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-18-shanai-tool-small-start.png" alt="社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>社内ツールを小さく作ると、何が変わるのか</a><a href="#h2"><span class="n">02</span>「小さく」の単位は、画面ではなく1つの困りごと</a><a href="#h3"><span class="n">03</span>最初に作る1画面を、どう選ぶか</a><a href="#h4"><span class="n">04</span>小さく頼むときは、この順番で進める</a><a href="#h5"><span class="n">05</span>依頼するときに渡すもの</a><a href="#h6"><span class="n">06</span>試した後、広げる・やめる・置き換えるの3択</a><a href="#h7"><span class="n">07</span>よくある失敗と、その避け方</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：1つの困りごとを、完成させるところから</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">社内ツールを作りたいけれど、いきなり全部を頼むのは怖い。この感覚は正しいです。結論から申し上げると、<strong>社内ツールを小さく作るときの単位は「画面の数」ではなく「困りごとの数」です</strong>。困りごとを1つに絞れば、作るものは自然と1画面前後に収まり、現場で試してから広げるか決められます。この記事では、小さく作って試すための絞り方と、その状態での頼み方を順番に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>小さく始めるコツは、機能を削ることではなく<strong>対象を1つの困りごとに絞る</strong>ことです。機能だけを削ると中途半端なものが残りますが、困りごとで絞れば、その1つについては完成した道具になります。試した結果で広げる・やめる・置き換えるを決められる形にしておくことが、小さく作る本当の目的です。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>社内ツールを小さく作ると、何が変わるのか</h2>
+<p>一度にまとめて作る場合、効果が分かるのは完成して現場で使い始めたときです。それまでに決めた仕様は、すべて「たぶんこう使うはず」という想像の上に積まれています。想像が外れていた部分は、完成後に作り直しになります。</p>
+<p>小さく作る場合、最初に手元に届くのは1つの困りごとに対する道具です。現場で数週間使えば、本当に時間が減ったのか、入力が増えただけなのか、誰が使わなかったのかが分かります。<strong>判断の材料が、想像ではなく実際の使用結果に変わる</strong>のが最大の違いです。</p>
+<p>もう一つの違いは、やめる選択が残ることです。全部を作ってしまうと、合わなかったときに引き返しにくくなります。1つの困りごとだけを作ってあれば、合わなかった時点で止めても、失うのは最初の範囲だけです。小さく作るのは安く済ませる工夫ではなく、判断を早く、引き返せるようにする工夫だと考えてください。</p>
+<h2 id="h2"><span class="h-num">02</span>「小さく」の単位は、画面ではなく1つの困りごと</h2>
+<p>小さく作ると決めた後、多くの人が最初に機能を削ろうとします。検索をなくす、集計を後回しにする、権限を省く。この削り方だと、残るのは「どの困りごとも半分しか解決しない道具」になり、現場では使われません。</p>
+<p>絞るときは、業務の中にある困りごとを書き出し、そのうち1つだけを選びます。たとえば次のような粒度です。</p>
+<ul>
+<li>現場から送られてくる日報を、転記せずに集めたい</li>
+<li>在庫の数を、誰がいつ更新したのか残したい</li>
+<li>同じ内容の見積書を、毎回作り直さずに出したい</li>
+<li>問い合わせの対応状況が、担当者以外からも見えるようにしたい</li>
+</ul>
+<p>1つ選べば、必要な画面はおおよそ見えてきます。入力する画面と、入ったものを一覧で見る画面。この2つがあれば、1つの困りごとは成立します。<strong>困りごとを1つに絞ると、その1つについては完成品になる</strong>という点が、機能を削るやり方との決定的な違いです。社内ツールの作り方そのものの選択肢は<a href="2026-09-26-nocode-gyomu-app.html">ノーコードで業務アプリを作る</a>にも整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>最初に作る1画面を、どう選ぶか</h2>
+<p>困りごとの候補が複数あるとき、どれを最初に作るかで試した後の判断のしやすさが変わります。選ぶ基準は4つです。</p>
+<p>毎日または毎週、必ず発生する作業であること。月に一度の作業では、数週間試しても結果が集まりません。次に、関わる人が少ないこと。最初から全社の承認が絡む作業を選ぶと、使い方を揃えるだけで時間が過ぎます。</p>
+<p>三つ目は、今の手順が説明できることです。Excelのどのファイルを開き、何を見て、どこに書くか。これを口で説明できる作業は、そのまま仕様になります。説明できない作業は、まず手順を整えるほうが先です。四つ目は、効果が目で分かることです。転記の回数、探す時間、聞き直す回数のように、減ったかどうかが分かるものを選びます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>選ぶ基準</th>
+<th>向いている作業</th>
+<th>避けたい作業</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>発生の頻度</td>
+<td>毎日・毎週の定型作業</td>
+<td>月次や年次の作業</td>
+</tr>
+<tr>
+<td>関わる人数</td>
+<td>1〜数名で完結する作業</td>
+<td>複数部署の承認が絡む作業</td>
+</tr>
+<tr>
+<td>手順の明確さ</td>
+<td>今の流れを口で説明できる</td>
+<td>担当者ごとにやり方が違う</td>
+</tr>
+<tr>
+<td>効果の見え方</td>
+<td>転記・探す・聞き直すが減る</td>
+<td>「やりやすくなる」だけ</td>
+</tr>
+<tr>
+<td>既存データ</td>
+<td>今あるExcelをそのまま使える</td>
+<td>新しくデータを集め直す必要がある</td>
+</tr>
+</tbody></table></div>
+<p>この5行で候補を並べると、最初に作るものはほぼ自動的に決まります。迷ったときは、頻度が高く、関わる人が少ないものを選んでください。</p>
+<h2 id="h4"><span class="h-num">04</span>小さく頼むときは、この順番で進める</h2>
+<p>小さく作る場合も、進め方の順番は決まっています。この順番を飛ばすと、小さいのに時間がかかる、という状態になります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-18-shanai-tool-small-start.png" alt="困りごとを1つだけ選んで文字で書く段、使っているファイル名と見ている項目と転記先まで今の手順を書き出す段、入力と一覧の2画面に限って作る段、機能を足さずに現場で2〜3週間そのまま使う段、使われた回数と入力時間と使われなかった項目を見て広げるかやめるか置き換えるかを決める段という、社内ツールを小さく作って試すまでの5つの段を順番に並べた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>4段目で機能を足さないことが要点です。足しながら試すと、何が効いたのか分からなくなります。</figcaption></figure>
+
+<p>まず困りごとを1つ選び、文字で書きます。次に、今の手順をそのまま書き出します。使っているファイル名、見ている項目、転記している先まで含めて書きます。この時点で、作るものの8割は決まっています。</p>
+<p>そこから作るのは、入力と一覧の2画面に絞ります。設計の相談と作成を含めて数週間の範囲に収まる規模です。出来上がったら、現場で2〜3週間そのまま使います。この期間は機能を足さず、使い方を変えないでください。足しながら試すと、何が効いたのか分からなくなります。</p>
+<p>最後に、記録を見ながら続けるかを決めます。見るのは、使われた回数、入力にかかった時間、使われなかった項目の3つです。<strong>使われなかった項目は、次に作るときに外す材料になる</strong>ので、必ず記録しておいてください。進め方の全体像は<a href="2026-10-28-yoken-teigi-uchiawase.html">打ち合わせで決めること</a>もあわせてご覧ください。</p>
+<h2 id="h5"><span class="h-num">05</span>依頼するときに渡すもの</h2>
+<p>小さく頼むときほど、渡す材料が効きます。資料を作る必要はなく、今あるものをそのまま出すのが最短です。</p>
+<ul>
+<li>困りごとを1行で書いたもの（「何が、どれくらい手間か」まで）</li>
+<li>今使っているExcelやスプレッドシートの実物（匿名化で構いません）</li>
+<li>その作業を今どうやっているかの手順（箇条書きで5〜10行）</li>
+<li>作業に関わる人の数と、役割の違い（入力する人、見る人）</li>
+<li>1日・1週間に何件発生するか（おおよその件数）</li>
+<li>絶対に守りたい条件（社外に出せないデータがある、など）</li>
+<li>試す期間の目安と、誰が試すか</li>
+<li>今回は作らないと決めたこと（集計、権限、外部連携など）</li>
+</ul>
+<p>最後の項目を書けると、話が速く進みます。作らないものを先に決めておくと、相談の途中で範囲が膨らむのを防げます。相談の段階では完璧である必要はなく、<strong>今の手順の実物があるかどうか</strong>で進み方が変わります。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>渡し方のコツ</h4>
+    <p>Excelは整えずに、普段使っている状態のまま渡すほうが役に立ちます。空欄、手書きの備考、担当者ごとの書き方の違い。そうした実際の状態こそが、設計で考慮すべき条件です。きれいに整えてから渡すと、現場で起きていることが見えなくなります。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>試した後、広げる・やめる・置き換えるの3択</h2>
+<p>数週間使った後に取れる選択は3つです。どれを選んでも失敗ではないという前提を、始める前に共有しておいてください。</p>
+<p>広げる場合は、同じ考え方で次の困りごとを1つ足します。このとき、前回使われなかった項目は外し、現場から出た要望のうち毎回出たものだけを入れます。1回しか出なかった要望は、まだ入れません。</p>
+<p>やめる場合は、作ったものを止めて元の手順に戻します。損失は最初の範囲だけで、得られるのは「この作業はツール化しても効果が薄い」という判断材料です。これは次の投資先を決めるときに効いてきます。</p>
+<p>置き換える場合は、既製のサービスで足りることが分かったときです。試して初めて、自社で作る必要がある部分と、既にあるもので足りる部分が分かれます。この見極めは<a href="2026-10-02-saas-jisha-kaihatsu-erabikata.html">自社開発か既製サービスか</a>の判断材料にもなります。<strong>3択を先に決めておくと、試す期間の記録の取り方が変わります</strong>。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある失敗と、その避け方</h2>
+<p><strong>機能を削って小さくする</strong>。検索も集計も権限も省くと、どの困りごとも半分しか解決しません。機能ではなく対象の困りごとで絞ってください。</p>
+<p><strong>試しながら機能を足す</strong>。足しながら使うと、効いたのが元の設計なのか追加分なのか分からなくなります。試す期間は固定してください。</p>
+<p><strong>試す担当を決めていない</strong>。「みんなで使ってみてください」で始めると誰も使いません。最初に試す人を名前で決め、その人の作業時間を確保してください。</p>
+<p><strong>記録を取らずに終わる</strong>。使った回数と使われなかった項目を記録していないと、広げるときの判断が勘に戻ります。簡単なメモで構いません。</p>
+<p><strong>最初から全社の作業を選ぶ</strong>。関わる人が多い作業は、使い方を揃えるだけで数週間かかります。1〜数名で完結する作業から始めてください。</p>
+<p><strong>やめる選択を用意していない</strong>。やめられない前提で始めると、合わなかったときに使われないものが残り続けます。3択を先に共有しておいてください。</p>
+<p><strong>小さいから見積もりもいらないと考える</strong>。範囲が小さくても、何をどこまで作るかは文字で残してください。小規模な依頼ほど、口約束で範囲が広がりやすい部分です。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つあります。</p>
+<p>一つ目は、扱うデータの性質です。社内の人だけが見る記録を、社内の人だけで使う場合は、表計算やノーコードの道具で自分たちで作る選択が現実的です。社外のお客様の情報や、取引の金額が入る場合は、権限の設計やデータの保管に関する判断が必要になるため、外部の目を入れたほうが安全です。</p>
+<p>二つ目は、作った後に直す人が居るかどうかです。自分たちで作る方法の最大の利点は、思いついたその日に直せることです。逆に、作った人が異動や退職で居なくなると、誰も触れないものが残ります。社内に直し続ける人を置けるかどうかが、自分で作るかどうかの分かれ目になります。</p>
+<p>三つ目は、既存の仕組みとつなぐ必要があるかどうかです。入力と一覧だけで完結するなら、自分たちで作れる範囲です。会計や在庫、基幹の仕組みと自動でつなぐ段階では、相手側の仕様を読む作業が入るため、専門的な判断が必要になります。</p>
+<p>迷うときは、最初の1画面は自分たちで作ってみて、2つ目で判断するのが無理のない順番です。1つ作ると、自社でどこまでできるかが具体的に分かります。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>小さく作ると、後で作り直しになりませんか？</summary><div class="faq-a">データの持ち方を最初に決めておけば、作り直しは画面の部分だけに収まります。逆に、一度にまとめて作った場合でも、想像で決めた仕様が外れていれば同じく作り直しになります。小さく作ると、外れが分かるのが早いという違いがあります。</div></details>
+
+<details class="faq"><summary>最初の1画面は、どれくらいの期間で作れますか？</summary><div class="faq-a">入力と一覧の2画面で、今の手順が説明できる状態であれば、相談と設計を含めて数週間の範囲が目安になります。期間を延ばす要因は機能の数ではなく、今の手順が決まっていないこと、関わる人が多いこと、既存の仕組みとつなぐ必要があることの3つです。</div></details>
+
+<details class="faq"><summary>試す期間は、どれくらい取ればよいですか？</summary><div class="faq-a">毎日発生する作業なら2〜3週間が目安です。その作業を10回以上繰り返せる長さがあれば、効果の有無は判断できます。週に1回の作業であれば、もう少し長く取る必要があります。期間を決めずに始めると、判断の機会が来ないまま続いてしまいます。</div></details>
+
+<details class="faq"><summary>現場から要望がたくさん出たときは、どうすればよいですか？</summary><div class="faq-a">出た要望をすべて記録したうえで、複数の人から繰り返し出たものだけを次に入れてください。1人から1回だけ出た要望は、個人の慣れの問題である場合が多く、入れると使い方が複雑になります。記録は残しておき、2回目に出たら検討する形が扱いやすいです。</div></details>
+
+<details class="faq"><summary>小さく始めるのに向かない業務はありますか？</summary><div class="faq-a">発生の頻度が低い業務、複数部署の承認が絡む業務、今の手順が担当者ごとに違う業務は向きません。頻度が低いと結果が集まらず、人が多いと使い方を揃える作業が先に来ます。手順が揃っていない業務は、ツールより先に手順を決める段階にあります。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：1つの困りごとを、完成させるところから</h2>
+<p>社内ツールを小さく作って試す手順は決まっています。困りごとを1つに絞る。今の手順をそのまま書き出す。入力と一覧の2画面に限って作る。期間を決めて現場で使い、機能を足さない。使われた回数と使われなかった項目を記録する。その記録を見て、広げる・やめる・置き換えるを決める。この形なら、投資の判断を想像ではなく結果で下せます。</p>
+<p>逆に、機能を削って小さくしようとすると、どの困りごとも半分しか解決しない道具が残ります。小さくするのは機能ではなく対象です。</p>
+<p>TENERAMENTEなら、この記事で挙げた「最初の1画面を決める」段階からご一緒できます。現在お使いのExcelとその使い方を見せていただき、どの困りごとから作ると効果が確かめやすいかを整理したうえで、入力と一覧に絞った形で作り、短い期間で現場に出します。試した結果を見ながら次に足すものを決めていくので、使われない機能にお金をかけずに済み、広げる判断もやめる判断もその都度できます。小さく始める開発の進め方は<a href="lp-ai-app.html">AI業務アプリ開発</a>にまとめています。初回のご相談60分は無料ですので、どの作業から手を付けるか決まっていない段階でも、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#業務アプリ</span><span>#スモールスタート</span><span>#社内ツール</span><span>#システム開発依頼</span><span>#要件定義</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-14-keiyakusho-jidosakusei-system.html">
+        <span class="cat">Web App</span>
+        <h4>契約書の作成を自動化する方法｜ひな形の管理からシステム化までの段階</h4>
+      </a>
+      <a class="related-card" href="2026-11-09-gyomu-app-kaihatsu-shippai-genin.html">
+        <span class="cat">Web App</span>
+        <h4>業務アプリ開発が失敗する原因｜発注する側が最初に決めること</h4>
+      </a>
+      <a class="related-card" href="2026-11-05-nagoya-gyomu-system-kaihatsu.html">
+        <span class="cat">Web App</span>
+        <h4>名古屋で業務システム開発を依頼する前に｜相談先の選び方と進め方</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

@@ -1593,7 +1593,9 @@
         "bukken-shashin-torikata",
         "naiken-junbi-annai"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "online-naiken-yarikata",
+      "doneAt": "2026-11-17"
     }
   ]
 }

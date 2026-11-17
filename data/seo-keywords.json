@@ -1536,7 +1536,9 @@
         "2026-09-26-nocode-gyomu-app",
         "2026-10-02-saas-jisha-kaihatsu-erabikata"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-18-shanai-tool-small-start",
+      "doneAt": "2026-11-17"
     },
     {
       "id": "k121",
