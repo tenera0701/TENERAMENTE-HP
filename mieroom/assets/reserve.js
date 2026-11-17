@@ -78,8 +78,8 @@
           '<div class="mrv-f full mrv-memo"><label for="mrv-memo">当日ご相談したいこと（任意）</label>' +
             '<textarea id="mrv-memo" maxlength="2000" placeholder="例）申込から入金までの管理をまとめたい、反響の数字を店舗ごとに見たい など"></textarea></div>' +
           (opt.consented
-            ? '<p class="mrv-note">ご入力の内容は、<a href="' + esc(opt.privacyUrl || '../privacy.html') + '" target="_blank" rel="noopener">プライバシーポリシー</a>に沿って取り扱います。</p>'
-            : '<label class="mrv-agree"><input type="checkbox" class="mrv-ok"><span><a href="' + esc(opt.privacyUrl || '../privacy.html') +
+            ? '<p class="mrv-note">ご入力の内容は、<a href="' + esc(opt.privacyUrl || 'https://teneramente.jp/privacy.html') + '" target="_blank" rel="noopener">プライバシーポリシー</a>に沿って取り扱います。</p>'
+            : '<label class="mrv-agree"><input type="checkbox" class="mrv-ok"><span><a href="' + esc(opt.privacyUrl || 'https://teneramente.jp/privacy.html') +
               '" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span></label>') +
           '<div class="mrv-hp" aria-hidden="true"><input type="text" class="mrv-hpi" tabindex="-1" autocomplete="off"></div>' +
           '<div class="mrv-err" hidden></div>' +

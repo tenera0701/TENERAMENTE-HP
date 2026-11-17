@@ -444,6 +444,17 @@ ${all.map(u => {
 `;
   fs.writeFileSync(OUT_SITEMAP, sitemap, 'utf8');
 
+  // mieroom.cloud 用のサイトマップ（scripts/build-mieroom-site.js がサイトの一番上に置く）
+  const mieroomSitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${all.filter(u => u.startsWith('mieroom/')).map(u => {
+  const d = lastmod[u];
+  return `  <url><loc>https://mieroom.cloud/${encodeURI(u.slice('mieroom/'.length)).replace(/&/g, '&amp;')}</loc>${d ? `<lastmod>${d}</lastmod>` : ''}</url>`;
+}).join('\n')}
+</urlset>
+`;
+  fs.writeFileSync(path.join(ROOT, 'mieroom', 'sitemap.xml'), mieroomSitemap, 'utf8');
+
   console.log(`✓ posts.json (${posts.length}本) と sitemap.xml を出力しました`);
 }
 

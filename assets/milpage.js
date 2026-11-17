@@ -40,7 +40,7 @@ window.MILPAGE = {
    ・GA4 と同じく、Cookie に「同意する」を押した人だけ計測する
      （同意前・拒否・?noanalytics=1 で外した端末では読み込まない）
    ・キーは ATLAS の「HP・LP → サイト分析 → 設定・計測タグ」の値。公開される値で秘密ではない
-   ・/mieroom/ と /lp-mieroom はミエルーム、それ以外は TENERAMENTE に数える
+   ・mieroom.cloud と、/mieroom/・/lp-mieroom はミエルーム、それ以外は TENERAMENTE に数える
      （ATLAS 側の「見るページの範囲」と同じ分け方。変えるときは両方そろえる）
    ------------------------------------------------------------ */
 (function () {
@@ -55,7 +55,7 @@ window.MILPAGE = {
   var KEY_TENERA = 'GS8jBZumexwhogsv';
   var KEY_MIEROOM = 'n_TIlxvMUCVXu_e4';
   var p = location.pathname;
-  var key = (p.indexOf('/mieroom/') === 0 || p === '/mieroom' || p.indexOf('/lp-mieroom') === 0) ? KEY_MIEROOM : KEY_TENERA;
+  var key = (/(^|\.)mieroom\.cloud$/.test(location.hostname) || p.indexOf('/mieroom/') === 0 || p === '/mieroom' || p.indexOf('/lp-mieroom') === 0) ? KEY_MIEROOM : KEY_TENERA;
   function granted() {
     try { return localStorage.getItem('mp_consent_' + cfg.storeId) === 'granted'; } catch (e) { return false; }
   }

@@ -1,0 +1,56 @@
+name: ミエルームのサイトを公開する（mieroom.cloud）
+
+# mieroom/ フォルダから mieroom.cloud 用の一式を作り、公開用リポジトリ（tenera0701/mieroom-site）へ送る。
+# GitHub Pages は1リポジトリ1ドメインなので、公開先だけ別のリポジトリにしている。直す場所は mieroom/ のまま。
+# 鍵 MIEROOM_SITE_DEPLOY_KEY は公開用リポジトリにだけ書き込める専用の鍵（Settings → Secrets → Actions）。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mieroom/**'
+      - 'assets/milpage.js'
+      - 'assets/analytics.js'
+      - 'scripts/build-mieroom-site.js'
+      - '.github/workflows/publish-mieroom-site.yml'
+  # ミルページの取り込みは Actions から push するので、上の push では起動しない
+  workflow_run:
+    workflows: ['ミルページのブログを取り込む']
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: mieroom-site
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: mieroom.cloud 用の一式を作る
+        run: node scripts/build-mieroom-site.js "$RUNNER_TEMP/site"
+
+      - name: 公開用リポジトリへ送る
+        env:
+          DEPLOY_KEY: ${{ secrets.MIEROOM_SITE_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
+          cd "$RUNNER_TEMP/site"
+          git init -q -b main
+          git config user.name  "mieroom-site-publish"
+          git config user.email "mieroom-site-publish@users.noreply.github.com"
+          git add -A
+          git commit -q -m "publish ${GITHUB_SHA}"
+          git push --force git@github.com:tenera0701/mieroom-site.git main
