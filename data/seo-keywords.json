@@ -1555,7 +1555,9 @@
         "2026-10-01-gbp-category-erabikata",
         "2026-06-27-google-kuchikomi-fuyasu"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-19-zeirishi-shigyo-meo",
+      "doneAt": "2026-11-18"
     },
     {
       "id": "k118",

@@ -1596,6 +1596,25 @@
       "status": "done",
       "slug": "online-naiken-yarikata",
       "doneAt": "2026-11-17"
+    },
+    {
+      "id": "m201",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 広告費 見直し",
+      "sub": [
+        "ポータルサイト 掲載費 費用対効果",
+        "賃貸 反響 単価 見方"
+      ],
+      "title": "賃貸仲介の広告費の見直し方｜反響が出ている媒体を見極める手順",
+      "intent": "ポータルや広告の掲載費を、どこを削りどこに寄せるか判断したい（料金は書かない・他社を批判しない・数字は書かない）",
+      "pillar": "../features.html",
+      "related": [
+        "portal-hankyo-fuyasu",
+        "hankyo-kanri-hoho"
+      ],
+      "status": "done",
+      "slug": "chintai-kokokuhi-minaoshi",
+      "doneAt": "2026-11-18"
     }
   ]
 }
