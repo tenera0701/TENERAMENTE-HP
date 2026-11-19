@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>見積自動生成｜1日1ツール #004｜TENERAMENTE</title>
+<meta name="description" content="見積自動生成を無料で使えます。登録なし・ネット不要。Claude に頼んで自分で作るプロンプトと手順つき。">
+<meta property="og:title" content="見積自動生成｜1日1ツール #004">
+<meta property="og:description" content="無料で使えるツールと、Claude で作るプロンプト・手順">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teneramente.jp/tools/004/">
+<style>
+:root { --bg:#0b0d12; --card:#151924; --line:#262c3b; --text:#f2f4f8; --sub:#a9b0c2; --accent:#2340F5; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.75 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif; }
+main { max-width:640px; margin:0 auto; padding:28px 16px 56px; }
+.tag { color:var(--sub); font-size:13px; letter-spacing:.06em; }
+h1 { font-size:34px; line-height:1.3; margin:6px 0 10px; }
+.lead { color:var(--sub); margin:0 0 22px; }
+.btn { display:block; text-align:center; text-decoration:none; font-weight:700; border-radius:14px; padding:18px 16px; font-size:18px; }
+.btn.main { background:var(--accent); color:#fff; }
+.btn.sub { border:1px solid var(--line); color:var(--text); background:var(--card); font-size:16px; padding:14px 16px; }
+.note { color:var(--sub); font-size:13px; margin:10px 2px 0; }
+section { margin-top:40px; }
+h2 { font-size:22px; margin:0 0 12px; padding-left:12px; border-left:4px solid var(--accent); line-height:1.4; }
+h3 { font-size:17px; margin:26px 0 6px; }
+p, li { color:#dfe3ec; }
+ul { padding-left:1.2em; }
+.code, .prompt { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; white-space:pre-wrap; word-break:break-word; font:14px/1.7 ui-monospace,Menlo,monospace; color:#e7eaf2; margin:8px 0; }
+.copy { margin-top:8px; width:100%; cursor:pointer; border:0; font:inherit; }
+.cta { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 16px; }
+.cta p { margin:0 0 14px; }
+footer { margin-top:48px; color:var(--sub); font-size:13px; text-align:center; }
+footer a { color:var(--sub); }
+</style>
+</head>
+<body>
+<main>
+  <div class="tag">TENERAMENTE｜1日1ツール #004</div>
+  <h1>見積自動生成</h1>
+  <p class="lead">無料で使えます。登録なし・ネット不要。入れた内容はこの端末のブラウザの中だけに残り、どこにも送られません。</p>
+  <a class="btn main" href="tool.html">ツールを使う →</a>
+  <p class="note">パソコンがおすすめ（印刷・CSV保存も使えます）。スマホでも動きます。</p>
+
+  <section>
+    <h2>自分用に作り替えたい人へ</h2>
+    <p>Claude（claude.ai）に、この文をそのまま貼って送ると、同じようなツールを作ってくれます。</p>
+    <div class="prompt" id="prompt">見積書を作るツールを、HTMLファイル1つで作って。ネット不要で動き、入れた内容はこのパソコンの中だけに保存。
+・会社名・担当者・電話・住所・登録番号（インボイス）・振込先は、最初に一度だけ入れて保存（あとから直せる）
+・よく使う品目を、品目・単位・単価（税抜）・税率（10%・8%）で登録しておく（足す・消す・単価を直すもできる）
+・宛先と件名を入れて、行ごとに品目を選んで数量を入れると、単価と金額が入り、小計・税率ごとの消費税（1円未満は切り捨て）・税込の合計が自動で出る
+・見積番号（Q-年月日-連番）と見積日・有効期限（30日後）は自動。日付は直せる
+・御見積書の形（宛先 御中・件名・お見積金額・品目の表・10%対象と8%対象・消費税・自社の情報）で、そのまま印刷・PDF保存（印刷のときは書類だけがA4で出る）
+・作った見積は保存して一覧に残し、開いて直す・消すができる
+・決まった見積は、ボタンひとつで同じ中身の請求書に（請求番号・請求日・お支払期限は翌月末・振込先・もとの見積番号）</div>
+    <button class="btn sub copy" type="button" onclick="copyPrompt(this)">プロンプトをコピー</button>
+  </section>
+
+  <section>
+    <h2>作り方の細かい手順</h2>
+    <h3>用意するもの</h3>
+<ul><li>Claude（claude.ai）にログインできるパソコン</li><li>ブラウザ（Chrome・Edge・Safari など）。できたツールはネット不要で動く</li></ul>
+<h3>STEP1 Claude にこう頼む（コピペでOK）</h3>
+<p class="note">↑ 上の「プロンプトをコピー」の文をそのまま貼る</p>
+<p>コツ: よく使う品目と単価まで書く（自分の仕事の品目を書いておくと、最初から入った状態で作ってくれる）。書いた物しか作られない。</p>
+<h3>STEP2 Claude がツールをファイル1つ（index.html）で作る</h3>
+<h3>STEP3 できたファイルを保存して、ダブルクリックで開く</h3>
+<p>ブラウザで開く。ネット不要で、入れた内容はこのパソコンのブラウザの中だけに残る。</p>
+<h3>STEP4 自社の情報は最初に一度だけ</h3>
+<p>会社名・担当者・電話・住所・登録番号（インボイスの登録をしていれば）・振込先を入れて「この内容で保存」。次からは見積書と請求書に自動で入る。直すときは「直す」。</p>
+<h3>STEP5 品目を選ぶだけ</h3>
+<p>先に「よく使う品目と単価」の表に、品目・単位・単価（税抜）・税率を登録しておく。<br>見積では、宛先と件名を入れて、行ごとに品目を選んで数量を入れる。単価は登録から自動で入る。行は「＋ 行を足す」で増やせる。</p>
+<h3>STEP6 税込の合計が自動</h3>
+<p>小計（税抜）・消費税（10%と8%に分けて）・合計（税込）が自動で出る。消費税は税率ごとに1回計算して、1円未満は切り捨て。</p>
+<h3>STEP7 番号と日付も自動</h3>
+<p>見積番号（Q-年月日-連番）・見積日（今日）・有効期限（30日後）が自動で入る。日付は直せる。</p>
+<h3>STEP8 印刷と PDF</h3>
+<p>「印刷・PDFで保存」を押すと印刷の画面が開く（書類だけが A4 で出る）。プリンターの所で「PDFに保存」を選ぶと PDF になる。</p>
+<h3>仕上げ: そのまま請求書に</h3>
+<p>「この見積を保存」で下の一覧に残る。決まった見積は「請求書にする」を押すと、同じ中身の請求書（請求番号・請求日・お支払期限は翌月末・振込先つき）ができて、一覧に並ぶ。</p>
+<h3>うまくいかないとき</h3>
+<ul><li>思った形と違う → 同じ会話で「〇〇を直して」と続けて頼めばOK（例:「備考の欄も足して」「値引きの行を入れられるように」）</li><li>別のパソコンでは、入れた内容は見えない（このパソコンのブラウザの中だけに残るため）</li><li>インボイス（適格請求書）として出すときは、登録番号・税率ごとの対象額と消費税が入っているかを、国税庁の案内で確かめてから使う</li></ul>
+  </section>
+
+  <section class="cta">
+    <h2>御社専用のツールも作れます</h2>
+    <p>このようなツールや自動化システムを、御社専用で制作できます。開発費用は30万円〜。AI活用やツールの相談だけでも大丈夫です。</p>
+    <a class="btn main" href="https://ldash.link/b0ecdz">公式LINEで相談する</a>
+    <a class="btn sub" href="https://ig.me/m/maro_ai01" style="margin-top:10px">インスタのDMで相談する</a>
+    <p class="note">インスタは @maro_ai01 です。</p>
+  </section>
+
+  <footer><a href="https://teneramente.jp/">TENERAMENTE</a></footer>
+</main>
+<script>
+function copyPrompt(b) {
+  var t = document.getElementById("prompt").innerText;
+  var done = function () { b.textContent = "コピーしました"; setTimeout(function () { b.textContent = "プロンプトをコピー"; }, 2000); };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(t).then(done, function () { fallback(t); done(); });
+  } else { fallback(t); done(); }
+}
+function fallback(t) {
+  var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

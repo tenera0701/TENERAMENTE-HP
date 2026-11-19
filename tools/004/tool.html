@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>見積書メーカー</title>
+<style>
+:root{--ac:#0f9f86;--ac2:#e6f6f2;--ink:#1d2433;--sub:#667085;--line:#e3e7ee;--bg:#f4f6f9;--warn:#d92d20}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;font-size:15px;line-height:1.55}
+header{background:linear-gradient(135deg,#0f9f86,#0b7d8f);color:#fff;padding:16px 16px 14px}
+header h1{margin:0;font-size:22px;letter-spacing:.04em}
+header p{margin:4px 0 0;font-size:12.5px;opacity:.92}
+main{max-width:760px;margin:0 auto;padding:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 12px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card h2{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px}
+.card h2 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ac);color:#fff;font-size:13px}
+.card h2 .hint{margin-left:auto;font-size:12px;font-weight:400;color:var(--sub)}
+label{display:block;font-size:12.5px;color:var(--sub);margin:8px 0 3px}
+input,select,textarea{width:100%;font:inherit;padding:8px 10px;border:1px solid #cfd6e1;border-radius:9px;background:#fff;color:var(--ink)}
+textarea{min-height:56px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font:inherit;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;background:var(--ac);color:#fff;font-weight:700}
+button.sub{background:#eef1f5;color:var(--ink);font-weight:600}
+button.mini{padding:5px 9px;font-size:12.5px;border-radius:8px}
+button.del{background:#fff;color:var(--warn);border:1px solid #f3c1bd}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.saved{display:flex;align-items:center;gap:10px;background:var(--ac2);border-radius:10px;padding:10px 12px}
+.saved b{font-size:15px}.saved span{font-size:12.5px;color:var(--sub)}
+.saved button{margin-left:auto}
+.items{width:100%;border-collapse:collapse;font-size:13.5px}
+.items th{font-size:12px;color:var(--sub);font-weight:600;text-align:left;padding:4px 4px;border-bottom:1px solid var(--line)}
+.items td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:middle}
+.items td input,.items td select{padding:6px 7px;font-size:13.5px}
+.num{text-align:right}
+.line{display:grid;grid-template-columns:1fr 64px 30px;gap:6px;align-items:center;margin:6px 0}
+.line .meta{grid-column:1/-1;font-size:12px;color:var(--sub);margin-top:-2px;display:flex;justify-content:space-between}
+.line .meta b{color:var(--ink)}
+.tot{margin-top:10px;border-top:2px solid var(--ink);padding-top:8px}
+.tot div{display:flex;justify-content:space-between;font-size:14px;padding:2px 0}
+.tot .big{font-size:20px;font-weight:800;color:var(--ac)}
+.msg{margin-top:8px;font-size:13px;color:var(--ac);min-height:1em}
+/* 書類 */
+#doc{background:#fff;border:1px solid #cfd6e1;border-radius:6px;padding:20px 16px;font-size:12.5px;line-height:1.5}
+#doc .dh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+#doc h3{margin:0 auto 12px;font-size:22px;letter-spacing:.5em;text-align:center;border-bottom:3px double var(--ink);padding-bottom:4px;width:fit-content}
+#doc .to{font-size:16px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:2px;margin-bottom:4px}
+#doc .meta{text-align:right;font-size:11.5px;white-space:nowrap;margin-bottom:6px}
+#doc .meta div{margin-bottom:1px}
+#doc .lead{margin:8px 0 6px}
+#doc .amount{display:flex;justify-content:space-between;align-items:baseline;border:2px solid var(--ink);padding:6px 10px;margin:6px 0 10px}
+#doc .amount b{font-size:21px}
+#doc table{width:100%;border-collapse:collapse;margin-top:4px}
+#doc th,#doc td{border:1px solid #9aa4b2;padding:4px 5px}
+#doc th{background:#eef2f6;font-weight:700;font-size:11.5px}
+#doc .sum td{border:0;padding:2px 5px;white-space:nowrap}
+#doc .sum tr td:first-child{text-align:right;color:var(--sub)}
+#doc .from{margin-top:12px;display:flex;justify-content:space-between;gap:10px;font-size:11.5px}
+#doc .from .co{font-weight:700;font-size:13px}
+#doc .bank{margin-top:8px;font-size:11.5px;border-top:1px dashed #9aa4b2;padding-top:6px}
+#doc .stamp{display:inline-block;border:2px solid var(--warn);color:var(--warn);border-radius:6px;padding:0 6px;font-weight:800;font-size:12px;margin-left:6px;transform:rotate(-6deg)}
+.list .q{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:6px 0}
+.list .q .k{font-size:11px;font-weight:800;border-radius:6px;padding:1px 6px;background:var(--ac2);color:var(--ac)}
+.list .q .k.inv{background:#fff1e6;color:#c4320a}
+.list .q .t{flex:1;min-width:0}
+.list .q .t div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list .q .t small{color:var(--sub)}
+.list .q b{white-space:nowrap}
+.empty{color:var(--sub);font-size:13px}
+@media print{
+  body{background:#fff}
+  header,.card:not(#docCard),#docCard>h2,#docCard .btns,#docCard .msg,#docCard .hint{display:none!important}
+  main{max-width:none;padding:0}
+  #docCard{border:0;box-shadow:none;padding:0;margin:0}
+  #doc{border:0;padding:8mm 10mm;font-size:11pt}
+  @page{size:A4;margin:10mm}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>見積書メーカー</h1>
+  <p>品目を選ぶだけで、税込の見積書。ネット不要・入れた内容はこのパソコンの中だけに保存</p>
+</header>
+<main>
+  <section class="card" id="coCard">
+    <h2><span class="n">1</span>自社の情報<span class="hint">最初に一度だけ</span></h2>
+    <div id="coView"></div>
+    <div id="coForm">
+      <label for="coName">会社名・屋号</label><input id="coName" placeholder="例: あおば制作室">
+      <div class="row2">
+        <div><label for="coPerson">担当者</label><input id="coPerson" placeholder="例: 佐藤 みき"></div>
+        <div><label for="coTel">電話</label><input id="coTel" placeholder="例: 03-0000-0000"></div>
+      </div>
+      <label for="coAddr">住所</label><input id="coAddr" placeholder="例: 東京都〇〇区〇〇 1-2-3">
+      <label for="coReg">登録番号（インボイス・あれば）</label><input id="coReg" placeholder="例: T1234567890123">
+      <label for="coBank">振込先</label><input id="coBank" placeholder="例: 〇〇銀行 〇〇支店 普通 1234567 アオバセイサクシツ">
+      <div class="btns"><button id="coSave">この内容で保存</button></div>
+    </div>
+  </section>
+
+  <section class="card" id="itemCard">
+    <h2><span class="n">2</span>よく使う品目と単価<span class="hint">登録しておく</span></h2>
+    <table class="items"><thead><tr><th>品目</th><th style="width:58px">単位</th><th style="width:96px" class="num">単価(税抜)</th><th style="width:62px">税率</th><th style="width:34px"></th></tr></thead><tbody id="itemRows"></tbody></table>
+    <div class="btns"><button class="sub mini" id="itemAdd">＋ 品目を足す</button></div>
+  </section>
+
+  <section class="card" id="mkCard">
+    <h2><span class="n">3</span>見積をつくる</h2>
+    <label for="to">宛先</label><input id="to" placeholder="例: ひだまりベーカリー">
+    <label for="subject">件名</label><input id="subject" placeholder="例: お店のチラシとロゴの制作">
+    <div id="lines"></div>
+    <div class="btns"><button class="sub mini" id="lineAdd">＋ 行を足す</button></div>
+    <div class="tot" id="tot"></div>
+    <div class="row2">
+      <div><label for="qDate">見積日</label><input id="qDate" type="date"></div>
+      <div><label for="qLimit">有効期限</label><input id="qLimit" type="date"></div>
+    </div>
+  </section>
+
+  <section class="card" id="docCard">
+    <h2><span class="n">4</span>できあがり<span class="hint" id="docHint">番号と日付は自動</span></h2>
+    <div id="doc"></div>
+    <div class="btns">
+      <button id="print">印刷・PDFで保存</button>
+      <button class="sub" id="keep">この見積を保存</button>
+      <button class="sub" id="toInv">請求書にする</button>
+      <button class="sub" id="newQ">新しい見積</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </section>
+
+  <section class="card list" id="listCard">
+    <h2><span class="n">5</span>保存した見積・請求書<span class="hint" id="listHint"></span></h2>
+    <div id="list"></div>
+  </section>
+</main>
+<script>
+const KEY = "mitsumoriBook.v1";
+const $ = s => document.querySelector(s);
+const yen = n => "¥" + Math.round(n).toLocaleString("ja-JP");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = () => Math.random().toString(36).slice(2, 9);
+const pad = n => String(n).padStart(2, "0");
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const jp = s => { if (!s) return ""; const [y, m, d] = s.split("-"); return `${y}年${+m}月${+d}日`; };
+const today = () => ymd(new Date());
+const addDays = (s, n) => { const d = new Date(s + "T00:00:00"); d.setDate(d.getDate() + n); return ymd(d); };
+const nextMonthEnd = s => { const d = new Date(s + "T00:00:00"); return ymd(new Date(d.getFullYear(), d.getMonth() + 2, 0)); };
+
+let S = load();
+function blank() {
+  return {
+    co: null,
+    items: [
+      {id: uid(), name: "", unit: "式", price: 0, rate: 10},
+    ],
+    cur: newCur(),
+    saved: []
+  };
+}
+function newCur() {
+  const t = today();
+  return {kind: "q", no: "", to: "", subject: "", date: t, limit: addDays(t, 30), rows: [{item: "", qty: 1}], from: ""};
+}
+function load() {
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.items) return s; } catch (e) {}
+  return blank();
+}
+function save() { localStorage.setItem(KEY, JSON.stringify(S)); }
+
+/* 番号: 見積は Q-年月日-連番、請求書は I-年月日-連番（その日に保存した数から自動） */
+function nextNo(kind, date) {
+  const d = (date || today()).replaceAll("-", "");
+  const head = (kind === "inv" ? "I-" : "Q-") + d + "-";
+  const used = S.saved.filter(x => x.no.startsWith(head)).map(x => +x.no.slice(head.length));
+  return head + pad((used.length ? Math.max(...used) : 0) + 1);
+}
+
+/* 1. 自社の情報 */
+function drawCo() {
+  const c = S.co;
+  $("#coForm").style.display = c ? "none" : "";
+  $("#coView").innerHTML = c ? `<div class="saved"><div><b>${esc(c.name)}</b><br><span>保存済み ✓ 見積書と請求書に自動で入ります</span></div><button class="sub mini" id="coEdit">直す</button></div>` : "";
+  if (c) $("#coEdit").onclick = () => {
+    for (const k of ["Name", "Person", "Tel", "Addr", "Reg", "Bank"]) $("#co" + k).value = c[k.toLowerCase()] || "";
+    S.co = null; drawCo();
+  };
+}
+$("#coSave").onclick = () => {
+  const v = k => $("#co" + k).value.trim();
+  if (!v("Name")) { alert("会社名・屋号を入れてください"); return; }
+  S.co = {name: v("Name"), person: v("Person"), tel: v("Tel"), addr: v("Addr"), reg: v("Reg"), bank: v("Bank")};
+  save(); drawCo(); drawDoc();
+};
+
+/* 2. 品目 */
+function drawItems() {
+  $("#itemRows").innerHTML = S.items.map(it => `<tr data-id="${it.id}">
+    <td><input data-k="name" value="${esc(it.name)}" placeholder="品目"></td>
+    <td><input data-k="unit" value="${esc(it.unit)}"></td>
+    <td><input data-k="price" class="num" inputmode="numeric" value="${it.price || ""}"></td>
+    <td><select data-k="rate"><option value="10"${it.rate == 10 ? " selected" : ""}>10%</option><option value="8"${it.rate == 8 ? " selected" : ""}>8%</option></select></td>
+    <td><button class="del mini" data-a="del" title="消す">✕</button></td></tr>`).join("");
+}
+$("#itemRows").addEventListener("input", e => {
+  const tr = e.target.closest("tr"), it = S.items.find(x => x.id === tr.dataset.id), k = e.target.dataset.k;
+  it[k] = k === "price" ? +String(e.target.value).replace(/[^\d.]/g, "") : k === "rate" ? +e.target.value : e.target.value;
+  save(); drawLines(false); drawDoc();
+});
+$("#itemRows").addEventListener("change", e => { if (e.target.dataset.k === "rate") e.target.dispatchEvent(new Event("input", {bubbles: true})); });
+$("#itemRows").addEventListener("click", e => {
+  if (e.target.dataset.a !== "del") return;
+  const id = e.target.closest("tr").dataset.id;
+  S.items = S.items.filter(x => x.id !== id); save(); drawItems(); drawLines(); drawDoc();
+});
+$("#itemAdd").onclick = () => { S.items.push({id: uid(), name: "", unit: "式", price: 0, rate: 10}); save(); drawItems(); };
+
+/* 3. 見積の行 */
+function rowCalc(r) {
+  const it = S.items.find(x => x.id === r.item);
+  if (!it) return null;
+  const qty = +r.qty || 0;
+  return {name: it.name, unit: it.unit, price: +it.price || 0, rate: +it.rate, qty, amount: (+it.price || 0) * qty};
+}
+function totals(rows) {
+  const by = {10: 0, 8: 0};
+  for (const r of rows) if (r) by[r.rate] += r.amount;
+  const tax10 = Math.floor(by[10] * 0.10), tax8 = Math.floor(by[8] * 0.08);   // 税率ごとに1回、1円未満は切り捨て
+  return {by, tax10, tax8, sub: by[10] + by[8], tax: tax10 + tax8, total: by[10] + by[8] + tax10 + tax8};
+}
+function drawLines(rebuild = true) {
+  const opts = id => `<option value="">品目を選ぶ</option>` + S.items.filter(i => i.name).map(i => `<option value="${i.id}"${i.id === id ? " selected" : ""}>${esc(i.name)}</option>`).join("");
+  if (rebuild) {
+    $("#lines").innerHTML = S.cur.rows.map((r, i) => `<div class="line" data-i="${i}">
+      <select data-k="item">${opts(r.item)}</select>
+      <input data-k="qty" type="number" min="0" step="1" value="${r.qty}">
+      <button class="del mini" data-a="del" title="行を消す">✕</button>
+      <div class="meta"></div></div>`).join("");
+  } else {
+    document.querySelectorAll("#lines select").forEach((s, i) => s.innerHTML = opts(S.cur.rows[i].item));
+  }
+  document.querySelectorAll("#lines .line").forEach((el, i) => {
+    const c = rowCalc(S.cur.rows[i]);
+    el.querySelector(".meta").innerHTML = c ? `<span>単価 ${yen(c.price)}／${esc(c.unit)}・税${c.rate}%</span><b>${yen(c.amount)}</b>` : `<span>品目を選ぶと単価が入ります</span>`;
+  });
+  const t = totals(S.cur.rows.map(rowCalc));
+  $("#tot").innerHTML = `<div><span>小計（税抜）</span><span>${yen(t.sub)}</span></div>` +
+    (t.by[10] ? `<div><span>消費税（10%）</span><span>${yen(t.tax10)}</span></div>` : "") +
+    (t.by[8] ? `<div><span>消費税（8%）</span><span>${yen(t.tax8)}</span></div>` : "") +
+    `<div class="big"><span>合計（税込）</span><span id="grand">${yen(t.total)}</span></div>`;
+}
+$("#lines").addEventListener("input", e => {
+  const i = +e.target.closest(".line").dataset.i, k = e.target.dataset.k;
+  S.cur.rows[i][k] = k === "qty" ? Math.max(0, +e.target.value || 0) : e.target.value;
+  save(); drawLines(false); drawDoc();
+});
+$("#lines").addEventListener("change", e => e.target.dispatchEvent(new Event("input", {bubbles: true})));
+$("#lines").addEventListener("click", e => {
+  if (e.target.dataset.a !== "del") return;
+  S.cur.rows.splice(+e.target.closest(".line").dataset.i, 1);
+  if (!S.cur.rows.length) S.cur.rows.push({item: "", qty: 1});
+  save(); drawLines(); drawDoc();
+});
+$("#lineAdd").onclick = () => { S.cur.rows.push({item: "", qty: 1}); save(); drawLines(); drawDoc(); };
+for (const [id, k] of [["#to", "to"], ["#subject", "subject"], ["#qDate", "date"], ["#qLimit", "limit"]]) {
+  $(id).addEventListener("input", e => { S.cur[k] = e.target.value; save(); drawDoc(); });
+}
+function fillForm() {
+  $("#to").value = S.cur.to; $("#subject").value = S.cur.subject;
+  $("#qDate").value = S.cur.date; $("#qLimit").value = S.cur.limit;
+  $("label[for=qDate]").textContent = S.cur.kind === "inv" ? "請求日" : "見積日";
+  $("label[for=qLimit]").textContent = S.cur.kind === "inv" ? "お支払期限" : "有効期限";
+}
+
+/* 4. 書類 */
+function drawDoc() {
+  const c = S.cur, inv = c.kind === "inv", co = S.co || {};
+  const rows = c.rows.map(rowCalc).filter(Boolean), t = totals(rows);
+  const no = c.no || nextNo(c.kind, c.date);
+  $("#docHint").textContent = c.no ? (inv ? "請求書（保存済み）" : "見積書（保存済み）") : "番号と日付は自動";
+  const body = rows.map(r => `<tr><td>${esc(r.name)}${r.rate === 8 ? " ※" : ""}</td><td class="num">${r.qty}</td><td>${esc(r.unit)}</td><td class="num">${r.price.toLocaleString("ja-JP")}</td><td class="num">${r.amount.toLocaleString("ja-JP")}</td></tr>`).join("")
+    || `<tr><td colspan="5" style="color:#98a2b3;text-align:center">品目を選ぶとここに入ります</td></tr>`;
+  $("#doc").innerHTML = `
+    <h3>${inv ? "請求書" : "御見積書"}</h3>
+    <div class="meta"><div>${inv ? "請求番号" : "見積番号"}　${esc(no)}</div>
+      <div>${inv ? "請求日" : "見積日"}　${jp(c.date)}</div>
+      ${inv && c.from ? `<div style="color:#667085">見積 ${esc(c.from)} より</div>` : ""}</div>
+    <div class="to">${esc(c.to || "（宛先）")} 御中</div>
+    <div>件名：${esc(c.subject || "")}</div>
+    <div class="lead">${inv ? "下記のとおりご請求申し上げます。" : "下記のとおりお見積り申し上げます。"}</div>
+    <div class="amount"><span>${inv ? "ご請求金額（税込）" : "お見積金額（税込）"}</span><b id="docTotal">${yen(t.total)}</b></div>
+    <table><thead><tr><th>品目</th><th style="width:34px">数量</th><th style="width:40px">単位</th><th style="width:62px">単価</th><th style="width:70px">金額</th></tr></thead><tbody>${body}</tbody></table>
+    <table class="sum"><tbody>
+      ${t.by[10] ? `<tr><td>10%対象 ${yen(t.by[10])}</td><td class="num" style="width:110px">消費税 ${yen(t.tax10)}</td></tr>` : ""}
+      ${t.by[8] ? `<tr><td>8%対象（※軽減税率） ${yen(t.by[8])}</td><td class="num">消費税 ${yen(t.tax8)}</td></tr>` : ""}
+      <tr><td><b>合計（税込）</b></td><td class="num"><b>${yen(t.total)}</b></td></tr>
+    </tbody></table>
+    <div class="from">
+      <div>${inv ? `お支払期限：<b>${jp(c.limit)}</b>` : `有効期限：${jp(c.limit)}`}</div>
+      <div style="text-align:right"><div class="co">${esc(co.name || "（自社の情報を入れてください）")}</div>
+        <div>${esc(co.addr || "")}</div><div>${esc(co.tel || "")}${co.person ? "　担当：" + esc(co.person) : ""}</div>
+        ${co.reg ? `<div>登録番号：${esc(co.reg)}</div>` : ""}</div>
+    </div>
+    ${inv && co.bank ? `<div class="bank">お振込先：${esc(co.bank)}<br>※振込手数料はご負担ください。</div>` : ""}`;
+}
+function msg(s) { $("#msg").textContent = s; }
+$("#print").onclick = () => { msg("印刷の画面で「PDFに保存」を選ぶと、PDFになります"); window.print(); };
+function keep() {
+  const c = S.cur, rows = c.rows.map(rowCalc).filter(Boolean);
+  if (!rows.length) { alert("品目を1つ以上選んでください"); return null; }
+  if (!c.no) c.no = nextNo(c.kind, c.date);
+  const t = totals(rows), rec = {...JSON.parse(JSON.stringify(c)), total: t.total};
+  const i = S.saved.findIndex(x => x.no === c.no);
+  if (i >= 0) S.saved[i] = rec; else S.saved.unshift(rec);
+  save(); drawDoc(); drawList();
+  return rec;
+}
+$("#keep").onclick = () => { const r = keep(); if (r) msg(`${r.kind === "inv" ? "請求書" : "見積"} ${r.no} を保存しました`); };
+$("#toInv").onclick = () => {
+  if (S.cur.kind === "inv") { msg("もう請求書になっています"); return; }
+  const q = keep(); if (!q) return;
+  const t = today();
+  S.cur = {...JSON.parse(JSON.stringify(S.cur)), kind: "inv", no: "", from: q.no, date: t, limit: nextMonthEnd(t)};
+  S.cur.no = nextNo("inv", t);
+  keep(); fillForm(); drawDoc();
+  msg(`見積 ${q.no} から 請求書 ${S.cur.no} を作りました（お支払期限は翌月末）`);
+};
+$("#newQ").onclick = () => { S.cur = newCur(); save(); fillForm(); drawLines(); drawDoc(); msg(""); };
+
+/* 5. 保存した物 */
+function drawList() {
+  $("#listHint").textContent = S.saved.length ? `${S.saved.length}件` : "";
+  $("#list").innerHTML = S.saved.length ? S.saved.map(x => `<div class="q" data-no="${esc(x.no)}">
+      <span class="k ${x.kind === "inv" ? "inv" : ""}">${x.kind === "inv" ? "請求" : "見積"}</span>
+      <div class="t"><div>${esc(x.to)} 御中</div><small>${esc(x.no)}・${jp(x.date)}</small></div>
+      <b>${yen(x.total)}</b>
+      <button class="sub mini" data-a="open">開く</button><button class="del mini" data-a="del">✕</button></div>`).join("")
+    : `<div class="empty">「この見積を保存」を押すと、ここに並びます</div>`;
+}
+$("#list").addEventListener("click", e => {
+  const a = e.target.dataset.a; if (!a) return;
+  const no = e.target.closest(".q").dataset.no;
+  if (a === "open") { S.cur = JSON.parse(JSON.stringify(S.saved.find(x => x.no === no))); delete S.cur.total; save(); fillForm(); drawLines(); drawDoc(); msg(`${no} を開きました`); window.scrollTo({top: $("#mkCard").offsetTop - 8, behavior: "smooth"}); }
+  if (a === "del" && confirm(`${no} を消しますか？`)) { S.saved = S.saved.filter(x => x.no !== no); save(); drawList(); drawDoc(); }
+});
+
+drawCo(); drawItems(); fillForm(); drawLines(); drawDoc(); drawList();
+</script>
+</body>
+</html>
