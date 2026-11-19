@@ -313,6 +313,24 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       })
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
+    }).catch(function (err) {
+      // ATLAS が止まっている間の暫定（2026-11-19）: ATLAS に届かなければ、ミルページへ【ミエルーム資料請求】として送る。
+      // 資料のメールは ATLAS の自動返信が送る仕組みなので、この経路で受けた分は手で資料を送る（文面の先頭に書いておく）
+      console.error('[資料請求] ATLAS に届きませんでした:', err);
+      var mp = window.MILPAGE || {};
+      var origin = mp.origin || 'https://web-production-744c1.up.railway.app';
+      var store = mp.storeId || '4e9ded06944b4fdbab4fc27f1bb36c41';
+      var msg = ['【ミエルーム資料請求】ATLAS が止まっているため資料のメールは自動では届きません。手で資料を送ってください。',
+        '会社名: ' + val('company'), '都道府県: ' + val('pref'), '店舗数: ' + val('stores'),
+        '業種: ' + kinds.join('／'), '興味のある機能: ' + feats.join('／'), '導入予定時期: ' + val('when'),
+        val('message') ? 'ご質問・ご要望: ' + val('message') : ''].filter(Boolean).join('\n');
+      return fetch(origin + '/api/public/inquiry?store=' + encodeURIComponent(store) + '&source=mieroom-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: val('name'), email: val('email'), phone: val('phone'),
+          type: 'ミエルーム資料請求', message: msg, website: val('_hp') })
+      }).then(function (r2) { if (!r2.ok) throw new Error('ミルページ HTTP ' + r2.status); });
+    }).then(function () {
       try {
         sessionStorage.setItem('mr_doc_sent', '1');   // お礼ページで成果（Lead）を計測する印
         // お礼ページの予約カレンダーで入力し直さなくて済むように、このタブの中だけで引き継ぐ（予約が済んだら消す）

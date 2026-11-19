@@ -319,6 +319,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     // ミルページ(自社CMS)の問い合わせ管理にも記録する。
     // ATLASへの送信とは独立（こちらが失敗しても送信は成立する）。店舗ID未設定なら何もしない。
     const mp = window.MILPAGE || {};
+    let mpSent = Promise.resolve(false);   // ミルページに届いたか（ATLAS が止まっている間の受付完了の判定に使う）
     if (mp.origin && mp.storeId) {
       const detail = [
         form.message.value.trim(),
@@ -326,7 +327,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
         form.company.value.trim() ? '会社名: ' + form.company.value.trim() : '',
         form.source.value ? '当社を知ったきっかけ: ' + form.source.value : '',
       ].filter(Boolean).join('\n');
-      fetch(mp.origin + '/api/public/inquiry?store=' + encodeURIComponent(mp.storeId) + '&source=hp-contact', {
+      mpSent = fetch(mp.origin + '/api/public/inquiry?store=' + encodeURIComponent(mp.storeId) + '&source=hp-contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -337,11 +338,17 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           message: detail,
           website: form._hp.value,   // ハニーポット（bot判定用）
         }),
-      }).catch(err => console.warn('[contact] ミルページへの記録に失敗:', err));
+      }).then(r => r.ok).catch(err => { console.warn('[contact] ミルページへの記録に失敗:', err); return false; });
     }
 
     try {
-      const res = await fetch(ATLAS_ENDPOINT, {
+      // ATLAS が止まっていても、ミルページに届いていれば受付完了にする（2026-11-19・ATLAS が Railway に止められている間の暫定）
+      let atlasOk = false;
+      try {
+        const ctl = window.AbortController ? new AbortController() : null;
+        const tm = ctl ? setTimeout(() => ctl.abort(), 10000) : 0;
+        const res = await fetch(ATLAS_ENDPOINT, {
+        signal: ctl ? ctl.signal : undefined,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -360,7 +367,13 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
           _hp: form._hp.value,
         }),
       });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (tm) clearTimeout(tm);
+        atlasOk = res.ok;
+        if (!res.ok) console.error('[contact] ATLAS HTTP ' + res.status);
+      } catch (err) {
+        console.error('[contact] ATLAS に届きませんでした:', err);
+      }
+      if (!(atlasOk || await mpSent)) throw new Error('ATLAS にもミルページにも届きませんでした');
       go('done');
       // Meta Pixel: 送信完了(コンバージョン)を計測
       if (typeof fbq === 'function') { fbq('track', 'Lead'); fbq('track', 'Contact'); }
