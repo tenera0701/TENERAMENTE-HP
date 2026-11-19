@@ -1615,6 +1615,25 @@
       "status": "done",
       "slug": "chintai-kokokuhi-minaoshi",
       "doneAt": "2026-11-18"
+    },
+    {
+      "id": "m202",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 複数店舗 管理",
+      "sub": [
+        "不動産 多店舗 運営",
+        "店舗別 売上 比較 方法"
+      ],
+      "title": "賃貸仲介で複数店舗を管理する方法｜店舗ごとの数字をそろえて比べる手順",
+      "intent": "2店舗以上を運営していて、店舗ごとの数字の見方と任せ方を整えたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "nitenpome-shutten-handan",
+        "tencho-maiasa-suji"
+      ],
+      "status": "done",
+      "slug": "fukusu-tenpo-kanri",
+      "doneAt": "2026-11-19"
     }
   ]
 }

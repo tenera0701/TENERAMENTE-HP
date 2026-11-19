@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="ランディングページの制作を外注するとき、見積もりの何を見れば判断できるのかを整理した記事です。費用を3つの性質に分け、見積もり項目ごとの中身、金額が大きく動く変数、「一式」の読み方、依頼前に自社で決めておくこと、公開後に残る費用、比較用のチェックリストとよくある失敗までまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること" />
+<meta property="og:description" data-meta="og:description" content="ランディングページの制作を外注するとき、見積もりの何を見れば判断できるのかを整理した記事です。費用を3つの性質に分け、見積もり項目ごとの中身、金額が大きく動く変数、「一式」の読み方、依頼前に自社で決めておくこと、公開後に残る費用、比較用のチェックリストとよくある失敗までまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-20-lp-seisaku-hiyo-uchiwake.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-20-lp-seisaku-hiyo-uchiwake.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-20-lp-seisaku-hiyo-uchiwake.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること" />
+<meta name="twitter:description" data-meta="twitter:description" content="ランディングページの制作を外注するとき、見積もりの何を見れば判断できるのかを整理した記事です。費用を3つの性質に分け、見積もり項目ごとの中身、金額が大きく動く変数、「一式」の読み方、依頼前に自社で決めておくこと、公開後に残る費用、比較用のチェックリストとよくある失敗までまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-20-lp-seisaku-hiyo-uchiwake.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-20-lp-seisaku-hiyo-uchiwake";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること","description":"ランディングページの制作を外注するとき、見積もりの何を見れば判断できるのかを整理した記事です。費用を3つの性質に分け、見積もり項目ごとの中身、金額が大きく動く変数、「一式」の読み方、依頼前に自社で決めておくこと、公開後に残る費用、比較用のチェックリストとよくある失敗までまとめています。","datePublished":"2026-11-20","dateModified":"2026-11-20","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-20-lp-seisaku-hiyo-uchiwake.html","image":"https://teneramente.jp/assets/img/covers/2026-11-20-lp-seisaku-hiyo-uchiwake.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"LP制作, ランディングページ, 見積もり, 制作費用, 外注"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること","item":"https://teneramente.jp/2026-11-20-lp-seisaku-hiyo-uchiwake.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"LPは1ページなのに、なぜホームページと同じくらいの見積もりになることがあるのですか？","acceptedAnswer":{"@type":"Answer","text":"ページ数ではなく、決めることと作る要素の量で費用が動くためです。LPは読む順番と訴求を1本に絞って設計するため、構成と原稿に手がかかります。図版や写真の点数も多くなりがちです。逆に、原稿と写真がそろっていて構成も決まっている場合は、ページ数相応の見積もりに収まります。"}},{"@type":"Question","name":"原稿は自分たちで書いたほうが安く済みますか？","acceptedAnswer":{"@type":"Answer","text":"見積もりの金額は下がりますが、社内の時間は増えます。判断の目安は、書く人の時間を確保できるかどうかです。箇条書きの材料までは自社で出し、文章として整える部分を任せる分け方にすると、費用と時間の両方が収まりやすくなります。"}},{"@type":"Question","name":"見積もりに含まれる「修正2回まで」とは、どの範囲ですか？","acceptedAnswer":{"@type":"Answer","text":"会社によって違うため、必ず定義を確認してください。デザインの方向性を変えるのを1回と数える場合と、文字の差し替えまで含めて1回と数える場合があります。文字の修正は回数に数えないのか、どの工程の修正なのかを質問し、答えを見積もりに書き足してもらってください。"}},{"@type":"Question","name":"公開後に文章を自分たちで直せるようにするには、何を頼めばよいですか？","acceptedAnswer":{"@type":"Answer","text":"管理画面から文章と画像を差し替えられる形で作ってほしいと、依頼の段階で伝えてください。あわせて、直せる範囲がどこまでかを確認します。見出しと本文だけか、セクションの順番も変えられるのか。範囲が分かっていれば、都度依頼する部分と自社で直す部分を分けて運用できます。"}},{"@type":"Question","name":"相見積もりを取るときのマナーで気をつけることはありますか？","acceptedAnswer":{"@type":"Answer","text":"各社に同じ前提を渡すことが最も大切です。入れたいセクション、手元の素材、公開希望日を同じ文書で渡してください。前提が違うと、各社の見積もりが比較できないものになり、お互いの時間を使います。相見積もりであることを伝えておくのも、進め方としては誠実です。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 20, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-20-lp-seisaku-hiyo-uchiwake.png" alt="LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>LP制作の費用は、何に払っているのかで3つに分かれる</a><a href="#h2"><span class="n">02</span>見積もり項目を分解する：設計・原稿・デザイン・実装・公開</a><a href="#h3"><span class="n">03</span>費用が大きく動く4つの変数</a><a href="#h4"><span class="n">04</span>「一式」としか書かれていない見積もりの読み方</a><a href="#h5"><span class="n">05</span>依頼前に自社で決めておくこと</a><a href="#h6"><span class="n">06</span>公開後にかかる費用まで含めて比べる</a><a href="#h7"><span class="n">07</span>見積もりを比べるチェックリストと、よくある失敗</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：内訳がそろえば、LPの見積もりは比べられる</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">ランディングページ（<em>Landing Page</em>、LP）の制作を外注するとき、複数社の見積もりを並べても判断できないことがあります。結論から申し上げると、<strong>LP制作の費用は金額の大小ではなく、どこまでを相手に任せる見積もりなのかで読み分けます</strong>。同じ1ページでも、原稿を自社で用意するのか相手に書いてもらうのかで、見積もりの中身はまったく別のものになります。この記事では、LP制作の費用の内訳を項目ごとにほどいて、依頼前に決めておくことまでを順番に整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>見積もりを比べるときに見るのは総額ではなく、<strong>自社の作業として残るものがどれだけあるか</strong>です。原稿・写真・公開後の修正。この3つが見積もりに入っていないと、安く見えた見積もりのほうが社内の時間を多く使います。項目の名前が書かれていない「一式」は、比較の対象になりません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>LP制作の費用は、何に払っているのかで3つに分かれる</h2>
+<p>LP制作費という1行は、中身をほどくと性質の違う3つの費用が入っています。この3つを分けるだけで、見積もりの読み方が変わります。</p>
+<p>一つ目は、考える費用です。誰に向けたページなのか、何を約束するのか、どの順番で読ませるのか。構成と訴求を決める作業で、見積もり上は「設計」「構成案」「ワイヤーフレーム」といった名前で現れます。</p>
+<p>二つ目は、作る費用です。原稿の執筆、デザイン、画像の加工、コードへの実装、フォームの設置、表示の調整。手が動く部分で、金額の多くはここに乗ります。</p>
+<p>三つ目は、出したあとの費用です。公開後の文章の差し替え、見出しの入れ替え、計測の設定、サーバーとドメインの維持。公開して終わりではなく、反応を見て直す前提のページであれば、ここを抜いた見積もりは実態と合いません。</p>
+<p><strong>見積もりを受け取ったら、まずこの3つのどこに金額が置かれているかを確かめる</strong>のが出発点です。作る費用だけで構成されている見積もりは、考える部分と直す部分が自社の仕事として残ります。ホームページ全体の費用の考え方は<a href="2026-06-05-homepage-seisaku-hiyo-guide.html">ホームページ制作費用の内訳</a>にまとめています。</p>
+<h2 id="h2"><span class="h-num">02</span>見積もり項目を分解する：設計・原稿・デザイン・実装・公開</h2>
+<p>見積もりの書き方は会社によって幅がありますが、作業そのものは共通しています。提案書と見比べるために、項目ごとに何の作業なのかと、確かめるべき点を並べます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見積もり項目</th>
+<th>実際に行われる作業</th>
+<th>確かめること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>要件整理・ヒアリング</td>
+<td>目的・読者・訴求・問い合わせの定義を決める</td>
+<td>打ち合わせは何回か。誰が同席するか</td>
+</tr>
+<tr>
+<td>構成設計</td>
+<td>見出しの並び、読ませる順番、要素の配置を決める</td>
+<td>構成案は文字で出るか。修正は何回まで含むか</td>
+</tr>
+<tr>
+<td>原稿執筆</td>
+<td>見出しと本文、キャッチコピーを書く</td>
+<td>自社提供か、相手が書くか。取材は含むか</td>
+</tr>
+<tr>
+<td>デザイン</td>
+<td>配色・書体・余白・図の設計と画面の作成</td>
+<td>スマートフォン用の設計は含むか</td>
+</tr>
+<tr>
+<td>写真・素材</td>
+<td>撮影、画像の加工、図版やアイコンの作成</td>
+<td>撮影は別か。有料素材の費用は誰が持つか</td>
+</tr>
+<tr>
+<td>実装</td>
+<td>コードへの反映、表示速度と文字の折り返しの調整</td>
+<td>対応ブラウザの範囲。表示崩れの確認方法</td>
+</tr>
+<tr>
+<td>フォーム</td>
+<td>問い合わせ項目の設計、送信と通知の仕組み</td>
+<td>自動返信は含むか。項目の追加は都度か</td>
+</tr>
+<tr>
+<td>計測の設置</td>
+<td>流入と問い合わせ数を数える設定</td>
+<td>何を計測するか。見方の説明はあるか</td>
+</tr>
+<tr>
+<td>公開作業</td>
+<td>サーバーへの設置、ドメインの設定、動作確認</td>
+<td>サーバー費用は見積もりに含むか</td>
+</tr>
+<tr>
+<td>公開後の修正</td>
+<td>文章や画像の差し替え、見出しの入れ替え</td>
+<td>期間と回数。範囲はどこまでか</td>
+</tr>
+</tbody></table></div>
+<p>このうち見積もりの差が最も出るのは、原稿執筆と写真・素材の2つです。<strong>原稿を自社で用意する前提の見積もりは、総額が小さくなります</strong>。安いのではなく、書く作業が自社に残っているだけです。ここを混ぜたまま総額を比べると、判断を誤ります。</p>
+<h2 id="h3"><span class="h-num">03</span>費用が大きく動く4つの変数</h2>
+<p>同じ「LP1ページ」でも、金額は条件で動きます。動かしているのは主に次の4つです。</p>
+<p>一つ目は、ページの長さと要素の数です。説明する内容が多いページは、構成・原稿・デザイン・実装のすべてが増えます。見積もりを依頼する段階で、入れたいセクションを数えて伝えると、見積もりの精度が上がります。</p>
+<p>二つ目は、原稿と写真の有無です。文章と写真が自社にそろっているか、取材と撮影から始めるかで作業量が変わります。手元の素材を先に見せるだけで、見積もりの前提がそろいます。</p>
+<p>三つ目は、動きと作り込みの量です。スクロールに合わせた演出、図のアニメーション、診断のような仕掛け。見た目に近い部分ほど、工数の見方が会社ごとに分かれます。</p>
+<p>四つ目は、公開後の運用をどこまで含めるかです。数値を見て文章を入れ替える前提なのか、作って納品で終わるのか。<strong>同じ金額でも、含まれる期間が違えば比較になりません</strong>。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>見積もり依頼のときに添えるもの</h4>
+    <p>入れたいセクションの一覧、手元にある原稿と写真、問い合わせで受け取りたい項目、公開したい時期。この4つを最初に渡すと、各社の見積もりが同じ前提で並びます。口頭ではなく、短い文書にして同じものを各社へ渡すほうが確実です。</p>
+  </div>
+</div>
+
+<h2 id="h4"><span class="h-num">04</span>「一式」としか書かれていない見積もりの読み方</h2>
+<p>LP制作費一式、という1行だけの見積もりが届くことがあります。金額が妥当かどうかは、この状態では判断できません。</p>
+<p>このときに聞くのは値引きではなく、内訳です。前の章の表の項目を挙げて、含まれているかどうかを一つずつ確認してください。「原稿はどちらが書きますか」「スマートフォン用のデザインは含まれますか」「公開後の文章の差し替えは何回まで含まれますか」。この3つだけでも、見積もりの性格が分かります。</p>
+<p>確認した答えは、見積もりか議事録に書き足してもらいます。口頭の了解は担当者が変わると残りません。<strong>書かれていない作業は、含まれていないものとして扱う</strong>のが安全です。</p>
+<p>逆に、内訳を聞いたときに作業の名前と回数がすぐ出てくる相手は、工程が整理されている相手でもあります。見積もりの細かさは、進め方の細かさとおおむね一致します。</p>
+<h2 id="h5"><span class="h-num">05</span>依頼前に自社で決めておくこと</h2>
+<p>見積もりの精度と、公開までの速さを決めるのは、依頼前に自社で決めた項目です。ここが空のまま依頼すると、打ち合わせの回数が増え、原稿の往復で時間が流れます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-20-lp-seisaku-hiyo-uchiwake.png" alt="問い合わせか資料請求か来店予約か電話かを1つに絞る受け取りたい行動、業種と規模と立場と困っている場面まで具体化する向ける相手、対応できる範囲とできない範囲と進め方という自社でしか書けない約束、入れたいセクションの一覧と手元にある原稿と写真という渡せる素材、最終確認をする人を1人決めて公開希望日を置く決める人と締め切りという、LP制作を依頼する前に自社で決めておく5つの項目を縦に並べた図" width="1600" height="717" loading="lazy" decoding="async"><figcaption>この5つが埋まっていると、見積もりの前提がそろい、原稿の往復が短くなります。</figcaption></figure>
+
+<p>まず、このLPで受け取りたい行動を1つに決めてください。問い合わせか、資料請求か、来店予約か、電話か。複数並べたページは、どれも弱くなります。次に、誰に向けるかを決めます。業種・規模・立場・困っている場面まで具体的に言えると、原稿の方向が1回で決まります。</p>
+<p>そのうえで、約束できることを書き出します。対応できる範囲、できない範囲、他社との違い、進め方。ここは外注先が代わりに決められない部分です。<strong>自社でしか書けない中身を先に用意しておくと、原稿の往復が短くなります</strong>。</p>
+<p>最後に、社内の決める人と締め切りを決めます。確認者が増えるほど、修正の回数と期間は伸びます。問い合わせが増えないLPの原因は、<a href="2026-11-07-homepage-toiawase-fuenai.html">ホームページから問い合わせが来ない理由</a>でも触れています。</p>
+<h2 id="h6"><span class="h-num">06</span>公開後にかかる費用まで含めて比べる</h2>
+<p>LPは公開してから直すページです。費用を比べるときは、公開までの金額だけでなく、公開後に発生するものまで並べてください。</p>
+<p>残るのは主に4つです。サーバーとドメインの維持、広告を出す場合の広告費、文章や画像の差し替え、計測した数値の確認。このうち差し替えは頻度で扱いが変わります。月に数回直す前提なら自社で直せる形にしておくほうが早く、年に数回なら都度依頼で足ります。</p>
+<p>ここで確かめたいのは、<strong>自社で文章を直せる形で納品されるかどうか</strong>です。管理画面から直せるのか、依頼しないと直せないのか。この違いは、公開後の支出と反応の速さの両方に効いてきます。</p>
+<p>広告を出す前提のLPなら、広告費と制作費は最初から分けて考えてください。制作に寄せすぎて広告費が残らない形は避けたいところです。保守の費用の読み方は<a href="2026-11-16-homepage-hoshu-kanri-hiyo.html">ホームページの保守・管理費の内訳</a>にまとめています。</p>
+<h2 id="h7"><span class="h-num">07</span>見積もりを比べるチェックリストと、よくある失敗</h2>
+<p>複数社の見積もりを並べるとき、次の項目を同じ順番で確かめてください。1社だけに聞くのではなく、全社に同じ質問をすると差が見えます。</p>
+<ul>
+<li>原稿は誰が書くか。取材は何回あるか</li>
+<li>写真と図版は誰が用意するか。撮影と有料素材の費用は含まれるか</li>
+<li>スマートフォン用のデザインと表示確認は含まれるか</li>
+<li>構成案は文字で出るか。修正は何回まで含まれるか</li>
+<li>デザインの修正は何回まで含まれるか。超えた場合の扱いはどうなるか</li>
+<li>問い合わせフォームの項目と自動返信は含まれるか</li>
+<li>計測の設置は含まれるか。何を数えるか</li>
+<li>公開後の修正は、どの期間に何回まで含まれるか</li>
+<li>文章を自社で直せる形か。管理画面はあるか</li>
+<li>サーバーとドメインは誰の名義になるか</li>
+<li>公開までの日程と、確認のタイミング。制作したデータは自社に残るか</li>
+</ul>
+<p>よくある失敗は、次の5つです。</p>
+<p><strong>総額だけで選ぶ</strong>。原稿と写真が含まれていない見積もりは安く出ます。含まれる作業をそろえてから比べてください。</p>
+<p><strong>原稿を外注先に任せきりにする</strong>。自社でしか書けない中身が空のままだと、どこかで見たようなページになります。</p>
+<p><strong>確認者を決めずに進める</strong>。公開直前に別の人の意見が入ると、構成から戻ります。決める人は最初に1人決めてください。</p>
+<p><strong>計測を入れずに公開する</strong>。数えていなければ、直す場所を判断できません。問い合わせ数と流入元は最初から数えてください。</p>
+<p><strong>公開後の修正を見積もりに入れない</strong>。LPは出してから直すページです。直す前提のない見積もりは、公開後に別の相談が必要になります。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つあります。</p>
+<p>一つ目は、原稿を書ける人が社内に居るかどうかです。LPの出来は、見た目よりも文章で決まる部分が大きいところがあります。扱う商品やサービスを言葉にできる人が社内に居るなら、原稿を自社で持ち、設計と実装だけを任せる形が速くなります。言葉にする段階で止まるなら、取材から任せたほうが結果的に早く公開できます。</p>
+<p>二つ目は、公開後に直し続ける体制があるかどうかです。LPは一度作って終わりではなく、反応を見て見出しや順番を入れ替えていくページです。数値を見る担当者と、直す手が社内にあるなら自社で回せます。どちらも兼務で手が回らないなら、運用まで含めて任せる前提で選ぶほうが現実的です。</p>
+<p>三つ目は、そのLPが売上にどれだけ直結するかです。広告を出して集客の中心にするページなら、設計と原稿に専門の手を入れる価値があります。用途が限られるページなら、社内で作って公開し、反応を見てから手を入れる判断もあり得ます。</p>
+<p>迷うときは、公開後3か月でこのページに何回手を入れる予定があるかを考えてみてください。何度も直す前提なら、直せる形と相談できる相手を確保しておく。1回作って置いておくだけなら、作る部分だけを依頼する。この見方で、過不足のない依頼の形に近づきます。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>LPは1ページなのに、なぜホームページと同じくらいの見積もりになることがあるのですか？</summary><div class="faq-a">ページ数ではなく、決めることと作る要素の量で費用が動くためです。LPは読む順番と訴求を1本に絞って設計するため、構成と原稿に手がかかります。図版や写真の点数も多くなりがちです。逆に、原稿と写真がそろっていて構成も決まっている場合は、ページ数相応の見積もりに収まります。</div></details>
+
+<details class="faq"><summary>原稿は自分たちで書いたほうが安く済みますか？</summary><div class="faq-a">見積もりの金額は下がりますが、社内の時間は増えます。判断の目安は、書く人の時間を確保できるかどうかです。箇条書きの材料までは自社で出し、文章として整える部分を任せる分け方にすると、費用と時間の両方が収まりやすくなります。</div></details>
+
+<details class="faq"><summary>見積もりに含まれる「修正2回まで」とは、どの範囲ですか？</summary><div class="faq-a">会社によって違うため、必ず定義を確認してください。デザインの方向性を変えるのを1回と数える場合と、文字の差し替えまで含めて1回と数える場合があります。文字の修正は回数に数えないのか、どの工程の修正なのかを質問し、答えを見積もりに書き足してもらってください。</div></details>
+
+<details class="faq"><summary>公開後に文章を自分たちで直せるようにするには、何を頼めばよいですか？</summary><div class="faq-a">管理画面から文章と画像を差し替えられる形で作ってほしいと、依頼の段階で伝えてください。あわせて、直せる範囲がどこまでかを確認します。見出しと本文だけか、セクションの順番も変えられるのか。範囲が分かっていれば、都度依頼する部分と自社で直す部分を分けて運用できます。</div></details>
+
+<details class="faq"><summary>相見積もりを取るときのマナーで気をつけることはありますか？</summary><div class="faq-a">各社に同じ前提を渡すことが最も大切です。入れたいセクション、手元の素材、公開希望日を同じ文書で渡してください。前提が違うと、各社の見積もりが比較できないものになり、お互いの時間を使います。相見積もりであることを伝えておくのも、進め方としては誠実です。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：内訳がそろえば、LPの見積もりは比べられる</h2>
+<p>LP制作の費用を読むときの順番は決まっています。費用を考える・作る・出したあとの3つに分ける。見積もりの項目を作業の名前まで分解する。原稿と写真を誰が用意するかをそろえてから総額を比べる。「一式」の内訳を聞いて、答えを文字に残す。依頼前に、受け取りたい行動・向ける相手・約束できること・決める人を決める。公開後の修正と、自社で直せる形かどうかを確かめる。ここまでやれば、自社に必要な範囲で選べます。</p>
+<p>逆に、総額だけを並べて安いほうを選ぶと、原稿も写真も公開後の修正も自社に残ったまま、手が止まったページができます。LPの費用は、作る手間に払うというより、決める作業と直し続ける仕組みに払うものです。</p>
+<p>TENERAMENTEなら、この記事で挙げた「原稿が書けずに止まる」「公開後に直せない」という2つの詰まりを、進め方の側で外します。制作は3回のミーティングで要件・構成・原稿の方向を決めていく形を取っており、自社でしか書けない材料を箇条書きで出していただければ、文章として整える部分はこちらで引き受けます。納品は自社CMS「ミルページ」で行うため、公開後の見出しや文章の差し替え、写真の入れ替えは管理画面からその日のうちに反映できます。見出しを1行変えるたびに依頼して反映を待つ時間がなくなり、反応を見ながら手を入れ続けられる形になります。制作と運用の範囲は<a href="lp-hplp.html">HP/LP作成</a>にまとめています。初回のご相談60分は無料ですので、受け取った見積もりの読み方で迷っている段階でも、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#LP制作</span><span>#ランディングページ</span><span>#見積もり</span><span>#制作費用</span><span>#外注</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-16-homepage-hoshu-kanri-hiyo.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページの保守・管理費の内訳｜月額費用で何をしてもらえるのか</h4>
+      </a>
+      <a class="related-card" href="2026-11-12-nagoya-homepage-seisaku-erabikata.html">
+        <span class="cat">HP / LP</span>
+        <h4>名古屋のホームページ制作会社の選び方｜見積もりの比べ方と公開後の運用</h4>
+      </a>
+      <a class="related-card" href="2026-11-07-homepage-toiawase-fuenai.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページから問い合わせが増えない原因と、導線の直し方</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>
