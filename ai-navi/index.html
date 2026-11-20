@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI導入ナビ｜TENERAMENTE</title>
+<meta name="description" content="AIを仕事で使い始めるための7ステップ。使うAIの選び方、守るルール、コピペで使える指示文、仕事の書き出しと減る時間の計算まで、画面の順に進めるだけです。">
+<link rel="canonical" href="https://teneramente.jp/ai-navi/">
+<meta property="og:title" content="AI導入ナビ｜TENERAMENTE">
+<meta property="og:description" content="AIを仕事で使い始めるための7ステップ。使うAIの選び方、守るルール、コピペで使える指示文、仕事の書き出しと減る時間の計算まで、画面の順に進めるだけです。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teneramente.jp/ai-navi/">
+<meta property="og:site_name" content="TENERAMENTE">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"></noscript>
+<script>window.NAVI_CLIENT_ONLY=true;</script>
+<style>
+/* レイアウト: 黒い作業台に、黄色の「進め」の信号を1色だけ。巨大な見出し → 左に工程表、右に作業面 */
+:root{
+  --bg:#0c0c0e;
+  --surface:#16161a;
+  --surface-2:#1f1f25;
+  --line:#2e2e36;
+  --fg:#f3f1ea;
+  --mute:#a6a4ad;
+  --accent:#ffd23f;
+  --accent-ink:#17140a;
+  --accent-soft:rgba(255,210,63,.13);
+  --ok:#45d49f;
+  --ok-soft:rgba(69,212,159,.13);
+  --ng:#ff6b5e;
+  --ng-soft:rgba(255,107,94,.13);
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  --f-num:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --r:14px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:120px}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.nb{display:inline-block}
+
+/* 上の帯 */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(12,12,14,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding-block:12px}
+.brand{font-family:var(--f-display);font-size:20px;color:var(--fg);text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.modes{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.modes a{display:block;padding:7px 16px;border-radius:999px;color:var(--mute);text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap}
+.modes a[aria-current="page"]{background:var(--accent);color:var(--accent-ink)}
+@media (max-width:560px){.modes{width:100%}.modes a{flex:1;text-align:center;padding:7px 8px}}
+
+/* 見出しの帯 */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:end;padding-block:56px 36px}
+.eyebrow{margin:0 0 14px;font-weight:700;font-size:14px;letter-spacing:.14em;color:var(--accent)}
+.hero h1{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(40px,7.2vw,96px);line-height:1.1;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{margin:22px 0 0;max-width:40em;color:var(--mute);font-size:17px}
+.lead b{color:var(--fg)}
+.goal{border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;background:var(--surface)}
+.goal-label{margin:0;font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--mute)}
+.goal-num{margin:4px 0 6px;display:flex;align-items:baseline;gap:8px;line-height:1}
+.goal-num small{font-family:var(--f-body);font-weight:700;font-size:18px}
+.goal-num b{font-family:var(--f-num);font-weight:800;font-size:96px;color:var(--accent);letter-spacing:-.04em}
+.goal p{margin:6px 0 0}
+.note{font-size:13px;color:var(--mute)}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr);padding-block:36px 24px}}
+
+/* 業種とAIの選択 */
+.setup{display:flex;flex-wrap:wrap;gap:14px 36px;padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.setup-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-width:0}
+.setup-label{font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--fg)}
+.chip:hover{border-color:var(--mute)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* 作業エリア */
+.work{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;align-items:start;padding-block:28px 64px}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);min-width:0}
+.progress{margin:0 0 14px}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--mute);font-weight:700}
+.progress-top .num{font-size:22px;color:var(--fg)}
+.bar{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin-top:6px}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+.stepper{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;position:relative}
+.stepper button{width:100%;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;background:transparent;border:1px solid transparent;border-radius:12px;padding:9px 10px;cursor:pointer;color:var(--mute)}
+.stepper button:hover{background:var(--surface)}
+.stepper .sn{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-num);font-weight:800;font-size:14px;border:1px solid var(--line);color:var(--mute)}
+.stepper .st{font-weight:700;font-size:15px;line-height:1.4}
+.stepper .tm{font-size:12px;color:var(--mute)}
+.stepper .ck{font-size:13px;font-weight:700;color:var(--ok);min-width:3em;text-align:right}
+.stepper button[aria-current="step"]{background:var(--surface);border-color:var(--line);color:var(--fg)}
+.stepper button[aria-current="step"] .sn{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stepper button.is-done .sn{border-color:var(--ok);color:var(--ok)}
+@media (max-width:900px){
+  .work{grid-template-columns:minmax(0,1fr);gap:18px;padding-block:20px 48px}
+  .side{position:static}
+  .stepper{flex-direction:row;overflow-x:auto;padding-bottom:6px;gap:6px;scrollbar-width:thin}
+  .stepper li{flex:0 0 auto}
+  .stepper button{grid-template-columns:30px auto;width:auto;padding:7px 12px 7px 8px;border-color:var(--line)}
+  .stepper .tm,.stepper .ck{display:none}
+  .stepper .st{font-size:14px;white-space:nowrap}
+}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px clamp(18px,3.4vw,40px) 28px;min-width:0;container-type:inline-size;container-name:panel}
+.panel-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:6px}
+.panel-step{font-family:var(--f-num);font-weight:800;font-size:14px;letter-spacing:.12em;color:var(--accent)}
+.panel-time{font-size:13px;color:var(--mute)}
+.panel-done{font-size:13px;font-weight:700;color:var(--ok);border:1px solid var(--ok);border-radius:999px;padding:1px 10px}
+.panel h2{margin:0 0 12px;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.25;text-wrap:balance}
+.panel h3{margin:34px 0 12px;font-size:19px;line-height:1.5}
+:where(.panel) p{margin:0 0 12px}
+.intro{color:var(--mute);max-width:44em}
+.intro b{color:var(--fg)}
+.panel-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:36px;padding-top:22px;border-top:1px solid var(--line)}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:10px 20px;font-weight:700;font-size:15px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--fg);text-decoration:none;line-height:1.4}
+.btn:hover{border-color:var(--mute)}
+.btn-main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-main:hover{filter:brightness(1.06);border-color:var(--accent)}
+.btn-sm{padding:6px 14px;font-size:13px}
+.btn-danger{border-color:var(--ng);color:var(--ng)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:3px;background:var(--bg)}
+.seg button{border:0;background:transparent;border-radius:999px;padding:6px 16px;font-weight:700;cursor:pointer;color:var(--mute)}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+
+/* ステップ1: レベル */
+.qlist{display:flex;flex-direction:column;gap:8px;margin:18px 0}
+.q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg)}
+.q-text{display:flex;gap:12px;align-items:baseline}
+.q-text .num{color:var(--mute);font-weight:700;font-size:13px}
+.yn{display:flex;gap:6px}
+.yn button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:5px 16px;font-weight:700;cursor:pointer;color:var(--mute);min-width:64px}
+.yn button[aria-pressed="true"].yes{background:var(--ok);border-color:var(--ok);color:#06150f}
+.yn button[aria-pressed="true"].no{background:var(--surface-2);border-color:var(--mute);color:var(--fg)}
+@media (max-width:560px){.q{grid-template-columns:1fr}}
+.ladder{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;align-items:end;margin:22px 0 10px}
+.rung{border-radius:10px 10px 4px 4px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:8px 6px;min-height:40px;position:relative}
+.rung b{font-family:var(--f-num);font-weight:800;font-size:13px;color:var(--mute)}
+.rung span{font-size:12px;font-weight:700;color:var(--mute);line-height:1.3}
+.rung.on{background:var(--accent);border-color:var(--accent)}
+.rung.on b,.rung.on span{color:var(--accent-ink)}
+.rung.on .flag{color:var(--accent)}
+.rung.target{border:2px dashed var(--accent)}
+.rung .flag{position:absolute;top:-24px;left:-12px;right:-12px;text-align:center;font-size:11px;font-weight:700;color:var(--accent);white-space:nowrap}
+.result{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 22px;align-items:center;border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:var(--bg);margin-top:14px}
+.result .big{font-family:var(--f-num);font-weight:800;font-size:64px;line-height:1;color:var(--accent)}
+.result .big small{font-size:20px;margin-right:2px}
+.result h4{margin:0;font-size:20px}
+.result p{margin:2px 0 0;color:var(--mute)}
+.result p b{color:var(--fg)}
+.lvlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px}
+.lv{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg)}
+.lv b{font-family:var(--f-num);color:var(--accent);font-size:13px;letter-spacing:.06em}
+.lv h4{margin:2px 0 4px;font-size:16px}
+.lv p{margin:0;font-size:14px;color:var(--mute);line-height:1.65}
+
+/* ステップ2: AI比較 */
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.tool{border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
+.tool.main{border-color:var(--accent)}
+.tool-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.tool .tag{align-self:flex-start}
+.tool h4{margin:0;font-family:var(--f-num);font-weight:800;font-size:24px;letter-spacing:-.01em}
+.tool .maker{font-size:13px;color:var(--mute)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--accent-soft);color:var(--accent)}
+.tool dl{margin:0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 10px;font-size:14px}
+.tool dt{color:var(--mute);font-weight:700}
+.tool dd{margin:0}
+@media (max-width:700px){.tools{grid-template-columns:1fr}}
+.rules3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+.rule{border-top:3px solid var(--accent);padding:14px 2px 0}
+.rule .num{font-weight:800;color:var(--accent);font-size:13px}
+.rule h4{margin:2px 0 6px;font-size:17px;line-height:1.5}
+.rule p{margin:0;font-size:14px;color:var(--mute)}
+@media (max-width:700px){.rules3{grid-template-columns:1fr}}
+
+/* ステップ3: 手順 */
+.checks{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.check{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg)}
+.check input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:2px solid var(--mute);border-radius:50%;margin:2px 0 0;cursor:pointer;display:grid;place-items:center}
+.check input:checked{background:var(--ok);border-color:var(--ok)}
+.check input:checked::after{content:"〇";font-size:13px;font-weight:700;color:#06150f;line-height:1}
+.check h4{margin:0 0 2px;font-size:16px}
+.check p{margin:0;font-size:14.5px;color:var(--mute)}
+.check p b{color:var(--fg)}
+.check.is-on h4{color:var(--ok)}
+.path{display:inline;font-weight:700;color:var(--fg);background:var(--surface-2);border-radius:6px;padding:1px 6px}
+.callout{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface-2);font-size:14.5px;margin-top:16px}
+.callout b{color:var(--accent)}
+.callout p{margin:0 0 6px}
+.callout p:last-child{margin:0}
+
+/* ステップ4: ルール */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 4px}
+.trio > div{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:var(--bg)}
+.trio h4{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+.trio h4 .mk{font-family:var(--f-display);font-size:22px;line-height:1}
+.trio ul{margin:0;padding-left:1.1em;font-size:14.5px;color:var(--mute)}
+.trio li{margin-bottom:3px}
+.mk-ng{color:var(--ng)}.mk-ok{color:var(--ok)}.mk-ac{color:var(--accent)}
+@media (max-width:760px){.trio{grid-template-columns:1fr}}
+.quiz{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.qz{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg)}
+.qz-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center}
+.qz-q{font-weight:500}
+.qz-q .num{color:var(--mute);font-size:13px;font-weight:700;margin-right:8px}
+.ox{display:flex;gap:6px}
+.ox button{width:52px;height:44px;border-radius:10px;border:1px solid var(--line);background:transparent;cursor:pointer;font-family:var(--f-display);font-size:22px;color:var(--mute);line-height:1}
+.ox button:hover{border-color:var(--mute)}
+.qz.answered .ox button{cursor:default}
+.ox button.pick-right{background:var(--ok);border-color:var(--ok);color:#06150f}
+.ox button.pick-wrong{background:var(--ng);border-color:var(--ng);color:#1a0705}
+.ox button.is-answer{border:2px solid var(--ok);color:var(--ok)}
+.qz-a{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--mute)}
+.qz-a b.right{color:var(--ok)}.qz-a b.wrong{color:var(--ng)}
+@media (max-width:560px){.qz-row{grid-template-columns:1fr}}
+.score{display:flex;align-items:baseline;gap:10px;margin:14px 0 0;font-weight:700}
+.score .num{font-size:34px;color:var(--accent);font-weight:800}
+
+/* ステップ5: 指示文 */
+.tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 6px}
+.tips div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--mute)}
+.tips b{display:block;color:var(--fg);font-size:15px;margin-bottom:2px}
+@media (max-width:760px){.tips{grid-template-columns:1fr}}
+.pgroup{display:flex;align-items:center;gap:10px;margin:30px 0 10px;flex-wrap:wrap}
+.pgroup h3{margin:0}
+.pgroup .count{font-size:13px;color:var(--mute)}
+.prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:980px){.prompts{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);display:flex;flex-direction:column;min-width:0}
+.pcard-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:14px 16px 8px}
+.pcard h4{margin:0;font-size:16.5px;line-height:1.5}
+.pcard .scene{margin:2px 0 0;font-size:13px;color:var(--mute)}
+.pcard pre{margin:0 16px;padding:12px 14px;background:var(--surface-2);border-radius:10px;white-space:pre-wrap;word-break:break-word;font-family:var(--f-body);font-size:13.5px;line-height:1.75;max-height:260px;overflow:auto;color:#e2e0d8}
+.ph{background:var(--accent-soft);color:var(--accent);border-radius:4px;padding:0 2px}
+.caution{margin:10px 16px 0;font-size:13px;color:var(--ng);display:flex;gap:6px}
+.pcard-foot{padding:12px 16px 14px;margin-top:auto}
+
+/* ステップ6: 仕事の書き出し */
+.sum{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px;margin:16px 0}
+.sum-main{border:1px solid var(--accent);border-radius:var(--r);padding:18px 20px;background:var(--bg)}
+.sum-main .lbl{font-size:13px;font-weight:700;color:var(--mute);letter-spacing:.08em}
+.sum-main .big{font-family:var(--f-num);font-weight:800;font-size:clamp(48px,6vw,72px);line-height:1.05;color:var(--accent);letter-spacing:-.03em}
+.sum-main .big small{font-family:var(--f-body);font-size:18px;color:var(--fg);margin-left:4px;letter-spacing:0}
+.sum-main p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.sum-main p b{color:var(--fg)}
+.meter{margin-top:12px}
+.meter-bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.meter-bar span{display:block;height:100%;background:var(--accent)}
+.meter-cap{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:4px}
+.top3{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--bg)}
+.top3 h4{margin:0 0 8px;font-size:15px}
+.top3 ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.top3 li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:8px;align-items:baseline;font-size:14.5px}
+.top3 li .num{font-weight:800;color:var(--accent)}
+.top3 li .v{font-family:var(--f-num);font-weight:700;color:var(--fg);white-space:nowrap}
+.top3 .empty{color:var(--mute);font-size:14px}
+@media (max-width:760px){.sum{grid-template-columns:1fr}}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg)}
+table.tasks{width:100%;border-collapse:collapse;min-width:900px;font-size:14px}
+.tasks th{text-align:left;font-size:12px;letter-spacing:.06em;color:var(--mute);font-weight:700;padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tasks td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tasks tr:last-child td{border-bottom:0}
+.tasks input,.tasks select{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-width:0}
+.tasks input[type=number]{width:72px;text-align:right;font-family:var(--f-num)}
+.tasks .freq{display:flex;gap:4px;align-items:center;white-space:nowrap}
+.tasks .freq select{width:auto;min-width:5.4em}
+.goalrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:14px 0 0;font-size:14px}
+.goalrow label{font-weight:700}
+.goalrow input{width:84px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-family:var(--f-num);text-align:right}
+.goalrow .note{flex-basis:100%}
+.tasks .out{font-family:var(--f-num);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.tasks .saved{color:var(--accent);font-weight:700}
+.tasks .rank{font-family:var(--f-num);font-weight:800;text-align:center;color:var(--mute)}
+.tasks .rank.r1,.tasks .rank.r2,.tasks .rank.r3{color:var(--accent-ink);background:var(--accent);border-radius:8px}
+.tasks .ex{font-size:11px;font-weight:700;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.tasks tr:not(.is-ex) .ex{display:none}
+.tasks .del{background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--mute);cursor:pointer;padding:4px 10px;font-size:13px;white-space:nowrap}
+.tasks .namecell{display:flex;align-items:center;min-width:200px}
+.tasks select[data-k="type"]{min-width:118px}
+.rowbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.rates{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:13px;color:var(--mute)}
+.rates b{color:var(--fg);font-family:var(--f-num)}
+
+/* ステップ7: 週の記録 */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.two > div{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--bg);min-width:0}
+.two h4{margin:0 0 10px;font-size:16px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.wk{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.wk label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:14.5px}
+.wk input{appearance:none;-webkit-appearance:none;flex:0 0 22px;height:22px;border:2px solid var(--mute);border-radius:6px;margin-top:3px;display:grid;place-items:center;cursor:pointer}
+.wk input:checked{background:var(--ok);border-color:var(--ok)}
+.wk input:checked::after{content:"〇";font-size:11px;font-weight:700;color:#06150f;line-height:1}
+.logform{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 10px;align-items:end}
+.logform label{display:flex;flex-direction:column;font-size:12px;color:var(--mute);font-weight:700;gap:3px;min-width:0}
+.logform input{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 8px;min-width:0;width:100%}
+.logform .memo,.logform .btn{grid-column:1/-1}
+.logs{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:4px;max-height:220px;overflow:auto}
+.logs li{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:10px;align-items:baseline;font-size:14px;padding:6px 0;border-bottom:1px solid var(--line)}
+.logs .d{font-family:var(--f-num);color:var(--mute)}
+.logs .m{font-family:var(--f-num);font-weight:700;color:var(--accent);white-space:nowrap}
+.logs .t{color:var(--mute);overflow-wrap:anywhere}
+.logs button{background:transparent;border:0;color:var(--mute);cursor:pointer;font-size:13px}
+.logtotal{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:var(--mute)}
+.logtotal b{font-family:var(--f-num);color:var(--fg);font-size:18px}
+.empty-note{font-size:14px;color:var(--mute);margin:10px 0 0}
+
+/* 作業面の幅に合わせて段を落とす（画面幅ではなく、作業面の幅で判定） */
+@container panel (max-width:760px){
+  .prompts{grid-template-columns:1fr}
+}
+@container panel (max-width:700px){
+  .trio,.tips,.rules3{grid-template-columns:1fr}
+  .sum,.two{grid-template-columns:1fr}
+}
+@container panel (max-width:560px){
+  .tools{grid-template-columns:1fr}
+  .lvlist{grid-template-columns:1fr}
+}
+@container panel (max-width:480px){
+  .rung span:not(.flag){display:none}
+  .rung .flag{font-size:10px}
+  .result{grid-template-columns:minmax(0,1fr)}
+}
+/* 仕事の書き出し表：作業面が広くないときはカード表示（1件=2段） */
+@container panel (max-width:960px){
+  .tablebox{overflow:visible;border:0;background:transparent}
+  table.tasks{min-width:0;display:block}
+  .tasks thead{display:none}
+  .tasks tbody{display:flex;flex-direction:column;gap:10px}
+  .tasks tr{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr) minmax(0,.9fr) minmax(0,.9fr);gap:10px 14px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg)}
+  .tasks tr:last-child td,.tasks td{display:block;padding:0;border:0;min-width:0}
+  .tasks td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;color:var(--mute);letter-spacing:.06em;margin-bottom:3px}
+  .tasks td.c-name{grid-column:1;grid-row:1}
+  .tasks td.c-type{grid-column:2;grid-row:1}
+  .tasks td.c-rank{grid-column:3;grid-row:1}
+  .tasks td.c-del{grid-column:4;grid-row:1}
+  .tasks td.c-freq{grid-column:1;grid-row:2}
+  .tasks td.c-min{grid-column:2;grid-row:2}
+  .tasks td.c-month{grid-column:3;grid-row:2}
+  .tasks td.c-saved{grid-column:4;grid-row:2}
+  .tasks .namecell{min-width:0}
+  .tasks select[data-k="type"]{min-width:0;width:100%}
+  .tasks td.out{text-align:left;align-self:end}
+  .tasks td.c-del{display:flex;align-items:flex-end;justify-content:flex-end}
+  .tasks td.c-del::before{display:none}
+  .tasks .rank{display:inline-block;min-width:2.2em;padding:0 8px}
+}
+@container panel (max-width:560px){
+  .tasks tr{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .tasks td.c-name,.tasks td.c-type,.tasks td.c-rank,.tasks td.c-del,.tasks td.c-freq,.tasks td.c-min,.tasks td.c-month,.tasks td.c-saved{grid-column:auto;grid-row:auto}
+  .tasks td.c-name,.tasks td.c-type,.tasks td.c-freq,.tasks td.c-del{grid-column:1/-1}
+}
+.tasks input[type=number]{min-width:64px}
+.goal-err{flex-basis:100%;color:var(--ng);font-size:13px;font-weight:700}
+
+/* 支援する側 */
+.subnav{display:flex;gap:6px;overflow-x:auto;padding-block:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);scrollbar-width:thin}
+.subnav button{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--fg)}
+.subnav button:hover{border-color:var(--accent);color:var(--accent)}
+.block{padding-block:56px 8px}
+.block-head{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-bottom:24px}
+.block-head .k{font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--accent)}
+.block h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4.2vw,52px);line-height:1.2;text-wrap:balance}
+.block .intro{margin:6px 0 0}
+.fails{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:26px}
+.fail{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface)}
+.fail .mk-ng{font-family:var(--f-display);font-size:20px;line-height:1}
+.fail p{margin:6px 0 0;font-size:14px;line-height:1.6}
+@media (max-width:980px){
+  .fails{grid-template-columns:1fr;gap:6px}
+  .fail{display:flex;gap:12px;align-items:baseline;padding:10px 14px}
+  .fail p{margin:0}
+}
+.timeline{display:flex;flex-direction:column;gap:12px}
+.phase{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.phase-no{background:var(--surface-2);padding:18px 16px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--line)}
+.phase-no b{font-family:var(--f-num);font-weight:800;font-size:44px;line-height:1;color:var(--accent)}
+.phase-no span{font-size:13px;font-weight:700;color:var(--mute)}
+.phase-body{padding:18px 20px;min-width:0}
+.phase-body h3{margin:0;font-size:21px}
+.phase-body .pg{margin:2px 0 12px;color:var(--mute);font-size:14.5px}
+.phase-cols{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
+.phase-cols h4{margin:0 0 6px;font-size:12px;letter-spacing:.1em;color:var(--mute)}
+.phase-cols ul{margin:0;padding-left:1.1em;font-size:14.5px}
+.phase-cols li{margin-bottom:3px}
+@media (max-width:860px){.phase{grid-template-columns:1fr}.phase-no{flex-direction:row;align-items:baseline;gap:12px;border-right:0;border-bottom:1px solid var(--line);padding:12px 16px}.phase-no b{font-size:32px}.phase-cols{grid-template-columns:1fr;gap:10px}}
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.role{border:1px solid var(--line);border-radius:var(--r);padding:20px;background:var(--surface)}
+.role .k2{font-family:var(--f-display);font-size:34px;line-height:1;color:var(--accent)}
+.role h3{margin:10px 0 4px;font-size:18px}
+.role .who{display:inline-block;font-size:13px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--mute)}
+.role p{margin:10px 0 0;font-size:14.5px;color:var(--mute)}
+@media (max-width:820px){.roles{grid-template-columns:1fr}}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.split > div{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:var(--surface)}
+.split .big{font-family:var(--f-num);font-weight:800;font-size:56px;line-height:1;color:var(--accent)}
+.split .big small{font-size:22px}
+.split h4{margin:8px 0 4px;font-size:17px}
+.split p{margin:0;font-size:14.5px;color:var(--mute)}
+@media (max-width:700px){.split{grid-template-columns:1fr}}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:var(--surface);display:flex;flex-direction:column;gap:4px}
+.kpi .lbl{font-size:13px;font-weight:700;color:var(--mute)}
+.kpi .v{font-family:var(--f-num);font-weight:800;font-size:40px;line-height:1.1;color:var(--fg)}
+.kpi .v small{font-size:16px;font-family:var(--f-body);margin-left:2px}
+.kpi p{margin:0;font-size:13.5px;color:var(--mute)}
+@media (max-width:980px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.kpis{grid-template-columns:1fr}}
+.calc{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;margin-top:14px;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--surface)}
+.calc label{display:flex;flex-direction:column;font-size:13px;font-weight:700;color:var(--mute);gap:4px}
+.calc input{width:110px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-family:var(--f-num);text-align:right}
+.calc .res{font-size:14px;color:var(--mute)}
+.calc .res b{font-family:var(--f-num);font-weight:800;font-size:34px;color:var(--accent);margin-right:4px}
+.ref{margin-top:12px;font-size:13.5px;color:var(--mute);border-left:2px solid var(--line);padding-left:12px}
+.form{display:flex;flex-direction:column;gap:18px}
+.fsec{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:var(--surface)}
+.fsec h3{margin:0 0 12px;font-size:16px;color:var(--accent)}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+.fgrid label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;font-weight:700;color:var(--mute);min-width:0}
+.fgrid input,.fgrid textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-weight:400;color:var(--fg);width:100%;min-width:0}
+.fgrid textarea{min-height:76px;resize:vertical}
+.fgrid input::placeholder,.fgrid textarea::placeholder{color:#6c6a73}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
+.gen{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px;align-items:start}
+@media (max-width:900px){.gen{grid-template-columns:1fr}}
+.opts{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.opts label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:500;color:var(--fg);cursor:pointer}
+.opts input{margin-top:6px;accent-color:var(--accent)}
+.outbox{margin:0;padding:18px 20px;border:1px solid var(--accent);border-radius:var(--r);background:var(--bg);white-space:pre-wrap;word-break:break-word;font-family:var(--f-body);font-size:14px;line-height:1.85;max-height:640px;overflow:auto}
+#hear-out{margin-top:14px}
+.out-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.out-head h3{margin:0;font-size:16px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.plan{border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.plan.rec{border-color:var(--accent)}
+.plan h3{margin:0;font-size:20px}
+.plan .when{font-size:13px;color:var(--mute);font-weight:700}
+.plan ul{margin:6px 0 0;padding-left:1.1em;font-size:14.5px}
+.plan li{margin-bottom:3px}
+.plan .price{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-weight:700;font-size:14px;color:var(--mute)}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.option{margin-top:12px;border:1px dashed var(--line);border-radius:var(--r);padding:16px 20px;font-size:14.5px;color:var(--mute)}
+.option b{color:var(--fg)}
+.preplist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.preplist label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);cursor:pointer;height:100%}
+.preplist input{appearance:none;-webkit-appearance:none;flex:0 0 22px;height:22px;border:2px solid var(--mute);border-radius:6px;margin-top:3px;display:grid;place-items:center;cursor:pointer}
+.preplist input:checked{background:var(--ok);border-color:var(--ok)}
+.preplist input:checked::after{content:"〇";font-size:11px;font-weight:700;color:#06150f;line-height:1}
+.preplist b{display:block;font-size:15px}
+.preplist span{font-size:13.5px;color:var(--mute)}
+@media (max-width:760px){.preplist{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);margin-top:56px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px 40px;font-size:13px;color:var(--mute)}
+.foot p{margin:0 0 4px}
+.reset-box{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--fg);color:var(--bg);font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:calc(100% - 32px);text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#client"><i aria-hidden="true"></i>AI導入ナビ</a>
+    <nav class="modes" aria-label="表示の切り替え">
+      <a href="#client" data-mode="client">お店のみなさまへ</a>
+      <a href="#staff" data-mode="staff">導入支援の進め方</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="view-client" aria-label="お店のみなさまへ"></section>
+  <section id="view-staff" aria-label="導入支援の進め方" hidden></section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p><b style="color:var(--fg)">AI導入ナビ</b>　<a href="https://teneramente.jp/">株式会社TENERAMENTE</a></p>
+      <p>入力した内容は、このブラウザの中だけに保存されます。外部には送られません。</p>
+      <p>非公式のガイドで、OpenAI・Anthropic・Google・Microsoft とは提携していません。画面の名前は2026年11月時点のものです。</p>
+    </div>
+    <div class="reset-box" id="reset-box">
+      <button type="button" class="btn btn-sm" data-act="reset-ask">入力をすべて消す</button>
+    </div>
+  </div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ───────── データ ───────── */
+var INDUSTRIES = [
+  {id:'salon', label:'美容室・サロン', word:'美容室', boss:'オーナー'},
+  {id:'food', label:'飲食店', word:'飲食店', boss:'店長'},
+  {id:'estate', label:'不動産', word:'不動産会社', boss:'店長'},
+  {id:'seikotsu', label:'整体・治療院', word:'整体院・治療院', boss:'院長'},
+  {id:'clinic', label:'クリニック・歯科', word:'クリニック', boss:'院長'},
+  {id:'retail', label:'小売・その他', word:'お店', boss:'店長'}
+];
+var AIS = [{id:'chatgpt', label:'ChatGPT'},{id:'claude', label:'Claude'}];
+
+var STEPS = [
+  {title:'いまのレベルを知る', time:'3分'},
+  {title:'使うAIを決める', time:'5分'},
+  {title:'登録と安全設定', time:'10分'},
+  {title:'守るルールを覚える', time:'5分'},
+  {title:'指示文で1回成功する', time:'10分'},
+  {title:'お店の仕事を書き出す', time:'15分'},
+  {title:'毎週つづける', time:'5分'}
+];
+
+var LV_Q = [
+  'お店の仕事で、ChatGPTやClaudeを使ったことがある',
+  'うまくいった指示文を保存して、くり返し使っている',
+  'ファイルや資料をAIに渡して、まとめ・集計・下書きまで任せている',
+  'AIを使って、お店専用の道具（自動返信・集計表・小さなアプリ）を作った',
+  'お店の仕事の流れを、AIを使う前提で組み直した'
+];
+var LEVELS = [
+  {name:'まだ使っていない', desc:'ここからで大丈夫です。登録して、1回使ってみるところまで一緒に進みます。'},
+  {name:'聞く', desc:'チャットで質問したり、文章の下書きを作ってもらう段階。', ex:'クチコミ返信の下書きを作ってもらう'},
+  {name:'型にする', desc:'うまくいった指示文を保存して、誰が使っても同じ品質で出せる段階。', ex:'投稿文の指示文を、スタッフ全員で使い回す'},
+  {name:'任せる', desc:'ファイルを渡して、作業をまるごと任せる段階。', ex:'お客様の名前を消した予約データを渡して、曜日ごとの来店の傾向をまとめてもらう'},
+  {name:'作る', desc:'AIを使って、お店専用の道具を作る段階。', ex:'問い合わせへの自動返信や、在庫の集計表を作る'},
+  {name:'回す', desc:'集客から予約・フォローまで、仕事の流れそのものがAI前提で回っている段階。', ex:'投稿・返信・集計が、毎日決まった流れで回る'}
+];
+
+var TOOLS = [
+  {id:'chatgpt', name:'ChatGPT', maker:'OpenAI', main:true, good:'文章・画像・音声での会話。使う人が多く、使い方の情報が見つけやすい', shop:'SNSの投稿文、画像づくり、なんでも相談', price:'無料で始められる（回数や機能に上限あり）'},
+  {id:'claude', name:'Claude', maker:'Anthropic', main:true, good:'長い資料の読み込みと、ていねいで自然な日本語', shop:'マニュアルや規約の要約、ていねいな返信文、資料づくり', price:'無料で始められる（回数や機能に上限あり）'},
+  {id:'gemini', name:'Gemini', maker:'Google', main:false, good:'Gmail・Googleドキュメントなど、Googleのサービスとの連携', shop:'仕事のメールやファイルをGoogleで管理しているお店', price:'チャットは無料。Gmail・ドキュメントの中で使うのは有料プラン'},
+  {id:'copilot', name:'Copilot', maker:'Microsoft', main:false, good:'Word・Excel・Outlook など Microsoft 365 との連携', shop:'Excelで売上や顧客を管理しているお店', price:'チャットは無料。Word・Excelの中で使うのは有料の Microsoft 365'}
+];
+
+var SETUP = {
+  chatgpt: [
+    {h:'ChatGPT を開く', p:'パソコンはブラウザで <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a> を開きます。スマホはアプリ「ChatGPT」を入れます。<b>提供元が「OpenAI」になっているか</b>確かめてください（よく似た名前の別のアプリがあります）。'},
+    {h:'アカウントを作る', p:'「無料でサインアップ」を押し、メールアドレスかGoogleアカウントで登録します。<b>お店で管理しているメールアドレス（Gmailでも可）で登録</b>すると、スタッフが辞めたときにお店で止められます。スタッフ全員で1つのアカウントを使い回すのはやめましょう。'},
+    {h:'会話を学習に使わない設定にする', p:'<span class="path">プロフィールアイコン → 設定 → データコントロール</span> を開き、「すべての人のためにモデルを改善する」を<b>オフ</b>にします。無料版・Plus・Pro は、最初はオンになっています。オフにしても、回答の「良い・良くない」ボタンを押すと、その会話は学習に使われることがあります。'},
+    {h:'2段階認証をオンにする', p:'<span class="path">設定 → セキュリティ</span> の「多要素認証」をオンにします。ログインのときに確認コードが必要になり、パスワードが漏れても入られにくくなります。Googleで登録した人は、<b>Googleアカウントの側でも</b>2段階認証をオンにしておきます。'}
+  ],
+  claude: [
+    {h:'Claude を開く', p:'パソコンはブラウザで <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> を開きます。スマホはアプリ「Claude」を入れます。<b>提供元が「Anthropic」になっているか</b>確かめてください。'},
+    {h:'アカウントを作る', p:'メールアドレスかGoogleアカウントで登録します。メールで届く確認コードや、Googleのログインで入る仕組みです。<b>お店で管理しているメールアドレス（Gmailでも可）で登録</b>すると、スタッフが辞めたときにお店で止められます。スタッフ全員で1つのアカウントを使い回すのはやめましょう。'},
+    {h:'会話を学習に使わない設定にする', p:'<span class="path">左下の名前 → 設定 → プライバシー</span> を開き、「AIモデルの改善を支援する」を<b>オフ</b>にします（以前の画面では「Claudeの改善にご協力ください」という名前でした）。'},
+    {h:'2段階認証をオンにする', p:'Claude はログインにメールアドレスやGoogleアカウントを使います。<b>そのGoogleアカウント・メールの側で</b>2段階認証をオンにしておきます。'}
+  ]
+};
+
+var QUIZ = [
+  {q:'お客様の名前と電話番号を入れて、お礼のメッセージを作ってもらう。', a:false, why:'名前や電話番号は入れません。「〇〇様」と空けたまま作ってもらい、送るときに自分で書き足します。'},
+  {q:'名前を消したクチコミを貼って、返信の下書きを作ってもらう。', a:true, why:'誰のことか分からない形なら使ってかまいません。返信は、自分で読んで直してから出します。'},
+  {q:'予約システムのパスワードを、忘れないようにAIに覚えておいてもらう。', a:false, why:'パスワード・カード番号・口座番号は、どんなときも入れません。'},
+  {q:'AIが書いた「必ずやせる」「絶対に治る」という文を、そのまま広告に使う。', a:false, why:'効果を約束する言い切りは、法律（薬機法・景品表示法など）に触れることがあります。出す前に人が言葉を直します。'},
+  {q:'AIに聞いた「近くの駐車場の場所と料金」を、確かめずにお客様に案内する。', a:false, why:'AIは、もっともらしい間違いを言うことがあります。場所・料金・営業時間・法律は、必ず自分で確かめてから伝えます。'},
+  {q:'お店で決めたAIを、お店で決めたアカウントで使い、新メニューの紹介文を作る。', a:true, why:'これが基本の使い方です。決めたAIを、決めたアカウントで使います。'},
+  {q:'知らない会社の「無料AIアプリ」に、お客様の一覧表を読み込ませて分析してもらう。', a:false, why:'どこに保存されるか分からないサービスに、顧客の情報は入れません。使ってよいAIはお店で決めたものだけです。'},
+  {q:'「アカウントを確認してください」というメールのリンクから、ログインし直す。', a:false, why:'本物そっくりの偽メールや偽のログイン画面が増えています。メールのリンクからは開かず、いつものブックマークやアプリから開きます。'}
+];
+
+var COMMON_PROMPTS = [
+  {t:'クチコミにお礼の返信', s:'Googleマップのクチコミ', p:'あなたは{業種}の{役}です。\n下のGoogleマップのクチコミに、お礼の返信文を書いてください。\n\n【条件】\n・200文字以内。ていねいだけど堅すぎない言葉で\n・クチコミに書かれている内容に、具体的に1つ触れる\n・宣伝や売り込みはしない\n・お客様の名前は書かない\n\n【クチコミ】\n（ここにクチコミを貼る。お客様の名前は消してから）'},
+  {t:'厳しいクチコミへの返信', s:'星1〜2のクチコミ', p:'あなたは{業種}の{役}です。\n下の厳しいクチコミに、返信文を書いてください。\n\n【条件】\n・まず、不快な思いをさせたことをおわびする\n・言い訳や反論はしない\n・事実と違う点があっても、責めずにやわらかく伝える\n・これから直すことを1つ、具体的に書く\n・250文字以内。お客様の名前は書かない\n・ていねい版と短い版の2案を出す\n\n【クチコミ】\n（ここにクチコミを貼る）\n\n【お店側の事情（あれば）】\n（例：その日は急な欠勤で、待ち時間が長くなった）'},
+  {t:'Instagramの投稿文', s:'新メニュー・キャンペーンの告知', p:'あなたは{業種}のSNS担当です。\n次の内容で、Instagramの投稿文を作ってください。\n\n【伝えたいこと】\n（例：12月の平日限定メニューが始まります）\n\n【条件】\n・1行目で手を止めてもらえる書き出しにする\n・本文は300文字前後。絵文字は控えめに\n・最後に、予約や来店につながる一言を入れる\n・ハッシュタグを10個（地域名と業種のものを含める）\n・書き出しの違う案を3つ出す'},
+  {t:'公式LINEのお知らせ', s:'休業日・キャンペーンの連絡', p:'あなたは{業種}のスタッフです。\n公式LINEで送るお知らせ文を作ってください。\n\n【お知らせの内容】\n（例：年末年始の営業日。12/29〜1/3はお休み）\n\n【条件】\n・スマホで読みやすいように、1文を短く\n・200文字以内\n・最初の1行で、何のお知らせか分かるようにする\n・最後に「ご予約はこちら」など、してほしいことを1つだけ入れる'},
+  {t:'求人の原稿', s:'Indeed・求人サイト・ホームページ', p:'あなたは{業種}の採用担当です。\n次の条件で、求人の原稿を作ってください。\n\n【募集の内容】\n・職種：（例：アシスタント）\n・働き方：（例：週3日から。10時〜19時）\n・給与：（例：時給〇〇円から）\n・お店の雰囲気：（例：20〜30代のスタッフ5人。未経験から育てる）\n\n【条件】\n・仕事の中身が、1日の流れで分かるように書く\n・良いことだけでなく、大変なことも1つ正直に書く\n・見出し → 本文 → 応募方法 の順に\n・給与や条件は、上に書いた内容から変えない', c:'給与が、地域の最低賃金（毎年10月ごろに上がります）を下回っていないか、出す前に確かめてください。'},
+  {t:'今月の振り返り', s:'数字から来月の打ち手を出す', p:'あなたは{業種}の経営アドバイザーです。\n下の今月の数字を見て、気づいたことと来月の打ち手を教えてください。\n\n【今月の数字】（お客様の名前は入れない）\n・売上：（例：320万円。前月から5%減）\n・客数：（例：410人。うち新規60人）\n・客単価：（例：7,800円）\n・気になったこと：（例：平日の夕方が空いている）\n\n【出してほしいもの】\n1. 数字から読み取れることを3つ\n2. 来月すぐできる打ち手を3つ（お金がかからない順に）\n3. 来月いちばん見るべき数字を1つ'}
+];
+
+var INDUSTRY_PROMPTS = {
+  salon: [
+    {t:'新メニューの紹介文', s:'予約サイト・Instagram', p:'あなたは美容室のオーナーです。\n新しいメニューの紹介文を作ってください。\n\n【メニュー】\n・名前：（例：冬季限定ヘッドスパ）\n・内容：（例：頭皮をほぐしながら、ゆっくり過ごせる30分）\n・時間と料金：（例：30分 / 4,400円）\n・向いている人：（例：仕事帰りに一息つきたい人）\n\n【条件】\n・予約サイトとInstagramで使える長さ（200文字）\n・「必ず」「治る」「永久に」など、効果を約束する言葉は使わない', c:'効果をうたう言葉は、薬機法・景品表示法に触れることがあります。出す前に人が読んで確かめてください。'},
+    {t:'次回来店のお声がけ', s:'来店から1か月たったお客様へ', p:'あなたは美容室のスタイリストです。\n来店から1か月たったお客様に送る、次の来店をおすすめするメッセージを作ってください。\n\n【条件】\n・売り込み感を出さず、髪の状態を気づかう内容にする\n・前回のメニュー：（例：カラー）\n・季節の話題を1つ入れる\n・100文字以内で2案'},
+    {t:'カウンセリングシートの質問', s:'初めてのお客様用', p:'美容室の、初めてのお客様用カウンセリングシートに入れる質問を作ってください。\n\n【条件】\n・記入が3分以内で終わる量（10問まで）\n・選ぶだけで答えられる形を中心に\n・髪の悩み、なりたい雰囲気、ふだんのお手入れ、アレルギーの有無は必ず入れる\n・紙に印刷して使える形で出す'}
+  ],
+  food: [
+    {t:'メニュー表とPOPの文', s:'看板メニュー・新メニュー', p:'あなたは飲食店の店長です。\n次の料理の、メニュー表とPOPに使う説明文を作ってください。\n\n【料理】\n・名前：（例：炭火焼き 地鶏もも）\n・こだわり：（例：毎朝さばく地鶏を、備長炭で焼く）\n・価格：（例：980円）\n\n【出してほしいもの】\n1. メニュー表用：40文字以内\n2. 手書きPOP用：大きく書く一言（10文字以内）を3案\n3. 店員がおすすめするときのひとこと'},
+    {t:'英語・中国語のメニュー', s:'外国からのお客様向け', p:'次のメニューを、外国からのお客様向けに英語と中国語（簡体字）に訳してください。\n\n【条件】\n・料理名は、ローマ字の読み＋どんな料理かの短い説明\n・アレルギーに関わる食材（えび・かに・くるみ・小麦・そば・卵・乳・落花生など）は目立つように書く\n・表の形で出す\n\n【メニュー】\n（ここにメニューを貼る）', c:'アレルギーの表示は、必ずお店で材料と照らし合わせてください。AIはお店の実際の材料を知りません。'},
+    {t:'来週の仕込み量の目安', s:'過去の売れた数から', p:'あなたは飲食店の仕込み担当です。\n下の過去4週間の売れた数から、来週の曜日ごとの仕込み量の目安を出してください。\n\n【過去4週間の売れた数】\n（例：月曜 唐揚げ 32・28・35・30 / 火曜 …）\n\n【条件】\n・天気や行事で増えそうな日があれば、理由と一緒に教える\n・多めに作るもの、少なめでよいものを分ける\n・表の形で出す'}
+  ],
+  estate: [
+    {t:'物件の紹介文', s:'ポータルサイト・SNS', p:'あなたは賃貸仲介の営業担当です。\n次の物件の紹介文を作ってください。\n\n【物件の情報】\n・間取りと広さ：（例：1LDK / 38㎡）\n・駅からの距離：（例：〇〇駅 徒歩7分）\n・家賃と管理費：（例：9.8万円＋管理費5,000円）\n・設備：（例：独立洗面台、宅配ボックス、2口コンロ）\n・おすすめの人：（例：在宅ワークの一人暮らし）\n\n【条件】\n・ポータルサイト用（200文字）とSNS用（100文字）の2つ\n・「最高」「格安」「日本一」などの言葉は使わない\n・上に書いていないこと（日当たり・周りの施設など）は書かない', c:'不動産の広告には表示のルール（不動産の公正競争規約など）があります。AIが書いていない情報を付け足していないか、必ず確かめてください。'},
+    {t:'内見のあとのお礼', s:'その日のうちにLINEで', p:'あなたは不動産会社の営業担当です。\n今日内見されたお客様に送る、お礼のメッセージを作ってください。\n\n【内見の内容】\n・見た物件の数：（例：3件）\n・お客様が気にしていたこと：（例：日当たりと収納）\n・次の連絡：（例：明日までに申し込みの空き状況を確かめる）\n\n【条件】\n・LINEで送る長さ（150文字以内）\n・押し売りにならないように\n・次に何が起きるかが、1行で分かるように書く'},
+    {t:'よくある質問と答え', s:'初めてのお部屋探しのお客様へ', p:'あなたは賃貸仲介会社の店長です。\nお部屋探しが初めてのお客様からよく聞かれる質問と、その答えを10個作ってください。\n\n【条件】\n・初期費用、入居までの流れ、審査、保証会社、解約について必ず入れる\n・答えは3行以内でやさしく\n・金額や期間が会社によって違うものは、そう書く'}
+  ],
+  seikotsu: [
+    {t:'症状別の案内文', s:'ホームページ・ブログ', p:'あなたは{業種}の院長です。\n「肩こり」で来られる方に向けた、ホームページ用の案内文を作ってください。\n\n【条件】\n・どんな人に来てほしいか → 施術の流れ → 1回の時間と料金 の順に\n・「治る」「必ずよくなる」「根本改善」など、効果を約束する言葉は使わない\n・体験談やビフォーアフターは書かない\n・400文字以内', c:'施術の広告には法律の制限があります（医療のような表現や、効果の約束はできません）。接骨院・鍼灸院・マッサージ院は、広告できる内容そのものが法律で決まっていて、症状名を挙げた案内は載せられません。出す前に必ず確かめてください。'},
+    {t:'セルフケアの案内', s:'施術のあとにお渡しする', p:'あなたは{業種}のスタッフです。\n施術のあとにお渡しする、自宅でできるセルフケアの案内を作ってください。\n\n【条件】\n・対象：（例：デスクワークで首が固くなる人）\n・ストレッチを3つ。絵がなくても分かる言葉で\n・1つ30秒以内でできるもの\n・痛みが出たらやめること、を最後に書く'},
+    {t:'予約のリマインド', s:'前日と当日の朝に送る', p:'{業種}の、予約のリマインドのメッセージを作ってください。\n\n【条件】\n・前日に送る用と、当日の朝に送る用の2つ\n・持ち物（動きやすい服など）と、遅れるときの連絡方法を入れる\n・100文字以内\n・日時は（〇月〇日 〇時）のように空けておく'}
+  ],
+  clinic: [
+    {t:'ホームページのお知らせ', s:'休診日・診療時間の変更', p:'あなたはクリニックの受付スタッフです。\nホームページに載せるお知らせ文を作ってください。\n\n【お知らせの内容】\n（例：年末年始の休診日は12/29〜1/4。急な痛みのときの連絡先）\n\n【条件】\n・一番大事なこと（休みの日）を最初に書く\n・200文字以内\n・治療の効果や「痛くない」などの言い切りは書かない', c:'医療機関の広告には医療広告ガイドラインがあります（体験談・ビフォーアフター・「最高の」などは使えません）。公開前に院長が確かめてください。'},
+    {t:'電話でよくある質問', s:'受付の答え方をそろえる', p:'あなたはクリニックの受付スタッフです。\n電話でよく聞かれる質問と、その答えの下書きを10個作ってください。\n\n【クリニックの情報】\n・診療科：（例：内科・小児科）\n・予約の方法：（例：WEB予約と電話）\n・駐車場：（例：5台）\n\n【条件】\n・診療の判断に関わる質問（「この症状は大丈夫？」など）には「受診してご相談ください」と答える形にする\n・答えは2〜3行で'},
+    {t:'新人向けの電話マニュアル', s:'受付スタッフの教育', p:'クリニックの新人受付スタッフ向けに、「電話の受け方」マニュアルを作ってください。\n\n【条件】\n・最初のあいさつ → 用件の聞き方 → 予約の取り方 → 折り返しの約束 → 終わり方 の順に\n・そのまま読める言い回しの例を入れる\n・困ったときに誰に回すかを書く欄を空けておく\n・A4 1枚に収まる量で'}
+  ],
+  retail: [
+    {t:'商品の説明文', s:'通販ページ・店頭POP', p:'あなたはお店の販売スタッフです。\n次の商品の説明文を作ってください。\n\n【商品】\n・名前：（例：綿100%のフェイスタオル）\n・特長：（例：水をよく吸い、洗っても固くなりにくい）\n・価格：（例：1,650円）\n・おすすめの使い方：（例：ちょっとしたお返しに）\n\n【出してほしいもの】\n1. 通販ページ用（200文字）\n2. 店頭の手書きPOP用（20文字以内）を3案\n3. 接客でおすすめするときのひとこと'},
+    {t:'残った在庫の売り方', s:'値引きの前に考える', p:'あなたは小売店の店長です。\n在庫が多く残っている商品の売り方を考えてください。\n\n【商品と状況】\n・商品：（例：秋物のストール 40本）\n・価格：（例：3,980円）\n・期限：（例：12月中に半分は売りたい）\n\n【条件】\n・値引き以外の方法を3つ、値引きする場合の方法を2つ\n・お金がかからない順に並べる'},
+    {t:'お問い合わせメールの返信', s:'通販・店舗へのお問い合わせ', p:'あなたはお店のスタッフです。\n下のお問い合わせメールへの返信文を作ってください。\n\n【条件】\n・お礼 → 答え → お願いしたいこと → 結び の順に\n・分からないことは「確認してご連絡します」と書き、答えを作らない\n・お客様の名前は（〇〇様）のまま空けておく\n\n【お問い合わせ】\n（ここに本文を貼る。名前・電話番号・住所は消してから）'}
+  ]
+};
+
+var FIRST_PROMPT = 'こんにちは。{業種}を経営しています。今日からAIを仕事に使ってみます。\n{業種}の仕事で、AIに任せると時間が減りやすいことを5つ、具体的な例と一緒に教えてください。\nAIに入れてはいけない情報があれば、それも教えてください。';
+
+var TASK_TYPES = [
+  {id:'write', label:'文章を書く（返信・投稿・案内）', short:'文章', rate:0.6},
+  {id:'idea', label:'調べもの・アイデア出し', short:'調べもの', rate:0.5},
+  {id:'doc', label:'資料・表・マニュアルづくり', short:'資料', rate:0.5},
+  {id:'calc', label:'数字の集計・確認', short:'集計', rate:0.4},
+  {id:'phone', label:'電話・予約・受付（答えの準備）', short:'電話・受付', rate:0.2},
+  {id:'human', label:'接客・施術・調理（人の仕事）', short:'人の仕事', rate:0}
+];
+var FREQS = [{id:'day', label:'毎日', mult:25},{id:'week', label:'毎週', mult:4.3},{id:'month', label:'毎月', mult:1}];
+var EXAMPLES = {
+  salon: [['Googleクチコミの返信','write','week',5,10],['Instagramの投稿づくり','write','week',3,40],['新人向けの説明資料','doc','month',1,120],['月末の売上まとめ','calc','month',1,90],['予約の電話対応','phone','day',6,4],['カット・カラーの施術','human','day',8,60]],
+  food: [['メニュー・POPづくり','write','month',4,45],['Instagramの投稿づくり','write','week',3,30],['仕込み量の計算','calc','day',1,20],['求人原稿の作成','write','month',1,90],['クチコミの返信','write','week',4,10],['調理・接客','human','day',1,480]],
+  estate: [['物件紹介文の作成','write','day',4,15],['問い合わせメールの返信','write','day',8,8],['内見後のお礼の連絡','write','day',3,5],['周辺環境の調べもの','idea','week',5,20],['月の反響数のまとめ','calc','month',1,90],['内見の案内','human','day',2,60]],
+  seikotsu: [['ホームページ・ブログの文章','write','month',4,60],['予約リマインドの連絡','write','day',10,2],['セルフケア案内づくり','doc','month',2,45],['問診票のひな形・院内掲示づくり','doc','month',2,60],['月の来院数のまとめ','calc','month',1,60],['施術','human','day',10,40]],
+  clinic: [['お知らせ文の作成','write','month',3,30],['電話でのよくある質問対応','phone','day',15,3],['スタッフ向けマニュアル','doc','month',1,180],['求人原稿の作成','write','month',1,90],['月の患者数のまとめ','calc','month',1,90],['診療','human','day',1,420]],
+  retail: [['商品説明の作成','write','week',10,15],['SNSの投稿づくり','write','week',3,30],['問い合わせメールの返信','write','day',5,8],['在庫と売れ筋の確認','calc','week',1,60],['セール・POPの企画','idea','month',2,60],['接客・レジ','human','day',1,420]]
+};
+
+var WEEKLY = [
+  '今週、新しい使い方を1つ試した',
+  'うまくいった指示文を、お店の「指示文メモ」に保存した',
+  '減った時間を「時短の記録」につけた',
+  'スタッフに「AIで楽になったこと」を1つ聞いた'
+];
+
+var PHASES = [
+  {no:'0', name:'初回診断', when:'初回 約60分', goal:'今のレベルと、3か月後のゴールを数字で決める',
+    todo:['お店向けガイドのステップ1で、レベルを診断する','時間がかかっている仕事のトップ3を聞く','ゴールを数字で決める（例：返信と投稿の時間を月10時間減らす）','決める人（オーナー）と、AI担当を1人決める'],
+    give:['診断メモ','進め方とお見積り'], need:['オーナーの同席','いま使っているツールの一覧']},
+  {no:'1', name:'守りの準備', when:'1週目', goal:'使い始める前に、入れてはいけない情報と、使ってよいAIを決める',
+    todo:['AI利用ルールを作る（このページのひな形から）','使ってよいAIとプランを決める','全員のアカウント作成・学習オフ・2段階認証','共有アカウントをやめる'],
+    give:['AI利用ルール（A4 1枚）','設定のチェックリスト'], need:['スタッフ人数分のメールアドレス','ツールにかける予算']},
+  {no:'2', name:'研修', when:'2〜3週目', goal:'全員が、自分の仕事で1回成功する',
+    todo:['守る研修 30分（ルールと〇×クイズ）','使う研修 90分（業種別の指示文で、その場で作る）','1人1つ、自分の仕事で使ってみる','うまくいった指示文を、お店のメモに集める'],
+    give:['業種別の指示文集','お店に渡すガイドのリンク'], need:['全員のパソコンかスマホ','研修の時間（合計2時間）']},
+  {no:'3', name:'仕事の書き出し', when:'1か月目', goal:'どの仕事から変えるかを、減る時間で決める',
+    todo:['全員の仕事を横に並べる（仕事名・回数・1回の時間）','時間の大きい仕事を縦に掘る（手順に分ける）','今のやり方とAIを使ったやり方を並べ、減る時間を見積もる','減る時間で並べ、すぐ試せる（手間が小さい）ものを前に出して、1〜5位を決める'],
+    give:['仕事の書き出し表','順位トップ5と改善案'], need:['1人30分の聞き取り','現場を見せてもらう時間']},
+  {no:'4', name:'型にする・小さく自動化', when:'2か月目', goal:'上位の仕事を、誰がやっても同じ時間で終わる形にする',
+    todo:['上位3つを「型」にする（指示文・テンプレート・プロジェクト）','ファイルを渡して作業ごと任せる（レベル3）','必要なら、お店専用の小さな道具を作る（レベル4）','動く試作を見せ、触ってもらいながら直す'],
+    give:['型の一式','動く試作（必要な場合）'], need:['試してくれる担当者','現場での試用']},
+  {no:'5', name:'定着と評価', when:'3か月目から毎月', goal:'使う人を減らさない。成果を評価につなげる',
+    todo:['月1回の振り返り（減った時間・活用率・困りごと）','新しい使い方を共有する（AIは毎週のように変わる）','時短できた人を、朝礼や評価で取り上げる','利用ルールを見直す'],
+    give:['月次の振り返りレポート'], need:['月1回・30分の振り返りの時間']}
+];
+
+var FAILS = [
+  'AIを契約しただけで、何に使うかを決めていない',
+  '「守る」ルールより先に、「使う」研修をしている',
+  'いきなり自動化や開発など、高いレベルから始める',
+  '旗を振る担当者がいない',
+  '使った人が評価されず、だんだん使われなくなる'
+];
+
+var HEARING = [
+  {sec:'お店のこと', f:[['h_name','店名','text','例：〇〇ヘアサロン'],['h_ind','業種','text','例：美容室'],['h_shops','店舗数','text','例：2店舗'],['h_staff','スタッフ数','text','例：正社員6人・パート3人']]},
+  {sec:'いまのAIの使い方', f:[['h_ai','使っているAI','text','例：ChatGPT の無料版を、2人が個人で'],['h_use','何に使っているか','area','例：インスタの文章を考えるときだけ']]},
+  {sec:'困っている仕事', f:[['h_top3','時間がかかっている仕事トップ3','area','例：①クチコミ返信 ②シフトづくり ③求人原稿'],['h_human','人がやるべき仕事・AIに任せたい仕事','area','例：接客は人。文章と集計は任せたい']]},
+  {sec:'守り', f:[['h_data','お客様の情報の置き場所','text','例：予約システムと紙のカルテ'],['h_device','使うパソコン・スマホ','text','例：お店のPC1台と、個人のスマホ'],['h_account','アカウントの共有','text','例：インスタは全員で同じログインを使っている']]},
+  {sec:'ゴールと進め方', f:[['h_goal','3か月後にどうなっていたいか','area','例：返信と投稿にかかる時間を半分にしたい'],['h_budget','予算の目安','text','例：月3万円まで'],['h_owner','決める人','text','例：オーナー'],['h_lead','AI担当の候補','text','例：店長（SNS担当）']]}
+];
+
+var RULE_TOOLS = [['chatgpt','ChatGPT'],['claude','Claude'],['gemini','Gemini'],['copilot','Copilot']];
+var RULE_SECS = [
+  ['connect','AIとつないでよいサービス'],
+  ['check','出す前に人が確かめること'],
+  ['account','アカウントの守り'],
+  ['trouble','困ったとき・入れてしまったとき'],
+  ['review','ルールの見直し']
+];
+
+var PREP = [
+  ['このガイドのリンク','お店にはリンクをそのまま渡します。開くと、お店向けの画面から始まります'],
+  ['研修のスライド','守る研修30分と、使う研修90分の2本'],
+  ['AI利用ルールのひな形','このページの「利用ルール」で、お店の名前を入れて作る'],
+  ['仕事の書き出し表','お店向けガイドのステップ6をそのまま使う'],
+  ['月次の振り返りレポートの型','減った時間・活用率・困りごと・来月やること'],
+  ['契約書と秘密保持の取り決め','業務委託の契約と、お店の情報を外に出さない約束'],
+  ['「目標」と「お約束」を分けた説明','減る時間は見込みと目標で、お約束ではないことを最初に伝える'],
+  ['法律の確認先','個人情報保護法・景品表示法・薬機法・医療広告ガイドライン・著作権'],
+  ['研修用のサンプルデータ','本物の顧客情報は使わず、架空の名前と数字で練習する'],
+  ['最新情報の仕入れ先','AIは毎週のように変わる。公式の更新情報を週1で確かめる']
+];
+
+/* ───────── 状態 ───────── */
+var KEY = 'ai-donyu-navi-v1';
+function defaults(){
+  return {industry:'salon', ai:'chatgpt', step:0, done:{}, level:[null,null,null,null,null], quiz:{}, setup:{}, tasks:null, goalMin:60,
+    weekly:{}, log:[], hearing:{}, rules:{shop:'', date:'', lead:'', extra:'', connect:'', tools:{chatgpt:true, claude:true, gemini:false, copilot:false}, sec:{connect:true, check:true, account:true, trouble:true, review:true}},
+    prep:{}, kpi:{staff:'', active:''}};
+}
+var S = load();
+function load(){
+  var d = defaults();
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var o = JSON.parse(raw);
+      Object.keys(d).forEach(function(k){ if(o[k] !== undefined && (o[k] !== null || k === 'tasks')) d[k] = o[k]; });
+      ['done','quiz','setup','weekly','hearing','prep','kpi'].forEach(function(k){ if(!d[k] || typeof d[k] !== 'object' || Array.isArray(d[k])) d[k] = defaults()[k]; });
+      if(d.tasks !== null && !Array.isArray(d.tasks)) d.tasks = null;
+      if(!INDUSTRIES.some(function(x){ return x.id === d.industry; })) d.industry = 'salon';
+      if(!AIS.some(function(x){ return x.id === d.ai; })) d.ai = 'chatgpt';
+      if(o.rules){ d.rules = Object.assign(defaults().rules, o.rules); d.rules.tools = Object.assign(defaults().rules.tools, o.rules.tools||{}); d.rules.sec = Object.assign(defaults().rules.sec, o.rules.sec||{}); }
+      if(!Array.isArray(d.level) || d.level.length !== 5) d.level = [null,null,null,null,null];
+      if(!Array.isArray(d.log)) d.log = [];
+      if(typeof d.step !== 'number' || d.step < 0 || d.step > 6) d.step = 0;
+      if(!(Number(d.goalMin) > 0)) d.goalMin = 60;
+    }
+  }catch(e){}
+  return d;
+}
+var saveTimer = null;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(function(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }, 150);
+}
+
+/* ───────── 小物 ───────── */
+function $(sel, root){ return (root||document).querySelector(sel); }
+function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function ind(){ for(var i=0;i<INDUSTRIES.length;i++){ if(INDUSTRIES[i].id === S.industry) return INDUSTRIES[i]; } return INDUSTRIES[0]; }
+function fill(t){ var I = ind(); return t.replace(/\{業種\}/g, I.word).replace(/\{役\}/g, I.boss); }
+function hl(t){ return esc(t).replace(/（(?:例：|ここ|〇)[^（）]*）/g, function(m){ return '<span class="ph">' + m + '</span>'; }); }
+function fmtNum(n, d){ return Number(n).toLocaleString('ja-JP', {maximumFractionDigits: d||0, minimumFractionDigits: 0}); }
+var toastTimer = null;
+function toast(msg){
+  var el = $('#toast'); el.textContent = msg; el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2600);
+}
+function copyText(text, selectEl){
+  var prevFocus = document.activeElement;
+  function back(){ try{ if(prevFocus && prevFocus.focus) prevFocus.focus({preventScroll:true}); }catch(e){} }
+  function fallback(){
+    var ok = false;
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      ok = document.execCommand && document.execCommand('copy');
+      document.body.removeChild(ta);
+    }catch(e){ ok = false; }
+    back();
+    if(ok){ toast('コピーしました。AIの入力欄に貼り付けてください'); return; }
+    if(selectEl){ try{ var r = document.createRange(); r.selectNodeContents(selectEl); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){} }
+    toast('自動でコピーできませんでした。選ばれた文字を長押し（右クリック）してコピーしてください');
+  }
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ toast('コピーしました。AIの入力欄に貼り付けてください'); }, fallback);
+    } else { fallback(); }
+  }catch(e){ fallback(); }
+}
+
+/* ───────── お店向け ───────── */
+function renderClientShell(){
+  var v = $('#view-client');
+  v.innerHTML =
+    '<div class="wrap hero">' +
+      '<div>' +
+        '<p class="eyebrow">お店のための AI導入ガイド</p>' +
+        '<h1><span class="nb">AIは、</span><span class="nb">入れただけでは</span><em class="nb">使われない。</em></h1>' +
+        '<p class="lead">使い始めるには順番があります。<b>使うAIを決めて、守るルールを覚えて、自分の仕事で1回成功する。</b>そのあと、お店の仕事を書き出して、AIで減らせる時間を数字で見ます。</p>' +
+      '</div>' +
+      '<aside class="goal" aria-label="最初の成功まで">' +
+        '<p class="goal-label">最初の成功まで</p>' +
+        '<p class="goal-num"><b>7</b><small>ステップ</small></p>' +
+        '<p>ぜんぶで約50分。画面の順に進めるだけです。</p>' +
+        '<p class="note">進み具合と入力した内容は、このブラウザの中だけに残ります。</p>' +
+      '</aside>' +
+    '</div>' +
+    '<div class="wrap"><div class="setup">' +
+      '<div class="setup-row"><span class="setup-label">業種</span><div class="chips" id="ind-chips"></div></div>' +
+      '<div class="setup-row"><span class="setup-label">使うAI</span><div class="chips" id="ai-chips"></div></div>' +
+    '</div></div>' +
+    '<div class="wrap work">' +
+      '<div class="side">' +
+        '<div class="progress" id="progress"></div>' +
+        '<ol class="stepper" id="stepper" aria-label="7つのステップ"></ol>' +
+      '</div>' +
+      '<article class="panel" id="panel" aria-live="polite"></article>' +
+    '</div>';
+  renderChips(); renderStepper(); renderPanel();
+}
+
+function renderChips(){
+  $('#ind-chips').innerHTML = INDUSTRIES.map(function(x){
+    return '<button type="button" class="chip" data-act="industry" data-id="' + x.id + '" aria-pressed="' + (S.industry === x.id) + '">' + esc(x.label) + '</button>';
+  }).join('');
+  $('#ai-chips').innerHTML = AIS.map(function(x){
+    return '<button type="button" class="chip" data-act="ai" data-id="' + x.id + '" aria-pressed="' + (S.ai === x.id) + '">' + esc(x.label) + '</button>';
+  }).join('');
+}
+
+function doneCount(){ var n = 0; for(var i=0;i<7;i++){ if(S.done[i]) n++; } return n; }
+function renderStepper(){
+  var n = doneCount();
+  $('#progress').innerHTML = '<div class="progress-top"><span>進み具合</span><span><span class="num">' + n + '</span> / 7</span></div><div class="bar"><span style="width:' + (n/7*100) + '%"></span></div>';
+  $('#stepper').innerHTML = STEPS.map(function(s, i){
+    var cls = S.done[i] ? 'is-done' : '';
+    return '<li><button type="button" class="' + cls + '" data-act="goto" data-i="' + i + '"' + (S.step === i ? ' aria-current="step"' : '') + '>' +
+      '<span class="sn">' + (i+1) + '</span>' +
+      '<span><span class="st">' + esc(s.title) + '</span><br><span class="tm">' + s.time + '</span></span>' +
+      '<span class="ck">' + (S.done[i] ? '完了' : '') + '</span></button></li>';
+  }).join('');
+  var sp = $('#stepper'), cur = sp.querySelector('[aria-current="step"]');
+  if(cur && sp.scrollWidth > sp.clientWidth + 2) sp.scrollLeft = Math.max(0, cur.parentElement.offsetLeft - 16);
+}
+
+function renderPanel(){
+  var i = S.step, st = STEPS[i];
+  var body = [renderLevel, renderTools, renderSetup, renderRules, renderPrompts, renderTasks, renderWeekly][i]();
+  var last = i === 6;
+  $('#panel').innerHTML =
+    '<div class="panel-head"><span class="panel-step">ステップ ' + (i+1) + ' / 7</span><span class="panel-time">目安 ' + st.time + '</span>' + (S.done[i] ? '<span class="panel-done">完了</span>' : '') + '</div>' +
+    '<h2>' + esc(st.title) + '</h2>' + body +
+    '<div class="panel-foot">' +
+      (i > 0 ? '<button type="button" class="btn" data-act="prev">前のステップへ</button>' : '<span></span>') +
+      '<button type="button" class="btn btn-main" data-act="next">' + (last ? (S.done[i] ? '完了にしています' : 'このステップを完了にする') : 'このステップを完了して次へ') + '</button>' +
+    '</div>';
+  if(i === 5) updateTaskCalc();
+}
+
+/* STEP1 レベル */
+function levelValue(){ var n = 0; for(var i=0;i<5;i++){ if(S.level[i] === true) n++; else break; } return n; }
+function renderLevel(){
+  var lv = levelValue();
+  var answered = (lv === 5 || S.level[lv] === false) ? 1 : 0;
+  var left = S.level.filter(function(x){ return x === null; }).length;
+  var q = LV_Q.map(function(t, i){
+    var v = S.level[i];
+    return '<div class="q"><div class="q-text"><span class="num">Q' + (i+1) + '</span><span>' + esc(t) + '</span></div>' +
+      '<div class="yn"><button type="button" class="yes" data-act="lv" data-i="' + i + '" data-v="1" aria-pressed="' + (v === true) + '">はい</button>' +
+      '<button type="button" class="no" data-act="lv" data-i="' + i + '" data-v="0" aria-pressed="' + (v === false) + '">まだ</button></div></div>';
+  }).join('');
+  var ladder = '<div class="ladder" aria-hidden="true">' + LEVELS.map(function(L, k){
+    var h = 40 + k * 22;
+    var cls = 'rung' + (k <= lv && answered ? ' on' : '') + (k === 3 ? ' target' : '');
+    return '<div class="' + cls + '" style="min-height:' + h + 'px">' + (k === 3 ? '<span class="flag">まずはここ</span>' : '') + '<b>' + k + '</b><span>' + esc(L.name) + '</span></div>';
+  }).join('') + '</div>';
+  var next = lv < 3 ? 'まずは全員が <b>レベル3「任せる」</b> まで行くのが目標です。このあとのステップで、そこまでの道を進みます。' :
+    lv === 3 ? 'もう「任せる」ところまで来ています。ステップ6で仕事を書き出し、<b>減る時間の大きい仕事から型にしていきましょう。</b>' :
+    lv === 4 ? 'お店専用の道具まで作れています。ステップ6で仕事を書き出し、<b>次に道具にする仕事の候補を決めましょう。</b>' :
+    'お店の仕事がAI前提で回っています。<b>毎週の記録（ステップ7）で、続く仕組みにしておきましょう。</b>';
+  var result = answered ?
+    '<div class="result"><div class="big"><small>レベル</small>' + lv + '</div><div><h4>あなたのお店は「' + esc(LEVELS[lv].name) + '」の段階です</h4><p>' + next + '</p></div></div>' :
+    '<div class="result"><div class="big"><small>レベル</small>?</div><div><h4>質問に答えると、お店のレベルが出ます</h4><p>上から順に答えて、「はい」が続いたところまでが今のレベルです（あと' + left + '問）。</p></div></div>';
+  var list = '<h3>5つのレベル</h3><div class="lvlist">' + LEVELS.slice(1).map(function(L, k){
+    return '<div class="lv"><b>レベル' + (k+1) + '</b><h4>' + esc(L.name) + '</h4><p>' + esc(L.desc) + '<br>例：' + esc(L.ex) + '</p></div>';
+  }).join('') + '</div>';
+  return '<p class="intro">AIの使い方には段階があります。いきなり自動化をめざすと失敗しやすいので、<b>今いる段階を知ってから、1段ずつ</b>上がります。</p>' +
+    '<div class="qlist">' + q + '</div>' + ladder + result + list;
+}
+
+/* STEP2 AIを決める */
+function renderTools(){
+  var cards = TOOLS.map(function(t){
+    return '<div class="tool' + (t.main ? ' main' : '') + '"><div class="tool-top"><h4>' + esc(t.name) + '</h4><span class="maker">' + esc(t.maker) + '</span></div>' +
+      (t.main ? '<span class="tag">このガイドで案内</span>' : '') +
+      '<dl><dt>得意</dt><dd>' + esc(t.good) + '</dd><dt>お店では</dt><dd>' + esc(t.shop) + '</dd><dt>料金</dt><dd>' + esc(t.price) + '</dd></dl></div>';
+  }).join('');
+  return '<p class="intro">迷ったら <b>ChatGPT か Claude のどちらか1つ</b>から始めます。大事なのは「どれが一番か」より、<b>お店で1つに決めて、全員で同じものを使う</b>ことです。</p>' +
+    '<div class="tools">' + cards + '</div>' +
+    '<h3>選ぶときの3つの決まり</h3>' +
+    '<div class="rules3">' +
+      '<div class="rule"><span class="num">01</span><h4>世界トップクラスの会社のAIを選ぶ</h4><p>性能だけでなく、情報を守る力も違います。よく知らない会社の「AI〇〇」アプリに、お店の情報は入れません。</p></div>' +
+      '<div class="rule"><span class="num">02</span><h4>お店で1つに決める</h4><p>人によってバラバラだと、うまくいった使い方を共有できません。指示文も、ルールも、1つのAIに合わせます。</p></div>' +
+      '<div class="rule"><span class="num">03</span><h4>複数人で使うならチーム向けプランも</h4><p>ChatGPT Business や Claude Team は、会話が学習に使われず、管理者がアカウントをまとめて管理できます。</p></div>' +
+    '</div>' +
+    '<div class="callout"><p><b>料金</b>　無料でも始められます。仕事で毎日使うなら有料プランが目安です。金額は変わることがあるので、公式の料金ページで確かめてください。</p>' +
+    '<p><a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">ChatGPT の料金ページ</a>　／　<a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude の料金ページ</a>（新しいタブで開きます）</p></div>' +
+    '<h3>あなたのお店で使うAI</h3>' +
+    '<div class="seg" role="group" aria-label="使うAI">' + AIS.map(function(a){ return '<button type="button" data-act="ai" data-id="' + a.id + '" aria-pressed="' + (S.ai === a.id) + '">' + a.label + '</button>'; }).join('') + '</div>' +
+    '<p class="note" style="margin-top:8px">ここで選んだAIに合わせて、次のステップの手順が切り替わります。</p>';
+}
+
+/* STEP3 登録と安全設定 */
+function renderSetup(){
+  var list = SETUP[S.ai];
+  var aiName = S.ai === 'claude' ? 'Claude' : 'ChatGPT';
+  var items = list.map(function(it, i){
+    var key = S.ai + '-' + i, on = !!S.setup[key];
+    return '<li class="check' + (on ? ' is-on' : '') + '"><input type="checkbox" id="setup-' + key + '" data-act="setup" data-key="' + key + '"' + (on ? ' checked' : '') + ' aria-label="' + esc(it.h) + 'を完了にする">' +
+      '<div><h4><label for="setup-' + key + '">' + (i+1) + '. ' + esc(it.h) + '</label></h4><p>' + it.p + '</p></div></li>';
+  }).join('');
+  var help = S.ai === 'claude' ? '<a href="https://privacy.claude.com/ja/articles/12109829" target="_blank" rel="noopener">Claude の公式ヘルプ（学習の設定）</a>' : '<a href="https://help.openai.com/ja-jp/articles/7730893" target="_blank" rel="noopener">ChatGPT の公式ヘルプ（データの設定）</a>';
+  return '<p class="intro">' + aiName + ' の登録から、<b>情報を守る設定</b>まで進めます。終わったものから丸をつけてください。仕事に使うのは、次のステップで守るルールを覚えてからです。</p>' +
+    '<div class="seg" role="group" aria-label="使うAI">' + AIS.map(function(a){ return '<button type="button" data-act="ai" data-id="' + a.id + '" aria-pressed="' + (S.ai === a.id) + '">' + a.label + '</button>'; }).join('') + '</div>' +
+    '<ul class="checks">' + items + '</ul>' +
+    '<div class="callout"><p><b>チーム向けプランをお店で契約した場合</b>　管理者がまとめて設定するので、3は要りません（会話は最初から学習に使われません）。</p>' +
+    '<p><b>画面の名前</b>　アップデートで変わることがあります（2026年11月時点）。見つからないときは ' + help + ' か、お店のAI担当に聞いてください。</p></div>';
+}
+
+/* STEP4 守るルール */
+function renderRules(){
+  var right = 0, answered = 0;
+  var items = QUIZ.map(function(z, i){
+    var pick = S.quiz[i];
+    var has = pick === true || pick === false;
+    if(has){ answered++; if(pick === z.a) right++; }
+    function cls(v){
+      if(!has) return '';
+      if(pick === v) return pick === z.a ? 'pick-right' : 'pick-wrong';
+      return v === z.a ? 'is-answer' : '';
+    }
+    return '<div class="qz' + (has ? ' answered' : '') + '"><div class="qz-row"><div class="qz-q"><span class="num">' + (i+1) + '</span>' + esc(z.q) + '</div>' +
+      '<div class="ox" role="group" aria-label="' + (i+1) + '問目の答え"><button type="button" class="' + cls(true) + '" data-act="quiz" data-i="' + i + '" data-v="1" aria-label="よい（〇）"' + (has ? ' disabled' : '') + '>〇</button>' +
+      '<button type="button" class="' + cls(false) + '" data-act="quiz" data-i="' + i + '" data-v="0" aria-label="だめ（×）"' + (has ? ' disabled' : '') + '>×</button></div></div>' +
+      (has ? '<div class="qz-a"><b class="' + (pick === z.a ? 'right' : 'wrong') + '">' + (pick === z.a ? '正解' : 'ちがいます') + '</b>　答えは「' + (z.a ? '〇' : '×') + '」。' + esc(z.why) + '</div>' : '') +
+      '</div>';
+  }).join('');
+  return '<p class="intro">使い方より先に、<b>守り方</b>を覚えます。AIを使う場面が増えるほど、うっかり入れてはいけない情報を入れてしまう事故も起きやすくなります。最低限のルールは、全員が同じように覚えておきます。</p>' +
+    '<div class="trio">' +
+      '<div><h4><span class="mk mk-ng">×</span>入れない</h4><ul><li>お客様個人が分かる情報（名前・電話・住所・メール・カルテ・顧客メモ）</li><li>パスワード・カード番号・口座番号</li><li>取引先との秘密の約束（契約書の中身など）</li></ul></div>' +
+      '<div><h4><span class="mk mk-ac">!</span>出す前に確かめる</h4><ul><li>料金・営業時間・法律などの「事実」</li><li>「必ず」「絶対」「治る」などの言い過ぎ</li><li>他の人の写真や文章をそのまま使っていないか</li></ul></div>' +
+      '<div><h4><span class="mk mk-ok">〇</span>守る</h4><ul><li>お店で決めたAIだけを使う</li><li>学習オフと2段階認証</li><li>アカウントを人と共有しない</li><li>他のサービスとつなぐ前に、AI担当に聞く</li><li>入れてしまったら、すぐAI担当へ</li></ul></div>' +
+    '</div>' +
+    '<p class="note">売上や客数など、お客様個人が分からない<b>お店の数字</b>は、学習オフにしたお店のAIなら使ってかまいません。</p>' +
+    '<h3>〇×クイズ　これはやっていい？</h3>' +
+    '<div class="quiz">' + items + '</div>' +
+    '<div class="score"><span class="num">' + right + '</span><span>/ ' + QUIZ.length + ' 問正解</span>' + (answered ? '<button type="button" class="btn btn-sm" data-act="quiz-reset" style="margin-left:auto">もう一度やる</button>' : '') + '</div>' +
+    '<div class="callout"><p><b>攻撃する側も、AIを使っています。</b>　本物そっくりの偽メールや偽のログイン画面を、安く大量に作れるようになりました。</p>' +
+    '<p>メールのリンクから開かない／2段階認証をオンにする／パソコン・スマホ・ホームページ（WordPress など）の更新を後回しにしない。この3つを今日から続けてください。</p></div>';
+}
+
+/* STEP5 指示文 */
+function promptCard(p, idx){
+  var text = fill(p.p);
+  return '<div class="pcard"><div class="pcard-head"><div><h4>' + esc(p.t) + '</h4><p class="scene">' + esc(p.s) + '</p></div></div>' +
+    '<pre id="pp-' + idx + '">' + hl(text) + '</pre>' +
+    (p.c ? '<p class="caution"><span aria-hidden="true">!</span><span>' + esc(p.c) + '</span></p>' : '') +
+    '<div class="pcard-foot"><button type="button" class="btn btn-sm btn-main" data-act="copy-prompt" data-idx="' + idx + '">コピー</button></div></div>';
+}
+var promptIndex = [];
+function renderPrompts(){
+  var I = ind();
+  var specific = INDUSTRY_PROMPTS[I.id] || [];
+  promptIndex = specific.concat(COMMON_PROMPTS);
+  var save = S.ai === 'claude' ? 'Claude の「プロジェクト」' : 'ChatGPT の「プロジェクト」';
+  return '<p class="intro">守るルールを覚えたら、いよいよ使ってみます。まずは下の一言を送り、そのあと<b>自分の仕事の指示文で1回成功</b>するところまで進めます。</p>' +
+    '<div class="callout"><p><b>まずはこの一言から</b>　コピーして、AIの入力欄に貼り付けて送ってみましょう。返ってきた答えの中から、明日やれそうなものを1つ選びます。</p>' +
+      '<pre id="first-prompt" style="margin:10px 0;padding:12px 14px;background:var(--bg);border-radius:10px;white-space:pre-wrap;word-break:break-word;font-family:var(--f-body);font-size:13.5px">' + hl(fill(FIRST_PROMPT)) + '</pre>' +
+      '<button type="button" class="btn btn-sm btn-main" data-act="copy-first">この一言をコピー</button></div>' +
+    '<h3>指示文の使い方</h3>' +
+    '<p class="intro">コピーして貼り付けるだけで使えます。<b>黄色の（　）の部分</b>を、お店の内容に書きかえてから送ってください。</p>' +
+    '<div class="tips">' +
+      '<div><b>役割・お願い・条件</b>「あなたは〇〇です」「〜を作って」「〇文字以内で」の3つを書くと、答えが安定します。</div>' +
+      '<div><b>1回で決めなくていい</b>「もっと短く」「やわらかく」「3案出して」と続けて頼むと、どんどん良くなります。</div>' +
+      '<div><b>うまくいったら保存</b>よく使う指示文は' + esc(save) + 'やメモ帳にまとめ、全員で使い回します。</div>' +
+    '</div>' +
+    '<div class="pgroup"><h3>' + esc(I.label) + '向け</h3><span class="count">' + specific.length + '本</span></div>' +
+    '<div class="prompts">' + specific.map(function(p, k){ return promptCard(p, k); }).join('') + '</div>' +
+    '<div class="pgroup"><h3>どのお店でも使える</h3><span class="count">' + COMMON_PROMPTS.length + '本</span></div>' +
+    '<div class="prompts">' + COMMON_PROMPTS.map(function(p, k){ return promptCard(p, specific.length + k); }).join('') + '</div>' +
+    '<p class="note" style="margin-top:14px">業種を切り替えると、上の「' + esc(I.label) + '向け」の指示文が入れ替わります。</p>';
+}
+
+/* STEP6 仕事の書き出し */
+function exampleTasks(id){
+  return (EXAMPLES[id] || EXAMPLES.salon).map(function(r){ return {name:r[0], type:r[1], freq:r[2], count:r[3], min:r[4], ex:true}; });
+}
+function ensureTasks(){ if(!Array.isArray(S.tasks)) S.tasks = exampleTasks(S.industry); }
+function typeOf(id){ for(var i=0;i<TASK_TYPES.length;i++){ if(TASK_TYPES[i].id === id) return TASK_TYPES[i]; } return TASK_TYPES[0]; }
+function freqOf(id){ for(var i=0;i<FREQS.length;i++){ if(FREQS[i].id === id) return FREQS[i]; } return FREQS[0]; }
+function calcRow(t){
+  var c = Math.max(0, Number(t.count) || 0), m = Math.max(0, Number(t.min) || 0);
+  var month = c * freqOf(t.freq).mult * m;
+  return {month: month, saved: month * typeOf(t.type).rate};
+}
+function renderTasks(){
+  ensureTasks();
+  var rows = S.tasks.map(function(t, i){
+    return '<tr data-row="' + i + '" class="' + (t.ex ? 'is-ex' : '') + '">' +
+      '<td class="c-name" data-label="仕事"><div class="namecell"><input type="text" id="task-' + i + '-name" data-task="' + i + '" data-k="name" value="' + esc(t.name) + '" placeholder="例：クチコミの返信" aria-label="仕事の名前"><span class="ex">例</span></div></td>' +
+      '<td class="c-type" data-label="種類"><select id="task-' + i + '-type" data-task="' + i + '" data-k="type" aria-label="仕事の種類">' + TASK_TYPES.map(function(x){ return '<option value="' + x.id + '"' + (x.id === t.type ? ' selected' : '') + '>' + esc(x.short) + '</option>'; }).join('') + '</select></td>' +
+      '<td class="c-freq" data-label="回数"><div class="freq"><select id="task-' + i + '-freq" data-task="' + i + '" data-k="freq" aria-label="頻度">' + FREQS.map(function(x){ return '<option value="' + x.id + '"' + (x.id === t.freq ? ' selected' : '') + '>' + x.label + '</option>'; }).join('') + '</select>' +
+        '<input type="number" min="0" step="1" inputmode="numeric" id="task-' + i + '-count" data-task="' + i + '" data-k="count" value="' + esc(t.count) + '" aria-label="回数"><span>回</span></div></td>' +
+      '<td class="c-min" data-label="1回の時間"><div class="freq"><input type="number" min="0" step="1" inputmode="numeric" id="task-' + i + '-min" data-task="' + i + '" data-k="min" value="' + esc(t.min) + '" aria-label="1回の時間（分）"><span>分</span></div></td>' +
+      '<td class="out c-month" data-label="月の時間" data-out="month-' + i + '"></td>' +
+      '<td class="out saved c-saved" data-label="AIで減る（月）" data-out="saved-' + i + '"></td>' +
+      '<td class="c-rank" data-label="順位"><div class="rank" data-out="rank-' + i + '"></div></td>' +
+      '<td class="c-del"><button type="button" class="del" data-act="task-del" data-i="' + i + '">この行を消す</button></td></tr>';
+  }).join('');
+  var hasEx = S.tasks.some(function(t){ return t.ex; });
+  return '<p class="intro">お店の仕事を、まず<b>横に並べます</b>（仕事の名前・回数・1回の時間）。AIで減る時間が大きい順に順位が付きます。減る時間が同じくらいなら、<b>すぐ試せる方を先に</b>。上から順に、ステップ5の指示文で試していきます。</p>' +
+    '<div class="goalrow"><label for="task-goal">お店の目標（1営業日あたり）</label><input type="number" id="task-goal" min="1" step="5" inputmode="numeric" value="' + esc(S.goalMin) + '"><span>分</span>' +
+      '<span class="goal-err" id="goal-err" hidden>1分以上で入れてください。計算は前の目標のままです。</span>' +
+      '<span class="note">最初は、下の見込みを見て届きそうな数字にします。参考までに、大きな会社の講演では「1人1営業日2時間」が目安として紹介されていました。</span></div>' +
+    '<div class="sum" id="task-sum"></div>' +
+    '<div class="tablebox"><table class="tasks"><thead><tr><th>仕事</th><th>種類</th><th>回数</th><th>1回の時間</th><th style="text-align:right">月の時間</th><th style="text-align:right">AIで減る（月）</th><th>順位</th><th></th></tr></thead><tbody id="task-body">' + rows + '</tbody></table></div>' +
+    '<div class="rowbtns"><button type="button" class="btn btn-sm btn-main" data-act="task-add">仕事を1行足す</button>' +
+      (hasEx ? '<button type="button" class="btn btn-sm" data-act="task-clear-ex">例の行を消す</button>' : '') +
+      '<button type="button" class="btn btn-sm" data-act="task-reset">' + esc(ind().label) + 'の例に戻す</button></div>' +
+    '<div class="rates"><span>減る割合の仮の目安：</span>' + TASK_TYPES.map(function(x){ return '<span>' + esc(x.short) + ' <b>' + Math.round(x.rate*100) + '%</b></span>'; }).join('') + '<span>（1か月 = 25営業日・4.3週で計算。電話・受付は、よくある質問の答えをAIで用意しておく分だけ減る見込みです。実際に試して、合わない種類は選び直してください）</span></div>' +
+    '<h3>時間の大きい仕事は、縦に掘る</h3>' +
+    '<p class="intro">順位が1位の仕事を、手順に分けて書き出します（例：クチコミ返信 → ①読む ②返す内容を考える ③文章にする ④見直して投稿）。<b>「③文章にする」だけAIに任せる</b>、のように、手順の一部から渡すとうまくいきます。</p>';
+}
+function updateTaskCalc(){
+  if(!Array.isArray(S.tasks)) return;
+  var calc = S.tasks.map(function(t, i){ var c = calcRow(t); c.i = i; return c; });
+  var order = calc.filter(function(c){ return c.saved > 0; }).sort(function(a, b){ return b.saved - a.saved; });
+  var rank = {}; order.forEach(function(c, k){ rank[c.i] = k + 1; });
+  calc.forEach(function(c){
+    var m = $('[data-out="month-' + c.i + '"]'), s = $('[data-out="saved-' + c.i + '"]'), r = $('[data-out="rank-' + c.i + '"]');
+    if(m) m.textContent = fmtNum(c.month / 60, 1) + ' 時間';
+    if(s) s.textContent = c.saved > 0 ? fmtNum(c.saved / 60, 1) + ' 時間' : '―';
+    if(r){ var k = rank[c.i]; r.textContent = k ? k : '―'; r.className = 'rank' + (k && k <= 3 ? ' r' + k : ''); }
+  });
+  var totalSaved = order.reduce(function(a, c){ return a + c.saved; }, 0);
+  var perDay = totalSaved / 25;
+  var goal = Math.max(1, Number(S.goalMin) || 60);
+  var pct = Math.min(100, perDay / goal * 100);
+  var top = order.slice(0, 3).map(function(c, k){
+    var name = S.tasks[c.i].name || '（名前なし）';
+    return '<li><span class="num">' + (k+1) + '</span><span>' + esc(name) + '</span><span class="v">月 ' + fmtNum(c.saved / 60, 1) + ' 時間</span></li>';
+  }).join('');
+  var box = $('#task-sum');
+  if(!box) return;
+  box.innerHTML =
+    '<div class="sum-main"><div class="lbl">AIで減る時間（お店全体の見込み）</div>' +
+      '<div class="big">' + fmtNum(totalSaved / 60, 1) + '<small>時間 / 月</small></div>' +
+      '<p>1営業日あたり <b class="num">約' + fmtNum(perDay, 0) + '分</b>。お店の目標（1日' + fmtNum(goal, 0) + '分）まで ' + (perDay >= goal ? '<b>届いています</b>' : 'あと <b class="num">' + fmtNum(goal - perDay, 0) + '分</b>') + '。</p>' +
+      '<div class="meter"><div class="meter-bar"><span style="width:' + pct + '%"></span></div><div class="meter-cap"><span>0分</span><span>目標 ' + fmtNum(goal, 0) + '分 / 日</span></div></div>' +
+      '<p>見込みです。実際に減った時間は、ステップ7で記録します。</p></div>' +
+    '<div class="top3"><h4>まずはここから（減る時間が大きい順）</h4>' + (top ? '<ol>' + top + '</ol>' : '<p class="empty">回数と時間を入れると、ここに順位が出ます。</p>') + '</div>';
+}
+
+/* STEP7 毎週つづける */
+function today(){ var d = new Date(); var m = d.getMonth() + 1, dd = d.getDate(); return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (dd < 10 ? '0' : '') + dd; }
+function renderWeekly(){
+  var checks = WEEKLY.map(function(t, i){
+    return '<li><label><input type="checkbox" id="wk-' + i + '" data-act="wk" data-i="' + i + '"' + (S.weekly[i] ? ' checked' : '') + '><span>' + esc(t) + '</span></label></li>';
+  }).join('');
+  var total = 0, monthTotal = 0, ym = today().slice(0, 7);
+  S.log.forEach(function(l){ var m = Number(l.min) || 0; total += m; if(String(l.date).slice(0, 7) === ym) monthTotal += m; });
+  var logs = S.log.slice().map(function(l, i){ return {l:l, i:i}; }).reverse().map(function(o){
+    return '<li><span class="d">' + esc(String(o.l.date).slice(5).replace('-', '/')) + '</span><span class="m">' + esc(o.l.min) + '分</span><span class="t">' + esc(o.l.memo) + '</span><button type="button" data-act="log-del" data-i="' + o.i + '" aria-label="この記録を消す">消す</button></li>';
+  }).join('');
+  return '<p class="intro">AIは毎週のように新しくなります。使う人が減らないように、<b>週に1回15分</b>だけ時間を取って、試す・残す・記録するをくり返します。</p>' +
+    '<div class="two">' +
+      '<div><h4>今週のチェック</h4><ul class="wk">' + checks + '</ul><button type="button" class="btn btn-sm" data-act="wk-reset" style="margin-top:12px">新しい週にする</button></div>' +
+      '<div><h4>時短の記録</h4>' +
+        '<div class="logform"><label>日付<input type="date" id="log-date" value="' + today() + '"></label><label>減った時間（分）<input type="number" id="log-min" min="1" step="1" inputmode="numeric" placeholder="30"></label><label class="memo">何に使った？<input type="text" id="log-memo" placeholder="例：クチコミ返信を3件"></label><button type="button" class="btn btn-sm btn-main" data-act="log-add">記録する</button></div>' +
+        (logs ? '<ul class="logs">' + logs + '</ul>' : '<p class="empty-note">まだ記録がありません。AIで時間が減った日に、分数とひとことを記録します。</p>') +
+        '<div class="logtotal"><span>今月 <b>' + fmtNum(monthTotal / 60, 1) + '</b> 時間</span><span>これまで <b>' + fmtNum(total / 60, 1) + '</b> 時間</span></div>' +
+      '</div>' +
+    '</div>' +
+    '<h3>成果を、評価につなげる</h3>' +
+    '<div class="trio">' +
+      '<div><h4><span class="mk mk-ac">1</span>みんなの前で取り上げる</h4><ul><li>朝礼やミーティングで「AIで楽になったこと」を1人1つ話す</li><li>うまくいった指示文は、名前を付けて共有する</li></ul></div>' +
+      '<div><h4><span class="mk mk-ac">2</span>浮いた時間の使い道を決める</h4><ul><li>接客・新メニュー・休憩など、何に使うかを先に決めておく</li><li>浮いた時間がまた雑務で埋まるのを防ぐ</li></ul></div>' +
+      '<div><h4><span class="mk mk-ac">3</span>評価の項目に入れる</h4><ul><li>半年ごとの評価に「AIで仕事を良くしたこと」を入れる</li><li>成果が出たら、手当や表彰で返す</li></ul></div>' +
+    '</div>';
+}
+
+/* ───────── 支援する側 ───────── */
+function renderStaff(){
+  var v = $('#view-staff');
+  var phases = PHASES.map(function(p){
+    function ul(a){ return '<ul>' + a.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; }
+    return '<div class="phase"><div class="phase-no"><b>' + p.no + '</b><span>' + esc(p.when) + '</span></div><div class="phase-body"><h3>' + esc(p.name) + '</h3><p class="pg">ゴール：' + esc(p.goal) + '</p>' +
+      '<div class="phase-cols"><div><h4>やること</h4>' + ul(p.todo) + '</div><div><h4>お渡しするもの</h4>' + ul(p.give) + '</div><div><h4>お店に用意してもらうもの</h4>' + ul(p.need) + '</div></div></div></div>';
+  }).join('');
+  var hearing = HEARING.map(function(s){
+    return '<div class="fsec"><h3>' + esc(s.sec) + '</h3><div class="fgrid">' + s.f.map(function(f){
+      var val = esc(S.hearing[f[0]] || '');
+      var ctl = f[2] === 'area' ? '<textarea id="' + f[0] + '" data-hear="' + f[0] + '" placeholder="' + esc(f[3]) + '">' + val + '</textarea>' : '<input type="text" id="' + f[0] + '" data-hear="' + f[0] + '" value="' + val + '" placeholder="' + esc(f[3]) + '">';
+      return '<label for="' + f[0] + '">' + esc(f[1]) + ctl + '</label>';
+    }).join('') + '</div></div>';
+  }).join('');
+  var R = S.rules;
+  var ruleForm =
+    '<div class="fsec"><h3>お店の情報</h3><div class="fgrid">' +
+      '<label for="r_shop">店名<input type="text" id="r_shop" data-rule="shop" value="' + esc(R.shop) + '" placeholder="例：〇〇ヘアサロン"></label>' +
+      '<label for="r_date">始める日<input type="text" id="r_date" data-rule="date" value="' + esc(R.date) + '" placeholder="例：2026年12月1日"></label>' +
+      '<label for="r_lead">AI担当<input type="text" id="r_lead" data-rule="lead" value="' + esc(R.lead) + '" placeholder="例：店長"></label>' +
+    '</div></div>' +
+    '<div class="fsec"><h3>使ってよいAI</h3><ul class="opts">' + RULE_TOOLS.map(function(t){ return '<li><label><input type="checkbox" id="rt_' + t[0] + '" data-rtool="' + t[0] + '"' + (R.tools[t[0]] ? ' checked' : '') + '>' + t[1] + '</label></li>'; }).join('') + '</ul></div>' +
+    '<div class="fsec"><h3>入れる項目</h3><ul class="opts"><li><label><input type="checkbox" checked disabled>使ってよいAI（必ず入れる）</label></li><li><label><input type="checkbox" checked disabled>AIに入れない情報（必ず入れる）</label></li>' + RULE_SECS.map(function(s){ return '<li><label><input type="checkbox" id="rs_' + s[0] + '" data-rsec="' + s[0] + '"' + (R.sec[s[0]] ? ' checked' : '') + '>' + esc(s[1]) + '</label></li>'; }).join('') + '</ul></div>' +
+    '<div class="fsec"><h3>AIとつないでよいサービス（あれば）</h3><div class="fgrid" style="grid-template-columns:1fr"><label for="r_connect">1行に1つ。空のままなら「AI担当の許可を取ってから」だけが入ります<textarea id="r_connect" data-rule="connect" placeholder="例：お店のGoogleドライブ（共有フォルダだけ）">' + esc(R.connect) + '</textarea></label></div></div>' +
+    '<div class="fsec"><h3>お店だけのルール（あれば）</h3><div class="fgrid" style="grid-template-columns:1fr"><label for="r_extra">1行に1つ<textarea id="r_extra" data-rule="extra" placeholder="例：お客様への返信は、送る前に店長が読む">' + esc(R.extra) + '</textarea></label></div></div>';
+  var prep = PREP.map(function(p, i){
+    return '<li><label><input type="checkbox" id="prep-' + i + '" data-prep="' + i + '"' + (S.prep[i] ? ' checked' : '') + '><span><b>' + esc(p[0]) + '</b><span>' + esc(p[1]) + '</span></span></label></li>';
+  }).join('');
+
+  v.innerHTML =
+    '<div class="wrap hero">' +
+      '<div><p class="eyebrow">導入支援の進め方</p>' +
+      '<h1><span class="nb">契約で</span><span class="nb">終わらせない、</span><br><em><span class="nb">3か月の</span><span class="nb">導入支援。</span></em></h1>' +
+      '<p class="lead">AIは、契約しただけでは広がりません。<b>ツールを選ぶ → 守る教育 → 仕事の書き出し → 学び続ける → 評価とつなげる。</b>この順番を、お店の規模に合わせて組み直した進め方と、現場で使う道具をまとめています。</p></div>' +
+      '<aside class="goal" aria-label="期間"><p class="goal-label">期間の目安</p><p class="goal-num"><b>3</b><small>か月</small></p><p>診断から定着まで。そのあとは月1回の振り返りで続けます。</p></aside>' +
+    '</div>' +
+    '<div class="wrap"><nav class="subnav" aria-label="このページの中身">' +
+      [['s-flow','進め方'],['s-team','AI担当チーム'],['s-kpi','追う数字'],['s-hear','聞き取りシート'],['s-rule','利用ルール'],['s-menu','支援メニュー'],['s-prep','準備するもの']].map(function(x){ return '<button type="button" data-act="jump" data-to="' + x[0] + '">' + x[1] + '</button>'; }).join('') +
+    '</nav></div>' +
+
+    '<section class="wrap block" id="s-flow"><div class="block-head"><span class="k">進め方</span><h2>6つの段階で進める</h2><p class="intro">先に、よくある失敗を5つ。どれも「順番」を飛ばしたときに起きます。</p></div>' +
+      '<div class="fails">' + FAILS.map(function(f){ return '<div class="fail"><span class="mk-ng">×</span><p>' + esc(f) + '</p></div>'; }).join('') + '</div>' +
+      '<div class="timeline">' + phases + '</div></section>' +
+
+    '<section class="wrap block" id="s-team"><div class="block-head"><span class="k">AI担当チーム</span><h2>3つの役を、だれが持つか決める</h2><p class="intro">大きな会社は、この3つを担う専任の部署（AI統括部）を作ります。お店では、<b>オーナー・AI担当1人・外部の支援</b>で3つの役を分けて持ちます。</p></div>' +
+      '<div class="roles">' +
+        '<div class="role"><div class="k2">戦略</div><h3>何のために、何に使うか</h3><span class="who">オーナー</span><p>AIを使う目的と、どのAIにいくらかけるかを決めます。AIは次々に新しくなるので、乗り換えの判断もここで持ちます。</p></div>' +
+        '<div class="role"><div class="k2">安全</div><h3>情報とアカウントを守る</h3><span class="who">AI担当（1人）</span><p>アカウント・パスワード・利用ルールの見張り役。辞めた人のアカウントを止める、入れてはいけない情報が入ったときに受け止める、もここです。</p></div>' +
+        '<div class="role"><div class="k2">教育</div><h3>使える人を増やす</h3><span class="who">支援会社＋AI担当</span><p>守る研修と使う研修。新しい使い方を見つけたら、AI担当がお店の中に広めます。</p></div>' +
+      '</div>' +
+      '<h3 style="margin:30px 0 0;font-size:18px">育て方の力の配分</h3>' +
+      '<div class="split">' +
+        '<div><div class="big">7<small>割</small></div><h4>仕組みで、全員が使えるようにする</h4><p>研修とこのガイドで、スタッフ全員がレベル3「任せる」まで行けるようにします。教える手間の大半はここにかけます。</p></div>' +
+        '<div><div class="big">3<small>割</small></div><h4>引っ張る人を1人育てる</h4><p>AI担当には、型や小さな自動化を自分で作れるところまで伴走します。担当がいないと、導入は止まります。</p></div>' +
+      '</div></section>' +
+
+    '<section class="wrap block" id="s-kpi"><div class="block-head"><span class="k">追う数字</span><h2>追う数字は4つだけ</h2><p class="intro">毎月の振り返りでは、この4つを見ます。「なんとなく便利になった」で終わらせないための数字です。</p></div>' +
+      '<div class="kpis">' +
+        '<div class="kpi"><span class="lbl">活用率</span><span class="v">80<small>%以上</small></span><p>週に1回以上AIを使った人 ÷ スタッフ全員</p></div>' +
+        '<div class="kpi"><span class="lbl">減った時間の目標</span><span class="v"><small style="margin:0 4px 0 0">見込みの</small>7<small>割</small></span><p>段階3で出した「減る時間の見込み」の7割を、3か月の目標にする。実績はお店向けガイドのステップ7で記録</p></div>' +
+        '<div class="kpi"><span class="lbl">型にした仕事</span><span class="v">5<small>つ</small></span><p>3か月で。指示文やテンプレートで、誰でも同じ品質になった仕事</p></div>' +
+        '<div class="kpi"><span class="lbl">ルール違反</span><span class="v">0<small>件</small></span><p>入れてはいけない情報を入れた件数。起きたら隠さず報告してもらう</p></div>' +
+      '</div>' +
+      '<div class="calc"><label for="kpi-staff">スタッフ全員<input type="number" id="kpi-staff" min="0" inputmode="numeric" value="' + esc(S.kpi.staff) + '" placeholder="9"></label>' +
+        '<label for="kpi-active">今週使った人<input type="number" id="kpi-active" min="0" inputmode="numeric" value="' + esc(S.kpi.active) + '" placeholder="4"></label>' +
+        '<div class="res" id="kpi-res"></div></div>' +
+      '<p class="ref">参考：2026年10月公開のAI研修会社の講演動画では、約8,000人の会社で活用率が6.3%から94%に上がり、1人あたり月38.4時間の削減につながった事例と、「1人1営業日2時間」という目安が紹介されていました。お店では人の手で行う仕事の割合が大きいため、目標は書き出した見込みから決めます。</p></section>' +
+
+    '<section class="wrap block" id="s-hear"><div class="block-head"><span class="k">聞き取り</span><h2>初回の聞き取りシート</h2><p class="intro">初回診断（段階0）で聞くことです。入力した内容は、このブラウザの中だけに保存されます。最後に「まとめをコピー」で、提案書やメモに貼り付けられます。</p></div>' +
+      '<div class="form">' + hearing + '</div>' +
+      '<div class="rowbtns" style="margin-top:14px"><button type="button" class="btn btn-main" data-act="hear-copy">まとめをコピー</button><button type="button" class="btn" data-act="hear-clear">聞き取りを空にする</button></div>' +
+      '<pre class="outbox" id="hear-out" hidden></pre></section>' +
+
+    '<section class="wrap block" id="s-rule"><div class="block-head"><span class="k">利用ルール</span><h2>AI利用ルールのひな形</h2><p class="intro">段階1で、使い始める前に作ります。左で選ぶと、右の文面がその場で変わります。A4 1枚に収まる量にしてあります。</p></div>' +
+      '<div class="gen"><div class="form">' + ruleForm + '</div>' +
+      '<div><div class="out-head"><h3>できあがった文面</h3><button type="button" class="btn btn-sm btn-main" data-act="rule-copy">文面をコピー</button></div><pre class="outbox" id="rule-out"></pre></div></div></section>' +
+
+    '<section class="wrap block" id="s-menu"><div class="block-head"><span class="k">支援メニュー</span><h2>支援メニューの組み方</h2><p class="intro">段階のどこまでを一緒にやるかで、3つに分けます。</p></div>' +
+      '<div class="plans">' +
+        '<div class="plan"><span class="when">1か月</span><h3>はじめてプラン</h3><ul><li>初回診断（段階0）</li><li>AI利用ルールづくり</li><li>登録と安全設定のサポート</li><li>研修2回（守る30分・使う90分）</li><li>お店向けガイドのご案内</li></ul><p class="price">料金：別途お見積り</p></div>' +
+        '<div class="plan rec"><span class="when">3か月</span><h3>伴走プラン</h3><ul><li>はじめてプランの内容すべて</li><li>全員の仕事の書き出し（聞き取り）</li><li>順位トップ5と改善案</li><li>上位3つの「型」づくり</li><li>月1回の振り返り</li></ul><p class="price">料金：別途お見積り</p></div>' +
+        '<div class="plan"><span class="when">4か月目から</span><h3>月額サポート</h3><ul><li>月1回の振り返りとレポート</li><li>新しい使い方の共有</li><li>チャットでの質問対応</li><li>利用ルールの見直し</li></ul><p class="price">料金：別途お見積り</p></div>' +
+      '</div>' +
+      '<div class="option"><b>オプション：お店専用の道具づくり</b>　仕事の書き出しで見つかった「型だけでは減らない仕事」は、問い合わせの自動返信・集計表・予約まわりの小さな道具として作ります。動く試作を先に見せ、触ってもらいながら直します（別途お見積り）。</div></section>' +
+
+    '<section class="wrap block" id="s-prep"><div class="block-head"><span class="k">準備</span><h2>支援を始める前に準備するもの</h2><p class="intro">丸をつけると、このブラウザに残ります。</p></div>' +
+      '<ul class="preplist">' + prep + '</ul></section>';
+  updateRuleOut(); updateKpi();
+}
+
+function updateKpi(){
+  var el = $('#kpi-res'); if(!el) return;
+  var a = Number(S.kpi.staff) || 0, b = Number(S.kpi.active) || 0;
+  if(a > 0 && b > a){ el.innerHTML = '「今週使った人」が、スタッフ全員の人数より多くなっています'; }
+  else if(a > 0){ var p = b / a * 100; el.innerHTML = '活用率 <b>' + fmtNum(p, 0) + '%</b>' + (p >= 80 ? '目標に届いています' : '目標の80%まで あと' + Math.max(0, Math.ceil(a * 0.8 - 1e-9) - b) + '人'); }
+  else el.innerHTML = '人数を入れると、活用率が出ます';
+}
+
+function ruleText(){
+  var R = S.rules;
+  var tools = RULE_TOOLS.filter(function(t){ return R.tools[t[0]]; }).map(function(t){ return t[1]; });
+  var n = 0; function h(t){ n++; return '\n' + n + '. ' + t + '\n'; }
+  var s = '【' + (R.shop || '（店名）') + '　AI利用ルール】\n';
+  s += '始める日：' + (R.date || '（日付）') + '　　AI担当：' + (R.lead || '（担当者）') + '\n';
+  s += h('使ってよいAI');
+  s += tools.length ? '・' + tools.join('、') + '（お店で決めたアカウントで使う）\n' : '・（使ってよいAIを選んでください）\n';
+  s += '・ここにないAIや、よく知らない会社のAIアプリは使わない\n';
+  s += h('AIに入れない情報');
+  s += '・お客様個人のことが分かる情報（名前・電話番号・住所・メールアドレス・カルテ・顧客メモ）\n・パスワード・カード番号・口座番号\n・取引先との秘密の約束（契約書の中身など）\n※売上や客数など、お客様個人が分からないお店の数字は入れてかまいません（学習オフにした、お店のAIに限る）\n';
+  if(R.sec.connect){
+    s += h('AIとつないでよいサービス');
+    s += '・Gmail・Googleドライブ・予約システムなどとAIをつなぐ機能（連携・コネクタ・拡張機能）は、AI担当の許可を取ってから使う\n';
+    var con = String(R.connect || '').split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
+    if(con.length) s += '・つないでよいもの：' + con.join('、') + '\n';
+  }
+  if(R.sec.check){ s += h('出す前に人が確かめること'); s += '・料金・営業時間・場所・法律などの「事実」は、必ず確かめる\n・「必ず」「絶対」「治る」など、言い過ぎの言葉を直す\n・他の人の写真や文章を、そのまま使わない\n'; }
+  if(R.sec.account){ s += h('アカウントの守り'); s += '・会話を学習に使わない設定にする（回答の「良い・良くない」ボタンは押さない）\n・2段階認証をオンにする\n・アカウントを人と共有しない。お店で管理しているメールアドレスで登録する\n・辞めた人のアカウントはすぐ止める（チーム向けプランなら管理者が外す。個人で登録したものは本人に削除してもらう）\n'; }
+  if(R.sec.trouble){ s += h('困ったとき・入れてしまったとき'); s += '・入れてはいけない情報を入れてしまったら、すぐAI担当に伝える（責めません。早く分かれば対処できます）\n・使ってよいか迷ったら、使う前にAI担当に聞く\n'; }
+  var extra = String(R.extra || '').split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
+  if(extra.length){ s += h('お店だけのルール'); s += extra.map(function(x){ return '・' + x; }).join('\n') + '\n'; }
+  if(R.sec.review){ s += h('ルールの見直し'); s += '・このルールは月に1回、AI担当が見直す\n・AIの使い方が変わったら、その都度みんなに知らせる\n'; }
+  return s;
+}
+function updateRuleOut(){ var el = $('#rule-out'); if(el) el.textContent = ruleText(); }
+function hearingText(){
+  var out = '【AI導入　初回の聞き取り】\n';
+  HEARING.forEach(function(s){
+    out += '\n■ ' + s.sec + '\n';
+    s.f.forEach(function(f){ out += '・' + f[1] + '：' + ((String(S.hearing[f[0]] || '').trim() || '（未記入）').replace(/\n/g, '\n　　')) + '\n'; });
+  });
+  return out;
+}
+
+/* ───────── 画面の切り替え ───────── */
+var staffRendered = false;
+function setMode(mode){
+  if(window.NAVI_CLIENT_ONLY) mode = 'client';
+  $('#view-client').hidden = mode !== 'client';
+  $('#view-staff').hidden = mode !== 'staff';
+  if(mode === 'staff' && !staffRendered){ renderStaff(); staffRendered = true; }
+  $all('.modes a').forEach(function(a){ if(a.getAttribute('data-mode') === mode) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+}
+function route(){ setMode(location.hash === '#staff' ? 'staff' : 'client'); }
+function scrollPanelIntoView(){
+  var p = $('#panel'); if(!p) return;
+  var top = p.getBoundingClientRect().top;
+  if(top < 70 || top > window.innerHeight * 0.6){
+    var y = window.pageYOffset + top - 84;
+    try{ window.scrollTo({top:y, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }catch(e){ window.scrollTo(0, y); }
+  }
+}
+
+/* ───────── 操作 ───────── */
+document.addEventListener('click', function(e){
+  var link = e.target.closest('.modes a, a.brand');
+  if(link){
+    e.preventDefault();
+    var m = link.getAttribute('data-mode') || 'client';
+    setMode(m); window.scrollTo(0, 0);
+    try{ if(location.hash !== '#' + m) location.hash = m; }catch(err){}
+    return;
+  }
+  var b = e.target.closest('[data-act]'); if(!b) return;
+  var act = b.getAttribute('data-act');
+  var i = Number(b.getAttribute('data-i'));
+  switch(act){
+    case 'industry':
+      S.industry = b.getAttribute('data-id');
+      if(Array.isArray(S.tasks) && S.tasks.every(function(t){ return t.ex; })) S.tasks = exampleTasks(S.industry);
+      save(); renderChips(); renderPanel(); break;
+    case 'ai':
+      S.ai = b.getAttribute('data-id'); save(); renderChips(); renderPanel(); break;
+    case 'goto':
+      S.step = i; save(); renderStepper(); renderPanel(); scrollPanelIntoView(); break;
+    case 'prev':
+      if(S.step > 0){ S.step--; save(); renderStepper(); renderPanel(); scrollPanelIntoView(); } break;
+    case 'next':
+      S.done[S.step] = true;
+      if(S.step < 6){ S.step++; save(); renderStepper(); renderPanel(); scrollPanelIntoView(); }
+      else { save(); renderStepper(); renderPanel(); toast(doneCount() === 7 ? '7つのステップがすべて完了しました' : '完了にしました。残りのステップも進めましょう'); }
+      break;
+    case 'lv':
+      S.level[i] = b.getAttribute('data-v') === '1'; save(); renderPanel(); break;
+    case 'quiz':
+      if(S.quiz[i] === true || S.quiz[i] === false) break;
+      S.quiz[i] = b.getAttribute('data-v') === '1'; save(); renderPanel(); break;
+    case 'quiz-reset':
+      S.quiz = {}; save(); renderPanel(); break;
+    case 'copy-first':
+      copyText(fill(FIRST_PROMPT), $('#first-prompt')); break;
+    case 'copy-prompt':
+      var idx = Number(b.getAttribute('data-idx')); var p = promptIndex[idx];
+      if(p) copyText(fill(p.p), $('#pp-' + idx)); break;
+    case 'task-add':
+      ensureTasks(); S.tasks.push({name:'', type:'write', freq:'week', count:1, min:10, ex:false}); save(); renderPanel();
+      var inp = $('#task-' + (S.tasks.length - 1) + '-name'); if(inp) inp.focus(); break;
+    case 'task-del':
+      ensureTasks(); S.tasks.splice(i, 1); save(); renderPanel(); break;
+    case 'task-clear-ex':
+      ensureTasks(); S.tasks = S.tasks.filter(function(t){ return !t.ex; });
+      if(!S.tasks.length) S.tasks.push({name:'', type:'write', freq:'week', count:1, min:10, ex:false});
+      save(); renderPanel(); break;
+    case 'task-reset':
+      S.tasks = exampleTasks(S.industry); save(); renderPanel(); break;
+    case 'wk-reset':
+      S.weekly = {}; save(); renderPanel(); toast('チェックを外しました。今週もよろしくお願いします'); break;
+    case 'log-add':
+      var d = $('#log-date').value || today(), m = Math.round(Number($('#log-min').value)), memo = $('#log-memo').value.trim();
+      if(!(m > 0)){ toast('減った時間を、分で入れてください'); $('#log-min').focus(); break; }
+      S.log.push({date:d, min:m, memo:memo}); save(); renderPanel(); toast('記録しました'); break;
+    case 'log-del':
+      S.log.splice(i, 1); save(); renderPanel(); break;
+    case 'jump':
+      var t = document.getElementById(b.getAttribute('data-to')); if(t) t.scrollIntoView({behavior:'smooth', block:'start'}); break;
+    case 'hear-copy':
+      var txt = hearingText(); var out = $('#hear-out'); out.textContent = txt; out.hidden = false; copyText(txt, out); break;
+    case 'hear-clear':
+      S.hearing = {}; save(); $all('[data-hear]').forEach(function(el){ el.value = ''; }); var ho = $('#hear-out'); if(ho) ho.hidden = true; toast('聞き取りを空にしました'); break;
+    case 'rule-copy':
+      copyText(ruleText(), $('#rule-out')); break;
+    case 'reset-ask':
+      $('#reset-box').innerHTML = '<span>このブラウザに保存した入力をすべて消します。元に戻せません。</span><button type="button" class="btn btn-sm btn-danger" data-act="reset-do">消す</button><button type="button" class="btn btn-sm" data-act="reset-cancel">やめる</button>'; break;
+    case 'reset-cancel':
+      $('#reset-box').innerHTML = '<button type="button" class="btn btn-sm" data-act="reset-ask">入力をすべて消す</button>'; break;
+    case 'reset-do':
+      try{ localStorage.removeItem(KEY); }catch(err){}
+      S = defaults(); staffRendered = false;
+      $('#reset-box').innerHTML = '<button type="button" class="btn btn-sm" data-act="reset-ask">入力をすべて消す</button>';
+      renderClientShell(); route(); toast('入力をすべて消しました'); break;
+  }
+});
+
+document.addEventListener('input', function(e){
+  var el = e.target;
+  if(el.hasAttribute('data-task')){
+    var i = Number(el.getAttribute('data-task')), k = el.getAttribute('data-k');
+    if(!S.tasks || !S.tasks[i]) return;
+    S.tasks[i][k] = el.value;
+    S.tasks[i].ex = false;
+    var row = el.closest('tr'); if(row) row.classList.remove('is-ex');
+    save(); updateTaskCalc(); return;
+  }
+  if(el.id === 'task-goal'){
+    var gv = el.value.trim(), gn = Number(gv), ge = $('#goal-err');
+    if(gv === ''){ if(ge) ge.hidden = true; return; }
+    if(!(gn >= 1)){ if(ge) ge.hidden = false; return; }
+    if(ge) ge.hidden = true;
+    S.goalMin = Math.round(gn); save(); updateTaskCalc(); return;
+  }
+  if(el.hasAttribute('data-hear')){ S.hearing[el.getAttribute('data-hear')] = el.value; save(); return; }
+  if(el.hasAttribute('data-rule')){ S.rules[el.getAttribute('data-rule')] = el.value; save(); updateRuleOut(); return; }
+  if(el.id === 'kpi-staff' || el.id === 'kpi-active'){ S.kpi[el.id === 'kpi-staff' ? 'staff' : 'active'] = el.value; save(); updateKpi(); return; }
+});
+
+document.addEventListener('change', function(e){
+  var el = e.target;
+  if(el.getAttribute('data-act') === 'setup'){
+    S.setup[el.getAttribute('data-key')] = el.checked; save();
+    var li = el.closest('.check'); if(li) li.classList.toggle('is-on', el.checked); return;
+  }
+  if(el.getAttribute('data-act') === 'wk'){ S.weekly[el.getAttribute('data-i')] = el.checked; save(); return; }
+  if(el.hasAttribute('data-rtool')){ S.rules.tools[el.getAttribute('data-rtool')] = el.checked; save(); updateRuleOut(); return; }
+  if(el.hasAttribute('data-rsec')){ S.rules.sec[el.getAttribute('data-rsec')] = el.checked; save(); updateRuleOut(); return; }
+  if(el.hasAttribute('data-prep')){ S.prep[el.getAttribute('data-prep')] = el.checked; save(); return; }
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Enter' && (e.target.id === 'log-min' || e.target.id === 'log-memo')){ e.preventDefault(); var b = document.querySelector('[data-act="log-add"]'); if(b) b.click(); }
+});
+
+window.addEventListener('hashchange', function(){ route(); window.scrollTo(0, 0); });
+
+if(window.NAVI_CLIENT_ONLY){ var modeNav = $('.modes'); if(modeNav) modeNav.remove(); }
+renderClientShell();
+route();
+})();
+</script>
+</body>
+</html>
