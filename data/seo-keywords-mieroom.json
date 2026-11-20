@@ -1519,7 +1519,8 @@
       ],
       "status": "done",
       "slug": "chintai-gyomu-jikan-sakugen",
-      "doneAt": "2026-11-13"
+      "doneAt": "2026-11-13",
+      "coverTitle": "賃貸仲介の業務時間を減らす方法｜1日の作業を棚卸しして削る順番"
     },
     {
       "id": "m117",
@@ -1538,7 +1539,8 @@
       ],
       "status": "done",
       "slug": "system-norikae-data-ikou",
-      "doneAt": "2026-11-14"
+      "doneAt": "2026-11-14",
+      "coverTitle": "業務システムの乗り換え手順｜顧客・物件データの移行で失敗しない順番"
     },
     {
       "id": "m112",
