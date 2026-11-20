@@ -1601,7 +1601,9 @@
         "2026-09-09-homepage-renewal-timing",
         "2026-06-05-homepage-seisaku-hiyo-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-21-homepage-renewal-irai-nagare",
+      "doneAt": "2026-11-20"
     },
     {
       "id": "k056",

@@ -1649,6 +1649,25 @@
       "slug": "fukusu-tenpo-kanri",
       "doneAt": "2026-11-19",
       "coverTitle": "賃貸仲介で複数店舗を管理する方法｜店舗ごとの数字をそろえて比べる手順"
+    },
+    {
+      "id": "m203",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 Googleビジネスプロフィール 運用",
+      "sub": [
+        "不動産 店舗 MEO 対策",
+        "賃貸 店舗 口コミ 対応"
+      ],
+      "title": "賃貸仲介店舗のGoogleビジネスプロフィール運用｜地図検索から来店につなげる手順",
+      "intent": "地図検索や口コミから店舗への来店・問い合わせを増やしたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "portal-hankyo-fuyasu",
+        "hankyo-raiten-ritsu-ageru"
+      ],
+      "status": "done",
+      "slug": "chintai-tenpo-gbp-unyo",
+      "doneAt": "2026-11-20"
     }
   ]
 }
