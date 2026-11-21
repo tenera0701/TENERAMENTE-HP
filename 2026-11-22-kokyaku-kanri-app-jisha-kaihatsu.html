@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="顧客情報がExcelやメール、手帳に散らばっている状態から、自社仕様の顧客管理アプリに移すまでの順番をまとめた記事です。1件の定義の決め方、既製CRMとの分かれ目、移行の手順、入力が続く設計、依頼前に用意するもの、よくある失敗までを整理しています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番" />
+<meta property="og:description" data-meta="og:description" content="顧客情報がExcelやメール、手帳に散らばっている状態から、自社仕様の顧客管理アプリに移すまでの順番をまとめた記事です。1件の定義の決め方、既製CRMとの分かれ目、移行の手順、入力が続く設計、依頼前に用意するもの、よくある失敗までを整理しています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番" />
+<meta name="twitter:description" data-meta="twitter:description" content="顧客情報がExcelやメール、手帳に散らばっている状態から、自社仕様の顧客管理アプリに移すまでの順番をまとめた記事です。1件の定義の決め方、既製CRMとの分かれ目、移行の手順、入力が続く設計、依頼前に用意するもの、よくある失敗までを整理しています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-22-kokyaku-kanri-app-jisha-kaihatsu";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番","description":"顧客情報がExcelやメール、手帳に散らばっている状態から、自社仕様の顧客管理アプリに移すまでの順番をまとめた記事です。1件の定義の決め方、既製CRMとの分かれ目、移行の手順、入力が続く設計、依頼前に用意するもの、よくある失敗までを整理しています。","datePublished":"2026-11-22","dateModified":"2026-11-22","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.html","image":"https://teneramente.jp/assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"顧客管理, 業務アプリ, CRM, Excel脱却, システム開発"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番","item":"https://teneramente.jp/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Excelの台帳をそのまま取り込めますか？","acceptedAnswer":{"@type":"Answer","text":"取り込めますが、取り込む前に項目を整理する作業が必要です。1枚のシートに顧客と案件が混ざっている台帳をそのまま入れると、同じ混乱が移ります。顧客・案件・対応履歴の3つに分けたうえで、直近で取引のある顧客から移すのが安全です。古い行は参照用に残しておけば足ります。"}},{"@type":"Question","name":"既製のCRMを一度試してから、自社開発に移ることはできますか？","acceptedAnswer":{"@type":"Answer","text":"できます。むしろ自然な順番です。既製のサービスを使うと、自社に必要な項目と足りない機能が具体的に分かります。移るときのために、データを書き出せる形かどうかを最初に確認しておいてください。試した結果を持って相談いただけると、作る範囲を小さく見積もれます。"}},{"@type":"Question","name":"開発を頼むときは、最初から全機能を決めないといけませんか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。最初に決めるのは、顧客・案件・履歴の線引きと、入力の順番です。集計や連携は、使い始めてから足すほうが無駄がありません。最初の相談では「まず入力を一本化するところまで」と範囲を区切って見積もりを取り、動くものを早く使い始める形をおすすめしています。"}},{"@type":"Question","name":"作ったあとの保守は何が必要になりますか？","acceptedAnswer":{"@type":"Answer","text":"主に3つです。項目や画面の追加、使う人の入れ替えに伴う権限の変更、サーバーとライブラリの更新です。顧客管理は業務の変化に合わせて項目が増えていくため、増やせる形になっているかと、増やすときの依頼の仕方を決めておくと運用が落ち着きます。"}},{"@type":"Question","name":"顧客情報を外部のシステムに置くのは不安があります。","acceptedAnswer":{"@type":"Answer","text":"置き場所と、見える範囲の2つを分けて確認してください。置き場所はサーバーの所在と通信の暗号化、バックアップの方法を確かめます。見える範囲は、社内の誰がどこまで見られるかの設計です。実際の事故は外部からの侵入より、社内で見える範囲が広すぎることから起きやすいため、権限の設計を先に決めておくことをおすすめします。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 22, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png" alt="顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>顧客管理がExcelで回らなくなるのは、件数ではなく関わる人が増えたとき</a><a href="#h2"><span class="n">02</span>まず決めるのは「何を1件とするか」：顧客・案件・対応履歴の分け方</a><a href="#h3"><span class="n">03</span>自社仕様にする価値があるのは、業務の言葉が入る部分</a><a href="#h4"><span class="n">04</span>既製のCRMと自社開発の分かれ目</a><a href="#h5"><span class="n">05</span>移行の順番：棚卸し→項目の整理→入力の一本化→データの移行</a><a href="#h6"><span class="n">06</span>入力が続く形にするための設計</a><a href="#h7"><span class="n">07</span>依頼する前に用意しておくもの</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：線引きを決めてから道具を選ぶ</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">顧客管理をExcelの台帳で始めて、気づいたら同じ会社の情報が3か所にある。そんな状態からの相談が増えています。結論から申し上げると、<strong>顧客管理アプリの自社開発でいちばん効くのは、画面を作ることではなく「何を1件として数えるか」を先に決めること</strong>です。ここが決まっていない台帳は、どんな道具に移しても同じように散らばります。この記事では、Excel台帳から自社仕様の顧客管理アプリへ移る順番を、依頼する側の作業として整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>先に決めるのは道具ではなく、<strong>顧客・案件・対応履歴の3つの線引き</strong>です。この3つが分かれていない台帳は、1社に複数の行ができて数が合わなくなります。線引きを文字にしたうえで、既製のCRMで足りるのか自社仕様が必要なのかを判断すると、作る範囲が小さく収まります。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>顧客管理がExcelで回らなくなるのは、件数ではなく関わる人が増えたとき</h2>
+<p>Excelの顧客台帳が苦しくなる理由を「行数が増えたから」と説明されることがありますが、実際に先に壊れるのは人が増えたときです。1人で管理していれば、多少ばらついた書き方でも本人の頭の中で補完できます。2人目が入った時点で、その補完が効かなくなります。</p>
+<p>典型的な症状は3つです。一つ目は、同じ会社が複数の行に存在することです。「株式会社」と「(株)」、支店名の有無、担当者ごとの表記。検索しても片方しか出てこないため、二重に連絡が行きます。</p>
+<p>二つ目は、最新がどれか分からなくなることです。ファイルがメールで往復し、手元の控えが別に増えていく。開いた人は、その場で見えている数字を正しいものとして扱います。</p>
+<p>三つ目は、履歴が人の手元に残ることです。いつ誰が何を話したかがメールと手帳に散っているため、担当が替わると引き継げません。<strong>顧客管理をシステム化する動機は、情報を集めることよりも、誰が開いても同じ答えが返る状態を作ること</strong>にあります。Excel管理そのものの限界の見極めは<a href="2026-06-11-excel-kanri-genkai-systemka.html">Excel管理の限界はどこ？</a>にも整理しています。</p>
+<h2 id="h2"><span class="h-num">02</span>まず決めるのは「何を1件とするか」：顧客・案件・対応履歴の分け方</h2>
+<p>顧客管理の設計で最初にやる作業は、台帳の中身を3つの層に分けることです。ここを分けずに1枚のシートで持っているのが、ほとんどのExcel台帳の形です。</p>
+<p>顧客は、取引の相手そのものです。会社名、所在地、業種、取引の区分。原則として1社に1件で、簡単には増えません。</p>
+<p>案件は、その顧客との個別の取り引きです。見積もり、受注、契約、継続の更新。同じ顧客に複数あり、それぞれに金額と期日と担当者が付きます。</p>
+<p>対応履歴は、いつ誰が何をしたかの記録です。電話、訪問、メール、見積もりの送付。顧客にも案件にもひも付き、数はいちばん多くなります。</p>
+<p>この3つを分けると、Excelで起きていた混乱の正体が見えます。1社に複数の行があったのは、顧客と案件を同じシートで持っていたからです。履歴が消えたのは、備考欄が上書きされていたからです。<strong>3つの層に分けてから項目を並べ直すと、作るべき画面の数も自然に決まります</strong>。</p>
+<h2 id="h3"><span class="h-num">03</span>自社仕様にする価値があるのは、業務の言葉が入る部分</h2>
+<p>顧客管理の機能のうち、会社ごとに違うのは一部です。名前と連絡先を登録する、検索する、一覧で見る。この部分はどの道具でも似ています。差が出るのは、自社の業務の言葉が入るところです。</p>
+<p>たとえば、取引の状態をどう呼ぶか。「見込み・商談中・受注・保留」なのか、「問い合わせ・提案・審査・契約」なのか。並び順も、間に入る段も業種で変わります。既製のサービスで用意された段に自社の仕事を当てはめると、現場が別の意味で使い始めて、集計が合わなくなります。</p>
+<p>もう一つは、顧客に付ける自社固有の属性です。取引の経路、紹介元、対応できる地域、担当の割り振りの条件。この項目で検索と絞り込みができるかどうかが、使えるかどうかを決めます。</p>
+<p>さらに、入力の手順そのものも業務ごとに違います。先に案件を立てるのか、問い合わせを受けた時点で顧客を作るのか。現場の順番と画面の順番がずれていると、入力は後回しになります。自社仕様にする価値があるのは、この3つ、つまり状態の呼び方・自社固有の属性・入力の順番の部分です。それ以外は作り込む必要がありません。</p>
+<h2 id="h4"><span class="h-num">04</span>既製のCRMと自社開発の分かれ目</h2>
+<p>顧客管理を整えたいという相談の半分は、自社開発を使わずに済みます。判断を分ける材料を並べます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>見るところ</th>
+<th>既製のCRMが向く</th>
+<th>自社開発が向く</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>業務の流れ</td>
+<td>一般的な営業の流れに近い</td>
+<td>自社固有の段や審査が間に入る</td>
+</tr>
+<tr>
+<td>項目の数</td>
+<td>標準の項目でおおむね足りる</td>
+<td>自社固有の項目で検索・集計したい</td>
+</tr>
+<tr>
+<td>他の業務とのつながり</td>
+<td>顧客管理だけで完結する</td>
+<td>見積もり・請求・在庫などと同じ画面でつなげたい</td>
+</tr>
+<tr>
+<td>使う人</td>
+<td>社内の限られた人数が使う</td>
+<td>現場や外部の担当者も入力する</td>
+</tr>
+<tr>
+<td>画面の形</td>
+<td>用意された画面でよい</td>
+<td>入力の順番を自社の手順に合わせたい</td>
+</tr>
+<tr>
+<td>増やし方</td>
+<td>標準機能の範囲で足りる</td>
+<td>使いながら項目と画面を足していく前提</td>
+</tr>
+<tr>
+<td>費用のかかり方</td>
+<td>使う人数と期間に応じて続く</td>
+<td>作るときにかかり、その後は保守</td>
+</tr>
+</tbody></table></div>
+<p><strong>判断の分かれ目は、顧客管理を単体で使うのか、他の業務と地続きにしたいのか</strong>にあります。顧客の一覧から見積もりを作り、請求の状態まで同じ画面で追いたい場合、既製のサービスをつなぐ手間が自社開発の手間を上回ることがあります。逆に、顧客と商談の記録だけなら、既製のサービスを素直に使うほうが早く始まります。内製と外注の線引きは<a href="2026-09-07-gyomu-app-naisei-gaichu-handan.html">業務アプリは内製か外注か</a>にまとめています。</p>
+<h2 id="h5"><span class="h-num">05</span>移行の順番：棚卸し→項目の整理→入力の一本化→データの移行</h2>
+<p>Excel台帳からの移行は、順番を守るだけで失敗がかなり減ります。4つの段で進めます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png" alt="顧客の情報が今どこにあるかをExcelのファイルやメールや名刺や手帳や会計ソフトまで全部書き出す台帳の棚卸し、出てきた項目を顧客と案件と対応履歴の3つに割り振り過去2年で誰も見ていない項目を外す項目の整理、新しい情報を入れる場所を1か所に決めてその日から全員がそこに入れる入力の一本化、直近で取引のある顧客から移し残りは参照用に別に残す既存データの移行という、Excel顧客台帳から顧客管理アプリへ移行する4つの段を順番に並べた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>3段目の入力の一本化を、古いデータの移行より先に行います。そこで情報が散らばるのが止まります。</figcaption></figure>
+
+<p>一つ目は、台帳の棚卸しです。顧客の情報が今どこにあるかを全部書き出します。Excelのファイル、メールの中、名刺、手帳、会計ソフトの取引先。この時点で「どれが正しいか」を決めなくて構いません。ある場所を全部数えるのが目的です。</p>
+<p>二つ目は、項目の整理です。棚卸しで出た項目を、顧客・案件・対応履歴の3つに割り振ります。ここで「いちおう残している項目」が必ず出てきます。過去2年で誰も見ていない項目は、移行の対象から外します。</p>
+<p>三つ目は、入力の一本化です。新しい情報を入れる場所を1か所に決め、その日から全員がそこに入れます。古いデータの移行を待たずに始めるのが要点で、<strong>入力先を一本化した時点から、情報が散らばるのが止まります</strong>。</p>
+<p>四つ目が、既存データの移行です。全件を移すのではなく、直近で取引のある顧客から移します。残りは参照用に別に残し、必要になったときに移せば足ります。</p>
+<h2 id="h6"><span class="h-num">06</span>入力が続く形にするための設計</h2>
+<p>顧客管理アプリで最も多い失敗は、作った機能が使われないことではなく、入力が続かないことです。続く形にするために、設計の段階で決めておく点があります。</p>
+<p>必須項目を最小にすることが先に来ます。登録の時点で埋まらない項目を必須にすると、現場は登録自体をやめます。会社名と担当者名だけで登録でき、あとから足せる形が現実的です。</p>
+<p>次に、入力の回数を増やさないことです。同じ内容を顧客側と案件側の両方に書かせる設計は、必ず片方が空になります。1か所に入れたら、見たい画面に出てくる形にします。</p>
+<p>スマートフォンで打てるかどうかも分かれ目です。訪問の帰り道に履歴を1行残せるかどうかで、記録の量が変わります。全機能をスマートフォン対応にする必要はなく、履歴の追加と検索だけ入れば足ります。</p>
+<h3>誰が何を見られるかを先に決める</h3>
+<p>顧客情報には、見える範囲の線引きが必要です。担当外の顧客まで全員が見える形にするのか、自分の担当だけにするのか。金額や条件を見られる人を限るのか。後から変えると影響が大きいため、最初に決めて記録しておきます。</p>
+<h2 id="h7"><span class="h-num">07</span>依頼する前に用意しておくもの</h2>
+<p>開発を外部に依頼する場合、次の材料がそろっていると、見積もりの精度が上がり、やり直しが減ります。公開前のチェックリストとして使えます。</p>
+<ul>
+<li>今使っている台帳のファイル（実データのまま。項目の実情が分かる形で）</li>
+<li>顧客・案件・対応履歴の3つに分けた項目の一覧</li>
+<li>取引の状態の呼び方と、その並び順</li>
+<li>検索と絞り込みで使いたい条件</li>
+<li>月次で見たい集計の形（何を、どの単位で数えたいか）</li>
+<li>使う人の数と、権限で分けたい範囲</li>
+<li>スマートフォンで使いたい操作</li>
+<li>他のシステムとつなぎたい箇所（会計、請求、問い合わせフォームなど）</li>
+<li>既存データのうち、移行する範囲と残す範囲</li>
+<li>決める人を1人。社内の確認の進め方</li>
+</ul>
+<p>よくある失敗は、次の5つです。</p>
+<p><strong>今の台帳をそのまま画面にする</strong>。Excelの列をそのまま項目にすると、使われていない項目まで移ります。棚卸しの段で削る作業を飛ばさないでください。</p>
+<p><strong>全部を一度に作ろうとする</strong>。顧客・案件・履歴の3つに加えて見積もりや請求まで同時に始めると、公開が遠のきます。入力の一本化が先です。</p>
+<p><strong>現場に見せずに決める</strong>。入力する人が見ていない設計は、入力の順番が業務とずれます。画面の案の段階で、実際に打つ人に触ってもらってください。</p>
+<p><strong>必須項目を増やす</strong>。きれいなデータを求めて必須を増やすと、登録そのものが止まります。あとから足せる形にします。</p>
+<p><strong>移行で完璧を目指す</strong>。重複の統合に時間をかけすぎて、公開が止まることがあります。直近の取引先から移し、残りは参照用に置いてください。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つあります。</p>
+<p>一つ目は、項目と業務の流れを文字にできているかどうかです。顧客・案件・履歴の線引きと、取引の状態の呼び方を自社で書き出せているなら、既製のサービスやノーコードの道具で自力で組める範囲が広がります。書き出す段で止まるなら、整理そのものを相手と一緒にやる前提で相談したほうが早く進みます。</p>
+<p>二つ目は、使う人数と権限の複雑さです。数人が同じ範囲を見る形なら、作る側の難しさは限られます。担当ごとに見える範囲を分けたい、金額を見せる人を限りたい、外部の協力者も入力する。こうした条件が増えるほど、設計を間違えたときの影響が大きくなります。</p>
+<p>三つ目は、他の業務とつなげる予定があるかどうかです。顧客管理だけで終わるなら、小さく自作して様子を見る判断が成り立ちます。見積もり・請求・在庫と地続きにしていく前提があるなら、最初の設計で道をふさがないほうが安く済みます。</p>
+<p>迷うときは、1年後にこのアプリで何を見たいかを1文で書いてみてください。「担当者ごとの商談の状態が分かる」までなら、自社で始めて育てる形が向きます。「顧客から請求まで同じ画面でつながっている」まで書けるなら、最初から設計を相談する価値があります。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>Excelの台帳をそのまま取り込めますか？</summary><div class="faq-a">取り込めますが、取り込む前に項目を整理する作業が必要です。1枚のシートに顧客と案件が混ざっている台帳をそのまま入れると、同じ混乱が移ります。顧客・案件・対応履歴の3つに分けたうえで、直近で取引のある顧客から移すのが安全です。古い行は参照用に残しておけば足ります。</div></details>
+
+<details class="faq"><summary>既製のCRMを一度試してから、自社開発に移ることはできますか？</summary><div class="faq-a">できます。むしろ自然な順番です。既製のサービスを使うと、自社に必要な項目と足りない機能が具体的に分かります。移るときのために、データを書き出せる形かどうかを最初に確認しておいてください。試した結果を持って相談いただけると、作る範囲を小さく見積もれます。</div></details>
+
+<details class="faq"><summary>開発を頼むときは、最初から全機能を決めないといけませんか？</summary><div class="faq-a">いいえ。最初に決めるのは、顧客・案件・履歴の線引きと、入力の順番です。集計や連携は、使い始めてから足すほうが無駄がありません。最初の相談では「まず入力を一本化するところまで」と範囲を区切って見積もりを取り、動くものを早く使い始める形をおすすめしています。</div></details>
+
+<details class="faq"><summary>作ったあとの保守は何が必要になりますか？</summary><div class="faq-a">主に3つです。項目や画面の追加、使う人の入れ替えに伴う権限の変更、サーバーとライブラリの更新です。顧客管理は業務の変化に合わせて項目が増えていくため、増やせる形になっているかと、増やすときの依頼の仕方を決めておくと運用が落ち着きます。</div></details>
+
+<details class="faq"><summary>顧客情報を外部のシステムに置くのは不安があります。</summary><div class="faq-a">置き場所と、見える範囲の2つを分けて確認してください。置き場所はサーバーの所在と通信の暗号化、バックアップの方法を確かめます。見える範囲は、社内の誰がどこまで見られるかの設計です。実際の事故は外部からの侵入より、社内で見える範囲が広すぎることから起きやすいため、権限の設計を先に決めておくことをおすすめします。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：線引きを決めてから道具を選ぶ</h2>
+<p>顧客管理アプリの自社開発は、順番が決まっています。台帳の中身を顧客・案件・対応履歴の3つに分ける。自社の業務の言葉が入る部分（状態の呼び方・固有の属性・入力の順番）だけを自社仕様にする。既製のCRMで足りるかを、他の業務とつなげるかどうかで判断する。棚卸し→項目の整理→入力の一本化→データの移行の順で進める。必須項目を最小にし、スマートフォンで履歴が打てる形にする。ここまでやれば、作る範囲は想像より小さく収まります。</p>
+<p>逆に、今のExcelの列をそのまま画面にすると、入力の手間が増えただけの台帳ができます。顧客管理は機能の多さではなく、誰が開いても同じ答えが返るかどうかで価値が決まります。業務アプリ全体の進め方は<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発 完全ガイド</a>にまとめています。</p>
+<p>TENERAMENTEなら、この記事で挙げた「項目の整理で止まる」「作ったのに入力が続かない」の2つを、進め方の側で外します。開発は3回のミーティングで要件を固める形を取っており、1回目に今お使いの台帳を一緒に見ながら顧客・案件・対応履歴の線引きと削る項目を決め、2回目に入力の順番と画面の案を実際に打つ方に触っていただきます。最短2週間でのPoC（<em>Proof of Concept</em>、試作による検証）に対応しているため、入力を一本化するところまでを先に動かして、集計や連携は使いながら足していけます。情報を探す時間と、同じ内容を二度打つ手間がそのまま減ります。開発の範囲と進め方は<a href="lp-ai-app.html">AI業務アプリ開発</a>にまとめています。初回のご相談60分は無料ですので、台帳の整理から迷っている段階でも<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#顧客管理</span><span>#業務アプリ</span><span>#CRM</span><span>#Excel脱却</span><span>#システム開発</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-18-shanai-tool-small-start.html">
+        <span class="cat">Web App</span>
+        <h4>社内ツールを小さく作って試す方法｜最初の1画面から始める頼み方</h4>
+      </a>
+      <a class="related-card" href="2026-11-14-keiyakusho-jidosakusei-system.html">
+        <span class="cat">Web App</span>
+        <h4>契約書の作成を自動化する方法｜ひな形の管理からシステム化までの段階</h4>
+      </a>
+      <a class="related-card" href="2026-11-09-gyomu-app-kaihatsu-shippai-genin.html">
+        <span class="cat">Web App</span>
+        <h4>業務アプリ開発が失敗する原因｜発注する側が最初に決めること</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

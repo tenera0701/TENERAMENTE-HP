@@ -1619,7 +1619,9 @@
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-22-kokyaku-kanri-app-jisha-kaihatsu",
+      "doneAt": "2026-11-21"
     },
     {
       "id": "k047",

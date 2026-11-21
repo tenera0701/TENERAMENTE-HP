@@ -1668,6 +1668,25 @@
       "status": "done",
       "slug": "chintai-tenpo-gbp-unyo",
       "doneAt": "2026-11-20"
+    },
+    {
+      "id": "m204",
+      "category": "業務効率化",
+      "keyword": "賃貸仲介 給与計算 勤怠 締め作業",
+      "sub": [
+        "不動産 歩合給 計算 方法",
+        "賃貸 店舗 勤怠管理"
+      ],
+      "title": "賃貸仲介の給与計算と勤怠の締め作業を軽くする手順｜歩合の集計でつまずかないために",
+      "intent": "毎月の締め作業に時間がかかっていて、勤怠と歩合の集計を整えたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "buai-kyu-kimekata",
+        "getsumatsu-uriage-shukei-jidoka"
+      ],
+      "status": "done",
+      "slug": "kyuyo-kintai-shime",
+      "doneAt": "2026-11-21"
     }
   ]
 }
