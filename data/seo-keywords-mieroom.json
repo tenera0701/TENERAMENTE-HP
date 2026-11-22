@@ -1687,6 +1687,25 @@
       "status": "done",
       "slug": "kyuyo-kintai-shime",
       "doneAt": "2026-11-21"
+    },
+    {
+      "id": "m205",
+      "category": "DX",
+      "keyword": "賃貸仲介 システム導入 スタッフ 反対",
+      "sub": [
+        "不動産 店舗 システム 社内 説明",
+        "賃貸 業務システム 合意 取り方"
+      ],
+      "title": "業務システムの導入をスタッフに説明して合意を取る手順｜反対の理由別の進め方",
+      "intent": "システムを入れたいが、現場の反対や説明の仕方で止まっている（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "gyomu-kaizen-tool-teichaku",
+        "fudosan-chukai-gyomu-kaizen-tool-donyu"
+      ],
+      "status": "done",
+      "slug": "system-donyu-shanai-setsumei",
+      "doneAt": "2026-11-22"
     }
   ]
 }
