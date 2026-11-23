@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ホームページ更新マニュアル｜株式会社TUBAKI 様</title>
+<meta name="description" content="株式会社TUBAKI 様のホームページ（tubaki-exterior.com）で、お知らせ・ブログ・施工実績を更新するための手順です。" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="../../assets/site.css" />
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<style>
+/* お客様向けの更新マニュアル（1ページ完結。サイト共通のヘッダー・フッターは読み込まない） */
+body { background: var(--paper); color: var(--ink); }
+.mh { border-bottom: 1px solid var(--line); }
+.mh .wrap-narrow { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.mh .brand { font-family: var(--font-mono); font-size: 12px; letter-spacing: .18em; color: var(--ink-3); }
+.mh .brand b { color: var(--ink); font-weight: 500; }
+.mh a { font-size: 13px; color: var(--ink-2); }
+.hero { padding-block: clamp(48px, 8vw, 96px) clamp(32px, 5vw, 56px); }
+.hero .k { font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--accent); margin-bottom: 14px; }
+.hero h1 { font-family: var(--font-min); font-weight: 600; font-size: clamp(30px, 5vw, 52px); line-height: 1.35; letter-spacing: .02em; }
+.hero p { margin-top: 18px; font-size: 15.5px; line-height: 2; color: var(--ink-2); max-width: 40em; }
+.login { margin-top: 28px; border: 1px solid var(--line-2); background: var(--card); padding: 20px 22px; }
+.login dl { display: grid; grid-template-columns: 9em 1fr; gap: 8px 16px; font-size: 15px; line-height: 1.8; }
+.login dt { color: var(--ink-3); }
+.login dd { margin: 0; word-break: break-all; }
+.login a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.toc { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 22px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 28px; }
+.toc a { display: flex; gap: 12px; font-size: 15px; line-height: 1.9; color: var(--ink); }
+.toc a span { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); padding-top: 3px; }
+.part { padding-block: clamp(44px, 6vw, 72px); border-bottom: 1px solid var(--line); scroll-margin-top: 16px; }
+.part .no { font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--ink-3); }
+.part h2 { font-family: var(--font-min); font-weight: 600; font-size: clamp(23px, 3vw, 32px); line-height: 1.45; margin: 8px 0 16px; }
+.part p, .part li { font-size: 15.5px; line-height: 2; }
+.part p + p { margin-top: .6em; }
+.steps { margin: 14px 0 0; padding-left: 1.4em; }
+.steps li { margin: 4px 0; }
+.steps li::marker { font-family: var(--font-mono); color: var(--accent); }
+.ui { display: inline-block; padding: 0 8px; border: 1px solid var(--line-2); background: var(--card); font-size: .92em; line-height: 1.7; white-space: nowrap; }
+figure { margin: 22px 0 6px; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); }
+figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+.tip { margin-top: 18px; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--paper-2); font-size: 14.5px; line-height: 1.9; }
+.warn { margin-top: 18px; padding: 14px 18px; border-left: 3px solid #D9534F; background: var(--paper-2); font-size: 14.5px; line-height: 1.9; }
+.qa { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; line-height: 1.85; }
+.qa th, .qa td { border-top: 1px solid var(--line); padding: 14px 12px 14px 0; text-align: left; vertical-align: top; }
+.qa th { width: 34%; font-weight: 700; }
+.foot { padding-block: 40px 64px; font-size: 13.5px; color: var(--ink-3); line-height: 1.9; }
+.foot a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) {
+  .toc ol { grid-template-columns: 1fr; }
+  .login dl { grid-template-columns: 1fr; gap: 0; }
+  .login dd { margin-bottom: 8px; }
+  .qa, .qa tbody, .qa tr, .qa th, .qa td { display: block; width: 100%; }
+  .qa th { border-top: 1px solid var(--line); padding-bottom: 2px; }
+  .qa td { border-top: 0; padding-top: 0; }
+  .ui { white-space: normal; }
+  .mh .wrap-narrow { flex-wrap: wrap; gap: 6px 16px; }
+  .mh .brand { font-size: 11px; letter-spacing: .12em; }
+}
+</style>
+</head>
+<body>
+
+<header class="mh">
+  <div class="wrap-narrow">
+    <span class="brand"><b>TENERAMENTE</b>　ホームページ更新マニュアル</span>
+    <a href="https://tubaki-exterior.com/" target="_blank" rel="noopener">tubaki-exterior.com を開く</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap-narrow">
+      <p class="k">FOR 株式会社TUBAKI 様</p>
+      <h1>お知らせ・ブログ・施工実績の<br />書き方</h1>
+      <p>ホームページの更新は、パソコンかスマホのブラウザから行います。書いて「公開」を押すと、トップページや一覧に自動で並びます。デザインを気にする必要はありません。</p>
+      <div class="login">
+        <dl>
+          <dt>管理画面</dt><dd><a href="https://tubaki-exterior.com/wp-admin/" target="_blank" rel="noopener">https://tubaki-exterior.com/wp-admin/</a></dd>
+          <dt>ユーザー名</dt><dd>制作担当から別にお知らせします</dd>
+          <dt>パスワード</dt><dd>最初にメールで届く案内から、ご自身で決めていただきます</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="目次">
+    <div class="wrap-narrow">
+      <ol>
+        <li><a href="#login"><span>01</span>ログインする</a></li>
+        <li><a href="#home"><span>02</span>最初の画面</a></li>
+        <li><a href="#news"><span>03</span>お知らせを書く</a></li>
+        <li><a href="#blog"><span>04</span>ブログを書く</a></li>
+        <li><a href="#works"><span>05</span>施工実績を追加する</a></li>
+        <li><a href="#edit"><span>06</span>直す・消す</a></li>
+        <li><a href="#company"><span>07</span>会社の情報を変える</a></li>
+        <li><a href="#inquiry"><span>08</span>お問い合わせの控えを見る</a></li>
+        <li><a href="#faq"><span>09</span>困ったとき</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="part" id="login">
+    <div class="wrap-narrow">
+      <p class="no">01</p>
+      <h2>ログインする</h2>
+      <ol class="steps">
+        <li>ブラウザで <b>tubaki-exterior.com/wp-admin/</b> を開きます。お気に入り（ブックマーク）に入れておくと便利です。</li>
+        <li>①にユーザー名、②にパスワードを入れます。</li>
+        <li>③の <span class="ui">ログイン</span> を押します。</li>
+      </ol>
+      <figure><img src="img/01-login.webp" alt="ログイン画面。ユーザー名・パスワードの欄とログインボタン" width="1280" height="760" loading="lazy" /><figcaption>ログイン画面（①ユーザー名　②パスワード　③ログイン）</figcaption></figure>
+      <p class="tip">パスワードを忘れたときは、ログイン画面の下の「パスワードをお忘れですか？」から、登録のメールアドレスあてに作り直しのメールを送れます。</p>
+    </div>
+  </section>
+
+  <section class="part" id="home">
+    <div class="wrap-narrow">
+      <p class="no">02</p>
+      <h2>最初の画面</h2>
+      <p>ログインすると「ダッシュボード」という画面が開きます。下のほうにある<b>「ホームページの更新」</b>の欄から、よく使う3つの作業にすぐ進めます。</p>
+      <figure><img src="img/08-dashboard.webp" alt="ダッシュボードの「ホームページの更新」の欄。お知らせを書く・ブログを書く・施工実績を追加の3つのボタン" width="1400" height="900" loading="lazy" /><figcaption>「ホームページの更新」の欄（お知らせを書く・ブログを書く・施工実績を追加）</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="part" id="news">
+    <div class="wrap-narrow">
+      <p class="no">03</p>
+      <h2>お知らせを書く</h2>
+      <p>休業日のご案内や、キャンペーンのお知らせなどに使います。</p>
+      <ol class="steps">
+        <li><span class="ui">お知らせを書く</span> を押します。</li>
+        <li>①の「タイトルを追加」にタイトルを入れます。</li>
+        <li>②に本文を書きます。Enter キーで段落が分かれます。</li>
+      </ol>
+      <figure><img src="img/10-news-edit.webp" alt="お知らせを書く画面。タイトルと本文の入力欄" width="1400" height="900" loading="lazy" /><figcaption>①タイトル　②本文</figcaption></figure>
+      <ol class="steps" start="4">
+        <li>右側の「種類」で、①「お知らせ」「休業」などを選びます。</li>
+        <li>右上の②の <span class="ui">公開</span> を押し、出てきた確認の <span class="ui">公開</span> をもう一度押します。</li>
+      </ol>
+      <figure><img src="img/11-news-publish.webp" alt="お知らせの種類の選択と公開ボタン" width="1400" height="900" loading="lazy" /><figcaption>①種類を選ぶ　②公開</figcaption></figure>
+      <p class="tip">トップページの「お知らせ」には新しいものから3件が出ます。すべてのお知らせは tubaki-exterior.com/news/ で見られます。</p>
+    </div>
+  </section>
+
+  <section class="part" id="blog">
+    <div class="wrap-narrow">
+      <p class="no">04</p>
+      <h2>ブログを書く</h2>
+      <p>外構や解体について、お客様に役立つことを書く場所です。Google で見つけてもらうきっかけになるので、月に1〜2本を目安に続けるのがおすすめです。お客様からよく聞かれることが、いちばん良いテーマです。</p>
+      <ol class="steps">
+        <li><span class="ui">ブログを書く</span> を押します。</li>
+        <li>①にタイトルを入れ、その下に本文を書きます。</li>
+      </ol>
+      <figure><img src="img/20-blog-edit.webp" alt="ブログを書く画面。タイトルと本文" width="1400" height="900" loading="lazy" /><figcaption>①タイトル。その下に本文を書きます</figcaption></figure>
+      <p class="tip"><b>見出しの入れ方</b>：行の頭で「/見出し」と打つか、左上の「＋」から「見出し」を選びます。見出しを2つ以上入れると、記事の最初に目次が自動でできます。<br /><b>写真の入れ方</b>：行の頭で「/画像」と打つか、「＋」から「画像」を選んで写真を選びます。</p>
+      <ol class="steps" start="3">
+        <li>右側の「投稿」タブを開きます。</li>
+        <li>①の「カテゴリー」で、<b>外構</b> か <b>解体</b> にチェックを入れます。トップページの「ブログ｜外構」「ブログ｜解体」に出ます。</li>
+        <li>②の <span class="ui">アイキャッチ画像を設定</span> で、一覧やトップに出る写真を選びます。</li>
+        <li>③の <span class="ui">抜粋を追加</span> に、一覧に出る短い説明（80〜120文字くらい）を書きます。Google の検索結果の説明にも使われます。</li>
+      </ol>
+      <figure><img src="img/21-blog-sidebar.webp" alt="ブログの右側の設定。カテゴリー・アイキャッチ画像・抜粋" width="1400" height="900" loading="lazy" /><figcaption>①カテゴリー　②アイキャッチ画像　③抜粋</figcaption></figure>
+      <ol class="steps" start="6">
+        <li>右側の下のほうの「表示の設定」は、ふだんは何も触らなくて大丈夫です。写真が実際の施工写真でないときだけ、「アイキャッチ画像の注記」に「写真はイメージです」と書きます。</li>
+        <li>右上の <span class="ui">公開</span> を押し、確認の <span class="ui">公開</span> をもう一度押します。</li>
+      </ol>
+      <figure><img src="img/22-blog-flags.webp" alt="表示の設定の欄" width="1400" height="900" loading="lazy" /><figcaption>表示の設定（「サンプル表記」にはチェックを入れません）</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="part" id="works">
+    <div class="wrap-narrow">
+      <p class="no">05</p>
+      <h2>施工実績を追加する</h2>
+      <p>工事が終わったら、写真と内容を載せましょう。実際の施工写真は、ホームページでいちばん信頼につながる情報です。</p>
+      <p class="warn">お客様のお宅の写真を載せるときは、<b>必ず施主様の許可</b>をいただいてください。表札・車のナンバー・人の顔は、写らないように撮るか、隠してから載せます。</p>
+      <ol class="steps">
+        <li><span class="ui">施工実績を追加</span> を押します。</li>
+        <li>①にタイトル（例：2台用カーポートと土間コンクリート）を入れます。</li>
+        <li>本文に工事の説明を書きます。写真は②の <span class="ui">メディアを追加</span> から入れます。複数の写真を選んで「ギャラリーを作成」にすると、並べて表示できます。</li>
+        <li>③の <span class="ui">メインの写真を選ぶ</span> で、一覧とトップに出る写真を選びます。</li>
+        <li>④の「サンプル表記」にはチェックを入れません。</li>
+      </ol>
+      <figure><img src="img/30-works-top.webp" alt="施工実績を追加する画面の上半分" width="1400" height="900" loading="lazy" /><figcaption>①タイトル　②メディアを追加　③メインの写真　④表示の設定</figcaption></figure>
+      <ol class="steps" start="6">
+        <li>下にスクロールして、①の「施工実績の情報」に、種類・場所・工事の内容（1行に1つ）・工期を入れます。場所は「名古屋市緑区」のように、<b>番地までは書きません</b>。</li>
+        <li>②の「抜粋」に、詳細ページの最初に出る説明を書きます。</li>
+        <li>右上の <span class="ui">公開</span> を押します。</li>
+      </ol>
+      <figure><img src="img/31-works-info.webp" alt="施工実績の情報の入力欄と抜粋" width="1400" height="900" loading="lazy" /><figcaption>①施工実績の情報（種類・場所・工事の内容・工期）　②抜粋</figcaption></figure>
+      <p class="tip">「場所」に地域名（例：天白区、豊明市）を入れておくと、その地域のページにも施工例として自動で並びます。</p>
+    </div>
+  </section>
+
+  <section class="part" id="edit">
+    <div class="wrap-narrow">
+      <p class="no">06</p>
+      <h2>書いたものを直す・消す</h2>
+      <ol class="steps">
+        <li>左のメニューの <span class="ui">お知らせ</span>・<span class="ui">投稿</span>（ブログ）・<span class="ui">施工実績</span> のどれかを開きます。</li>
+        <li><b>直すとき</b>：①のタイトルを押すと編集画面が開きます。直したら右上の <span class="ui">更新</span> を押します。</li>
+        <li><b>消すとき</b>：タイトルにマウスを乗せると下に出る②の <span class="ui">ゴミ箱へ移動</span> を押します。</li>
+      </ol>
+      <figure><img src="img/40-works-list.webp" alt="施工実績の一覧。タイトルとゴミ箱へ移動" width="1400" height="900" loading="lazy" /><figcaption>①タイトル（押すと編集）　②ゴミ箱へ移動</figcaption></figure>
+      <p class="tip">間違えて消したときは、一覧の上の「ゴミ箱」から <span class="ui">復元</span> で戻せます。戻したものは「下書き」になるので、編集画面を開いて <span class="ui">公開</span> を押し直してください。</p>
+    </div>
+  </section>
+
+  <section class="part" id="company">
+    <div class="wrap-narrow">
+      <p class="no">07</p>
+      <h2>会社の情報を変える</h2>
+      <p>電話番号・住所・営業時間・定休日などは、左のメニューの①の <span class="ui">TUBAKI設定</span> で変えられます。ここを変えると、ヘッダー・フッター・会社概要・お問い合わせページなど、すべてのページの表示が一度に変わります。</p>
+      <figure><img src="img/04-settings-top.webp" alt="TUBAKI設定の画面" width="1400" height="900" loading="lazy" /><figcaption>①TUBAKI設定　②会社名　③電話番号（空欄のときは、欄の下に出ている今の内容が使われます）</figcaption></figure>
+      <ol class="steps">
+        <li>変えたい欄に新しい内容を入れます。</li>
+        <li>いちばん下の <span class="ui">保存する</span> を押します。画面の上に「保存しました。」と出れば完了です。</li>
+      </ol>
+      <p class="warn">「お問い合わせが届くアドレス」を変えるときは、そのアドレスで実際にメールを受け取れるか確かめてから変えてください。間違えると、ホームページからのお問い合わせが届かなくなります。</p>
+    </div>
+  </section>
+
+  <section class="part" id="inquiry">
+    <div class="wrap-narrow">
+      <p class="no">08</p>
+      <h2>お問い合わせの控えを見る</h2>
+      <p>ホームページのお問い合わせフォームから届いた内容は、メールで届くほか、管理画面にも控えが残ります。メールが見当たらないときは、ここを確認してください。</p>
+      <ol class="steps">
+        <li>左のメニューの①の <span class="ui">お問い合わせの控え</span> を押します。</li>
+        <li>②の受付日時とお名前を押すと、内容が見られます。</li>
+      </ol>
+      <figure><img src="img/50-inquiry.webp" alt="お問い合わせの控えの一覧" width="1400" height="900" loading="lazy" /><figcaption>①お問い合わせの控え　②受付日時とお名前</figcaption></figure>
+      <p class="warn">一覧に「メール送信に失敗」と出ているものは、メールが届いていないお問い合わせです。控えを見て、お客様にご連絡してください。何度も出るときは、制作担当にご連絡ください。</p>
+    </div>
+  </section>
+
+  <section class="part" id="faq">
+    <div class="wrap-narrow">
+      <p class="no">09</p>
+      <h2>困ったとき</h2>
+      <table class="qa">
+        <tr><th>書いたのに表示が変わらない</th><td>ブラウザで再読み込みしてください。パソコンは Ctrl＋Shift＋R（Mac は ⌘＋Shift＋R）、スマホは画面を下に引っぱって更新します。</td></tr>
+        <tr><th>トップのブログ欄に出ない</th><td>カテゴリーの「外構」か「解体」にチェックが入っているか確かめてください。</td></tr>
+        <tr><th>写真が重い・大きい</th><td>スマホの写真はそのままで大丈夫です（自動で縮まります）。1枚10MBを超える写真は、縮めてから入れてください。</td></tr>
+        <tr><th>間違えて消した</th><td>一覧の上の「ゴミ箱」から「復元」で戻せます。戻したものは「下書き」になるので、公開し直してください。</td></tr>
+        <tr><th>ログインできない</th><td>ログイン画面の「パスワードをお忘れですか？」から作り直せます。それでも入れないときは、制作担当にご連絡ください。</td></tr>
+        <tr><th>「更新」のお知らせが出た</th><td>WordPress 本体は自動で更新される設定です。ご自身で操作しなくて大丈夫です。</td></tr>
+        <tr><th>デザインやページの構成を変えたい</th><td>制作担当にご相談ください。</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap-narrow">
+    <p>ご不明な点は、制作担当の株式会社TENERAMENTE までお気軽にご連絡ください。<br /><a href="https://teneramente.jp/contact.html">お問い合わせフォーム</a></p>
+    <p style="margin-top:12px">作成日：2026年11月23日</p>
+  </div>
+</footer>
+
+</body>
+</html>
