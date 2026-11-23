@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLR計算シート｜ミセマワシ</title>
+<meta name="description" content="1か月の売上・原価・人件費・家賃を入れるだけで、FL比率・FLR比率・利益・黒字になる売上（損益分岐点）が分かる飲食店向けの無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; --F:#E8642A; --L:#2F80ED; --R:#8E5BD6; --O:#B9B2A4; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:22px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 6px; }
+label { display:block; font-weight:800; font-size:14px; margin:10px 0 4px; } label small { font-weight:600; color:var(--sub); }
+input { width:100%; padding:10px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.row > div { flex:1; min-width:140px; }
+.btn { padding:10px 14px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:15px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.btn.sm { padding:5px 10px; font-size:13px; }
+.muted { color:var(--sub); font-size:13px; }
+.bar { display:flex; height:44px; border:2px solid var(--ink); border-radius:10px; overflow:hidden; margin:8px 0 4px; background:#fff; }
+.bar i { display:flex; align-items:center; justify-content:center; color:#fff; font-style:normal; font-weight:900; font-size:13px; min-width:0; overflow:hidden; white-space:nowrap; }
+.legend { display:flex; flex-wrap:wrap; gap:4px 12px; font-size:13px; }
+.legend b { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:4px; vertical-align:-1px; }
+.kpi { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px; }
+.kpi > div { border:2px solid var(--ink); border-radius:12px; padding:8px; text-align:center; }
+.kpi .k { font-size:12px; font-weight:800; color:var(--sub); } .kpi .v { font-size:24px; font-weight:900; line-height:1.2; } .kpi .s { font-size:12px; }
+.kpi > .ng { border-color:var(--red); } .kpi .ng .v { color:var(--red); }
+.kpi > .ok { border-color:var(--green); } .kpi .ok .v { color:var(--green); }
+@media (max-width:520px) { .kpi { grid-template-columns:repeat(2,1fr); } }
+.msg { background:#FFF3C4; border-radius:10px; padding:10px 12px; margin-top:10px; font-size:14px; }
+table { width:100%; border-collapse:collapse; font-size:14px; } th, td { border-bottom:1px solid var(--line); padding:6px; text-align:right; } th:first-child, td:first-child { text-align:left; } th { font-size:12px; color:var(--sub); }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:13px; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>FLR計算シート</h1></header>
+<main>
+  <div class="card">
+    <h2>1か月の数字を入れる</h2>
+    <div class="row">
+      <div><label>月</label><input id="ym" type="month" oninput="calc()"></div>
+      <div><label>売上（円）</label><input id="sales" type="number" inputmode="numeric" placeholder="3000000" oninput="calc()"></div>
+    </div>
+    <label>F 原価（円） <small>食材・飲み物。分かれば「月初の在庫＋仕入れ−月末の在庫」</small></label><input id="f" type="number" inputmode="numeric" placeholder="1000000" oninput="calc()">
+    <label>L 人件費（円） <small>アルバイトの給料・社員の給料・社会保険・社長の給料も</small></label><input id="l" type="number" inputmode="numeric" placeholder="950000" oninput="calc()">
+    <label>R 家賃（円） <small>共益費も入れる</small></label><input id="r" type="number" inputmode="numeric" placeholder="300000" oninput="calc()">
+    <label>その他の経費（円・任意） <small>水道光熱費・消耗品・カード手数料・広告など。入れると利益が出ます</small></label><input id="o" type="number" inputmode="numeric" placeholder="450000" oninput="calc()">
+    <div class="row" style="margin-top:10px"><button class="btn ghost sm" onclick="example()">例を入れる</button><button class="btn ghost sm" onclick="clearForm()">まっさらにする</button></div>
+  </div>
+
+  <div class="card">
+    <h2>結果</h2>
+    <div class="bar" id="bar"></div>
+    <div class="legend"><span><b style="background:var(--F)"></b>F 原価</span><span><b style="background:var(--L)"></b>L 人件費</span><span><b style="background:var(--R)"></b>R 家賃</span><span><b style="background:var(--O)"></b>その他</span><span><b style="background:var(--green)"></b>利益</span></div>
+    <div class="kpi">
+      <div id="k-f"><div class="k">F 原価率</div><div class="v">-</div><div class="s">公庫の平均 35.0%</div></div>
+      <div id="k-l"><div class="k">L 人件費率</div><div class="v">-</div><div class="s">公庫の平均 32.9%</div></div>
+      <div id="k-r"><div class="k">R 家賃比率</div><div class="v">-</div><div class="s">&nbsp;</div></div>
+      <div id="k-fl"><div class="k">FL比率</div><div class="v">-</div><div class="s">目安 60%以内</div></div>
+      <div id="k-flr"><div class="k">FLR比率</div><div class="v">-</div><div class="s">&nbsp;</div></div>
+      <div id="k-p"><div class="k">利益（営業利益）</div><div class="v">-</div><div class="s" id="k-ps">その他の経費を入れると出ます</div></div>
+    </div>
+    <div class="msg" id="msg">売上と F・L・R を入れてください。</div>
+    <div class="row" style="margin-top:10px"><button class="btn" onclick="saveMonth()">この月を保存</button></div>
+  </div>
+
+  <div class="card">
+    <h2>月ごとの記録</h2>
+    <div id="hist"></div>
+    <p class="muted">入れた内容は、この端末のブラウザの中だけに保存されます。</p>
+  </div>
+
+  <p class="note">
+    目安: FL比率（原価＋人件費）は売上の60%以内、その他の経費30%、営業利益10%が「理想的な形の一つ」（金融庁『業種別支援の着眼点（飲食業）』2023年3月。日本生産性本部が作成・実務家の主観を含む）。<br>
+    平均: 日本政策金融公庫『小企業の経営指標調査』一般飲食店464社の平均は、原価35.0%・人件費32.9%（社長の給料を含む）・営業利益 −2.2%。<br>
+    黒字になる売上（損益分岐点）は「人件費＋家賃＋その他の経費」をかんたんに固定の費用とみなした目安です。
+  </p>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「飲食店の平均の利益、実はマイナスです」から生まれたツールです。<br>
+  レジ・仕入れ・勤怠から FL・FLR比率と利益が毎月自動で出る「ミセマワシ」は、いま公開の準備中です。
+</footer>
+<script>
+const KEY = 'mise_flr_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const num = (v) => { const n = parseFloat(String(v).replace(/[,，円]/g, '')); return isFinite(n) ? n : 0; };
+const yen = (n) => (n < 0 ? '−' : '') + Math.round(Math.abs(n)).toLocaleString('ja-JP') + '円';
+const pct = (x) => (Math.round(x * 1000) / 10).toFixed(1) + '%';
+let DB = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || { months: {}, cur: {} }; } catch (e) { return { months: {}, cur: {} }; } })();
+function store() { try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch (e) {} }
+const FIELDS = ['ym', 'sales', 'f', 'l', 'r', 'o'];
+function setKpi(id, v, cls) { const e = $(id); e.className = cls || ''; e.querySelector('.v').textContent = v; }
+function calc() {
+  const S = num($('sales').value), F = num($('f').value), L = num($('l').value), R = num($('r').value), O = num($('o').value), hasO = $('o').value.trim() !== '';
+  DB.cur = Object.fromEntries(FIELDS.map((k) => [k, $(k).value])); store();
+  if (S <= 0) { $('bar').innerHTML = ''; ['k-f', 'k-l', 'k-r', 'k-fl', 'k-flr', 'k-p'].forEach((k) => setKpi(k, '-')); $('msg').textContent = '売上と F・L・R を入れてください。'; return null; }
+  const f = F / S, l = L / S, r = R / S, fl = f + l, flr = fl + r, o = O / S, p = hasO ? 1 - flr - o : null;
+  setKpi('k-f', pct(f)); setKpi('k-l', pct(l)); setKpi('k-r', pct(r));
+  setKpi('k-fl', pct(fl), fl > 0.6 ? 'ng' : 'ok'); setKpi('k-flr', pct(flr));
+  if (p === null) { setKpi('k-p', '-'); $('k-ps').textContent = 'その他の経費を入れると出ます'; }
+  else { setKpi('k-p', yen(S * p), p < 0 ? 'ng' : 'ok'); $('k-ps').textContent = '売上の ' + pct(p) + '（目安10%）'; }
+  const seg = (v, c, t) => v > 0 ? `<i style="width:${Math.min(v, 1) * 100}%;background:var(--${c})">${v >= 0.14 ? t + ' ' + pct(v) : ''}</i>` : '';
+  const rest = hasO ? 0 : Math.max(0, 1 - flr);
+  $('bar').innerHTML = seg(f, 'F', 'F') + seg(l, 'L', 'L') + seg(r, 'R', 'R') + (hasO ? seg(o, 'O', '他') + (p > 0 ? `<i style="width:${p * 100}%;background:var(--green)">${p >= 0.14 ? '利益 ' + pct(p) : ''}</i>` : '') : seg(rest, 'O', '残り'));
+  const msgs = [];
+  if (fl > 0.6) msgs.push(`FL比率が目安の60%を <b>${pct(fl - 0.6)}</b> こえています。60%にするには、原価か人件費を月に <b>${yen(S * (fl - 0.6))}</b> 減らす計算です。`);
+  else msgs.push(`FL比率は目安の60%以内です（あと ${pct(0.6 - fl)} の余裕）。`);
+  if (hasO) {
+    const fixed = L + R + O, be = f < 1 ? fixed / (1 - f) : Infinity;
+    msgs.push(isFinite(be) ? `黒字になる売上の目安（損益分岐点）は <b>月 ${yen(be)}</b>。いまの売上は ${S >= be ? 'それより <b>' + yen(S - be) + '</b> 多い' : 'あと <b>' + yen(be - S) + '</b> 足りない'}です。` : '');
+  }
+  $('msg').innerHTML = msgs.filter(Boolean).join('<br>');
+  return { S, F, L, R, O, hasO, f, l, r, fl, flr, p };
+}
+function example() { [['sales', 3000000], ['f', 1000000], ['l', 950000], ['r', 300000], ['o', 450000]].forEach(([k, v]) => { $(k).value = v; }); calc(); }
+function clearForm() { ['sales', 'f', 'l', 'r', 'o'].forEach((k) => { $(k).value = ''; }); calc(); }
+function saveMonth() {
+  const x = calc(); const ym = $('ym').value;
+  if (!x) { alert('売上を入れてください'); return; }
+  if (!ym) { alert('月を選んでください'); return; }
+  DB.months[ym] = Object.fromEntries(FIELDS.map((k) => [k, $(k).value])); store(); drawHist();
+}
+function drawHist() {
+  const keys = Object.keys(DB.months).sort().reverse();
+  if (!keys.length) { $('hist').innerHTML = '<p class="muted">まだありません。「この月を保存」で並びます。</p>'; return; }
+  $('hist').innerHTML = '<table><tr><th>月</th><th>売上</th><th>FL</th><th>FLR</th><th>利益</th><th></th></tr>' + keys.map((k) => {
+    const m = DB.months[k], S = num(m.sales), fl = (num(m.f) + num(m.l)) / S, flr = fl + num(m.r) / S, hasO = String(m.o || '').trim() !== '', p = hasO ? 1 - flr - num(m.o) / S : null;
+    return `<tr><td>${esc(k)}</td><td>${yen(S)}</td><td style="color:${fl > 0.6 ? 'var(--red)' : 'inherit'}">${pct(fl)}</td><td>${pct(flr)}</td><td>${p === null ? '-' : pct(p)}</td><td><button class="btn ghost sm" onclick="openMonth('${esc(k)}')">開く</button></td></tr>`;
+  }).join('') + '</table>';
+}
+function openMonth(k) { const m = DB.months[k]; if (!m) return; FIELDS.forEach((f) => { $(f).value = m[f] || ''; }); calc(); window.scrollTo(0, 0); }
+(function init() {
+  const c = DB.cur || {}; FIELDS.forEach((k) => { if (c[k] != null) $(k).value = c[k]; });
+  if (!$('ym').value) { const d = new Date(); $('ym').value = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); }
+  calc(); drawHist();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>常連さんメモ帳｜ミセマワシ</title>
+<meta name="description" content="お客様の好み・苦手・前回の注文・記念日をメモして、営業前の確認表を作れる無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --card:#fff; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:22px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.tabs { display:flex; gap:8px; margin-bottom:14px; }
+.tabs button { flex:1; padding:10px 6px; border:2px solid var(--ink); background:#fff; border-radius:12px; font-weight:800; font-size:15px; cursor:pointer; }
+.tabs button.on { background:var(--ink); color:#fff; }
+.card { background:var(--card); border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+input, select, textarea { width:100%; padding:10px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+textarea { min-height:60px; }
+label { display:block; font-weight:800; font-size:14px; margin:10px 0 4px; }
+label small { font-weight:600; color:var(--sub); }
+.btn { padding:10px 14px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:15px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.btn.sm { padding:6px 10px; font-size:13px; }
+.btn.red { background:#fff; color:var(--red); border:2px solid var(--red); }
+.muted { color:var(--sub); font-size:13px; }
+.cust h3 { margin:0; font-size:19px; } .cust .meta { color:var(--sub); font-size:13px; margin:2px 0 8px; }
+.kv { display:grid; grid-template-columns:88px 1fr; gap:4px 8px; font-size:15px; }
+.kv b { color:var(--sub); font-size:13px; font-weight:800; }
+.ng { color:var(--red); font-weight:800; }
+.empty { text-align:center; color:var(--sub); padding:24px 8px; }
+.hide { display:none; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { border-bottom:1px solid var(--line); padding:8px 6px; text-align:left; vertical-align:top; }
+th { font-size:12px; color:var(--sub); }
+.say { background:#FFF3C4; border-radius:8px; padding:6px 10px; font-weight:800; margin-top:6px; }
+.resv { border-bottom:1px solid var(--line); padding:10px 0; } .resv .rt { font-size:17px; } .resv .ri { font-size:14px; margin-top:4px; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:14px; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; }
+footer a { color:var(--acc); }
+@media print {
+  header, .tabs, .noprint, footer { display:none !important; }
+  body { background:#fff; } .card { border:1px solid #999; }
+}
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>常連さんメモ帳</h1></header>
+<main>
+  <div class="tabs noprint">
+    <button id="t-c" class="on" onclick="tab('c')">お客様</button>
+    <button id="t-r" onclick="tab('r')">今日の予約</button>
+    <button id="t-h" onclick="tab('h')">使い方</button>
+  </div>
+
+  <!-- お客様 -->
+  <section id="p-c">
+    <div class="row noprint" style="margin-bottom:10px">
+      <input id="q" placeholder="名前・ふりがな・電話の下4桁でさがす" oninput="drawList()" style="flex:1;min-width:200px">
+      <button class="btn" onclick="openForm()">＋ お客様を追加</button>
+    </div>
+    <div id="form" class="card hide">
+      <input type="hidden" id="f-id">
+      <label>お名前 <small>（必須）</small></label><input id="f-name" placeholder="例: 田中 様">
+      <div class="row">
+        <div style="flex:1;min-width:140px"><label>ふりがな</label><input id="f-kana" placeholder="たなか"></div>
+        <div style="flex:1;min-width:140px"><label>電話の下4桁</label><input id="f-tel" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+      </div>
+      <label>好み</label><input id="f-like" placeholder="例: 辛口・1杯目はハイボール">
+      <label>苦手・アレルギー <small>（確認の表で赤く出ます）</small></label><input id="f-ng" placeholder="例: パクチーが苦手・えびアレルギー">
+      <label>前回の注文</label><input id="f-last" placeholder="例: ハイボール・から揚げ">
+      <label>記念日</label><input id="f-anniv" placeholder="例: 12/3 奥様の誕生日">
+      <label>メモ <small>（お店の仕事に必要なことだけ）</small></label><textarea id="f-memo" placeholder="例: 奥の席が好き"></textarea>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" onclick="saveCust()">保存する</button>
+        <button class="btn ghost" onclick="closeForm()">やめる</button>
+      </div>
+    </div>
+    <div id="list"></div>
+    <div class="card noprint">
+      <b>バックアップ</b>
+      <p class="muted" style="margin:4px 0 8px">入れた内容は、この端末のブラウザの中だけに保存されます。機種変更の前や、ほかの端末で使うときは、CSV で書き出して読み込んでください。</p>
+      <div class="row"><button class="btn ghost sm" onclick="exportCsv()">CSV で書き出す</button>
+      <label class="btn ghost sm" style="margin:0">CSV を読み込む<input type="file" accept=".csv,text/csv" onchange="importCsv(this)" style="display:none"></label></div>
+    </div>
+  </section>
+
+  <!-- 今日の予約 -->
+  <section id="p-r" class="hide">
+    <div class="card noprint">
+      <b>今日の予約を入れる</b>
+      <div class="row" style="margin-top:8px">
+        <input id="r-time" type="time" style="width:150px">
+        <input id="r-n" type="number" min="1" placeholder="人数" style="width:90px">
+        <input id="r-who" list="names" placeholder="お名前（登録した方は候補に出ます）" style="flex:1;min-width:180px">
+        <datalist id="names"></datalist>
+        <button class="btn" onclick="addRes()">追加</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between"><b id="r-title">営業前の確認表</b>
+        <span class="noprint"><button class="btn ghost sm" onclick="window.print()">印刷する</button> <button class="btn red sm" onclick="clearRes()">表を空にする</button></span></div>
+      <div id="res"></div>
+      <p class="note" style="margin-top:12px">営業前に、この表を全員で見ます。入口では「<b>〇〇様、お待ちしておりました</b>」。同じ時間に何組かあるときは「ご予約の〇〇様でいらっしゃいますか？」と確かめてから。</p>
+    </div>
+  </section>
+
+  <!-- 使い方 -->
+  <section id="p-h" class="hide">
+    <div class="card">
+      <h3 style="margin-top:0">使い方</h3>
+      <ol>
+        <li><b>お客様を追加</b>：会計のあとに、好み・苦手・前回の注文をひと言だけ入れます。</li>
+        <li><b>来店のたびに「来店 +1」</b>：来店回数と前回の日にちが進みます。今日の注文も入れられます。</li>
+        <li><b>今日の予約</b>：時間・人数・お名前を入れると、好み・苦手・前回の注文が並んだ「営業前の確認表」になります。印刷して、全員で見ましょう。</li>
+      </ol>
+      <h3>気をつけること</h3>
+      <ul>
+        <li>お連れの方の前で、前回の話をしすぎない（前回は別の方と来ていたかもしれません）。</li>
+        <li>メモに書くのは、お店の仕事に必要なことだけ。見た目や私生活のことは書かない。</li>
+        <li>この端末をお店の外に持ち出すときは、画面のロックを。</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「美味しいだけじゃ、お客様はまた来ない」から生まれたツールです。<br>
+  予約・顧客・原価・シフト・集客をぜんぶ1つにまとめる「ミセマワシ」は、いま公開の準備中です。
+</footer>
+<script>
+const KEY = 'mise_joren_v1';
+let D = load();
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || { cust: [], res: [] }; } catch (e) { return { cust: [], res: [] }; } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(D)); } catch (e) { alert('保存できませんでした（ブラウザの設定で保存が止められている可能性があります）'); } }
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const today = () => { const d = new Date(); return d.getFullYear() + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + String(d.getDate()).padStart(2, '0'); };
+const sama = (n) => /(様|さん|さま)$/.test(String(n).trim()) ? String(n).trim() : String(n).trim() + ' 様';
+const F = ['name', 'kana', 'tel', 'like', 'ng', 'last', 'anniv', 'memo'];
+
+function tab(t) {
+  ['c', 'r', 'h'].forEach((k) => { $('p-' + k).classList.toggle('hide', k !== t); $('t-' + k).classList.toggle('on', k === t); });
+  if (t === 'r') drawRes();
+}
+function openForm(id) {
+  const c = D.cust.find((x) => x.id === id) || {};
+  $('f-id').value = c.id || '';
+  F.forEach((k) => { $('f-' + k).value = c[k] || ''; });
+  $('form').classList.remove('hide'); $('f-name').focus();
+}
+function closeForm() { $('form').classList.add('hide'); }
+function saveCust() {
+  const name = $('f-name').value.trim();
+  if (!name) { alert('お名前を入れてください'); return; }
+  const id = $('f-id').value;
+  let c = D.cust.find((x) => x.id === id);
+  if (!c) { c = { id: 'c' + Date.now(), visits: 0, lastVisit: '' }; D.cust.push(c); }
+  F.forEach((k) => { c[k] = $('f-' + k).value.trim(); });
+  save(); closeForm(); drawList();
+}
+function visit(id) {
+  const c = D.cust.find((x) => x.id === id); if (!c) return;
+  const order = (document.getElementById('o-' + id) || {}).value || '';
+  c.visits = (c.visits || 0) + 1; c.lastVisit = today();
+  if (order.trim()) c.last = order.trim();
+  save(); drawList();
+}
+function del(id) {
+  const c = D.cust.find((x) => x.id === id); if (!c) return;
+  if (!confirm(c.name + ' を消しますか？（元に戻せません）')) return;
+  D.cust = D.cust.filter((x) => x.id !== id); save(); drawList();
+}
+function drawList() {
+  const q = $('q').value.trim().toLowerCase();
+  const list = D.cust.filter((c) => !q || [c.name, c.kana, c.tel].join(' ').toLowerCase().includes(q))
+    .sort((a, b) => (b.lastVisit || '').localeCompare(a.lastVisit || ''));
+  $('names').innerHTML = D.cust.map((c) => `<option value="${esc(c.name)}">`).join('');
+  if (!D.cust.length) { $('list').innerHTML = '<div class="empty">まだお客様がいません。<br>「＋ お客様を追加」から、会計のあとにひと言だけ入れてみましょう。</div>'; return; }
+  if (!list.length) { $('list').innerHTML = '<div class="empty">見つかりませんでした</div>'; return; }
+  $('list').innerHTML = list.map((c) => `
+    <div class="card cust">
+      <h3>${esc(c.name)} <span class="muted">${esc(c.kana)}</span></h3>
+      <div class="meta">来店 ${c.visits || 0}回${c.lastVisit ? '・前回 ' + esc(c.lastVisit) : ''}${c.tel ? '・電話 下4桁 ' + esc(c.tel) : ''}</div>
+      <div class="kv">
+        ${c.like ? `<b>好み</b><span>${esc(c.like)}</span>` : ''}
+        ${c.ng ? `<b>苦手</b><span class="ng">${esc(c.ng)}</span>` : ''}
+        ${c.last ? `<b>前回の注文</b><span>${esc(c.last)}</span>` : ''}
+        ${c.anniv ? `<b>記念日</b><span>${esc(c.anniv)}</span>` : ''}
+        ${c.memo ? `<b>メモ</b><span>${esc(c.memo)}</span>` : ''}
+      </div>
+      <div class="row noprint" style="margin-top:10px">
+        <input id="o-${c.id}" placeholder="今日の注文（任意）" style="flex:1;min-width:150px">
+        <button class="btn sm" onclick="visit('${c.id}')">来店 +1</button>
+        <button class="btn ghost sm" onclick="openForm('${c.id}')">直す</button>
+        <button class="btn red sm" onclick="del('${c.id}')">消す</button>
+      </div>
+    </div>`).join('');
+}
+function addRes() {
+  const who = $('r-who').value.trim();
+  if (!who) { alert('お名前を入れてください'); return; }
+  D.res.push({ time: $('r-time').value, n: $('r-n').value, who });
+  D.res.sort((a, b) => (a.time || '').localeCompare(b.time || ''));
+  save(); $('r-who').value = ''; $('r-n').value = ''; drawRes();
+}
+function clearRes() { if (D.res.length && confirm('今日の予約の表を空にしますか？')) { D.res = []; save(); drawRes(); } }
+function drawRes() {
+  $('r-title').textContent = '営業前の確認表（' + today() + '）';
+  if (!D.res.length) { $('res').innerHTML = '<div class="empty">上で今日の予約を入れてください</div>'; return; }
+  $('res').innerHTML = D.res.map((r, i) => {
+    const c = D.cust.find((x) => x.name === r.who);
+    const info = c ? [c.visits ? `来店${c.visits}回` : '', c.like ? '好み: ' + esc(c.like) : '', c.ng ? `<span class="ng">苦手: ${esc(c.ng)}</span>` : '', c.last ? '前回: ' + esc(c.last) : '', c.anniv ? '記念日: ' + esc(c.anniv) : ''].filter(Boolean).join('<br>') : '<span class="muted">はじめての方（会計のあとにメモを）</span>';
+    const say = `${esc(sama(r.who))}、お待ちしておりました` + (c && c.last ? `<br><span class="muted">（話せたら）前回は${esc(c.last.split(/[・、,]/)[0])}でしたね</span>` : '');
+    return `<div class="resv"><div class="row" style="justify-content:space-between"><b class="rt">${esc(r.time || '--:--')}　${esc(sama(r.who))}${r.n ? '（' + esc(r.n) + '名）' : ''}</b><button class="btn red sm noprint" onclick="D.res.splice(${i},1);save();drawRes()">外す</button></div><div class="ri">${info}</div><div class="say">${say}</div></div>`;
+  }).join('');
+}
+const COLS = ['name', 'kana', 'tel', 'visits', 'lastVisit', 'like', 'ng', 'last', 'anniv', 'memo'];
+const HEAD = ['お名前', 'ふりがな', '電話下4桁', '来店回数', '前回の来店', '好み', '苦手', '前回の注文', '記念日', 'メモ'];
+function exportCsv() {
+  const q = (v) => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+  const csv = '﻿' + [HEAD.map(q).join(','), ...D.cust.map((c) => COLS.map((k) => q(c[k])).join(','))].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = '常連さんメモ帳_' + today().replace(/\//g, '') + '.csv'; a.click();
+}
+function parseCsv(t) {
+  const rows = []; let row = [], cur = '', q = false;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (q) { if (ch === '"') { if (t[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += ch; }
+    else if (ch === '"') q = true; else if (ch === ',') { row.push(cur); cur = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && t[i + 1] === '\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }
+    else cur += ch;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  return rows.filter((r) => r.some((x) => x.trim()));
+}
+function importCsv(inp) {
+  const f = inp.files[0]; if (!f) return;
+  f.text().then((t) => {
+    const rows = parseCsv(t.replace(/^﻿/, '')); const head = rows.shift() || [];
+    let n = 0;
+    rows.forEach((r) => {
+      const o = {}; head.forEach((h, i) => { const k = COLS[HEAD.indexOf(h.trim())]; if (k) o[k] = (r[i] || '').trim(); });
+      if (!o.name) return;
+      let c = D.cust.find((x) => x.name === o.name && (x.tel || '') === (o.tel || ''));
+      if (!c) { c = { id: 'c' + Date.now() + n }; D.cust.push(c); }
+      Object.assign(c, o, { visits: Number(o.visits) || 0 }); n++;
+    });
+    save(); drawList(); alert(n + '人を読み込みました'); inp.value = '';
+  });
+}
+drawList();
+</script>
+</body>
+</html>

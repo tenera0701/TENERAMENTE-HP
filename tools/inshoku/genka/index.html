@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>調味料まで入れる原価計算｜ミセマワシ</title>
+<meta name="description" content="材料だけの原価と、調味料・油・だし・容器まで入れた原価をくらべて、1か月・1年でいくら差が出るかが分かる無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:22px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 6px; }
+.muted { color:var(--sub); font-size:13px; }
+input { width:100%; padding:9px 8px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+label { display:block; font-weight:800; font-size:14px; margin:8px 0 4px; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.btn { padding:9px 14px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:15px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.btn.sm { padding:5px 10px; font-size:13px; }
+.btn.x { background:#fff; color:var(--sub); border:1px solid var(--line); padding:4px 8px; }
+.item { border:1px solid var(--line); border-radius:12px; padding:8px; margin-bottom:8px; }
+.item .g { display:grid; grid-template-columns:1.6fr 1fr 1fr .8fr 1fr; gap:6px; align-items:end; }
+.item .g small { display:block; font-size:11px; color:var(--sub); font-weight:700; }
+.item .g select { width:100%; padding:9px 4px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+.item .per { text-align:right; font-weight:900; margin-top:4px; }
+@media (max-width:560px) { .item .g { grid-template-columns:1fr 1fr; } .item .g .nm { grid-column:1 / -1; } }
+.res { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.box { border:2px solid var(--ink); border-radius:12px; padding:10px; text-align:center; }
+.box .k { font-size:13px; font-weight:800; color:var(--sub); } .box .v { font-size:28px; font-weight:900; line-height:1.2; } .box .s { font-size:13px; }
+.box.ng { border-color:var(--red); } .box.ng .v { color:var(--red); }
+.big { background:var(--ink); color:#fff; border-radius:12px; padding:12px; text-align:center; margin-top:8px; }
+.big .v { font-size:30px; font-weight:900; color:#FFE14D; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:14px; }
+table { width:100%; border-collapse:collapse; font-size:14px; } td, th { border-bottom:1px solid var(--line); padding:6px; text-align:left; } th { font-size:12px; color:var(--sub); }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>調味料まで入れる原価計算</h1></header>
+<main>
+  <div class="card">
+    <div class="row">
+      <div style="flex:2;min-width:160px"><label>メニューの名前</label><input id="m-name" placeholder="例: 親子丼" oninput="calc()"></div>
+      <div style="flex:1;min-width:110px"><label>売値（円）</label><input id="m-price" type="number" inputmode="decimal" placeholder="700" oninput="calc()"></div>
+    </div>
+    <div class="row" style="margin-top:10px"><button class="btn ghost sm" onclick="example()">親子丼の例を入れる</button><button class="btn ghost sm" onclick="resetForm()">まっさらにする</button></div>
+  </div>
+
+  <div class="card">
+    <h2>① 材料</h2>
+    <p class="muted" style="margin:0 0 8px">肉・卵・野菜・ご飯など。<b>1皿分＝使う量 ÷ 仕入れの量 × 仕入れ値</b></p>
+    <div id="ing"></div><button class="btn ghost sm" onclick="addRow('ing')">＋ 材料を足す</button>
+  </div>
+
+  <div class="card">
+    <h2>② 調味料・油・だし</h2>
+    <p class="muted" style="margin:0 0 8px">ここが原価に入っていないお店が多い所です。量がはかりにくい油やたれは「1か月に使った金額 ÷ その月に出た数」を③に入れてもOK。</p>
+    <div id="sea"></div><button class="btn ghost sm" onclick="addRow('sea')">＋ 調味料を足す</button>
+  </div>
+
+  <div class="card">
+    <h2>③ 1皿ごとにかかる物（円）</h2>
+    <p class="muted" style="margin:0 0 8px">テイクアウトの容器・割り箸・おしぼり・揚げ油（1か月の金額÷出た数）など。</p>
+    <div id="oth"></div><button class="btn ghost sm" onclick="addRow('oth')">＋ 足す</button>
+  </div>
+
+  <div class="card">
+    <h2>結果</h2>
+    <div class="res">
+      <div class="box"><div class="k">材料だけの原価</div><div class="v" id="r-a">0円</div><div class="s" id="r-ar">原価率 -</div></div>
+      <div class="box ng"><div class="k">調味料まで入れた原価</div><div class="v" id="r-b">0円</div><div class="s" id="r-br">原価率 -</div></div>
+    </div>
+    <p style="margin:10px 0 4px">1皿あたりの差 <b id="r-d">0円</b>（原価率 <b id="r-dp">+0%</b>）</p>
+    <div class="row">
+      <div style="flex:1;min-width:110px"><label>1日に出る数</label><input id="n-day" type="number" inputmode="numeric" value="30" oninput="calc()"></div>
+      <div style="flex:1;min-width:110px"><label>月の営業日</label><input id="n-mon" type="number" inputmode="numeric" value="25" oninput="calc()"></div>
+    </div>
+    <div class="big"><div>計算から抜けていた原価</div><div>1か月 <span class="v" id="r-m">0円</span></div><div>1年 <span class="v" id="r-y">0円</span></div></div>
+    <div class="row" style="margin-top:10px"><button class="btn" onclick="saveMenu()">このメニューを保存</button></div>
+  </div>
+
+  <div class="card">
+    <h2>保存したメニュー</h2>
+    <div id="saved"></div>
+    <p class="muted">入れた内容は、この端末のブラウザの中だけに保存されます。</p>
+  </div>
+
+  <p class="note">対策は3つ。①調味料も1皿分を原価に入れる ②月末に棚卸をする ③レシピの原価率と、実際の原価率（月初の在庫＋仕入れ−月末の在庫 ÷ 売上）を毎月くらべる。</p>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「その原価率、調味料入ってますか？」から生まれたツールです。<br>
+  仕入れ・棚卸から実際の原価を出し、レシピの原価とのズレまで見られる「ミセマワシ」は、いま公開の準備中です。
+</footer>
+<script>
+const KEY = 'mise_genka_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const yen = (n) => (isFinite(n) ? Math.round(n) : 0).toLocaleString('ja-JP') + '円';
+const num = (v) => { const n = parseFloat(String(v).replace(/[,，円]/g, '')); return isFinite(n) ? n : 0; };
+let S = { ing: [], sea: [], oth: [] };
+const UNITS = ['g', 'ml', '個', '枚', '本'];
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || { menus: [], cur: null }; } catch (e) { return { menus: [], cur: null }; } }
+function store(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+let DB = load();
+
+function per(r) { const q = num(r.qty); return q > 0 ? num(r.price) / q * num(r.use) : 0; }
+function draw(kind) {
+  const el = $(kind);
+  if (kind === 'oth') {
+    el.innerHTML = S.oth.map((r, i) => `<div class="item"><div class="row"><input style="flex:2;min-width:140px" placeholder="例: 容器" value="${esc(r.name)}" oninput="S.oth[${i}].name=this.value;calc()">
+      <input style="flex:1;min-width:90px" type="number" inputmode="decimal" placeholder="円" value="${esc(r.yen)}" oninput="S.oth[${i}].yen=this.value;calc()">
+      <button class="btn x" onclick="S.oth.splice(${i},1);draw('oth');calc()">×</button></div></div>`).join('');
+    return;
+  }
+  el.innerHTML = S[kind].map((r, i) => `<div class="item"><div class="g">
+    <div class="nm"><small>名前</small><input value="${esc(r.name)}" placeholder="${kind === 'sea' ? '例: 醤油' : '例: 鶏もも肉'}" oninput="S.${kind}[${i}].name=this.value;calc()"></div>
+    <div><small>仕入れ値（円）</small><input type="number" inputmode="decimal" value="${esc(r.price)}" placeholder="600" oninput="S.${kind}[${i}].price=this.value;calc()"></div>
+    <div><small>仕入れの量</small><input type="number" inputmode="decimal" value="${esc(r.qty)}" placeholder="1000" oninput="S.${kind}[${i}].qty=this.value;calc()"></div>
+    <div><small>単位</small><select onchange="S.${kind}[${i}].unit=this.value;draw('${kind}');calc()">${UNITS.map((u) => `<option${u === r.unit ? ' selected' : ''}>${u}</option>`).join('')}</select></div>
+    <div><small>1皿に使う量</small><input type="number" inputmode="decimal" value="${esc(r.use)}" placeholder="20" oninput="S.${kind}[${i}].use=this.value;calc()"></div>
+    </div><div class="row" style="justify-content:space-between"><span class="muted">1${esc(r.unit || 'g')}あたり <span id="u-${kind}-${i}">-</span></span><span class="per">1皿分 <span id="p-${kind}-${i}">0円</span> <button class="btn x" onclick="S.${kind}.splice(${i},1);draw('${kind}');calc()">×</button></span></div></div>`).join('');
+}
+function addRow(kind) { S[kind].push(kind === 'oth' ? { name: '', yen: '' } : { name: '', price: '', qty: '', unit: kind === 'sea' ? 'ml' : 'g', use: '' }); draw(kind); calc(); }
+function calc() {
+  let a = 0, b = 0;
+  ['ing', 'sea'].forEach((k) => S[k].forEach((r, i) => {
+    const v = per(r); const q = num(r.qty);
+    if (k === 'ing') a += v; else b += v;
+    const pe = $('p-' + k + '-' + i), ue = $('u-' + k + '-' + i);
+    if (pe) pe.textContent = (Math.round(v * 10) / 10).toLocaleString('ja-JP') + '円';
+    if (ue) ue.textContent = q > 0 ? (Math.round(num(r.price) / q * 100) / 100) + '円' : '-';
+  }));
+  S.oth.forEach((r) => { b += num(r.yen); });
+  const price = num($('m-price').value), all = a + b;
+  $('r-a').textContent = yen(a); $('r-b').textContent = yen(all);
+  const pct = (x) => price > 0 ? (Math.round(x / price * 1000) / 10) + '%' : '-';
+  $('r-ar').textContent = '原価率 ' + pct(a); $('r-br').textContent = '原価率 ' + pct(all);
+  $('r-d').textContent = yen(b); $('r-dp').textContent = price > 0 ? '+' + (Math.round(b / price * 1000) / 10) + '%' : '-';
+  const m = b * num($('n-day').value) * num($('n-mon').value);
+  $('r-m').textContent = yen(m); $('r-y').textContent = yen(m * 12);
+  DB.cur = snap(); store(DB);
+  return { a, all, price };
+}
+function snap() { return { name: $('m-name').value, price: $('m-price').value, day: $('n-day').value, mon: $('n-mon').value, S: JSON.parse(JSON.stringify(S)) }; }
+function apply(x) {
+  $('m-name').value = x.name || ''; $('m-price').value = x.price || ''; $('n-day').value = x.day || 30; $('n-mon').value = x.mon || 25;
+  S = x.S || { ing: [], sea: [], oth: [] }; ['ing', 'sea', 'oth'].forEach(draw); calc();
+}
+function example() {
+  apply({ name: '親子丼（例）', price: 700, day: 50, mon: 25, S: {
+    ing: [{ name: '鶏もも肉', price: 1100, qty: 1000, unit: 'g', use: 100 }, { name: '卵', price: 250, qty: 10, unit: '個', use: 2 }, { name: '玉ねぎ', price: 300, qty: 1000, unit: 'g', use: 50 }, { name: 'ご飯（炊いた後）', price: 350, qty: 1000, unit: 'g', use: 100 }],
+    sea: [{ name: '醤油', price: 600, qty: 1000, unit: 'ml', use: 20 }, { name: 'みりん', price: 500, qty: 1000, unit: 'ml', use: 20 }, { name: '砂糖', price: 250, qty: 1000, unit: 'g', use: 8 }, { name: 'だし', price: 50, qty: 1000, unit: 'ml', use: 80 }],
+    oth: [] } });
+}
+function resetForm() { apply({ name: '', price: '', day: 30, mon: 25, S: { ing: [{ name: '', price: '', qty: '', unit: 'g', use: '' }], sea: [{ name: '醤油', price: '', qty: '', unit: 'ml', use: '' }, { name: 'みりん', price: '', qty: '', unit: 'ml', use: '' }, { name: '砂糖', price: '', qty: '', unit: 'g', use: '' }, { name: '油', price: '', qty: '', unit: 'ml', use: '' }], oth: [] } }); }
+function saveMenu() {
+  const x = snap(); if (!x.name.trim()) { alert('メニューの名前を入れてください'); return; }
+  const r = calc(); x.a = r.a; x.all = r.all;
+  DB.menus = DB.menus.filter((m) => m.name !== x.name); DB.menus.push(x); store(DB); drawSaved();
+}
+function drawSaved() {
+  if (!DB.menus.length) { $('saved').innerHTML = '<p class="muted">まだありません。「このメニューを保存」で並びます。</p>'; return; }
+  $('saved').innerHTML = '<table><tr><th>メニュー</th><th>売値</th><th>材料だけ</th><th>調味料まで</th><th></th></tr>' + DB.menus.map((m, i) => {
+    const p = num(m.price), pc = (x) => p > 0 ? (Math.round(x / p * 1000) / 10) + '%' : '-';
+    return `<tr><td>${esc(m.name)}</td><td>${yen(p)}</td><td>${pc(m.a)}</td><td><b style="color:var(--red)">${pc(m.all)}</b></td><td><button class="btn ghost sm" onclick="apply(DB.menus[${i}])">開く</button> <button class="btn x" onclick="if(confirm('消しますか？')){DB.menus.splice(${i},1);store(DB);drawSaved()}">×</button></td></tr>`;
+  }).join('') + '</table>';
+}
+if (DB.cur && DB.cur.S) apply(DB.cur); else resetForm();
+drawSaved();
+</script>
+</body>
+</html>

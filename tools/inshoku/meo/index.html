@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Googleマップ点検シート＆口コミ返信の下書き｜ミセマワシ</title>
+<meta name="description" content="飲食店のGoogleマップ（Googleビジネスプロフィール）を18項目で点検し、口コミへの返信の下書きを作れる無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; --blue:#2B5FB8; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:21px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.tabs { display:flex; gap:8px; margin-bottom:14px; }
+.tabs button { flex:1; padding:10px 6px; border:2px solid var(--ink); background:#fff; border-radius:12px; font-weight:800; font-size:15px; cursor:pointer; }
+.tabs button.on { background:var(--ink); color:#fff; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 8px; }
+.hide { display:none; }
+.score { display:flex; align-items:center; gap:12px; }
+.score .v { font-size:36px; font-weight:900; }
+.bar { flex:1; height:16px; border:2px solid var(--ink); border-radius:10px; overflow:hidden; background:#F1EEE7; }
+.bar i { display:block; height:100%; background:var(--gold); width:0; transition:width .3s; }
+.ck { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); cursor:pointer; }
+.ck input { width:24px; height:24px; flex:none; margin-top:2px; accent-color:var(--green); }
+.ck b { display:block; } .ck small { color:var(--sub); display:block; font-size:13px; }
+.ck.ng b { color:var(--red); }
+.grp { font-weight:900; margin:14px 0 2px; font-size:15px; }
+input, select, textarea { width:100%; padding:10px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+textarea { min-height:190px; }
+label { display:block; font-weight:800; font-size:14px; margin:10px 0 4px; } label small { font-weight:600; color:var(--sub); }
+.btn { padding:10px 14px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:15px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.todo { background:#FFF3C4; border-radius:10px; padding:10px 12px; font-size:14px; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:14px; }
+.muted { color:var(--sub); font-size:13px; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>Googleマップ点検シート</h1></header>
+<main>
+  <div class="tabs">
+    <button id="t-a" class="on" onclick="tab('a')">お店の点検</button>
+    <button id="t-b" onclick="tab('b')">口コミ返信の下書き</button>
+  </div>
+
+  <section id="p-a">
+    <div class="card">
+      <div class="score"><span class="v" id="sc">0点</span><div class="bar"><i id="sb"></i></div></div>
+      <p class="muted" style="margin:6px 0 0">Googleビジネスプロフィールを開いて、できている所にチェック。点数はこの端末に保存されます。</p>
+      <div class="todo" id="todo" style="margin-top:10px"></div>
+    </div>
+    <div class="card" id="list"></div>
+    <p class="note">Googleマップの順位は、主に「関連性・距離・知名度」で決まると Google は説明しています。距離は変えられないので、情報をそろえて（関連性）、口コミと写真を増やす（知名度）ことが大事です。お金を払って順位を上げることはできません。</p>
+  </section>
+
+  <section id="p-b" class="hide">
+    <div class="card">
+      <h2>口コミ返信の下書き</h2>
+      <label>口コミの星</label>
+      <select id="star" onchange="gen()"><option value="5">★★★★★（5）</option><option value="4">★★★★☆（4）</option><option value="3">★★★☆☆（3）</option><option value="2">★★☆☆☆（2）</option><option value="1">★☆☆☆☆（1）</option></select>
+      <label>お店の名前</label><input id="shop" placeholder="例: 炭火ダイニング 灯" oninput="gen()">
+      <label>お客様のお名前 <small>（口コミの表示名。空でもOK）</small></label><input id="who" placeholder="例: 田中" oninput="gen()">
+      <label>口コミで触れていた料理・こと <small>（任意）</small></label><input id="dish" placeholder="例: 親子丼・スタッフの対応" oninput="gen()">
+      <label id="l-bad">ご不満だった点 <small>（星3以下のとき）</small></label><input id="bad" placeholder="例: 料理が出るのが遅かった" oninput="gen()">
+      <label id="l-fix">直したこと・直すこと <small>（星3以下のとき）</small></label><input id="fix" placeholder="例: 混む時間のスタッフを1人増やしました" oninput="gen()">
+      <label>下書き</label><textarea id="out"></textarea>
+      <div class="row" style="margin-top:8px"><button class="btn" onclick="copy()">コピーする</button><span class="muted" id="cp"></span></div>
+    </div>
+    <p class="note">返信のコツ：良い口コミにはお礼と「また来たくなる一言」。悪い口コミには、まずお詫び。言い返さず、事実と直したことを短く。口コミに書かれていないこと（来店日・一緒に来た方・注文など）は書かない。返信は、これから来るお客様も読んでいます。</p>
+  </section>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「Googleマップ放置の店に、誰が来ますか？」から生まれたツールです。点検の項目は Google のヘルプ（ランキングを改善するヒント・ビジネス情報のガイドライン・クチコミのポリシー）をもとにしています（2026年11月確認）。<br>
+  口コミへのAIの返信案やGoogleマップの見え方の確認ができる「ミセマワシ」は、いま公開の準備中です。
+</footer>
+<script>
+const KEY = 'mise_meo_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ITEMS = [
+  ['基本の情報', [
+    ['owner', 'オーナー確認が済んでいる', 'Googleビジネスプロフィールで「持ち主は自分」と確かめる手続き。まずここから'],
+    ['name', '店名は看板どおり', '「駅近・食べ放題」など宣伝の言葉を足すのはガイドライン違反。止められることも'],
+    ['addr', '住所・電話番号が正しい', '移転・番号の変更をそのままにしていない'],
+    ['hours', '営業時間・定休日が正しい', 'ランチとディナーの時間も分けて'],
+    ['special', '年末年始・祝日・臨時休業を「特別営業時間」に入れた', '「行ったら閉まっていた」をなくす'],
+    ['cat', 'お店の種類（カテゴリ）が合っている', '居酒屋・ラーメン店など。探される言葉と合わせる'],
+    ['attr', '駐車場・Wi-Fi・テイクアウトなどの項目を入れた', '探している人の条件に合うと出やすい'],
+    ['menu', 'メニューと値段を載せた', '写真のメニュー表でもOK'],
+  ]],
+  ['写真', [
+    ['p_out', '外観の写真（入口が分かる）', 'はじめての人が迷わない'],
+    ['p_in', '店内の写真（席の雰囲気）', '広さ・明るさが分かる'],
+    ['p_food', '看板メニューの料理の写真', '明るい所で、真上か斜め45度'],
+    ['p_new', 'ここ1か月で写真を足した', '新メニュー・季節のメニューが出たら、インスタと一緒に'],
+  ]],
+  ['口コミ', [
+    ['r_reply', '返信していない口コミがない', '良い口コミにも、悪い口コミにも'],
+    ['r_bad', '悪い口コミにも、言い返さずに返信した', 'お詫び → 事実 → 直したこと'],
+    ['r_ask', '特典なしで「よければ感想を」とお願いしている', 'お会計のときのひと言・テーブルの案内など'],
+  ]],
+  ['やってはいけない（守れていたらチェック）', [
+    ['x_gift', '特典と引き換えに口コミを頼んでいない', '「書いたらドリンク1杯」は Google のルールで禁止', true],
+    ['x_pick', '満足していそうな人だけを選んで頼んでいない', '良い口コミだけを選んで頼むのも禁止', true],
+    ['x_self', 'スタッフ・知り合いに口コミを書かせていない', 'その場で書かせる・件数のノルマもNG', true],
+  ]],
+];
+const ALL = ITEMS.flatMap((g) => g[1]);
+let D = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(D)); } catch (e) {} }
+function tab(t) { ['a', 'b'].forEach((k) => { $('p-' + k).classList.toggle('hide', k !== t); $('t-' + k).classList.toggle('on', k === t); }); if (t === 'b') gen(); }
+function drawList() {
+  $('list').innerHTML = ITEMS.map(([g, items]) => `<div class="grp">${esc(g)}</div>` + items.map(([k, t, s, ng]) =>
+    `<label class="ck${ng ? ' ng' : ''}"><input type="checkbox" ${D[k] ? 'checked' : ''} onchange="D['${k}']=this.checked;save();score()"><span><b>${esc(t)}</b><small>${esc(s)}</small></span></label>`).join('')).join('');
+  score();
+}
+function score() {
+  const n = ALL.filter(([k]) => D[k]).length, p = Math.round(n / ALL.length * 100);
+  $('sc').textContent = p + '点'; $('sb').style.width = p + '%';
+  const left = ALL.filter(([k]) => !D[k]).slice(0, 3);
+  $('todo').innerHTML = left.length ? '<b>次にやること</b><br>' + left.map(([, t]) => '・' + esc(t)).join('<br>') : '<b>全部できています！</b> 月に1回、写真と口コミの返信を見直しましょう。';
+}
+function gen() {
+  const s = Number($('star').value), shop = $('shop').value.trim() || '当店', who = $('who').value.trim(),
+    dish = $('dish').value.trim(), bad = $('bad').value.trim(), fix = $('fix').value.trim();
+  const low = s <= 3;
+  $('l-bad').style.display = $('bad').style.display = $('l-fix').style.display = $('fix').style.display = low ? '' : 'none';
+  const to = who ? who + '様' : 'お客様';
+  let t;
+  if (s >= 4) {
+    t = `${to}、${shop}をご利用いただき、ありがとうございます。\n` +
+      (dish ? `${dish}を気に入っていただけて、スタッフ一同とてもうれしいです。\n` : '温かいお言葉をいただき、スタッフ一同とてもうれしいです。\n') +
+      (s === 4 ? 'もっとご満足いただけるよう、これからも工夫を続けてまいります。\n' : '') +
+      '季節ごとにメニューも変わりますので、またお気軽にお立ち寄りください。お待ちしております。';
+  } else if (s === 3) {
+    t = `${to}、${shop}をご利用いただき、ありがとうございます。\n` +
+      (dish ? `${dish}についてのお声、ありがとうございます。\n` : '') +
+      (bad ? `${bad}とのこと、ご期待に添えず申し訳ございません。\n` : 'ご期待に添えなかった点があり、申し訳ございません。\n') +
+      (fix ? `${fix}。\n` : 'いただいたお声はスタッフ全員で共有し、改善に努めます。\n') +
+      '次にお越しの際は、ご満足いただけるようお迎えいたします。';
+  } else {
+    t = `${to}、このたびは${shop}をご利用いただきありがとうございます。また、ご不快な思いをおかけし、大変申し訳ございません。\n` +
+      (bad ? `${bad}とのご指摘、真摯に受け止めております。\n` : 'いただいたご指摘は、真摯に受け止めております。\n') +
+      (fix ? `${fix}。\n` : 'スタッフ全員で共有し、同じことが起きないよう改善いたします。\n') +
+      'お気づきの点がございましたら、お店まで直接お知らせいただけますと幸いです。';
+  }
+  $('out').value = t;
+}
+function copy() {
+  const v = $('out').value;
+  (navigator.clipboard ? navigator.clipboard.writeText(v) : Promise.reject()).then(() => { $('cp').textContent = 'コピーしました'; })
+    .catch(() => { $('out').select(); document.execCommand('copy'); $('cp').textContent = 'コピーしました'; });
+  setTimeout(() => { $('cp').textContent = ''; }, 2000);
+}
+drawList();
+</script>
+</body>
+</html>
