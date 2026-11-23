@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-23-mitsumori-seikyu-jidosakusei.png"
+    "image": "assets/img/covers/2026-11-23-mitsumori-seikyu-jidosakusei.png",
+    "imageHero": "assets/img/covers/2026-11-23-mitsumori-seikyu-jidosakusei.webp",
+    "imageCard": "assets/img/covers/2026-11-23-mitsumori-seikyu-jidosakusei-card.webp"
   },
   {
     "slug": "2026-11-22-kokyaku-kanri-app-jisha-kaihatsu",
@@ -147,7 +149,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png"
+    "image": "assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.png",
+    "imageHero": "assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.webp",
+    "imageCard": "assets/img/covers/2026-11-22-kokyaku-kanri-app-jisha-kaihatsu-card.webp"
   },
   {
     "slug": "2026-11-21-homepage-renewal-irai-nagare",
@@ -222,7 +226,9 @@
     ],
     "visual": "v-cyan",
     "number": "03",
-    "image": "assets/img/covers/2026-11-21-homepage-renewal-irai-nagare.png"
+    "image": "assets/img/covers/2026-11-21-homepage-renewal-irai-nagare.png",
+    "imageHero": "assets/img/covers/2026-11-21-homepage-renewal-irai-nagare.webp",
+    "imageCard": "assets/img/covers/2026-11-21-homepage-renewal-irai-nagare-card.webp"
   },
   {
     "slug": "2026-11-20-lp-seisaku-hiyo-uchiwake",

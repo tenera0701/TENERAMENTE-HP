@@ -1686,7 +1686,8 @@
       ],
       "status": "done",
       "slug": "kyuyo-kintai-shime",
-      "doneAt": "2026-11-21"
+      "doneAt": "2026-11-21",
+      "coverTitle": "賃貸仲介の給与計算と勤怠の締め作業を軽くする手順｜歩合の集計でつまずかないために"
     },
     {
       "id": "m205",
@@ -1705,7 +1706,8 @@
       ],
       "status": "done",
       "slug": "system-donyu-shanai-setsumei",
-      "doneAt": "2026-11-22"
+      "doneAt": "2026-11-22",
+      "coverTitle": "業務システムの導入をスタッフに説明して合意を取る手順｜反対の理由別の進め方"
     }
   ]
 }
