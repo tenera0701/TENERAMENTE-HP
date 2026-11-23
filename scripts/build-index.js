@@ -52,7 +52,7 @@ const SERVICE_CARDS = {
   },
 };
 const PILLAR_TO_CARD = {
-  'lp-meo.html': 'meo', 'lp-ai.html': 'ai', 'lp-ai-app.html': 'app', 'lp-ldash.html': 'app',
+  'lp-meo.html': 'meo', 'lp-ai.html': 'ai', 'lp-ai-app.html': 'app', 'lp-ldash.html': 'app', 'lp-igdash.html': 'app',
   'lp-hplp.html': 'hp', 'lp-milpage.html': 'hp',
 };
 const CATEGORY_TO_CARD = { meo: 'meo', aio: 'meo', ai: 'ai', app: 'app', hp: 'hp' };
@@ -403,7 +403,7 @@ function main() {
   const staticUrls = [
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
     'lp-ai-app.html', 'lp-ai.html', 'lp-hplp.html', 'lp-meo.html',
-    'lp-milpage.html', 'lp-ldash.html', 'mieroom/',
+    'lp-milpage.html', 'lp-ldash.html', 'lp-igdash.html', 'mieroom/',
     'mieroom/features.html', 'mieroom/compare.html', 'mieroom/blog.html',
     'mieroom/request.html', 'privacy.html',
   ];

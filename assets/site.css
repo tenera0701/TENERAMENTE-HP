@@ -219,6 +219,7 @@ a.cell:hover { background: var(--bg-2); }
 .cell h3 { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.45; }
 .cell p { font-size: 14.5px; color: var(--fg-2); line-height: 1.85; }
 .cells--2 { --cols: 2; } .cells--3 { --cols: 3; } .cells--4 { --cols: 4; }
+.prod .desc .ph { display: inline-block; }   /* プロダクトの説明文を、言葉の切れ目で折り返す */
 @media (max-width: 900px) { .cells--3, .cells--4 { --cols: 2; } }
 @media (max-width: 600px) { .cells, .cells--2, .cells--3, .cells--4 { --cols: 1; } }
 
