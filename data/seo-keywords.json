@@ -1658,7 +1658,9 @@
       "related": [
         "2026-06-08-webapp-kaihatsu-hiyo-souba"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-24-gyomu-app-hoshu-hiyo-uchiwake",
+      "doneAt": "2026-11-23"
     },
     {
       "id": "k035",

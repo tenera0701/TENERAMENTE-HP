@@ -1709,6 +1709,25 @@
       "slug": "system-donyu-shanai-setsumei",
       "doneAt": "2026-11-22",
       "coverTitle": "業務システムの導入をスタッフに説明して合意を取る手順｜反対の理由別の進め方"
+    },
+    {
+      "id": "m206",
+      "category": "集客・広告",
+      "keyword": "賃貸仲介 自社ホームページ 反響",
+      "sub": [
+        "不動産 自社サイト 問い合わせ 増やす",
+        "賃貸 店舗 ホームページ 集客"
+      ],
+      "title": "賃貸仲介の自社ホームページから反響を取る方法｜ポータル以外の経路を育てる順番",
+      "intent": "ポータル頼みの集客を変えたいが、自社サイトで何をすればいいか分からない（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "portal-hankyo-fuyasu",
+        "chintai-tenpo-gbp-unyo"
+      ],
+      "status": "done",
+      "slug": "jisha-site-hankyo",
+      "doneAt": "2026-11-23"
     }
   ]
 }
