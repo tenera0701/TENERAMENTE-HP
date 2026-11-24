@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>飲み放題の赤字ライン計算｜ミセマワシ</title>
+<meta name="description" content="飲み放題の値段とドリンクの原価を入れるだけで、何杯で赤字になるか・原価率の目安に収まるのは何杯までかが分かる飲食店向けの無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:22px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 6px; }
+label { display:block; font-weight:800; font-size:14px; margin:8px 0 4px; } label small { font-weight:600; color:var(--sub); }
+input { width:100%; padding:10px 8px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; } .row > div { flex:1; min-width:110px; }
+.btn { padding:9px 14px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:15px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); } .btn.sm { padding:5px 10px; font-size:13px; }
+.btn.x { background:#fff; color:var(--sub); border:1px solid var(--line); padding:6px 9px; }
+.dr { display:grid; grid-template-columns:1.6fr 1fr 1fr auto; gap:6px; align-items:end; border-bottom:1px solid var(--line); padding:6px 0; }
+.dr small { display:block; font-size:11px; color:var(--sub); font-weight:700; }
+.muted { color:var(--sub); font-size:13px; }
+.kpi { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+.kpi > div { border:2px solid var(--ink); border-radius:12px; padding:10px; text-align:center; }
+.kpi .k { font-size:13px; font-weight:800; color:var(--sub); } .kpi .v { font-size:28px; font-weight:900; line-height:1.2; } .kpi .s { font-size:12px; }
+.kpi > .ng { border-color:var(--red); } .kpi > .ng .v { color:var(--red); }
+.kpi > .ok { border-color:var(--green); } .kpi > .ok .v { color:var(--green); }
+table { width:100%; border-collapse:collapse; font-size:14px; margin-top:10px; } th, td { border-bottom:1px solid var(--line); padding:6px; text-align:right; } th:first-child, td:first-child { text-align:left; } th { font-size:12px; color:var(--sub); }
+.msg { background:#FFF3C4; border-radius:10px; padding:10px 12px; margin-top:10px; font-size:14px; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:13px; }
+.cta { background:#161616; color:#fff; border-radius:16px; padding:16px; margin:16px 0 12px; }
+.cta h2 { color:#fff; font-size:18px; margin:0 0 6px; } .cta p { margin:0 0 12px; font-size:14px; line-height:1.7; }
+.cta a.go { display:block; text-align:center; background:#E8642A; color:#fff; font-weight:900; font-size:17px; padding:13px; border-radius:12px; text-decoration:none; }
+.cta small { display:block; margin-top:8px; color:#cfc8bb; font-size:12px; text-align:center; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>飲み放題の赤字ライン計算</h1></header>
+<main>
+  <div class="card">
+    <div class="row">
+      <div><label>飲み放題の値段（円・1人）</label><input id="price" type="number" inputmode="numeric" value="1500" oninput="calc()"></div>
+      <div><label>目標の原価率（%）</label><input id="target" type="number" inputmode="decimal" value="30" oninput="calc()"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>ドリンクの原価と、出る割合</h2>
+    <p class="muted" style="margin:0 0 6px">1杯の原価＝1杯に使う量 × 仕入れ値（氷・レモンなども入れると正確）。出る割合は「10杯のうち何杯」くらいの感覚でOK。</p>
+    <div id="drinks"></div>
+    <div class="row" style="margin-top:8px"><button class="btn ghost sm" onclick="add()">＋ ドリンクを足す</button><button class="btn ghost sm" onclick="example()">例を入れる</button></div>
+  </div>
+
+  <div class="card">
+    <h2>結果（1人あたり）</h2>
+    <div class="kpi">
+      <div><div class="k">1杯の原価（平均）</div><div class="v" id="avg">-</div><div class="s">出る割合で平均</div></div>
+      <div id="b-red"><div class="k">原価だけで赤字になるのは</div><div class="v" id="red">-</div><div class="s">杯目から</div></div>
+      <div><div class="k">目標の原価率で使える原価</div><div class="v" id="budget">-</div><div class="s" id="budget-s">&nbsp;</div></div>
+      <div id="b-ok"><div class="k">目標の原価率に収まるのは</div><div class="v" id="ok">-</div><div class="s">杯まで</div></div>
+    </div>
+    <table id="tbl"></table>
+    <div class="msg" id="msg"></div>
+  </div>
+
+  <p class="note">対策は3つ。①2杯目からは原価の低いサワー・ハイボールをすすめる（金融庁『業種別支援の着眼点（飲食業）』でもサワー等は原価率の低い「ドル箱」、2杯目からの誘導で利益が変わるとしています）②時間を決める（90分など）③料理とセットのコースにして、1人あたりの売上で原価率を見る。</p>
+
+  <div class="cta">
+    <h2>本格的に使うなら「ミセマワシ」</h2>
+    <p>このツールは手で入れる簡単版です。ミセマワシなら、食材 → 仕込み品 → メニューを線でつなぐだけで1品ごとの原価が出て、売れた数×利益でメニューを見直せます。<br>レジ・原価・予約・シフト・給与・集客まで、飲食店の経営をぜんぶ1つにまとめます。</p>
+    <a class="go" href="https://www.misemawashi.com/#apply" target="_blank" rel="noopener">無料デモを申し込む</a>
+    <small>1店舗でも、複数店舗でも。スマホ・タブレット・パソコンで使えます</small>
+  </div>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「飲み放題1,500円、生ビール何杯で赤字？」から生まれたツールです。入れた内容は、この端末のブラウザの中だけに保存されます。<br>
+  <a href="https://www.misemawashi.com/" target="_blank" rel="noopener">ミセマワシ｜飲食店の経営を、ぜんぶ1つに</a>
+</footer>
+<script>
+const KEY = 'mise_nomihodai_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const num = (v) => { const n = parseFloat(String(v).replace(/[,，円%]/g, '')); return isFinite(n) ? n : 0; };
+const yen = (n) => Math.round(n).toLocaleString('ja-JP') + '円';
+let D = (() => { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } })();
+const EX = { price: 1500, target: 30, drinks: [{ name: '生ビール', cost: 180, share: 50 }, { name: 'レモンサワー', cost: 60, share: 30 }, { name: 'ハイボール', cost: 70, share: 20 }] };
+function store() { try { localStorage.setItem(KEY, JSON.stringify(D)); } catch (e) {} }
+function draw() {
+  $('drinks').innerHTML = D.drinks.map((d, i) => `<div class="dr">
+    <div><small>ドリンク</small><input value="${esc(d.name)}" oninput="D.drinks[${i}].name=this.value;calc()"></div>
+    <div><small>1杯の原価（円）</small><input type="number" inputmode="decimal" value="${esc(d.cost)}" oninput="D.drinks[${i}].cost=this.value;calc()"></div>
+    <div><small>出る割合（%）</small><input type="number" inputmode="decimal" value="${esc(d.share)}" oninput="D.drinks[${i}].share=this.value;calc()"></div>
+    <button class="btn x" onclick="D.drinks.splice(${i},1);draw();calc()">×</button></div>`).join('');
+}
+function add() { D.drinks.push({ name: '', cost: '', share: '' }); draw(); calc(); }
+function example() { D = JSON.parse(JSON.stringify(EX)); $('price').value = D.price; $('target').value = D.target; draw(); calc(); }
+function calc() {
+  D.price = $('price').value; D.target = $('target').value; store();
+  const P = num(D.price), T = num(D.target) / 100;
+  const ds = D.drinks.filter((d) => num(d.cost) > 0);
+  const sw = ds.reduce((a, d) => a + Math.max(0, num(d.share)), 0);
+  const avg = ds.length ? (sw > 0 ? ds.reduce((a, d) => a + num(d.cost) * Math.max(0, num(d.share)), 0) / sw : ds.reduce((a, d) => a + num(d.cost), 0) / ds.length) : 0;
+  if (!(P > 0 && avg > 0)) { ['avg', 'red', 'budget', 'ok'].forEach((k) => $(k).textContent = '-'); $('tbl').innerHTML = ''; $('msg').textContent = '値段とドリンクの原価を入れてください。'; return; }
+  const red = Math.floor(P / avg) + 1, budget = P * T, ok = Math.floor(budget / avg);
+  $('avg').textContent = yen(avg); $('red').textContent = red + '杯目'; $('budget').textContent = yen(budget); $('budget-s').textContent = '値段 × ' + (T * 100) + '%'; $('ok').textContent = ok + '杯';
+  $('b-red').className = 'ng'; $('b-ok').className = ok >= 3 ? 'ok' : 'ng';
+  $('tbl').innerHTML = '<tr><th>そのドリンクだけなら</th><th>1杯の原価</th><th>赤字は</th><th>目標内は</th></tr>' + ds.map((d) => {
+    const c = num(d.cost); return `<tr><td>${esc(d.name || '（名前なし）')}</td><td>${yen(c)}</td><td>${Math.floor(P / c) + 1}杯目から</td><td>${Math.floor(budget / c)}杯まで</td></tr>`;
+  }).join('');
+  const hi = ds.slice().sort((a, b) => num(b.cost) - num(a.cost))[0], lo = ds.slice().sort((a, b) => num(a.cost) - num(b.cost))[0];
+  $('msg').innerHTML = `平均すると1人 <b>${ok}杯</b> までなら目標の原価率（${T * 100}%）に収まります。` +
+    (hi && lo && hi !== lo ? `<br>${esc(hi.name)}（1杯 ${yen(num(hi.cost))}）が出るほど早く赤字に近づき、${esc(lo.name)}（${yen(num(lo.cost))}）が出るほど余裕が増えます。` : '');
+}
+if (!D || !Array.isArray(D.drinks)) D = JSON.parse(JSON.stringify(EX));
+$('price').value = D.price ?? 1500; $('target').value = D.target ?? 30;
+draw(); calc();
+</script>
+</body>
+</html>
