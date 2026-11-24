@@ -1728,6 +1728,25 @@
       "status": "done",
       "slug": "jisha-site-hankyo",
       "doneAt": "2026-11-23"
+    },
+    {
+      "id": "m207",
+      "category": "業務効率化",
+      "keyword": "賃貸 申込 重複 一番手 二番手",
+      "sub": [
+        "賃貸 申込 重なった 対応",
+        "入居申込 二番手 伝え方"
+      ],
+      "title": "賃貸の申込が重なったときの進め方｜一番手・二番手の管理と伝え方",
+      "intent": "同じ部屋に申込が重なったときの店舗側の進め方と伝え方を知りたい（料金は書かない・数字は書かない・他社を批判しない・貸主が決める事項を店舗が断定しない）",
+      "pillar": "../features.html",
+      "related": [
+        "moushikomi-kanrihyo-tsukurikata",
+        "moushikomi-cancel-shori"
+      ],
+      "status": "done",
+      "slug": "moushikomi-juufuku-taio",
+      "doneAt": "2026-11-24"
     }
   ]
 }

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="社内データ検索AI（RAG）の構築費用が何で決まるのかを、資料の整備・作る・使い続ける・直すの4つに分けて整理しました。費用を押し上げる5つの条件、最初に小さく試す範囲の切り方、答えの正しさの測り方、よくある失敗までをまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方" />
+<meta property="og:description" data-meta="og:description" content="社内データ検索AI（RAG）の構築費用が何で決まるのかを、資料の整備・作る・使い続ける・直すの4つに分けて整理しました。費用を押し上げる5つの条件、最初に小さく試す範囲の切り方、答えの正しさの測り方、よくある失敗までをまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-25-rag-kochiku-hiyo-small-start.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方" />
+<meta name="twitter:description" data-meta="twitter:description" content="社内データ検索AI（RAG）の構築費用が何で決まるのかを、資料の整備・作る・使い続ける・直すの4つに分けて整理しました。費用を押し上げる5つの条件、最初に小さく試す範囲の切り方、答えの正しさの測り方、よくある失敗までをまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-25-rag-kochiku-hiyo-small-start.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-25-rag-kochiku-hiyo-small-start";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方","description":"社内データ検索AI（RAG）の構築費用が何で決まるのかを、資料の整備・作る・使い続ける・直すの4つに分けて整理しました。費用を押し上げる5つの条件、最初に小さく試す範囲の切り方、答えの正しさの測り方、よくある失敗までをまとめています。","datePublished":"2026-11-25","dateModified":"2026-11-25","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-25-rag-kochiku-hiyo-small-start.html","image":"https://teneramente.jp/assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"RAG, 社内AI, AI導入, 費用, スモールスタート"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方","item":"https://teneramente.jp/2026-11-25-rag-kochiku-hiyo-small-start.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"資料がスキャンしたPDFしかありません。RAGは使えますか？","acceptedAnswer":{"@type":"Answer","text":"使えますが、文字を取り出す工程が先に入ります。スキャンの質と、表や図の多さで手間が変わります。まずは数ページ分で文字が正しく取り出せるかを確かめ、取り出せた文字をそのまま読んで意味が通るかを見るのが確実です。ここで崩れる資料は、元の形から作り直したほうが早い場合もあります。"}},{"@type":"Question","name":"社内の資料をAIに読ませても、外部に漏れませんか？","acceptedAnswer":{"@type":"Answer","text":"どのAIをどの契約形態で使うかで扱いが変わります。確認する項目は、入力した内容が学習に使われないこと、データの保存場所、保存期間、アクセスできる人の範囲の4点です。相談の段階で書面で確認できるかを聞いてください。社外に出せない資料は、対象から外す判断も含めて設計します。"}},{"@type":"Question","name":"どのくらいの資料量から意味が出ますか？","acceptedAnswer":{"@type":"Answer","text":"量よりも、同じ質問が繰り返されているかどうかです。資料が少なくても、担当者が同じ質問に何度も答えている業務なら効果が出ます。逆に資料が大量でも、ほとんど参照されていない資料を入れても使われません。質問の件数から考えるのが確実です。"}},{"@type":"Question","name":"既製のサービスと、作ってもらう場合の違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"違いが出るのは、権限の分け方、既存の業務システムとのつなぎ方、答えの形式の指定です。資料を置いて質問するだけなら既製のサービスで足ります。部署ごとに見える資料を変える、社内システムの記録を検索の対象に含める、答えを決まった書式で出す。こうした要件が入ると、作る側の設計が必要になります。"}},{"@type":"Question","name":"試した結果が良くなかった場合、費用は無駄になりますか？","acceptedAnswer":{"@type":"Answer","text":"検証用の質問リストと、資料の一覧・形式・更新者をまとめた記録は残ります。この2つは、別の方法で課題を解決する場合にもそのまま使えます。小さく試す範囲を決めるのは、結果が良くなかったときに残るものを最大にするためでもあります。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 25, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png" alt="RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>RAG構築の費用は、AIの性能ではなく資料の状態で決まる</a><a href="#h2"><span class="n">02</span>費用の内訳を4つに分ける：資料の整備・作る・使い続ける・直す</a><a href="#h3"><span class="n">03</span>費用を押し上げる5つの条件を、見積もり前に確かめる</a><a href="#h4"><span class="n">04</span>まず小さく試す範囲は、質問の型を1つに絞って切る</a><a href="#h5"><span class="n">05</span>答えが合っているかを、どうやって測るか</a><a href="#h6"><span class="n">06</span>試したあと、広げる・やめる・別の手に替えるの3択</a><a href="#h7"><span class="n">07</span>よくある失敗と、その避け方</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：資料の状態を書き出すところから始める</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">社内の資料をAIに読ませて、質問に答えさせたい。やりたいことは決まっているのに、いくらかかるのか見当がつかない。社内データ検索AIの相談で、最初に出る疑問がこれです。結論から申し上げると、<strong>RAG構築の費用を決めているのはAIの性能ではなく、読ませる資料の状態</strong>です。この記事では、費用がどこで決まるのかと、最初に小さく試す範囲の切り方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>RAG構築の見積もりは、<strong>資料の形式・件数・更新の頻度・見せてよい範囲</strong>の4点が決まると形になります。先に全社の資料をまとめようとせず、質問の型を1つ、資料を1種類に絞って試すと、費用と効果の両方を小さい単位で確かめられます。仕組みの基礎は<a href="2026-06-17-rag-shanai-knowledge.html">RAGとは？社内ナレッジをAIに答えさせる仕組み</a>に整理しています。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>RAG構築の費用は、AIの性能ではなく資料の状態で決まる</h2>
+<p>RAG（<em>Retrieval-Augmented Generation</em>、検索で補う文章生成）は、質問が来たら社内の資料から関係のある箇所を探し、その箇所を根拠としてAIに答えさせる仕組みです。つまり、AIの前に検索があります。費用の大半は、この検索できる状態を作る工程に集まります。</p>
+<p>同じ「社内の資料を検索できるようにしたい」という依頼でも、かかる手間はまったく違います。文書ソフトやクラウドの文書サービスで作られた資料は、文字をそのまま取り出せます。一方、紙をスキャンしたPDF、画像として貼られた表、手書きの記入欄が混ざった帳票は、文字を取り出す工程が先に必要です。取り出せたとしても、表の行と列の関係が崩れていれば、検索で拾っても答えの根拠になりません。</p>
+<p>もう一つ費用を動かすのが、資料の重複です。同じマニュアルの新旧が複数のフォルダに残っていると、検索は両方を拾います。どちらが有効なのかを仕組みは判断できないため、古い手順をもとに答えてしまいます。<strong>精度を落とす最大の原因は、AIの選び方ではなく資料の重複と版の管理</strong>です。</p>
+<p>見積もりを取る前にやることは決まっています。読ませたい資料を一覧にして、その形式と置き場所を書き出す。この一覧があるかどうかで、提示される金額の幅が変わります。</p>
+<h2 id="h2"><span class="h-num">02</span>費用の内訳を4つに分ける：資料の整備・作る・使い続ける・直す</h2>
+<p>RAGの費用は、4つに分けて考えると比較できるようになります。</p>
+<p>一つ目は、資料の整備です。読ませる資料を集め、文字を取り出し、古い版と重複を落とし、どの部署が見てよい資料なのかを区別します。ここは開発というより整理の作業で、社内でできる部分と任せる部分を分けられます。</p>
+<p>二つ目は、作る工程です。資料を検索できる形に変換する処理、質問を受ける画面、答えと一緒に根拠の出典を示す仕組み、閲覧できる範囲を分ける権限の設定。ここが一般に「開発費」と呼ばれる部分です。</p>
+<p>三つ目は、使い続ける費用です。AIの利用料、検索用のデータを置く場所の費用、資料が更新されたときに取り込み直す処理。<strong>この3つ目が見積もりから抜けていると、公開した翌月から想定外の請求が始まります</strong>。</p>
+<p>四つ目は、直す費用です。答えがずれたときの調整、資料の追加、項目の変更。使い始めてから必ず出る作業で、月額に含むのか都度見積もりなのかを先に決めておく項目です。業務自動化全体の費用の考え方は<a href="2026-11-10-ai-gyomu-jidoka-irai-hiyo.html">AIで業務を自動化するときの頼み方</a>にも整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>費用を押し上げる5つの条件を、見積もり前に確かめる</h2>
+<p>同じRAGでも、次の5つの条件で手間が変わります。自社がどちらに寄っているかを見てから相談すると、金額の理由が分かります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>軽く済む場合</th>
+<th>手がかかる場合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>資料の形式</td>
+<td>文字がそのまま取り出せる文書・表</td>
+<td>スキャンしたPDF、画像の表、手書きの帳票</td>
+</tr>
+<tr>
+<td>件数と重複</td>
+<td>置き場所が1か所で、版が1つ</td>
+<td>複数のフォルダに新旧が散在し、どれが有効か不明</td>
+</tr>
+<tr>
+<td>更新の頻度</td>
+<td>ほぼ変わらない規程・マニュアル</td>
+<td>毎週書き換わる手順書、日々増える案件の記録</td>
+</tr>
+<tr>
+<td>見せてよい範囲</td>
+<td>全社員が同じ資料を見てよい</td>
+<td>部署や役職で見える資料を分ける必要がある</td>
+</tr>
+<tr>
+<td>求める答えの厳しさ</td>
+<td>当たりを付けて、原文を自分で確認する</td>
+<td>答えをそのまま顧客対応や社外文書に使う</td>
+</tr>
+</tbody></table></div>
+<p>右の列に寄るほど、整備と検証の工程が増えます。とくに下の2つは設計そのものを変えます。見える範囲を分ける必要があるなら、検索の段階で絞り込む仕組みが要ります。答えをそのまま社外に出すなら、根拠の提示と確認の手順を業務に組み込む前提で作ります。</p>
+<p>逆に、左の列に寄っている資料だけを対象にすれば、最初の範囲はかなり小さくできます。<strong>全部をいっぺんに対象にしないという判断が、費用をいちばん大きく動かします</strong>。</p>
+<h2 id="h4"><span class="h-num">04</span>まず小さく試す範囲は、質問の型を1つに絞って切る</h2>
+<p>小さく試すときに迷うのが、何を「小さく」するかです。資料の量を減らすのではなく、答えさせたい質問の型で切ると、結果が判断に使える形になります。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-25-rag-kochiku-hiyo-small-start.png" alt="現場から実際に出ている質問を1種類だけ選んで決める質問を1つ決める段、その質問に答えるために必要な資料を1種類だけ入れて精度が落ちた原因を切り分けられるようにする資料を1種類入れる段、人が調べた場合の答えと並べて根拠として示された箇所が正しいかを見る答えを見比べる段、ここで初めて資料の種類を増やすかどうかを決める広げるか決める段という、RAGを小さく試すときの4つの段を順番に並べた図" width="1600" height="547" loading="lazy" decoding="async"><figcaption>資料の量ではなく質問の型で切ると、結果が判断に使える形になります。</figcaption></figure>
+
+
+<p>一段目は、質問を1つ決めることです。「この規程で有給はいつから使えるか」「この製品の保証はどこまでか」のように、現場から実際に出ている質問を1種類選びます。</p>
+<p>二段目は、その質問に答えるために必要な資料を1種類だけ入れることです。関係のない資料を入れると、精度が落ちた原因が資料なのか仕組みなのか分からなくなります。</p>
+<p>三段目は、答えを見比べることです。同じ質問を人が調べた場合の答えと並べ、根拠として示された箇所が正しいかを見ます。</p>
+<p>四段目は、広げるかどうかを決めることです。ここで初めて、資料の種類を増やす判断をします。</p>
+<p>試す前にそろえておく材料は次のとおりです。そのまま確認に使えます。</p>
+<ul>
+<li>現場から実際に出ている質問を、言葉そのままで集めたもの</li>
+<li>その質問に答えている資料の名称と、置いてある場所</li>
+<li>その資料の形式（文書ソフト、PDF、表計算、紙のスキャン）</li>
+<li>資料の有効な版はどれか、誰が更新しているか</li>
+<li>見せてよい相手の範囲（全社か、部署限定か）</li>
+<li>答えが間違っていた場合に、何が困るか</li>
+</ul>
+<p>小さく作る進め方そのものは<a href="2026-11-18-shanai-tool-small-start.html">社内ツールを小さく作って試す方法</a>に手順をまとめています。</p>
+<h2 id="h5"><span class="h-num">05</span>答えが合っているかを、どうやって測るか</h2>
+<p>RAGで最も飛ばされやすく、飛ばすと費用が無駄になるのが、答えの検証です。ここを決めずに作ると、「なんとなく使えそう」で止まり、広げる判断ができません。</p>
+<p>まず、現場から集めた質問をそのまま検証用のリストにします。質問は、答えが1つに決まるものと、条件によって変わるものを混ぜておきます。次に、それぞれの答えを3つに分けて記録します。正しい、根拠が示されていない、誤り。この3分類で十分です。</p>
+<p>重要なのは、誤りの中身を分けて見ることです。資料に書いていないことを答えた場合と、資料にあるのに拾えなかった場合では、直す場所が違います。前者は答えの作り方、後者は検索の作り方の問題です。</p>
+<p>もう一つ確かめるのが、<strong>資料に書いていない質問に対して「分かりません」と答えられるか</strong>です。社内AIで事故につながるのは、知らないことを自然な文章で埋めてしまう動きです。検証用のリストには、資料に答えが無い質問を必ず混ぜてください。</p>
+<p>この検証表を作っておくと、資料を追加したときに前より良くなったのかを同じ基準で比べられます。導入でつまずく型は<a href="2026-06-14-ai-donyu-shippai-kaihi.html">AI導入の失敗を避ける方法</a>にも整理しています。</p>
+<h2 id="h6"><span class="h-num">06</span>試したあと、広げる・やめる・別の手に替えるの3択</h2>
+<p>小さく試した結果は、次の3つのどれかに振り分けます。曖昧なまま続けるのが、いちばん費用を使います。</p>
+<p>広げる判断になるのは、答えの正しさが実務に足りていて、質問の件数も多い場合です。このときは、同じ質問の型のまま資料の種類を増やす方向に進みます。質問の型を同時に増やすと、検証の基準が崩れます。</p>
+<p>やめる判断になるのは、そもそも質問の件数が少なかった場合です。試してみると、ほとんど聞かれていない質問だったという結果はよくあります。これは失敗ではなく、小さく試したから分かった成果です。</p>
+<p>別の手に替える判断になるのは、答えが毎回同じで、検索の必要が無かった場合です。よくある質問の一覧を1枚にまとめて共有する、申請の画面に注意書きを出す、入力の形式を変えて質問が起きないようにする。<strong>AIより先に、資料の置き方で解決する課題は少なくありません</strong>。</p>
+<p>どの判断になっても、検証表と資料の一覧は残ります。この2つが社内に残ることが、小さく試す本当の価値です。</p>
+<h2 id="h7"><span class="h-num">07</span>よくある失敗と、その避け方</h2>
+<p>RAGの相談で繰り返し見かける失敗は、次の4つに集まります。</p>
+<p><strong>全社の資料を先に整理しようとする</strong>。整理そのものが大きな仕事になり、AIを試す前に止まります。質問1つに必要な資料だけを先に整えます。</p>
+<p><strong>根拠の出典を表示しない作りにする</strong>。答えだけが出る仕組みは、合っているか確かめられず、現場が使いません。どの資料のどこを見たのかを必ず表示する前提で設計します。</p>
+<p><strong>権限を後から足そうとする</strong>。誰が何を見てよいかは、検索の作り方に関わります。後から分ける場合、検索の仕組みを作り直すことになります。</p>
+<p><strong>資料の更新の取り込みを決めずに公開する</strong>。手順書が書き換わっても取り込まれなければ、古い答えを返し続けます。誰がいつ更新を反映するのかを、公開前に決めておく項目です。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>一般論として、判断の基準は3つあります。</p>
+<p>一つ目は、資料の形式がそろっているかどうかです。文字がそのまま取り出せる資料だけで足りるなら、既製のサービスの機能で試せる範囲は広いです。スキャンしたPDFや画像の表が主なら、文字を取り出す工程の設計から必要になり、設定の工夫では収まりません。</p>
+<p>二つ目は、見せてよい範囲を分ける必要があるかどうかです。全員が同じ資料を見てよいなら、小さく始めて様子を見られます。部署や役職で分ける必要があるなら、最初の設計で道をふさがないほうが結果的に安く済みます。</p>
+<p>三つ目は、検証を社内で回せるかどうかです。質問を集め、答えを3分類で記録し、直す場所を切り分ける。この作業を続けられるなら、道具を選ぶ段からで構いません。ここが続かないなら、検証の仕組みごと相談したほうが早く進みます。</p>
+<p>迷うときは、1年後にこの仕組みで誰の何時間が減っているかを1文で書いてみてください。「調べる時間が短くなる」までなら、既製のサービスで試す価値があります。「誰が聞いても同じ答えが根拠付きで返り、担当者への質問が減っている」まで書けるなら、最初から設計を相談する価値があります。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>資料がスキャンしたPDFしかありません。RAGは使えますか？</summary><div class="faq-a">使えますが、文字を取り出す工程が先に入ります。スキャンの質と、表や図の多さで手間が変わります。まずは数ページ分で文字が正しく取り出せるかを確かめ、取り出せた文字をそのまま読んで意味が通るかを見るのが確実です。ここで崩れる資料は、元の形から作り直したほうが早い場合もあります。</div></details>
+
+<details class="faq"><summary>社内の資料をAIに読ませても、外部に漏れませんか？</summary><div class="faq-a">どのAIをどの契約形態で使うかで扱いが変わります。確認する項目は、入力した内容が学習に使われないこと、データの保存場所、保存期間、アクセスできる人の範囲の4点です。相談の段階で書面で確認できるかを聞いてください。社外に出せない資料は、対象から外す判断も含めて設計します。</div></details>
+
+<details class="faq"><summary>どのくらいの資料量から意味が出ますか？</summary><div class="faq-a">量よりも、同じ質問が繰り返されているかどうかです。資料が少なくても、担当者が同じ質問に何度も答えている業務なら効果が出ます。逆に資料が大量でも、ほとんど参照されていない資料を入れても使われません。質問の件数から考えるのが確実です。</div></details>
+
+<details class="faq"><summary>既製のサービスと、作ってもらう場合の違いは何ですか？</summary><div class="faq-a">違いが出るのは、権限の分け方、既存の業務システムとのつなぎ方、答えの形式の指定です。資料を置いて質問するだけなら既製のサービスで足ります。部署ごとに見える資料を変える、社内システムの記録を検索の対象に含める、答えを決まった書式で出す。こうした要件が入ると、作る側の設計が必要になります。</div></details>
+
+<details class="faq"><summary>試した結果が良くなかった場合、費用は無駄になりますか？</summary><div class="faq-a">検証用の質問リストと、資料の一覧・形式・更新者をまとめた記録は残ります。この2つは、別の方法で課題を解決する場合にもそのまま使えます。小さく試す範囲を決めるのは、結果が良くなかったときに残るものを最大にするためでもあります。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：資料の状態を書き出すところから始める</h2>
+<p>RAG構築の費用は、AIの選び方ではなく資料の状態で決まります。資料の形式、件数と重複、更新の頻度、見せてよい範囲、求める答えの厳しさ。この5つを書き出すと、見積もりの幅が狭まり、金額の理由も分かります。最初の範囲は、資料の量ではなく質問の型を1つに絞って切る。答えは正しい・根拠なし・誤りの3分類で記録し、資料に無い質問に「分かりません」と答えられるかまで確かめる。ここまでやると、広げるかやめるかを事実で決められます。</p>
+<p>TENERAMENTEなら、この記事で挙げた「全社の資料整理から始めて止まる」「検証の基準が無く広げる判断ができない」の2つを、進め方の側で外します。開発は3回のミーティングで要件を固める形を取っており、1回目に現場から実際に出ている質問と、その答えが書かれた資料の形式・置き場所・更新者を一緒に書き出して、最初に対象とする1種類を決めます。2回目に根拠の出典の出し方と見える範囲の分け方、資料が更新されたときの取り込みの担当まで含めて範囲を固めます。最短2週間でのPoC（<em>Proof of Concept</em>、試作による検証）に対応しているため、質問の型を1つに絞った状態で答えの正しさを先に確かめ、広げるかどうかを実物を見てから決められます。担当者が同じ質問に何度も答えている時間と、どの資料が有効な版か探す時間がそのまま減ります。AI開発の進め方と範囲は<a href="lp-ai.html">AI活用・開発</a>にまとめています。初回のご相談60分は無料ですので、資料がそろっていない段階でも<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#RAG</span><span>#社内AI</span><span>#AI導入</span><span>#費用</span><span>#スモールスタート</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI活用支援</span>
+    <p class="svc-card-title">社内のAI導入を、「どこから始める？」から</p>
+    <p class="svc-card-text">ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai.html" class="btn btn--ghost btn--lg">AI活用支援を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-10-ai-gyomu-jidoka-irai-hiyo.html">
+        <span class="cat">AI</span>
+        <h4>AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲</h4>
+      </a>
+      <a class="related-card" href="2026-11-03-ai-donyu-sodansaki.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入はどこに相談する？相談先の種類と、選ぶときの確認点</h4>
+      </a>
+      <a class="related-card" href="2026-10-27-chatgpt-claude-gemini-chigai.html">
+        <span class="cat">AI</span>
+        <h4>ChatGPT・Claude・Geminiの違いと業務での使い分け</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

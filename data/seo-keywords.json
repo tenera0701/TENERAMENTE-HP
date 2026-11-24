@@ -1676,7 +1676,9 @@
       "related": [
         "2026-06-17-rag-shanai-knowledge"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-25-rag-kochiku-hiyo-small-start",
+      "doneAt": "2026-11-24"
     },
     {
       "id": "k045",
