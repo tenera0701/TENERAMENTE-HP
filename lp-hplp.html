@@ -4,85 +4,160 @@
 <meta charset="utf-8" />
 <script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>完全オリジナルHPが月額1万円・制作費0円｜HP制作｜TENERAMENTE</title>
-<meta name="description" content="新規事業キャンペーン。完全オリジナルのホームページを月額1万円、制作費0円でお作りします。建築・店舗・不動産・ITの制作実績あり。スマホ対応・サーバー・保守込み、公開後はご自身でも更新できます。" />
+<title>問い合わせが来るHPを月額1万円で｜制作費0円のHP制作｜TENERAMENTE</title>
+<meta name="description" content="新規事業キャンペーン。完全オリジナルのホームページを制作費0円・月額1万円で。問い合わせまでの動線から設計し、見られている数も分かる。建築・飲食・不動産・ITの制作実績あり。AIを使った業務改善のご相談も。" />
 <link rel="canonical" href="https://teneramente.jp/lp-hplp.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="株式会社TENERAMENTE" />
 <meta property="og:locale" content="ja_JP" />
-<meta property="og:title" content="完全オリジナルHPが月額1万円・制作費0円｜TENERAMENTE" />
-<meta property="og:description" content="新規事業キャンペーン。完全オリジナルのホームページを月額1万円、制作費0円で。建築・店舗・不動産・ITの制作実績あり。" />
+<meta property="og:title" content="問い合わせが来るHPを、月額1万円で。制作費0円｜TENERAMENTE" />
+<meta property="og:description" content="完全オリジナルのホームページを制作費0円・月額1万円で。建築・飲食・不動産・ITの制作実績あり。" />
 <meta property="og:url" content="https://teneramente.jp/lp-hplp.html" />
 <meta property="og:image" content="https://teneramente.jp/assets/img/works/kenchiku-pc.webp" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="assets/site.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
 <style>
-.hero-2 { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
-@media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
-.camp-badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .06em; }
-.camp-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
-.hp-h1 { font-family: var(--font-min); font-weight: 600; font-size: clamp(38px, 6.2vw, 88px); line-height: 1.18; letter-spacing: .01em; margin-top: 22px; }
-.hp-h1 .y { color: var(--accent); }
-.price-card { border: 1px solid var(--line-2); border-radius: 8px; background: var(--card); overflow: hidden; }
-.price-card .row1 { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
-.price-card .pc-cell { padding: clamp(18px, 2.2vw, 28px); }
-.price-card .pc-cell + .pc-cell { border-left: 1px solid var(--line); }
-.price-card .k { font-size: 12.5px; color: var(--fg-3); letter-spacing: .08em; }
-.price-card .v { font-family: var(--font-en); font-weight: 600; font-size: clamp(40px, 4.6vw, 64px); letter-spacing: -.04em; line-height: 1.05; margin-top: 6px; }
-.price-card .v small { font-family: var(--font-jp); font-size: .34em; letter-spacing: 0; margin-left: .15em; font-weight: 700; }
-.price-card .v.zero { color: var(--accent); }
-.price-card .note { padding: 16px clamp(18px, 2.2vw, 28px); font-size: 13.5px; color: var(--fg-2); line-height: 1.8; }
-.price-card .note b { color: var(--fg); }
-/* 実績 */
-.works { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 34px); }
-@media (max-width: 760px) { .works { grid-template-columns: 1fr; } }
-.work { display: block; color: inherit; text-decoration: none; border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow: hidden; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
-.work:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(18,19,23,.12); }
-.work .shot { position: relative; aspect-ratio: 16 / 10; background: var(--bg-2); overflow: hidden; }
-.work .shot .pc { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-.work .shot .sp { position: absolute; right: 4%; bottom: -14%; width: 21%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 12px; border: 4px solid #121317; box-shadow: 0 10px 26px rgba(0,0,0,.35); background: #121317; }
-.work .meta { padding: clamp(16px, 2vw, 24px); display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center; }
-.work .cat { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
-.work h3 { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; grid-column: 1; }
-.work p { font-size: 13.5px; color: var(--fg-2); line-height: 1.75; grid-column: 1; }
-.work .go { grid-column: 2; grid-row: 1 / span 3; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; white-space: nowrap; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
-.work .url { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); grid-column: 1; }
-/* 悩み */
-.pains { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-@media (max-width: 900px) { .pains { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .pains { grid-template-columns: 1fr; } }
-.pain { padding: clamp(20px, 2.4vw, 30px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.pain .n { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
-.pain h3 { font-size: 17px; line-height: 1.5; margin-top: 10px; }
-.pain p { font-size: 13.5px; color: var(--fg-2); line-height: 1.8; margin-top: 8px; }
-/* 含まれるもの */
-.incl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-@media (max-width: 860px) { .incl { grid-template-columns: 1fr; } }
-.incl li { list-style: none; padding: 20px 22px 20px 52px; position: relative; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.7; }
-.incl li small { display: block; font-size: 13px; color: var(--fg-2); margin-top: 4px; }
-.incl li::before { content: ''; position: absolute; left: 22px; top: 28px; width: 13px; height: 7px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
-/* 条件 */
-.cond { border: 1px solid var(--line-2); border-radius: 8px; padding: clamp(20px, 2.6vw, 34px); background: var(--card); }
-.cond dl { display: grid; grid-template-columns: 9em 1fr; }
-.cond dt, .cond dd { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; line-height: 1.8; }
-.cond dt { font-weight: 700; }
-.cond dd { color: var(--fg-2); }
-.cond dl > :nth-last-child(-n+2) { border-bottom: 0; }
-@media (max-width: 600px) { .cond dl { grid-template-columns: 1fr; } .cond dt { border-bottom: 0; padding-bottom: 0; } }
-/* 流れ */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 22px); counter-reset: st; }
-@media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-.step { border-top: 2px solid var(--fg); padding-top: 16px; }
-.step::before { counter-increment: st; content: 'STEP 0' counter(st); font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
-.step h3 { font-size: 17px; margin-top: 8px; }
-.step p { font-size: 13.5px; color: var(--fg-2); line-height: 1.8; margin-top: 6px; }
+:root { --hp-ink: #0B0B0D; --hp-ink2: #141519; --hp-line: rgba(255,255,255,.12); --hp-mute: rgba(255,255,255,.62); --hp-ac: #2340F5; --hp-ac2: #8496FF; }
+.hp { font-family: var(--font-jp); }
+.hp .wrapx { width: min(100% - 2 * var(--gutter), 1240px); margin-inline: auto; }
+.hp .eyebrow2 { font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.hp .dark .eyebrow2 { color: var(--hp-ac2); }
+.hp .h2x { font-weight: 900; font-size: clamp(30px, 4.6vw, 60px); line-height: 1.2; letter-spacing: -.01em; margin-top: 14px; }
+.hp .lead2 { font-size: clamp(15px, 1.25vw, 17px); line-height: 2; color: var(--fg-2); margin-top: 18px; max-width: 40em; }
+.hp .dark { background: var(--hp-ink); color: #fff; }
+.hp .dark .lead2 { color: var(--hp-mute); }
+.hp .secx { padding: clamp(72px, 10vw, 140px) 0; }
+.hp .btnx { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 0 30px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; transition: transform .25s, background .25s, box-shadow .25s; }
+.hp .btnx--ac { background: var(--hp-ac); color: #fff; box-shadow: 0 12px 30px rgba(35,64,245,.35); }
+.hp .btnx--ac:hover { transform: translateY(-2px); background: #1A31C4; }
+.hp .btnx--ghost { border: 1.5px solid currentColor; color: inherit; }
+.hp .btnx--ghost:hover { transform: translateY(-2px); }
+.hp .btnx--line { background: #06C755; color: #fff; }
+.hp .btnx svg { width: 18px; height: 18px; }
+
+/* ── ヒーロー ── */
+.hp-hero { position: relative; overflow: hidden; padding: calc(var(--header-h) + clamp(48px, 7vw, 100px)) 0 0; background: var(--hp-ink); color: #fff; }
+.hp-hero::before { content: ''; position: absolute; inset: -20% -10% auto auto; width: 70vw; height: 70vw; background: radial-gradient(closest-side, rgba(35,64,245,.35), transparent 70%); pointer-events: none; }
+.hp-hero .wrapx { position: relative; }
+.hp-badge { display: inline-flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.hp-badge span { padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.hp-badge .b1 { background: var(--hp-ac); }
+.hp-badge .b2 { border: 1px solid var(--hp-line); color: var(--hp-mute); }
+.hp-h1 { font-weight: 900; font-size: clamp(42px, 8.4vw, 128px); line-height: 1.08; letter-spacing: -.035em; margin-top: 26px; }
+.hp-h1 em { font-style: normal; color: var(--hp-ac2); }
+.hp-sub { margin-top: 26px; font-size: clamp(15.5px, 1.4vw, 19px); line-height: 1.95; color: var(--hp-mute); max-width: 36em; }
+.hp-sub b { color: #fff; }
+.hp-terms { display: grid; grid-template-columns: repeat(3, auto); gap: 0; margin-top: 34px; width: fit-content; border: 1px solid var(--hp-line); border-radius: 14px; overflow: hidden; }
+.hp-terms > div { padding: 14px clamp(16px, 2.4vw, 30px); }
+.hp-terms > div + div { border-left: 1px solid var(--hp-line); }
+.hp-terms .k { font-size: 12px; color: var(--hp-mute); }
+.hp-terms .v { font-family: var(--font-en); font-weight: 700; font-size: clamp(26px, 3vw, 40px); letter-spacing: -.03em; line-height: 1.1; margin-top: 2px; }
+.hp-terms .v small { font-family: var(--font-jp); font-size: .42em; margin-left: .15em; letter-spacing: 0; }
+.hp-terms .v.ac { color: var(--hp-ac2); }
+.hp-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hp-note { font-size: 12.5px; color: var(--hp-mute); margin-top: 12px; }
+/* 実績の画面を流す帯 */
+.hp-reel { margin-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(40px, 6vw, 80px); overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.hp-reel .track { display: flex; gap: clamp(14px, 2vw, 26px); width: max-content; animation: hpreel 48s linear infinite; }
+.hp-reel a { display: block; width: clamp(280px, 34vw, 480px); aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; border: 1px solid var(--hp-line); background: #1E1F24; flex: none; transition: transform .3s; }
+.hp-reel a:hover { transform: translateY(-4px); }
+.hp-reel img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+@keyframes hpreel { to { transform: translateX(-50%); } }
+@media (max-width: 640px) { .hp-terms { grid-template-columns: repeat(3, 1fr); width: 100%; } .hp-terms > div { padding: 12px 12px; } .hp-ctas .btnx { width: 100%; } }
+
+/* ── 悩み ── */
+.pain2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(32px, 4vw, 56px); }
+@media (max-width: 760px) { .pain2 { grid-template-columns: 1fr; } }
+.pain2 .p { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; padding: clamp(20px, 2.4vw, 30px); border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.pain2 .n { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--paper-2); font-family: var(--font-en); font-weight: 700; font-size: 18px; color: var(--accent); }
+.pain2 h3 { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.45; font-weight: 700; }
+.pain2 p { font-size: 14px; line-height: 1.85; color: var(--fg-2); margin-top: 6px; }
+.pain-answer { margin-top: clamp(36px, 4vw, 56px); font-weight: 900; font-size: clamp(22px, 3vw, 36px); line-height: 1.5; }
+.pain-answer span { background: linear-gradient(transparent 62%, rgba(35,64,245,.22) 62%); }
+
+/* ── 強み ── */
+.str { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: clamp(36px, 4vw, 60px); border-top: 1px solid var(--hp-line); }
+@media (max-width: 860px) { .str { grid-template-columns: 1fr; } }
+.str .s { padding: clamp(26px, 3vw, 40px) clamp(0px, 2vw, 30px) clamp(26px, 3vw, 40px) 0; border-bottom: 1px solid var(--hp-line); }
+@media (min-width: 861px) { .str .s + .s { padding-left: clamp(20px, 2.4vw, 34px); border-left: 1px solid var(--hp-line); } }
+.str .num { font-family: var(--font-en); font-weight: 700; font-size: clamp(52px, 6vw, 88px); line-height: 1; letter-spacing: -.05em; color: var(--hp-ac2); }
+.str h3 { font-size: clamp(19px, 1.8vw, 24px); font-weight: 700; margin-top: 18px; line-height: 1.45; }
+.str p { font-size: 14.5px; line-height: 1.9; color: var(--hp-mute); margin-top: 10px; }
+
+/* ── 実績 ── */
+.wk { display: grid; gap: clamp(44px, 6vw, 96px); margin-top: clamp(40px, 5vw, 72px); }
+.wk .w { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.wk .w:nth-child(even) .shot { order: 2; }
+@media (max-width: 860px) { .wk .w { grid-template-columns: 1fr; } .wk .w:nth-child(even) .shot { order: 0; } }
+.wk .shot { position: relative; display: block; border-radius: 14px; background: var(--paper-2); aspect-ratio: 16 / 10; overflow: visible; }
+.wk .shot .pc { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 14px; display: block; box-shadow: 0 24px 60px rgba(18,19,23,.18); }
+.wk .shot .sp { position: absolute; right: -2%; bottom: -10%; width: 22%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 16px; border: 5px solid #121317; background: #121317; box-shadow: 0 16px 36px rgba(0,0,0,.35); }
+.wk .cat { display: inline-block; font-size: 12.5px; font-weight: 700; color: #fff; background: var(--accent); padding: 5px 12px; border-radius: 999px; }
+.wk h3 { font-size: clamp(24px, 2.6vw, 34px); font-weight: 900; margin-top: 14px; line-height: 1.3; }
+.wk .pt { margin-top: 16px; display: grid; gap: 10px; }
+.wk .pt li { list-style: none; position: relative; padding-left: 26px; font-size: 15px; line-height: 1.8; color: var(--fg-2); }
+.wk .pt li::before { content: ''; position: absolute; left: 2px; top: 10px; width: 12px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.wk .go { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 700; font-size: 15px; color: var(--fg); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 3px; }
+.wk .url { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); margin-top: 8px; display: block; }
+
+/* ── AI ── */
+.ai-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+@media (max-width: 860px) { .ai-box { grid-template-columns: 1fr; } }
+.ai-list { display: grid; gap: 12px; }
+.ai-list > div { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 18px 20px; border: 1px solid var(--hp-line); border-radius: 12px; background: var(--hp-ink2); }
+.ai-list b { font-family: var(--font-mono); font-size: 12px; color: var(--hp-ac2); }
+.ai-list h4 { font-size: 16px; font-weight: 700; }
+.ai-list p { font-size: 13.5px; color: var(--hp-mute); margin-top: 3px; line-height: 1.7; }
+
+/* ── 料金 ── */
+.price2 { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2); background: var(--card); margin-top: clamp(32px, 4vw, 56px); }
+@media (max-width: 860px) { .price2 { grid-template-columns: 1fr; } }
+.price2 .l { background: var(--hp-ink); color: #fff; padding: clamp(28px, 3.4vw, 48px); }
+.price2 .row2 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--hp-line); }
+.price2 .row2:last-of-type { border-bottom: 0; }
+.price2 .row2 .k { font-size: 14px; color: var(--hp-mute); }
+.price2 .row2 .v { font-family: var(--font-en); font-weight: 700; font-size: clamp(40px, 5vw, 64px); letter-spacing: -.04em; line-height: 1; }
+.price2 .row2 .v small { font-family: var(--font-jp); font-size: .32em; margin-left: .15em; letter-spacing: 0; }
+.price2 .row2 .v.ac { color: var(--hp-ac2); }
+.price2 .fine { font-size: 12.5px; color: var(--hp-mute); line-height: 1.8; margin-top: 14px; }
+.price2 .r { padding: clamp(28px, 3.4vw, 48px); }
+.price2 .r h3 { font-size: 17px; font-weight: 700; }
+.incl2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin-top: 16px; }
+@media (max-width: 520px) { .incl2 { grid-template-columns: 1fr; } }
+.incl2 li { list-style: none; position: relative; padding-left: 24px; font-size: 14.5px; line-height: 1.7; }
+.incl2 li small { display: block; font-size: 12.5px; color: var(--fg-3); }
+.incl2 li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 12px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.cond2 { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 13.5px; color: var(--fg-2); line-height: 1.8; }
+.cond2 b { color: var(--fg); }
+
+/* ── 流れ ── */
+.steps2 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(32px, 4vw, 56px); counter-reset: st; }
+@media (max-width: 860px) { .steps2 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .steps2 { grid-template-columns: 1fr; } }
+.steps2 .st { padding: 22px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.steps2 .st::before { counter-increment: st; content: '0' counter(st); font-family: var(--font-en); font-weight: 700; font-size: 34px; color: var(--accent); letter-spacing: -.04em; }
+.steps2 h3 { font-size: 17px; font-weight: 700; margin-top: 8px; }
+.steps2 p { font-size: 13.5px; color: var(--fg-2); line-height: 1.8; margin-top: 6px; }
+
+/* ── 最後 ── */
+.final { text-align: center; }
+.final .h2x { font-size: clamp(32px, 5.4vw, 76px); }
+.final .lead2 { margin-inline: auto; }
+.final .hp-ctas { justify-content: center; }
+
+/* スマホの下に固定する相談ボタン */
+.hp-fix { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; display: none; gap: 8px; }
+.hp-fix a { flex: 1; min-height: 54px; border-radius: 999px; display: grid; place-items: center; font-weight: 700; font-size: 15px; text-decoration: none; color: #fff; }
+.hp-fix .a1 { background: var(--hp-ac); box-shadow: 0 10px 26px rgba(35,64,245,.4); }
+.hp-fix .a2 { background: #06C755; flex: .55; }
+@media (max-width: 760px) { .hp-fix.on { display: flex; } body.hp-page { padding-bottom: 76px; } }
+@media (prefers-reduced-motion: reduce) { .hp-reel .track { animation: none; } }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -102,160 +177,205 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 </head>
-<body data-active="services">
+<body data-active="services" data-hero="dark" class="hp hp-page">
 
 <div data-chrome="header"></div>
 
-<section class="lp-hero" data-screen-label="HP:ヒーロー">
-  <div class="wrap-wide hero-2">
-    <div>
-      <span class="camp-badge reveal">新規事業キャンペーン</span>
-      <h1 class="hp-h1">完全オリジナルHPを、<br />月額<span class="y">1万円</span>で。</h1>
-      <p class="lead reveal d2">ホームページ制作を新しく始めるにあたり、<strong class="hl">実績づくりのため制作費をいただかずに</strong>お作りします。テンプレートは使わず、御社のためだけにデザイン。スマホ対応・サーバー・保守まで月額に含めています。</p>
-      <div class="ctas reveal d3">
-        <a href="contact.html" class="btn btn--primary btn--lg">無料で相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
-        <a href="#works" class="btn btn--ghost btn--lg">制作実績を見る</a>
-      </div>
+<!-- ヒーロー -->
+<section class="hp-hero" data-screen-label="HP:ヒーロー">
+  <div class="wrapx">
+    <div class="hp-badge reveal"><span class="b1">新規事業キャンペーン</span><span class="b2">実績づくりのため受付数に限りがあります</span></div>
+    <h1 class="hp-h1">問い合わせが来る<br />HPを、<em>月額1万円</em>で。</h1>
+    <p class="hp-sub reveal d1">テンプレートは使わず、御社のためだけに設計する<b>完全オリジナルのホームページ</b>。お客様が「ここに頼もう」と決めて、問い合わせるところまでの流れから組み立てます。</p>
+    <div class="hp-terms reveal d2">
+      <div><div class="k">制作費</div><div class="v ac">0<small>円</small></div></div>
+      <div><div class="k">月額<span style="font-size:10px"> 税別</span></div><div class="v">1<small>万円</small></div></div>
+      <div><div class="k">最低ご契約</div><div class="v">6<small>か月</small></div></div>
     </div>
-    <div class="price-card reveal d2">
-      <div class="row1">
-        <div class="pc-cell"><div class="k">制作費</div><div class="v zero">0<small>円</small></div></div>
-        <div class="pc-cell"><div class="k">月額</div><div class="v">1<small>万円</small></div></div>
-      </div>
-      <div class="note"><b>最低ご契約期間は6か月</b>。7か月目からは1か月単位で解約できます。<br />金額は税別です。独自ドメインの費用は実費となります。</div>
+    <div class="hp-ctas reveal d3">
+      <a href="contact.html" class="btnx btnx--ac" id="cta-hero" data-cta="hero">無料でHPの相談をする<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="#works" class="btnx btnx--ghost">制作実績を見る</a>
+    </div>
+    <p class="hp-note reveal d3">オンラインで30分。今のHPのお悩みをお聞きして、どんな形にできるかご提案します。</p>
+  </div>
+  <div class="hp-reel" aria-label="制作実績">
+    <div class="track">
+      <a href="https://tubaki-exterior.com/" target="_blank" rel="noopener"><img src="assets/img/works/kenchiku-pc.webp" alt="株式会社TUBAKI（建築・外構）のホームページ" width="1200" height="750" /></a>
+      <a href="https://www.misemawashi.com/" target="_blank" rel="noopener"><img src="assets/img/works/inshoku-pc.webp" alt="ミセマワシ（飲食）のホームページ" width="1200" height="750" /></a>
+      <a href="https://www.roompick.jp/" target="_blank" rel="noopener"><img src="assets/img/works/fudosan-pc.webp" alt="ルームピック（不動産）のホームページ" width="1200" height="750" /></a>
+      <a href="https://teneramente.jp/index.html" target="_blank" rel="noopener"><img src="assets/img/works/it-pc.webp" alt="株式会社TENERAMENTE（IT）のホームページ" width="1200" height="750" /></a>
+      <a href="https://tubaki-exterior.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/img/works/kenchiku-pc.webp" alt="" width="1200" height="750" loading="lazy" /></a>
+      <a href="https://www.misemawashi.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/img/works/inshoku-pc.webp" alt="" width="1200" height="750" loading="lazy" /></a>
+      <a href="https://www.roompick.jp/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/img/works/fudosan-pc.webp" alt="" width="1200" height="750" loading="lazy" /></a>
+      <a href="https://teneramente.jp/index.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/img/works/it-pc.webp" alt="" width="1200" height="750" loading="lazy" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- 悩み -->
+<section class="secx" data-screen-label="HP:お悩み">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Problem</span>
+    <h2 class="h2x reveal d1">HPはあるのに、<br />仕事につながっていない。</h2>
+    <div class="pain2">
+      <div class="p reveal"><span class="n">01</span><div><h3>HPから問い合わせが来ない</h3><p>見た人が「何を頼めるのか」「いくらか」「どう連絡するか」に迷うと、そのまま閉じてしまいます。</p></div></div>
+      <div class="p reveal d1"><span class="n">02</span><div><h3>どれだけ見られているか分からない</h3><p>月に何人が見て、何で検索して来たのか。数字が無いと、直すべき所も分かりません。</p></div></div>
+      <div class="p reveal"><span class="n">03</span><div><h3>何年も更新できていない</h3><p>お知らせや料金が古いまま。お客様は「今も営業しているのかな？」と不安になります。</p></div></div>
+      <div class="p reveal d1"><span class="n">04</span><div><h3>スマホで見づらい・頼める先がない</h3><p>文字が小さく崩れて表示される。作った会社とも連絡が取れず、直したくても直せない。</p></div></div>
+    </div>
+    <p class="pain-answer reveal">その悩み、<span>作り方と、公開後の動かし方</span>で解決できます。</p>
+  </div>
+</section>
+
+<!-- 強み -->
+<section class="secx dark" data-screen-label="HP:強み">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Why TENERAMENTE</span>
+    <h2 class="h2x reveal d1">作って終わりにしない、<br />HP制作。</h2>
+    <div class="str">
+      <div class="s reveal"><div class="num">01</div><h3>問い合わせまでの流れから設計</h3><p>業種ごとに「お客様が決めるまでに知りたいこと」を洗い出し、写真・料金・実績・連絡先へ迷わず進める構成にします。デザインは完全オリジナルです。</p></div>
+      <div class="s reveal d1"><div class="num">02</div><h3>見られている数が分かる</h3><p>当社の管理画面『ミルページ』でGoogleとつなぎ、見られている数や検索された言葉を確かめられます。数字を見ながら、一緒に直していきます。</p></div>
+      <div class="s reveal d2"><div class="num">03</div><h3>公開後も、毎月手を入れる</h3><p>文章・写真の差し替えを毎月1回まで代行。お知らせやブログはご自身でも更新でき、AIが下書きを手伝います。</p></div>
     </div>
   </div>
 </section>
 
 <!-- 実績 -->
-<section class="sec" id="works" data-screen-label="HP:実績">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="index">01 — 制作実績</span>
-      <div><h2 class="h2">業種に合わせて、<br class="br-sp" />1つずつ作っています。</h2></div>
+<section class="secx" id="works" data-screen-label="HP:実績">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Works</span>
+    <h2 class="h2x reveal d1">業種に合わせて、<br />1つずつ作っています。</h2>
+    <div class="wk">
+      <div class="w reveal">
+        <a class="shot" href="https://tubaki-exterior.com/" target="_blank" rel="noopener"><img class="pc" src="assets/img/works/kenchiku-pc.webp" alt="株式会社TUBAKI のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/kenchiku-sp.webp" alt="" width="390" height="844" loading="lazy" /></a>
+        <div><span class="cat">建築・外構</span><h3>株式会社TUBAKI</h3>
+          <ul class="pt"><li>施工写真を大きく見せ、仕上がりで選んでもらう</li><li>費用の目安と施工実績から、お見積りへつなげる</li></ul>
+          <a class="go" href="https://tubaki-exterior.com/" target="_blank" rel="noopener">サイトを見る ↗</a><span class="url">tubaki-exterior.com</span></div>
+      </div>
+      <div class="w reveal">
+        <a class="shot" href="https://www.misemawashi.com/" target="_blank" rel="noopener"><img class="pc" src="assets/img/works/inshoku-pc.webp" alt="ミセマワシ のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/inshoku-sp.webp" alt="" width="390" height="844" loading="lazy" /></a>
+        <div><span class="cat">飲食</span><h3>ミセマワシ</h3>
+          <ul class="pt"><li>キャラクターと大きな文字で、一目で何のサービスか伝える</li><li>無料デモの申し込みへ、どこからでも進める</li></ul>
+          <a class="go" href="https://www.misemawashi.com/" target="_blank" rel="noopener">サイトを見る ↗</a><span class="url">misemawashi.com</span></div>
+      </div>
+      <div class="w reveal">
+        <a class="shot" href="https://www.roompick.jp/" target="_blank" rel="noopener"><img class="pc" src="assets/img/works/fudosan-pc.webp" alt="ルームピック のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/fudosan-sp.webp" alt="" width="390" height="844" loading="lazy" /></a>
+        <div><span class="cat">不動産</span><h3>ルームピック</h3>
+          <ul class="pt"><li>「仲介手数料0円」の強みを最初の画面で伝える</li><li>物件検索・電話・LINEへ、すぐ進める来店型の作り</li></ul>
+          <a class="go" href="https://www.roompick.jp/" target="_blank" rel="noopener">サイトを見る ↗</a><span class="url">roompick.jp</span></div>
+      </div>
+      <div class="w reveal">
+        <a class="shot" href="https://teneramente.jp/index.html" target="_blank" rel="noopener"><img class="pc" src="assets/img/works/it-pc.webp" alt="株式会社TENERAMENTE のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/it-sp.webp" alt="" width="390" height="844" loading="lazy" /></a>
+        <div><span class="cat">IT</span><h3>株式会社TENERAMENTE</h3>
+          <ul class="pt"><li>動きのある演出で、先進性と技術力を伝える</li><li>AI診断・LINE・無料相談の3つの入口を用意（当社サイト）</li></ul>
+          <a class="go" href="https://teneramente.jp/index.html" target="_blank" rel="noopener">サイトを見る ↗</a><span class="url">teneramente.jp</span></div>
+      </div>
     </div>
-    <div class="works">
-      <a class="work reveal" href="https://tubaki-exterior.com/" target="_blank" rel="noopener">
-        <div class="shot"><img class="pc" src="assets/img/works/kenchiku-pc.webp" alt="株式会社TUBAKI のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/kenchiku-sp.webp" alt="" width="390" height="844" loading="lazy" /></div>
-        <div class="meta"><span class="cat">建築・外構</span><h3>株式会社TUBAKI</h3><p>施工写真を大きく見せ、費用の目安と施工実績からお見積りへつなげる構成。</p><span class="url">tubaki-exterior.com</span><span class="go">サイトを見る ↗</span></div>
-      </a>
-      <a class="work reveal d1" href="https://www.misemawashi.com/" target="_blank" rel="noopener">
-        <div class="shot"><img class="pc" src="assets/img/works/inshoku-pc.webp" alt="ミセマワシ のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/inshoku-sp.webp" alt="" width="390" height="844" loading="lazy" /></div>
-        <div class="meta"><span class="cat">飲食</span><h3>ミセマワシ</h3><p>飲食店向けサービスのサイト。キャラクターと大きな文字で、一目で伝わる作り。</p><span class="url">misemawashi.com</span><span class="go">サイトを見る ↗</span></div>
-      </a>
-      <a class="work reveal" href="https://www.roompick.jp/" target="_blank" rel="noopener">
-        <div class="shot"><img class="pc" src="assets/img/works/fudosan-pc.webp" alt="ルームピック のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/fudosan-sp.webp" alt="" width="390" height="844" loading="lazy" /></div>
-        <div class="meta"><span class="cat">不動産</span><h3>ルームピック</h3><p>名古屋の賃貸仲介。物件検索・電話・LINEへすぐ進める、来店につなげる作り。</p><span class="url">roompick.jp</span><span class="go">サイトを見る ↗</span></div>
-      </a>
-      <a class="work reveal d1" href="https://teneramente.jp/index.html" target="_blank" rel="noopener">
-        <div class="shot"><img class="pc" src="assets/img/works/it-pc.webp" alt="株式会社TENERAMENTE のホームページ（パソコン表示）" width="1200" height="750" loading="lazy" /><img class="sp" src="assets/img/works/it-sp.webp" alt="" width="390" height="844" loading="lazy" /></div>
-        <div class="meta"><span class="cat">IT</span><h3>株式会社TENERAMENTE</h3><p>動きのある演出で先進性を伝えるコーポレートサイト（当社サイト）。</p><span class="url">teneramente.jp</span><span class="go">サイトを見る ↗</span></div>
-      </a>
+    <div class="hp-ctas reveal" style="margin-top:clamp(48px,6vw,80px)"><a href="contact.html" class="btnx btnx--ac" id="cta-works" data-cta="works">うちの業種でも作れるか相談する<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="secx dark" data-screen-label="HP:AI活用">
+  <div class="wrapx ai-box">
+    <div>
+      <span class="eyebrow2 reveal">AI × Business</span>
+      <h2 class="h2x reveal d1">HPだけで終わらせない。<br />AIで、仕事も軽く。</h2>
+      <p class="lead2 reveal d2">TENERAMENTEの本業は、AIを使った業務改善と業務アプリの開発です。HPのご相談のなかで、問い合わせ対応や見積り・日報など「毎日の手間」も伺い、AIで減らす方法をアドバイスします。</p>
+    </div>
+    <div class="ai-list">
+      <div class="reveal"><b>01</b><div><h4>問い合わせの返信を早く</h4><p>よくある質問への返事の下書きをAIが作り、返すまでの時間を短く。</p></div></div>
+      <div class="reveal d1"><b>02</b><div><h4>見積り・日報・書類づくり</h4><p>毎回同じ形の書類は、入力を減らして自動でそろえる仕組みに。</p></div></div>
+      <div class="reveal d2"><b>03</b><div><h4>予約・顧客の管理</h4><p>紙やExcelで回している管理を、スマホで見られる1つの画面に。</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- こんな会社へ -->
-<section class="sec sec--alt" data-screen-label="HP:こんな会社へ">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="index">02 — こんな会社さまへ</span>
-      <div><h2 class="h2">HPを、<br class="br-sp" />もう一度「使える」状態に。</h2></div>
-    </div>
-    <div class="pains reveal">
-      <div class="pain"><span class="n">01</span><h3>何年も更新できていない</h3><p>お知らせや料金が古いまま。お客様は「営業しているのかな？」と迷います。</p></div>
-      <div class="pain"><span class="n">02</span><h3>スマホで見づらい</h3><p>文字が小さい・横にはみ出す。いまは見る人の多くがスマホです。</p></div>
-      <div class="pain"><span class="n">03</span><h3>作った会社と連絡が取れない</h3><p>直したくても頼める先がない。管理の情報も手元に残っていない。</p></div>
-      <div class="pain"><span class="n">04</span><h3>そもそもHPがない</h3><p>紹介や口コミで来た方が、検索しても情報が出てこない。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 月額に含まれるもの -->
-<section class="sec" data-screen-label="HP:含まれるもの">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="index">03 — 月額1万円に含まれるもの</span>
-      <div><h2 class="h2">作るところから、<br class="br-sp" />動かし続けるところまで。</h2></div>
-    </div>
-    <ul class="incl reveal">
-      <li>完全オリジナルのデザイン<small>テンプレートは使いません。御社の写真と言葉で作ります。</small></li>
-      <li>スマホ・タブレット対応<small>どの画面でも読みやすい大きさで表示します。</small></li>
-      <li>サーバー・SSL（https）・保守<small>置き場所の用意から、安全のための更新まで。</small></li>
-      <li>お問い合わせフォーム・地図<small>電話・メール・Googleマップへすぐ進めます。</small></li>
-      <li>ご自身での更新<small>自社の管理画面『ミルページ』で、お知らせや写真を入れ替えられます。</small></li>
-      <li>文章・写真の差し替え代行<small>月1回まで、こちらで差し替えます。</small></li>
-    </ul>
-  </div>
-</section>
-
-<!-- 条件 -->
-<section class="sec sec--alt" data-screen-label="HP:キャンペーン条件">
-  <div class="wrap-narrow">
-    <div class="sec-head reveal">
-      <span class="index">04 — キャンペーンの条件</span>
-      <div><h2 class="h2">制作費0円の理由と、<br class="br-sp" />お願いしたいこと。</h2></div>
-    </div>
-    <div class="cond reveal">
-      <dl>
-        <dt>制作費</dt><dd>0円。新規事業として実績を増やすための特別条件です。</dd>
-        <dt>月額</dt><dd>1万円（税別）。サーバー・保守・月1回の差し替えを含みます。</dd>
-        <dt>最低ご契約期間</dt><dd>6か月。7か月目からは1か月単位で解約できます。6か月より前に解約される場合は、残りの月数分の月額をいただきます。</dd>
-        <dt>実績としての掲載</dt><dd>完成したHPを、当社の制作実績として紹介させてください。</dd>
-        <dt>ドメイン</dt><dd>独自ドメインの費用は実費です。今お使いのドメインもそのまま使えます。</dd>
-      </dl>
+<!-- 料金 -->
+<section class="secx" id="price" data-screen-label="HP:料金">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Price</span>
+    <h2 class="h2x reveal d1">制作費0円の、<br />新規事業キャンペーン。</h2>
+    <p class="lead2 reveal d2">ホームページ制作を新しく始めるにあたり、実績づくりのため制作費をいただかずにお作りします。完成したHPは、当社の制作実績として紹介させてください。</p>
+    <div class="price2 reveal">
+      <div class="l">
+        <div class="row2"><span class="k">制作費</span><span class="v ac">0<small>円</small></span></div>
+        <div class="row2"><span class="k">月額</span><span class="v">1<small>万円（税別）</small></span></div>
+        <div class="row2"><span class="k">最低ご契約</span><span class="v">6<small>か月</small></span></div>
+        <p class="fine">7か月目からは1か月単位で解約できます。6か月より前に解約される場合は、残りの月数分の月額をいただきます。独自ドメインの費用は実費です。</p>
+      </div>
+      <div class="r">
+        <h3>月額に含まれるもの</h3>
+        <ul class="incl2">
+          <li>完全オリジナルのデザイン<small>テンプレートは使いません</small></li>
+          <li>スマホ・タブレット対応<small>どの画面でも読みやすく</small></li>
+          <li>サーバー・SSL（https）・保守<small>置き場所と安全のための更新</small></li>
+          <li>問い合わせフォーム・地図<small>電話・メール・Googleマップへ</small></li>
+          <li>見られている数の確認<small>管理画面『ミルページ』で</small></li>
+          <li>文章・写真の差し替え代行<small>毎月1回まで</small></li>
+        </ul>
+        <div class="cond2"><div><b>今のドメイン（URL）もそのまま使えます。</b>管理の情報が分からない場合も、一緒にお調べします。</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 流れ -->
-<section class="sec" data-screen-label="HP:流れ">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="index">05 — 公開までの流れ</span>
-      <div><h2 class="h2">お打ち合わせは、<br class="br-sp" />オンラインで完結。</h2></div>
-    </div>
-    <div class="steps reveal">
-      <div class="step"><h3>無料相談</h3><p>今のHPのお悩みと、載せたいことをお聞きします。</p></div>
-      <div class="step"><h3>構成とデザイン</h3><p>ページの組み立てとデザインをお見せし、ご確認いただきます。</p></div>
-      <div class="step"><h3>仕上げ・確認</h3><p>文章や写真を入れて、スマホとパソコンで最終確認。</p></div>
-      <div class="step"><h3>公開・運用</h3><p>公開後の更新や差し替えも、月額の中でお手伝いします。</p></div>
+<section class="secx" style="padding-top:0" data-screen-label="HP:流れ">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Flow</span>
+    <h2 class="h2x reveal d1">お打ち合わせは、<br />オンラインで完結。</h2>
+    <div class="steps2 reveal">
+      <div class="st"><h3>無料相談</h3><p>今のHPのお悩みと、載せたいことを30分でお聞きします。</p></div>
+      <div class="st"><h3>構成とデザイン</h3><p>ページの組み立てとデザインをお見せし、ご確認いただきます。</p></div>
+      <div class="st"><h3>仕上げ・確認</h3><p>文章や写真を入れて、スマホとパソコンで最終確認します。</p></div>
+      <div class="st"><h3>公開・運用</h3><p>公開後も、数字を見ながら毎月一緒に直していきます。</p></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="sec sec--alt" data-screen-label="HP:よくある質問">
+<section class="secx sec--alt" data-screen-label="HP:よくある質問">
   <div class="wrap-narrow">
-    <div class="sec-head reveal">
-      <span class="index">06 — よくある質問</span>
-      <div><h2 class="h2">よくある質問</h2></div>
-    </div>
+    <span class="eyebrow2 reveal">FAQ</span>
+    <h2 class="h2x reveal d1" style="margin-bottom:clamp(24px,3vw,40px)">よくある質問</h2>
     <div class="faq-list reveal">
       <details><summary>本当に制作費はかからないのですか？</summary><p>はい、制作費はいただきません。月額1万円（税別）と、独自ドメインの実費だけです。新規事業の実績づくりのためのキャンペーンです。</p></details>
       <details><summary>6か月より前に解約したらどうなりますか？</summary><p>残りの月数分の月額をいただきます。7か月目からは1か月単位でいつでも解約できます。</p></details>
       <details><summary>今のHPのドメイン（URL）は使えますか？</summary><p>使えます。今のURLのまま新しいHPに切り替えられます。管理の情報が分からない場合も、一緒にお調べします。</p></details>
-      <details><summary>自分で更新できますか？</summary><p>できます。当社の管理画面『ミルページ』から、お知らせ・写真・ブログを入れ替えられます。月1回までは、こちらで差し替えも代行します。</p></details>
-      <details><summary>どんな業種でも作れますか？</summary><p>はい。建築・外構、飲食、不動産、IT のほか、店舗・サロン・士業など幅広く対応します。</p></details>
+      <details><summary>どれだけ見られているかは、どうやって分かりますか？</summary><p>当社の管理画面『ミルページ』をGoogleとつなぎ、見られている数や検索された言葉を確かめられるようにします。数字を見ながら、直す所をご提案します。</p></details>
+      <details><summary>自分で更新できますか？</summary><p>できます。『ミルページ』から、お知らせ・写真・ブログを入れ替えられます。毎月1回までは、こちらで差し替えも代行します。</p></details>
+      <details><summary>AIの業務改善の相談だけでもできますか？</summary><p>できます。HPのご相談と一緒でも、別々でもかまいません。業務アプリの開発が必要な場合は、内容をお聞きしてからお見積りします。</p></details>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-band" data-screen-label="HP:CTA">
-  <div class="wrap">
-    <span class="index reveal">Contact</span>
-    <h2 class="reveal d1">制作費0円のうちに、<br class="br-sp" />HPを新しく。</h2>
-    <p class="reveal d2">キャンペーンは実績づくりのため、受付数に限りがあります。まずは無料相談で、今のHPのお悩みをお聞かせください。1営業日以内に、代表よりご返信します。</p>
-    <div class="ctas reveal d3">
-      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
-      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+<!-- 最後のCTA -->
+<section class="secx dark final" data-screen-label="HP:CTA">
+  <div class="wrapx">
+    <span class="eyebrow2 reveal">Contact</span>
+    <h2 class="h2x reveal d1">制作費0円のうちに、<br />HPを新しく。</h2>
+    <p class="lead2 reveal d2">キャンペーンは実績づくりのため、受付数に限りがあります。まずは無料相談で、今のHPのお悩みをお聞かせください。1営業日以内に、代表よりご返信します。</p>
+    <div class="hp-ctas reveal d3">
+      <a href="contact.html" class="btnx btnx--ac" id="cta-final" data-cta="final">無料でHPの相談をする<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btnx btnx--line" data-cta="line">LINEで相談する</a>
     </div>
   </div>
 </section>
+
+<div class="hp-fix" id="hp-fix"><a class="a1" href="contact.html" data-cta="fixed">無料でHPの相談</a><a class="a2" href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" data-cta="fixed-line">LINE</a></div>
 
 <div data-chrome="footer"></div>
 <script src="assets/chrome.js"></script>
 <script src="assets/site.js"></script>
+<script>
+// スマホでは、最初の画面を過ぎたら下に相談ボタンを出す
+(function () {
+  var fix = document.getElementById('hp-fix');
+  var hero = document.querySelector('.hp-hero');
+  if (!fix || !hero || !('IntersectionObserver' in window)) { if (fix) fix.classList.add('on'); return; }
+  new IntersectionObserver(function (es) { fix.classList.toggle('on', !es[0].isIntersecting); }).observe(hero);
+})();
+</script>
 </body>
 </html>
