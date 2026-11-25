@@ -34,3 +34,44 @@
   s.async = true;
   (document.head || document.documentElement).appendChild(s);
 })();
+
+/* ------------------------------------------------------------
+   「Cookieの設定」— 同意・拒否を選び直す入口（2026-11-25）
+   ・ページの一番下（フッター）の「プライバシーポリシー」の次の行に、自動で「Cookieの設定」を足す
+     （HP・ブログ・ミエルームのページは足元がばらばらに作られているので、1か所でまとめて足す）
+   ・data-cookie-settings を付けたリンク・ボタンを押すと、選んだ記録を消して開き直し、同意バナーをもう一度出す
+     （ATLAS の部品の AT_CONSENT.reset。部品が読めないときは、ここで記録を消して開き直す）
+   ------------------------------------------------------------ */
+(function () {
+  if (window.__cookieSettingsHooked) return;
+  window.__cookieSettingsHooked = 1;
+  var CONSENT_KEY = 'mp_consent_4e9ded06944b4fdbab4fc27f1bb36c41';   // ATLAS の「同意の保存名」と同じ
+  document.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest ? e.target.closest('[data-cookie-settings]') : null;
+    if (!t) return;
+    e.preventDefault();
+    if (window.AT_CONSENT && typeof window.AT_CONSENT.reset === 'function') { window.AT_CONSENT.reset(); return; }
+    try { localStorage.removeItem(CONSENT_KEY); } catch (x) {}
+    location.reload();
+  });
+  function addLinks() {
+    var links = document.querySelectorAll('footer a[href$="privacy.html"], [class*="foot"] a[href$="privacy.html"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var next = a.nextElementSibling;
+      if (a.getAttribute('data-cookie-added') || (next && next.hasAttribute('data-cookie-settings'))) continue;
+      a.setAttribute('data-cookie-added', '1');
+      var c = document.createElement('a');
+      c.href = '#cookie-settings';
+      c.className = a.className;
+      c.setAttribute('data-cookie-settings', '');
+      c.textContent = 'Cookieの設定';
+      a.parentNode.insertBefore(c, a.nextSibling);
+      if (a.nextSibling !== c) a.parentNode.insertBefore(document.createTextNode('\n'), c);
+    }
+  }
+  // 足元は chrome.js があとから差し込むページもあるので、読み込みの節目ごとに何度か見る（同じ所に二重には足さない）
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addLinks); else addLinks();
+  window.addEventListener('load', addLinks);
+  setTimeout(addLinks, 1500);
+})();
