@@ -316,33 +316,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
     btn.disabled = true;
     btn.textContent = '送信中…';
 
-    // ミルページ(自社CMS)の問い合わせ管理にも記録する。
-    // ATLASへの送信とは独立（こちらが失敗しても送信は成立する）。店舗ID未設定なら何もしない。
-    const mp = window.MILPAGE || {};
-    let mpSent = Promise.resolve(false);   // ミルページに届いたか（ATLAS が止まっている間の受付完了の判定に使う）
-    if (mp.origin && mp.storeId) {
-      const detail = [
-        form.message.value.trim(),
-        svc.length ? '相談種別: ' + svc.join('・') : '',
-        form.company.value.trim() ? '会社名: ' + form.company.value.trim() : '',
-        form.source.value ? '当社を知ったきっかけ: ' + form.source.value : '',
-      ].filter(Boolean).join('\n');
-      mpSent = fetch(mp.origin + '/api/public/inquiry?store=' + encodeURIComponent(mp.storeId) + '&source=hp-contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name.value.trim(),
-          email: form.email.value.trim(),
-          phone: form.phone.value.trim(),
-          type: '無料相談' + (svc.length ? '：' + svc.join('・') : ''),
-          message: detail,
-          website: form._hp.value,   // ハニーポット（bot判定用）
-        }),
-      }).then(r => r.ok).catch(err => { console.warn('[contact] ミルページへの記録に失敗:', err); return false; });
-    }
-
     try {
-      // ATLAS が止まっていても、ミルページに届いていれば受付完了にする（2026-11-19・ATLAS が Railway に止められている間の暫定）
       let atlasOk = false;
       try {
         const ctl = window.AbortController ? new AbortController() : null;
@@ -373,7 +347,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       } catch (err) {
         console.error('[contact] ATLAS に届きませんでした:', err);
       }
-      if (!(atlasOk || await mpSent)) throw new Error('ATLAS にもミルページにも届きませんでした');
+      if (!atlasOk) throw new Error('ATLAS に届きませんでした');
       go('done');
       // Meta Pixel: 送信完了(コンバージョン)を計測
       if (typeof fbq === 'function') { fbq('track', 'Lead'); fbq('track', 'Contact'); }

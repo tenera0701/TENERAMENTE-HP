@@ -178,33 +178,6 @@
     const btn = $('.sq-submit');
     btn.disabled = true; btn.textContent = '送信中…';
     $('.sq-senderr').classList.add('hidden');
-    // ATLAS が止まっている間の暫定（2026-11-19）: ATLAS に届かなければミルページへ送り、届けば受付完了にする
-    const toMilpage = () => {
-      const mp = window.MILPAGE || {};
-      const origin = mp.origin || 'https://web-production-744c1.up.railway.app';
-      const store = mp.storeId || '4e9ded06944b4fdbab4fc27f1bb36c41';
-      const msg = [
-        '会社名: ' + get('sq-company').value.trim(),
-        '役職: ' + get('sq-role').value.trim(),
-        '従業員数: ' + get('sq-emp').value,
-        '拠点・店舗数: ' + get('sq-sites').value,
-        '診断: ランク' + r + '（' + s + '/24）',
-        memo ? 'お困りごと: ' + memo : '',
-        '【診断回答】\n' + qa,
-      ].filter(Boolean).join('\n');
-      return fetch(origin + '/api/public/inquiry?store=' + encodeURIComponent(store) + '&source=hp-shindan', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: get('sq-name').value.trim(),
-          email: get('sq-email').value.trim(),
-          phone: get('sq-phone').value.trim(),
-          type: '無料診断（ランク' + r + '）',
-          message: msg,
-          website: get('sq-hp').value,
-        }),
-      }).then(res => res.ok).catch(err => { console.warn('[shindan] ミルページへの記録に失敗:', err); return false; });
-    };
     try {
       let atlasOk = false;
       try {
@@ -238,7 +211,7 @@
       } catch (err) {
         console.error('[shindan] ATLAS に届きませんでした:', err);
       }
-      if (!atlasOk && !(await toMilpage())) throw new Error('ATLAS にもミルページにも届きませんでした');
+      if (!atlasOk) throw new Error('ATLAS に届きませんでした');
       $('.sq-lead').classList.add('hidden');
       const done = $('.sq-done');
       done.classList.remove('hidden');
