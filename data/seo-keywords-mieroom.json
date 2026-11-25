@@ -1747,6 +1747,25 @@
       "status": "done",
       "slug": "moushikomi-juufuku-taio",
       "doneAt": "2026-11-24"
+    },
+    {
+      "id": "m208",
+      "category": "組織・育成",
+      "keyword": "賃貸仲介 業務 分担 担当制",
+      "sub": [
+        "不動産 店舗 役割分担 決め方",
+        "賃貸 反響 案内 事務 分業"
+      ],
+      "title": "賃貸仲介の業務分担の決め方｜一貫担当と分業の分かれ目",
+      "intent": "店舗の人数が増えた・繁忙期に回らないので役割分担を見直したい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "tencho-shigoto-dandori",
+        "staff-seiseki-kanri"
+      ],
+      "status": "done",
+      "slug": "gyomu-buntan-kimekata",
+      "doneAt": "2026-11-25"
     }
   ]
 }

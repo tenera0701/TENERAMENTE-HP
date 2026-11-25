@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="LPを作ったのに問い合わせが来ない。その原因をデザインに求める前に、成果を分けている5つの決めごとを整理しました。向ける相手・受け取りたい行動・約束できること・証拠・計測の決め方と、公開前のチェックリスト、公開後に直す順番までまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと" />
+<meta property="og:description" data-meta="og:description" content="LPを作ったのに問い合わせが来ない。その原因をデザインに求める前に、成果を分けている5つの決めごとを整理しました。向ける相手・受け取りたい行動・約束できること・証拠・計測の決め方と、公開前のチェックリスト、公開後に直す順番までまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-26-lp-seika-wakeru-yoso.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと" />
+<meta name="twitter:description" data-meta="twitter:description" content="LPを作ったのに問い合わせが来ない。その原因をデザインに求める前に、成果を分けている5つの決めごとを整理しました。向ける相手・受け取りたい行動・約束できること・証拠・計測の決め方と、公開前のチェックリスト、公開後に直す順番までまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-26-lp-seika-wakeru-yoso.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-26-lp-seika-wakeru-yoso";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと","description":"LPを作ったのに問い合わせが来ない。その原因をデザインに求める前に、成果を分けている5つの決めごとを整理しました。向ける相手・受け取りたい行動・約束できること・証拠・計測の決め方と、公開前のチェックリスト、公開後に直す順番までまとめています。","datePublished":"2026-11-26","dateModified":"2026-11-26","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-26-lp-seika-wakeru-yoso.html","image":"https://teneramente.jp/assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png","articleSection":"HP / LP","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"LP制作, ランディングページ, コンバージョン, HP制作, 改善"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと","item":"https://teneramente.jp/2026-11-26-lp-seika-wakeru-yoso.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"デザインを新しくすれば問い合わせは増えますか？","acceptedAnswer":{"@type":"Answer","text":"見た目の古さが理由で信用されていない場合は改善します。ただし、向ける相手や受け取りたい行動が決まっていない状態では、デザインを変えても止まる場所は変わりません。先に、どこで読者が落ちているかを確かめてください。最初の画面で帰られているのか、下まで読んで帰られているのかで、直す場所が違います。"}},{"@type":"Question","name":"LPは1ページに全部入れるべきですか、短いほうがよいですか？","acceptedAnswer":{"@type":"Answer","text":"長さではなく、判断に必要な材料がそろっているかで決めます。金額が高い依頼や、社内で決裁が必要な依頼ほど、読者は多くの材料を必要とします。逆に、その場で決められる内容なら短いほうが通ります。削る基準は、読者の判断に使われない情報かどうかです。"}},{"@type":"Question","name":"問い合わせフォームの項目は、どこまで減らせばよいですか？","acceptedAnswer":{"@type":"Answer","text":"返信するために本当に必要な項目だけにします。多くの場合、連絡先と相談内容があれば返信できます。会社規模や予算の選択肢は、商談の中で聞けます。項目を増やすほど送信される数は減るので、増やすなら「それを聞かないと返信できないか」を一つずつ確かめてください。"}},{"@type":"Question","name":"実績や事例が少ない場合、証拠には何を載せられますか？","acceptedAnswer":{"@type":"Answer","text":"実績の数以外にも示せる材料があります。進め方の工程を具体的に書く、担当する人と体制を出す、使っている設備や道具を見せる、対応できる範囲と対応できない範囲を明記する。どれも読者の判断に使われます。実績がないことを埋めるために、数字や事例を作るのは避けてください。"}},{"@type":"Question","name":"広告を止めるとLPへの訪問が止まります。検索から来る形にできますか？","acceptedAnswer":{"@type":"Answer","text":"LPは1つの訴求に絞った構成のため、検索から広く集めるのには向きません。検索から集めるなら、困りごとに答える記事のページを別に持ち、そこからLPに渡す形が一般的です。広告で検証した訴求を記事側に流用できるので、順番としてはLPで言葉を固めてから記事を増やすと無駄が出にくくなります。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">HP / LP</span></div>
+  <span class="post-cat" data-post="category">HP / LP</span>
+  <h1 class="post-title" data-post="title">LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 26, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png" alt="LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>LPで成果が出ないときは、作り直す前に原因を5つに切り分ける</a><a href="#h2"><span class="n">02</span>費用より先に決める5つの要素</a><a href="#h3"><span class="n">03</span>向ける相手を1人に絞ると、言葉が決まる</a><a href="#h4"><span class="n">04</span>受け取りたい行動を1つに決め、構成をその順に並べる</a><a href="#h5"><span class="n">05</span>最初の画面と、問い合わせ前の不安をページの中で消す</a><a href="#h6"><span class="n">06</span>公開後に見る数字と、直す順番</a><a href="#h7"><span class="n">07</span>公開前のチェックリストと、よくある失敗とその避け方</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：成果を分けるのは、作る前に決めた5つ</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">LPを作ってもらったのに、問い合わせが来ない。広告を回しても反応が薄い。このご相談でまず確かめるのは、デザインではありません。結論から申し上げると、<strong>LPの成果を分けているのは、作る前に決めた5つの決めごと</strong>です。この記事では、費用より先に決めるべき5つと、公開後に直す順番を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>LPで成果を分けるのは、<strong>向ける相手・受け取りたい行動・約束できること・証拠・計測</strong>の5つです。この5つが決まっていないLPは、見た目をどれだけ整えても読者の判断材料がそろわず、作り直しても同じ場所で止まります。費用の内訳は<a href="2026-11-20-lp-seisaku-hiyo-uchiwake.html">LP制作費用の内訳</a>に整理しています。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>LPで成果が出ないときは、作り直す前に原因を5つに切り分ける</h2>
+<p>LP（<em>Landing Page</em>、ランディングページ）で成果が出ないとき、最初に出てくる案は「デザインを変える」です。ところが、見た目を変えても結果が動かないことがよくあります。原因が見た目ではなく、ページが何を伝えるかの設計にあるためです。</p>
+<p>成果が出ない状態は、次の5つに切り分けられます。誰に向けたページなのかが絞られていない。読者に取ってほしい行動が1つに決まっていない。約束していることが曖昧で、依頼したあとの流れが見えない。言っていることを裏づける材料がない。公開後に何を見て判断するかが決まっていない。</p>
+<p>この5つは、どれも制作の前に決まる項目です。だからこそ、作り直しても解決しません。デザイナーを変えても、向ける相手が決まっていなければ、言葉は再び一般論に戻ります。</p>
+<p><strong>まず確かめるのは、5つのうちどれが決まっていないか</strong>です。1つだけ抜けているなら、そこを埋めるだけで反応が変わることがあります。全部が曖昧なら、ページを直す前に決める作業から始めます。ホームページ全体で問い合わせが来ない場合の切り分けは<a href="2026-11-07-homepage-toiawase-fuenai.html">ホームページから問い合わせが増えない原因</a>に分けて書いています。</p>
+<h2 id="h2"><span class="h-num">02</span>費用より先に決める5つの要素</h2>
+<p>見積もりを取る前に、次の5つを自社で決めておきます。決まっていないまま発注すると、制作会社は一般的な構成で作るしかなく、どの業種にも当てはまる当たり障りのないページになります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>決めること</th>
+<th>決まっている状態</th>
+<th>決まっていないと起きること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向ける相手</td>
+<td>困っている状況と立場が1つに絞られている</td>
+<td>誰にでも当てはまる言葉になり、誰も自分のことだと思わない</td>
+</tr>
+<tr>
+<td>受け取りたい行動</td>
+<td>問い合わせ・資料請求・来店など1つに決まっている</td>
+<td>ボタンが複数並び、読者が選べずに離脱する</td>
+</tr>
+<tr>
+<td>約束できること</td>
+<td>何をいつまでに、どこまでやるかが書ける</td>
+<td>期待とずれた問い合わせが来て、商談が進まない</td>
+</tr>
+<tr>
+<td>証拠</td>
+<td>実績・工程・担当者・設備など示せる材料がある</td>
+<td>言い切るだけのページになり、信用されない</td>
+</tr>
+<tr>
+<td>計測</td>
+<td>何をどの数で見るかが決まっている</td>
+<td>良くなったのか悪くなったのか分からず、直せない</td>
+</tr>
+</tbody></table></div>
+<p>右の列は、公開後に必ず表面化します。とくに最後の計測は、決めるのに費用がかからないのに、抜けていると改善のすべてが止まります。</p>
+<p>決める主体は自社です。制作会社が代わりに決められるのは、構成と表現の部分だけです。<strong>この5つを埋めた紙を1枚持って相談に行くと、見積もりの内容も提案の質も変わります</strong>。</p>
+<h2 id="h3"><span class="h-num">03</span>向ける相手を1人に絞ると、言葉が決まる</h2>
+<p>向ける相手を絞るのは、対象を狭めて機会を減らす作業ではありません。言葉を決めるための作業です。</p>
+<p>絞り方には順番があります。まず業種や立場ではなく、どんな状況で困っているかで切ります。たとえば同じ工務店向けのLPでも、「これから集客を始めたい」状況と「広告は出しているが反応が落ちた」状況では、読みたい内容がまったく違います。前者は何から始めるかを知りたい。後者は何が原因かを知りたい。</p>
+<h3>絞るときに書き出す4つ</h3>
+<ul>
+<li>どんな場面で困っているか（今まさに起きていること）</li>
+<li>これまでに何を試して、どう駄目だったか</li>
+<li>何が不安で決めきれないでいるか</li>
+<li>社内の誰が決めるのか（決める人と調べる人が違う場合がある）</li>
+</ul>
+<p>この4つを文章で書き出すと、ページの見出しはほとんど決まります。困っている場面をそのまま言い換えた見出しは、読者に「自分のことが書いてある」と伝わるからです。</p>
+<p>逆に、絞らないまま作ると、どの会社のLPにも書ける文章になります。実績の豊富さ、丁寧な対応、安心のサポート。どれも間違っていませんが、読者の判断には使えません。<strong>判断に使えない言葉は、どれだけ並べても成果にはつながりません</strong>。</p>
+<h2 id="h4"><span class="h-num">04</span>受け取りたい行動を1つに決め、構成をその順に並べる</h2>
+<p>受け取りたい行動が複数あると、読者は選べません。問い合わせ・資料請求・電話・LINE・見積もり依頼が同じ強さで並んだページは、どれも押されないまま閉じられます。主にしたい行動を1つ決め、残りは目立たない位置に置きます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-26-lp-seika-wakeru-yoso.png" alt="自分に関係があるかを最初の画面で対象と内容を言葉にして伝える段、困っていることが扱われているかを読者が使っている言葉で言い換える段、解決の方法と進め方を工程として示す段、できると言える裏づけを実績や工程や体制で示す段、問い合わせ前の不安に金額の考え方や相談の進み方や返信の目安で先に答える段、決めた1つの行動へ次に起きることが分かる文言のボタンで進ませる段という、LPの構成を読者が判断する順に並べた6つの段の図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>ボタンを増やすより、この順番がそろっているかを先に確かめます。</figcaption></figure>
+
+<p>行動を1つに決めたら、構成はその行動に向かう順番に並べます。読者が判断するときに考える順番は決まっているので、ページもその順にします。</p>
+<h2 id="h5"><span class="h-num">05</span>最初の画面と、問い合わせ前の不安をページの中で消す</h2>
+<p>最初の画面で読者が判断しているのは、良いか悪いかではありません。自分に関係があるかどうかだけです。関係があると分かった人だけが下に読み進むため、ここで業種や対象の状況を言葉にしておきます。</p>
+<p>最初の画面に必要なのは、何の会社・何のサービスか、誰のための内容か、ここで何ができるかの3つです。印象的な言い回しよりも、この3つが読めるかどうかが先です。写真の上に薄い文字を重ねて読みにくくなっているページは、この3つが伝わらないまま判断されています。</p>
+<h3>不安は、書けば消える</h3>
+<p>問い合わせの直前で止まる理由は、だいたい決まっています。いくらかかるのか見当がつかない。問い合わせたあとに営業されるのではないか。何を準備して相談すればいいのか分からない。どのくらいの期間がかかるのか。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>先に書いておくと効く項目</h4>
+    <p>相談の進み方（初回は何を話すのか）、返信までの目安、相談の段階で決めなくてよいこと、準備しておくと話が早い材料。これを書いておくと、問い合わせの心理的な負担が下がります。価格を出せない事情がある場合も、<strong>何で金額が変わるか</strong>だけは書けます。</p>
+  </div>
+</div>
+
+<p>書けることを書かずに「まずはお気軽にご相談ください」とだけ置いているページは、読者に判断材料を渡していません。不安は、消すというより先に答えておくものです。</p>
+<h2 id="h6"><span class="h-num">06</span>公開後に見る数字と、直す順番</h2>
+<p>LPは公開した時点では未完成です。読者がどこで止まるかは、出してみないと分かりません。そのため、見る数字と直す順番を先に決めておきます。</p>
+<p>見るのは4か所だけで足ります。何人来たか。最初の画面から下に進んだか。ページの下まで読まれたか。問い合わせに至ったか。この4か所のどこで落ちているかで、直す場所が決まります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>落ちている場所</th>
+<th>疑うこと</th>
+<th>先に試すこと</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>来る人が少ない</td>
+<td>流入の経路そのもの</td>
+<td>広告や検索の側を見る。ページを直しても変わらない</td>
+</tr>
+<tr>
+<td>最初の画面で帰る</td>
+<td>対象と内容が伝わっていない</td>
+<td>見出しを、困っている場面の言い換えに変える</td>
+</tr>
+<tr>
+<td>下まで読んで帰る</td>
+<td>判断材料が足りない</td>
+<td>工程・事例・金額の考え方・FAQを足す</td>
+</tr>
+<tr>
+<td>フォームで止まる</td>
+<td>入力の負担と不安</td>
+<td>項目を削る。必須を減らす。送信後の流れを書く</td>
+</tr>
+</tbody></table></div>
+<p>直す順番は、上から順です。流入に問題があるのにページの文章を直しても、見ている人が増えないので結果は動きません。<strong>どこで落ちているかを決めてから直すのが、改善の最短経路</strong>です。</p>
+<p>直す間隔は、判断できる数が集まってからにします。数日の上下に反応して毎週作り変えると、何が効いたのか分からなくなります。</p>
+<h2 id="h7"><span class="h-num">07</span>公開前のチェックリストと、よくある失敗とその避け方</h2>
+<p>公開前に、次の項目を上から確かめます。どれも社内で確認できます。</p>
+<ul>
+<li>向ける相手の状況が、最初の画面の言葉に入っているか</li>
+<li>受け取りたい行動が1つに決まり、ボタンの文言がその行動と一致しているか</li>
+<li>問い合わせボタンに、スクロールの途中からでも到達できるか</li>
+<li>金額について、書ける範囲のことが書かれているか（考え方・変わる条件でもよい）</li>
+<li>相談の進み方と、返信までの目安が書かれているか</li>
+<li>言い切っている内容に、裏づけとなる材料が付いているか</li>
+<li>スマートフォンで、文字が読める大きさか・電話番号がタップできるか</li>
+<li>フォームの必須項目が、本当に必要なものだけになっているか</li>
+<li>送信後に何が起きるか（確認メール・返信の時期）が書かれているか</li>
+<li>数字を見る仕組みが入っていて、公開初日から記録が残るか</li>
+</ul>
+<h3>よくある失敗と、その避け方</h3>
+<p><strong>会社の紹介から始める</strong>。読者はまだ会社に興味がありません。自分の困りごとが扱われていると分かってから、はじめて作り手に関心が向きます。会社の説明は中ほどに置きます。</p>
+<p><strong>社内の言葉をそのまま使う</strong>。業界内で通じる略語や、社内の工程名は読者に通じません。相談のときにお客様が使っていた言葉に置き換えます。</p>
+<p><strong>ボタンの文言が「送信」のまま</strong>。何が起きるのか分からないボタンは押されません。相談内容を送る、資料を受け取るなど、次に起きることを書きます。</p>
+<p><strong>実績の数を並べて終わる</strong>。数は根拠の一部でしかありません。どういう状況の相手に、何をして、どう変わったのかが書かれていないと、読者は自分に当てはめられません。なお、載せる数字は実在のものだけにします。</p>
+<p><strong>公開後に手を入れられない形で納品される</strong>。文章を1行変えるたびに依頼して反映を待つ形だと、改善が止まります。自社で直せる範囲を、契約の前に確認します。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>この記事の内容は、自社だけでも進められます。分かれ目になるのは次の3点です。</p>
+<p>1つ目は、決める作業に時間を取れるかどうかです。向ける相手と約束できることを決めるのは、社内しかできません。ここに数時間を確保できるなら、残りは外に任せても形になります。逆に決める作業ごと外に出そうとすると、どこかで必ず止まります。</p>
+<p>2つ目は、文章を書く人がいるかどうかです。材料を箇条書きで出すところまでは社内でできても、読む順番に組み立てる作業は慣れが要ります。箇条書きまでを自社、文章として整えるところを外、という分け方が現実的です。</p>
+<p>3つ目は、公開後に続けられるかどうかです。LPは出したあとに直して育てるものなので、数字を見る人と直す手段が社内に残らないと、公開した形のまま置かれます。社内に見る人がいない場合は、見て報告する部分まで含めて依頼先を選びます。</p>
+<p>迷うときは、公開から3か月の間に何回手を入れる予定があるかを考えてみてください。何度も直す前提なら、直せる形と相談できる相手を確保しておく。1回作って置いておく前提なら、そもそもLPである必要があるかを先に考え直したほうが早い場合もあります。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>デザインを新しくすれば問い合わせは増えますか？</summary><div class="faq-a">見た目の古さが理由で信用されていない場合は改善します。ただし、向ける相手や受け取りたい行動が決まっていない状態では、デザインを変えても止まる場所は変わりません。先に、どこで読者が落ちているかを確かめてください。最初の画面で帰られているのか、下まで読んで帰られているのかで、直す場所が違います。</div></details>
+
+<details class="faq"><summary>LPは1ページに全部入れるべきですか、短いほうがよいですか？</summary><div class="faq-a">長さではなく、判断に必要な材料がそろっているかで決めます。金額が高い依頼や、社内で決裁が必要な依頼ほど、読者は多くの材料を必要とします。逆に、その場で決められる内容なら短いほうが通ります。削る基準は、読者の判断に使われない情報かどうかです。</div></details>
+
+<details class="faq"><summary>問い合わせフォームの項目は、どこまで減らせばよいですか？</summary><div class="faq-a">返信するために本当に必要な項目だけにします。多くの場合、連絡先と相談内容があれば返信できます。会社規模や予算の選択肢は、商談の中で聞けます。項目を増やすほど送信される数は減るので、増やすなら「それを聞かないと返信できないか」を一つずつ確かめてください。</div></details>
+
+<details class="faq"><summary>実績や事例が少ない場合、証拠には何を載せられますか？</summary><div class="faq-a">実績の数以外にも示せる材料があります。進め方の工程を具体的に書く、担当する人と体制を出す、使っている設備や道具を見せる、対応できる範囲と対応できない範囲を明記する。どれも読者の判断に使われます。実績がないことを埋めるために、数字や事例を作るのは避けてください。</div></details>
+
+<details class="faq"><summary>広告を止めるとLPへの訪問が止まります。検索から来る形にできますか？</summary><div class="faq-a">LPは1つの訴求に絞った構成のため、検索から広く集めるのには向きません。検索から集めるなら、困りごとに答える記事のページを別に持ち、そこからLPに渡す形が一般的です。広告で検証した訴求を記事側に流用できるので、順番としてはLPで言葉を固めてから記事を増やすと無駄が出にくくなります。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：成果を分けるのは、作る前に決めた5つ</h2>
+<p>LPで成果が出ないときの順番は決まっています。デザインを疑う前に、向ける相手・受け取りたい行動・約束できること・証拠・計測の5つのうちどれが決まっていないかを確かめる。相手は困っている状況で絞る。行動は1つに決め、構成を読者が判断する順に並べる。最初の画面では、自分に関係があるかどうかだけを伝える。不安は先に書いて消す。公開後は4か所の数字を見て、落ちている場所から順に直す。</p>
+<p>逆に、総額と見た目だけで判断して作ると、きれいなのに誰も問い合わせないページが残ります。LPは作品ではなく、読者の判断を進めるための道具です。</p>
+<p>TENERAMENTEなら、この記事で挙げた「決めきれずに止まる」「公開後に直せない」という2つの詰まりを、進め方の側で外します。ご相談ではまず、向ける相手と受け取りたい行動をその場で一緒に言葉にし、書ける約束と出せる証拠を洗い出してから構成に入ります。原稿は、自社でしか書けない材料を箇条書きでいただければ、読む順番に組み立てる部分をこちらで引き受けます。納品は管理画面から見出し・文章・写真を差し替えられる形で行い、差し替えの代行も毎月1回まで含めているため、反応を見て直したい箇所をその都度抱えずに回せます。制作費0円・月額1万円（税別）で始められる形と、月額に含まれる範囲は<a href="lp-hplp.html">HP/LP作成</a>にまとめています。公開したLPの反応が薄いという段階でも構いませんので、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#LP制作</span><span>#ランディングページ</span><span>#コンバージョン</span><span>#HP制作</span><span>#改善</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — HP / LP 作成</span>
+    <p class="svc-card-title">作って終わりにしない、育てられるサイトを</p>
+    <p class="svc-card-text">自社CMS「ミルページ」で、AIブログの自動投稿・SEO・Google連携まで備えた、公開後も自分で育てられるHP/LPを制作します。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=hp" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-hplp.html" class="btn btn--ghost btn--lg">HP/LP作成を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-21-homepage-renewal-irai-nagare.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページリニューアルの依頼の流れ｜見積もりで確認することと進め方</h4>
+      </a>
+      <a class="related-card" href="2026-11-20-lp-seisaku-hiyo-uchiwake.html">
+        <span class="cat">HP / LP</span>
+        <h4>LP制作の費用の内訳｜見積もりで確認すべき項目と、依頼前に決めること</h4>
+      </a>
+      <a class="related-card" href="2026-11-16-homepage-hoshu-kanri-hiyo.html">
+        <span class="cat">HP / LP</span>
+        <h4>ホームページの保守・管理費の内訳｜月額費用で何をしてもらえるのか</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>
