@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>松竹梅の値付けシミュレーター｜ミセマワシ</title>
+<meta name="description" content="松竹梅（3つのコースやメニュー）の値段・原価・出る割合を入れると、客単価と粗利、出方が変わったときに月いくら変わるかが分かる飲食店向けの無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:21px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 6px; }
+input { width:100%; padding:9px 7px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+.m { border:1px solid var(--line); border-radius:12px; padding:8px; margin-bottom:8px; }
+.m .g { display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:6px; }
+.m .g2 { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px; }
+.m small { display:block; font-size:11px; color:var(--sub); font-weight:700; }
+.m .meta { font-size:12px; color:var(--sub); margin-top:4px; text-align:right; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; } .row > div { flex:1; min-width:120px; }
+label { display:block; font-weight:800; font-size:14px; margin:6px 0 4px; }
+.btn { padding:8px 13px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:14px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.muted { color:var(--sub); font-size:13px; }
+table { width:100%; border-collapse:collapse; font-size:14px; } th, td { border-bottom:1px solid var(--line); padding:7px 6px; text-align:right; } th:first-child, td:first-child { text-align:left; } th { font-size:12px; color:var(--sub); }
+.big { background:var(--ink); color:#fff; border-radius:12px; padding:12px; text-align:center; margin-top:10px; }
+.big .v { font-size:30px; font-weight:900; color:#FFE14D; }
+.warn { color:var(--red); font-weight:800; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:13px; }
+.cta { background:#161616; color:#fff; border-radius:16px; padding:16px; margin:16px 0 12px; }
+.cta h2 { color:#fff; font-size:18px; margin:0 0 6px; } .cta p { margin:0 0 12px; font-size:14px; line-height:1.7; }
+.cta a.go { display:block; text-align:center; background:#E8642A; color:#fff; font-weight:900; font-size:17px; padding:13px; border-radius:12px; text-decoration:none; }
+.cta small { display:block; margin-top:8px; color:#cfc8bb; font-size:12px; text-align:center; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>松竹梅の値付けシミュレーター</h1></header>
+<main>
+  <div class="card">
+    <h2>3つのメニュー</h2>
+    <p class="muted" style="margin:0 0 8px">「今の出方」と、くらべ役（おとり）を置いたあとに「こうなったら」の出方を、それぞれ合計100%で入れます。</p>
+    <div id="menus"></div>
+    <div class="row"><div><label>1か月の注文数（組・人など）</label><input id="n" type="number" inputmode="numeric" value="300" oninput="calc()"></div></div>
+    <div class="row" style="margin-top:10px"><button class="btn ghost" onclick="example()">動画のコースの例を入れる</button></div>
+  </div>
+
+  <div class="card">
+    <h2>結果</h2>
+    <table id="tbl"></table>
+    <div class="big"><div>出方が変わると、1か月の粗利は</div><div class="v" id="diff">-</div><div id="diff2" style="font-size:13px"></div></div>
+    <p class="muted" id="chk"></p>
+  </div>
+
+  <p class="note">くらべ役（おとり）のコツ：売りたいメニューのすぐ隣に、中身が少し劣るのに値段は近いメニューを置くと、売りたい方が「お得」に見えます（行動経済学の「おとり効果」）。くらべ役も本当に出せる中身にし、うそや大げさな値引きにはしないこと。出方は思ったとおりにならないこともあるので、1か月ごとに売れた数で確かめましょう。</p>
+
+  <div class="cta">
+    <h2>本格的に使うなら「ミセマワシ」</h2>
+    <p>このツールは手で入れる簡単版です。ミセマワシなら、レジの売上から1品ごとの売れた数が自動で集まり、原価とつないで「売れ数×利益」でメニューを見直せます。<br>レジ・原価・予約・シフト・給与・集客まで、飲食店の経営をぜんぶ1つにまとめます。</p>
+    <a class="go" href="https://www.misemawashi.com/#apply" target="_blank" rel="noopener">無料デモを申し込む</a>
+    <small>1店舗でも、複数店舗でも。スマホ・タブレット・パソコンで使えます</small>
+  </div>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「誰も頼まないメニュー、わざと置いてますか？」から生まれたツールです。入れた内容は、この端末のブラウザの中だけに保存されます。<br>
+  <a href="https://www.misemawashi.com/" target="_blank" rel="noopener">ミセマワシ｜飲食店の経営を、ぜんぶ1つに</a>
+</footer>
+<script>
+const KEY = 'mise_shochikubai_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const num = (v) => { const n = parseFloat(String(v).replace(/[,，円%]/g, '')); return isFinite(n) ? n : 0; };
+const yen = (n) => (n < 0 ? '−' : '') + Math.round(Math.abs(n)).toLocaleString('ja-JP') + '円';
+const EX = { n: 300, m: [
+  { name: '梅', price: 3000, cost: 1000, now: 70, after: 40 },
+  { name: '竹（くらべ役）', price: 4800, cost: 1700, now: 0, after: 10 },
+  { name: '松', price: 5000, cost: 1650, now: 30, after: 50 } ] };
+let D = (() => { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } })();
+if (!D || !Array.isArray(D.m) || D.m.length !== 3) D = JSON.parse(JSON.stringify(EX));
+function store() { try { localStorage.setItem(KEY, JSON.stringify(D)); } catch (e) {} }
+function draw() {
+  $('menus').innerHTML = D.m.map((x, i) => `<div class="m">
+    <div class="g"><div><small>名前</small><input value="${esc(x.name)}" oninput="D.m[${i}].name=this.value;calc()"></div>
+      <div><small>値段（円）</small><input type="number" inputmode="numeric" value="${esc(x.price)}" oninput="D.m[${i}].price=this.value;calc()"></div>
+      <div><small>原価（円）</small><input type="number" inputmode="numeric" value="${esc(x.cost)}" oninput="D.m[${i}].cost=this.value;calc()"></div></div>
+    <div class="g2"><div><small>今の出方（%）</small><input type="number" inputmode="decimal" value="${esc(x.now)}" oninput="D.m[${i}].now=this.value;calc()"></div>
+      <div><small>くらべ役を置いた後（%）</small><input type="number" inputmode="decimal" value="${esc(x.after)}" oninput="D.m[${i}].after=this.value;calc()"></div></div>
+    <div class="meta" id="meta${i}"></div></div>`).join('');
+  $('n').value = D.n;
+}
+function example() { D = JSON.parse(JSON.stringify(EX)); draw(); calc(); }
+function calc() {
+  D.n = $('n').value; store();
+  const N = num(D.n);
+  const mix = (k) => { const s = D.m.reduce((a, x) => a + Math.max(0, num(x[k])), 0); return { s, price: s ? D.m.reduce((a, x) => a + num(x.price) * Math.max(0, num(x[k])), 0) / s : 0, gross: s ? D.m.reduce((a, x) => a + (num(x.price) - num(x.cost)) * Math.max(0, num(x[k])), 0) / s : 0 }; };
+  D.m.forEach((x, i) => { const p = num(x.price), c = num(x.cost); $('meta' + i).textContent = p > 0 ? `原価率 ${(c / p * 100).toFixed(1)}%・1つの粗利 ${yen(p - c)}` : ''; });
+  const a = mix('now'), b = mix('after');
+  $('tbl').innerHTML = `<tr><th></th><th>今</th><th>くらべ役を置いた後</th></tr>
+    <tr><td>1つあたりの客単価</td><td>${yen(a.price)}</td><td>${yen(b.price)}</td></tr>
+    <tr><td>1つあたりの粗利</td><td>${yen(a.gross)}</td><td>${yen(b.gross)}</td></tr>
+    <tr><td>1か月の粗利（${N.toLocaleString('ja-JP')}件）</td><td>${yen(a.gross * N)}</td><td>${yen(b.gross * N)}</td></tr>`;
+  const d = (b.gross - a.gross) * N;
+  $('diff').textContent = (d >= 0 ? '+' : '') + yen(d); $('diff2').textContent = `1年なら ${(d >= 0 ? '+' : '') + yen(d * 12)}`;
+  const bad = [['今', a.s], ['置いた後', b.s]].filter(([, s]) => Math.round(s) !== 100);
+  $('chk').innerHTML = bad.length ? `<span class="warn">「${bad.map((x) => x[0]).join('」「')}」の出方の合計が100%になっていません（${bad.map((x) => Math.round(x[1]) + '%').join('・')}）。割合として計算しています。</span>` : '出方の合計はどちらも100%です。';
+}
+draw(); calc();
+</script>
+</body>
+</html>
