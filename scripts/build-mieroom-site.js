@@ -35,11 +35,20 @@ function fixLinks(html, dir) {
   });
 }
 
+// ミエルームの「HP連携」（株式会社デモのアカウント）でこのサイトのアクセス・ヒートマップを見るためのタグ（2026-11-26 社長の指示）。
+// 合言葉はページのソースに出るもの（秘密ではない）。数えるのは mieroom.cloud から届いたものだけ（ミエルーム側で決めている）
+const HP_TAG = '<script src="https://app.mieroom.cloud/hp-t/ERteAwdkksu72KYeq9Esbo6H.js" async data-mieroom-hp></script>';
+
+function addHpTag(html) {
+  if (html.includes('data-mieroom-hp') || !/<\/head>/i.test(html)) return html;
+  return html.replace(/<\/head>/i, HP_TAG + '\n</head>');
+}
+
 function convert(html, dir) {
-  return fixLinks(html, dir)
+  return addHpTag(fixLinks(html, dir)
     .replace(/<script data-moved>[\s\S]*?<\/script>\r?\n?/g, '')
     .replace(/<meta http-equiv="refresh"[^>]*data-moved>\r?\n?/g, '')
-    .replace(/https:\/\/teneramente\.jp\/mieroom(?=[/"'\s<])\/?/g, `${NEW}/`);
+    .replace(/https:\/\/teneramente\.jp\/mieroom(?=[/"'\s<])\/?/g, `${NEW}/`));
 }
 
 let pages = 0;
