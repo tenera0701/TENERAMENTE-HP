@@ -1147,7 +1147,8 @@
       ],
       "status": "done",
       "slug": "kyakuzuke-hokoku",
-      "doneAt": "2026-10-26"
+      "doneAt": "2026-10-26",
+      "coverTitle": "管理会社への客付け報告の進め方｜募集状況をそろえて任される店舗になる"
     },
     {
       "id": "m061",
@@ -1727,7 +1728,8 @@
       ],
       "status": "done",
       "slug": "jisha-site-hankyo",
-      "doneAt": "2026-11-23"
+      "doneAt": "2026-11-23",
+      "coverTitle": "賃貸仲介の自社ホームページから反響を取る方法｜ポータル以外の経路を育てる順番"
     },
     {
       "id": "m207",
@@ -1746,7 +1748,8 @@
       ],
       "status": "done",
       "slug": "moushikomi-juufuku-taio",
-      "doneAt": "2026-11-24"
+      "doneAt": "2026-11-24",
+      "coverTitle": "賃貸の申込が重なったときの進め方｜一番手・二番手の管理と伝え方"
     },
     {
       "id": "m208",
@@ -1765,7 +1768,8 @@
       ],
       "status": "done",
       "slug": "gyomu-buntan-kimekata",
-      "doneAt": "2026-11-25"
+      "doneAt": "2026-11-25",
+      "coverTitle": "賃貸仲介の業務分担の決め方｜一貫担当と分業の分かれ目"
     },
     {
       "id": "m209",
@@ -1784,7 +1788,8 @@
       ],
       "status": "done",
       "slug": "raiki-uriage-keikaku",
-      "doneAt": "2026-11-26"
+      "doneAt": "2026-11-26",
+      "coverTitle": "賃貸仲介の来期売上計画の立て方｜月別の季節差を踏まえて組む手順"
     }
   ]
 }

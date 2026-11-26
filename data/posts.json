@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png"
+    "image": "assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png",
+    "imageHero": "assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.webp",
+    "imageCard": "assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho-card.webp"
   },
   {
     "slug": "2026-11-26-lp-seika-wakeru-yoso",
@@ -147,7 +149,9 @@
     ],
     "visual": "v-violet",
     "number": "02",
-    "image": "assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png"
+    "image": "assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.png",
+    "imageHero": "assets/img/covers/2026-11-26-lp-seika-wakeru-yoso.webp",
+    "imageCard": "assets/img/covers/2026-11-26-lp-seika-wakeru-yoso-card.webp"
   },
   {
     "slug": "2026-11-25-rag-kochiku-hiyo-small-start",
@@ -222,7 +226,9 @@
     ],
     "visual": "v-cyan",
     "number": "03",
-    "image": "assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png"
+    "image": "assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.png",
+    "imageHero": "assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start.webp",
+    "imageCard": "assets/img/covers/2026-11-25-rag-kochiku-hiyo-small-start-card.webp"
   },
   {
     "slug": "2026-11-24-gyomu-app-hoshu-hiyo-uchiwake",
@@ -297,7 +303,9 @@
     ],
     "visual": "default",
     "number": "04",
-    "image": "assets/img/covers/2026-11-24-gyomu-app-hoshu-hiyo-uchiwake.png"
+    "image": "assets/img/covers/2026-11-24-gyomu-app-hoshu-hiyo-uchiwake.png",
+    "imageHero": "assets/img/covers/2026-11-24-gyomu-app-hoshu-hiyo-uchiwake.webp",
+    "imageCard": "assets/img/covers/2026-11-24-gyomu-app-hoshu-hiyo-uchiwake-card.webp"
   },
   {
     "slug": "2026-11-23-mitsumori-seikyu-jidosakusei",

@@ -1678,7 +1678,8 @@
       ],
       "status": "done",
       "slug": "2026-11-25-rag-kochiku-hiyo-small-start",
-      "doneAt": "2026-11-24"
+      "doneAt": "2026-11-24",
+      "coverTitle": "RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方"
     },
     {
       "id": "k045",
@@ -1696,7 +1697,8 @@
       ],
       "status": "done",
       "slug": "2026-11-26-lp-seika-wakeru-yoso",
-      "doneAt": "2026-11-25"
+      "doneAt": "2026-11-25",
+      "coverTitle": "LP制作で成果を分ける要素｜費用より先に決めるべき5つのこと"
     },
     {
       "id": "k042",
@@ -1714,7 +1716,8 @@
       ],
       "status": "done",
       "slug": "2026-11-27-juhatchu-kanri-system-chusho",
-      "doneAt": "2026-11-26"
+      "doneAt": "2026-11-26",
+      "coverTitle": "受発注管理システムを中小企業が小さく始める手順と費用の考え方"
     },
     {
       "id": "k016",
