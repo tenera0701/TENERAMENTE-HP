@@ -1766,6 +1766,25 @@
       "status": "done",
       "slug": "gyomu-buntan-kimekata",
       "doneAt": "2026-11-25"
+    },
+    {
+      "id": "m209",
+      "category": "売上管理",
+      "keyword": "賃貸仲介 来期 売上計画 立て方",
+      "sub": [
+        "不動産 店舗 年間 売上計画",
+        "賃貸 仲介 月別 目標 季節"
+      ],
+      "title": "賃貸仲介の来期売上計画の立て方｜月別の季節差を踏まえて組む手順",
+      "intent": "来期（新年度）の売上計画と月別目標を組み立てたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "hanbouki-uriage-mokuhyo",
+        "tenpo-soneki-arari-handan"
+      ],
+      "status": "done",
+      "slug": "raiki-uriage-keikaku",
+      "doneAt": "2026-11-26"
     }
   ]
 }

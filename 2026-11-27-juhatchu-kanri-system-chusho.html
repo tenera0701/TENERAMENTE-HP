@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">受発注管理システムを中小企業が小さく始める手順と費用の考え方 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="受発注管理をFAX・電話・Excelのまま回している中小企業が、どこから手を付ければいいのかを手順で整理しました。6つの工程への棚卸し、着手順の決め方、受注の入口のそろえ方、費用の見方、導入前のチェックリストとよくある失敗までまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="受発注管理システムを中小企業が小さく始める手順と費用の考え方" />
+<meta property="og:description" data-meta="og:description" content="受発注管理をFAX・電話・Excelのまま回している中小企業が、どこから手を付ければいいのかを手順で整理しました。6つの工程への棚卸し、着手順の決め方、受注の入口のそろえ方、費用の見方、導入前のチェックリストとよくある失敗までまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-27-juhatchu-kanri-system-chusho.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="受発注管理システムを中小企業が小さく始める手順と費用の考え方" />
+<meta name="twitter:description" data-meta="twitter:description" content="受発注管理をFAX・電話・Excelのまま回している中小企業が、どこから手を付ければいいのかを手順で整理しました。6つの工程への棚卸し、着手順の決め方、受注の入口のそろえ方、費用の見方、導入前のチェックリストとよくある失敗までまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-27-juhatchu-kanri-system-chusho.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-27-juhatchu-kanri-system-chusho";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"受発注管理システムを中小企業が小さく始める手順と費用の考え方","description":"受発注管理をFAX・電話・Excelのまま回している中小企業が、どこから手を付ければいいのかを手順で整理しました。6つの工程への棚卸し、着手順の決め方、受注の入口のそろえ方、費用の見方、導入前のチェックリストとよくある失敗までまとめています。","datePublished":"2026-11-27","dateModified":"2026-11-27","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-27-juhatchu-kanri-system-chusho.html","image":"https://teneramente.jp/assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png","articleSection":"Web App","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"受発注管理, 業務システム, 業務アプリ, DX, 中小企業"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"受発注管理システムを中小企業が小さく始める手順と費用の考え方","item":"https://teneramente.jp/2026-11-27-juhatchu-kanri-system-chusho.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"受発注管理システムは、どれくらいの期間でできますか？","acceptedAnswer":{"@type":"Answer","text":"範囲によって変わります。工程を1つか2つに絞った試作であれば、短い期間で「触れる形」まで持っていけます。逆に受注から在庫・請求まで一度に作る場合は、設計と検証に時間がかかります。期間を短くしたいなら、機能を削るより工程を絞るほうが効きます。"}},{"@type":"Question","name":"FAXでの受注が多いのですが、やめられません。システム化できますか？","acceptedAnswer":{"@type":"Answer","text":"できます。FAXをやめる必要はありません。届いた画像を受注の記録に添付し、品番と数量だけを人が入力する形にすると、受注の記録は1か所にそろいます。入口を変えるのではなく、入ったあとの置き場所をそろえるのが現実的な進め方です。"}},{"@type":"Question","name":"今のExcelのデータは引き継げますか？","acceptedAnswer":{"@type":"Answer","text":"引き継げますが、移す前に整理が必要です。品番や取引先名の表記がそろっていないと、そのまま移しても使えません。移すもの・残すもの・捨てるものを分け、表記をそろえる作業は、どの進め方を選んでも発生します。見積の際に、この作業が含まれるかを確かめてください。"}},{"@type":"Question","name":"既製のサービスと、自社に合わせて作るのはどちらがよいですか？","acceptedAnswer":{"@type":"Answer","text":"取引先ごとの例外の多さで決まります。業界の標準的な流れで収まるなら既製のものが早く、費用も抑えられます。取引先ごとの取り決めが多い場合は、既製のものに合わせて運用を変える負担が現場に残ります。会計や在庫は既製のもの、受注の入口だけ合わせて作る、という組み合わせも選べます。"}},{"@type":"Question","name":"社内に詳しい人がいませんが、進められますか？","acceptedAnswer":{"@type":"Answer","text":"詳しい人よりも、受発注の実務を分かっている人と、検証の時間を出せる人が必要です。技術の部分は任せられますが、どの工程に手間がかかっていて、どの取引先に例外があるかは社内にしか分かりません。その情報を出せる担当者を決めておけば、進められます。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">WEB APP</span></div>
+  <span class="post-cat" data-post="category">Web App</span>
+  <h1 class="post-title" data-post="title">受発注管理システムを中小企業が小さく始める手順と費用の考え方</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 27, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-27-juhatchu-kanri-system-chusho.png" alt="受発注管理システムを中小企業が小さく始める手順と費用の考え方" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>受発注管理が紙・FAX・Excelのままだと、どこで時間が溶けるのか</a><a href="#h2"><span class="n">02</span>手を付ける前に、受発注の流れを6つの工程に分けて棚卸しする</a><a href="#h3"><span class="n">03</span>どこから着手するかは、効果と難易度で並べて決める</a><a href="#h4"><span class="n">04</span>受注の入口をそろえる（FAX・メール・電話・Webフォーム）</a><a href="#h5"><span class="n">05</span>在庫・納期・出荷と、請求・入金までを1本につなげる</a><a href="#h6"><span class="n">06</span>小さく始めるときの進め方と、費用の考え方</a><a href="#h7"><span class="n">07</span>導入前のチェックリストと、よくある失敗とその避け方</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：受発注のシステム化は、工程を絞って小さく始める</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">受注はFAXと電話で入り、内容はExcelに転記し、在庫は別のファイル、請求は会計ソフトに打ち直す。この形でも仕事は回りますが、人が増えても楽にならないのが受発注管理の難しさです。結論から申し上げると、<strong>受発注のシステム化で成否を分けるのは工程の絞り方</strong>です。この記事では、受発注管理システムを中小企業が小さく始めるための手順と、費用の考え方を整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>受発注管理は全部を一度に置き換えるのではなく、<strong>受注の入口と入力を1本にそろえることから始める</strong>のが近道です。工程を6つに分けて棚卸しし、効果が毎日出て難易度の低いところから順に移すと、途中で止まりません。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>受発注管理が紙・FAX・Excelのままだと、どこで時間が溶けるのか</h2>
+<p>受発注の手間は、ひとつの大きな作業ではなく、小さな確認の積み重ねとして現れます。FAXの文字が読み取りにくいので電話で確認する。Excelに転記したあと、品番と数量を目で見比べる。在庫ファイルを開いて引き当て、納期を折り返す。出荷したら送り状の番号を別の表に書き写す。月末には、納品書の控えと請求書を突き合わせる。</p>
+<p>一つひとつは数分で終わります。だからこそ改善の対象になりにくく、合計すると大きな時間になっていると気づきにくいのです。</p>
+<p>もう一つの問題は、<strong>同じ情報を何度も打ち込んでいる</strong>ことです。受注票、在庫ファイル、出荷伝票、請求データに、同じ品番と数量と単価が別々に入っています。どこか一か所を直したときに他が直らないので、「どれが正しいのか」を人が覚えておかなければなりません。担当者が休んだ日に止まるのは、能力の問題ではなく、情報が人の頭にしか無いからです。</p>
+<p>受注量が増えたときに最初に壊れるのは、この突き合わせの部分です。繁忙期に残業が増えるのに売上が伸びない会社では、増えた仕事の多くが確認作業になっています。</p>
+<h2 id="h2"><span class="h-num">02</span>手を付ける前に、受発注の流れを6つの工程に分けて棚卸しする</h2>
+<p>システムを探す前に、自社の受発注が今どう流れているかを工程に分けて書き出します。大きく見ると、受発注は6つの段に分かれます。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-27-juhatchu-kanri-system-chusho.png" alt="FAXやメールや電話やWebフォームで注文が入る受注の受け取り、品番と数量と単価と納期を読み取って記録する内容の入力、在庫を確かめて引き当て納期を折り返す在庫と納期回答、伝票を用意して送り状の番号を残す出荷の指示、出荷済みの行を集めて締める請求の作成、入金明細と請求を突き合わせる入金の消し込みという、受発注の流れを受け渡しが起きる単位で6つの段に分けた図" width="1600" height="582" loading="lazy" decoding="async"><figcaption>工程ごとに、今だれがやっているか・1件あたりの時間・間違いの起きる場所を書き込みます。</figcaption></figure>
+
+
+<p>この棚卸しで書き込むのは3つだけです。<strong>その工程を今だれがやっているか</strong>、1件あたりどれくらい時間がかかっているか、間違いが起きるのはどの工程か。時間は担当者の体感で構いません。</p>
+<p>書き出すと、たいてい2つのことが分かります。ひとつは、時間がかかっているのは受注そのものではなく、受注内容を読み取って別の場所に移す作業だということ。もうひとつは、間違いが起きるのは工程の中ではなく、工程と工程の受け渡しだということです。</p>
+<p>受け渡しで情報が落ちているなら、そこをつなぐのが最も効きます。工程の中の作業を速くする工夫より先に、受け渡しをなくす設計を考えます。考え方の全体像は<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発の完全ガイド</a>でも整理しています。</p>
+<h2 id="h3"><span class="h-num">03</span>どこから着手するかは、効果と難易度で並べて決める</h2>
+<p>棚卸しができたら、着手の順番を決めます。判断の軸は2つで、効果がどれくらいの頻度で出るかと、移すのがどれくらい難しいかです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>着手の候補</th>
+<th>なくせる手間</th>
+<th>効果の出方</th>
+<th>難易度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>受注内容の入力</td>
+<td>読み取りと転記、品番・数量の見比べ</td>
+<td>受注が入るたび毎日</td>
+<td>低い</td>
+</tr>
+<tr>
+<td>在庫の引き当てと納期回答</td>
+<td>別ファイルを開く、折り返しの電話</td>
+<td>受注のたび、問い合わせのたび</td>
+<td>中くらい</td>
+</tr>
+<tr>
+<td>出荷の指示と伝票</td>
+<td>伝票の手書き、送り状番号の書き写し</td>
+<td>出荷のたび</td>
+<td>中くらい</td>
+</tr>
+<tr>
+<td>請求データの作成</td>
+<td>受注表から請求への打ち直し</td>
+<td>月末にまとめて</td>
+<td>低い</td>
+</tr>
+<tr>
+<td>入金の消し込み</td>
+<td>入金明細と請求の突き合わせ</td>
+<td>月末にまとめて</td>
+<td>中くらい</td>
+</tr>
+<tr>
+<td>仕入・発注の管理</td>
+<td>発注残の把握、入荷予定の確認</td>
+<td>発注のたび</td>
+<td>高い</td>
+</tr>
+</tbody></table></div>
+<p>毎日効いて難易度が低いものが最初です。多くの会社では、受注内容の入力がここに入ります。月末にまとめて効くものは、効果は分かりやすいのですが、月に一度しか検証できないので直すのに時間がかかります。</p>
+<p>難易度が高いものを最初に選ぶと、設計の議論が長引き、動くものに触れるまでに時間がかかります。途中で現場の関心が切れるのが、この順番の失敗です。小さく始める考え方は<a href="2026-11-18-shanai-tool-small-start.html">社内ツールのスモールスタート</a>でも触れています。</p>
+<h2 id="h4"><span class="h-num">04</span>受注の入口をそろえる（FAX・メール・電話・Webフォーム）</h2>
+<p>受注の入口が複数あること自体は、無理に一本化しなくて構いません。取引先には取引先のやり方があり、こちらの都合で変えてもらうのは簡単ではないからです。そろえるのは、入口ではなく<strong>入ったあとの置き場所</strong>です。</p>
+<p>どの経路で来ても、受注として同じ1件の記録になる形にします。実務では次のように受け止めます。</p>
+<ul>
+<li>Webフォームや取引先向けの受注画面から来たものは、そのまま記録になる</li>
+<li>メールは、添付や本文を取り込んで記録の下書きにし、人が内容を確認して確定する</li>
+<li>FAXは、画像を記録に添付して、品番と数量だけを人が入力する</li>
+<li>電話は、聞き取りながら記録に直接入力し、復唱して確認する</li>
+</ul>
+<p>この形にすると、入口が4つあっても、見る場所は1つになります。「あの注文はFAXで来たから、あのクリアファイルの中」という探し方が消えるのが、最初に実感できる変化です。</p>
+<p>取引先ごとの品番の呼び方の違いは、ここで吸収します。相手の呼び方と自社の品番を対応づけて持たせておくと、受注のたびに読み替える作業がなくなります。</p>
+<h2 id="h5"><span class="h-num">05</span>在庫・納期・出荷と、請求・入金までを1本につなげる</h2>
+<p>受注が1件の記録になったら、その記録に後ろの工程をぶら下げていきます。別の表を作らないことが肝心です。</p>
+<p>在庫は、受注の記録から引き当てます。引き当てた数が在庫から減り、足りなければ発注残として残る形にすると、納期の回答が記録を見るだけで済みます。ここで「実在庫」と「引当済み」を分けて持つのが要点です。倉庫には物があるのに別の注文に充てる予定だった、という行き違いは、この区別がないときに起きます。</p>
+<p>出荷は、受注の記録に出荷の情報を足します。出荷した数量・日付・送り状の番号を同じ記録に残すと、取引先からの問い合わせに一画面で答えられます。分納や一部出荷があるなら、最初から複数回の出荷を記録できる形にしておきます。</p>
+<p>請求は、出荷の実績から作ります。受注の記録から請求を打ち直すのではなく、出荷済みの行を集めて締める形です。入金は、請求に対して消し込みます。一部入金や取引先単位のまとめ入金があるなら、それも記録できるようにしておきます。</p>
+<div class="callout">
+  <span class="ico">!</span>
+  <div>
+    <h4>つなぐ順番の目安</h4>
+    <p>受注 → 出荷 → 請求の順でつなぐと、途中で止めても使える状態が残ります。先に在庫から作ると、在庫の精度が出るまで誰も使えない期間が生まれます。詳しくは<a href="2026-06-30-gyomu-app-kanzen-guide.html">業務アプリ開発の完全ガイド</a>もあわせてご覧ください。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>小さく始めるときの進め方と、費用の考え方</h2>
+<p>進め方は、最初から完成形を目指さず、工程を1つか2つに絞って触れる形を作り、使いながら直すのが確実です。実際の受注データで1週間使うと、設計の話では出てこなかった例外が出てきます。例外を知ってから次を作るほうが、作り直しが少なくなります。</p>
+<p>既製のサービスを使うか、自社に合わせて作るかは、例外の多さで決まります。業界の標準的な流れで収まるなら既製のものが早く、取引先ごとの取り決めが多いなら合わせて作るほうが現場の手間が減ります。両方を組み合わせて、会計や在庫は既製のもの、受注の入口だけ自社に合わせる形も現実的です。</p>
+<p>費用は、何に対して払うのかを分けて見ると比べやすくなります。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>費用の種類</th>
+<th>何に対して払うか</th>
+<th>見積で確かめること</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初期費用</td>
+<td>要件の整理、設計、作成、既存データの移行、公開作業</td>
+<td>どこまでが含まれるか。データ移行が別見積になっていないか</td>
+</tr>
+<tr>
+<td>月額費用</td>
+<td>サーバー、保守、バックアップ、小さな修正</td>
+<td>「小さな修正」の範囲。障害時の連絡の窓口と時間帯</td>
+</tr>
+<tr>
+<td>追加開発</td>
+<td>機能の追加、取引先の追加対応</td>
+<td>都度見積か、時間単価か。見積の出る早さ</td>
+</tr>
+<tr>
+<td>社内の工数</td>
+<td>現場のヒアリング、検証、データの整理、教育</td>
+<td>誰がどれくらい時間を出せるか。繁忙期と重ならないか</td>
+</tr>
+</tbody></table></div>
+<p>見落としやすいのは最後の社内工数です。外注費がいくらでも、現場が検証に時間を出せなければ進みません。着手の時期は、繁忙期を外して決めます。</p>
+<h2 id="h7"><span class="h-num">07</span>導入前のチェックリストと、よくある失敗とその避け方</h2>
+<p>着手の前に、次の項目を埋められるか確かめます。埋まらない項目があるなら、そこが先に決めるべきことです。</p>
+<ul>
+<li>受発注の工程を書き出し、1件あたりの時間と間違いの起きる場所が分かっている</li>
+<li>最初に移す工程を1つか2つに絞って決めてある</li>
+<li>受注の入口が何種類あり、それぞれ何件くらい来るかを数えてある</li>
+<li>取引先ごとの特別な取り決め（品番の呼び方、締め日、分納の有無）を一覧にしてある</li>
+<li>既存のExcelのうち、移すもの・残すもの・捨てるものを分けてある</li>
+<li>現場側の担当者が決まっていて、検証の時間を確保できている</li>
+<li>止まったときに紙で回す手順が決まっている</li>
+<li>入力の責任をだれが持つか（受注の確定を押すのは誰か）が決まっている</li>
+</ul>
+<p>よくある失敗は、だいたい次の4つです。</p>
+<p><strong>全部の工程を一度に置き換えようとする</strong>。設計の議論が終わらず、動くものを見るまでに時間がかかります。工程を絞れば、2週間ほどで触れる形にできる範囲があります。</p>
+<p><strong>今のExcelをそのまま画面にする</strong>。現在のExcelには、システムが無いから仕方なくやっている手順が混ざっています。そのまま移すと、無駄も一緒に移ります。工程の棚卸しをしたのは、これを見分けるためです。</p>
+<p><strong>現場に相談せずに決める</strong>。受発注の例外は現場が持っています。公開してから「この取引先はこの形では処理できない」と分かると、結局Excelが復活します。</p>
+<p><strong>二重入力の期間を長く取りすぎる</strong>。安全のために旧来のExcelと並行させるのは正しいのですが、期間を決めずに始めると、両方を更新する手間が定着してしまいます。並行は期間を切り、切り替え日を先に決めます。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>社内で進められるかどうかは、人の有無よりも、扱う情報の性質と例外の多さで決まります。</p>
+<p>自社で進めやすいのは、受注の形が決まっていて取引先ごとの例外が少なく、既製のサービスの範囲で収まる場合です。社内に表計算や業務ツールの設定を一通りできる人がいて、その人が片手間ではなく時間を取れるなら、小さく作って運用まで持っていけます。</p>
+<p>専門家に相談したほうがよいのは、次のような場合です。取引先ごとの取り決めが多く、既製のサービスの設定では表現しきれないとき。在庫や会計の既存システムとデータをやり取りする必要があるとき。受注の内容に価格や取引条件が含まれ、閲覧できる人を分けなければならないとき。そして、作ったあと何年も使い続ける前提で、保守の担い手を社内に置けないときです。</p>
+<p>判断の分かれ目は、<strong>作ったあとに誰が直し続けるか</strong>にあります。作る作業は一度で終わりますが、取引先が増え、商品が変わり、締めの運用が変わるたびに手を入れる必要があります。その担い手が社内に置けないなら、作る前からその体制を含めて相談するほうが、結果として安く収まります。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>受発注管理システムは、どれくらいの期間でできますか？</summary><div class="faq-a">範囲によって変わります。工程を1つか2つに絞った試作であれば、短い期間で「触れる形」まで持っていけます。逆に受注から在庫・請求まで一度に作る場合は、設計と検証に時間がかかります。期間を短くしたいなら、機能を削るより工程を絞るほうが効きます。</div></details>
+
+<details class="faq"><summary>FAXでの受注が多いのですが、やめられません。システム化できますか？</summary><div class="faq-a">できます。FAXをやめる必要はありません。届いた画像を受注の記録に添付し、品番と数量だけを人が入力する形にすると、受注の記録は1か所にそろいます。入口を変えるのではなく、入ったあとの置き場所をそろえるのが現実的な進め方です。</div></details>
+
+<details class="faq"><summary>今のExcelのデータは引き継げますか？</summary><div class="faq-a">引き継げますが、移す前に整理が必要です。品番や取引先名の表記がそろっていないと、そのまま移しても使えません。移すもの・残すもの・捨てるものを分け、表記をそろえる作業は、どの進め方を選んでも発生します。見積の際に、この作業が含まれるかを確かめてください。</div></details>
+
+<details class="faq"><summary>既製のサービスと、自社に合わせて作るのはどちらがよいですか？</summary><div class="faq-a">取引先ごとの例外の多さで決まります。業界の標準的な流れで収まるなら既製のものが早く、費用も抑えられます。取引先ごとの取り決めが多い場合は、既製のものに合わせて運用を変える負担が現場に残ります。会計や在庫は既製のもの、受注の入口だけ合わせて作る、という組み合わせも選べます。</div></details>
+
+<details class="faq"><summary>社内に詳しい人がいませんが、進められますか？</summary><div class="faq-a">詳しい人よりも、受発注の実務を分かっている人と、検証の時間を出せる人が必要です。技術の部分は任せられますが、どの工程に手間がかかっていて、どの取引先に例外があるかは社内にしか分かりません。その情報を出せる担当者を決めておけば、進められます。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：受発注のシステム化は、工程を絞って小さく始める</h2>
+<p>受発注管理の改善は、全部を置き換える計画ではなく、工程を分けて順番を決める作業から始まります。6つの工程に棚卸しし、毎日効いて難易度の低いところから移す。入口は無理に一本化せず、入ったあとの置き場所をそろえる。そして受注から出荷、請求へと後ろの工程をぶら下げていく。この順番なら、途中で止めても使える状態が残ります。</p>
+<p>TENERAMENTEなら、この記事で挙げた工程の棚卸しからご一緒し、受注の入口をそろえる部分だけを切り出して、最短2週間でPoC（試作）として触れる形にできます。FAXやメールで届いた受注を1件の記録にまとめ、出荷・請求までを同じ記録でつなぐところまで、要件定義から運用まで内製チームで一貫して進めます。開発費30万円〜・月額3万円〜（保守込み）で、取引先が増えたときの手直しも含めて続けられる形にしますので、転記と突き合わせに使っていた時間が、受注そのものに向けられるようになります。進め方の詳細は<a href="lp-ai-app.html">AI×Webアプリ開発</a>にまとめていますので、自社の受発注のどこから手を付けるべきか迷われている段階でも、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#受発注管理</span><span>#業務システム</span><span>#業務アプリ</span><span>#DX</span><span>#中小企業</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI×WEBアプリ開発</span>
+    <p class="svc-card-title">Excelと属人化を、御社専用のアプリに</p>
+    <p class="svc-card-text">Excel・属人化・既製SaaSのすき間を埋める、御社専用の業務アプリを短い工期で開発します。初期費用は30万円から。まずは今の業務の流れをお聞きするところから始めます。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=app" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-app.html" class="btn btn--ghost btn--lg">AI×WEBアプリ開発を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-24-gyomu-app-hoshu-hiyo-uchiwake.html">
+        <span class="cat">Web App</span>
+        <h4>業務アプリの保守・運用費に何が含まれるか｜月額で見るべきポイント</h4>
+      </a>
+      <a class="related-card" href="2026-11-23-mitsumori-seikyu-jidosakusei.html">
+        <span class="cat">Web App</span>
+        <h4>見積書・請求書を自動作成するシステム｜転記ミスをなくす仕組み</h4>
+      </a>
+      <a class="related-card" href="2026-11-22-kokyaku-kanri-app-jisha-kaihatsu.html">
+        <span class="cat">Web App</span>
+        <h4>顧客管理アプリを自社開発する手順｜Excel台帳から卒業する順番</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>

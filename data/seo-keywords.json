@@ -1712,7 +1712,9 @@
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-27-juhatchu-kanri-system-chusho",
+      "doneAt": "2026-11-26"
     },
     {
       "id": "k016",
