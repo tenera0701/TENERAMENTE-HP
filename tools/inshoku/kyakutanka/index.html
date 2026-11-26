@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>客単価の前後くらべ計算｜ミセマワシ</title>
+<meta name="description" content="メニューを変える前と後の売上と組数を入れるだけで、客単価の変化と、1か月・1年の売上の差が分かる飲食店向けの無料ツール。入れた内容はこの端末の中だけに保存されます。">
+<style>
+:root { --ink:#161616; --sub:#6d675c; --line:#e3ddd0; --bg:#F7F3EA; --acc:#E8642A; --red:#E63A2E; --green:#22975F; --gold:#F2B33D; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Sans","ヒラギノ角ゴシック","Noto Sans JP",sans-serif; font-size:16px; line-height:1.6; }
+header { background:var(--ink); color:#fff; padding:14px 16px; }
+header .brand { font-size:12px; opacity:.8; } header h1 { margin:2px 0 0; font-size:22px; }
+main { max-width:760px; margin:0 auto; padding:16px; }
+.card { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px; margin-bottom:12px; }
+h2 { font-size:17px; margin:0 0 6px; }
+label { display:block; font-weight:800; font-size:14px; margin:8px 0 4px; } label small { font-weight:600; color:var(--sub); }
+input { width:100%; padding:10px 8px; border:2px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+.row { display:flex; gap:8px; flex-wrap:wrap; } .row > div { flex:1; min-width:130px; }
+.btn { padding:8px 13px; border:none; border-radius:10px; background:var(--acc); color:#fff; font-weight:800; font-size:14px; cursor:pointer; }
+.btn.ghost { background:#fff; color:var(--ink); border:2px solid var(--ink); }
+.muted { color:var(--sub); font-size:13px; }
+.kpi { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.kpi > div { border:2px solid var(--ink); border-radius:12px; padding:9px; text-align:center; }
+.kpi .k { font-size:12px; font-weight:800; color:var(--sub); } .kpi .v { font-size:24px; font-weight:900; line-height:1.2; }
+.kpi > .ok { border-color:var(--green); } .kpi > .ok .v { color:var(--green); }
+.kpi > .ng { border-color:var(--red); } .kpi > .ng .v { color:var(--red); }
+@media (max-width:520px) { .kpi { grid-template-columns:1fr 1fr; } }
+.big { background:var(--ink); color:#fff; border-radius:12px; padding:12px; text-align:center; margin-top:10px; }
+.big .v { font-size:28px; font-weight:900; color:#FFE14D; }
+.msg { background:#FFF3C4; border-radius:10px; padding:10px 12px; margin-top:10px; font-size:14px; }
+.note { background:#fff; border-left:5px solid var(--gold); padding:10px 12px; border-radius:8px; font-size:13px; }
+.cta { background:#161616; color:#fff; border-radius:16px; padding:16px; margin:16px 0 12px; }
+.cta h2 { color:#fff; font-size:18px; margin:0 0 6px; } .cta p { margin:0 0 12px; font-size:14px; line-height:1.7; }
+.cta a.go { display:block; text-align:center; background:#E8642A; color:#fff; font-weight:900; font-size:17px; padding:13px; border-radius:12px; text-decoration:none; }
+.cta small { display:block; margin-top:8px; color:#cfc8bb; font-size:12px; text-align:center; }
+footer { max-width:760px; margin:0 auto; padding:8px 16px 40px; color:var(--sub); font-size:13px; } footer a { color:var(--acc); }
+</style>
+</head>
+<body>
+<header><div class="brand">ミセマワシ｜飲食店の味方 の無料ツール</div><h1>客単価の前後くらべ計算</h1></header>
+<main>
+  <div class="card">
+    <h2>① 変える前と後をくらべる</h2>
+    <p class="muted" style="margin:0 0 4px">同じ長さの期間（例: 変える前の2週間と、変えた後の2週間）の、売上と組数（または客数）を入れます。</p>
+    <div class="row">
+      <div><label>変える前の売上（円）</label><input id="s1" type="number" inputmode="numeric" oninput="calc()"></div>
+      <div><label>変える前の組数</label><input id="n1" type="number" inputmode="numeric" oninput="calc()"></div>
+    </div>
+    <div class="row">
+      <div><label>変えた後の売上（円）</label><input id="s2" type="number" inputmode="numeric" oninput="calc()"></div>
+      <div><label>変えた後の組数</label><input id="n2" type="number" inputmode="numeric" oninput="calc()"></div>
+    </div>
+    <label>1か月の組数（月の差の計算に使う）</label><input id="nm" type="number" inputmode="numeric" value="1000" oninput="calc()">
+    <div class="row" style="margin-top:10px"><button class="btn ghost" onclick="example()">例を入れる</button></div>
+    <div class="kpi" style="margin-top:12px">
+      <div><div class="k">変える前の客単価</div><div class="v" id="u1">-</div></div>
+      <div><div class="k">変えた後の客単価</div><div class="v" id="u2">-</div></div>
+      <div id="bd"><div class="k">変わった割合</div><div class="v" id="ud">-</div></div>
+    </div>
+    <div class="big"><div>このままなら、1か月の売上は</div><div class="v" id="m">-</div><div id="y" style="font-size:13px"></div></div>
+    <div class="msg" id="msg">変える前と後の数字を入れてください。</div>
+  </div>
+
+  <div class="card">
+    <h2>② もし客単価が上がったら</h2>
+    <div class="row">
+      <div><label>今の客単価（円）</label><input id="u" type="number" inputmode="numeric" value="3000" oninput="sim()"></div>
+      <div><label>上がる割合（%）</label><input id="p" type="number" inputmode="decimal" value="8" oninput="sim()"></div>
+      <div><label>1か月の組数</label><input id="nm2" type="number" inputmode="numeric" value="1000" oninput="sim()"></div>
+    </div>
+    <div class="big"><div>1組あたり <span id="sp">-</span>／1か月</div><div class="v" id="sm">-</div><div id="sy" style="font-size:13px"></div></div>
+  </div>
+
+  <p class="note">メニューの値段から「円」「¥」を外すと、1組あたりの支払いが約8%多かった、という研究があります（コーネル大学ほか 2009年。アメリカの料理大学のレストランのランチ・201人）。ただし研究者自身が「効き目は人数や長居ほど大きくない」「そのお店のランチだけの話かもしれない」と書いています。<b>変えたら、このツールで前と後を必ずくらべましょう。</b>曜日・天気・宴会の有無でも客単価は動くので、できれば2週間以上でくらべるのがおすすめです。</p>
+
+  <div class="cta">
+    <h2>本格的に使うなら「ミセマワシ」</h2>
+    <p>このツールは手で入れる簡単版です。ミセマワシなら、レジの売上が日報に自動で入り、日・週・月・好きな期間の売上と前年比、店舗どうしのくらべまで1つの画面で見られます。<br>レジ・原価・予約・シフト・給与・集客まで、飲食店の経営をぜんぶ1つにまとめます。</p>
+    <a class="go" href="https://www.misemawashi.com/#apply" target="_blank" rel="noopener">無料デモを申し込む</a>
+    <small>1店舗でも、複数店舗でも。スマホ・タブレット・パソコンで使えます</small>
+  </div>
+</main>
+<footer>
+  インスタ <a href="https://www.instagram.com/misemawasi/" target="_blank" rel="noopener">@misemawasi</a> の動画「メニューの円、消すだけで客単価8%アップ？」から生まれたツールです。入れた内容は、この端末のブラウザの中だけに保存されます。<br>
+  <a href="https://www.misemawashi.com/" target="_blank" rel="noopener">ミセマワシ｜飲食店の経営を、ぜんぶ1つに</a>
+</footer>
+<script>
+const KEY = 'mise_kyakutanka_v1';
+const $ = (id) => document.getElementById(id);
+const num = (v) => { const n = parseFloat(String(v).replace(/[,，円%]/g, '')); return isFinite(n) ? n : 0; };
+const yen = (n) => (n < 0 ? '−' : '') + Math.round(Math.abs(n)).toLocaleString('ja-JP') + '円';
+const IDS = ['s1', 'n1', 's2', 'n2', 'nm', 'u', 'p', 'nm2'];
+function save() { try { localStorage.setItem(KEY, JSON.stringify(Object.fromEntries(IDS.map((k) => [k, $(k).value])))); } catch (e) {} }
+function calc() {
+  save();
+  const s1 = num($('s1').value), n1 = num($('n1').value), s2 = num($('s2').value), n2 = num($('n2').value), nm = num($('nm').value);
+  if (!(s1 > 0 && n1 > 0 && s2 > 0 && n2 > 0)) { ['u1', 'u2', 'ud', 'm'].forEach((k) => $(k).textContent = '-'); $('y').textContent = ''; $('msg').textContent = '変える前と後の数字を入れてください。'; $('bd').className = ''; return; }
+  const u1 = s1 / n1, u2 = s2 / n2, d = u2 / u1 - 1, m = (u2 - u1) * nm;
+  $('u1').textContent = yen(u1); $('u2').textContent = yen(u2);
+  $('ud').textContent = (d >= 0 ? '+' : '') + (d * 100).toFixed(1) + '%'; $('bd').className = d >= 0 ? 'ok' : 'ng';
+  $('m').textContent = (m >= 0 ? '+' : '') + yen(m); $('y').textContent = `1年なら ${(m >= 0 ? '+' : '') + yen(m * 12)}（1か月 ${nm.toLocaleString('ja-JP')}組で計算）`;
+  $('msg').innerHTML = Math.abs(d) < 0.02 ? '差は2%より小さく、曜日や天気などのぶれの中かもしれません。期間をのばしてくらべてみましょう。' : (d > 0 ? `客単価が <b>${(d * 100).toFixed(1)}%</b> 上がりました。同じ時期の宴会や予約の数も変わっていないか、あわせて確かめると確かです。` : `客単価が下がりました。変えた中身をもとに戻すか、ほかの工夫を試してみましょう。`);
+}
+function sim() {
+  save();
+  const u = num($('u').value), p = num($('p').value) / 100, n = num($('nm2').value), per = u * p, m = per * n;
+  $('sp').textContent = '+' + yen(per); $('sm').textContent = '+' + yen(m); $('sy').textContent = '1年なら +' + yen(m * 12);
+}
+function example() { [['s1', 1260000], ['n1', 420], ['s2', 1336000], ['n2', 420], ['nm', 900]].forEach(([k, v]) => $(k).value = v); calc(); }
+(() => { let d = {}; try { d = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {} IDS.forEach((k) => { if (d[k] != null && d[k] !== '') $(k).value = d[k]; }); calc(); sim(); })();
+</script>
+</body>
+</html>
