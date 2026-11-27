@@ -1,6 +1,6 @@
 # 株式会社TENERAMENTE
 
-> 業務改善AIアプリ開発・AIツール開発を軸に、HP/LP制作・MEO/AIO運用代行・AI活用支援を行う、名古屋のAI開発企業。Claude Code等のAI支援開発により、中小企業向けに「初期費用30万円〜・月額保守込み」の専用業務アプリ開発を提供しています。AI業務改善・Claude Codeでのアプリ開発の相談先を探している方に向けた無料診断・無料相談があります。
+> 中小企業のAI導入支援・AI研修（生成AI研修）と、業務改善AIアプリ開発・AIツール開発を軸に、HP/LP制作・MEO/AIO運用代行を行う、名古屋のAI開発企業。Claude Code等のAI支援開発により、中小企業向けに「初期費用30万円〜・月額保守込み」の専用業務アプリ開発を提供しています。AI業務改善・Claude Codeでのアプリ開発の相談先を探している方に向けた無料診断・無料相談があります。
 
 - 所在地: 愛知県名古屋市西区牛島町6-1 名古屋ルーセントタワー40階
 - 代表: 加藤 聖矢
@@ -12,13 +12,17 @@
 - [AI×WEBアプリ開発 無料診断](https://teneramente.jp/shindan.html): 業務のAIアプリ化適性を8問・約1分でチェックできる無料診断
 - [HP/LP制作](https://teneramente.jp/lp-hplp.html): 自社CMS「ミルページ」によるHP/LP制作と運用支援
 - [MEO/AIO運用代行](https://teneramente.jp/lp-meo.html): Googleマップ・AI検索の順位可視化と運用代行
-- [AI活用支援](https://teneramente.jp/lp-ai.html): 社内AI導入の設計・社員研修・RAG構築・業務自動化の伴走支援
+- [AI導入支援](https://teneramente.jp/lp-ai-donyu.html): 業務の棚卸し・生成AIツールの選定・利用ルールの策定・1部署での試行・定着までの伴走支援
+- [AI研修（生成AI研修）](https://teneramente.jp/lp-ai-kenshu.html): ChatGPT・Claude・Geminiを自社の業務資料で動かす社員向け研修。活用例・プロンプトの型・利用ルールまで
+- [AI活用支援](https://teneramente.jp/lp-ai.html): AI導入支援・AI研修・RAG構築・業務自動化をまとめた支援の全体像
 
 ## 自社プロダクト
 
 - [ミエルーム](https://mieroom.cloud/): 賃貸仲介向け業務管理SaaS
+- [ミセマワシ](https://www.misemawashi.com/): 飲食店の全部入り経営アプリ（レジ・原価・予約・シフト・給与・集客）
 - [ミルページ](https://teneramente.jp/lp-milpage.html): 店舗オーナー向けHP運用CMS
 - [LDash](https://teneramente.jp/lp-ldash.html): LINE公式アカウントCRM
+- [IGDash](https://teneramente.jp/lp-igdash.html): Instagram運用CRM（DM受信箱・コメントDM・予約投稿・分析）
 - [MEOツール](https://teneramente.jp/lp-meo.html): MEO順位計測・運用ツール
 
 ## ブログ

@@ -67,12 +67,14 @@
           </a>
           <p class="tag">AI時代を、優しく加速する。</p>
           <p class="desc">業務改善ツール開発・HP/LP制作・MEO/AIO運用・AI活用支援。名古屋発、AI時代の業務改善パートナー。</p>
-          <p class="addr">株式会社TENERAMENTE<br />愛知県名古屋市西区牛島町6-1 名古屋ルーセントタワー40階</p>
+          <p class="addr">株式会社TENERAMENTE<br />愛知県名古屋市西区牛島町6-1 <span class="og">名古屋ルーセントタワー40階</span></p>
         </div>
         <div class="fcol"><h4>Services</h4>
           <a href="lp-ai-app.html">AI×WEBアプリ開発</a>
           <a href="lp-hplp.html">HP/LP作成</a>
           <a href="lp-meo.html">MEO/AIO運用代行</a>
+          <a href="lp-ai-donyu.html">AI導入支援</a>
+          <a href="lp-ai-kenshu.html">AI研修</a>
           <a href="lp-ai.html">AI活用支援</a>
         </div>
         <div class="fcol"><h4>Products</h4>

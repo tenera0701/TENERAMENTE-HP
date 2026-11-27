@@ -40,6 +40,16 @@ const SERVICE_CARDS = {
     title: '社内のAI導入を、「どこから始める？」から',
     text: 'ChatGPT・Claudeの社内導入の設計、社員研修、社内データ検索（RAG）の構築、業務の自動化まで伴走します。自社の開発と運用で毎日AIを使っている会社として、現場で続く形に落とし込みます。初回相談は無料です。',
   },
+  kenshu: {
+    svc: 'ai', page: 'lp-ai-kenshu.html', label: 'AI研修', more: 'AI研修を見る',
+    title: '研修の翌日から、AIを使える会社へ',
+    text: 'ChatGPT・Claude・Geminiを、御社の実際の業務資料を使って動かす社員研修です。部門別の活用例・プロンプトの型・利用ルールのたたき台を持ち帰れる形にし、研修のあとの定着まで伴走します。初回相談は無料です。',
+  },
+  donyu: {
+    svc: 'ai', page: 'lp-ai-donyu.html', label: 'AI導入支援', more: 'AI導入支援を見る',
+    title: 'AIの社内導入を、最初の1業務から',
+    text: '最初に試す1業務の選定、ツール選び、利用ルールづくり、1部署での試行、社内への展開まで伴走します。使い方が固まった作業は、RAG構築や業務アプリ化まで同じチームで進められます。初回相談は無料です。',
+  },
   app: {
     svc: 'app', page: 'lp-ai-app.html', label: 'AI×WEBアプリ開発', more: 'AI×WEBアプリ開発を見る',
     title: 'Excelと属人化を、御社専用のアプリに',
@@ -52,7 +62,7 @@ const SERVICE_CARDS = {
   },
 };
 const PILLAR_TO_CARD = {
-  'lp-meo.html': 'meo', 'lp-ai.html': 'ai', 'lp-ai-app.html': 'app', 'lp-ldash.html': 'app', 'lp-igdash.html': 'app',
+  'lp-meo.html': 'meo', 'lp-ai.html': 'ai', 'lp-ai-kenshu.html': 'kenshu', 'lp-ai-donyu.html': 'donyu', 'lp-ai-app.html': 'app', 'lp-ldash.html': 'app', 'lp-igdash.html': 'app',
   'lp-hplp.html': 'hp', 'lp-milpage.html': 'hp',
 };
 const CATEGORY_TO_CARD = { meo: 'meo', aio: 'meo', ai: 'ai', app: 'app', hp: 'hp' };
@@ -402,7 +412,7 @@ function main() {
   // 「毎日全ページを更新している」と誤って伝わるので、日付が分かる記事にだけ付ける。
   const staticUrls = [
     '', 'services.html', 'company.html', 'contact.html', 'blog.html', 'shindan.html',
-    'lp-ai-app.html', 'lp-ai.html', 'lp-hplp.html', 'lp-meo.html',
+    'lp-ai-app.html', 'lp-ai.html', 'lp-ai-donyu.html', 'lp-ai-kenshu.html', 'lp-hplp.html', 'lp-meo.html',
     'lp-milpage.html', 'lp-ldash.html', 'lp-igdash.html', 'mieroom/',
     'mieroom/features.html', 'mieroom/compare.html', 'mieroom/blog.html',
     'mieroom/request.html', 'privacy.html',

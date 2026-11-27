@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>事業内容｜株式会社TENERAMENTE</title>
-<meta name="description" content="AI×WEBアプリ開発を軸に、HP/LP作成・MEO/AIO運用代行・AI活用支援まで。株式会社TENERAMENTEの事業内容と自社プロダクトのご紹介。" />
+<meta name="description" content="AI×WEBアプリ開発（業務アプリ開発）を軸に、AI導入支援・AI研修・HP/LP作成・MEO/AIO運用代行まで。株式会社TENERAMENTEの事業内容と自社プロダクトのご紹介。" />
 <link rel="canonical" href="https://teneramente.jp/services.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="株式会社TENERAMENTE" />
@@ -18,7 +18,8 @@
 <meta name="twitter:image" content="https://teneramente.jp/assets/img/ogp.png?v=202609" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="assets/site.css" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -52,9 +53,11 @@
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
+n.queue=[];function go(){if(t)return;t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+s.parentNode.insertBefore(t,s)}
+/* 本体はページの読み込みが終わってから取りに行く（表示を速くするため。計測の呼び出しは上の queue に貯まる）。外部の読み込みが遅れて読み込み完了が来ないときも、4秒たったら取りに行く */
+if(b.readyState==='complete')setTimeout(go,0);else{f.addEventListener('load',function(){setTimeout(go,0)});setTimeout(go,4000)}}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28086413637650888');
 fbq('track', 'PageView');
@@ -145,8 +148,8 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
       <div>
         <h2>AI活用支援<small>AI Adoption</small></h2>
         <p class="desc">「どこから始める？」の段階から伴走します。社内へのAI導入、RAG（社内データ検索）構築、プロンプト設計・研修まで。現場が使いこなせる形に落とし込みます。</p>
-        <div class="tags"><span>社内AI導入</span><span>RAG構築</span><span>プロンプト設計</span><span>研修</span></div>
-        <div class="act"><a href="lp-ai.html" class="btn btn--primary">詳しく見る<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></div>
+        <div class="tags"><span>AI導入支援</span><span>AI研修</span><span>RAG構築</span><span>プロンプト設計</span></div>
+        <div class="act"><a href="lp-ai.html" class="btn btn--primary">詳しく見る<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a> <a href="lp-ai-donyu.html" class="btn btn--ghost">AI導入支援</a> <a href="lp-ai-kenshu.html" class="btn btn--ghost">AI研修</a></div>
       </div>
       <div class="side">
         <h4>こんな課題に</h4>

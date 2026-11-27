@@ -23,6 +23,9 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://teneramente.jp/"}, {"@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://teneramente.jp/services.html#products"}, {"@type": "ListItem", "position": 3, "name": "IGDash", "item": "https://teneramente.jp/lp-igdash.html"}]}]}
+</script>
 <style>
 .hero-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 72px); align-items: center; }
 @media (max-width: 860px) { .hero-2 { grid-template-columns: 1fr; } }
@@ -37,11 +40,11 @@
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];function go(){t=b.createElement(e);t.async=!0;
+n.queue=[];function go(){if(t)return;t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}
-/* 本体はページの読み込みが終わってから取りに行く（表示を速くするため。計測の呼び出しは上の queue に貯まる） */
-if(b.readyState==='complete')setTimeout(go,0);else f.addEventListener('load',function(){setTimeout(go,0)})}(window, document,'script',
+/* 本体はページの読み込みが終わってから取りに行く（表示を速くするため。計測の呼び出しは上の queue に貯まる）。外部の読み込みが遅れて読み込み完了が来ないときも、4秒たったら取りに行く */
+if(b.readyState==='complete')setTimeout(go,0);else{f.addEventListener('load',function(){setTimeout(go,0)});setTimeout(go,4000)}}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28086413637650888');
 fbq('track', 'PageView');
@@ -58,6 +61,7 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 <section class="lp-hero" data-screen-label="IGDash:ヒーロー">
   <div class="wrap-wide hero-2">
     <div>
+      <div class="crumb reveal"><a href="index.html">Home</a><i></i><a href="services.html#products">Products</a><i></i><span>IGDash</span></div>
       <span class="index reveal">Instagram運用 CRM — IGDash</span>
       <h1 class="lines">
         <span class="line"><span>インスタ運用を、</span></span>

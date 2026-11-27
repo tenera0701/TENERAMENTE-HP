@@ -28,13 +28,21 @@
 
   /* 日本語のぶら下がり防止: 段落の末尾4文字（＋句読点）をひと固まりにして、
      「す。」だけが次の行に落ちるのを防ぐ。幅に依存せず全ページで効く。 */
-  var OG_SEL = '.lead, .cell p, .row .d, .prod .desc, .checks li, .faq-list p, .faq-list .faq-a, .post-row p, .article-card p, .cta-band p, .dcard li, .biz-block .desc, .site-footer .desc, .mani-body p, .meaning, .sq-note, .sq-lead-head p, .sq-done-body, .step-sub, .cinfo .note, .post-body p, .post-body li, .seo-note p, .callout p, .conclusion p, .price-note, .cap, .flow p, .fcard p, .spec .v, .hero-foot .v, .o-d, .promo p, .hx-p';
+  var OG_SEL = '.lead, .cell p, .row .d, .prod .desc, .checks li, .faq-list p, .faq-list .faq-a, .post-row p, .article-card p, .cta-band p, .dcard li, .biz-block .desc, .site-footer .desc, .mani-body p, .meaning, .sq-note, .sq-lead-head p, .sq-done-body, .step-sub, .cinfo .note, .post-body p, .post-body li, .seo-note p, .callout p, .conclusion p, .price-note, .cap, .flow p, .fcard p, .spec .v, .hero-foot .v, .o-d, .promo p, .hx-p, .dl .v, .faq-list summary > .q, .index';
   function orphanGuard(el) {
     if (el.dataset.og) return;
     el.dataset.og = '1';
     var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, last = null;
     while ((n = w.nextNode())) { if (n.nodeValue.trim()) last = n; }
     if (!last) return;
+    /* 横並び（flex・grid）の部品の中でそのまま切り分けると、切った部分が別の部品になって間に空きが入る（リンクの「詳　しく見る」）。
+       その場合は、最後の文字のかたまりを1つの span に包んでから、その中で切り分ける */
+    var pd = window.getComputedStyle(last.parentNode).display;
+    if (/flex|grid/.test(pd)) {
+      var wrap = document.createElement('span');
+      last.parentNode.insertBefore(wrap, last);
+      wrap.appendChild(last);
+    }
     var t = last.nodeValue.replace(/\s+$/, '');
     var chars = Array.from(t);
     if (chars.length < 7) return;
@@ -50,6 +58,14 @@
   }
   var ogTimer = null;
   function runOrphanGuard() {
+    /* よくある質問の見出し（summary は grid）: 文字を1つの span（.q）にまとめてから、その中で切り分ける */
+    document.querySelectorAll('.faq-list summary').forEach(function (sm) {
+      if (sm.querySelector(':scope > .q')) return;
+      var q = document.createElement('span');
+      q.className = 'q';
+      while (sm.firstChild) q.appendChild(sm.firstChild);
+      sm.appendChild(q);
+    });
     document.querySelectorAll(OG_SEL).forEach(orphanGuard);
   }
   document.addEventListener('DOMContentLoaded', runOrphanGuard);

@@ -1720,6 +1720,23 @@
       "coverTitle": "受発注管理システムを中小企業が小さく始める手順と費用の考え方"
     },
     {
+      "id": "k123",
+      "category": "ai",
+      "keyword": "生成AI 研修 社員向け 内容",
+      "sub": [
+        "AI研修 カリキュラム",
+        "AI研修 何を教える"
+      ],
+      "title": "生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型",
+      "intent": "社員研修を企画していて、何を教えればよいか知りたい",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-06-20-chatgpt-gyomu-katsuyo"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k016",
       "category": "ai",
       "keyword": "プロンプト 書き方 業務",
@@ -1729,9 +1746,26 @@
       ],
       "title": "業務で使えるプロンプトの型｜指示・条件・出力形式の3点セット",
       "intent": "AIの答えがいまいちで、聞き方を改善したい",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-kenshu.html",
       "related": [
         "2026-06-20-chatgpt-gyomu-katsuyo"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k124",
+      "category": "app",
+      "keyword": "業務アプリ 開発 期間 目安",
+      "sub": [
+        "システム開発 期間",
+        "アプリ開発 何ヶ月"
+      ],
+      "title": "業務アプリの開発にかかる期間｜長くなる理由と、短くするために発注側ができること",
+      "intent": "依頼前に、どのくらいの期間を見ておけばよいか知りたい（自社の金額は書かない。費用が変わる要素と考え方だけ）",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-10-28-yoken-teigi-uchiawase",
+        "2026-11-09-gyomu-app-kaihatsu-shippai-genin"
       ],
       "status": "todo"
     },
@@ -1752,6 +1786,23 @@
       "status": "todo"
     },
     {
+      "id": "k125",
+      "category": "ai",
+      "keyword": "AI導入支援 中小企業 流れ",
+      "sub": [
+        "AI導入支援とは",
+        "AI 導入 依頼 流れ"
+      ],
+      "title": "AI導入支援とは｜依頼してから社内に定着するまでの流れと、頼む範囲の決め方",
+      "intent": "AI導入を外部に頼みたいが、何をどこまで頼めるのか知りたい",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-11-03-ai-donyu-sodansaki",
+        "2026-06-26-ai-first-step"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k020",
       "category": "hp",
       "keyword": "ホームページ 更新 されない",
@@ -1764,6 +1815,23 @@
       "pillar": "lp-hplp.html",
       "related": [
         "2026-06-05-homepage-seisaku-hiyo-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k126",
+      "category": "ai",
+      "keyword": "ChatGPT 研修 企業",
+      "sub": [
+        "ChatGPT 社内研修",
+        "ChatGPT 研修 内容"
+      ],
+      "title": "企業向けChatGPT研修の進め方｜受けて終わりにしないための準備と研修後の動き",
+      "intent": "社員向けにChatGPTの研修をしたい",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-06-20-chatgpt-gyomu-katsuyo",
+        "2026-09-06-seisei-ai-shanai-rule-template"
       ],
       "status": "todo"
     },
@@ -1784,6 +1852,23 @@
       "status": "todo"
     },
     {
+      "id": "k127",
+      "category": "app",
+      "keyword": "社内システム 開発 外注 流れ",
+      "sub": [
+        "システム開発 外注 手順",
+        "業務システム 依頼 流れ"
+      ],
+      "title": "社内システムの開発を外注する流れ｜相談から公開・保守までの7つの段階",
+      "intent": "初めてシステム開発を外注するので、全体の流れを知りたい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-11-05-nagoya-gyomu-system-kaihatsu",
+        "2026-10-31-app-kaihatsu-mitsumori-mikata"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k025",
       "category": "ai",
       "keyword": "問い合わせ 自動対応 AI",
@@ -1796,6 +1881,23 @@
       "pillar": "lp-ai.html",
       "related": [
         "2026-06-30-gyomu-app-kanzen-guide"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k128",
+      "category": "ai",
+      "keyword": "AI導入 コンサル 選び方",
+      "sub": [
+        "AI コンサル 中小企業",
+        "AI導入 支援会社 比較"
+      ],
+      "title": "AI導入コンサルの選び方｜研修だけの会社と、仕組みづくりまで頼める会社の違い",
+      "intent": "AI導入の支援会社を比べている（他社を批判しない）",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-11-03-ai-donyu-sodansaki",
+        "2026-06-14-ai-donyu-shippai-kaihi"
       ],
       "status": "todo"
     },
@@ -1816,6 +1918,23 @@
       "status": "todo"
     },
     {
+      "id": "k129",
+      "category": "ai",
+      "keyword": "AI研修 名古屋",
+      "sub": [
+        "名古屋 生成AI 研修",
+        "愛知 AI 研修"
+      ],
+      "title": "名古屋でAI研修を頼むときの選び方｜研修会社・開発会社それぞれに向くケース",
+      "intent": "名古屋・愛知でAI研修の依頼先を探している（他社を批判しない）",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-11-05-nagoya-gyomu-system-kaihatsu"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k030",
       "category": "ai",
       "keyword": "生成AI 情報漏えい 対策",
@@ -1825,9 +1944,26 @@
       ],
       "title": "生成AIの情報漏えいリスクと対策｜入力してよい情報の線引き",
       "intent": "使わせたいが情報漏えいが怖い",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-donyu.html",
       "related": [
         "2026-06-14-ai-donyu-shippai-kaihi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k130",
+      "category": "app",
+      "keyword": "AI 組み込み 業務アプリ",
+      "sub": [
+        "業務アプリ AI 機能",
+        "AI 搭載 アプリ 開発"
+      ],
+      "title": "業務アプリにAIを組み込む使い道｜要約・分類・下書きの3つから考える",
+      "intent": "自社の業務アプリにAIを入れられるか知りたい",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-07-12-ai-gyomu-kaizen-app-kaihatsu",
+        "2026-11-10-ai-gyomu-jidoka-irai-hiyo"
       ],
       "status": "todo"
     },
@@ -1848,6 +1984,23 @@
       "status": "todo"
     },
     {
+      "id": "k131",
+      "category": "ai",
+      "keyword": "AI導入支援 名古屋",
+      "sub": [
+        "名古屋 AI 導入",
+        "愛知 生成AI 導入 支援"
+      ],
+      "title": "名古屋でAI導入支援を頼む前に｜相談の前に整理しておく3つのこと",
+      "intent": "名古屋・愛知でAI導入の相談先を探している（他社を批判しない）",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-11-03-ai-donyu-sodansaki",
+        "2026-09-04-ai-kaihatsu-kigyo-erabikata"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k033",
       "category": "app",
       "keyword": "スプレッドシート 運用 限界 アプリ化",
@@ -1860,6 +2013,23 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-11-excel-kanri-genkai-systemka"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k132",
+      "category": "ai",
+      "keyword": "AI研修 費用 相場",
+      "sub": [
+        "生成AI 研修 費用",
+        "AI研修 料金"
+      ],
+      "title": "AI研修の費用はどう決まるか｜人数・回数・内容で変わる部分と、比べ方",
+      "intent": "研修の費用感と、見積もりの比べ方を知りたい（自社の金額も、世の中の相場の数字も書かない。費用が変わる要素と比べ方だけ）",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-11-25-rag-kochiku-hiyo-small-start"
       ],
       "status": "todo"
     },
@@ -1880,6 +2050,23 @@
       "status": "todo"
     },
     {
+      "id": "k133",
+      "category": "app",
+      "keyword": "Webアプリ スマホアプリ 違い 業務",
+      "sub": [
+        "業務アプリ ブラウザ",
+        "ネイティブアプリ 違い 業務"
+      ],
+      "title": "業務用はWebアプリかスマホアプリか｜社内で使うツールの選び方",
+      "intent": "社内ツールをどちらで作るか迷っている",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-26-nocode-gyomu-app",
+        "2026-10-02-saas-jisha-kaihatsu-erabikata"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k038",
       "category": "hp",
       "keyword": "ホームページ 表示速度 改善",
@@ -1896,6 +2083,23 @@
       "status": "todo"
     },
     {
+      "id": "k134",
+      "category": "ai",
+      "keyword": "法人 ChatGPT Claude Gemini 選び方",
+      "sub": [
+        "生成AI 法人プラン 比較",
+        "AI ツール 社内 選定"
+      ],
+      "title": "法人で使う生成AIの選び方｜ChatGPT・Claude・Geminiを決める前に確かめること",
+      "intent": "会社として使うAIツールを決めたい（他社を批判しない）",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-10-27-chatgpt-claude-gemini-chigai",
+        "2026-09-06-seisei-ai-shanai-rule-template"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k040",
       "category": "ai",
       "keyword": "AI 社内 定着 しない",
@@ -1905,10 +2109,27 @@
       ],
       "title": "AIが社内で定着しない理由と、使われ続ける仕組みの作り方",
       "intent": "導入したが使われていない",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-kenshu.html",
       "related": [
         "2026-06-14-ai-donyu-shippai-kaihi",
         "2026-06-26-ai-first-step"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k135",
+      "category": "ai",
+      "keyword": "管理職 向け AI研修",
+      "sub": [
+        "経営者 AI 研修",
+        "マネージャー 生成AI 教育"
+      ],
+      "title": "管理職・経営者向けAI研修｜部下に使わせる前に決めておくこと",
+      "intent": "現場より先に、管理職が何を学ぶべきか知りたい",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-06-14-ai-donyu-shippai-kaihi"
       ],
       "status": "todo"
     },
@@ -1922,9 +2143,26 @@
       ],
       "title": "AIエージェントとは｜中小企業の業務で現実的に使える範囲と注意点",
       "intent": "話題のAIエージェントを自社で使えるか知りたい",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-donyu.html",
       "related": [
         "2026-07-12-ai-gyomu-kaizen-app-kaihatsu"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k136",
+      "category": "app",
+      "keyword": "古い 業務システム 置き換え",
+      "sub": [
+        "基幹システム 刷新 中小企業",
+        "システム 入れ替え 手順"
+      ],
+      "title": "古い業務システムの置き換え｜業務を止めずに乗り換える手順",
+      "intent": "今のシステムが古く、入れ替えを考えている",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-06-11-excel-kanri-genkai-systemka",
+        "2026-10-08-api-renkei-toha"
       ],
       "status": "todo"
     },
@@ -1939,9 +2177,26 @@
       ],
       "title": "部門別・生成AIの業務効率化アイデア集｜営業・事務・経理・採用",
       "intent": "自社のどの部門で使えるか知りたい",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-kenshu.html",
       "related": [
         "2026-06-20-chatgpt-gyomu-katsuyo"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k137",
+      "category": "ai",
+      "keyword": "社内 AI チャットボット 導入",
+      "sub": [
+        "社内 問い合わせ AI 回答",
+        "社内ヘルプデスク AI"
+      ],
+      "title": "社内の問い合わせにAIが答える仕組み｜規程・マニュアルから始める導入手順",
+      "intent": "総務・人事への社内の問い合わせを減らしたい",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-06-17-rag-shanai-knowledge",
+        "2026-11-25-rag-kochiku-hiyo-small-start"
       ],
       "status": "todo"
     },
@@ -1962,6 +2217,23 @@
       "status": "todo"
     },
     {
+      "id": "k138",
+      "category": "ai",
+      "keyword": "AI リスキリング 中小企業",
+      "sub": [
+        "社員 AI 教育",
+        "リスキリング 生成AI"
+      ],
+      "title": "中小企業のAIリスキリング｜社員教育を小さく始めて続ける手順",
+      "intent": "社員にAIを学ばせたいが、何から始めればよいか分からない（助成金・制度の金額や条件は書かない）",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-06-26-ai-first-step"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k052",
       "category": "app",
       "keyword": "勤怠 シフト 管理 アプリ 自社",
@@ -1974,6 +2246,23 @@
       "pillar": "lp-ai-app.html",
       "related": [
         "2026-06-11-excel-kanri-genkai-systemka"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k139",
+      "category": "app",
+      "keyword": "システム開発 契約 注意点",
+      "sub": [
+        "アプリ開発 契約書 確認",
+        "受託開発 著作権"
+      ],
+      "title": "アプリ開発の契約で確かめること｜成果物の権利・保守・追加費用の決め方",
+      "intent": "開発会社と契約する前に確かめるべき点を知りたい（法律の断定はしない。専門家への相談を促す）",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-10-31-app-kaihatsu-mitsumori-mikata",
+        "2026-11-24-gyomu-app-hoshu-hiyo-uchiwake"
       ],
       "status": "todo"
     },
@@ -1994,6 +2283,23 @@
       "status": "todo"
     },
     {
+      "id": "k140",
+      "category": "ai",
+      "keyword": "AI 導入 小さく 試す 進め方",
+      "sub": [
+        "AI 試験導入",
+        "PoC 中小企業 AI"
+      ],
+      "title": "AI導入は1部署・1業務から｜小さく試して、広げるかどうかを決める進め方",
+      "intent": "いきなり全社に入れるのは不安なので、試し方を知りたい",
+      "pillar": "lp-ai-donyu.html",
+      "related": [
+        "2026-06-26-ai-first-step",
+        "2026-11-10-ai-gyomu-jidoka-irai-hiyo"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k057",
       "category": "ai",
       "keyword": "Claude Code とは 非エンジニア",
@@ -2010,6 +2316,23 @@
       "status": "todo"
     },
     {
+      "id": "k141",
+      "category": "ai",
+      "keyword": "AI研修 効果 研修後",
+      "sub": [
+        "AI研修 意味ない",
+        "AI研修 定着"
+      ],
+      "title": "AI研修の効果が続かない理由｜研修のあとに社内で決めておくこと",
+      "intent": "研修をしたが、現場で使われていない",
+      "pillar": "lp-ai-kenshu.html",
+      "related": [
+        "2026-09-04-hojin-ai-kenshu-erabikata",
+        "2026-06-14-ai-donyu-shippai-kaihi"
+      ],
+      "status": "todo"
+    },
+    {
       "id": "k060",
       "category": "ai",
       "keyword": "AI 導入 効果 測定",
@@ -2019,9 +2342,26 @@
       ],
       "title": "AI導入の効果測定｜時間削減をどう計るか、続ける判断をどう下すか",
       "intent": "効果を経営として判断したい",
-      "pillar": "lp-ai.html",
+      "pillar": "lp-ai-donyu.html",
       "related": [
         "2026-06-14-ai-donyu-shippai-kaihi"
+      ],
+      "status": "todo"
+    },
+    {
+      "id": "k142",
+      "category": "app",
+      "keyword": "AI アプリ開発 会社 名古屋",
+      "sub": [
+        "名古屋 AI 開発会社",
+        "名古屋 アプリ開発 依頼"
+      ],
+      "title": "名古屋でAIを使ったアプリ開発を頼むなら｜相談の前に用意するものと進め方",
+      "intent": "名古屋でAIを使ったアプリ開発の依頼先を探している（他社を批判しない）",
+      "pillar": "lp-ai-app.html",
+      "related": [
+        "2026-09-04-ai-kaihatsu-kigyo-erabikata",
+        "2026-11-05-nagoya-gyomu-system-kaihatsu"
       ],
       "status": "todo"
     },

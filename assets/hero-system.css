@@ -97,6 +97,24 @@
 .hx-scroll i::after { content: ''; position: absolute; left: 0; top: -40%; width: 100%; height: 40%; background: var(--accent-soft); animation: hxDrop 1.8s var(--ease) infinite; }
 @keyframes hxDrop { to { top: 100%; } }
 
+/* 3D をとばしてサービスの説明へ（社長の指示 2026-11-27「とばす」を足す）。
+   横長は右下（進み具合の上）。3D の札は画面の上〜中ほどにしか出ないので、ここなら隠さない。
+   初回の Cookie の同意の帯（ミルページが出す #at-consent）が出ている間は、hero-system.js が帯の高さを --hx-consent に入れて、その上に逃がす。
+   縦長は札の列より上（計器の段）に置く（下の縦長の指定） */
+.hx-skip {
+  position: absolute; z-index: 5; right: var(--gutter);
+  bottom: max(calc(84px + var(--hx-bot)), calc(var(--hx-consent, 0px) + 12px));
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 13px 9px 12px;
+  font-family: var(--font-jp); font-size: 12.5px; font-weight: 500; letter-spacing: .04em; line-height: 1; white-space: nowrap;
+  color: var(--paper); background: rgba(7,8,11,.55); border: 1px solid rgba(237,238,240,.26); border-radius: 2px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: border-color .3s, background .3s;
+}
+.hx-skip .en { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-soft); }
+.hx-skip svg { width: 12px; height: 12px; flex: none; }
+.hx-skip:hover { border-color: var(--accent-soft); background: rgba(7,8,11,.75); }
+#dev:focus { outline: none; }   /* とばした先に移したフォーカスの枠は出さない */
+
 /* 3D の上ではヘッダーを黒いままにする（スクロールで紙白の帯に変わらないように） */
 .site-header.hx-over { background: rgba(7,8,11,.42); color: var(--paper); border-bottom-color: rgba(244,242,237,.08); }
 .site-header.hx-over .logo-dark { display: none; }
@@ -129,6 +147,7 @@
   .hx-p { margin-top: 10px; font-size: 13px; line-height: 1.8; }
   .hx-nav, .hx-scroll, .hx-hud .tr, .hx-hud .bl, .hx-hud .tl { display: none; }
   .hx-hud .br { bottom: auto; top: calc(var(--header-h) + 14px); }
+  .hx-skip { bottom: max(calc(10px + var(--hx-bot)), calc(var(--hx-consent, 0px) + 8px)); padding: 6px 10px; font-size: 11.5px; gap: 8px; }
 }
 
 /* ごく低い画面（小さなスマホの横向き 568x320 など）: 説明文は省いて見出しだけにする */
@@ -155,8 +174,11 @@
   .hx-tag { font-size: 9px; letter-spacing: .04em; }
   .hx-tag .n { display: none; }
   .hx-tag .jp { margin-left: 0; font-size: 10px; }
-  .hx-hud .br { bottom: auto; top: calc(var(--header-h) + 22px); }
+  .hx-hud .br { display: none; }   /* 右上は「とばす」に譲る（進み具合は左上の PHASE で分かる） */
+  .hx-skip { top: calc(var(--header-h) + 16px); bottom: auto; padding: 7px 10px; font-size: 11.5px; gap: 6px; }
 }
+/* 幅の狭いスマホ: 左上の PHASE 表示（場面で長さが変わる）と重ならないよう「とばす ↓」だけにする */
+@media (max-width: 379px) { .hx-skip .en, .hx-skip .sv { display: none; } }
 @media (max-width: 340px) { .hx-hud .br { display: none; } }
 
 /* ---------- 3D が使えないとき（静止画と文章だけ） ---------- */
@@ -166,8 +188,8 @@
   display: flex; flex-direction: column; gap: 48px;
   padding: calc(var(--header-h) + clamp(40px, 6vw, 88px)) 0 clamp(56px, 7vw, 96px);
 }
-.hx--static .hx-canvas, .hx--static .hx-veil, .hx--static .hx-hud, .hx--static .hx-tag, .hx--static .hx-scroll,
-html:not(.js) .hx-canvas, html:not(.js) .hx-veil, html:not(.js) .hx-hud, html:not(.js) .hx-tag, html:not(.js) .hx-scroll { display: none; }
+.hx--static .hx-canvas, .hx--static .hx-veil, .hx--static .hx-hud, .hx--static .hx-tag, .hx--static .hx-scroll, .hx--static .hx-skip,
+html:not(.js) .hx-canvas, html:not(.js) .hx-veil, html:not(.js) .hx-hud, html:not(.js) .hx-tag, html:not(.js) .hx-scroll, html:not(.js) .hx-skip { display: none; }
 .hx--static .hx-panel, html:not(.js) .hx-panel {
   position: relative; top: auto; bottom: auto; transform: none; opacity: 1 !important; pointer-events: auto; width: 100%;
 }

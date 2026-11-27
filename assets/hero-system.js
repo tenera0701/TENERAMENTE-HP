@@ -397,6 +397,31 @@
     });
   });
 
+  /* 「サービスまでとばす」: 3D の区間を一気に飛ばして、次の説明（#dev）へ。なめらかに流すと3Dを早送りで描くので、瞬時に移る */
+  var skip = sec.querySelector('.hx-skip');
+  if (skip) skip.addEventListener('click', function (e) {
+    var t = document.getElementById((skip.getAttribute('href') || '').slice(1));
+    if (!t) return;
+    e.preventDefault();
+    var y = t.getBoundingClientRect().top + window.scrollY;
+    if (window.__lenis && window.__lenis.scrollTo) window.__lenis.scrollTo(y, { immediate: true, force: true });
+    else window.scrollTo({ top: y, behavior: 'instant' });
+    if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+    try { t.focus({ preventScroll: true }); } catch (err) {}
+  });
+  /* 初回の Cookie の同意の帯（ミルページが出す #at-consent）が出ている間は、帯の高さを --hx-consent に入れてボタンをその上に逃がす */
+  function syncConsent() {
+    if (sec.getBoundingClientRect().bottom <= 0) return;
+    var c = document.getElementById('at-consent'), h = 0;
+    if (c) {
+      var r = c.getBoundingClientRect(), cs = window.getComputedStyle(c);
+      if (cs.display !== 'none' && cs.visibility !== 'hidden' && +cs.opacity > 0.05 && r.height > 0 && r.top < window.innerHeight) h = window.innerHeight - r.top;
+    }
+    var v = Math.max(0, Math.round(h)) + 'px';
+    if (sec.style.getPropertyValue('--hx-consent') !== v) sec.style.setProperty('--hx-consent', v);
+  }
+  if (skip) { syncConsent(); setInterval(syncConsent, 700); }
+
   function updateDom(P) {
     panels.forEach(function (el) {
       var s = +el.dataset.hxStep, o = clamp(1 - Math.abs(P - s) * 2.3, 0, 1);
