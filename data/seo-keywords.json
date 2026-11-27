@@ -1734,7 +1734,9 @@
         "2026-09-04-hojin-ai-kenshu-erabikata",
         "2026-06-20-chatgpt-gyomu-katsuyo"
       ],
-      "status": "todo"
+      "status": "done",
+      "slug": "2026-11-28-seisei-ai-kenshu-oshieru-naiyo",
+      "doneAt": "2026-11-27"
     },
     {
       "id": "k016",

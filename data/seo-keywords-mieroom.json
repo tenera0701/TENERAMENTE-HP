@@ -1790,6 +1790,25 @@
       "slug": "raiki-uriage-keikaku",
       "doneAt": "2026-11-26",
       "coverTitle": "賃貸仲介の来期売上計画の立て方｜月別の季節差を踏まえて組む手順"
+    },
+    {
+      "id": "m210",
+      "category": "DX",
+      "keyword": "賃貸仲介 業務管理システム デモ 確認ポイント",
+      "sub": [
+        "不動産 業務システム 導入前 確認",
+        "賃貸 管理システム 比較 デモ 見るところ"
+      ],
+      "title": "業務管理システムのデモで確かめること｜賃貸仲介の店舗が見るべき場面",
+      "intent": "業務管理システムを比較・検討していて、デモや説明の場で何を確かめればよいか知りたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "tenpo-muke-tool-hitsuyo-kino",
+        "system-norikae-data-ikou"
+      ],
+      "status": "done",
+      "slug": "gyomu-system-demo-kakunin",
+      "doneAt": "2026-11-27"
     }
   ]
 }

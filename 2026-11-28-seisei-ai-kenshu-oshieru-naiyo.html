@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-meta="title">生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型 — TENERAMENTE Blog</title>
+<meta name="description" data-meta="description" content="社員向けの生成AI研修で何を教えればよいかを、6つの単元、プロンプトの型、営業・事務・現場など部門別の活用例、入力してよい情報の線引きに分けて整理しました。カリキュラムを決める前のチェックリストと、よくある失敗の避け方もまとめています。" />
+<meta property="og:type" content="article" />
+<meta property="og:title" data-meta="og:title" content="生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型" />
+<meta property="og:description" data-meta="og:description" content="社員向けの生成AI研修で何を教えればよいかを、6つの単元、プロンプトの型、営業・事務・現場など部門別の活用例、入力してよい情報の線引きに分けて整理しました。カリキュラムを決める前のチェックリストと、よくある失敗の避け方もまとめています。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:site_name" content="株式会社TENERAMENTE" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:url" data-meta="og:url" content="https://teneramente.jp/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.html" />
+<meta property="og:image" data-meta="og:image" content="https://teneramente.jp/assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png" />
+<meta name="twitter:image" data-meta="twitter:image" content="https://teneramente.jp/assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png" />
+<meta name="twitter:title" data-meta="twitter:title" content="生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型" />
+<meta name="twitter:description" data-meta="twitter:description" content="社員向けの生成AI研修で何を教えればよいかを、6つの単元、プロンプトの型、営業・事務・現場など部門別の活用例、入力してよい情報の線引きに分けて整理しました。カリキュラムを決める前のチェックリストと、よくある失敗の避け方もまとめています。" />
+<link rel="canonical" data-canonical href="https://teneramente.jp/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
+<style>
+.post-hero { max-width: 980px; margin: 0 auto; padding: calc(var(--header-h) + clamp(36px, 5vw, 64px)) var(--gutter) 28px; position: relative; }
+.post-cat { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.post-cat::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.post-title { font-weight: 700; font-size: clamp(27px, 4.2vw, 52px); line-height: 1.32; margin-top: 20px; letter-spacing: -.005em; text-wrap: balance; }
+.post-meta { display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); margin-top: 28px; flex-wrap: wrap; }
+.post-meta .author { display: flex; align-items: center; gap: 10px; color: var(--fg); font-family: var(--font-jp); font-size: 13.5px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.post-meta .avatar { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 14px; }
+.post-meta .dot { width: 3px; height: 3px; background: currentColor; }
+
+.post-cover { max-width: 1140px; margin: 32px auto 0; padding: 0 var(--gutter); }
+.post-cover-inner { aspect-ratio: 1200 / 630; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); display: grid; place-items: center; position: relative; overflow: hidden; }
+.post-cover-inner .big-glyph { font-family: var(--font-en); font-weight: 500; font-size: clamp(100px, 20vw, 300px); color: var(--fg-3); letter-spacing: -.04em; position: relative; }
+
+.post-wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 4vw, 72px); max-width: 1140px; margin: clamp(40px, 5vw, 64px) auto; padding: 0 var(--gutter); align-items: start; }
+.post-aside { position: sticky; top: calc(var(--header-h) + 24px); }
+.toc-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 14px; }
+.toc { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.toc a { color: var(--fg-2); font-size: 13px; padding: 10px 0 10px 0; border-bottom: 1px solid var(--line); transition: color .2s; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
+.toc a:hover, .toc a.active { color: var(--fg); }
+.toc a .n { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; color: var(--fg-3); flex: none; }
+.toc a.active .n { color: var(--accent); }
+
+.post-body { font-size: 17px; line-height: 2.05; color: var(--fg); max-width: 70ch; }
+.post-body h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 64px 0 20px; scroll-margin-top: calc(var(--header-h) + 24px); padding-top: 22px; border-top: 1px solid var(--line); }
+.post-body h2:first-of-type { margin-top: 40px; }
+.post-body h2 .h-num { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; color: var(--accent); letter-spacing: .16em; display: block; margin-bottom: 12px; }
+.post-body h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); margin: 36px 0 12px; line-height: 1.5; }
+.post-body p { margin-bottom: 1.5em; }
+.post-body p strong, .post-body li strong { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .24em; }
+.post-body p em { font-family: var(--font-serif); font-style: italic; font-size: 1.04em; }
+.post-body a { text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--line-2); }
+.post-body a:hover { color: var(--ac); text-decoration-color: currentColor; }
+.post-body ul, .post-body ol { margin: 0 0 1.6em 1.3em; color: var(--fg-2); }
+.post-body li { margin-bottom: 8px; }
+.post-body blockquote { margin: 40px 0; padding: 6px 0 6px 28px; border-left: 2px solid var(--fg); font-family: var(--font-min); font-weight: 600; font-size: clamp(19px, 2vw, 23px); line-height: 1.8; letter-spacing: .02em; color: var(--fg); }
+.post-body blockquote p { margin: 0; }
+.post-body code { font-family: var(--font-mono); font-size: 13.5px; background: var(--bg-2); padding: 2px 7px; border-radius: 3px; color: var(--fg); }
+.post-body pre { background: var(--black); color: var(--paper); border-radius: 6px; padding: 22px; overflow-x: auto; margin: 28px 0; }
+.post-body pre code { background: transparent; padding: 0; color: inherit; font-size: 13px; line-height: 1.75; }
+.post-body hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.post-body img { border-radius: 4px; border: 1px solid var(--line); }
+
+.post-body .callout { margin: 36px 0; padding: 22px 26px; border: 1px solid var(--line-2); border-radius: 4px; display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; background: var(--card); }
+.post-body .callout .ico { width: 28px; height: 28px; border: 1px solid var(--fg); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 500; font-size: 12px; }
+.post-body .callout h4 { font-weight: 700; font-size: 14.5px; margin-bottom: 6px; }
+.post-body .callout p { font-size: 14.5px; margin: 0; color: var(--fg-2); line-height: 1.9; }
+.post-body .callout.info .ico { border-color: var(--accent); color: var(--accent); }
+.post-body .callout.warn { border-color: rgba(217,169,58,.6); }
+.post-body .callout.warn .ico { border-color: var(--accent-yellow); color: #9a7414; }
+
+.post-body .table-wrap { overflow-x: auto; margin: 32px 0; }
+.post-body table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14.5px; border-top: 1px solid var(--fg); }
+.post-body th, .post-body td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.post-body thead th { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .1em; color: var(--fg-3); white-space: nowrap; }
+.post-body tbody tr:hover td { background: var(--bg-2); }
+
+.post-body .conclusion { margin: 32px 0; padding: 24px 28px; border-radius: 4px; background: var(--bg-2); border-left: 2px solid var(--accent); }
+.post-body .conclusion h4 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.post-body .conclusion p { font-size: 15.5px; margin: 0; color: var(--fg); line-height: 1.95; }
+
+.post-body .faq { margin: 0; border-bottom: 1px solid var(--line); }
+.post-body .faq:first-of-type { border-top: 1px solid var(--line); }
+.post-body .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 15.5px; color: var(--fg); display: grid; grid-template-columns: 28px 1fr 28px; gap: 12px; align-items: start; line-height: 1.6; }
+.post-body .faq summary::-webkit-details-marker { display: none; }
+.post-body .faq summary::before { content: 'Q'; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg-3); padding-top: .3em; }
+.post-body .faq summary::after { content: ''; width: 10px; height: 10px; justify-self: end; margin-top: .5em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .4s var(--ease); }
+.post-body .faq[open] summary::after { transform: rotate(-135deg); }
+.post-body .faq .faq-a { padding: 0 0 20px 40px; font-size: 14.5px; color: var(--fg-2); line-height: 1.9; position: relative; }
+.post-body .faq .faq-a::before { content: 'A'; position: absolute; left: 0; top: 2px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--accent); }
+
+.post-foot { max-width: 70ch; margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.post-tags span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--fg-2); }
+.post-share { display: flex; gap: 7px; }
+.post-share button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 600; font-size: 12px; color: var(--fg); transition: all .2s; }
+.post-share button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.author-card { max-width: 980px; margin: 0 auto clamp(48px, 6vw, 80px); padding: 0 var(--gutter); }
+.author-card-inner { display: grid; grid-template-columns: 72px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; }
+.author-card .avatar-lg { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; font-family: var(--font-min); font-weight: 600; font-size: 28px; }
+.author-card .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.author-card .name { font-weight: 700; font-size: 19px; margin-top: 6px; display: block; }
+.author-card .bio { font-size: 14px; color: var(--fg-2); line-height: 1.9; margin-top: 8px; }
+
+/* 記事の最後に出す「この記事に関係するサービス」（build-index.js が差し込む） */
+.svc-card { max-width: 980px; margin: 0 auto clamp(40px, 5vw, 64px); padding: 0 var(--gutter); }
+.svc-card-inner { border: 1px solid var(--fg); border-radius: 6px; padding: clamp(26px, 4vw, 44px); background: var(--card, #fff); position: relative; }
+.svc-card-inner::before { content: ''; position: absolute; left: -1px; top: -1px; width: 56px; height: 4px; background: var(--accent); border-radius: 6px 0 0 0; }
+.svc-card-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+.svc-card-title { font-weight: 700; font-size: clamp(22px, 3vw, 32px); line-height: 1.4; margin-top: 12px; text-wrap: balance; }
+.svc-card-text { font-size: 15.5px; line-height: 1.95; color: var(--fg-2); margin-top: 14px; max-width: 62ch; }
+.svc-card-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.svc-card-note { font-size: 12.5px; color: var(--fg-3); margin-top: 14px; }
+@media (max-width: 560px) { .svc-card-ctas .btn { width: 100%; justify-content: center; } }
+
+.related { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper-2); }
+.related .in { max-width: 1140px; margin: 0 auto; padding: 0 var(--gutter); }
+.related h3 { font-family: var(--font-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.related h3::before { content: ''; width: 6px; height: 6px; background: var(--accent); }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.related-card { color: var(--fg); display: flex; flex-direction: column; gap: 12px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .4s var(--ease); background: var(--paper); }
+.related-card:hover { background: var(--card); }
+.related-card .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+.related-card h4 { font-weight: 700; font-size: 15.5px; line-height: 1.55; transition: color .3s; }
+.related-card:hover h4 { color: var(--ac); }
+@media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  /* minmax(0,…) にしないと、横スクロールさせたい図版（min-width:680px）が列ごと押し広げてページ全体がはみ出す */
+  .post-wrap { grid-template-columns: minmax(0, 1fr); margin: 36px auto; }
+  .post-aside { position: static; }
+  .toc { flex-direction: row; flex-wrap: wrap; gap: 6px; border-top: 0; }
+  .toc a { border: 1px solid var(--line-2); border-radius: 2px; padding: 7px 11px; font-size: 12px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '28086413637650888');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>window.__POST_SLUG__="2026-11-28-seisei-ai-kenshu-oshieru-naiyo";</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型","description":"社員向けの生成AI研修で何を教えればよいかを、6つの単元、プロンプトの型、営業・事務・現場など部門別の活用例、入力してよい情報の線引きに分けて整理しました。カリキュラムを決める前のチェックリストと、よくある失敗の避け方もまとめています。","datePublished":"2026-11-28","dateModified":"2026-11-28","inLanguage":"ja","mainEntityOfPage":"https://teneramente.jp/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.html","image":"https://teneramente.jp/assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png","articleSection":"AI","author":{"@type":"Person","name":"加藤 聖矢"},"publisher":{"@type":"Organization","name":"株式会社TENERAMENTE","logo":{"@type":"ImageObject","url":"https://teneramente.jp/assets/img/favicon-512.png"}},"keywords":"AI研修, 生成AI, プロンプト, 社員研修, AI活用"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://teneramente.jp/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://teneramente.jp/blog.html"},{"@type":"ListItem","position":3,"name":"生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型","item":"https://teneramente.jp/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AIを一度も使ったことがない社員が多くても、同じ内容で研修できますか？","acceptedAnswer":{"@type":"Answer","text":"できます。ただし、基本の単元を少し厚くし、最初の演習は文章の書き直しや要約など、結果を確かめやすい題材から始めます。使ったことがない社員ほど、自分の業務の資料で一度うまくいく経験をすると、その後の使い方が早く広がります。"}},{"@type":"Question","name":"研修で使うツールは、ChatGPT・Claude・Geminiのどれがよいですか？","acceptedAnswer":{"@type":"Answer","text":"社内で実際に使う予定のツールで研修するのが原則です。すでに契約しているものがあればそれを使います。まだ決まっていない場合は、扱う業務とセキュリティの要件から選び、研修では指示の型など、ツールが変わっても使える内容を中心に教えます。"}},{"@type":"Question","name":"プロンプトの「コツ」をたくさん教えたほうがよいのではないですか？","acceptedAnswer":{"@type":"Answer","text":"コツを大量に覚えても、実際の業務では思い出せないことが多いです。目的・前提・形式の型をひとつ決め、返ってきた答えを追加の指示で直していくやり取りまでを繰り返し練習するほうが、研修の翌日から使われやすくなります。"}},{"@type":"Question","name":"研修で社内の実際の資料を使っても大丈夫でしょうか？","acceptedAnswer":{"@type":"Answer","text":"研修で使ってよい資料をあらかじめ選び、個人名や取引先名を伏せるなどの加工をしてから使います。その選別と加工の作業そのものが、入力してよい情報の線引きを学ぶ良い題材になります。"}},{"@type":"Question","name":"研修の効果はどう見ればよいですか？","acceptedAnswer":{"@type":"Answer","text":"受講者の満足度だけでなく、研修後に実際に使われている業務の例を集めて見ます。研修の最後に決めた「明日使う作業」が、その後も続いているかを振り返りの場で確かめるのが分かりやすい方法です。"}}]}]}</script>
+</head>
+<body data-active="blog">
+
+<div data-chrome="header"></div>
+
+<section class="post-hero">
+  <div class="crumb"><a href="index.html">Home</a><i></i><a href="blog.html">Journal</a><i></i><span data-post="crumb">AI</span></div>
+  <span class="post-cat" data-post="category">AI</span>
+  <h1 class="post-title" data-post="title">生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型</h1>
+  <div class="post-meta">
+    <div class="author"><div class="avatar">加</div><span>加藤　聖矢</span></div>
+    <span class="dot"></span>
+    <span data-post="date">Nov 28, 2026</span>
+    <span class="dot"></span>
+    <span data-post="read">10 min read</span>
+  </div>
+</section>
+
+<div class="post-cover">
+  <div class="post-cover-inner"><img src="assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png" alt="生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型" width="1200" height="630" fetchpriority="high" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+</div>
+
+<div class="post-wrap">
+  <aside class="post-aside">
+    <div class="toc-title">On this page</div>
+    <nav class="toc" data-toc><a href="#h1" class="active"><span class="n">01</span>生成AI研修で社員に教える内容は「操作」より「仕事の渡し方」</a><a href="#h2"><span class="n">02</span>研修に入れる6つの単元と、それぞれで持ち帰るもの</a><a href="#h3"><span class="n">03</span>プロンプトの型は「目的・前提・形式」の3点を教える</a><a href="#h4"><span class="n">04</span>部門別の活用例：営業・事務・管理部門・現場</a><a href="#h5"><span class="n">05</span>入力してよい情報の線引きは、研修の中で決める</a><a href="#h6"><span class="n">06</span>カリキュラムは対象者ごとに順番を変える</a><a href="#h7"><span class="n">07</span>研修内容を決める前のチェックリストと、よくある失敗</a><a href="#h8"><span class="n">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</a><a href="#h9"><span class="n">09</span>よくある質問</a><a href="#h10"><span class="n">10</span>まとめ：研修の内容は、自社の仕事から逆算して決める</a></nav>
+  </aside>
+  <article class="post-body" data-post="body" data-prerendered="1">
+<p class="lead" style="font-size:19px;line-height:1.8;color:var(--fg-muted);margin-bottom:32px;">社員向けの生成AI研修を企画するとき、最初に迷うのは「何を教えればいいのか」です。結論から言うと、<strong>生成AI研修で社員に教える内容の中心は、ツールの操作ではなく仕事の渡し方</strong>です。この記事では、研修に入れる単元、プロンプトの型、部門別の活用例、入力してよい情報の線引きまでを、研修の企画担当の方がそのまま使える形で整理します。</p>
+<div class="conclusion">
+  <h4>📌 この記事の結論</h4>
+  <p>生成AI研修の内容は「基本」「プロンプトの型」「部門別の演習」「利用ルール」「管理職向けの回」「研修後の定着」の6つで組みます。中でも<strong>自社の業務資料を使った部門別の演習</strong>を厚くすると、研修の翌日から使われる状態に近づきます。</p>
+</div>
+
+<h2 id="h1"><span class="h-num">01</span>生成AI研修で社員に教える内容は「操作」より「仕事の渡し方」</h2>
+<p>生成AIのツールそのものは、ログインして文章を打ち込めば動きます。ボタンの場所や画面の見方は、研修でなくても数分で覚えられます。それでも研修が必要なのは、<strong>どんな仕事を、どう頼めば使える答えが返ってくるか</strong>が、使い始めの社員には分からないからです。</p>
+<p>研修を受けた社員が翌日から使わなくなる理由は、たいてい「何に使えばいいか分からない」か「頼んでみたが期待した答えが返ってこなかった」のどちらかです。前者は業務とAIの結びつけ方を、後者は指示の出し方を教えていないことが原因です。</p>
+<p>そのため、研修の内容は次の3つの問いに答えられるように組みます。</p>
+<ul>
+<li>自分の仕事のうち、どれをAIに頼めるのか</li>
+<li>頼むときに、何を伝えれば使える答えになるのか</li>
+<li>頼んではいけない情報や、確かめずに使ってはいけない場面はどこか</li>
+</ul>
+<p>研修会社の選び方そのものは<a href="2026-09-04-hojin-ai-kenshu-erabikata.html">法人向けAI研修の選び方</a>で整理しています。この記事は、その手前の「中身を何にするか」を決めるための内容です。</p>
+<h2 id="h2"><span class="h-num">02</span>研修に入れる6つの単元と、それぞれで持ち帰るもの</h2>
+<p>社員向けの生成AI研修は、次の6つの単元で組むと抜け漏れが出にくくなります。すべてを一度にやる必要はなく、対象者と目的に合わせて必要な単元を選びます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>単元</th>
+<th>教える内容</th>
+<th>受講者が持ち帰るもの</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生成AIの基本</td>
+<td>できること・できないこと、もっともらしい誤りが出る理由</td>
+<td>「確かめてから使う」前提</td>
+</tr>
+<tr>
+<td>プロンプトの型</td>
+<td>目的・前提・形式を伝える指示の書き方</td>
+<td>社内で使い回せる指示文のひな形</td>
+</tr>
+<tr>
+<td>部門別の演習</td>
+<td>自社の資料や依頼文を使った実習</td>
+<td>自分の業務でそのまま使える例</td>
+</tr>
+<tr>
+<td>利用ルール</td>
+<td>入力してよい情報の線引き、確認の手順</td>
+<td>社内ルールのたたき台</td>
+</tr>
+<tr>
+<td>管理職・経営者向け</td>
+<td>部下に使わせる前に決めること、効果の見方</td>
+<td>部署での進め方</td>
+</tr>
+<tr>
+<td>研修後の定着</td>
+<td>使った例の共有、振り返りの場</td>
+<td>続ける仕組み</td>
+</tr>
+</tbody></table></div>
+<p>この中で研修の時間を最も多く割くべきなのは、部門別の演習です。基本とプロンプトの型は、演習の中で何度も使うことで身につきます。逆に、基本の説明だけで研修時間の大半を使うと、受講者は「便利そうだが自分の仕事では使えない」と感じたまま終わります。</p>
+<p>利用ルールは、研修の最後に配るよりも、演習の途中で「この資料は入れてよいか」を一緒に判断しながら決めるほうが記憶に残ります。</p>
+<h2 id="h3"><span class="h-num">03</span>プロンプトの型は「目的・前提・形式」の3点を教える</h2>
+<p>プロンプト（<em>prompt</em>、AIへの指示文）の書き方は、コツを大量に並べるより、ひとつの型を繰り返し使うほうが定着します。研修で教える型は、次の3点に絞ると覚えやすくなります。</p>
+<ul>
+<li><strong>目的</strong>：何のために使う文章・資料なのか、誰が読むのか</li>
+<li><strong>前提</strong>：AIが知らない社内の事情、守ってほしい条件、参考にする資料</li>
+<li><strong>形式</strong>：文字数、箇条書きか文章か、見出しの有無、敬語の度合い</li>
+</ul>
+<p>実際の研修では、次のようなひな形を配り、受講者が自分の業務に置き換えて打ち込みます。</p>
+<pre><code>目的：取引先に送る、納期遅れのお詫びと新しい納期のご連絡
+読む人：取引先の購買担当者
+前提：遅れの理由は部材の入荷遅れ。新しい納期は社内で確定済み
+形式：メール本文、丁寧な敬語、要点は3行以内に収める
+</code></pre>
+<p>型を教えるときに大切なのは、<strong>一度で完成させようとしない</strong>と伝えることです。返ってきた答えに対して「もっと短く」「取引先が気にする点を先に」と追加で頼むやり取りまでを、演習の中で体験してもらいます。一回の指示で完璧な答えを求めると、多くの社員は「思ったほど使えない」と判断して手を止めてしまいます。</p>
+<h2 id="h4"><span class="h-num">04</span>部門別の活用例：営業・事務・管理部門・現場</h2>
+<p>部門別の演習では、一般的な例ではなく、自社で実際に発生している作業を題材にします。題材を選ぶときの目安は、毎週のように発生していて、文章や表を扱う作業であることです。部門ごとの代表的な題材は次のとおりです。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>部門</th>
+<th>演習の題材になりやすい作業</th>
+<th>人が必ず確認する点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>営業</td>
+<td>提案書の骨子、商談メモの要約、お礼メールの下書き</td>
+<td>価格・納期・条件の正しさ</td>
+</tr>
+<tr>
+<td>事務</td>
+<td>問い合わせへの返信文、社内文書の書き直し、表の整形</td>
+<td>宛先と固有名詞、数字</td>
+</tr>
+<tr>
+<td>管理部門（総務・人事）</td>
+<td>規程の要点の整理、社内通知の文案、求人票の言い回し</td>
+<td>法令や社内規程との食い違い</td>
+</tr>
+<tr>
+<td>現場・製造</td>
+<td>作業手順書の書き起こし、日報の要約、引き継ぎメモ</td>
+<td>安全に関わる手順</td>
+</tr>
+<tr>
+<td>管理職</td>
+<td>会議の論点整理、部下への説明文、報告書の要約</td>
+<td>判断そのものは人が行う</td>
+</tr>
+</tbody></table></div>
+<p>表の右の列は、演習の中で必ず伝える部分です。AIの下書きを使うのは構いませんが、最終的に送る・決めるのは人であることを、部門ごとの具体的な確認点として教えます。</p>
+<p>部門ごとに題材を分けると、受講者は「隣の部署の使い方」も目にします。この横の共有が、研修後に社内で使い方が広がるきっかけになります。日常業務での使い方の幅は、<a href="2026-06-20-chatgpt-gyomu-katsuyo.html">中小企業のChatGPT業務活用ガイド</a>にも例をまとめています。</p>
+<h2 id="h5"><span class="h-num">05</span>入力してよい情報の線引きは、研修の中で決める</h2>
+<p>生成AI研修で欠かせないのが、情報の扱いです。社員が最も不安に感じるのは「この資料を入れてよいのか分からない」という点で、ここが曖昧なままだと、慎重な社員ほど使わなくなり、慎重でない社員は判断せずに入れてしまいます。</p>
+<p>線引きは、情報を3つに分けると説明しやすくなります。</p>
+<ul>
+<li><strong>入れてよい情報</strong>：社外に公開済みの情報、一般的な文章の書き直し、個人や取引先が特定されない内容</li>
+<li><strong>加工すれば入れてよい情報</strong>：社名や個人名を伏せた商談メモ、数字を除いた社内文書</li>
+<li><strong>入れてはいけない情報</strong>：個人情報、取引先から預かった資料、未公開の財務情報や契約条件</li>
+</ul>
+<p>どこに線を引くかは、使っているツールの契約形態（個人向けのプランか、法人向けのプランやAPI利用か）でも変わります。研修の場では、実際に使う資料を見ながら「これはどの区分か」を受講者と一緒に判断し、その結果をルールのたたき台として残します。ルールの書き方は<a href="2026-09-06-seisei-ai-shanai-rule-template.html">生成AIの社内利用ルールのひな形</a>も参考になります。</p>
+<div class="callout warn">
+  <span class="ico">!</span>
+  <div>
+    <h4>ルールを先に厳しくしすぎない</h4>
+    <p>禁止事項だけを並べたルールを研修の冒頭で配ると、受講者は「使わないのが一番安全」と受け取ります。<strong>使ってよい場面を先に示し</strong>、そのあとで入れてはいけない情報を説明する順番にすると、使う前提でルールを覚えてもらえます。</p>
+  </div>
+</div>
+
+<h2 id="h6"><span class="h-num">06</span>カリキュラムは対象者ごとに順番を変える</h2>
+<p>同じ6つの単元でも、対象者によって並べる順番と厚みが変わります。全社員に同じ内容を一度に行うより、役割ごとに分けたほうが、それぞれが持ち帰るものがはっきりします。</p>
+<figure class="fig"><img src="assets/img/figures/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png" alt="何ができて何を確かめる必要があるかを知る基本、目的と前提と形式の指示を実際に打って覚える型、自分の部署の資料と依頼文で使ってみる演習、演習で使った資料をもとに入れてよい情報を決めるルール、翌日から使う業務を1つ決めて終える定着という、社員向け生成AI研修の5つの順番を横に並べた図" width="1600" height="543" loading="lazy" decoding="async"><figcaption>時間を最も多く割くのは、自社の資料を使う部門別の演習です。</figcaption></figure>
+
+<p>一般社員向けの回は、基本を短く済ませ、プロンプトの型と部門別の演習に時間を使います。自分の仕事のどれを任せられるかが分かることが、この回のゴールです。</p>
+<p>管理職・経営者向けの回は、演習を短くし、部下に使わせる前に決めておくこと（使ってよい業務の範囲、確認の責任者、効果の見方）に時間を使います。管理職が使い方を知らないまま部下に「AIを使え」と言っても、部下は何を報告すればよいか分かりません。</p>
+<p>推進役（各部署で使い方を広める人）を決める場合は、その人たちに一歩踏み込んだ回を用意します。自部署の題材を集め、使えた例と使えなかった例を記録し、社内で共有する役割まで説明します。</p>
+<p>研修の進め方は、次の順で組むと受講者が迷いません。</p>
+<ol>
+<li>基本：何ができて、何を確かめる必要があるかを知る</li>
+<li>型：目的・前提・形式の指示を、実際に打って覚える</li>
+<li>演習：自分の部署の資料と依頼文で使ってみる</li>
+<li>ルール：演習で使った資料をもとに、入れてよい情報を決める</li>
+<li>定着：翌日から使う業務を1つ決めて、研修を終える</li>
+</ol>
+<h2 id="h7"><span class="h-num">07</span>研修内容を決める前のチェックリストと、よくある失敗</h2>
+<h3>研修内容を決める前のチェックリスト</h3>
+<p>研修会社に相談する前、あるいは社内で研修を組む前に、次の項目を確認しておくと、内容の打ち合わせが早く進みます。</p>
+<ul>
+<li>研修を受ける人の部署と役割が決まっている</li>
+<li>受講者がAIを使った経験の有無を、ざっくり把握している</li>
+<li>社内で使うAIツール（ChatGPT・Claude・Geminiなど）と契約形態が決まっている、または決める予定がある</li>
+<li>演習の題材にする業務を、部署ごとに2〜3個ずつ挙げている</li>
+<li>題材に使う資料のうち、研修で使ってよいものを選んでいる</li>
+<li>入力してはいけない情報について、現時点の社内の考え方を整理している</li>
+<li>研修のあとで使い方を共有する場（定例会議、チャットの部屋など）を決めている</li>
+<li>研修の効果を何で見るか（使っている人の数、使った業務の例など）を決めている</li>
+</ul>
+<p>題材の業務が挙がっていない状態で研修を始めると、演習が一般的な例になり、受講者の仕事とつながりにくくなります。チェックリストの中でも、題材の準備は最優先です。</p>
+<h3>よくある失敗と、その避け方</h3>
+<p>研修の中身に関する失敗は、パターンがある程度決まっています。</p>
+<p><strong>機能の紹介で終わる</strong>。画像生成、表の作成、要約、翻訳と、できることを次々に見せる研修は、その場では盛り上がります。ところが、受講者が自分の仕事に置き換える時間が無いため、翌日には使い道を思い出せません。機能の紹介は短くし、自社の作業で試す時間を増やします。</p>
+<p><strong>全員に同じ題材を使う</strong>。営業と経理では扱う文章も確認すべき点も違います。全員共通の題材だと、どの部署にとっても少しずつ遠い例になります。演習は部署ごとに分けるか、少なくとも題材を部署ごとに用意します。</p>
+<p><strong>ルールを研修の後回しにする</strong>。「ルールは後で総務から配ります」と言われると、受講者はそれまで使うのを控えます。研修の中でたたき台まで作り、その日から使える状態で終えます。</p>
+<p><strong>翌日の行動を決めずに終わる</strong>。研修の最後に「明日、どの作業で使うか」を一人ひとつ決めて書き出してもらうだけで、使い始める人が増えます。決めた作業は、次の振り返りの場で共有します。</p>
+<p><strong>一度きりで終える</strong>。研修の直後は使っていても、困ったときに聞ける相手がいないと手が止まります。研修のあとに、使った例と困った点を持ち寄る場を設けておくと、使い方が少しずつ揃っていきます。</p>
+<h2 id="h8"><span class="h-num">08</span>自分で進める場合と、専門家に任せる場合の分かれ目</h2>
+<p>社員向けの生成AI研修は、社内で組むこともできます。判断の分かれ目は、社内に「自分の仕事で使い込んでいる人」がいるかどうかです。</p>
+<p>社内で進めやすいのは、すでに日常的に生成AIを使っている社員がいて、その人が他部署の業務にもある程度通じている場合です。対象が一つの部署に限られていて、扱う情報の線引きも単純であれば、社内の勉強会の形でも十分に効果があります。</p>
+<p>外部の専門家に任せたほうがよいのは、次のような場合です。複数の部署に同時に広げたいとき、部署ごとの題材を選ぶ時間が社内で取れないとき、情報の扱いについて法人向けプランやAPI利用の使い分けまで整理したいとき、そして研修のあとに業務の自動化や社内向けのAIの仕組みまで視野に入れているときです。</p>
+<p>もう一つの目安は、<strong>研修のあとに誰が質問を受けるか</strong>です。研修そのものは外部に頼んでも、その後の質問を社内で受けられるなら定着は進みます。社内に受け手がいない場合は、研修後の振り返りや定着の支援まで含めて任せられる相手を選ぶと、研修が一度きりで終わるのを防げます。</p>
+<h2 id="h9"><span class="h-num">09</span>よくある質問</h2>
+<details class="faq"><summary>AIを一度も使ったことがない社員が多くても、同じ内容で研修できますか？</summary><div class="faq-a">できます。ただし、基本の単元を少し厚くし、最初の演習は文章の書き直しや要約など、結果を確かめやすい題材から始めます。使ったことがない社員ほど、自分の業務の資料で一度うまくいく経験をすると、その後の使い方が早く広がります。</div></details>
+
+<details class="faq"><summary>研修で使うツールは、ChatGPT・Claude・Geminiのどれがよいですか？</summary><div class="faq-a">社内で実際に使う予定のツールで研修するのが原則です。すでに契約しているものがあればそれを使います。まだ決まっていない場合は、扱う業務とセキュリティの要件から選び、研修では指示の型など、ツールが変わっても使える内容を中心に教えます。</div></details>
+
+<details class="faq"><summary>プロンプトの「コツ」をたくさん教えたほうがよいのではないですか？</summary><div class="faq-a">コツを大量に覚えても、実際の業務では思い出せないことが多いです。目的・前提・形式の型をひとつ決め、返ってきた答えを追加の指示で直していくやり取りまでを繰り返し練習するほうが、研修の翌日から使われやすくなります。</div></details>
+
+<details class="faq"><summary>研修で社内の実際の資料を使っても大丈夫でしょうか？</summary><div class="faq-a">研修で使ってよい資料をあらかじめ選び、個人名や取引先名を伏せるなどの加工をしてから使います。その選別と加工の作業そのものが、入力してよい情報の線引きを学ぶ良い題材になります。</div></details>
+
+<details class="faq"><summary>研修の効果はどう見ればよいですか？</summary><div class="faq-a">受講者の満足度だけでなく、研修後に実際に使われている業務の例を集めて見ます。研修の最後に決めた「明日使う作業」が、その後も続いているかを振り返りの場で確かめるのが分かりやすい方法です。</div></details>
+
+<h2 id="h10"><span class="h-num">10</span>まとめ：研修の内容は、自社の仕事から逆算して決める</h2>
+<p>生成AI研修で社員に教える内容は、基本・プロンプトの型・部門別の演習・利用ルール・管理職向けの回・研修後の定着の6つです。中心に置くのは、自社の資料と依頼文を使った部門別の演習で、プロンプトは目的・前提・形式の型をひとつ決めて繰り返し使います。入力してよい情報の線引きは研修の中で一緒に決め、最後に翌日から使う作業を一人ひとつ決めて終えると、受けて終わりの研修になりません。</p>
+<p>TENERAMENTEなら、御社の実際の業務資料と依頼文を題材に、部門別の活用演習とプロンプトの型、入力してよい情報の線引きを研修の中で一緒に作り、研修後の振り返りと定着の支援まで伴走します。題材選びや社内ルールのたたき台づくりを担当者が一人で抱えずに済み、研修の翌日から使われる状態を作りやすくなります。研修の構成は<a href="lp-ai-kenshu.html">AI研修のページ</a>にまとめています。初回の相談（60分）は無料ですので、「うちの業務で何から教えればいいか」という段階でも、<a href="contact.html">お問い合わせ</a>からお気軽にご相談ください。</p>
+
+<div class="post-foot">
+    <div class="post-tags" data-post="tags"><span>#AI研修</span><span>#生成AI</span><span>#プロンプト</span><span>#社員研修</span><span>#AI活用</span></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</article>
+</div>
+
+<template id="tpl-post-foot">
+  <div class="post-foot">
+    <div class="post-tags" data-post="tags"></div>
+    <div class="post-share">
+      <button data-share="x" aria-label="Xでシェア">X</button>
+      <button data-share="copy" aria-label="リンクをコピー">⌘</button>
+    </div>
+  </div>
+</template>
+
+<section class="svc-card" aria-label="この記事に関係するサービス">
+  <div class="svc-card-inner">
+    <span class="svc-card-label">Service — AI研修</span>
+    <p class="svc-card-title">研修の翌日から、AIを使える会社へ</p>
+    <p class="svc-card-text">ChatGPT・Claude・Geminiを、御社の実際の業務資料を使って動かす社員研修です。部門別の活用例・プロンプトの型・利用ルールのたたき台を持ち帰れる形にし、研修のあとの定着まで伴走します。初回相談は無料です。</p>
+    <div class="svc-card-ctas">
+      <a href="contact.html?svc=ai" class="btn btn--primary btn--lg">この内容で無料相談する<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="lp-ai-kenshu.html" class="btn btn--ghost btn--lg">AI研修を見る</a>
+    </div>
+    <p class="svc-card-note">お問い合わせは2ステップ・約60秒で送信できます。1営業日以内に代表からご返信します。</p>
+  </div>
+</section>
+
+<section class="author-card">
+  <div class="author-card-inner">
+    <div class="avatar-lg">加</div>
+    <div class="meta">
+      <span class="role">Author · Founder / CEO</span>
+      <span class="name">加藤　聖矢 — Seiya Kato</span>
+      <p class="bio">株式会社TENERAMENTE 代表取締役。AI×WEBアプリ開発・HP/LP制作・MEO/AIO運用・AI活用を統合した、AI時代のデジタル運用パートナーとして活動。</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="in">
+    <h3>関連記事</h3>
+    <div class="related-grid" data-related>
+      <a class="related-card" href="2026-11-25-rag-kochiku-hiyo-small-start.html">
+        <span class="cat">AI</span>
+        <h4>RAG構築の費用はどこで決まるか｜小さく試す範囲の決め方</h4>
+      </a>
+      <a class="related-card" href="2026-11-10-ai-gyomu-jidoka-irai-hiyo.html">
+        <span class="cat">AI</span>
+        <h4>AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲</h4>
+      </a>
+      <a class="related-card" href="2026-11-03-ai-donyu-sodansaki.html">
+        <span class="cat">AI</span>
+        <h4>中小企業のAI導入はどこに相談する？相談先の種類と、選ぶときの確認点</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="記事:CTA">
+  <div class="wrap">
+    <span class="index reveal">Contact</span>
+    <h2 class="reveal d1">この記事の実装、<br class="br-sp" />お手伝いします。</h2>
+    <p class="reveal d2">「うちの場合は？」を、そのまま無料相談へ。1営業日以内に、代表よりご返信します。</p>
+    <div class="ctas reveal d3">
+      <a href="contact.html" class="btn btn--primary btn--lg">無料相談<svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <a href="https://line-harness.teneramente0701.workers.dev/r/hp" target="_blank" rel="noopener" class="btn btn--line btn--lg"><svg viewBox="0 0 36 36" class="ico" aria-hidden="true"><path d="M18 3C9.16 3 2 8.85 2 16.1c0 6.5 5.7 11.95 13.4 12.97.52.11 1.23.34 1.41.78.16.4.1.99.05 1.4l-.22 1.36c-.07.4-.32 1.58 1.38.86 1.71-.72 9.18-5.4 12.52-9.25C32.81 21.6 34 19 34 16.1 34 8.85 26.84 3 18 3z"/></svg>LINE問合せ</a>
+      <a href="shindan.html" class="btn btn--ghost btn--lg">AI無料診断</a>
+    </div>
+  </div>
+</section>
+
+<div data-chrome="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/blog-post.js"></script>
+</body>
+</html>
