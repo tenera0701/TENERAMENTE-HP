@@ -72,7 +72,9 @@
     ],
     "visual": "default",
     "number": "01",
-    "image": "assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png"
+    "image": "assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.png",
+    "imageHero": "assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo.webp",
+    "imageCard": "assets/img/covers/2026-11-28-seisei-ai-kenshu-oshieru-naiyo-card.webp"
   },
   {
     "slug": "2026-11-27-juhatchu-kanri-system-chusho",

@@ -1071,7 +1071,8 @@
       ],
       "status": "done",
       "slug": "denwa-taio-manual",
-      "doneAt": "2026-10-22"
+      "doneAt": "2026-10-22",
+      "coverTitle": "賃貸仲介の電話対応マニュアルの作り方｜一次対応で聞く項目と記録の残し方"
     },
     {
       "id": "m057",
@@ -1090,7 +1091,8 @@
       ],
       "status": "done",
       "slug": "bukken-nyuko-tejun",
-      "doneAt": "2026-10-23"
+      "doneAt": "2026-10-23",
+      "coverTitle": "物件入稿の作業を短くする手順｜複数ポータルの重複入力と更新漏れをなくす"
     },
     {
       "id": "m058",
@@ -1109,7 +1111,8 @@
       ],
       "status": "done",
       "slug": "futai-shueki-kanri",
-      "doneAt": "2026-10-24"
+      "doneAt": "2026-10-24",
+      "coverTitle": "賃貸仲介の付帯収益の管理｜保険や保証会社の手数料を取りこぼさない"
     },
     {
       "id": "m059",
@@ -1128,7 +1131,8 @@
       ],
       "status": "done",
       "slug": "bukken-data-torikomi",
-      "doneAt": "2026-10-25"
+      "doneAt": "2026-10-25",
+      "coverTitle": "物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる"
     },
     {
       "id": "m060",
@@ -1808,7 +1812,8 @@
       ],
       "status": "done",
       "slug": "gyomu-system-demo-kakunin",
-      "doneAt": "2026-11-27"
+      "doneAt": "2026-11-27",
+      "coverTitle": "業務管理システムのデモで確かめること｜賃貸仲介の店舗が見るべき場面"
     }
   ]
 }

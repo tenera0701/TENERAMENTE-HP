@@ -1660,7 +1660,8 @@
       ],
       "status": "done",
       "slug": "2026-11-24-gyomu-app-hoshu-hiyo-uchiwake",
-      "doneAt": "2026-11-23"
+      "doneAt": "2026-11-23",
+      "coverTitle": "業務アプリの保守・運用費に何が含まれるか｜月額で見るべきポイント"
     },
     {
       "id": "k035",
@@ -1736,7 +1737,8 @@
       ],
       "status": "done",
       "slug": "2026-11-28-seisei-ai-kenshu-oshieru-naiyo",
-      "doneAt": "2026-11-27"
+      "doneAt": "2026-11-27",
+      "coverTitle": "生成AI研修で社員に教える内容｜部門別の活用例とプロンプトの型"
     },
     {
       "id": "k016",
