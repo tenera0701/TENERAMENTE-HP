@@ -226,7 +226,7 @@ function articleHtml(p) {
 <script data-moved>if(location.hostname==='teneramente.jp'){var p=location.pathname;if(p.indexOf('/mieroom')===0)p=p.slice(8)||'/';location.replace('https://mieroom.cloud'+p+location.search+location.hash)}</script>
 <meta http-equiv="refresh" content="0;url=${url}" data-moved>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(p.title)}｜ミエルーム ブログ</title>
+<title>${esc(pageTitle(p.title))}</title>
 <meta name="description" content="${esc(p.excerpt)}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
@@ -471,6 +471,14 @@ function main() {
   const stale = fs.readdirSync(ARTICLES_DIR)
     .filter(f => f.endsWith('.html') && !wantFiles.has(f));
   console.log(`  （手書きの既存記事 ${stale.length}本には触れていません）`);
+}
+
+// 検索結果の題名（<title>）。全角1字・半角0.5字で数えて40字に収まるときだけ「｜ミエルーム」を付ける
+// （長い題名は検索結果で後ろが切れるため。サイト名は og:site_name と構造化データで別に伝えている。2026-11-27〜）
+function pageTitle(title) {
+  const full = `${title}｜ミエルーム`;
+  const width = [...full].reduce((n, c) => n + (c.charCodeAt(0) < 128 ? 0.5 : 1), 0);
+  return width <= 40 ? full : title;
 }
 
 main();
