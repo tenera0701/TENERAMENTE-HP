@@ -63,7 +63,9 @@
   renderer.outputEncoding = THREE.sRGBEncoding;   // 指定した色がそのまま（蛍光色に寄らずに）出るように
   function lin(hex) { return new THREE.Color(hex).convertSRGBToLinear(); }
   var scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(lin(0xeef7f3), 0.02);
+  // 霧の色は背景と同じにする（CSS の --mf-fog。デザイン案C では深緑。無ければ従来の淡い緑）
+  var fogCss = (getComputedStyle(sec).getPropertyValue('--mf-fog') || '').trim();
+  scene.fog = new THREE.FogExp2(lin(/^#[0-9a-f]{6}$/i.test(fogCss) ? fogCss : 0xeef7f3), 0.02);
   var FOV = 36, TAN = Math.tan(FOV * Math.PI / 360);
   var cam = new THREE.PerspectiveCamera(FOV, 1, 0.5, 400);
   scene.add(new THREE.HemisphereLight(lin(0xffffff), lin(0xa9d9cb), 0.66));

@@ -193,7 +193,7 @@ function articleHtml(p) {
         headline: p.title, description: p.excerpt,
         datePublished: p.date, dateModified: p.date, inLanguage: 'ja',
         mainEntityOfPage: url,
-        ...(p.cover ? { image: `${MIEROOM_URL}/${p.cover}` } : {}),
+        image: p.cover ? `${MIEROOM_URL}/${p.cover}` : `${MIEROOM_URL}/assets/og-mieroom.png`,
         articleSection: p.category,
         author: { '@type': 'Organization', name: 'ミエルーム編集部' },
         publisher: {
@@ -237,7 +237,10 @@ function articleHtml(p) {
 ${p.cover ? `<meta property="og:image" content="${MIEROOM_URL}/${p.cover}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="675">
-` : ''}<meta name="twitter:card" content="summary_large_image">
+` : `<meta property="og:image" content="${MIEROOM_URL}/assets/og-mieroom.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+`}<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">

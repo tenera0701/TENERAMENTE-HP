@@ -9,12 +9,14 @@
 <meta name="description" content="反響・接客・売上・申込・契約書類から物件入力・業者間サイト連携・LINE追客・経理まで、40以上の機能をひとつに。賃貸仲介会社のためのAI業務管理ツール『ミエルーム』。Excel・LINEのバラバラ管理から卒業できます。">
 <link rel="canonical" href="https://mieroom.cloud/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="株式会社TENERAMENTE">
+<meta property="og:site_name" content="ミエルーム">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="ミエルーム｜賃貸仲介のためのAI業務管理ツール">
 <meta property="og:description" content="反響・接客・売上・申込・契約書類から物件入力・LINE追客・経理まで40以上の機能をひとつに。賃貸仲介会社のためのAI業務管理ツール『ミエルーム』。">
 <meta property="og:url" content="https://mieroom.cloud/">
-<meta property="og:image" content="https://teneramente.jp/assets/img/ogp.png">
+<meta property="og:image" content="https://mieroom.cloud/assets/og-mieroom.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication",
@@ -886,6 +888,75 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
 @media (max-width: 313px) {
   .brand .name { display: none; }
 }
+
+/* ===================================================================
+   デザイン案C「図面」（2026-11-27 社長が3案から選択）
+   深緑の段には青焼きの方眼と間取りの線、明るい段は生成りの無地。淡い色のぼかし・丸・波の飾りは使わない
+   =================================================================== */
+:root{--bp-deep:#0b211d;--bp-deep2:#0f2a25;--paper:#f4f1ea;--paper2:#ebe6db;--bp-line:rgba(160,230,212,.09);--bp-line2:rgba(160,230,212,.17);--bp-ac:#3fd1b2;--bg-soft:var(--paper2)}
+body{background:var(--paper)}
+body::before{display:none}
+.blob,.deco,.sec-wave{display:none!important}
+header{background:rgba(244,241,234,.94);border-bottom:1px solid rgba(15,42,37,.1)}
+.eyebrow{background:rgba(20,160,133,.1)}
+/* 深緑＋方眼（大きい目 120px・小さい目 24px） */
+.mf-stage,.mf.mf--static,html:not(.js) .mf,.sol,.final{
+  background-color:var(--bp-deep)!important;
+  background-image:linear-gradient(var(--bp-line2) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line2) 1px,transparent 1px),
+    linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px)!important;
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px!important;
+}
+.sol::before{background:none}
+/* 間取りの線画（文字なし）を右下に薄く */
+.mf-stage::after,.final::after{content:"";position:absolute;right:-50px;bottom:-40px;width:min(760px,68vw);aspect-ratio:640/440;
+  background:url(assets/bp-plan.svg) no-repeat center/contain;opacity:.42;pointer-events:none;z-index:0}
+.final{position:relative;overflow:hidden}.final .wrap{position:relative;z-index:1}
+/* 3D の最初の画面: 文字を明るく、左の膜を深緑に（霧の色は hero-flow.js が --mf-fog を読む） */
+.mf{--mf-fog:#0b211d}
+.mf-veil{background:linear-gradient(90deg,rgba(11,33,29,.97) 0%,rgba(11,33,29,.86) 32%,rgba(11,33,29,.36) 50%,rgba(11,33,29,0) 62%)}
+.mf h1,.mf-h,.mf-h span{color:#f2f7f5!important;-webkit-text-fill-color:#f2f7f5!important}
+.mf h1 span[style]{color:var(--bp-ac)!important;-webkit-text-fill-color:var(--bp-ac)!important}
+.mf-h .u-peach{color:#f5a083!important;-webkit-text-fill-color:#f5a083!important}
+.mf .lead,.mf-p{color:#b9cec7}.mf .lead b{color:#fff}
+.mf .micro{color:#9fb8b0}.mf .micro .tick{color:var(--bp-ac)}
+.mf .eyebrow,.mf-no{color:var(--bp-ac);background:rgba(63,209,178,.12)}
+.mf-nav span{background:rgba(255,255,255,.06);border-color:rgba(160,230,212,.24);color:#bcd3cb}
+.mf-nav span:hover{color:#fff;border-color:rgba(160,230,212,.5)}
+.mf-nav span.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.mf-nav span i{color:var(--bp-ac)}.mf-nav span.on i{color:#d8f8ee}
+.mf .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.mf .btn-ghost .sub{color:#b9cec7}
+@media (max-aspect-ratio: 21/20), (max-width: 760px) and (max-aspect-ratio: 13/10){
+  .mf-veil{background:linear-gradient(0deg,rgba(11,33,29,.97) 0,rgba(11,33,29,.9) calc(var(--veil-h,58%) - 44px),rgba(11,33,29,0) var(--veil-h,58%))}
+}
+/* 数字の帯・流れる帯・各段の地 */
+.statgrid{border-radius:14px;border-color:#e2ddd1}
+.statcell:hover{background:var(--paper)}
+.marquee-band{background:var(--paper)}
+.pain,.newf,.blogteaser{background:var(--paper)}
+.coreband,.story{background:var(--paper2)}
+/* お悩み4つ（白いカードに深緑の見出し帯＋ChatGPTの絵） */
+.pain4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.p4card{background:#fff;border:1px solid #e2ddd1;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 40px -28px rgba(11,33,29,.45)}
+.p4h{background:var(--bp-deep2);color:#fff;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:16px;text-align:center;padding:14px 10px;line-height:1.4}
+.p4i{aspect-ratio:3/2;border-bottom:1px solid #eeebe3;background:#fff}
+.p4i img{width:100%;height:100%;object-fit:cover}
+.p4card p{padding:16px 18px 20px;font-size:14px;line-height:1.8;font-weight:500;color:var(--ink-2)}
+.pain-bridge .arrow{color:var(--peach-d)}
+.pain .ph{display:inline-block}
+.pain h2>span{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important}  /* 末尾の編集ツールの残骸（h2 の1つ目の span を蛍光緑にする）を打ち消す */
+.p4h,.p4card p,.pain .sec-head h2,.pain-bridge .big{word-break:auto-phrase;text-wrap:pretty}
+@media(max-width:980px){.pain4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pain4{gap:12px}.p4h{font-size:13px;padding:11px 6px}.p4card p{font-size:12.5px;line-height:1.7;padding:12px 12px 14px}}
+/* 導入前と後: 淡い色をやめ、前は白・後は深緑 */
+.ba-col.before{background:#fff}
+.ba-col.after{background:var(--bp-deep2)}
+.ba-col.after .bh{color:var(--bp-ac)}
+.ba-col.after li{color:#e8f1ee}
+.ba-col.after li .m{color:var(--bp-ac)}
+.ba-mid{background:var(--paper)}
+/* 最後の段 */
+.final p{color:#b9cec7}
 </style>
 </head>
 <body>
@@ -1134,51 +1205,38 @@ src="https://www.facebook.com/tr?id=28086413637650888&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- ===== PROBLEM ===== -->
+<!-- ===== PROBLEM（お悩み4つ・絵は ChatGPT で作成。2026-11-27 社長の指示） ===== -->
 <section class="pain" id="pain">
-  <span class="deco ring" style="width:120px;height:120px;top:80px;left:5%;border-width:8px;border-color:rgba(232,99,74,.14);animation:swayRing 13s ease-in-out infinite"></span>
-  <span class="deco" style="width:160px;height:160px;bottom:60px;right:-40px;background:radial-gradient(circle,#f6b69c,#fdeee7);opacity:.5;filter:blur(4px);animation:sway 10s ease-in-out infinite"></span>
-  <span class="deco" style="width:16px;height:16px;top:160px;right:12%;background:var(--red);opacity:.3;animation:sway2 8s ease-in-out infinite"></span>
   <div class="wrap">
-    <div class="sec-head reveal prob-head">
-      <img class="prob-mascot" src="assets/illust-nayami.webp" alt="パソコンの前で悩む男性のイラスト" style="width:190px;height:190px" loading="lazy" decoding="async">
-      <div class="prob-text">
-        <h2>こんなお悩み、ありませんか？</h2>
-        <p>集計は月末にまとめて、広告費は勘で配分、<br class="sp-br">申込・入金は店舗ごとにバラバラ。<br class="sp-br">うまくいかない正体は、<br class="sp-br"><span class="mark">“数字”を追える仕組みがない</span>ことです。</p>
-      </div>
+    <div class="sec-head reveal">
+      <span class="eyebrow">PROBLEM</span>
+      <h2><span class="ph">こんなお悩み、</span><span class="ph">ありませんか？</span></h2>
     </div>
-    <div class="pain-grid six stagger">
-      <div class="pain-card simple">
-        <h3>Excel管理では、細かくできない!!</h3>
-        <p>接客管理、申込管理、反響管理、契約管理、スタッフ成績まで細かく集計でき、昇進の査定も可視化。スタッフのやる気・満足度が向上します。</p>
+    <div class="pain4 stagger">
+      <div class="p4card">
+        <div class="p4h"><span class="ph">物件の入力・</span><span class="ph">物確に追われる</span></div>
+        <div class="p4i"><img src="assets/pain/p1.webp" alt="物件の入力と電話での空室確認に追われて疲れているスタッフのイラスト" width="900" height="600" loading="lazy" decoding="async"></div>
+        <p><span class="ph">物件の入力や</span><span class="ph">空室確認の電話で、</span><span class="ph">一日の大半が</span><span class="ph">終わってしまう。</span></p>
       </div>
-      <div class="pain-card simple">
-        <h3>申込管理表はあるが、正確に取れてるか不安!!</h3>
-        <p>ここが賃貸仲介の課題とも言えます。従来のツールで管理できなかった機能を、現役で賃貸仲介をやっている弊社だから作れました! ぜひ一度、画面を見てほしいです!!</p>
+      <div class="p4card">
+        <div class="p4h"><span class="ph">Excelでは</span><span class="ph">細かく分析できない</span></div>
+        <div class="p4i"><img src="assets/pain/p2.webp" alt="Excelの管理表を前に、分析ができず頭を抱える店長のイラスト" width="900" height="600" loading="lazy" decoding="async"></div>
+        <p><span class="ph">申込や接客を</span><span class="ph">Excelで</span><span class="ph">管理していても、</span><span class="ph">本当に見たい</span><span class="ph">数字まで</span><span class="ph">追えない。</span></p>
       </div>
-      <div class="pain-card simple">
-        <h3>後AD、相殺など入金の管理ができてない‼</h3>
-        <p>申込管理表には未入金一覧・入金一覧があり、いつ入金が入ってくるのか、一部入金の状況まですべて確認できます!!</p>
+      <div class="p4card">
+        <div class="p4h"><span class="ph">契約書・重説の</span><span class="ph">作成が重い</span></div>
+        <div class="p4i"><img src="assets/pain/p3.webp" alt="契約書や重要事項説明書の書類の山を前に困っているスタッフのイラスト" width="900" height="600" loading="lazy" decoding="async"></div>
+        <p><span class="ph">契約書や</span><span class="ph">重要事項説明書の</span><span class="ph">作成に、</span><span class="ph">毎回まとまった</span><span class="ph">時間を取られる。</span></p>
       </div>
-      <div class="pain-card simple">
-        <h3>広告費の、費用対効果まで追えてない‼</h3>
-        <p>ここの機能もかなり充実してます! CPA・CPO・ROASが全部きれいに取れて、予算配分の調整で費用対効果を最大化できます‼</p>
-      </div>
-      <div class="pain-card simple">
-        <h3>契約書、重説の作成で時間がかかる!!</h3>
-        <p>賃貸仲介の会社は営業会社です。営業に時間を使いましょう!! ツールを使えばAIが自動で作ってくれます。確認だけでOK。</p>
-      </div>
-      <div class="pain-card simple">
-        <h3>契約したお客様へ引越しの訴求ができてない!!</h3>
-        <p>契約して終わりではありません。更新1年後・2年後に更新案内や引越し訴求のLINEを自動送信。リピート率向上につながります!!</p>
+      <div class="p4card">
+        <div class="p4h"><span class="ph">リピート・紹介に</span><span class="ph">つながらない</span></div>
+        <div class="p4i"><img src="assets/pain/p4.webp" alt="契約後のお客様とのつながりが切れて困っているスタッフのイラスト" width="900" height="600" loading="lazy" decoding="async"></div>
+        <p><span class="ph">契約したお客様へ、</span><span class="ph">リピートや</span><span class="ph">ご紹介のお声がけが</span><span class="ph">できていない。</span></p>
       </div>
     </div>
     <div class="pain-bridge reveal">
       <div class="arrow">▼</div>
-      <div class="big">
-        <span class="pb-lead">6つの悩みの原因は、ひとつ。<br class="pb-spbr"><span class="mark">売上・接客・反響など数字を<br class="pb-spbr">バラバラに管理してるから</span>です!!</span><br class="pb-br">
-        <span class="u-blue">細かい費用対効果を見てないから。</span>
-      </div>
+      <div class="big"><span class="ph">その4つ、</span><span class="ph"><span class="u-blue">ミエルームで</span></span><span class="ph"><span class="u-blue">まとめて解決</span>できます。</span></div>
     </div>
   </div>
 </section>
@@ -1769,7 +1827,7 @@ window.addEventListener('scroll',()=>{
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer fetchpriority="high"></script>
-<script src="assets/hero-flow.js" defer></script>
+<script src="assets/hero-flow.js?v=20261127" defer></script>
 <script src="../assets/milpage.js" async></script>
 <script src="/assets/analytics.js" defer data-analytics></script>
 </body>

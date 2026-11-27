@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" fill="none" stroke="#3fd1b2" stroke-width="1.3" stroke-linecap="round">
+  <!-- デザイン案C「図面」の飾り: 2LDKの間取りの線画（文字なし）。背景に薄く敷く -->
+  <rect x="40" y="40" width="560" height="360" stroke-width="2.4"/>
+  <path d="M40 210h200M240 40v100M240 180v30M240 210h40M320 210h80M400 40v170M400 210h200M160 210v190M160 300h80M240 210v60M240 320v80M460 210v190M460 300h140" stroke-width="2"/>
+  <path d="M240 140a40 40 0 0 1 40 40M280 210a40 40 0 0 0-40-40M240 270a50 50 0 0 1 50 50M400 160a40 40 0 0 0-40 40M460 250a40 40 0 0 1 40-40" stroke-dasharray="4 5"/>
+  <rect x="440" y="64" width="130" height="80" rx="4"/>
+  <rect x="64" y="64" width="90" height="56" rx="4"/>
+  <circle cx="530" cy="350" r="24"/>
+  <path d="M500 250h70v30h-70zM190 330h40v50h-40z"/>
+  <path d="M40 18v-8M600 18v-8M40 14h560M622 40h8M622 400h8M626 40v360" stroke-width="1" opacity=".7"/>
+  <path d="M80 160h40M100 150v20M300 90h60M330 80v20" opacity=".6"/>
+</svg>
