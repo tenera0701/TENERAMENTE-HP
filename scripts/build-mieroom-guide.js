@@ -156,7 +156,7 @@ function pageHtml(p) {
 <script data-moved>if(location.hostname==='teneramente.jp'){var p=location.pathname;if(p.indexOf('/mieroom')===0)p=p.slice(8)||'/';location.replace('https://mieroom.cloud'+p+location.search+location.hash)}</script>
 <meta http-equiv="refresh" content="0;url=${url}" data-moved>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${esc(p.title)}｜ミエルーム</title>
+<title>${esc(pageTitle(p.title))}</title>
 <meta name="description" content="${esc(p.description)}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
@@ -332,6 +332,14 @@ function main() {
     }
   }
   console.log(`✓ 機能の使い方ページを ${FEATURES.length} 枚出力しました（mieroom/guide/）`);
+}
+
+// 検索結果の題名（<title>）。全角1字・半角0.5字で数えて40字に収まるときだけ「｜ミエルーム」を付ける
+// （長い題名は検索結果で後ろが切れるため。記事の build-mieroom.js と同じ決まり。2026-11-27〜）
+function pageTitle(title) {
+  const full = `${title}｜ミエルーム`;
+  const width = [...full].reduce((n, c) => n + (c.charCodeAt(0) < 128 ? 0.5 : 1), 0);
+  return width <= 40 ? full : title;
 }
 
 main();
