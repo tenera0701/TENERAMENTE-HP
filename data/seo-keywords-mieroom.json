@@ -976,7 +976,8 @@
       ],
       "status": "done",
       "slug": "joken-kousho-susumekata",
-      "doneAt": "2026-10-16"
+      "doneAt": "2026-10-16",
+      "coverTitle": "賃料や条件の交渉を通す進め方｜確認の順番と、断られたときの代替案"
     },
     {
       "id": "m052",
@@ -995,7 +996,8 @@
       ],
       "status": "done",
       "slug": "buai-kyu-kimekata",
-      "doneAt": "2026-10-17"
+      "doneAt": "2026-10-17",
+      "coverTitle": "賃貸仲介の歩合給の決め方｜対象にする成果と、キャンセル時の扱い"
     },
     {
       "id": "m053",
@@ -1014,7 +1016,8 @@
       ],
       "status": "done",
       "slug": "nitenpome-shutten-handan",
-      "doneAt": "2026-10-18"
+      "doneAt": "2026-10-18",
+      "coverTitle": "賃貸仲介で2店舗目を出すときの判断｜見る数字と、先に整える順番"
     },
     {
       "id": "m054",
@@ -1033,7 +1036,8 @@
       ],
       "status": "done",
       "slug": "kojin-joho-toriatsukai",
-      "doneAt": "2026-10-19"
+      "doneAt": "2026-10-19",
+      "coverTitle": "賃貸仲介店舗の個人情報の扱い方｜漏れやすい場所と、決めておく社内ルール"
     },
     {
       "id": "m055",
@@ -1052,7 +1056,8 @@
       ],
       "status": "done",
       "slug": "shitchu-horiokoshi",
-      "doneAt": "2026-10-20"
+      "doneAt": "2026-10-20",
+      "coverTitle": "賃貸仲介の失注客の掘り起こし方｜繁忙期前に声をかける相手の選び方"
     },
     {
       "id": "m056",
@@ -1071,7 +1076,8 @@
       ],
       "status": "done",
       "slug": "denwa-taio-manual",
-      "doneAt": "2026-10-22"
+      "doneAt": "2026-10-22",
+      "coverTitle": "賃貸仲介の電話対応マニュアルの作り方｜一次対応で聞く項目と記録の残し方"
     },
     {
       "id": "m057",
@@ -1090,7 +1096,8 @@
       ],
       "status": "done",
       "slug": "bukken-nyuko-tejun",
-      "doneAt": "2026-10-23"
+      "doneAt": "2026-10-23",
+      "coverTitle": "物件入稿の作業を短くする手順｜複数ポータルの重複入力と更新漏れをなくす"
     },
     {
       "id": "m058",
@@ -1109,7 +1116,8 @@
       ],
       "status": "done",
       "slug": "futai-shueki-kanri",
-      "doneAt": "2026-10-24"
+      "doneAt": "2026-10-24",
+      "coverTitle": "賃貸仲介の付帯収益の管理｜保険や保証会社の手数料を取りこぼさない"
     },
     {
       "id": "m059",
@@ -1128,7 +1136,8 @@
       ],
       "status": "done",
       "slug": "bukken-data-torikomi",
-      "doneAt": "2026-10-25"
+      "doneAt": "2026-10-25",
+      "coverTitle": "物件データの取り込みを楽にする手順｜届いたExcelや図面を自店の形にそろえる"
     },
     {
       "id": "m060",
@@ -1790,6 +1799,26 @@
       "slug": "raiki-uriage-keikaku",
       "doneAt": "2026-11-26",
       "coverTitle": "賃貸仲介の来期売上計画の立て方｜月別の季節差を踏まえて組む手順"
+    },
+    {
+      "id": "m210",
+      "category": "DX",
+      "keyword": "賃貸仲介 業務管理システム デモ 確認ポイント",
+      "sub": [
+        "不動産 業務システム 導入前 確認",
+        "賃貸 管理システム 比較 デモ 見るところ"
+      ],
+      "title": "業務管理システムのデモで確かめること｜賃貸仲介の店舗が見るべき場面",
+      "intent": "業務管理システムを比較・検討していて、デモや説明の場で何を確かめればよいか知りたい（料金は書かない・数字は書かない・他社を批判しない）",
+      "pillar": "../features.html",
+      "related": [
+        "tenpo-muke-tool-hitsuyo-kino",
+        "system-norikae-data-ikou"
+      ],
+      "status": "done",
+      "slug": "gyomu-system-demo-kakunin",
+      "doneAt": "2026-11-27",
+      "coverTitle": "業務管理システムのデモで確かめること｜賃貸仲介の店舗が見るべき場面"
     }
   ]
 }
