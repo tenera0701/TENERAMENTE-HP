@@ -1367,7 +1367,8 @@
       ],
       "status": "done",
       "slug": "2026-11-09-gyomu-app-kaihatsu-shippai-genin",
-      "doneAt": "2026-11-08"
+      "doneAt": "2026-11-08",
+      "coverTitle": "業務アプリ開発が失敗する原因｜発注する側が最初に決めること"
     },
     {
       "id": "k113",
@@ -1386,7 +1387,8 @@
       ],
       "status": "done",
       "slug": "2026-11-10-ai-gyomu-jidoka-irai-hiyo",
-      "doneAt": "2026-11-09"
+      "doneAt": "2026-11-09",
+      "coverTitle": "AIで業務を自動化するときの頼み方｜費用の考え方と、最初に小さく試す範囲"
     },
     {
       "id": "k112",
@@ -1405,7 +1407,8 @@
       ],
       "status": "done",
       "slug": "2026-11-11-meo-eigyo-kakunin-point",
-      "doneAt": "2026-11-10"
+      "doneAt": "2026-11-10",
+      "coverTitle": "MEO対策の営業を受けたときの確認ポイント｜契約前に聞くべき7つの質問"
     },
     {
       "id": "k110",
