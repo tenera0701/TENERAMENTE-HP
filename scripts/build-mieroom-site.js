@@ -90,6 +90,7 @@ fs.writeFileSync(path.join(OUT, '404.html'), `<!doctype html>
 <title>ページが見つかりません｜ミエルーム</title>
 <link rel="icon" type="image/png" href="/assets/logo-mark-sm.png">
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/bp-bg.js" defer></script>
 </head><body style="display:grid;place-items:center;min-height:100vh;padding:24px;text-align:center">
 <main><h1 style="font-size:24px;margin:0 0 12px">ページが見つかりません</h1>
 <p style="margin:0 0 24px">移動または削除された可能性があります。</p>

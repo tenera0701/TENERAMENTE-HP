@@ -172,6 +172,7 @@ function pageHtml(p) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/bp-bg.js" defer></script>
 <link rel="stylesheet" href="../assets/guide.css">
 <link rel="icon" type="image/png" href="../assets/logo-mark-sm.png">
 <link rel="apple-touch-icon" href="../assets/logo-mark-sm.png">

@@ -245,6 +245,7 @@ ${p.cover ? `<meta property="og:image" content="${MIEROOM_URL}/${p.cover}">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/bp-bg.js" defer></script>
 <script type="application/ld+json">${ldJson}</script>
 <style id="mp-nav-fit">
 /* 狭い画面ではヘッダーのボタンを小さくして、右にはみ出さないようにする */

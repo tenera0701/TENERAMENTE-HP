@@ -564,28 +564,95 @@ footer.site{background:#0a201c;color:#eef5f2;padding:54px 0 30px;font-size:13px}
 }
 
 /* ===================================================================
-   デザイン案C「図面」（2026-11-27 社長が3案から選択。トップ index.html と同じ考え方）
-   ページの頭は生成りの無地、締めの帯は深緑に方眼と間取りの線画。淡い色のぼかし・丸の飾りは使わない
+   全ページ深緑（2026-11-28 社長の指示「全ページ・全画面を、深緑の方眼＋間取りの背景に。スクロールやマウスで背景が動くように」）
+   トップ index.html の同じ段と同じ考え方。背景は assets/bp-bg.js が body の先頭に差し込む固定の層（.bpbg）。
+   各段の地は透明にしてその層を見せ、カード・表・注記は少し濃い深緑の板（--card）にする。
+   アプリの画面を模した部品（.window など）だけは、中を明るい配色のまま残す（実際のアプリの画面が明るいため）
    =================================================================== */
-:root{--bp-deep:#0b211d;--bp-deep2:#0f2a25;--paper:#f4f1ea;--paper2:#ebe6db;--bp-line:rgba(160,230,212,.09);--bp-line2:rgba(160,230,212,.17);--bp-ac:#3fd1b2;
-  --sky:#e6eeea;--sky-2:#cddad4;--peach-soft:#f3e8e1;--bg:var(--paper);--bg-soft:var(--paper2)}
-body{background:var(--paper)}
+:root{--bp-deep:#0b211d;--bp-deep2:#0f2a25;--bp-line:rgba(160,230,212,.09);--bp-line2:rgba(160,230,212,.17);--bp-ac:#3fd1b2;
+  --card:rgba(20,60,52,.9);--card-2:rgba(26,74,64,.94);--card-line:rgba(160,230,212,.22);
+  --blue-d:#5fdcc1;--ink:#eef5f2;--ink-2:#c3d6cf;--ink-3:#97b0a8;--line:rgba(160,230,212,.18);
+  --bg:var(--card);--bg-soft:transparent;--sky:rgba(63,209,178,.14);--sky-2:rgba(63,209,178,.3);--cream:rgba(255,255,255,.04);
+  --peach-soft:rgba(240,160,141,.16);--red-soft:rgba(232,99,74,.18);--amber-soft:rgba(232,155,28,.18);--green-soft:rgba(22,160,90,.2);
+  --paper:var(--card);--paper2:rgba(255,255,255,.03);
+  --shadow-sm:0 2px 10px rgba(0,0,0,.25);--shadow:0 18px 50px -14px rgba(0,0,0,.55);--shadow-lg:0 40px 90px -24px rgba(0,0,0,.6)}
+html{background-color:var(--bp-deep);background-image:linear-gradient(var(--bp-line2) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line2) 1px,transparent 1px),linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+body{background:transparent!important;color:var(--ink)}
 body::before{display:none}
-.blob,.deco{display:none!important}
-header.site{background:rgba(244,241,234,.94);border-bottom-color:rgba(15,42,37,.1)}
-.bl-hero,.fl-hero,.cmp-hero,.dt-hero,.post-hero,.rq-hero{background:var(--paper)!important}
-.bloglist,.marquee-band,.dt-problem{background:var(--paper)!important}
-.xband,.ty-book{background:var(--paper2)!important}
-.final,.cta-band,.cmp-cta{
-  background-color:var(--bp-deep)!important;
+.blob,.deco,.sec-wave{display:none!important}
+.bpbg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:var(--bp-deep)}
+.bpbg-grid{position:absolute;inset:-130px;will-change:transform;
   background-image:linear-gradient(var(--bp-line2) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line2) 1px,transparent 1px),
-    linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px)!important;
-  background-size:120px 120px,120px 120px,24px 24px,24px 24px!important}
-.cta-band::before,.inline-cta .box::before,.conclusion::before{background:none!important}
-.final::after,.cta-band::after,.cmp-cta::after{content:"";position:absolute;right:-50px;bottom:-40px;width:min(640px,64vw);aspect-ratio:640/440;background:url(bp-plan.svg) no-repeat center/contain;opacity:.4;pointer-events:none;z-index:0}
-.final,.cta-band,.cmp-cta{position:relative;overflow:hidden}.final>.wrap,.cta-band>.wrap,.cmp-cta>.wrap{position:relative;z-index:1}
-.callout{background:#fff;border-color:#e2ddd1;border-left:4px solid var(--blue)}
-.callout.warn{border-left-color:var(--peach-d)}
-/* 機能紹介のカードの絵の地（淡い色の帯）は深緑の方眼に */
+    linear-gradient(var(--bp-line) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+.bpbg-plan{position:absolute;left:0;top:0;max-width:none;height:auto;will-change:transform;transform-origin:50% 50%}
+/* 各段の地は透明に */
+section,.bl-hero,.fl-hero,.cmp-hero,.dt-hero,.post-hero,.rq-hero,.bloglist,.marquee-band,.dt-problem,.xband,.ty-book,.final,.cta-band,.cmp-cta{
+  background-color:transparent!important;background-image:none!important}
+.final::after,.cta-band::after,.cmp-cta::after,.cta-band::before,.inline-cta .box::before,.conclusion::before{display:none!important}
+header.site{background:rgba(11,33,29,.86);border-bottom-color:rgba(160,230,212,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+footer,.site-footer{background:rgba(7,22,19,.72)!important}
+h1,h2,h3,h4{color:var(--ink)}
+.eyebrow{background:rgba(63,209,178,.12);color:var(--bp-ac)}
+.u-blue,.t-blue{color:var(--bp-ac)!important}
+a{color:inherit}
+.post-body a,.prose a{color:var(--bp-ac)}
+/* カード・表・注記（少し濃い深緑の板） */
+.callout,.conclusion,.post-toc,.inline-cta .box,.prob-card,.point,.rcard,.fp,.ai-note,.case-card,.faq-item,.ccard,.btcard,.bcard,.post-card,
+.post-body details.faq,.post-body .pick,.cmp-card,.rq-card,.rq-form,.ty-card,.dt-card,.gd-step,.gd-card{
+  background:var(--card)!important;border-color:var(--card-line)!important;color:var(--ink)}
+.callout{border-left:4px solid var(--bp-ac)!important}
+.callout.warn{border-left-color:var(--peach-d)!important}
+.post-body table,.cmp-table,.spec{background:var(--card)}
+.post-body thead th,.post-body .spec th{background:rgba(63,209,178,.16)!important;color:var(--ink)!important}
+.post-body tbody td{color:var(--ink-2);border-color:var(--card-line)!important}
+.post-body tbody tr:nth-child(even) td,.post-body .spec tbody tr:nth-child(even) td{background:rgba(255,255,255,.03)!important}
+.post-body strong{background:linear-gradient(transparent 62%,rgba(63,209,178,.28) 62%)!important;color:#fff}
 .case-card .visual:not(.shot){background-color:var(--bp-deep2)!important;
   background-image:linear-gradient(var(--bp-line2) 1px,transparent 1px),linear-gradient(90deg,var(--bp-line2) 1px,transparent 1px)!important;background-size:24px 24px!important}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff}
+/* アプリの画面を模した部品は、中を明るい配色のまま（実際のアプリの画面が明るいため） */
+.window,.dash,.docpage,.chat,.dt-visual .float-card,.mocktabs,.frame,.shot-frame,.gd-shot{
+  --ink:#12302b;--ink-2:#3a544c;--ink-3:#6f847b;--line:#e6ece9;--bg:#fff;--bg-soft:#f6faf8;--sky:#e4f5f0;--sky-2:#c9ebe2;
+  --peach-soft:#fdeee7;--red-soft:#fdeee9;--amber-soft:#fdf3e0;--green-soft:#e7f6ee;--paper:#fff;--paper2:#f6faf8;--cream:#fbf7f0;
+  color:var(--ink)}
+/* 各ページの部品（ページごとの CSS が白や灰色を直書きしているもの）を深緑の板に */
+.bpost,.xcard,.svc,.pick-card,.axis,.faq-list details,.disclose,.tbl-wrap,.ty-mail,.g-rel,.rq-form{
+  background:var(--card)!important;border-color:var(--card-line)!important;color:var(--ink)}
+.svc.top{border-color:rgba(63,209,178,.6)!important}
+.disclose{border-left-color:var(--peach-d)!important}
+.fchip,.cchip,.pager button,.ty-points span{background:rgba(11,33,29,.7)!important;border-color:var(--card-line)!important;color:var(--ink-2)!important}
+.fchip.on,.cchip.on,.pager button[aria-current="page"]{background:var(--blue)!important;border-color:var(--blue)!important;color:#fff!important}
+.searchbar input,.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select,.fld textarea{
+  background:rgba(255,255,255,.06)!important;border-color:var(--card-line)!important;color:var(--ink)!important}
+.fld input::placeholder,.fld textarea::placeholder,.searchbar input::placeholder{color:#8aa39b}
+.fld.bad input,.fld.bad select,.fld.rq-privacy.bad{background:rgba(232,99,74,.12)!important}
+option{background:#0f2a25;color:#eef5f2}
+.cta-band .btn-primary{background:#fff;color:#0c7b66}
+/* 深緑の上の小さな緑の文字は、明るい緑に（読みやすさ） */
+.cno,.rno,.rcard .more,.toc a .n,a>span.n,.good .gt,.offi a,.post-body td a,.callout .ct,.g-rel-no,.g-where-l,.g-back a,
+.bcat,.bread,.fbadge,.rank,.axis .n,.hd,.rv-points span,.svc-head .rank,.svc h4,.svc p.src a,.cmp-main p b{color:var(--bp-ac)!important}
+.rq-hero .tag{color:#fff!important}
+.mobile-cta{background:rgba(11,33,29,.94)!important;border-top:1px solid var(--card-line)!important;box-shadow:0 -10px 30px rgba(0,0,0,.4)!important}
+p a:not(.btn){color:var(--bp-ac)}
+/* 直書きの灰色の文字は、深緑の上で読める灰色に */
+.bdate,.maker,.axis p,.g-rel-catch,.g-rel-name,.ty-mail small,.svc .src,.svc .sum,.meta span{color:var(--ink-3)!important}
+.svc-head h3,.pick-card h3,.axis h3,.xtext h2,.bbody h3,.ty-mail b{color:var(--ink)!important}
+.bbody p,.pick-card p,.xtext p,.svc li,.tbl-wrap td{color:var(--ink-2)!important}
+.tbl-wrap th{color:var(--ink)!important;background:rgba(63,209,178,.12)!important}
+/* 予約カレンダー（ATLAS の画面を埋め込む枠）は明るいまま */
+.mrv{--ink:#12302b;--ink-2:#3a544c;--ink-3:#6f847b;--line:#e6ece9;--blue-d:#0c7b66;color:var(--ink)}
+.mrv a:not(.btn),.mrv p a:not(.btn){color:#0c7b66!important}  /* 白い予約カレンダーの中のリンクは濃い緑 */
+/* 記事の中の目次・比較表（記事ごとの CSS が白を直書きしているもの） */
+.toc,.post-body table.cmp{background:var(--card)!important;border-color:var(--card-line)!important;color:var(--ink)}
+.post-body table.cmp td,.post-body table.cmp th{border-color:var(--card-line)!important}
+/* 使い方ページの「オプション」の札 */
+.g-opt{background:rgba(232,155,28,.16)!important;color:#f4c46a!important;border-color:rgba(244,196,106,.45)!important}
+/* 見出しのすりガラスは重いのでやめ、濃い地にする */
+header.site{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(11,33,29,.95)!important}
+.g-shot{--ink:#12302b;--ink-2:#3a544c;--ink-3:#6f847b}
+.cmp-eyebrow{background:rgba(63,209,178,.14)!important;color:var(--bp-ac)!important;border-color:rgba(63,209,178,.35)!important}
+.post-body table.cmp tbody td:first-child{background:rgba(63,209,178,.08)!important}
+.post-body table.cmp thead th{background:rgba(63,209,178,.16)!important}
+.mobile-cta{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
